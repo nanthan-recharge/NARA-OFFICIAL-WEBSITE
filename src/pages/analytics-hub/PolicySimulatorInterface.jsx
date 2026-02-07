@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Helmet } from "react-helmet";
+import SEOHead from '../../components/shared/SEOHead';
 import { Link } from "react-router-dom";
 import {
   Activity,
@@ -223,13 +223,12 @@ const PolicySimulatorInterface = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Policy Simulator - NARA Digital Ocean</title>
-        <meta
-          name="description"
-          content="Model policy changes and simulate outcomes before implementation"
-        />
-      </Helmet>
+      <SEOHead
+        title="Policy Simulator"
+        description="Simulate marine and fisheries policy outcomes with AI-powered scenario modeling."
+        path="/analytics/policy-simulator"
+        keywords="policy simulator, fisheries policy, scenario modeling, NARA"
+      />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-orange-50 to-slate-50">
         {/* Header */}
@@ -279,11 +278,10 @@ const PolicySimulatorInterface = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${
-                      activeTab === tab.id
+                    className={`flex items-center gap-2 px-4 py-3 rounded-lg transition-all ${activeTab === tab.id
                         ? "bg-orange-600 text-white shadow-md"
                         : "bg-gray-50 text-gray-700 hover:bg-gray-100"
-                    }`}
+                      }`}
                   >
                     <Icon className="w-5 h-5" />
                     <span className="font-medium">{tab.name}</span>
@@ -703,20 +701,20 @@ const PolicySimulatorInterface = () => {
                 <div className="flex items-center gap-3 mb-4">
                   {simulationResults.recommendation.recommendation ===
                     "highly_recommended" && (
-                    <CheckCircle className="w-8 h-8 text-green-600" />
-                  )}
+                      <CheckCircle className="w-8 h-8 text-green-600" />
+                    )}
                   {simulationResults.recommendation.recommendation ===
                     "recommended" && (
-                    <CheckCircle className="w-8 h-8 text-blue-600" />
-                  )}
+                      <CheckCircle className="w-8 h-8 text-blue-600" />
+                    )}
                   {simulationResults.recommendation.recommendation ===
                     "conditional" && (
-                    <AlertTriangle className="w-8 h-8 text-yellow-600" />
-                  )}
+                      <AlertTriangle className="w-8 h-8 text-yellow-600" />
+                    )}
                   {simulationResults.recommendation.recommendation ===
                     "not_recommended" && (
-                    <AlertTriangle className="w-8 h-8 text-red-600" />
-                  )}
+                      <AlertTriangle className="w-8 h-8 text-red-600" />
+                    )}
                   <h3 className="text-2xl font-bold text-gray-900 capitalize">
                     {simulationResults.recommendation.recommendation.replace(
                       "_",

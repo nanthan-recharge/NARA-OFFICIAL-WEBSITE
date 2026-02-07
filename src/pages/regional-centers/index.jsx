@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { useLoadScript } from '@react-google-maps/api';
+import SEOHead from '../../components/shared/SEOHead';
 
 const GOOGLE_MAPS_API_KEY = 'AIzaSyBjDI-36r6TA4UAimHENGrK8NP8jh5d7Sg';
 const GOOGLE_MAPS_LIBRARIES = ['places', 'geometry', 'marker'];
@@ -267,6 +268,12 @@ const RegionalCentersPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50">
+      <SEOHead
+        title="Regional Centers"
+        description="NARA's regional research centers across Sri Lanka fostering coastal community development."
+        path="/divisions/regional-centers"
+        keywords="regional centers, coastal research, community development"
+      />
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/10 via-teal-500/10 to-cyan-400/10" />

@@ -24,6 +24,7 @@ import DivisionProjects from './DivisionProjects';
 import DivisionTeam from './DivisionTeam';
 import DivisionImpact from './DivisionImpact';
 import DivisionContact from './DivisionContact';
+import SEOHead from '../../components/shared/SEOHead';
 
 /* ─── Lazy-section hook ─── */
 function useLazySection(rootMargin = '300px') {
@@ -183,6 +184,12 @@ const DivisionPage = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-white flex items-center justify-center">
+      <SEOHead
+        title="Division Details"
+        description="Detailed information about NARA research divisions, their projects, staff, and achievements."
+        path="/divisions"
+        keywords="NARA division, research projects, marine science"
+      />
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
           <div className="w-8 h-8 border-2 border-slate-300 border-t-nara-navy rounded-full animate-spin mx-auto mb-4" />
           <p className="text-slate-500 text-sm">Loading division data...</p>

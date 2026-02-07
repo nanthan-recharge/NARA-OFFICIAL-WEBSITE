@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import * as Icons from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area } from 'recharts';
 import { format, addDays } from 'date-fns';
@@ -135,10 +135,12 @@ const MarineForecastPortal = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Marine Forecast Portal - NARA Sri Lanka | Live Ocean Intelligence</title>
-        <meta name="description" content="Real-time ocean forecasts, fish abundance predictions, and marine conditions for Sri Lankan waters" />
-      </Helmet>
+        <SEOHead
+          title="Marine Forecast Portal"
+          description="Real-time marine weather forecasts, ocean conditions, and sea state predictions for Sri Lanka."
+          path="/marine-forecast"
+          keywords="marine forecast, ocean weather, sea conditions, Sri Lanka"
+        />
 
       <StitchWrapper>
         {/* Hero Header */}

@@ -26,6 +26,7 @@ import usePageContent from '../../hooks/usePageContent';
 import NewsHeader from './components/NewsHeader';
 import ShareMenu from './components/ShareMenu';
 import { autoTranslateArticle, translateCategory, translateTerm, translateDate, formatReadTime } from '../../utils/newsTranslation';
+import SEOHead from '../../components/shared/SEOHead';
 
 const DATE_LOCALES = {
   en: 'en-US',
@@ -340,6 +341,12 @@ const NewsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50">
+      <SEOHead
+        title="News & Updates"
+        description="Latest news, research updates, and announcements from NARA Sri Lanka."
+        path="/nara-news-updates-center"
+        keywords="NARA news, marine research updates, Sri Lanka fisheries news"
+      />
       <NewsHeader
         heroContent={heroContent}
         metadata={metadata}

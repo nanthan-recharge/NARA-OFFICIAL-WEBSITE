@@ -8,6 +8,7 @@ import * as Icons from 'lucide-react';
 import actContentEn from '../../data/actContent-en.json';
 import actContentSi from '../../data/actContent-si.json';
 import actContentTa from '../../data/actContent-ta.json';
+import SEOHead from '../../components/shared/SEOHead';
 
 const ICON_MAP = {
   scale: Icons.Scale,
@@ -113,6 +114,12 @@ const NARAActPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50">
+      <SEOHead
+        title="NARA Act"
+        description="The National Aquatic Resources Research and Development Agency Act — legislative framework governing NARA Sri Lanka."
+        path="/nara-act"
+        keywords="NARA act, legislation, Sri Lanka marine law"
+      />
       {/* Hero Section - Navy Blue Government Theme */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-600/10 via-navy-500/10 to-navy-400/10" />

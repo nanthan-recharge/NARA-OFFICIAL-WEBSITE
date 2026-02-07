@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import DynamicFormRenderer from '../../components/RTIForm/DynamicFormRenderer';
 import rtiFormsData from '../../data/rtiFormsData.json';
+import SEOHead from '../../components/shared/SEOHead';
 
 const RTIPage = () => {
   const { t } = useTranslation('rti');
@@ -191,6 +192,12 @@ const RTIPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50">
+      <SEOHead
+        title="Right to Information"
+        description="Right to Information (RTI) portal — submit information requests to NARA under Sri Lanka RTI Act."
+        path="/rti"
+        keywords="RTI, right to information, transparency, NARA"
+      />
       {/* Hero Section - Navy Blue Government Theme */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-navy-900/10 via-navy-800/10 to-navy-700/10" />

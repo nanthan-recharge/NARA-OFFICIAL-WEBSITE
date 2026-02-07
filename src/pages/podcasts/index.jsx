@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { podcastService, podcastAnalyticsService } from '../../services/podcastService';
 import * as Icons from 'lucide-react';
 import EnhancedAIPodcastGenerator from './EnhancedAIPodcastGenerator';
+import SEOHead from '../../components/shared/SEOHead';
 
 const PodcastsPage = () => {
   const { t, i18n } = useTranslation('common');
@@ -248,6 +249,12 @@ const PodcastsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950">
+      <SEOHead
+        title="Podcasts"
+        description="Listen to NARA podcasts covering marine science, ocean conservation, and fisheries management in Sri Lanka."
+        path="/podcasts"
+        keywords="marine podcasts, ocean science, fisheries management, NARA"
+      />
       {/* Hero Section with Stats */}
       <motion.section
         initial={{ opacity: 0 }}

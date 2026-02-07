@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { Link } from 'react-router-dom';
 import {
   Brain,
@@ -140,10 +140,12 @@ const PredictionsAdmin = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Predictions Management - Analytics Admin</title>
-        <meta name="description" content="Manage AI predictions and forecasts" />
-      </Helmet>
+        <SEOHead
+          title="Predictions Admin"
+          description="Predictions management panel."
+          path="/admin/analytics/predictions"
+          noindex
+        />
 
       <div className="min-h-screen bg-gray-50">
         {/* Header */}

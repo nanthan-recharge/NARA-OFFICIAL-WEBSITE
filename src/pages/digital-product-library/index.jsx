@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import StitchWrapper from '../../components/shared/StitchWrapper';
+import SEOHead from '../../components/shared/SEOHead';
 
 const ICON_MAP = {
   Sparkles,
@@ -417,6 +418,12 @@ const DigitalProductLibrary = () => {
 
   return (
     <StitchWrapper>
+      <SEOHead
+        title="Digital Product Library"
+        description="Browse and download digital publications, maps, datasets, and research tools from NARA."
+        path="/digital-product-library"
+        keywords="digital products, publications, datasets, research tools, NARA"
+      />
       <div className="min-h-screen relative z-10 w-full text-white">
         <div className="relative overflow-hidden">
           {/* Background Elements removed as StitchWrapper handles them, keeping local accents if needed */}

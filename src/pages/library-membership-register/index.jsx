@@ -5,6 +5,7 @@ import { db, storage } from '../../lib/firebase';
 import { collection, addDoc, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useTranslation } from 'react-i18next';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LibraryMembershipRegister = () => {
   const { t } = useTranslation();
@@ -132,6 +133,12 @@ const LibraryMembershipRegister = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-12 px-4 sm:px-6 lg:px-8">
+      <SEOHead
+        title="Library Membership"
+        description="Register for NARA library membership."
+        path="/library-membership-register"
+        noindex
+      />
       <div className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import * as Icons from 'lucide-react';
 import { verifyPayment } from '../../services/paymentService';
 import { useCart } from '../../contexts/CartContext';
+import SEOHead from '../../components/shared/SEOHead';
 
 const PaymentReturnPage = () => {
   const { t } = useTranslation(['marketplace', 'common']);
@@ -56,6 +57,12 @@ const PaymentReturnPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4">
+      <SEOHead
+        title="Payment Confirmation"
+        description="Payment confirmation and receipt."
+        path="/payment/return"
+        noindex
+      />
       <div className="max-w-md w-full">
         {status === 'verifying' && (
           <div className="bg-white rounded-xl shadow-lg p-8 text-center">

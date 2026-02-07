@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import Icon from '../../components/AppIcon';
 import Image from '../../components/AppImage';
@@ -70,13 +70,12 @@ const RegionalImpactNetwork = () => {
   return (
     <StitchWrapper>
       <div className="relative z-10">
-        <Helmet>
-          <title>{localizedContent?.meta?.title}</title>
-          <meta name="description" content={localizedContent?.meta?.description} />
-          {localizedContent?.meta?.keywords ? (
-            <meta name="keywords" content={localizedContent?.meta?.keywords} />
-          ) : null}
-        </Helmet>
+        <SEOHead
+          title="Regional Impact Network"
+          description="Explore NARA's regional research centers and their impact on coastal communities across Sri Lanka."
+          path="/regional-impact-network"
+          keywords="regional impact, research centers, coastal communities, NARA"
+        />
         <main>
           <section className="relative pt-20 lg:pt-32 pb-12 overflow-hidden text-white">
             <div className="relative max-w-7xl mx-auto px-4">

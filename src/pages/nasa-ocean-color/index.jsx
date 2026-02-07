@@ -7,6 +7,7 @@ import {
 } from '../../services/nasaOceanService';
 import { MapContainer, TileLayer, Rectangle, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import SEOHead from '../../components/shared/SEOHead';
 
 export default function NASAOceanColorPage() {
   const [dataType, setDataType] = useState('SST'); // 'SST' or 'CHLOR_A'
@@ -78,6 +79,12 @@ export default function NASAOceanColorPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+      <SEOHead
+        title="NASA Ocean Color Data"
+        description="Satellite ocean color imagery and chlorophyll data from NASA for Sri Lankan waters."
+        path="/nasa-ocean-color"
+        keywords="NASA ocean color, satellite imagery, chlorophyll, remote sensing"
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-700 to-green-600 text-white py-12">
         <div className="container mx-auto px-4">

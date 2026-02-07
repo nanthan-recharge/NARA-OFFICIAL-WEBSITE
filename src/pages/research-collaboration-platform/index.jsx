@@ -16,6 +16,7 @@ import GrantManagementSection from './components/GrantManagementSection';
 import InternationalPartnershipsSection from './components/InternationalPartnershipsSection';
 import SignInModal from '../research-excellence-portal/components/SignInModal';
 import SignUpModal from '../research-excellence-portal/components/SignUpModal';
+import SEOHead from '../../components/shared/SEOHead';
 
 const TRUSTED_INSTITUTES = [
   {
@@ -412,321 +413,328 @@ const ResearchCollaborationPlatform = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#020617] text-white">
-      <main className="pt-24">
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-blue-900/20" />
-          <div className="absolute -top-24 -right-16 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
-          <div className="absolute bottom-0 left-16 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
+    <>
+      <SEOHead
+        title="Research Collaboration Platform"
+        description="Collaborate with NARA researchers on marine science projects, data sharing, and joint studies."
+        path="/research-collaboration-platform"
+        keywords="research collaboration, marine science, joint studies, NARA"
+      />
+      <div className="min-h-screen bg-[#020617] text-white">
+        <main className="pt-24">
+          <section className="relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-blue-900/20" />
+            <div className="absolute -top-24 -right-16 h-72 w-72 rounded-full bg-sky-500/20 blur-3xl" />
+            <div className="absolute bottom-0 left-16 h-72 w-72 rounded-full bg-emerald-500/20 blur-3xl" />
 
-          <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-4 pb-20 pt-12 sm:px-6 lg:px-8">
-            <div className="max-w-4xl space-y-6">
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">
-                <Icon name="Globe" size={16} />
-                {heroContent?.badge || 'NARA Global Collaboration Grid'}
-              </span>
-              <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
-                {heroContent?.title || 'World-leading ocean institutes building the future of marine science together'}
-              </h1>
-              <p className="max-w-2xl text-lg text-slate-300">
-                {heroContent?.description || 'Join trusted research leaders across 54 nations to co-design expeditions, accelerate publications, and unlock high-impact funding for transformative ocean initiatives.'}
-              </p>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
-                <div className="flex-1">
-                  <Input
-                    type="search"
-                    value={searchQuery}
-                    onChange={(event) => setSearchQuery(event?.target?.value)}
-                    placeholder={heroContent?.searchPlaceholder || 'Search researchers, institutes, or programmes'}
-                    className="bg-white/5 border-white/20 text-white placeholder:text-slate-400"
-                  />
-                </div>
-                <Button
-                  variant="default"
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
-                  iconName="Search"
-                  iconPosition="left"
-                  onClick={() => setActiveModule('networking')}
-                >
-                  {heroContent?.primaryCta || 'Explore collaborators'}
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="border-white/30 text-white"
-                  iconName="UserPlus"
-                  iconPosition="left"
-                  onClick={handleJoinPlatform}
-                >
-                  {heroContent?.secondaryCta || 'Join alliance'}
-                </Button>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {heroStatCards.map((card) => (
-                <div key={card.key} className="rounded-2xl bg-white/5 px-6 py-5 backdrop-blur">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-wide text-slate-300">{card.label}</p>
-                      <p className="mt-2 text-3xl font-semibold">{card.value}</p>
-                    </div>
-                    <div className={`rounded-xl p-3 ${card.accent}`}>
-                      <Icon name={card.icon} size={20} />
-                    </div>
-                  </div>
-                  <p className="mt-3 text-xs text-slate-400">{card.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="relative bg-[#030a1a] py-16">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
-          <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-              <div className="max-w-3xl space-y-3">
-                <h2 className="text-3xl font-semibold text-white">
-                  {institutesContent?.heading || 'Trusted research institutes shaping the alliance'}
-                </h2>
-                <p className="text-slate-300">
-                  {institutesContent?.description || 'NARA curates partnerships with the world’s most respected marine science organisations, combining rigorous academic credentials, mission readiness, and shared governance frameworks.'}
+            <div className="relative mx-auto flex max-w-7xl flex-col gap-10 px-4 pb-20 pt-12 sm:px-6 lg:px-8">
+              <div className="max-w-4xl space-y-6">
+                <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">
+                  <Icon name="Globe" size={16} />
+                  {heroContent?.badge || 'NARA Global Collaboration Grid'}
+                </span>
+                <h1 className="text-4xl font-semibold leading-tight sm:text-5xl lg:text-6xl">
+                  {heroContent?.title || 'World-leading ocean institutes building the future of marine science together'}
+                </h1>
+                <p className="max-w-2xl text-lg text-slate-300">
+                  {heroContent?.description || 'Join trusted research leaders across 54 nations to co-design expeditions, accelerate publications, and unlock high-impact funding for transformative ocean initiatives.'}
                 </p>
-              </div>
-              <div className="w-full sm:w-64">
-                <Select
-                  options={instituteFilters}
-                  value={selectedFilter}
-                  onChange={setSelectedFilter}
-                  placeholder={institutesContent?.filterPlaceholder || 'Filter by region'}
-                  className="bg-white/5"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {filteredInstitutes.map((institute) => (
-                <div key={institute.name} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur transition hover:border-cyan-400/60">
-                  <div className="relative h-40 overflow-hidden">
-                    <Image
-                      src={institute.coverImage}
-                      alt={institute.name}
-                      className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <div className="flex-1">
+                    <Input
+                      type="search"
+                      value={searchQuery}
+                      onChange={(event) => setSearchQuery(event?.target?.value)}
+                      placeholder={heroContent?.searchPlaceholder || 'Search researchers, institutes, or programmes'}
+                      className="bg-white/5 border-white/20 text-white placeholder:text-slate-400"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4 flex items-start justify-between">
-                      <div>
-                        <h3 className="text-lg font-semibold text-white">{institute.name}</h3>
-                        <p className="text-xs text-slate-300">{institute.country}</p>
-                      </div>
-                      <span className="rounded-full bg-white/15 px-3 py-1 text-[10px] uppercase tracking-widest text-white">
-                        {institute.ranking}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="space-y-4 p-6">
-                    <div className="flex items-center gap-2 text-xs text-cyan-200">
-                      <Icon name="Handshake" size={16} />
-                      <span>{institute.partnership}</span>
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {institute.focus.map((area) => (
-                        <span key={area} className="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">
-                          {area}
-                        </span>
-                      ))}
-                    </div>
-                    <Button
-                      variant="ghost"
-                      className="w-full border-white/20 text-white hover:border-cyan-400/60"
-                      iconName="ArrowRight"
-                      iconPosition="right"
-                      onClick={() => setActiveModule('partnerships')}
-                    >
-                      {institutesContent?.cta || 'View collaboration playbook'}
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#010a16] py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
-              <div className="flex-1 space-y-4">
-                <h2 className="text-3xl font-semibold">
-                  {collaborationsContent?.heading || 'Signature global collaboration programmes'}
-                </h2>
-                <p className="text-slate-300">
-                  {collaborationsContent?.description || 'Secure mission-critical alliances, pooled infrastructure, and rapid deployment support across the world’s most trusted research corridors.'}
-                </p>
-              </div>
-              <Button
-                variant="default"
-                className="self-start bg-gradient-to-r from-cyan-500 to-sky-500"
-                iconName="Calendar"
-                iconPosition="left"
-                onClick={() => setActiveModule('projects')}
-              >
-                {collaborationsContent?.cta || 'Schedule a partnership briefing'}
-              </Button>
-            </div>
-
-            <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
-              {signatureCollaborations.map((programme) => (
-                <div key={programme.id} className="flex flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="rounded-full bg-cyan-500/20 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-cyan-200">
-                        {programme.region}
-                      </span>
-                      <span className="text-xs text-slate-300">{programme.focus}</span>
-                    </div>
-                    <h3 className="text-xl font-semibold text-white">{programme.title}</h3>
-                    <p className="text-sm text-slate-300">{programme.summary}</p>
-                  </div>
-                  <div className="mt-6 space-y-2 text-xs text-slate-400">
-                    <div className="flex items-center gap-2">
-                      <Icon name="Building" size={14} />
-                      <span>{programme.host}</span>
-                    </div>
-                    {programme.deadline && (
-                      <div className="flex items-center gap-2">
-                        <Icon name="Clock" size={14} />
-                        <span>{programme.deadline}</span>
-                      </div>
-                    )}
                   </div>
                   <Button
-                    variant="ghost"
-                    className="mt-6 w-full border-white/20 text-white hover:border-cyan-400/60"
-                    iconName="ExternalLink"
-                    iconPosition="right"
-                    onClick={() => setActiveModule('partnerships')}
+                    variant="default"
+                    className="bg-gradient-to-r from-cyan-500 to-blue-600 text-white"
+                    iconName="Search"
+                    iconPosition="left"
+                    onClick={() => setActiveModule('networking')}
                   >
-                    {collaborationsContent?.cardCta || 'Explore playbook'}
+                    {heroContent?.primaryCta || 'Explore collaborators'}
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="border-white/30 text-white"
+                    iconName="UserPlus"
+                    iconPosition="left"
+                    onClick={handleJoinPlatform}
+                  >
+                    {heroContent?.secondaryCta || 'Join alliance'}
                   </Button>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#020c1f] py-16">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-              <div className="max-w-3xl">
-                <h2 className="text-3xl font-semibold text-white">
-                  {modulesContent?.heading || 'Advanced collaboration suite'}
-                </h2>
-                <p className="mt-3 text-slate-300">
-                  {modulesContent?.description || 'Switch between specialised workspaces built with our partner institutes to accelerate discovery and impact.'}
-                </p>
               </div>
-              <div className="flex gap-3">
-                <Button
-                  variant="ghost"
-                  className="border-white/30 text-white"
-                  iconName="LogIn"
-                  iconPosition="left"
-                  onClick={() => setShowSignInModal(true)}
-                >
-                  {modulesContent?.signIn || 'Sign in'}
-                </Button>
-                <Button
-                  variant="default"
-                  className="bg-gradient-to-r from-emerald-500 to-teal-500"
-                  iconName="UserPlus"
-                  iconPosition="left"
-                  onClick={handleJoinPlatform}
-                >
-                  {modulesContent?.requestAccess || 'Request access'}
-                </Button>
-              </div>
-            </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-5">
-              {modules.map((module) => (
-                <button
-                  key={module.id}
-                  type="button"
-                  onClick={() => setActiveModule(module.id)}
-                  className={`rounded-2xl border px-4 py-5 text-left transition ${
-                    activeModule === module.id
-                      ? 'border-cyan-400/80 bg-cyan-500/10'
-                      : 'border-white/10 bg-white/5 hover:border-cyan-400/50'
-                  }`}
-                >
-                  <div className="flex items-center gap-3 text-sm font-semibold text-white">
-                    <Icon name={module.icon} size={18} />
-                    {module.title}
-                  </div>
-                  <p className="mt-3 text-xs text-slate-300">{module.description}</p>
-                  <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-cyan-200">
-                    {module.highlight}
-                  </p>
-                </button>
-              ))}
-            </div>
-
-            <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
-              {renderModuleContent() || (
-                <div className="flex h-56 items-center justify-center text-slate-300">
-                  {modulesContent?.empty || 'Select a collaboration module to begin.'}
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-
-        <section className="relative overflow-hidden bg-gradient-to-b from-[#010a16] via-[#010612] to-black py-16">
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center backdrop-blur">
-              <h2 className="text-3xl font-semibold text-white">
-                {ctaContent?.heading || 'Co-create the next era of ocean intelligence'}
-              </h2>
-              <p className="mt-4 text-lg text-slate-300">
-                {ctaContent?.description || 'Our partnership concierge will help align your institute with the right programme, governance model, and funding pathway within 48 hours.'}
-              </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <Button
-                  variant="default"
-                  className="bg-gradient-to-r from-cyan-500 to-blue-600"
-                  iconName="Mail"
-                  iconPosition="left"
-                  onClick={() => setShowSignUpModal(true)}
-                >
-                  {ctaContent?.primary || 'Request onboarding dossier'}
-                </Button>
-                <Button
-                  variant="ghost"
-                  className="border-white/30 text-white"
-                  iconName="Video"
-                  iconPosition="left"
-                  onClick={() => setActiveModule('partnerships')}
-                >
-                  {ctaContent?.secondary || 'Book strategic consultation'}
-                </Button>
-              </div>
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
-                {ctaFeatures.map((feature, index) => (
-                  <div key={index} className="flex items-center gap-2">
-                    <Icon name={index === 0 ? 'Shield' : index === 1 ? 'Activity' : 'Award'} size={14} />
-                    {feature}
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {heroStatCards.map((card) => (
+                  <div key={card.key} className="rounded-2xl bg-white/5 px-6 py-5 backdrop-blur">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-xs uppercase tracking-wide text-slate-300">{card.label}</p>
+                        <p className="mt-2 text-3xl font-semibold">{card.value}</p>
+                      </div>
+                      <div className={`rounded-xl p-3 ${card.accent}`}>
+                        <Icon name={card.icon} size={20} />
+                      </div>
+                    </div>
+                    <p className="mt-3 text-xs text-slate-400">{card.description}</p>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
 
-      <SignInModal isOpen={showSignInModal} onClose={() => setShowSignInModal(false)} />
-      <SignUpModal isOpen={showSignUpModal} onClose={() => setShowSignUpModal(false)} />
-    </div>
+          <section className="relative bg-[#030a1a] py-16">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-cyan-500/40 to-transparent" />
+            <div className="mx-auto flex max-w-7xl flex-col gap-8 px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+                <div className="max-w-3xl space-y-3">
+                  <h2 className="text-3xl font-semibold text-white">
+                    {institutesContent?.heading || 'Trusted research institutes shaping the alliance'}
+                  </h2>
+                  <p className="text-slate-300">
+                    {institutesContent?.description || 'NARA curates partnerships with the world’s most respected marine science organisations, combining rigorous academic credentials, mission readiness, and shared governance frameworks.'}
+                  </p>
+                </div>
+                <div className="w-full sm:w-64">
+                  <Select
+                    options={instituteFilters}
+                    value={selectedFilter}
+                    onChange={setSelectedFilter}
+                    placeholder={institutesContent?.filterPlaceholder || 'Filter by region'}
+                    className="bg-white/5"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
+                {filteredInstitutes.map((institute) => (
+                  <div key={institute.name} className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur transition hover:border-cyan-400/60">
+                    <div className="relative h-40 overflow-hidden">
+                      <Image
+                        src={institute.coverImage}
+                        alt={institute.name}
+                        className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                      <div className="absolute bottom-4 left-4 right-4 flex items-start justify-between">
+                        <div>
+                          <h3 className="text-lg font-semibold text-white">{institute.name}</h3>
+                          <p className="text-xs text-slate-300">{institute.country}</p>
+                        </div>
+                        <span className="rounded-full bg-white/15 px-3 py-1 text-[10px] uppercase tracking-widest text-white">
+                          {institute.ranking}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="space-y-4 p-6">
+                      <div className="flex items-center gap-2 text-xs text-cyan-200">
+                        <Icon name="Handshake" size={16} />
+                        <span>{institute.partnership}</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {institute.focus.map((area) => (
+                          <span key={area} className="rounded-full bg-white/10 px-3 py-1 text-xs text-slate-200">
+                            {area}
+                          </span>
+                        ))}
+                      </div>
+                      <Button
+                        variant="ghost"
+                        className="w-full border-white/20 text-white hover:border-cyan-400/60"
+                        iconName="ArrowRight"
+                        iconPosition="right"
+                        onClick={() => setActiveModule('partnerships')}
+                      >
+                        {institutesContent?.cta || 'View collaboration playbook'}
+                      </Button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-[#010a16] py-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
+                <div className="flex-1 space-y-4">
+                  <h2 className="text-3xl font-semibold">
+                    {collaborationsContent?.heading || 'Signature global collaboration programmes'}
+                  </h2>
+                  <p className="text-slate-300">
+                    {collaborationsContent?.description || 'Secure mission-critical alliances, pooled infrastructure, and rapid deployment support across the world’s most trusted research corridors.'}
+                  </p>
+                </div>
+                <Button
+                  variant="default"
+                  className="self-start bg-gradient-to-r from-cyan-500 to-sky-500"
+                  iconName="Calendar"
+                  iconPosition="left"
+                  onClick={() => setActiveModule('projects')}
+                >
+                  {collaborationsContent?.cta || 'Schedule a partnership briefing'}
+                </Button>
+              </div>
+
+              <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-3">
+                {signatureCollaborations.map((programme) => (
+                  <div key={programme.id} className="flex flex-col justify-between rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <span className="rounded-full bg-cyan-500/20 px-3 py-1 text-[10px] uppercase tracking-[0.3em] text-cyan-200">
+                          {programme.region}
+                        </span>
+                        <span className="text-xs text-slate-300">{programme.focus}</span>
+                      </div>
+                      <h3 className="text-xl font-semibold text-white">{programme.title}</h3>
+                      <p className="text-sm text-slate-300">{programme.summary}</p>
+                    </div>
+                    <div className="mt-6 space-y-2 text-xs text-slate-400">
+                      <div className="flex items-center gap-2">
+                        <Icon name="Building" size={14} />
+                        <span>{programme.host}</span>
+                      </div>
+                      {programme.deadline && (
+                        <div className="flex items-center gap-2">
+                          <Icon name="Clock" size={14} />
+                          <span>{programme.deadline}</span>
+                        </div>
+                      )}
+                    </div>
+                    <Button
+                      variant="ghost"
+                      className="mt-6 w-full border-white/20 text-white hover:border-cyan-400/60"
+                      iconName="ExternalLink"
+                      iconPosition="right"
+                      onClick={() => setActiveModule('partnerships')}
+                    >
+                      {collaborationsContent?.cardCta || 'Explore playbook'}
+                    </Button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-[#020c1f] py-16">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+                <div className="max-w-3xl">
+                  <h2 className="text-3xl font-semibold text-white">
+                    {modulesContent?.heading || 'Advanced collaboration suite'}
+                  </h2>
+                  <p className="mt-3 text-slate-300">
+                    {modulesContent?.description || 'Switch between specialised workspaces built with our partner institutes to accelerate discovery and impact.'}
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <Button
+                    variant="ghost"
+                    className="border-white/30 text-white"
+                    iconName="LogIn"
+                    iconPosition="left"
+                    onClick={() => setShowSignInModal(true)}
+                  >
+                    {modulesContent?.signIn || 'Sign in'}
+                  </Button>
+                  <Button
+                    variant="default"
+                    className="bg-gradient-to-r from-emerald-500 to-teal-500"
+                    iconName="UserPlus"
+                    iconPosition="left"
+                    onClick={handleJoinPlatform}
+                  >
+                    {modulesContent?.requestAccess || 'Request access'}
+                  </Button>
+                </div>
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-5">
+                {modules.map((module) => (
+                  <button
+                    key={module.id}
+                    type="button"
+                    onClick={() => setActiveModule(module.id)}
+                    className={`rounded-2xl border px-4 py-5 text-left transition ${activeModule === module.id
+                        ? 'border-cyan-400/80 bg-cyan-500/10'
+                        : 'border-white/10 bg-white/5 hover:border-cyan-400/50'
+                      }`}
+                  >
+                    <div className="flex items-center gap-3 text-sm font-semibold text-white">
+                      <Icon name={module.icon} size={18} />
+                      {module.title}
+                    </div>
+                    <p className="mt-3 text-xs text-slate-300">{module.description}</p>
+                    <p className="mt-2 text-[11px] uppercase tracking-[0.3em] text-cyan-200">
+                      {module.highlight}
+                    </p>
+                  </button>
+                ))}
+              </div>
+
+              <div className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-6 backdrop-blur">
+                {renderModuleContent() || (
+                  <div className="flex h-56 items-center justify-center text-slate-300">
+                    {modulesContent?.empty || 'Select a collaboration module to begin.'}
+                  </div>
+                )}
+              </div>
+            </div>
+          </section>
+
+          <section className="relative overflow-hidden bg-gradient-to-b from-[#010a16] via-[#010612] to-black py-16">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent" />
+            <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-10 text-center backdrop-blur">
+                <h2 className="text-3xl font-semibold text-white">
+                  {ctaContent?.heading || 'Co-create the next era of ocean intelligence'}
+                </h2>
+                <p className="mt-4 text-lg text-slate-300">
+                  {ctaContent?.description || 'Our partnership concierge will help align your institute with the right programme, governance model, and funding pathway within 48 hours.'}
+                </p>
+                <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                  <Button
+                    variant="default"
+                    className="bg-gradient-to-r from-cyan-500 to-blue-600"
+                    iconName="Mail"
+                    iconPosition="left"
+                    onClick={() => setShowSignUpModal(true)}
+                  >
+                    {ctaContent?.primary || 'Request onboarding dossier'}
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    className="border-white/30 text-white"
+                    iconName="Video"
+                    iconPosition="left"
+                    onClick={() => setActiveModule('partnerships')}
+                  >
+                    {ctaContent?.secondary || 'Book strategic consultation'}
+                  </Button>
+                </div>
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-400">
+                  {ctaFeatures.map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <Icon name={index === 0 ? 'Shield' : index === 1 ? 'Activity' : 'Award'} size={14} />
+                      {feature}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <SignInModal isOpen={showSignInModal} onClose={() => setShowSignInModal(false)} />
+        <SignUpModal isOpen={showSignUpModal} onClose={() => setShowSignUpModal(false)} />
+      </div>
+    </>
   );
 };
 

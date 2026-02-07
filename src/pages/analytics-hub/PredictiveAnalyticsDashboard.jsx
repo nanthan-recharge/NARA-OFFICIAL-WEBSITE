@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { Link } from 'react-router-dom';
 import {
   Brain,
@@ -258,10 +258,12 @@ const PredictiveAnalyticsDashboard = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Predictive Analytics Dashboard - NARA Digital Ocean</title>
-        <meta name="description" content="AI-powered forecasting for fish stocks, climate impacts, and marine trends" />
-      </Helmet>
+        <SEOHead
+          title="Predictive Analytics Dashboard"
+          description="AI-driven predictive analytics for fisheries, ocean conditions, and marine ecosystems."
+          path="/analytics/predictive"
+          keywords="predictive analytics, AI fisheries, ocean forecasting, NARA"
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-slate-50">
         {/* Header */}

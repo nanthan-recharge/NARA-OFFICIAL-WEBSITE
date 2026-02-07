@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
@@ -161,10 +161,12 @@ const AnalyticsHub = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{t('hero.title')} - NARA Digital Ocean</title>
-        <meta name="description" content={t('hero.description')} />
-      </Helmet>
+        <SEOHead
+          title="Analytics Hub"
+          description="AI-powered marine analytics dashboards featuring predictive models, impact assessments, and economic valuations."
+          path="/analytics"
+          keywords="marine analytics, AI predictions, impact assessment, economic valuation, NARA"
+        />
 
       <div className="min-h-screen bg-slate-950">
 

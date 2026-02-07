@@ -20,6 +20,14 @@ const metricIconMap = {
   uptimeEstimate: CheckCircle
 };
 
+const HERO_PARTICLES = Array.from({ length: 16 }, (_, index) => ({
+  id: index,
+  left: `${Math.random() * 100}%`,
+  top: `${Math.random() * 100}%`,
+  duration: 6 + (index % 4),
+  delay: index * 0.25
+}));
+
 const IntegrationHero = ({
   heroContent,
   summary,
@@ -43,11 +51,11 @@ const IntegrationHero = ({
   const description = resolvedHero?.description || t('hero.description');
   const heroBadges =
     resolvedHero?.badges ||
-    t('hero.badges', { returnObjects: true, defaultValue: [] }) ||
+    t('hero.badges', { returnObjects: true }) ||
     [];
   const heroCtas =
     resolvedHero?.ctas ||
-    t('hero.ctas', { returnObjects: true, defaultValue: [] }) ||
+    t('hero.ctas', { returnObjects: true }) ||
     [];
 
   const metricConfig = useMemo(() => {
@@ -93,9 +101,9 @@ const IntegrationHero = ({
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(12,74,110,0.45),transparent_55%),radial-gradient(circle_at_80%_0%,rgba(14,165,233,0.35),transparent_50%),radial-gradient(circle_at_50%_85%,rgba(79,70,229,0.4),transparent_50%)]" />
         </div>
         <div className="absolute inset-0 opacity-30">
-          {[...Array(16)].map((_, index) => (
+          {HERO_PARTICLES.map((particle) => (
             <motion.span
-              key={index}
+              key={particle.id}
               className="absolute h-1.5 w-1.5 rounded-full bg-cyan-300/50"
               initial={{ opacity: 0.2 }}
               animate={{
@@ -104,13 +112,13 @@ const IntegrationHero = ({
                 scale: [1, 1.4, 1]
               }}
               transition={{
-                duration: 6 + (index % 4),
+                duration: particle.duration,
                 repeat: Infinity,
-                delay: index * 0.25
+                delay: particle.delay
               }}
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`
+                left: particle.left,
+                top: particle.top
               }}
             />
           ))}

@@ -44,6 +44,7 @@ import {
 // Import Enhanced Components
 import EnhancedRegistration from './components/EnhancedRegistration';
 import UserProfile from './components/UserProfile';
+import SEOHead from '../../components/shared/SEOHead';
 
 const ProcurementRecruitmentPortal = () => (
   <ProcurementAuthProvider>
@@ -1396,6 +1397,12 @@ const PortalExperience = () => {
                   transition={{ duration: 0.35 }}
                   className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60 p-6"
                 >
+      <SEOHead
+        title="Procurement & Recruitment"
+        description="Current procurement tenders and career opportunities at NARA Sri Lanka."
+        path="/procurement-recruitment-portal"
+        keywords="procurement, tenders, recruitment, careers, NARA jobs"
+      />
                   <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/5 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" />
 
                   <div className="relative space-y-6">

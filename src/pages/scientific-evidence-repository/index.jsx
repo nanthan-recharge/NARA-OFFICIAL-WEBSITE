@@ -8,6 +8,7 @@ import {
   dataVisualizationsService,
   evidenceDashboardService
 } from '../../services/scientificEvidenceService';
+import SEOHead from '../../components/shared/SEOHead';
 
 const ScientificEvidenceRepository = () => {
   const { t } = useTranslation('scientific-evidence');
@@ -108,6 +109,12 @@ const ScientificEvidenceRepository = () => {
   if (loading && documents.length === 0) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50 flex items-center justify-center" style={{ fontFamily: "'Noto Sans Sinhala', 'Noto Sans Tamil', 'Inter', 'Segoe UI', sans-serif" }}>
+      <SEOHead
+        title="Scientific Evidence Repository"
+        description="Access peer-reviewed research papers, datasets, and scientific evidence from NARA marine studies."
+        path="/scientific-evidence-repository"
+        keywords="scientific papers, marine research, datasets, evidence repository"
+      />
         <div className="text-purple-900 text-xl">{t('hero.loading')}</div>
       </div>
     );

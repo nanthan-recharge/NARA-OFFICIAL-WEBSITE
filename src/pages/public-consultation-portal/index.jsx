@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import MultilingualContent from '../../components/compliance/MultilingualContent';
@@ -57,52 +57,41 @@ const toObject = (value) => (value && typeof value === 'object' ? value : {});
 
 const PUBLIC_SERVICE_ACTIONS = [
   {
+    key: 'fishAdvisory',
     icon: Fish,
-    title: 'Fish Advisory Service',
-    description: 'Daily safe fishing zones and fish safety updates.',
-    route: '/fish-advisory-system',
-    badge: 'Live'
+    route: '/fish-advisory-system'
   },
   {
+    key: 'laboratoryTesting',
     icon: FlaskConical,
-    title: 'Laboratory Testing',
-    description: 'Submit and track fish and water quality tests.',
-    route: '/lab-results',
-    badge: 'Service Desk'
+    route: '/lab-results'
   },
   {
+    key: 'marineForecast',
     icon: Waves,
-    title: 'Marine Forecast',
-    description: 'Sea condition and weather risk outlook.',
-    route: '/marine-forecast',
-    badge: 'Updated'
+    route: '/marine-forecast'
   },
   {
+    key: 'emergencyResponse',
     icon: AlertTriangle,
-    title: 'Emergency Response',
-    description: 'Use the dedicated network for urgent incidents.',
-    route: '/emergency-response-network',
-    badge: '24/7'
+    route: '/emergency-response-network'
   }
 ];
 
 const PUBLIC_ADVISORIES = [
   {
     id: 'pub-adv-1',
-    title: 'Monsoon Conditions Advisory',
-    message: 'Strong winds expected in southern waters. Plan departures carefully.',
+    key: 'monsoonConditions',
     tone: 'high'
   },
   {
     id: 'pub-adv-2',
-    title: 'Fish Safety Bulletin',
-    message: 'Current coastal catches from Negombo to Colombo are safe for consumption.',
+    key: 'fishSafetyBulletin',
     tone: 'low'
   },
   {
     id: 'pub-adv-3',
-    title: 'Laboratory Intake Notice',
-    message: 'Express testing intake remains open today until 4:00 PM.',
+    key: 'laboratoryIntakeNotice',
     tone: 'medium'
   }
 ];
@@ -165,22 +154,43 @@ const PublicConsultationPortal = () => {
 
   const statusOptions = useMemo(
     () => [
-      { value: 'all', label: filterStrings.statusOptions?.all || 'All Status' },
-      { value: 'open', label: filterStrings.statusOptions?.open || 'Open' },
-      { value: 'closed', label: filterStrings.statusOptions?.closed || 'Closed' }
+      { value: 'all', label: filterStrings.statusOptions?.all },
+      { value: 'open', label: filterStrings.statusOptions?.open },
+      { value: 'closed', label: filterStrings.statusOptions?.closed }
     ],
     [filterStrings]
   );
 
   const categoryOptions = useMemo(
     () => [
-      { value: 'all', label: filterStrings.categoryOptions?.all || 'All Categories' },
-      { value: 'marine_policy', label: filterStrings.categoryOptions?.marine_policy || 'Marine Policy' },
-      { value: 'environmental', label: filterStrings.categoryOptions?.environmental || 'Environmental' },
-      { value: 'fisheries', label: filterStrings.categoryOptions?.fisheries || 'Fisheries' },
-      { value: 'conservation', label: filterStrings.categoryOptions?.conservation || 'Conservation' }
+      { value: 'all', label: filterStrings.categoryOptions?.all },
+      { value: 'marine_policy', label: filterStrings.categoryOptions?.marine_policy },
+      { value: 'environmental', label: filterStrings.categoryOptions?.environmental },
+      { value: 'fisheries', label: filterStrings.categoryOptions?.fisheries },
+      { value: 'conservation', label: filterStrings.categoryOptions?.conservation }
     ],
     [filterStrings]
+  );
+
+  const publicServiceActions = useMemo(
+    () =>
+      PUBLIC_SERVICE_ACTIONS.map((service) => ({
+        ...service,
+        title: t(`publicServices.actions.${service.key}.title`),
+        description: t(`publicServices.actions.${service.key}.description`),
+        badge: t(`publicServices.actions.${service.key}.badge`),
+      })),
+    [t]
+  );
+
+  const publicAdvisories = useMemo(
+    () =>
+      PUBLIC_ADVISORIES.map((item) => ({
+        ...item,
+        title: t(`publicServices.advisories.items.${item.key}.title`),
+        message: t(`publicServices.advisories.items.${item.key}.message`),
+      })),
+    [t]
   );
 
   const filteredConsultations = useMemo(
@@ -262,11 +272,22 @@ const PublicConsultationPortal = () => {
 
   const navTabs = useMemo(
     () => [
-      { id: 'browse', label: navStrings.browse || navStrings.label || 'Browse Consultations', icon: HomeIcon },
-      { id: 'map', label: navStrings.map || sections.mapLegend || 'Map View', icon: MapIcon },
-      { id: 'status', label: navStrings.status || 'Status', icon: Search }
+      { id: 'browse', label: navStrings.browse, icon: HomeIcon },
+      { id: 'map', label: navStrings.map, icon: MapIcon },
+      { id: 'status', label: navStrings.status, icon: Search }
     ],
-    [navStrings, sections]
+    [navStrings]
+  );
+
+  const mapLegendItems = useMemo(
+    () => [
+      t('sections.mapItems.fishKill'),
+      t('sections.mapItems.stranding'),
+      t('sections.mapItems.algalBloom'),
+      t('sections.mapItems.pollution'),
+      t('sections.mapItems.unusualBehavior')
+    ],
+    [t]
   );
 
   const renderHero = () => (
@@ -274,27 +295,27 @@ const PublicConsultationPortal = () => {
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mx-auto max-w-7xl px-4 text-center">
         <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
           <AlertTriangle className="h-5 w-5" />
-          <span>{heroStrings.badge || 'Citizen Participation'}</span>
+          <span>{heroStrings.badge}</span>
         </div>
-        <h1 className="mb-4 text-5xl font-bold md:text-6xl">{heroStrings.title || 'Public Consultation Portal'}</h1>
-        <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">{heroStrings.description || 'Share feedback on marine policies and public service priorities.'}</p>
+        <h1 className="mb-4 text-5xl font-bold md:text-6xl">{heroStrings.title}</h1>
+        <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">{heroStrings.description}</p>
         {analytics && (
           <div className="mx-auto grid max-w-4xl grid-cols-2 gap-4 md:grid-cols-4">
             <div className="rounded-2xl bg-white/10 p-4 text-white backdrop-blur-lg">
               <div className="text-3xl font-bold">{analytics.overview?.totalIncidents || 0}</div>
-              <div className="text-sm text-blue-100">{heroStrings.stats?.totalIncidents || 'Total Cases'}</div>
+              <div className="text-sm text-blue-100">{heroStrings.stats?.totalIncidents}</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-4 text-white backdrop-blur-lg">
               <div className="text-3xl font-bold">{analytics.overview?.activeIncidents || 0}</div>
-              <div className="text-sm text-blue-100">{heroStrings.stats?.activeCases || 'Active Cases'}</div>
+              <div className="text-sm text-blue-100">{heroStrings.stats?.activeCases}</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-4 text-white backdrop-blur-lg">
               <div className="text-3xl font-bold">{analytics.overview?.totalObservations || 0}</div>
-              <div className="text-sm text-blue-100">{heroStrings.stats?.observations || 'Observations'}</div>
+              <div className="text-sm text-blue-100">{heroStrings.stats?.observations}</div>
             </div>
             <div className="rounded-2xl bg-white/10 p-4 text-white backdrop-blur-lg">
               <div className="text-3xl font-bold">{analytics.overview?.resolvedIncidents || 0}</div>
-              <div className="text-sm text-blue-100">{heroStrings.stats?.resolved || 'Resolved'}</div>
+              <div className="text-sm text-blue-100">{heroStrings.stats?.resolved}</div>
             </div>
           </div>
         )}
@@ -310,26 +331,26 @@ const PublicConsultationPortal = () => {
             <div>
               <p className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em]">
                 <ShieldCheck className="h-3.5 w-3.5" />
-                General Public Services
+                {t('publicServices.badge')}
               </p>
-              <h2 className="mt-2 text-lg font-bold md:text-xl">Essential Citizen Service Access</h2>
-              <p className="text-sm text-blue-100">Integrated quick access for advisories, testing, forecasts, and emergency response.</p>
+              <h2 className="mt-2 text-lg font-bold md:text-xl">{t('publicServices.title')}</h2>
+              <p className="text-sm text-blue-100">{t('publicServices.description')}</p>
             </div>
             <button
               onClick={() => navigate('/emergency-response-network')}
               className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-3.5 py-2 text-sm font-semibold text-white transition-colors hover:bg-red-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-300"
             >
               <AlertTriangle className="h-4 w-4" />
-              Report Marine Emergency
+              {t('publicServices.emergencyCta')}
             </button>
           </div>
 
           <div className="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-            {PUBLIC_SERVICE_ACTIONS.map((service) => {
+            {publicServiceActions.map((service) => {
               const ServiceIcon = service.icon;
               return (
                 <button
-                  key={service.title}
+                  key={service.key}
                   onClick={() => navigate(service.route)}
                   className="rounded-xl border border-white/20 bg-slate-900/35 p-3 text-left transition-all hover:border-cyan-300/50 hover:bg-slate-900/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
                 >
@@ -342,7 +363,7 @@ const PublicConsultationPortal = () => {
                   <h3 className="mt-2 text-sm font-semibold">{service.title}</h3>
                   <p className="mt-1 text-xs text-blue-100">{service.description}</p>
                   <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-cyan-100">
-                    Open Service <ChevronRight className="h-3.5 w-3.5" />
+                    {t('publicServices.openAction')} <ChevronRight className="h-3.5 w-3.5" />
                   </span>
                 </button>
               );
@@ -350,7 +371,7 @@ const PublicConsultationPortal = () => {
           </div>
 
           <div className="mt-4 grid gap-2 lg:grid-cols-3">
-            {PUBLIC_ADVISORIES.map((item) => (
+            {publicAdvisories.map((item) => (
               <article key={item.id} className={`rounded-lg border p-3 ${advisoryToneClasses[item.tone] || advisoryToneClasses.low}`}>
                 <h3 className="text-sm font-semibold">{item.title}</h3>
                 <p className="mt-1 text-xs leading-relaxed">{item.message}</p>
@@ -359,13 +380,13 @@ const PublicConsultationPortal = () => {
           </div>
 
           <div className="mt-4 flex flex-col gap-2 rounded-xl border border-red-300/30 bg-red-500/10 p-3 text-sm md:flex-row md:items-center md:justify-between">
-            <p className="text-red-100">Emergency hotline support: Coast Guard +94 11 244 0635 | Marine Desk +94 11 252 2000</p>
+            <p className="text-red-100">{t('publicServices.emergencySupportLine')}</p>
             <a
               href="tel:1919"
               className="inline-flex items-center gap-2 rounded-lg bg-white/15 px-3 py-1.5 text-xs font-semibold text-white transition-colors hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
               <Phone className="h-3.5 w-3.5" />
-              Call 1919
+              {t('publicServices.callNow', { number: '1919' })}
             </a>
           </div>
         </div>
@@ -502,13 +523,13 @@ const PublicConsultationPortal = () => {
       <div className="rounded-2xl border border-gray-200 bg-white p-6 text-gray-900 shadow-lg">
         <h2 className="mb-6 flex items-center gap-2 text-2xl font-bold">
           <MapIcon className="h-6 w-6 text-blue-600" />
-          {sections.mapLegend || 'Category Overview'}
+          {sections.mapLegend}
         </h2>
         <div className="space-y-3">
-          {[ 'fish_kill', 'stranding', 'algal_bloom', 'pollution', 'unusual_behavior' ].map((type) => (
-            <div key={type} className="flex items-center gap-3 text-sm">
+          {mapLegendItems.map((label) => (
+            <div key={label} className="flex items-center gap-3 text-sm">
               <span className="flex h-4 w-4 items-center justify-center rounded-full border bg-blue-100"></span>
-              {categoryStrings[type] || type}
+              {label}
             </div>
           ))}
         </div>
@@ -737,10 +758,12 @@ const PublicConsultationPortal = () => {
 
   return (
     <MultilingualContent language={language}>
-      <Helmet>
-        <title>{t('seo.title')}</title>
-        <meta name="description" content={t('seo.description')} />
-      </Helmet>
+        <SEOHead
+          title={t('seo.title')}
+          description={t('seo.description')}
+          path="/public-consultation-portal"
+          keywords={t('seo.keywords')}
+        />
       <div className="min-h-screen bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 text-white">
         {renderHero()}
         {renderPublicServiceIntegration()}

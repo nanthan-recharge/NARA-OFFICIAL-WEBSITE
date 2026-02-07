@@ -8,6 +8,7 @@ import GovFooter from './components/compliance/GovFooter';
 // import ThemeNavbar from './components/ui/ThemeNavbar';
 import GovernmentNavbar from './components/ui/GovernmentNavbar'; // Government Standard Navbar - Tech Spec v1.0
 import SkipLink from './components/compliance/SkipLink';
+import PWAInstallPrompt from './components/shared/PWAInstallPrompt';
 import FirebaseAuthProvider from './contexts/FirebaseAuthContext';
 import { LibraryUserProvider } from './contexts/LibraryUserContext';
 import { CartProvider } from './contexts/CartContext';
@@ -287,6 +288,7 @@ function Layout({ children }) {
         {children}
       </main>
       {shouldShowFooter && <GovFooter />}
+      {shouldShowLayout && <PWAInstallPrompt />}
     </>
   );
 }

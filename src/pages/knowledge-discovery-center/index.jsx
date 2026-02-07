@@ -12,6 +12,7 @@ import ExpertsSection from './sections/ExpertsSection';
 import CollaborationSection from './sections/CollaborationSection';
 import AnalyticsSection from './sections/AnalyticsSection';
 import StitchWrapper from '../../components/shared/StitchWrapper';
+import SEOHead from '../../components/shared/SEOHead';
 
 const KnowledgeDiscoveryCenter = () => {
   const { t } = useTranslation('knowledge');
@@ -30,6 +31,12 @@ const KnowledgeDiscoveryCenter = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950">
+      <SEOHead
+        title="Knowledge Discovery Center"
+        description="Discover marine knowledge resources, educational content, and research tools from NARA."
+        path="/knowledge-discovery-center"
+        keywords="knowledge center, marine education, research tools, NARA"
+      />
       <HeroSection />
       <SearchSection
         searchQuery={searchQuery}

@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as Icons from 'lucide-react';
@@ -63,38 +63,38 @@ const ResearchVesselBooking = () => {
   const [bookingForm, setBookingForm] = useState(() => createInitialBookingForm());
 
   const heroContent = useMemo(
-    () => t('hero', { returnObjects: true, defaultValue: {} }),
+    () => t('hero', { returnObjects: true }),
     [t]
   );
   const heroStats = heroContent.stats || {};
   const browseContent = useMemo(
-    () => t('browse', { returnObjects: true, defaultValue: {} }),
+    () => t('browse', { returnObjects: true }),
     [t]
   );
   const browseSpecs = browseContent.specs || {};
   const browseButtons = browseContent.buttons || {};
   const calendarContent = useMemo(
-    () => t('calendar', { returnObjects: true, defaultValue: {} }),
+    () => t('calendar', { returnObjects: true }),
     [t]
   );
   const myBookingsContent = useMemo(
-    () => t('myBookings', { returnObjects: true, defaultValue: {} }),
+    () => t('myBookings', { returnObjects: true }),
     [t]
   );
   const myBookingLabels = myBookingsContent.labels || {};
   const trackContent = useMemo(
-    () => t('track', { returnObjects: true, defaultValue: {} }),
+    () => t('track', { returnObjects: true }),
     [t]
   );
   const trackDetails = trackContent.details || {};
   const trackFields = trackDetails.fields || {};
   const modalContent = useMemo(
-    () => t('modal', { returnObjects: true, defaultValue: {} }),
+    () => t('modal', { returnObjects: true }),
     [t]
   );
   const modalButtons = modalContent.buttons || {};
   const formContent = useMemo(
-    () => t('form', { returnObjects: true, defaultValue: {} }),
+    () => t('form', { returnObjects: true }),
     [t]
   );
   const formLabels = formContent.labels || {};
@@ -110,11 +110,17 @@ const ResearchVesselBooking = () => {
     [t]
   );
 
-  const translateVesselStatus = (status) =>
-    t(`status.vessel.${status}`, { defaultValue: t('status.fallback') });
+  const translateVesselStatus = (status) => {
+    const key = `status.vessel.${status}`;
+    const localized = t(key);
+    return localized !== key ? localized : t('status.fallback');
+  };
 
-  const translateBookingStatus = (status) =>
-    t(`status.booking.${status}`, { defaultValue: t('status.fallback') });
+  const translateBookingStatus = (status) => {
+    const key = `status.booking.${status}`;
+    const localized = t(key);
+    return localized !== key ? localized : t('status.fallback');
+  };
 
   const formatDate = (rawDate) => formatDateSafely(rawDate, i18n.language, t('misc.na'));
 
@@ -272,10 +278,12 @@ const ResearchVesselBooking = () => {
 
   return (
     <MultilingualContent language={language}>
-      <Helmet>
-        <title>{heroContent.title}</title>
-        {heroContent.subtitle ? <meta name="description" content={heroContent.subtitle} /> : null}
-      </Helmet>
+        <SEOHead
+          title="Research Vessel Booking"
+          description="Book research vessels for marine scientific expeditions and ocean research programs."
+          path="/research-vessel-booking"
+          keywords="research vessel, marine expedition, ocean research, NARA"
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50">
         {/* Hero Section */}

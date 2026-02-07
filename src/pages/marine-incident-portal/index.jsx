@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import MultilingualContent from '../../components/compliance/MultilingualContent';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -1216,10 +1216,12 @@ const MarineIncidentPortal = () => {
 
   return (
     <MultilingualContent language={language}>
-      <Helmet>
-        <title>{t('seo.title')}</title>
-        <meta name="description" content={t('seo.description')} />
-      </Helmet>
+        <SEOHead
+          title="Marine Incident Portal"
+          description="Report and track marine incidents, emergencies, and maritime safety events around Sri Lanka."
+          path="/marine-incident-portal"
+          keywords="marine incidents, maritime safety, emergency reporting, NARA"
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50">
         {renderHeroSection()}

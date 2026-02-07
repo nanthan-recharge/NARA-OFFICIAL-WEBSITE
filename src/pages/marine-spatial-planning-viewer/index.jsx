@@ -540,6 +540,12 @@ const UltraEnhancedMarineSpatialPlanning = () => {
 
     return (
       <>
+      <SEOHead
+        title="Marine Spatial Planning Viewer"
+        description="Interactive marine spatial planning maps and ocean zoning data for Sri Lankan waters."
+        path="/marine-spatial-planning-viewer"
+        keywords="marine spatial planning, ocean zoning, GIS maps, Sri Lanka"
+      />
         {tempPoints.length > 0 && (
           <Polyline positions={tempPoints} pathOptions={{ color: '#3b82f6', weight: 2, dashArray: '5, 5' }} />
         )}
@@ -1051,6 +1057,7 @@ const UltraEnhancedMarineSpatialPlanning = () => {
 
 // Export the Research-Enhanced version for NARA staff
 import ResearchEnhancedMSP from './ResearchEnhancedMSP';
+import SEOHead from '../../components/shared/SEOHead';
 
 // Use Research-Enhanced MSP as default export
 export default ResearchEnhancedMSP;

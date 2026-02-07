@@ -9,6 +9,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import QRCode from 'qrcode';
 import Html5QrcodePlugin from '../../components/library/Html5QrcodePlugin';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LibrarianDesk = () => {
   const { currentUser } = useAuth();
@@ -508,6 +509,12 @@ const LibrarianDesk = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
+      <SEOHead
+        title="Librarian Desk"
+        description="NARA Library librarian desk for managing collections."
+        path="/library-librarian-desk"
+        noindex
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="bg-gradient-to-r from-cyan-600 to-blue-700 rounded-xl shadow-lg p-6 mb-8">

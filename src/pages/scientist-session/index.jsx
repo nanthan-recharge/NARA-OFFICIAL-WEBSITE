@@ -9,6 +9,7 @@ import {
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../../firebase';
 import { Link } from 'react-router-dom';
+import SEOHead from '../../components/shared/SEOHead';
 
 /* ── status badge styles ── */
 const STATUS_STYLES = {
@@ -87,6 +88,12 @@ const ScientistSessionPage = () => {
 
   return (
     <div className="min-h-screen bg-slate-950">
+      <SEOHead
+        title="Scientist Sessions"
+        description="NARA scientist sessions — research presentations, seminars, and knowledge sharing events."
+        path="/scientist-session"
+        keywords="scientist sessions, research seminars, NARA presentations"
+      />
       {/* ─── Hero Section ─── */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#031730] via-[#06254a] to-[#0b3d74] text-white">
         {/* Decorative radial gradients */}

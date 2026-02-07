@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../../firebase';
+import SEOHead from '../../components/shared/SEOHead';
 
 /* ═══════════════════════════════════════════════════════════════
    STATIC CONFIGS — All Tailwind classes must be fully static
@@ -176,6 +177,12 @@ const VacanciesPage = () => {
 
   return (
     <div className="min-h-screen bg-slate-950">
+      <SEOHead
+        title="Vacancies"
+        description="Current job vacancies and career opportunities at NARA — National Aquatic Resources Research Agency."
+        path="/vacancies"
+        keywords="jobs, vacancies, careers, NARA employment"
+      />
 
       {/* ═══════════════════════════════════════════════════════════
           SECTION 1: HERO — Hiring Beacon Visual Centerpiece

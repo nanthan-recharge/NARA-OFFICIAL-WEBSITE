@@ -9,6 +9,7 @@ import {
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import SEOHead from '../../components/shared/SEOHead';
 
 // Fix Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -70,6 +71,12 @@ export default function StormglassMaritimePage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
+      <SEOHead
+        title="Maritime Weather Data"
+        description="Real-time maritime weather data, wave heights, and ocean conditions from Stormglass integration."
+        path="/stormglass-maritime"
+        keywords="maritime weather, wave data, ocean conditions, Stormglass"
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-12">
         <div className="container mx-auto px-4">

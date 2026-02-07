@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import MultilingualContent from '../../components/compliance/MultilingualContent';
 import {
@@ -115,10 +115,12 @@ const OpenDataPortal = () => {
 
   return (
     <MultilingualContent language={language}>
-      <Helmet>
-        <title>{t('seo.title')}</title>
-        <meta name="description" content={t('seo.description')} />
-      </Helmet>
+        <SEOHead
+          title="Open Data Portal"
+          description="Access open datasets on marine science, fisheries, and ocean research from NARA Sri Lanka."
+          path="/open-data-portal"
+          keywords="open data, marine datasets, fisheries data, ocean research, NARA"
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50">
         {/* Hero Section */}

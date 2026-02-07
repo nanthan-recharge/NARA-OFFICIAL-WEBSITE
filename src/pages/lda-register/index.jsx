@@ -8,6 +8,7 @@ import { auth } from '../../firebase';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LDARegister = () => {
   const { t, i18n } = useTranslation(['common', 'knowledge']);
@@ -190,6 +191,12 @@ const LDARegister = () => {
   if (success) {
     return (
       <div className={getThemeClasses()}>
+      <SEOHead
+        title="LDA Register"
+        description="Register for the Learning and Development Academy."
+        path="/lda-register"
+        noindex
+      />
         <div className="flex items-center justify-center min-h-screen p-4">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}

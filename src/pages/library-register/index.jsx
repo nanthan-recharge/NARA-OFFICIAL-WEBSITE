@@ -26,6 +26,7 @@ import {
   Check
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import SEOHead from '../../components/shared/SEOHead';
 
 const TIERS = [
   {
@@ -233,6 +234,12 @@ const LibraryRegister = () => {
 
     return (
       <div>
+      <SEOHead
+        title="Library Register"
+        description="Register for the NARA Library."
+        path="/library-register"
+        noindex
+      />
         <label className="block text-sm font-medium text-slate-700 mb-1.5">{label}</label>
         <div className="relative">
           <IconComponent className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />

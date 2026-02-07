@@ -14,6 +14,7 @@ import {
 import { DIVISIONS_CONFIG } from "../../data/divisionsConfig";
 import { getDivisionLogo, hasDivisionLogo, DIVISION_TABS } from "../../utils/divisionLogoMap";
 import { Link } from "react-router-dom";
+import SEOHead from '../../components/shared/SEOHead';
 
 // Intersection Observer hook for lazy rendering below-fold sections
 function useLazySection(rootMargin = '200px') {
@@ -156,6 +157,12 @@ const TimelineDetailModal = ({ item, onClose, detailsHeading }) => {
       className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm"
       onClick={onClose}
     >
+      <SEOHead
+        title="About NARA — Our Story"
+        description="Learn about the National Aquatic Resources Research and Development Agency, its history, mission, and vision for Sri Lanka."
+        path="/about-nara-our-story"
+        keywords="about NARA, marine research history, Sri Lanka aquatic agency"
+      />
       <motion.div
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

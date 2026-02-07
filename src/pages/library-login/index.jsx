@@ -20,6 +20,7 @@ import {
   Library
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LibraryLogin = () => {
   const navigate = useNavigate();
@@ -89,6 +90,12 @@ const LibraryLogin = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col lg:flex-row">
+      <SEOHead
+        title="Library Login"
+        description="Login to the NARA Library portal."
+        path="/library-login"
+        noindex
+      />
       {/* Left Side - Login Form */}
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-6 sm:px-12 lg:px-16 xl:px-24 py-12">
         <motion.div

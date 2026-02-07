@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { Link } from 'react-router-dom';
+import SEOHead from '../../components/shared/SEOHead';
 
 const PRODUCT_CATEGORIES = [
   { id: 'all', name: 'All Products', icon: Icons.Store },
@@ -177,6 +178,12 @@ export default function NARADigitalMarketplace() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50 selection:bg-cyan-200">
+      <SEOHead
+        title="NARA Digital Marketplace"
+        description="Purchase NARA publications, maps, laboratory services, and research products online."
+        path="/nara-digital-marketplace"
+        keywords="marketplace, publications, lab services, NARA products"
+      />
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-500 py-20 text-white">
         <div className="absolute inset-0">

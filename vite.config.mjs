@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tsconfigPaths from "vite-tsconfig-paths";
+import compression from "vite-plugin-compression";
 import path from "path";
 
 // https://vitejs.dev/config/
@@ -71,7 +72,19 @@ export default defineConfig({
   },
   plugins: [
     tsconfigPaths(),
-    react()
+    react(),
+    // Gzip compression for production builds
+    compression({
+      algorithm: 'gzip',
+      ext: '.gz',
+      threshold: 1024, // Only compress files > 1KB
+    }),
+    // Brotli compression for modern browsers
+    compression({
+      algorithm: 'brotliCompress',
+      ext: '.br',
+      threshold: 1024,
+    }),
   ],
   server: {
     port: "4028",

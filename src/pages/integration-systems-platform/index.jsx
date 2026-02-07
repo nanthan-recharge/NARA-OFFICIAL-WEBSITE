@@ -27,6 +27,7 @@ import APIManagementSection from './components/APIManagementSection';
 import usePageContent from '../../hooks/usePageContent';
 import useIntegrationDashboard from '../../hooks/useIntegrationDashboard';
 import IntegrationHero from './components/IntegrationHero';
+import SEOHead from '../../components/shared/SEOHead';
 
 const IntegrationSystemsPlatform = () => {
   const { t } = useTranslation('integration');
@@ -80,7 +81,9 @@ const IntegrationSystemsPlatform = () => {
 
   const renderStatusBadge = (statusRaw) => {
     const status = (statusRaw || '').toLowerCase();
-    const label = t(`common.statuses.${status}`, { defaultValue: statusRaw || '—' });
+    const key = `common.statuses.${status}`;
+    const localized = t(key);
+    const label = localized !== key ? localized : (statusRaw || '—');
     const appearance = {
       active: { Icon: CheckCircle, className: 'text-green-500' },
       maintenance: { Icon: Clock, className: 'text-yellow-500' },
@@ -91,6 +94,12 @@ const IntegrationSystemsPlatform = () => {
 
     return (
       <span className="inline-flex items-center gap-1 rounded-full bg-white/60 px-2 py-1 text-xs font-semibold text-slate-700">
+      <SEOHead
+        title="Integration Systems Platform"
+        description="NARA integration systems platform — connecting marine data sources and research tools."
+        path="/integration-systems-platform"
+        keywords="integration platform, marine data, API, NARA systems"
+      />
         <Icon className={`h-4 w-4 ${className}`} />
         {label}
       </span>

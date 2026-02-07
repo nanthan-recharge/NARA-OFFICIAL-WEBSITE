@@ -39,6 +39,7 @@ import {
 } from 'lucide-react';
 import { RoleGuard } from '../../components/library';
 import { useTranslation } from 'react-i18next';
+import SEOHead from '../../components/shared/SEOHead';
 
 // ─── Stat Card Component ───────────────────────────────────────────
 const StatCard = ({ icon: Icon, label, value, color, sub }) => {
@@ -52,6 +53,12 @@ const StatCard = ({ icon: Icon, label, value, color, sub }) => {
 
   return (
     <div className={`${c.bg} border ${c.border} rounded-2xl p-5`}>
+      <SEOHead
+        title="Library Dashboard"
+        description="NARA Library management dashboard."
+        path="/library-dashboard"
+        noindex
+      />
       <div className="flex items-start justify-between">
         <div>
           <p className={`text-sm font-medium ${c.label}`}>{label}</p>

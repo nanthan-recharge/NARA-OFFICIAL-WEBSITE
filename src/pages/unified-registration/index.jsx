@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { useTranslation } from 'react-i18next';
+import SEOHead from '../../components/shared/SEOHead';
 
 const UnifiedRegistration = () => {
   const navigate = useNavigate();
@@ -201,6 +202,12 @@ const UnifiedRegistration = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 py-12 px-4">
+      <SEOHead
+        title="Register"
+        description="Create your NARA account to access research tools, publications, and marine services."
+        path="/unified-registration"
+        keywords="register, create account, NARA services"
+      />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div

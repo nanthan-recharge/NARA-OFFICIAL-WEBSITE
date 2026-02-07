@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import * as Icons from 'lucide-react';
 import {
@@ -136,10 +136,10 @@ const FishAdvisorySystem = () => {
   };
 
   const tabs = [
-    { id: 'dashboard', label: t('tabs.dashboard', { defaultValue: 'Dashboard' }), icon: Icons.LayoutDashboard },
-    { id: 'advisories', label: t('tabs.advisories', { defaultValue: 'Advisories' }), icon: Icons.Fish },
-    { id: 'zones', label: t('tabs.zones', { defaultValue: 'Fishing Zones' }), icon: Icons.MapPin },
-    { id: 'prices', label: t('tabs.prices', { defaultValue: 'Market Prices' }), icon: Icons.TrendingUp }
+    { id: 'dashboard', label: t('tabs.dashboard'), icon: Icons.LayoutDashboard },
+    { id: 'advisories', label: t('tabs.advisories'), icon: Icons.Fish },
+    { id: 'zones', label: t('tabs.zones'), icon: Icons.MapPin },
+    { id: 'prices', label: t('tabs.prices'), icon: Icons.TrendingUp }
   ];
 
   const getSeverityColor = (severity) => {
@@ -178,7 +178,7 @@ const FishAdvisorySystem = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="relative flex items-center justify-between">
             <div>
-              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.activeAdvisories', { defaultValue: 'Active Advisories' })}</p>
+              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.activeAdvisories')}</p>
               <p className="text-3xl font-bold text-white">{statistics?.advisories?.active || 0}</p>
             </div>
             <Icons.Fish className="w-12 h-12 text-cyan-400" />
@@ -192,7 +192,7 @@ const FishAdvisorySystem = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-green-400/20 to-emerald-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="relative flex items-center justify-between">
             <div>
-              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.openZones', { defaultValue: 'Open Zones' })}</p>
+              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.openZones')}</p>
               <p className="text-3xl font-bold text-white">{statistics?.zones?.open || 0}</p>
             </div>
             <Icons.MapPin className="w-12 h-12 text-green-400" />
@@ -206,7 +206,7 @@ const FishAdvisorySystem = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-purple-400/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="relative flex items-center justify-between">
             <div>
-              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.priceUpdates', { defaultValue: 'Price Updates' })}</p>
+              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.priceUpdates')}</p>
               <p className="text-3xl font-bold text-white">{statistics?.prices?.total || 0}</p>
             </div>
             <Icons.TrendingUp className="w-12 h-12 text-purple-400" />
@@ -220,7 +220,7 @@ const FishAdvisorySystem = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-orange-400/20 to-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="relative flex items-center justify-between">
             <div>
-              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.activeRestrictions', { defaultValue: 'Active Restrictions' })}</p>
+              <p className="text-slate-200 text-sm mb-1">{t('dashboard.stats.activeRestrictions')}</p>
               <p className="text-3xl font-bold text-white">{statistics?.restrictions?.active || 0}</p>
             </div>
             <Icons.Calendar className="w-12 h-12 text-orange-400" />
@@ -237,8 +237,8 @@ const FishAdvisorySystem = () => {
           className="p-6 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 backdrop-blur-xl border border-cyan-500/30 text-left group"
         >
           <Icons.AlertCircle className="w-10 h-10 text-cyan-400 mb-4" />
-          <h3 className="text-xl font-bold text-white mb-2">{t('dashboard.quickActions.viewAdvisories.title', { defaultValue: 'View Advisories' })}</h3>
-          <p className="text-slate-200 text-sm">{t('dashboard.quickActions.viewAdvisories.description', { defaultValue: 'Check active fish advisories and warnings' })}</p>
+          <h3 className="text-xl font-bold text-white mb-2">{t('dashboard.quickActions.viewAdvisories.title')}</h3>
+          <p className="text-slate-200 text-sm">{t('dashboard.quickActions.viewAdvisories.description')}</p>
         </motion.button>
 
         <motion.button
@@ -248,8 +248,8 @@ const FishAdvisorySystem = () => {
           className="p-6 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-600/20 backdrop-blur-xl border border-green-500/30 text-left group"
         >
           <Icons.Map className="w-10 h-10 text-green-400 mb-4" />
-          <h3 className="text-xl font-bold text-white mb-2">{t('dashboard.quickActions.fishingZones.title', { defaultValue: 'Fishing Zones' })}</h3>
-          <p className="text-slate-200 text-sm">{t('dashboard.quickActions.fishingZones.description', { defaultValue: 'View fishing zone status and regulations' })}</p>
+          <h3 className="text-xl font-bold text-white mb-2">{t('dashboard.quickActions.fishingZones.title')}</h3>
+          <p className="text-slate-200 text-sm">{t('dashboard.quickActions.fishingZones.description')}</p>
         </motion.button>
 
         <motion.button
@@ -259,8 +259,8 @@ const FishAdvisorySystem = () => {
           className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-600/20 backdrop-blur-xl border border-purple-500/30 text-left group"
         >
           <Icons.DollarSign className="w-10 h-10 text-purple-400 mb-4" />
-          <h3 className="text-xl font-bold text-white mb-2">{t('dashboard.quickActions.marketPrices.title', { defaultValue: 'Market Prices' })}</h3>
-          <p className="text-slate-200 text-sm">{t('dashboard.quickActions.marketPrices.description', { defaultValue: 'Check latest fish market prices' })}</p>
+          <h3 className="text-xl font-bold text-white mb-2">{t('dashboard.quickActions.marketPrices.title')}</h3>
+          <p className="text-slate-200 text-sm">{t('dashboard.quickActions.marketPrices.description')}</p>
         </motion.button>
       </div>
 
@@ -268,7 +268,7 @@ const FishAdvisorySystem = () => {
       <div>
         <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
           <Icons.Bell className="w-6 h-6 text-cyan-400" />
-          {t('dashboard.recentAdvisories', { defaultValue: 'Recent Advisories' })}
+          {t('dashboard.recentAdvisories')}
         </h2>
         <div className="space-y-4">
           {advisories.slice(0, 3).map((advisory) => (
@@ -294,7 +294,7 @@ const FishAdvisorySystem = () => {
           {advisories.length === 0 && (
             <div className="p-12 rounded-2xl bg-gradient-to-br from-white/5 to-white/3 backdrop-blur-xl border border-white/10 text-center">
               <Icons.CheckCircle className="w-12 h-12 text-green-400 mx-auto mb-4" />
-              <p className="text-slate-200">{t('dashboard.noAdvisories', { defaultValue: 'No active advisories at this time' })}</p>
+              <p className="text-slate-200">{t('dashboard.noAdvisories')}</p>
             </div>
           )}
         </div>
@@ -311,10 +311,10 @@ const FishAdvisorySystem = () => {
       className="space-y-6"
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-white">{t('advisories.title', { defaultValue: 'Fish Advisories' })}</h2>
+        <h2 className="text-2xl font-bold text-white">{t('advisories.title')}</h2>
         <div className="flex items-center gap-2">
           <Icons.AlertCircle className="w-5 h-5 text-cyan-400" />
-          <span className="text-slate-200 text-sm">{advisories.length} {t('advisories.count', { defaultValue: 'active' })}</span>
+          <span className="text-slate-200 text-sm">{advisories.length} {t('advisories.count')}</span>
         </div>
       </div>
 
@@ -353,7 +353,7 @@ const FishAdvisorySystem = () => {
               {advisory.validUntil && (
                 <div className="flex items-center gap-2 text-sm text-slate-200">
                   <Icons.Clock className="w-4 h-4" />
-                  <span>{t('advisories.validUntil', { defaultValue: 'Valid until' })}: {new Date(advisory.validUntil).toLocaleDateString()}</span>
+                  <span>{t('advisories.validUntil')}: {new Date(advisory.validUntil).toLocaleDateString()}</span>
                 </div>
               )}
             </div>
@@ -363,8 +363,8 @@ const FishAdvisorySystem = () => {
         {advisories.length === 0 && (
           <div className="p-12 rounded-2xl bg-gradient-to-br from-white/5 to-white/3 backdrop-blur-xl border border-white/10 text-center">
             <Icons.CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">{t('advisories.noActive.title', { defaultValue: 'No Active Advisories' })}</h3>
-            <p className="text-slate-200">{t('advisories.noActive.description', { defaultValue: 'All fishing areas are safe at this time' })}</p>
+            <h3 className="text-xl font-bold text-white mb-2">{t('advisories.noActive.title')}</h3>
+            <p className="text-slate-200">{t('advisories.noActive.description')}</p>
           </div>
         )}
       </div>
@@ -380,19 +380,19 @@ const FishAdvisorySystem = () => {
       className="space-y-6"
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-white">{t('zones.title', { defaultValue: 'Fishing Zones' })}</h2>
+        <h2 className="text-2xl font-bold text-white">{t('zones.title')}</h2>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="text-slate-200 text-sm">{t('zones.legend.open', { defaultValue: 'Open' })}: {statistics?.zones?.open || 0}</span>
+            <span className="text-slate-200 text-sm">{t('zones.legend.open')}: {statistics?.zones?.open || 0}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <span className="text-slate-200 text-sm">{t('zones.legend.restricted', { defaultValue: 'Restricted' })}: {statistics?.zones?.restricted || 0}</span>
+            <span className="text-slate-200 text-sm">{t('zones.legend.restricted')}: {statistics?.zones?.restricted || 0}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <span className="text-slate-200 text-sm">{t('zones.legend.closed', { defaultValue: 'Closed' })}: {statistics?.zones?.closed || 0}</span>
+            <span className="text-slate-200 text-sm">{t('zones.legend.closed')}: {statistics?.zones?.closed || 0}</span>
           </div>
         </div>
       </div>
@@ -422,7 +422,7 @@ const FishAdvisorySystem = () => {
                 <div className="space-y-2 text-xs text-slate-500">
                   <div className="flex items-center gap-2">
                     <Icons.Navigation className="w-3 h-3" />
-                    <span>{t('zones.coordinates', { defaultValue: 'Coordinates' })}: {zone.coordinates.lat}, {zone.coordinates.lng}</span>
+                    <span>{t('zones.coordinates')}: {zone.coordinates.lat}, {zone.coordinates.lng}</span>
                   </div>
                 </div>
               )}
@@ -433,8 +433,8 @@ const FishAdvisorySystem = () => {
         {zones.length === 0 && (
           <div className="col-span-3 p-12 rounded-2xl bg-gradient-to-br from-white/5 to-white/3 backdrop-blur-xl border border-white/10 text-center">
             <Icons.MapPin className="w-16 h-16 text-slate-200 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">{t('zones.noZones.title', { defaultValue: 'No Zones Available' })}</h3>
-            <p className="text-slate-200">{t('zones.noZones.description', { defaultValue: 'Fishing zone data will be displayed here' })}</p>
+            <h3 className="text-xl font-bold text-white mb-2">{t('zones.noZones.title')}</h3>
+            <p className="text-slate-200">{t('zones.noZones.description')}</p>
           </div>
         )}
       </div>
@@ -450,10 +450,10 @@ const FishAdvisorySystem = () => {
       className="space-y-6"
     >
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-2xl font-bold text-white">{t('prices.title', { defaultValue: 'Fish Market Prices' })}</h2>
+        <h2 className="text-2xl font-bold text-white">{t('prices.title')}</h2>
         <div className="flex items-center gap-2">
           <Icons.TrendingUp className="w-5 h-5 text-purple-400" />
-          <span className="text-slate-200 text-sm">{t('prices.latestUpdates', { defaultValue: 'Latest updates' })}</span>
+          <span className="text-slate-200 text-sm">{t('prices.latestUpdates')}</span>
         </div>
       </div>
 
@@ -475,19 +475,19 @@ const FishAdvisorySystem = () => {
                   <p className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                     Rs. {price.price}
                   </p>
-                  <p className="text-slate-200 text-xs">{t('prices.perKg', { defaultValue: 'per kg' })}</p>
+                  <p className="text-slate-200 text-xs">{t('prices.perKg')}</p>
                 </div>
               </div>
 
               <div className="flex items-center justify-between text-sm">
-                <span className="text-slate-500">{t('prices.lastUpdated', { defaultValue: 'Last updated' })}</span>
+                <span className="text-slate-500">{t('prices.lastUpdated')}</span>
                 <span className="text-slate-200">{price.date ? new Date(price.date).toLocaleDateString() : 'N/A'}</span>
               </div>
 
               {price.priceChange && (
                 <div className={`mt-3 flex items-center gap-2 text-sm ${price.priceChange > 0 ? 'text-green-400' : 'text-red-400'}`}>
                   {price.priceChange > 0 ? <Icons.TrendingUp className="w-4 h-4" /> : <Icons.TrendingDown className="w-4 h-4" />}
-                  <span>{Math.abs(price.priceChange)}% {price.priceChange > 0 ? t('prices.increase', { defaultValue: 'increase' }) : t('prices.decrease', { defaultValue: 'decrease' })}</span>
+                  <span>{Math.abs(price.priceChange)}% {price.priceChange > 0 ? t('prices.increase') : t('prices.decrease')}</span>
                 </div>
               )}
             </div>
@@ -497,8 +497,8 @@ const FishAdvisorySystem = () => {
         {prices.length === 0 && (
           <div className="col-span-2 p-12 rounded-2xl bg-gradient-to-br from-white/5 to-white/3 backdrop-blur-xl border border-white/10 text-center">
             <Icons.DollarSign className="w-16 h-16 text-slate-200 mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-white mb-2">{t('prices.noPrices.title', { defaultValue: 'No Price Data Available' })}</h3>
-            <p className="text-slate-200">{t('prices.noPrices.description', { defaultValue: 'Market price data will be displayed here' })}</p>
+            <h3 className="text-xl font-bold text-white mb-2">{t('prices.noPrices.title')}</h3>
+            <p className="text-slate-200">{t('prices.noPrices.description')}</p>
           </div>
         )}
       </div>
@@ -507,10 +507,12 @@ const FishAdvisorySystem = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 text-white">
-      <Helmet>
-        <title>{t('meta.title', { defaultValue: 'Fish Advisory System - NARA' })}</title>
-        <meta name="description" content={t('meta.description', { defaultValue: 'Real-time fish advisories, fishing zones, and market prices' })} />
-      </Helmet>
+        <SEOHead
+          title="Fish Advisory System"
+          description="Real-time fish advisories, fishing zone maps, and market prices for Sri Lankan fisheries."
+          path="/fish-advisory-system"
+          keywords="fish advisory, fishing zones, market prices, Sri Lanka fishing, NARA"
+        />
 
       {/* Hero Section */}
       <motion.section
@@ -545,19 +547,19 @@ const FishAdvisorySystem = () => {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-6">
               <Icons.Fish className="w-4 h-4 text-cyan-400" />
-              <span className="text-cyan-400 text-sm font-medium">{t('hero.badge', { defaultValue: 'Live Data System' })}</span>
+              <span className="text-cyan-400 text-sm font-medium">{t('hero.badge')}</span>
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">
-                {t('hero.title', { defaultValue: 'Fish Advisory' })}
+                {t('hero.title')}
               </span>
               <br />
-              <span className="text-white">{t('hero.highlight', { defaultValue: 'System' })}</span>
+              <span className="text-white">{t('hero.highlight')}</span>
             </h1>
 
             <p className="text-xl text-slate-200 max-w-3xl mx-auto mb-8">
-              {t('hero.subtitle', { defaultValue: 'Real-time fish advisories, fishing zone status, and market prices for Sri Lankan waters' })}
+              {t('hero.subtitle')}
             </p>
 
             <div className="flex flex-col items-center justify-center gap-4">
@@ -568,7 +570,7 @@ const FishAdvisorySystem = () => {
                   onClick={() => setActiveTab('advisories')}
                   className="px-8 py-4 rounded-xl bg-gradient-to-r from-navy-700 to-navy-800 hover:from-navy-600 hover:to-navy-700 font-semibold text-white shadow-lg shadow-navy-500/25 transition-all"
                 >
-                  {t('hero.primaryCta', { defaultValue: 'View Advisories' })}
+                  {t('hero.primaryCta')}
                 </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
@@ -576,7 +578,7 @@ const FishAdvisorySystem = () => {
                   onClick={() => setActiveTab('zones')}
                   className="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/20 font-semibold text-white transition-all"
                 >
-                  {t('hero.secondaryCta', { defaultValue: 'Fishing Zones' })}
+                  {t('hero.secondaryCta')}
                 </motion.button>
               </div>
 

@@ -21,6 +21,7 @@ import { useTranslation } from 'react-i18next';
 import { useSchoolList } from '../../hooks/useSchoolList';
 import { filterSchools } from '../../services/schoolListService';
 import SchoolMap from './components/SchoolMap';
+import SEOHead from '../../components/shared/SEOHead';
 
 const SCHOOL_LIST_URL = 'https://firebasestorage.googleapis.com/v0/b/nara-aquaschool.firebasestorage.app/o/Tbl20200101.xlsx?alt=media&token=d211f254-5d39-415c-ade5-524031d9287a';
 
@@ -61,6 +62,12 @@ const AquaSchoolDirectory = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950">
+      <SEOHead
+        title="Aqua School Directory"
+        description="Directory of aquaculture and fisheries schools and training programs in Sri Lanka."
+        path="/aqua-school-directory"
+        keywords="aqua school, fisheries training, aquaculture education, Sri Lanka"
+      />
       {/* Hero Section - Navy Blue Government Theme */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 py-20">
         <div className="absolute inset-0 pointer-events-none">

@@ -8,6 +8,7 @@ import GlassMorphismCard from '../../components/shared/GlassMorphismCard';
 import RealTimeCounter from '../../components/shared/RealTimeCounter';
 import firebaseAdminService from '../../services/firebaseAdminService';
 import Icon from '../../components/AppIcon';
+import SEOHead from '../../components/shared/SEOHead';
 
 
 const FirebaseAdminDashboardControlCenter = () => {
@@ -152,6 +153,12 @@ const FirebaseAdminDashboardControlCenter = () => {
   if (isLoading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-ocean-50 to-ocean-100 flex items-center justify-center">
+      <SEOHead
+        title="Admin Dashboard"
+        description="NARA admin dashboard control center."
+        path="/firebase-admin-dashboard-control-center"
+        noindex
+      />
         <div className="flex items-center gap-3 text-ocean-600">
           <RefreshCw className="w-8 h-8 animate-spin" />
           <span className="text-lg font-medium">Loading admin dashboard...</span>

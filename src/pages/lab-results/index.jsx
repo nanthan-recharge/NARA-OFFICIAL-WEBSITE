@@ -19,6 +19,7 @@ import {
   generateStatusOverviewData,
   generateSampleChartData
 } from '../../utils/labResultsChartData';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LabResultsPortal = () => {
   const { t, i18n } = useTranslation('labResults');
@@ -333,6 +334,12 @@ const LabResultsPortal = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50">
+      <SEOHead
+        title="Laboratory Results"
+        description="View marine laboratory test results, water quality analyses, and environmental monitoring data."
+        path="/lab-results"
+        keywords="lab results, water quality, environmental monitoring, NARA"
+      />
       {/* Hero Section */}
       {/* Hero Section - Navy Blue Government Theme */}
       <section className="relative bg-gradient-to-r from-navy-900 via-navy-800 to-navy-900 text-white py-20 overflow-hidden">

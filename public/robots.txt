@@ -1,3 +1,37 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Allow: /
+
+# Block admin and authentication pages
+Disallow: /admin
+Disallow: /admin/*
+Disallow: /firebase-admin*
+Disallow: /lda-login
+Disallow: /lda-register
+Disallow: /library-login
+Disallow: /library-register
+Disallow: /library-admin
+Disallow: /library-admin/*
+Disallow: /library-librarian-desk
+Disallow: /checkout
+Disallow: /payment-return
+Disallow: /user-profile
+Disallow: /scientist-session
+
+# Block API and internal routes
+Disallow: /api/
+Disallow: /_next/
+Disallow: /assets/js/
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://nara-web-73384.web.app/sitemap.xml
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Disallow: /admin
+Disallow: /admin/*
+Crawl-delay: 0

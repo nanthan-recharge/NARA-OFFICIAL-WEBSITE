@@ -41,6 +41,7 @@ import {
   exportEmergencyToPDF,
   exportLicenseToPDF,
 } from '../../utils/governmentServicesPDFExport';
+import SEOHead from '../../components/shared/SEOHead';
 
 const CATEGORY_STYLES = {
   regulatory: {
@@ -546,6 +547,12 @@ const GovernmentServicesPortal = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#001b33] via-[#002a4d] to-[#00111f] text-white">
+      <SEOHead
+        title="Government Services Portal"
+        description="Access government marine services, permits, and regulatory information through NARA."
+        path="/government-services-portal"
+        keywords="government services, marine permits, fisheries regulation, NARA"
+      />
       <div className="relative overflow-hidden border-b border-white/10">
         <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blue-600/20 blur-3xl" />

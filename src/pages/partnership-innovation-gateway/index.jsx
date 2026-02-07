@@ -7,6 +7,7 @@ import EventsCalendar from './components/EventsCalendar';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
 import StitchWrapper from '../../components/shared/StitchWrapper';
+import SEOHead from '../../components/shared/SEOHead';
 
 const PartnershipInnovationGateway = () => {
   const heroStats = [
@@ -45,6 +46,12 @@ const PartnershipInnovationGateway = () => {
 
   return (
     <StitchWrapper>
+      <SEOHead
+        title="Partnership & Innovation Gateway"
+        description="Explore partnership opportunities and innovation initiatives with NARA Sri Lanka."
+        path="/partnership-innovation-gateway"
+        keywords="partnerships, innovation, marine technology, NARA collaboration"
+      />
       <div className="relative z-10 w-full min-h-screen">
         {/* Hero Section */}
         <section className="relative pt-32 pb-16 overflow-hidden">

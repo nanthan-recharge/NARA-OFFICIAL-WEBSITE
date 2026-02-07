@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import MultilingualContent from '../../components/compliance/MultilingualContent';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -144,10 +144,12 @@ const ExportMarketIntelligence = () => {
 
   return (
     <MultilingualContent language={language}>
-      <Helmet>
-        <title>Export Market Intelligence - NARA</title>
-        <meta name="description" content="Export market intelligence and fish trade data" />
-      </Helmet>
+        <SEOHead
+          title="Export Market Intelligence"
+          description="Market intelligence and trade analytics for Sri Lankan seafood and marine product exports."
+          path="/export-market-intelligence"
+          keywords="export market, seafood trade, marine products, Sri Lanka exports"
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-blue-50">
         <section className="relative overflow-hidden bg-gradient-to-r from-emerald-900 via-teal-900 to-blue-900 py-20 text-white">

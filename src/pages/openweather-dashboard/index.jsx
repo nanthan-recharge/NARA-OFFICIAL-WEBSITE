@@ -9,6 +9,7 @@ import {
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import SEOHead from '../../components/shared/SEOHead';
 
 // Fix Leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
@@ -90,6 +91,12 @@ export default function OpenWeatherDashboard() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50">
+      <SEOHead
+        title="Weather Dashboard"
+        description="Comprehensive weather dashboard with current conditions, forecasts, and marine weather alerts."
+        path="/weather-dashboard"
+        keywords="weather dashboard, marine weather, forecasts, weather alerts"
+      />
       {/* Header */}
       <div className="bg-gradient-to-r from-sky-600 to-blue-600 text-white py-12">
         <div className="container mx-auto px-4">

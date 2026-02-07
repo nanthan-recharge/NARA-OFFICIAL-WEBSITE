@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { Link } from 'react-router-dom';
 import {
   Target,
@@ -183,10 +183,12 @@ const ImpactAssessmentPortal = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Impact Assessment Portal - NARA Digital Ocean</title>
-        <meta name="description" content="Measure policy effectiveness and project outcomes with data-driven insights" />
-      </Helmet>
+        <SEOHead
+          title="Impact Assessment Portal"
+          description="Environmental and policy impact assessment tools for Sri Lankan aquatic resources."
+          path="/analytics/impact-assessment"
+          keywords="impact assessment, environmental policy, marine impact, NARA"
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50">
         {/* Header */}

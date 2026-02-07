@@ -6,6 +6,7 @@ import * as Icons from 'lucide-react';
 import { useCart } from '../../contexts/CartContext';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { initiatePayment } from '../../services/paymentService';
+import SEOHead from '../../components/shared/SEOHead';
 
 const CheckoutPage = () => {
   const { t } = useTranslation(['marketplace', 'common']);
@@ -107,6 +108,12 @@ const CheckoutPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12">
+      <SEOHead
+        title="Checkout"
+        description="Complete your purchase on NARA Digital Marketplace."
+        path="/checkout"
+        noindex
+      />
       <div className="max-w-7xl mx-auto px-4">
         {/* Header */}
         <div className="mb-8">

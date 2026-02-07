@@ -10,6 +10,7 @@ import BasicInfoStep from './BasicInfoStep';
 import UploadStep from './UploadStep';
 import AuthorsStep from './AuthorsStep';
 import ReviewStep from './ReviewStep';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LibraryResearchSubmit = () => {
   const navigate = useNavigate();
@@ -183,6 +184,12 @@ const LibraryResearchSubmit = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-pink-50 py-12 px-4">
+      <SEOHead
+        title="Submit Research"
+        description="Submit your research paper to the NARA library."
+        path="/library-research-submit"
+        noindex
+      />
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

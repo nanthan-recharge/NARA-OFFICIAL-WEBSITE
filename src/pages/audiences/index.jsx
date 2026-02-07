@@ -4,6 +4,7 @@ import { useNavigate, useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import MultilingualContent from 'components/compliance/MultilingualContent';
+import SEOHead from '../../components/shared/SEOHead';
 
 const AUDIENCE_KEYS = {
   'general-public': 'generalPublic',
@@ -57,8 +58,11 @@ const AudiencePage = () => {
   }, [slug, navigate]);
 
   const language = (i18n.language || 'en').split('-')[0];
-  const localizedContent = t(`${audienceKey}`, { returnObjects: true, defaultValue: {} });
-  const fallbackContent = i18n.getResource('en', 'audiences', audienceKey) || {};
+  const localizedContent = t(`${audienceKey}`, { returnObjects: true });
+  const fallbackContent = useMemo(
+    () => i18n.getResource('en', 'audiences', audienceKey) || {},
+    [i18n, audienceKey]
+  );
 
   const content = useMemo(
     () => mergeLocalizedContent(fallbackContent, localizedContent),
@@ -74,6 +78,12 @@ const AudiencePage = () => {
       language={language}
       className="min-h-screen bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950 text-white"
     >
+      <SEOHead
+        title="Audience Portal"
+        description="Tailored resources for different audiences — general public, researchers, students, and industry professionals."
+        path="/audiences"
+        keywords="audiences, public resources, researchers, students, industry"
+      />
       <section className="relative overflow-hidden border-b border-slate-800 bg-slate-950/80">
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-emerald-500/10 to-blue-500/5" />
         <div className="relative mx-auto flex max-w-6xl flex-col gap-8 px-4 py-24 md:px-6">

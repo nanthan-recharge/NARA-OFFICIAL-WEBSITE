@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
@@ -530,13 +530,12 @@ const EmergencyResponseNetwork = () => {
 
   return (
     <StitchWrapper>
-      <Helmet>
-        <title>{localizedContent?.meta?.title}</title>
-        <meta name="description" content={localizedContent?.meta?.description} />
-        {localizedContent?.meta?.keywords && (
-          <meta name="keywords" content={localizedContent?.meta?.keywords} />
-        )}
-      </Helmet>
+        <SEOHead
+          title="Emergency Response Network"
+          description="Coordinated emergency response for marine and coastal disasters in Sri Lanka."
+          path="/emergency-response-network"
+          keywords="emergency response, coastal disasters, marine safety, NARA"
+        />
 
       <main className="relative z-10 space-y-24 pb-24">
         {/* HERO SECTION */}

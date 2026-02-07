@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Compass, FileText, Globe2, GraduationCap, Newspaper, Users } from 'lucide-react';
+import SEOHead from '../../components/shared/SEOHead';
 
 const sections = [
   {
@@ -68,6 +69,12 @@ const sections = [
 const SiteMapPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-50 px-4 py-12 sm:px-6 lg:px-8">
+      <SEOHead
+        title="Site Map"
+        description="Complete site map of NARA website — find all pages, services, and resources."
+        path="/site-map"
+        keywords="site map, navigation, NARA pages"
+      />
       <div className="mx-auto max-w-7xl">
         <header className="mb-10 rounded-2xl border border-sky-100 bg-white p-8 shadow-sm">
           <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">NARA Navigation</p>

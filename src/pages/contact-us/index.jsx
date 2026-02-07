@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { useTranslation } from 'react-i18next';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
@@ -150,10 +150,12 @@ const ContactUs = () => {
 
   return (
     <MultilingualContent language={language}>
-      <Helmet>
-        <title>{t('seo.title')}</title>
-        <meta name="description" content={t('seo.description')} />
-      </Helmet>
+        <SEOHead
+          title="Contact Us"
+          description="Get in touch with NARA - National Aquatic Resources Research and Development Agency, Sri Lanka."
+          path="/contact-us"
+          keywords="contact NARA, Sri Lanka marine research, aquatic resources contact"
+        />
 
       <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
         {/* Hero Section - Navy Blue Government Theme */}

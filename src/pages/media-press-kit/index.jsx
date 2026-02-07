@@ -13,6 +13,7 @@ import {
   mediaPressDashboardService
 } from '../../services/mediaPressService';
 import mediaPressFallbackData from '../../data/mediaPressFallbackData.json';
+import SEOHead from '../../components/shared/SEOHead';
 
 const ASSET_TYPES = ['all', 'image', 'video', 'document', 'logo'];
 const ASSET_SORT_OPTIONS = ['latest', 'oldest', 'downloads'];
@@ -838,6 +839,12 @@ const MediaPressKit = () => {
   if (loading && !dashboardData) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-pink-50 to-blue-50 flex items-center justify-center">
+      <SEOHead
+        title="Media & Press Kit"
+        description="Official NARA press releases, media resources, and brand assets for journalists and partners."
+        path="/media-press-kit"
+        keywords="press kit, media resources, NARA press releases"
+      />
         <div className="text-pink-900 text-xl">{t('common:loading', { defaultValue: 'Loading...' })}</div>
       </div>
     );

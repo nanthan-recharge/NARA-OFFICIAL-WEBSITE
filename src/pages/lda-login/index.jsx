@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import useThemeStore from '../../store/theme';
 import { auth } from '../../firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LDALogin = () => {
   const { t, i18n } = useTranslation(['common', 'knowledge']);
@@ -85,6 +86,12 @@ const LDALogin = () => {
 
   return (
     <div className={getThemeClasses()}>
+      <SEOHead
+        title="LDA Login"
+        description="Login to the Learning and Development Academy."
+        path="/lda-login"
+        noindex
+      />
       <div className="max-w-md mx-auto px-4 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

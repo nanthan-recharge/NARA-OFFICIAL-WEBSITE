@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { Link } from 'react-router-dom';
 import {
   Activity,
@@ -127,10 +127,12 @@ const SimulationsEconomicAdmin = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Simulations & Economic Data - Analytics Admin</title>
-        <meta name="description" content="Manage policy simulations and economic valuations" />
-      </Helmet>
+        <SEOHead
+          title="Simulations & Economic Admin"
+          description="Simulations and economic data management panel."
+          path="/admin/analytics/simulations"
+          noindex
+        />
 
       <div className="min-h-screen bg-gray-50">
         {/* Header */}

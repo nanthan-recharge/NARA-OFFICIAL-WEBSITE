@@ -11,6 +11,7 @@ import { DIVISIONS_CONFIG, getDivisionsByCategory } from '../../data/divisionsCo
 import HeroImageCarousel from '../../components/hero/HeroImageCarousel';
 import DivisionCategorySection from './DivisionCategorySection';
 import PDFDownloadCard from '../../components/PDFDownloadCard';
+import SEOHead from '../../components/shared/SEOHead';
 
 // ─── Lazy section hook (IntersectionObserver) ────────────────────────────────
 function useLazySection(rootMargin = '200px') {
@@ -142,6 +143,12 @@ const DivisionsHub = () => {
 
   return (
     <div className="min-h-screen bg-slate-950">
+      <SEOHead
+        title="NARA Divisions"
+        description="Explore all research and operational divisions of NARA — fisheries, marine biology, oceanography, and more."
+        path="/divisions"
+        keywords="NARA divisions, fisheries research, marine biology, oceanography"
+      />
 
       {/* ═══════════════════ HERO SECTION ═══════════════════ */}
       <section className="relative h-[75vh] min-h-[500px] max-h-[700px] overflow-hidden">

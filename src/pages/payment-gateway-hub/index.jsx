@@ -8,6 +8,7 @@ import OrderSummary from './components/OrderSummary';
 import SecurityBadges from './components/SecurityBadges';
 import { cn } from '../../utils/cn';
 import StitchWrapper from '../../components/shared/StitchWrapper';
+import SEOHead from '../../components/shared/SEOHead';
 
 const PaymentGatewayHub = () => {
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
@@ -218,6 +219,12 @@ const PaymentGatewayHub = () => {
 
   return (
     <StitchWrapper>
+      <SEOHead
+        title="Payment Gateway"
+        description="Secure payment processing for NARA services and products."
+        path="/payment-gateway-hub"
+        noindex
+      />
       <div className="min-h-screen text-white relative z-10">
         {/* Header / Hero */}
         <header className="relative bg-white/5 border-b border-white/10 backdrop-blur-md z-20">

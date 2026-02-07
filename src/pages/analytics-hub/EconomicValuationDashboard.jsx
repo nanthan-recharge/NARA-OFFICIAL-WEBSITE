@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import SEOHead from '../../components/shared/SEOHead';
 import { Link } from 'react-router-dom';
 import {
   DollarSign,
@@ -210,10 +210,12 @@ const EconomicValuationDashboard = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Economic Valuation Dashboard - NARA Digital Ocean</title>
-        <meta name="description" content="Calculate blue economy contributions and investment returns" />
-      </Helmet>
+        <SEOHead
+          title="Economic Valuation Dashboard"
+          description="Economic valuation tools for marine resources and blue economy analysis in Sri Lanka."
+          path="/analytics/economic-valuation"
+          keywords="economic valuation, blue economy, marine resources, Sri Lanka"
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50 to-slate-50">
         {/* Header */}

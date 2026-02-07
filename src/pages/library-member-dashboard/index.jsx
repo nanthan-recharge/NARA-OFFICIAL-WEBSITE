@@ -5,6 +5,7 @@ import { db } from '../../lib/firebase';
 import { doc, getDoc, collection, query, where, getDocs, orderBy, limit } from 'firebase/firestore';
 import { useTranslation } from 'react-i18next';
 import QRCode from 'qrcode';
+import SEOHead from '../../components/shared/SEOHead';
 
 const LibraryMemberDashboard = () => {
   const { t } = useTranslation();
@@ -124,6 +125,12 @@ const LibraryMemberDashboard = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50 flex items-center justify-center">
+      <SEOHead
+        title="Library Member Dashboard"
+        description="Your NARA Library member dashboard — loans, reservations, and history."
+        path="/library-member-dashboard"
+        noindex
+      />
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4"></div>
           <p className="text-gray-600">Loading your library dashboard...</p>

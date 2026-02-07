@@ -65,6 +65,7 @@ import {
 } from "lucide-react";
 import { searchService, catalogueService } from "../../services/libraryService";
 import { useLibraryUser } from "../../contexts/LibraryUserContext";
+import SEOHead from '../../components/shared/SEOHead';
 
 // ============================================
 // CONSTANTS
@@ -364,6 +365,12 @@ const BookCoverPlaceholder = ({ materialType, size = "md" }) => {
     <div
       className={`${sizeClasses[size]} bg-gradient-to-br ${gradient} rounded-lg flex flex-col items-center justify-center text-white/80 p-2`}
     >
+      <SEOHead
+        title="Library Catalogue"
+        description="Browse the NARA library catalogue of marine science publications and references."
+        path="/library-catalogue"
+        keywords="library catalogue, marine publications, NARA library"
+      />
       <IconComp
         className={size === "sm" ? "w-6 h-6" : "w-10 h-10"}
         strokeWidth={1.5}

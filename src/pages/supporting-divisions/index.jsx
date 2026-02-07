@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import * as Icons from 'lucide-react';
+import SEOHead from '../../components/shared/SEOHead';
 
 const ICON_MAP = {
   'users': Icons.Users,
@@ -48,6 +49,12 @@ const SupportingDivisionsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50 to-purple-50">
+      <SEOHead
+        title="Supporting Divisions"
+        description="Support divisions of NARA that enable marine research, administration, and public services."
+        path="/divisions/supporting"
+        keywords="supporting divisions, administration, NARA services"
+      />
       {/* Hero Section */}
       <section className="relative py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-600/10 via-purple-500/10 to-pink-400/10" />

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import annualReportsData from '../../data/annualReportsData.json';
+import SEOHead from '../../components/shared/SEOHead';
 
 const AnnualReportsPage = () => {
   const { t, i18n } = useTranslation('common');
@@ -86,6 +87,12 @@ const AnnualReportsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-navy-50">
+      <SEOHead
+        title="Annual Reports"
+        description="NARA annual reports documenting marine research achievements, financial stewardship, and institutional progress."
+        path="/annual-reports"
+        keywords="annual reports, marine research publications, NARA achievements"
+      />
       {/* Hero Section - Light Blue Theme */}
       <section className="relative py-20 px-4 overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-white">
         <div className="absolute inset-0">

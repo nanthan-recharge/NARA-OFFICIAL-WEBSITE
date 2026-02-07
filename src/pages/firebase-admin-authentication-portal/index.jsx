@@ -20,6 +20,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import ParticleSystem from '../../components/shared/ParticleSystem';
 import GlassMorphismCard from '../../components/shared/GlassMorphismCard';
+import SEOHead from '../../components/shared/SEOHead';
 
 const FirebaseAdminAuthenticationPortal = () => {
   const navigate = useNavigate();
@@ -114,6 +115,12 @@ const FirebaseAdminAuthenticationPortal = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-ocean-50 to-ocean-100 flex items-center justify-center">
+      <SEOHead
+        title="Admin Authentication"
+        description="NARA admin authentication portal."
+        path="/firebase-admin-authentication-portal"
+        noindex
+      />
         <div className="flex items-center gap-3 text-ocean-600">
           <Loader2 className="w-8 h-8 animate-spin" />
           <span className="text-lg font-medium">Initializing secure connection...</span>

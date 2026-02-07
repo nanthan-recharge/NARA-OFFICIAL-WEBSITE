@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { Link } from 'react-router-dom';
+import SEOHead from '../../components/shared/SEOHead';
 
 const UserProfile = () => {
   const { user, updateUserProfile, signOut } = useFirebaseAuth();
@@ -108,6 +109,12 @@ const UserProfile = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-cyan-50 py-12 px-4">
+      <SEOHead
+        title="User Profile"
+        description="Manage your NARA account, preferences, and access settings."
+        path="/user-profile"
+        noindex
+      />
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div

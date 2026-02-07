@@ -13,6 +13,7 @@ import {
   incrementMediaMetric,
   fetchHeroCarouselImages
 } from '../../services/mediaGalleryService';
+import SEOHead from '../../components/shared/SEOHead';
 
 const CATEGORY_FALLBACKS = {
   all: 'All Media',
@@ -1215,6 +1216,12 @@ const MediaGallery = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-nara-navy via-slate-950 to-nara-navy text-white">
+      <SEOHead
+        title="Media Gallery"
+        description="Photos, videos, and media from NARA events, research expeditions, and marine conservation programs."
+        path="/media-gallery"
+        keywords="media gallery, marine photos, research videos, NARA events"
+      />
       {/* Cinematic Hero */}
       <section className="relative w-full overflow-hidden">
         <div className="relative w-full aspect-[16/9] bg-black">

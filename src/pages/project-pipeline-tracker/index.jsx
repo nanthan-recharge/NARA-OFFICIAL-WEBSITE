@@ -10,6 +10,7 @@ import {
   projectPipelineDashboardService
 } from '../../services/projectPipelineService';
 import EnhancedProjectFilters from '../../components/project-pipeline/EnhancedProjectFilters';
+import SEOHead from '../../components/shared/SEOHead';
 
 const ProjectPipelineTracker = () => {
   const { t } = useTranslation('project-pipeline');
@@ -381,6 +382,12 @@ const ProjectPipelineTracker = () => {
                 const colors = ['bg-blue-500', 'bg-green-500', 'bg-purple-500', 'bg-orange-500', 'bg-pink-500'];
                 return (
                   <div key={division}>
+      <SEOHead
+        title="Project Pipeline Tracker"
+        description="Track ongoing and upcoming NARA research projects, milestones, and progress."
+        path="/project-pipeline-tracker"
+        keywords="project tracker, research pipeline, NARA projects"
+      />
                     <div className="flex justify-between mb-2">
                       <span className="text-gray-700 font-medium truncate">{division}</span>
                       <span className="text-gray-900 font-bold">{formatCurrency(budget)}</span>

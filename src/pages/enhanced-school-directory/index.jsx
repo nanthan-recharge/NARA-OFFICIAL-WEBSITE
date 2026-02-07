@@ -31,6 +31,7 @@ import { filterSchools } from '../../services/schoolListService';
 import SchoolMap from '../aqua-school-directory/components/SchoolMap';
 import SchoolUploadModal from './components/SchoolUploadModal';
 import SchoolAdminPanel from './components/SchoolAdminPanel';
+import SEOHead from '../../components/shared/SEOHead';
 
 // Multiple database URLs for different school categories
 const SCHOOL_DATABASES = {
@@ -131,6 +132,12 @@ const EnhancedSchoolDirectory = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-navy-950 via-navy-900 to-navy-950">
+      <SEOHead
+        title="School Directory"
+        description="Enhanced directory of marine and fisheries educational institutions across Sri Lanka."
+        path="/enhanced-school-directory"
+        keywords="school directory, marine education, fisheries institutions"
+      />
       {/* Hero Section - Navy Blue Government Theme */}
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 py-20">
         <div className="absolute inset-0 pointer-events-none">
