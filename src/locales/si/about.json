@@ -533,11 +533,21 @@
       "orgDivisionsHeading": "පර්යේෂණ සහ පරිපාලන අංශ",
       "regionalCentersHeading": "ප්‍රාදේශීය පර්යේෂණ මධ්‍යස්ථාන",
       "hierarchyHeading": "ආයතනික ධූර අනුපිළිවෙල",
+      "previousMilestoneAria": "පෙර මයිල්ගල",
+      "nextMilestoneAria": "ඊළඟ මයිල්ගල",
+      "goToMilestoneAria": "{{number}} වන මයිල්ගලට යන්න",
       "vacancyFallback": "තනතුර දැනට හිස්ය",
+      "chairmanAltFallback": "NARA සභාපති",
+      "executivePortraitAltFallback": "විධායක නිලධාරීගේ ඡායාරූපය",
       "patentNumberLabel": "පේටන්ට් අංකය",
       "logoAlt": "NARA ලාංඡනය",
       "logoTitleFallback": "NARA ලාංඡනය",
-      "directorsTitleFallback": "අංශ ප්‍රධානීන්"
+      "directorsTitleFallback": "අංශ ප්‍රධානීන්",
+      "latestNewsTitleFallback": "නවතම පුවත්",
+      "latestNewsDescriptionFallback": "අපගේ නවතම විද්‍යාත්මක සොයාගැනීම් සහ නිවේදන සමඟ යාවත්කාලීනව සිටින්න.",
+      "latestNewsCtaFallback": "ලිපි කියවන්න",
+      "latestNewsPathFallback": "/nara-news-updates-center",
+      "dataPolicyEmailFallback": "data@nara.ac.lk"
     },
     "institutionalHighlights": {
       "title": "ආයතනික විශේෂත්වය",

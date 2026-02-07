@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef, useCallback, lazy, Suspense } from "react";
+import React, { useState, useEffect, useMemo, useRef, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import AppImage from "../../components/AppImage";
@@ -287,24 +287,13 @@ const AboutNARAStoryPage = () => {
   const dataPolicy = t("about.dataPolicy", { returnObjects: true });
   const chairmanImageSrc =
     leadership?.chairman?.imageUrl || "/images/chairman/chairman-profile.jpg";
-  const chairmanImageAlt = leadership?.chairman?.name || "NARA Chairman";
+  const chairmanImageAlt =
+    leadership?.chairman?.name || labels?.chairmanAltFallback;
 
   const heroStats = Array.isArray(hero?.stats) ? hero.stats : [];
   const historyBody = Array.isArray(history?.body) ? history.body : [];
-  const timeline = useMemo(
-    () => (Array.isArray(history?.timeline) ? history.timeline : []),
-    [history],
-  );
-  const timelineLoop = useMemo(() => {
-    if (!timeline.length) {
-      return [];
-    }
-    const duplicated = timeline.map((item, index) => ({
-      ...item,
-      _loopId: `dup-${index}`,
-    }));
-    return [...timeline, ...duplicated];
-  }, [timeline]);
+  const timeline = Array.isArray(history?.timeline) ? history.timeline : [];
+  const timelineCount = timeline.length;
   // Timeline carousel helpers
   const tlSlideVariants = {
     enter: (dir) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
@@ -312,42 +301,41 @@ const AboutNARAStoryPage = () => {
     exit: (dir) => ({ x: dir < 0 ? '100%' : '-100%', opacity: 0 }),
   };
 
-  const startTlTimer = useCallback(() => {
+  const resetTlTimer = useCallback(() => {
     clearInterval(tlTimerRef.current);
-    if (timeline.length <= 1) return;
+    if (timelineCount <= 1) return;
     tlTimerRef.current = setInterval(() => {
       if (!tlPaused && tlInView) {
         setTlDirection(1);
-        setTlIndex((prev) => (prev + 1) % timeline.length);
+        setTlIndex((prev) => (prev + 1) % timelineCount);
       }
     }, 5000);
-  }, [timeline.length, tlPaused, tlInView]);
+  }, [timelineCount, tlPaused, tlInView]);
 
   useEffect(() => {
-    startTlTimer();
+    resetTlTimer();
     return () => clearInterval(tlTimerRef.current);
-  }, [startTlTimer]);
+  }, [resetTlTimer]);
 
   const tlGoTo = (idx) => {
     setTlDirection(idx > tlIndex ? 1 : -1);
     setTlIndex(idx);
-    startTlTimer();
+    resetTlTimer();
   };
   const tlPrev = () => {
     setTlDirection(-1);
-    setTlIndex((prev) => (prev - 1 + timeline.length) % timeline.length);
-    startTlTimer();
+    setTlIndex((prev) => (prev - 1 + timelineCount) % timelineCount);
+    resetTlTimer();
   };
   const tlNext = () => {
     setTlDirection(1);
-    setTlIndex((prev) => (prev + 1) % timeline.length);
-    startTlTimer();
+    setTlIndex((prev) => (prev + 1) % timelineCount);
+    resetTlTimer();
   };
 
   const achievementItems = Array.isArray(achievements?.items)
     ? achievements.items
     : [];
-  const timelineIntro = history?.timelineIntro || "";
   const milestoneCountLabel = t("about.history.milestoneCount", {
     count: timeline.length,
   });
@@ -383,47 +371,22 @@ const AboutNARAStoryPage = () => {
   const boardDescription = leadership?.board?.description || "";
   const ministerAppointedTitle =
     leadership?.board?.ministerAppointed?.title ||
-    labels?.ministerAppointedFallback ||
-    "Members Appointed by the Minister";
+    labels?.ministerAppointedFallback;
   const exOfficioTitle =
     leadership?.board?.exOfficioMembers?.title ||
-    labels?.exOfficioFallback ||
-    "Ex-Officio Members";
+    labels?.exOfficioFallback;
   const vacancyNotice =
     leadership?.vacancyNotice ||
-    labels?.vacancyFallback ||
-    "Position currently vacant";
+    labels?.vacancyFallback;
   const orgStructure = leadership?.organizationalStructure || null;
   const boardHeading =
     boardTitle ||
-    labels?.boardTitleFallback ||
-    "Governing Board Members of NARA 2023";
+    labels?.boardTitleFallback;
   const timelineDetailsHeading =
-    labels?.timelineDetailsHeading || "Key Milestone Details";
-  const milestoneAltSuffix = labels?.milestoneAltSuffix || "milestone";
-  const logoAltText = labels?.logoAlt || "NARA Logo";
-  const logoTitleFallback = labels?.logoTitleFallback || "The NARA Emblem";
-  const institutionalCards = institutionalHighlights?.cards || {};
-  const latestNewsTitle =
-    typeof institutionalCards?.latestNews?.title === "string" &&
-    institutionalCards.latestNews.title.trim()
-      ? institutionalCards.latestNews.title
-      : "Latest News";
-  const latestNewsDescription =
-    typeof institutionalCards?.latestNews?.description === "string" &&
-    institutionalCards.latestNews.description.trim()
-      ? institutionalCards.latestNews.description
-      : "Stay updated with our latest scientific discoveries and announcements.";
-  const latestNewsCta =
-    typeof institutionalCards?.latestNews?.cta === "string" &&
-    institutionalCards.latestNews.cta.trim()
-      ? institutionalCards.latestNews.cta
-      : "Read Articles";
-  const latestNewsPath =
-    typeof institutionalCards?.latestNews?.path === "string" &&
-    institutionalCards.latestNews.path.trim()
-      ? institutionalCards.latestNews.path
-      : "/news";
+    labels?.timelineDetailsHeading;
+  const milestoneAltSuffix = labels?.milestoneAltSuffix;
+  const logoAltText = labels?.logoAlt;
+  const logoTitleFallback = labels?.logoTitleFallback;
   const newsItems = Array.isArray(newsSection?.items) ? newsSection.items : [];
   const patentItems = Array.isArray(patentsSection?.items)
     ? patentsSection.items
@@ -643,14 +606,14 @@ const AboutNARAStoryPage = () => {
                           <button
                             onClick={(e) => { e.stopPropagation(); tlPrev(); }}
                             className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-9 sm:h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80 hover:bg-black/60 hover:text-white transition-all"
-                            aria-label="Previous milestone"
+                            aria-label={labels?.previousMilestoneAria}
                           >
                             <ChevronLeft className="w-5 h-5" />
                           </button>
                           <button
                             onClick={(e) => { e.stopPropagation(); tlNext(); }}
                             className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-9 sm:h-9 rounded-full bg-black/40 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/80 hover:bg-black/60 hover:text-white transition-all"
-                            aria-label="Next milestone"
+                            aria-label={labels?.nextMilestoneAria}
                           >
                             <ChevronRight className="w-5 h-5" />
                           </button>
@@ -670,7 +633,9 @@ const AboutNARAStoryPage = () => {
                                 ? 'w-6 h-2 bg-cyan-400'
                                 : 'w-2 h-2 bg-white/20 hover:bg-white/40'
                             }`}
-                            aria-label={`Go to milestone ${idx + 1}`}
+                            aria-label={t("about.labels.goToMilestoneAria", {
+                              number: idx + 1,
+                            })}
                           />
                         ))}
                       </div>
@@ -1175,7 +1140,11 @@ const AboutNARAStoryPage = () => {
                             {executiveImageSrc ? (
                               <AppImage
                                 src={executiveImageSrc}
-                                alt={executive.name || executive.title || "Executive portrait"}
+                                alt={
+                                  executive.name ||
+                                  executive.title ||
+                                  labels?.executivePortraitAltFallback
+                                }
                                 className="w-full h-full object-cover object-top rounded-xl"
                                 loading="lazy"
                               />
@@ -1918,11 +1887,11 @@ const AboutNARAStoryPage = () => {
                   {dataPolicy?.contactNote}
                 </p>
                 <a
-                  href={`mailto:${dataPolicy?.contactEmail || "data@nara.ac.lk"}`}
+                  href={`mailto:${dataPolicy?.contactEmail || labels?.dataPolicyEmailFallback}`}
                   className="inline-flex items-center gap-2 text-blue-400 hover:text-blue-300 transition"
                 >
                   <Mail className="w-4 h-4" />
-                  {dataPolicy?.contactEmail || "data@nara.ac.lk"}
+                  {dataPolicy?.contactEmail || labels?.dataPolicyEmailFallback}
                 </a>
               </div>
             </motion.div>

@@ -533,11 +533,21 @@
       "orgDivisionsHeading": "Research & Administrative Divisions",
       "regionalCentersHeading": "Regional Research Centers",
       "hierarchyHeading": "Organizational Hierarchy",
+      "previousMilestoneAria": "Previous milestone",
+      "nextMilestoneAria": "Next milestone",
+      "goToMilestoneAria": "Go to milestone {{number}}",
       "vacancyFallback": "Position currently vacant",
+      "chairmanAltFallback": "NARA Chairman",
+      "executivePortraitAltFallback": "Executive portrait",
       "patentNumberLabel": "Patent No",
       "logoAlt": "NARA Logo",
       "logoTitleFallback": "The NARA Emblem",
-      "directorsTitleFallback": "Division Heads"
+      "directorsTitleFallback": "Division Heads",
+      "latestNewsTitleFallback": "Latest News",
+      "latestNewsDescriptionFallback": "Stay updated with our latest scientific discoveries and announcements.",
+      "latestNewsCtaFallback": "Read Articles",
+      "latestNewsPathFallback": "/nara-news-updates-center",
+      "dataPolicyEmailFallback": "data@nara.ac.lk"
     },
     "institutionalHighlights": {
       "title": "Institutional Highlights",

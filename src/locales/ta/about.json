@@ -533,11 +533,21 @@
       "orgDivisionsHeading": "ஆராய்ச்சி மற்றும் நிர்வாகப் பிரிவுகள்",
       "regionalCentersHeading": "பிராந்திய ஆராய்ச்சி மையங்கள்",
       "hierarchyHeading": "நிறுவன அச்சமைப்பு",
+      "previousMilestoneAria": "முந்தைய மைல்கல்",
+      "nextMilestoneAria": "அடுத்த மைல்கல்",
+      "goToMilestoneAria": "மைல்கல் {{number}}-க்கு செல்",
       "vacancyFallback": "பதவி தற்போது காலியாக உள்ளது",
+      "chairmanAltFallback": "NARA தலைவர்",
+      "executivePortraitAltFallback": "நிர்வாக அதிகாரியின் உருவப்படம்",
       "patentNumberLabel": "காப்புரிமை இலக்கம்",
       "logoAlt": "NARA சின்னம்",
       "logoTitleFallback": "NARA சின்னம்",
-      "directorsTitleFallback": "பிரிவு தலைவர்கள்"
+      "directorsTitleFallback": "பிரிவு தலைவர்கள்",
+      "latestNewsTitleFallback": "அண்மைச் செய்திகள்",
+      "latestNewsDescriptionFallback": "எங்களின் சமீபத்திய அறிவியல் கண்டுபிடிப்புகள் மற்றும் அறிவிப்புகளுடன் தொடர்ந்து புதுப்பிப்பில் இருங்கள்.",
+      "latestNewsCtaFallback": "கட்டுரைகளை வாசிக்க",
+      "latestNewsPathFallback": "/nara-news-updates-center",
+      "dataPolicyEmailFallback": "data@nara.ac.lk"
     },
     "institutionalHighlights": {
       "title": "நிறுவனச் சிறப்பம்சங்கள்",

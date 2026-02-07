@@ -63,7 +63,7 @@ function useLazySection(rootMargin = "200px") {
 }
 
 const NewHomePage = () => {
-  const [lastUpdate, setLastUpdate] = useState(new Date());
+  const [lastUpdate] = useState(new Date());
   const heroRef = useRef(null);
   const { t } = useTranslation(["home", "common"]);
 
@@ -172,7 +172,7 @@ const NewHomePage = () => {
             <div className="max-w-7xl mx-auto px-4 pt-11 sm:pt-14 md:pt-16">
               <div className="mx-auto mt-2 w-fit max-w-full min-h-[4.5rem] sm:min-h-[5.5rem] md:min-h-[6.5rem] rounded-2xl border border-sky-200/60 bg-gradient-to-b from-sky-300/70 to-sky-500/35 px-4 py-2 sm:px-6 sm:py-3 backdrop-blur-[2px] flex items-center justify-center">
                 <p className="m-0 font-space font-bold text-white text-center text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.75)]">
-                  {t("hero.welcomeText", { ns: "home", defaultValue: "Welcome to NARA Website" })}
+                  {t("hero.welcomeText", { ns: "home" })}
                 </p>
               </div>
             </div>
@@ -188,11 +188,7 @@ const NewHomePage = () => {
             >
               {/* Main Agency Title - Reduced Size from 7xl to 5xl */}
               <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold font-space leading-tight text-white drop-shadow-lg">
-                {t("hero.agencyName", {
-                  ns: "home",
-                  defaultValue:
-                    "NATIONAL AQUATIC RESOURCES RESEARCH AND DEVELOPMENT AGENCY",
-                })}
+                {t("hero.agencyName", { ns: "home" })}
               </h1>
             </motion.div>
           </div>
@@ -242,16 +238,10 @@ const NewHomePage = () => {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-[0.2em] text-nara-blue font-semibold">
-                      {t("mission.badge", {
-                        ns: "home",
-                        defaultValue: "National Aquatic Research Authority",
-                      })}
+                      {t("mission.badge", { ns: "home" })}
                     </p>
                     <p className="text-[11px] uppercase tracking-[0.3em] text-nara-gray/70">
-                      {t("hero.overview.sovereignWaters.label", {
-                        ns: "home",
-                        defaultValue: "Sovereign Waters",
-                      })}
+                      {t("hero.overview.sovereignWaters.label", { ns: "home" })}
                     </p>
                   </div>
                 </div>
@@ -266,21 +256,13 @@ const NewHomePage = () => {
                   <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <Compass className="h-5 w-5 text-nara-blue mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-nara-gray leading-relaxed">
-                      {t("mission.focusResearch", {
-                        ns: "home",
-                        defaultValue:
-                          "Coastal, deep sea, and inland water programmes powering national policy and the blue economy.",
-                      })}
+                      {t("mission.focusResearch", { ns: "home" })}
                     </p>
                   </div>
                   <div className="flex items-start gap-3 rounded-lg border border-gray-200 bg-gray-50 p-4">
                     <UserCheck className="h-5 w-5 text-nara-blue mt-0.5 flex-shrink-0" />
                     <p className="text-sm text-nara-gray leading-relaxed">
-                      {t("mission.focusCommunity", {
-                        ns: "home",
-                        defaultValue:
-                          "Alliances with fishing communities, academia, and defence agencies safeguard livelihoods and maritime security.",
-                      })}
+                      {t("mission.focusCommunity", { ns: "home" })}
                     </p>
                   </div>
                 </div>
@@ -291,20 +273,14 @@ const NewHomePage = () => {
                     className="gov-btn gov-btn-primary inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition"
                   >
                     <BookOpen className="h-4 w-4" />
-                    {t("mission.ctaLearn", {
-                      ns: "home",
-                      defaultValue: "About NARA",
-                    })}
+                    {t("mission.ctaLearn", { ns: "home" })}
                   </Link>
                   <Link
                     to="/contact-us"
                     className="gov-btn gov-btn-outline inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition"
                   >
                     <MessageCircle className="h-4 w-4" />
-                    {t("mission.ctaConsult", {
-                      ns: "home",
-                      defaultValue: "Request a briefing",
-                    })}
+                    {t("mission.ctaConsult", { ns: "home" })}
                   </Link>
                 </div>
               </motion.div>
@@ -422,27 +398,17 @@ const NewHomePage = () => {
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-nara-blue/10 border border-nara-blue/20 mb-4">
                       <BookOpen className="h-4 w-4 text-nara-blue" />
                       <span className="text-sm font-semibold text-nara-blue uppercase tracking-wider">
-                        {t("library.badge", {
-                          ns: "home",
-                          defaultValue: "Digital Library",
-                        })}
+                        {t("library.badge", { ns: "home" })}
                       </span>
                     </div>
                     <h2
                       id="library-hero-lite-heading"
                       className="text-3xl md:text-4xl font-bold text-nara-navy font-space"
                     >
-                      {t("library.heading", {
-                        ns: "home",
-                        defaultValue: "Latest from the Library",
-                      })}
+                      {t("library.heading", { ns: "home" })}
                     </h2>
                     <p className="mt-2 text-sm text-gray-500 max-w-2xl mx-auto">
-                      {t("library.subtitle", {
-                        ns: "home",
-                        defaultValue:
-                          "Recently added research publications, reports, and digital resources",
-                      })}
+                      {t("library.subtitle", { ns: "home" })}
                     </p>
                   </motion.div>
 
