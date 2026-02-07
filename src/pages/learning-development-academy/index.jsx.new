@@ -1,0 +1,1279 @@
+import React, { useState, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  Search,
+  BookOpen,
+  Award,
+  Users,
+  TrendingUp,
+  Filter,
+  Grid,
+  List,
+  Star,
+  Clock,
+  ChevronDown,
+  Upload,
+  FileText,
+  GraduationCap,
+  Target,
+  Zap,
+  BarChart3,
+  Settings,
+  Plus,
+  Download,
+  Eye,
+  CheckCircle2,
+  PlayCircle,
+  BookMarked,
+  UserCheck,
+  Briefcase,
+  Lightbulb,
+  ArrowRight,
+  X,
+  Calendar,
+  MapPin,
+  DollarSign,
+  Heart,
+  Share2,
+  AlertCircle
+} from 'lucide-react';
+import { useAuth } from '../../contexts/AuthContext';
+import {
+  getCourses,
+  getProjects,
+  getPapers,
+  getTrainingMaterials,
+  getUserProfile,
+  getUserEnrollments,
+  enrollInCourse,
+  submitProject,
+  searchContent,
+  getCategories,
+  getCourseProgress
+} from '../../services/ldaService';
+
+// ============================================
+// UTILITY FUNCTIONS
+// ============================================
+
+const getMultilingualText = (textObj, language) => {
+  if (!textObj) return '';
+  if (typeof textObj === 'string') return textObj;
+  return textObj[language] || textObj.en || textObj.si || textObj.ta || '';
+};
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+// ============================================
+// HERO SECTION COMPONENT
+// ============================================
+
+const HeroSection = ({ onSearch, userRole }) => {
+  const { t, i18n } = useTranslation('common');
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchType, setSearchType] = useState('all');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    onSearch(searchQuery, searchType);
+  };
+
+  return (
+    <motion.section
+      initial="hidden"
+      animate="visible"
+      variants={fadeInUp}
+      className="relative bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-400 text-white py-20 overflow-hidden"
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          variants={fadeInUp}
+          className="max-w-4xl mx-auto text-center"
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 200 }}
+            className="inline-block mb-6"
+          >
+            <div className="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+              <span className="flex items-center gap-2 text-sm font-semibold">
+                <GraduationCap className="w-4 h-4" />
+                World-Class Learning Platform
+              </span>
+            </div>
+          </motion.div>
+
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Learning Development Academy
+          </h1>
+
+          <p className="text-xl md:text-2xl mb-8 text-white/90">
+            Empowering marine research through education, innovation, and collaboration
+          </p>
+
+          {/* Search Bar */}
+          <motion.form
+            variants={fadeInUp}
+            onSubmit={handleSearch}
+            className="max-w-3xl mx-auto mb-8"
+          >
+            <div className="bg-white rounded-2xl shadow-2xl p-2 flex flex-col md:flex-row gap-2">
+              <div className="flex-1 flex items-center px-4">
+                <Search className="w-5 h-5 text-gray-400 mr-3" />
+                <input
+                  type="text"
+                  placeholder="Search courses, papers, materials..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="flex-1 outline-none text-gray-800 placeholder-gray-400"
+                />
+              </div>
+
+              <select
+                value={searchType}
+                onChange={(e) => setSearchType(e.target.value)}
+                className="px-4 py-3 text-gray-700 bg-gray-50 rounded-xl outline-none cursor-pointer"
+              >
+                <option value="all">All</option>
+                <option value="courses">Courses</option>
+                <option value="papers">Papers</option>
+                <option value="materials">Materials</option>
+              </select>
+
+              <button
+                type="submit"
+                className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-8 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
+              >
+                Search
+              </button>
+            </div>
+          </motion.form>
+
+          {/* Quick Stats */}
+          <motion.div
+            variants={staggerContainer}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+          >
+            {[
+              { icon: BookOpen, label: 'Courses', value: '150+' },
+              { icon: Users, label: 'Learners', value: '10K+' },
+              { icon: FileText, label: 'Research Papers', value: '500+' },
+              { icon: Award, label: 'Certifications', value: '5K+' }
+            ].map((stat, idx) => (
+              <motion.div
+                key={idx}
+                variants={fadeInUp}
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4"
+              >
+                <stat.icon className="w-6 h-6 mb-2 mx-auto" />
+                <div className="text-2xl font-bold">{stat.value}</div>
+                <div className="text-sm text-white/80">{stat.label}</div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </div>
+    </motion.section>
+  );
+};
+
+// ============================================
+// USER DASHBOARD COMPONENT
+// ============================================
+
+const UserDashboard = ({ user, userProfile, enrollments, userProjects }) => {
+  const { t, i18n } = useTranslation('common');
+  const [activeTab, setActiveTab] = useState('overview');
+
+  const stats = useMemo(() => ({
+    coursesInProgress: enrollments?.filter(e => e.status === 'active').length || 0,
+    coursesCompleted: enrollments?.filter(e => e.status === 'completed').length || 0,
+    projectsSubmitted: userProjects?.length || 0,
+    certificatesEarned: userProfile?.stats?.certificatesEarned || 0,
+    totalLearningHours: userProfile?.stats?.totalLearningHours || 0
+  }), [enrollments, userProjects, userProfile]);
+
+  const tabs = [
+    { id: 'overview', label: 'Overview', icon: BarChart3 },
+    { id: 'courses', label: 'My Courses', icon: BookOpen },
+    { id: 'projects', label: 'My Projects', icon: Briefcase },
+    { id: 'certificates', label: 'Certificates', icon: Award },
+    { id: 'progress', label: 'Progress', icon: TrendingUp }
+  ];
+
+  return (
+    <motion.section
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="container mx-auto px-4 py-12"
+    >
+      <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8">
+        {/* Header */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">
+              Welcome back, {getMultilingualText(userProfile?.firstName, i18n.language) || user?.email}
+            </h2>
+            <p className="text-gray-600">
+              Continue your learning journey
+            </p>
+          </div>
+
+          <div className="mt-4 md:mt-0">
+            <div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-2 rounded-lg">
+              <span className="text-sm font-semibold capitalize">{userProfile?.role || 'Student'}</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-8">
+          {[
+            { label: 'In Progress', value: stats.coursesInProgress, icon: PlayCircle, color: 'blue' },
+            { label: 'Completed', value: stats.coursesCompleted, icon: CheckCircle2, color: 'green' },
+            { label: 'Projects', value: stats.projectsSubmitted, icon: Briefcase, color: 'purple' },
+            { label: 'Certificates', value: stats.certificatesEarned, icon: Award, color: 'yellow' },
+            { label: 'Hours', value: stats.totalLearningHours, icon: Clock, color: 'pink' }
+          ].map((stat, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: idx * 0.1 }}
+              className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4"
+            >
+              <stat.icon className="w-6 h-6 text-blue-600 mb-2" />
+              <div className="text-2xl font-bold text-gray-800">{stat.value}</div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Tabs */}
+        <div className="border-b border-gray-200 mb-6">
+          <div className="flex flex-wrap gap-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`flex items-center gap-2 px-4 py-2 border-b-2 transition-colors ${
+                  activeTab === tab.id
+                    ? 'border-blue-600 text-blue-600'
+                    : 'border-transparent text-gray-600 hover:text-gray-800'
+                }`}
+              >
+                <tab.icon className="w-4 h-4" />
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Tab Content */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -20 }}
+            transition={{ duration: 0.2 }}
+          >
+            {activeTab === 'overview' && (
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Recent Activity */}
+                  <div className="bg-gray-50 rounded-xl p-6">
+                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Clock className="w-5 h-5 text-blue-600" />
+                      Recent Activity
+                    </h3>
+                    <div className="space-y-3">
+                      {enrollments?.slice(0, 3).map((enrollment, idx) => (
+                        <div key={idx} className="flex items-start gap-3 p-3 bg-white rounded-lg">
+                          <div className="w-2 h-2 bg-blue-600 rounded-full mt-2" />
+                          <div className="flex-1">
+                            <p className="font-medium text-gray-800">Course Progress Updated</p>
+                            <p className="text-sm text-gray-600">
+                              {enrollment.lastAccessedAt?.seconds ?
+                                new Date(enrollment.lastAccessedAt.seconds * 1000).toLocaleDateString() :
+                                'Recently'}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                      {!enrollments?.length && (
+                        <p className="text-gray-500 text-center py-4">No recent activity</p>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Recommendations */}
+                  <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6">
+                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                      <Lightbulb className="w-5 h-5 text-purple-600" />
+                      Recommended for You
+                    </h3>
+                    <div className="space-y-3">
+                      <div className="bg-white rounded-lg p-4">
+                        <p className="font-medium text-gray-800 mb-1">Advanced Marine Biology</p>
+                        <p className="text-sm text-gray-600 mb-2">Based on your interests</p>
+                        <button className="text-sm text-purple-600 hover:text-purple-700 font-semibold">
+                          View Course →
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {activeTab === 'courses' && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {enrollments?.map((enrollment, idx) => (
+                  <EnrollmentCard key={idx} enrollment={enrollment} language={i18n.language} />
+                ))}
+                {!enrollments?.length && (
+                  <div className="col-span-full text-center py-12">
+                    <BookOpen className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-600">No courses enrolled yet</p>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {activeTab === 'projects' && (
+              <div className="grid md:grid-cols-2 gap-6">
+                {userProjects?.map((project, idx) => (
+                  <ProjectCard key={idx} project={project} language={i18n.language} />
+                ))}
+                {!userProjects?.length && (
+                  <div className="col-span-full text-center py-12">
+                    <Briefcase className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                    <p className="text-gray-600">No projects submitted yet</p>
+                  </div>
+                )}
+              </div>
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </motion.section>
+  );
+};
+
+// ============================================
+// ENROLLMENT CARD COMPONENT
+// ============================================
+
+const EnrollmentCard = ({ enrollment, language }) => {
+  const progress = enrollment?.progress || 0;
+
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all"
+    >
+      <div className="relative h-32 bg-gradient-to-br from-blue-500 to-cyan-500">
+        <div className="absolute bottom-0 left-0 right-0 bg-black/50 backdrop-blur-sm p-3">
+          <div className="flex justify-between items-center text-white text-sm mb-1">
+            <span>Progress</span>
+            <span>{progress}%</span>
+          </div>
+          <div className="w-full bg-white/20 rounded-full h-2">
+            <div
+              className="bg-green-400 h-2 rounded-full transition-all"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="p-6">
+        <h3 className="text-lg font-bold text-gray-800 mb-2">Course Title</h3>
+        <p className="text-sm text-gray-600 mb-4">Continue your learning</p>
+        <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all">
+          Continue Learning
+        </button>
+      </div>
+    </motion.div>
+  );
+};
+
+// ============================================
+// COURSE CARD COMPONENT
+// ============================================
+
+const CourseCard = ({ course, enrollment, language, onEnroll }) => {
+  const title = getMultilingualText(course?.title, language);
+  const description = getMultilingualText(course?.description, language);
+  const instructor = getMultilingualText(course?.instructor?.name, language);
+
+  const progress = enrollment?.progress || 0;
+  const isEnrolled = !!enrollment;
+
+  return (
+    <motion.div
+      whileHover={{ y: -5 }}
+      className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all"
+    >
+      {/* Thumbnail */}
+      <div className="relative h-48 bg-gradient-to-br from-blue-500 to-cyan-500">
+        {course?.thumbnail && (
+          <img src={course.thumbnail} alt={title} className="w-full h-full object-cover" />
+        )}
+        <div className="absolute top-4 right-4">
+          {course?.featured && (
+            <span className="bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full text-xs font-semibold">
+              Featured
+            </span>
+          )}
+        </div>
+        {isEnrolled && (
+          <div className="absolute bottom-0 left-0 right-0 bg-black/50 backdrop-blur-sm p-3">
+            <div className="flex justify-between items-center text-white text-sm mb-1">
+              <span>Progress</span>
+              <span>{progress}%</span>
+            </div>
+            <div className="w-full bg-white/20 rounded-full h-2">
+              <div
+                className="bg-green-400 h-2 rounded-full transition-all"
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Content */}
+      <div className="p-6">
+        {/* Header */}
+        <div className="flex items-start justify-between mb-3">
+          <div className="flex-1">
+            <h3 className="text-xl font-bold text-gray-800 mb-1 line-clamp-2">
+              {title || 'Course Title'}
+            </h3>
+            <p className="text-sm text-gray-600">{instructor || 'Instructor'}</p>
+          </div>
+        </div>
+
+        {/* Description */}
+        <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+          {description || 'Course description...'}
+        </p>
+
+        {/* Meta Info */}
+        <div className="flex items-center gap-4 mb-4 text-sm text-gray-600">
+          <div className="flex items-center gap-1">
+            <Clock className="w-4 h-4" />
+            <span>{course?.duration || '12 weeks'}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Users className="w-4 h-4" />
+            <span>{course?.enrolledCount || 0}</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <Star className="w-4 h-4 text-yellow-400 fill-current" />
+            <span>{course?.averageRating || 4.5}</span>
+          </div>
+        </div>
+
+        {/* Action Button */}
+        <button
+          onClick={() => onEnroll?.(course.id)}
+          disabled={isEnrolled}
+          className={`w-full py-3 rounded-lg font-semibold transition-all ${
+            isEnrolled
+              ? 'bg-gray-100 text-gray-600 cursor-default'
+              : 'bg-gradient-to-r from-blue-600 to-cyan-600 text-white hover:shadow-lg'
+          }`}
+        >
+          {isEnrolled ? 'Continue Learning' : 'Enroll Now'}
+        </button>
+      </div>
+    </motion.div>
+  );
+};
+
+// ============================================
+// PROJECT CARD COMPONENT
+// ============================================
+
+const ProjectCard = ({ project, language }) => {
+  const title = getMultilingualText(project?.title, language);
+  const abstract = getMultilingualText(project?.abstract, language);
+
+  const statusColors = {
+    pending: 'bg-yellow-100 text-yellow-800',
+    approved: 'bg-green-100 text-green-800',
+    rejected: 'bg-red-100 text-red-800',
+    'needs-revision': 'bg-orange-100 text-orange-800'
+  };
+
+  return (
+    <motion.div
+      whileHover={{ scale: 1.02 }}
+      className="bg-white rounded-xl shadow-lg p-6 border border-gray-200"
+    >
+      <div className="flex items-start justify-between mb-4">
+        <h3 className="text-lg font-bold text-gray-800 flex-1">{title || 'Project Title'}</h3>
+        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${statusColors[project?.status] || statusColors.pending}`}>
+          {project?.status || 'pending'}
+        </span>
+      </div>
+
+      <p className="text-gray-600 text-sm mb-4 line-clamp-3">{abstract || 'Project abstract...'}</p>
+
+      <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+        <div className="flex items-center gap-1">
+          <Calendar className="w-4 h-4" />
+          <span>
+            {project?.submittedAt?.seconds ?
+              new Date(project.submittedAt.seconds * 1000).toLocaleDateString() :
+              'Recently'}
+          </span>
+        </div>
+        <div className="flex items-center gap-1">
+          <FileText className="w-4 h-4" />
+          <span>{project?.files?.length || 0} files</span>
+        </div>
+      </div>
+
+      <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 rounded-lg font-semibold transition-colors">
+        View Details
+      </button>
+    </motion.div>
+  );
+};
+
+// ============================================
+// COURSE CATALOG SECTION
+// ============================================
+
+const CourseCatalog = ({ courses, categories, onEnroll, userEnrollments, language }) => {
+  const [filteredCourses, setFilteredCourses] = useState(courses);
+  const [selectedCategory, setSelectedCategory] = useState('all');
+  const [selectedLevel, setSelectedLevel] = useState('all');
+  const [viewMode, setViewMode] = useState('grid');
+  const [sortBy, setSortBy] = useState('popular');
+
+  useEffect(() => {
+    let filtered = [...courses];
+
+    if (selectedCategory !== 'all') {
+      filtered = filtered.filter(c => c.category === selectedCategory);
+    }
+
+    if (selectedLevel !== 'all') {
+      filtered = filtered.filter(c => c.level === selectedLevel);
+    }
+
+    switch (sortBy) {
+      case 'popular':
+        filtered.sort((a, b) => (b.enrolledCount || 0) - (a.enrolledCount || 0));
+        break;
+      case 'rating':
+        filtered.sort((a, b) => (b.averageRating || 0) - (a.averageRating || 0));
+        break;
+      case 'newest':
+        filtered.sort((a, b) => (b.createdAt?.seconds || 0) - (a.createdAt?.seconds || 0));
+        break;
+      default:
+        break;
+    }
+
+    setFilteredCourses(filtered);
+  }, [courses, selectedCategory, selectedLevel, sortBy]);
+
+  return (
+    <section className="container mx-auto px-4 py-12">
+      {/* Header */}
+      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8">
+        <div>
+          <h2 className="text-3xl font-bold text-gray-800 mb-2">
+            Course Catalog
+          </h2>
+          <p className="text-gray-600">
+            Discover courses tailored to your learning path
+          </p>
+        </div>
+
+        {/* View Toggle */}
+        <div className="flex items-center gap-2 mt-4 md:mt-0">
+          <button
+            onClick={() => setViewMode('grid')}
+            className={`p-2 rounded-lg ${viewMode === 'grid' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-600'}`}
+          >
+            <Grid className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => setViewMode('list')}
+            className={`p-2 rounded-lg ${viewMode === 'list' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-600'}`}
+          >
+            <List className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Filters */}
+      <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+        <div className="grid md:grid-cols-4 gap-4">
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Category
+            </label>
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+              <option value="all">All Categories</option>
+              {categories?.map(cat => (
+                <option key={cat.id} value={cat.id}>
+                  {getMultilingualText(cat.name, language)}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Level
+            </label>
+            <select
+              value={selectedLevel}
+              onChange={(e) => setSelectedLevel(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+              <option value="all">All Levels</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+              <option value="expert">Expert</option>
+            </select>
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Sort By
+            </label>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+              <option value="popular">Most Popular</option>
+              <option value="rating">Highest Rated</option>
+              <option value="newest">Newest</option>
+            </select>
+          </div>
+
+          <div className="flex items-end">
+            <div className="bg-blue-50 text-blue-700 px-4 py-2 rounded-lg w-full text-center">
+              <span className="font-semibold">{filteredCourses.length}</span> courses found
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Course Grid */}
+      <div className={viewMode === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-3 gap-6' : 'space-y-4'}>
+        {filteredCourses.map(course => {
+          const enrollment = userEnrollments?.find(e => e.courseId === course.id);
+          return (
+            <CourseCard
+              key={course.id}
+              course={course}
+              enrollment={enrollment}
+              language={language}
+              onEnroll={onEnroll}
+            />
+          );
+        })}
+      </div>
+
+      {filteredCourses.length === 0 && (
+        <div className="text-center py-20">
+          <BookOpen className="w-20 h-20 text-gray-400 mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-700 mb-2">
+            No courses found
+          </h3>
+          <p className="text-gray-600">
+            Try adjusting your filters
+          </p>
+        </div>
+      )}
+    </section>
+  );
+};
+
+// ============================================
+// PROJECT SUBMISSION MODAL
+// ============================================
+
+const ProjectSubmissionModal = ({ isOpen, onClose, onSubmit, userId, userRole }) => {
+  const { i18n } = useTranslation('common');
+  const [formData, setFormData] = useState({
+    title: { en: '', si: '', ta: '' },
+    abstract: { en: '', si: '', ta: '' },
+    category: '',
+    files: []
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [activeLanguageTab, setActiveLanguageTab] = useState('en');
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    try {
+      await onSubmit({
+        ...formData,
+        userId,
+        submitterRole: userRole
+      });
+      onClose();
+    } catch (error) {
+      console.error('Error submitting project:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+      >
+        <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between">
+          <h2 className="text-2xl font-bold text-gray-800">
+            Submit Research Project
+          </h2>
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
+
+        <form onSubmit={handleSubmit} className="p-6 space-y-6">
+          <div className="flex gap-2 border-b border-gray-200">
+            {['en', 'si', 'ta'].map(lang => (
+              <button
+                key={lang}
+                type="button"
+                onClick={() => setActiveLanguageTab(lang)}
+                className={`px-4 py-2 font-semibold border-b-2 transition-colors ${
+                  activeLanguageTab === lang
+                    ? 'border-blue-600 text-blue-600'
+                    : 'border-transparent text-gray-600 hover:text-gray-800'
+                }`}
+              >
+                {lang.toUpperCase()}
+              </button>
+            ))}
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Project Title ({activeLanguageTab.toUpperCase()})
+            </label>
+            <input
+              type="text"
+              required
+              value={formData.title[activeLanguageTab]}
+              onChange={(e) => setFormData({
+                ...formData,
+                title: { ...formData.title, [activeLanguageTab]: e.target.value }
+              })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+              placeholder="Enter project title"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Abstract ({activeLanguageTab.toUpperCase()})
+            </label>
+            <textarea
+              required
+              rows={6}
+              value={formData.abstract[activeLanguageTab]}
+              onChange={(e) => setFormData({
+                ...formData,
+                abstract: { ...formData.abstract, [activeLanguageTab]: e.target.value }
+              })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none resize-none"
+              placeholder="Enter project abstract"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">
+              Category
+            </label>
+            <select
+              required
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+            >
+              <option value="">Select a category</option>
+              <option value="marine-biology">Marine Biology</option>
+              <option value="oceanography">Oceanography</option>
+              <option value="climate-science">Climate Science</option>
+              <option value="fisheries">Fisheries</option>
+              <option value="conservation">Conservation</option>
+            </select>
+          </div>
+
+          <div className="flex gap-4">
+            <button
+              type="button"
+              onClick={onClose}
+              className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? 'Submitting...' : 'Submit Project'}
+            </button>
+          </div>
+        </form>
+      </motion.div>
+    </div>
+  );
+};
+
+// ============================================
+// RESEARCH PAPERS LIBRARY
+// ============================================
+
+const ResearchPapersLibrary = ({ papers, language }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const filteredPapers = papers.filter(paper => {
+    if (!searchQuery) return true;
+    const title = getMultilingualText(paper.title, language).toLowerCase();
+    const abstract = getMultilingualText(paper.abstract, language).toLowerCase();
+    return title.includes(searchQuery.toLowerCase()) || abstract.includes(searchQuery.toLowerCase());
+  });
+
+  return (
+    <section className="container mx-auto px-4 py-12">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">
+          Research Papers Library
+        </h2>
+        <p className="text-gray-600">
+          Access cutting-edge research in marine science
+        </p>
+      </div>
+
+      <div className="mb-6">
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search papers..."
+            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          />
+        </div>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredPapers.map((paper, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: idx * 0.05 }}
+            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow border border-gray-200"
+          >
+            <div className="flex items-start justify-between mb-3">
+              <div className="flex-1">
+                <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+                  {getMultilingualText(paper.title, language) || 'Paper Title'}
+                </h3>
+                <p className="text-sm text-gray-600 mb-2">
+                  {paper.authors?.[0]?.name || 'Unknown Author'}
+                </p>
+              </div>
+              <FileText className="w-8 h-8 text-blue-600 flex-shrink-0" />
+            </div>
+
+            <p className="text-gray-600 text-sm mb-4 line-clamp-3">
+              {getMultilingualText(paper.abstract, language) || 'Abstract...'}
+            </p>
+
+            <div className="flex items-center gap-4 text-sm text-gray-600 mb-4">
+              <div className="flex items-center gap-1">
+                <Eye className="w-4 h-4" />
+                <span>{paper.viewCount || 0}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Download className="w-4 h-4" />
+                <span>{paper.downloadCount || 0}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                <span>
+                  {paper.uploadedAt?.seconds ?
+                    new Date(paper.uploadedAt.seconds * 1000).getFullYear() :
+                    '2024'}
+                </span>
+              </div>
+            </div>
+
+            <button className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all">
+              View Paper
+            </button>
+          </motion.div>
+        ))}
+      </div>
+
+      {filteredPapers.length === 0 && (
+        <div className="text-center py-20">
+          <FileText className="w-20 h-20 text-gray-400 mx-auto mb-4" />
+          <p className="text-gray-600">No papers found</p>
+        </div>
+      )}
+    </section>
+  );
+};
+
+// ============================================
+// TRAINING MATERIALS SECTION
+// ============================================
+
+const TrainingMaterialsSection = ({ materials, language }) => {
+  return (
+    <section className="container mx-auto px-4 py-12 bg-gray-50">
+      <div className="mb-8">
+        <h2 className="text-3xl font-bold text-gray-800 mb-2">
+          Training Materials
+        </h2>
+        <p className="text-gray-600">
+          Resources to enhance your learning experience
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {materials.map((material, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: idx * 0.05 }}
+            className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all"
+          >
+            <div className="bg-gradient-to-br from-purple-500 to-pink-500 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+              <BookMarked className="w-6 h-6 text-white" />
+            </div>
+
+            <h3 className="text-lg font-bold text-gray-800 mb-2 line-clamp-2">
+              {getMultilingualText(material.title, language) || 'Material Title'}
+            </h3>
+
+            <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+              {getMultilingualText(material.description, language) || 'Description...'}
+            </p>
+
+            <div className="flex items-center justify-between text-sm text-gray-600 mb-4">
+              <span className="capitalize">{material.type || 'guide'}</span>
+              <div className="flex items-center gap-1">
+                <Download className="w-4 h-4" />
+                <span>{material.downloadCount || 0}</span>
+              </div>
+            </div>
+
+            <button className="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg font-semibold transition-colors">
+              Download
+            </button>
+          </motion.div>
+        ))}
+      </div>
+
+      {materials.length === 0 && (
+        <div className="text-center py-20">
+          <BookMarked className="w-20 h-20 text-gray-400 mx-auto mb-4" />
+          <p className="text-gray-600">No materials available yet</p>
+        </div>
+      )}
+    </section>
+  );
+};
+
+// ============================================
+// MAIN COMPONENT
+// ============================================
+
+const LearningDevelopmentAcademy = () => {
+  const { i18n } = useTranslation('common');
+  const { currentUser } = useAuth();
+
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [courses, setCourses] = useState([]);
+  const [papers, setPapers] = useState([]);
+  const [materials, setMaterials] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [userProfile, setUserProfile] = useState(null);
+  const [userEnrollments, setUserEnrollments] = useState([]);
+  const [userProjects, setUserProjects] = useState([]);
+  const [showProjectModal, setShowProjectModal] = useState(false);
+  const [notification, setNotification] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+
+        const [coursesData, papersData, materialsData, categoriesData] = await Promise.all([
+          getCourses({ limitTo: 50 }),
+          getPapers({ limitTo: 20 }),
+          getTrainingMaterials({ limitTo: 12 }),
+          getCategories()
+        ]);
+
+        setCourses(coursesData);
+        setPapers(papersData);
+        setMaterials(materialsData);
+        setCategories(categoriesData);
+
+        if (currentUser) {
+          const [profile, enrollments, userProjectsData] = await Promise.all([
+            getUserProfile(currentUser.uid),
+            getUserEnrollments(currentUser.uid),
+            getProjects({ userId: currentUser.uid })
+          ]);
+
+          setUserProfile(profile);
+          setUserEnrollments(enrollments);
+          setUserProjects(userProjectsData);
+        }
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [currentUser]);
+
+  const handleSearch = async (query, type) => {
+    if (!query.trim()) return;
+    try {
+      const results = await searchContent(query, type);
+      showNotification('Search results found', 'success');
+    } catch (err) {
+      showNotification('Search failed', 'error');
+    }
+  };
+
+  const handleEnrollCourse = async (courseId) => {
+    if (!currentUser) {
+      showNotification('Please login to enroll', 'warning');
+      return;
+    }
+
+    try {
+      await enrollInCourse(currentUser.uid, courseId);
+      showNotification('Successfully enrolled!', 'success');
+      const enrollments = await getUserEnrollments(currentUser.uid);
+      setUserEnrollments(enrollments);
+    } catch (err) {
+      showNotification('Enrollment failed', 'error');
+    }
+  };
+
+  const handleProjectSubmit = async (projectData) => {
+    try {
+      await submitProject(projectData, projectData.files);
+      showNotification('Project submitted successfully!', 'success');
+      const userProjectsData = await getProjects({ userId: currentUser.uid });
+      setUserProjects(userProjectsData);
+    } catch (err) {
+      showNotification('Submission failed', 'error');
+    }
+  };
+
+  const showNotification = (message, type) => {
+    setNotification({ message, type });
+    setTimeout(() => setNotification(null), 5000);
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-600 mx-auto mb-4" />
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <AlertCircle className="w-16 h-16 text-red-500 mx-auto mb-4" />
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Error</h2>
+          <p className="text-gray-600">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Notification */}
+      <AnimatePresence>
+        {notification && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed top-4 right-4 z-50"
+          >
+            <div className={`px-6 py-4 rounded-lg shadow-lg flex items-center gap-3 ${
+              notification.type === 'success' ? 'bg-green-500' :
+              notification.type === 'error' ? 'bg-red-500' :
+              notification.type === 'warning' ? 'bg-yellow-500' :
+              'bg-blue-500'
+            } text-white`}>
+              {notification.type === 'success' && <CheckCircle2 className="w-5 h-5" />}
+              {notification.type === 'error' && <AlertCircle className="w-5 h-5" />}
+              <span className="font-semibold">{notification.message}</span>
+              <button onClick={() => setNotification(null)} className="ml-2">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <HeroSection onSearch={handleSearch} userRole={userProfile?.role} />
+
+      {currentUser && userProfile && (
+        <UserDashboard
+          user={currentUser}
+          userProfile={userProfile}
+          enrollments={userEnrollments}
+          userProjects={userProjects}
+        />
+      )}
+
+      {currentUser && (
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-wrap gap-4 justify-center">
+            <button
+              onClick={() => setShowProjectModal(true)}
+              className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+            >
+              <Plus className="w-5 h-5" />
+              Submit Project
+            </button>
+
+            {(userProfile?.role === 'researcher' || userProfile?.role === 'professor') && (
+              <button className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                <Upload className="w-5 h-5" />
+                Upload Paper
+              </button>
+            )}
+
+            {userProfile?.role === 'admin' && (
+              <button className="flex items-center gap-2 bg-gradient-to-r from-gray-800 to-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                <Settings className="w-5 h-5" />
+                Admin Panel
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+
+      <CourseCatalog
+        courses={courses}
+        categories={categories}
+        onEnroll={handleEnrollCourse}
+        userEnrollments={userEnrollments}
+        language={i18n.language}
+      />
+
+      <ResearchPapersLibrary papers={papers} language={i18n.language} />
+
+      <TrainingMaterialsSection materials={materials} language={i18n.language} />
+
+      <ProjectSubmissionModal
+        isOpen={showProjectModal}
+        onClose={() => setShowProjectModal(false)}
+        onSubmit={handleProjectSubmit}
+        userId={currentUser?.uid}
+        userRole={userProfile?.role}
+      />
+
+      {!currentUser && (
+        <section className="container mx-auto px-4 py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-blue-600 to-cyan-600 rounded-3xl p-12 text-center text-white"
+          >
+            <h2 className="text-4xl font-bold mb-4">
+              Ready to Start Learning?
+            </h2>
+            <p className="text-xl mb-8 text-white/90">
+              Join thousands of learners advancing their knowledge in marine science
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <button className="bg-white text-blue-600 px-8 py-4 rounded-xl font-bold hover:shadow-2xl transition-all">
+                Sign Up Now
+              </button>
+              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all">
+                Learn More
+              </button>
+            </div>
+          </motion.div>
+        </section>
+      )}
+    </div>
+  );
+};
+
+export default LearningDevelopmentAcademy;

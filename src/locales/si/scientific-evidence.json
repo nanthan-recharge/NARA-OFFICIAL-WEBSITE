@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "විද්‍යාත්මක සාක්ෂි ගබඩාව",
+    "subtitle": "සාක්ෂි පදනම් කරගත් සාගර සහ මත්ස්‍ය ප්‍රතිපත්ති තීරණ දැනුවත් කිරීම සඳහා සම ලිපි විශ්ලේෂණය කරන ලද පර්යේෂණ, ප්‍රතිපත්ති සංක්ෂිප්ත සහ දත්ත මත පදනම් වූ අවබෝධය වෙත ප්‍රවේශය",
+    "searchPlaceholder": "මූල පද, කතුවරුන් හෝ මාතෘකා අනුව සොයන්න...",
+    "searchButton": "සොයන්න",
+    "loading": "පූරණය වෙමින්..."
+  },
+  "navigation": {
+    "home": "මුල් පිටුව",
+    "researchEvidence": "පර්යේෂණ සාක්ෂි",
+    "policyBriefs": "ප්‍රතිපත්ති සංක්ෂිප්ත",
+    "dataVisualizations": "දත්ත සහ දෘශ්‍යකරණ"
+  },
+  "statistics": {
+    "researchDocuments": "පර්යේෂණ ලේඛන",
+    "policyBriefs": "ප්‍රතිපත්ති සංක්ෂිප්ත",
+    "totalViews": "මුළු දර්ශන",
+    "dataVisualizations": "දත්ත දෘශ්‍යකරණ"
+  },
+  "sections": {
+    "mostViewed": "වඩාත්ම නරඹන ලද පර්යේෂණ",
+    "recentBriefs": "මෑත ප්‍රතිපත්ති සංක්ෂිප්ත",
+    "browseByArea": "ප්‍රතිපත්ති ක්ෂේත්‍රය අනුව බ්‍රවුස් කරන්න"
+  },
+  "categories": {
+    "research_paper": "පර්යේෂණ පත්‍රිකාව",
+    "technical_report": "තාක්ෂණික වාර්තාව",
+    "policy_analysis": "ප්‍රතිපත්ති විශ්ලේෂණය",
+    "data_report": "දත්ත වාර්තාව",
+    "review": "සමාලෝචනය",
+    "allCategories": "සියලුම ප්‍රවර්ග"
+  },
+  "policyAreas": {
+    "fisheries_management": "මත්ස්‍ය කළමනාකරණය",
+    "marine_conservation": "සාගර සංරක්ෂණය",
+    "aquaculture": "ජලජීවී වගාව",
+    "coastal_management": "වෙරළබඩ කළමනාකරණය",
+    "climate_change": "දේශගුණ විපර්යාස",
+    "sustainable_development": "තිරසාර සංවර්ධනය",
+    "allPolicyAreas": "සියලුම ප්‍රතිපත්ති ක්ෂේත්‍ර"
+  },
+  "buttons": {
+    "viewDocument": "ලේඛනය බලන්න",
+    "readBrief": "සංක්ෂිප්තය කියවන්න",
+    "viewAll": "සියල්ල බලන්න",
+    "download": "බාගන්න",
+    "readFullBrief": "සම්පූර්ණ සංක්ෂිප්තය කියවන්න",
+    "viewVisualization": "දෘශ්‍යකරණය බලන්න"
+  },
+  "labels": {
+    "authors": "කතුවරුන්",
+    "views": "දර්ශන",
+    "downloads": "බාගැනීම්",
+    "published": "ප්‍රකාශයට පත් කළ",
+    "keyRecommendations": "ප්‍රධාන නිර්දේශ"
+  },
+  "search": {
+    "title": "සෙවුම් ප්‍රතිඵල",
+    "foundDocuments": "\"{{query}}\" සමඟ ගැලපෙන ලේඛන {{count}} ක් සොයා ගන්නා ලදී"
+  },
+  "emptyStates": {
+    "noDocuments": "ඔබගේ නිර්ණායක වලට ගැලපෙන ලේඛන කිසිවක් හමු නොවීය.",
+    "noBriefs": "මේ මොහොතේ ප්‍රතිපත්ති සංක්ෂිප්ත නොමැත.",
+    "noVisualizations": "මේ මොහොතේ දත්ත දෘශ්‍යකරණ නොමැත.",
+    "noSearchResults": "ලේඛන හමු නොවීය. වෙනත් මූල පද උත්සාහ කරන්න."
+  }
+}

@@ -1,0 +1,351 @@
+{
+  "regionalCenters": {
+    "hero": {
+      "badge": "Nationwide Presence",
+      "title": "Regional Research Centers",
+      "headline": "Advancing Aquatic Science Across Sri Lanka",
+      "description": "NARA's regional research centers extend our scientific excellence to key coastal and inland areas, conducting localized research, providing training, and supporting sustainable aquatic resource development in communities across the island."
+    },
+    "stats": {
+      "centers": {
+        "value": "5",
+        "label": "Research Centers"
+      },
+      "provinces": {
+        "value": "3",
+        "label": "Provinces Covered"
+      },
+      "programs": {
+        "value": "20+",
+        "label": "Active Programs"
+      },
+      "communities": {
+        "value": "1000+",
+        "label": "Communities Served"
+      }
+    },
+    "centers": {
+      "kadolkele": {
+        "name": "Regional Research Center – Kadolkele",
+        "tagline": "Mangrove Research & Coastal Aquaculture Hub",
+        "location": "Kadolkele, Negombo, Western Province",
+        "coordinates": {
+          "lat": 7.2084,
+          "lng": 79.8353
+        },
+        "distance": "30 km north of Colombo",
+        "image": "/images/centers/kadolkele-center.jpg",
+        "description": "Located adjacent to Negombo Lagoon in a 14-hectare mangrove area, the Kadolkele center is the largest remaining mangrove patch in the northern part of the lagoon, serving as a vital hub for mangrove research, conservation, and coastal aquaculture development.",
+        "mainObjectives": [
+          "Decentralization of research programs and field-oriented studies",
+          "Development of national mangrove research and educational center",
+          "Conservation of 14 ha mangrove area for lagoon productivity enhancement",
+          "Development of eco-tourism recreational facilities"
+        ],
+        "broadObjectives": [
+          "Coastal aquaculture advisory center development",
+          "Rational utilization of coastal resources for finfish and shrimp production",
+          "Maximization of employment and income distribution for coastal communities"
+        ],
+        "specificActivities": [
+          "Mangrove ecosystem management and park development",
+          "Resource potential studies of culturable species in brackish water",
+          "Breeding success determination of important species",
+          "Socioeconomic studies for small-scale aquaculture farmers",
+          "Water quality and pollution prevention management",
+          "On-site training for schools, universities, farmers on wetland ecosystems"
+        ],
+        "staff": [
+          {
+            "name": "Ms. S.H. Udeshika Chathurani",
+            "designation": "Scientist (Officer-in-charge)",
+            "email": "uchathurani@yahoo.com"
+          },
+          {
+            "name": "Dr. M. Gammanpila",
+            "designation": "Principal Scientist",
+            "email": "menakegammanpila@gmail.com",
+            "phone": "+94-714436144"
+          },
+          {
+            "name": "Ms. J.M.N. Madushani Jayasundara",
+            "designation": "Scientist",
+            "email": "jnisansalajayasundara1990@gmail.com"
+          }
+        ],
+        "projects": [
+          {
+            "code": "3.12",
+            "title": "An Evaluation of Traditional Fishing Activities in Negombo Estuary, Bolgoda Lake, Madu Ganga and Jaffna lagoon and Strategies for Proper Management"
+          }
+        ]
+      },
+      "kalpitiya": {
+        "name": "Regional Research Center – Kalpitiya",
+        "tagline": "Marine & Brackish Water Research Excellence",
+        "location": "Sangumalady, Anawasalamunai, Kalpitiya, North-Western Province",
+        "coordinates": {
+          "lat": 8.2320,
+          "lng": 79.7644
+        },
+        "distance": "Northwest Coast extreme projection",
+        "image": "/images/centers/kalpitiya-center.jpg",
+        "description": "Established in 1983 at the former 'Ceynor' building, this strategic field station covers the Puttalam Lagoon, Dutch Bay, and Portugal Bay, bordering Wilpattu, with two important rivers (Kala Oya and Appu Aru) providing unique opportunities for marine, brackish water, and freshwater research.",
+        "establishment": "Opened on April 10, 1984",
+        "mainObjectives": [
+          "Decentralization of research programs with field-oriented facilities",
+          "Development of coastal aquaculture and related activities",
+          "Facilitation of new spheres of aquatic research programs",
+          "Support for marine, brackish water, and freshwater research studies"
+        ],
+        "services": [
+          {
+            "title": "Mangrove Plants Sales",
+            "description": "Selling mangrove plants at Rs. 40.00 per plant"
+          },
+          {
+            "title": "Educational Programs",
+            "description": "Conducting awareness programs for school children and university students about mangroves"
+          },
+          {
+            "title": "Circuit Bungalow Booking",
+            "description": "Accommodation facility available for researchers and visitors",
+            "contact": "011-2521000 / 011-2521006"
+          }
+        ],
+        "staff": [
+          {
+            "name": "Dr. R.P.P.K. Jayasinghe",
+            "designation": "Principal Scientist (Head)",
+            "email": "prabath_jayasinghe@yahoo.com",
+            "phone": "+94-32-2260794"
+          },
+          {
+            "name": "Mr. Ratnavel Srikrishnan",
+            "designation": "Scientist",
+            "email": "1989krish@gmail.com"
+          },
+          {
+            "name": "Mr. Santhalingam Thanusanth",
+            "designation": "Scientist",
+            "email": "shaanthanusheusl@gmail.com"
+          }
+        ],
+        "projects": [
+          {
+            "code": "10.4",
+            "title": "Present status of trammel net shrimp fishery in Kalpitiya coastal waters with some biological and socioeconomic aspects"
+          },
+          {
+            "code": "10.5",
+            "title": "Preliminary study on establishment of Green mussel (Perna viridis) culture in Negombo lagoon, Sri Lanka"
+          }
+        ],
+        "bankDetails": {
+          "bank": "People's Bank, Mutwal Branch",
+          "accountHolder": "Director General / NARA",
+          "accountNumber": "214-100-15-3629716",
+          "fax": "011-2524430"
+        }
+      },
+      "kapparathota": {
+        "name": "Regional Research Center – Kapparathota",
+        "tagline": "Deep Sea Fisheries & Marine Mammal Research",
+        "location": "Weligama Bay, Matara District, Southern Province",
+        "coordinates": {
+          "lat": 5.9741,
+          "lng": 80.4295
+        },
+        "distance": "145 km from Colombo",
+        "image": "/images/centers/kapparathota-center.jpg",
+        "description": "Strategically located at Weligama Bay, this center serves as the field station for the south coast, focusing on offshore and deep sea fisheries. The area is renowned for significant marine mammal populations including whales and dolphins, with the international shipping route passing immediately offshore.",
+        "specialFeatures": [
+          "Important south coast fishing center",
+          "Offshore and deep sea fisheries operations",
+          "Small scale and mechanized fishing operations",
+          "Significant marine mammal habitat (whales and dolphins)",
+          "Continental shelf special features",
+          "International shipping route proximity"
+        ],
+        "mainObjectives": [
+          "Survey and monitoring of marine fishery resources",
+          "Continuous monitoring of marine fish catches at coastal landing centers",
+          "Collaboration with local fishermen to identify new fishing grounds",
+          "Development of suitable fishing techniques",
+          "Support for inland and coastal aquaculture development",
+          "Ornamental fish breeding support and advisory services"
+        ],
+        "staff": [
+          {
+            "name": "Mr. Upul Liyanage",
+            "designation": "Senior Scientist (Officer-in-charge)",
+            "email": "upulliyanage@hotmail.com",
+            "phone": "+94-71-836-0025"
+          }
+        ],
+        "projects": [
+          {
+            "code": "10.1",
+            "title": "Studying the suitability of deterrent pingers against depredation of hooked yellowfin tuna and assessment of marine mammal abundance"
+          }
+        ]
+      },
+      "panapitiya": {
+        "name": "Regional Research Center – Panapitiya",
+        "tagline": "Center for Living Aquatic Resources Research & Development",
+        "location": "Horana-Kalutara Road, Kalutara District, Western Province",
+        "coordinates": {
+          "lat": 6.5404,
+          "lng": 80.0549
+        },
+        "distance": "6 km from Nagas Junction (Galle Road)",
+        "image": "/images/centers/panapitiya-center.jpg",
+        "description": "Adjacent to a flood controlling dam, this facility was revitalized by NARA in 2012 to become a premier service hub for ornamental fish farmers. Specializing in KOI carp breeding and ornamental aquaculture, it serves farmers across the district and island-wide.",
+        "objectives": [
+          "Identifying and resolving provincial aquaculture issues for farmers",
+          "Developing ornamental aquaculture practices as income generation",
+          "Conducting selective breeding programs for KOI",
+          "Transferring technical knowledge to farmers",
+          "Issuing ornamental fish and brooders to farmers",
+          "Introducing cost-effective and scientifically tested ornamental fish feed"
+        ],
+        "currentActivities": [
+          "Rearing and breeding of KOI Carp, Angel Fish, and Tin Foil Barb",
+          "Issuing brood KOI fish and ornamental fish to farmers",
+          "Maintaining KOI Fish brood stock",
+          "Developing stage-specific economical and floating fish feed",
+          "Value-adding research on invasive Knife Fish (Mannaya)",
+          "Community-based freshwater prawn polyculture programs",
+          "Water sample checking and fish disease diagnosis",
+          "Conducting aquaculture awareness programs"
+        ],
+        "staff": [
+          {
+            "name": "Ms. R.R.A. Ramani Shirantha",
+            "designation": "Principal Scientist (Head)",
+            "email": "shirantha@nara.ac.lk",
+            "alternateEmails": ["ramanishirantha@gmail.com", "ramanishirantha@hotmail.com"],
+            "phone": "034-2222326"
+          },
+          {
+            "name": "Dr. G.S.C. Perera",
+            "designation": "Scientist",
+            "phone": "071-4397687"
+          },
+          {
+            "name": "Ms. M.D.S.R. Maddumage",
+            "designation": "Scientist",
+            "email": "shanuda1986@gmail.com"
+          }
+        ],
+        "projects": [
+          {
+            "code": "10.2",
+            "title": "Development of export oriented ornamental fish farming and aquafeed in Kalutara District"
+          }
+        ]
+      },
+      "rekawa": {
+        "name": "Regional Research Center – Rekawa",
+        "tagline": "Biodiversity Conservation & Livelihood Development",
+        "location": "Tangalle, Hambantota District, Southern Province",
+        "coordinates": {
+          "lat": 6.1167,
+          "lng": 80.8167
+        },
+        "distance": "200 km south of Colombo",
+        "image": "/images/centers/rekawa-center.jpg",
+        "description": "Established in 1999 adjacent to Rekawa Lagoon, this center operates in an area of rich biodiversity with diverse flora and fauna including extensive mangrove systems. It focuses on environmental management, ornamental fish breeding, and community livelihood development.",
+        "establishment": "Stabilized in 1999",
+        "objectives": [
+          "Developing ornamental aquaculture for income generation and livelihood",
+          "Conducting selective breeding programs for KOI carps",
+          "Issuing ornamental fish brooders to farmers",
+          "Conducting research on Environmental Management, Fisheries, and Aquaculture"
+        ],
+        "currentActivities": [
+          "Awareness programs on sensitive marine ecosystems (mangroves, corals, sea grass, sand dunes)",
+          "Monitoring and assessment of lagoon and pelagic fishery",
+          "Pollution status assessment of selected fisheries harbours",
+          "Assessment of fisheries and aquaculture potential in floodplain ecosystems",
+          "Rearing KOI carp, Angel fish, Fighters, Rosy barb, Sword tails, and Malawi fish",
+          "Technical knowledge transfer to farmers",
+          "Addressing environmental matters within the area"
+        ],
+        "services": [
+          {
+            "title": "Ornamental Fish Management",
+            "description": "Awareness programs on management and culture of ornamental fish"
+          },
+          {
+            "title": "Aquaculture Training",
+            "description": "Comprehensive aquaculture awareness programs"
+          },
+          {
+            "title": "Coastal Ecosystem Management",
+            "description": "Programs on management and restoration of coastal ecosystems"
+          }
+        ],
+        "staff": [
+          {
+            "name": "Mr. J.S. Jayanatha",
+            "designation": "Senior Scientist (Head) (Actg.)",
+            "email": "sarathjayanatha1978@gmail.com"
+          },
+          {
+            "name": "Ms. W.K. Suwandahannadi",
+            "designation": "Scientist",
+            "email": "wathsalakumari@nara.ac.lk",
+            "phone": "+94-715597639"
+          },
+          {
+            "name": "Mr. R. Amaraweera",
+            "designation": "Scientist",
+            "email": "ruchiraamaraweera@yahoo.com",
+            "alternateEmail": "ruchiraamaraweera2@gmail.com",
+            "phone": "071-9353389"
+          }
+        ],
+        "projects": [
+          {
+            "code": "10.3",
+            "title": "Development of livelihoods of fisher communities through introduction of proper aquaculture technologies, environmental monitoring and introduction of nature based ecotourism in Rekawa lagoon, Southern Sri Lanka"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "Visit Our Regional Centers",
+      "description": "Connect with our regional research centers for technical support, training programs, and collaborative research opportunities",
+      "button": "Contact Centers"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "objectives": "Objectives",
+      "staff": "Staff",
+      "research": "Research",
+      "map": "Map"
+    },
+    "sections": {
+      "mainObjectives": "Main Objectives",
+      "servicesOffered": "Services Offered",
+      "objectives": "Objectives",
+      "specificActivities": "Specific Activities",
+      "currentActivities": "Current Activities",
+      "staffMembers": "Staff Members",
+      "researchProjects": "Research Projects",
+      "locationMap": "Location Map",
+      "location": "Location",
+      "distance": "Distance",
+      "coordinates": "Coordinates",
+      "openInGoogleMaps": "Open in Google Maps",
+      "showDirections": "Show Directions from Your Location",
+      "hideDirections": "Hide Directions",
+      "loadingMap": "Loading Map...",
+      "mapLoadError": "Map Loading Error",
+      "checkApiKey": "Please check your API key and network connection",
+      "centerImage": "Center Image",
+      "uploadImage": "Upload original building photo via admin panel"
+    }
+  }
+}

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI Field Debugger</title>
+    <style>
+        body {
+            font-family: monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #0f0;
+        }
+        .section {
+            background: #000;
+            border: 2px solid #0f0;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        .success { color: #0f0; }
+        .error { color: #f00; }
+        .warning { color: #ff0; }
+        button {
+            background: #0f0;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0a0;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 OPENAI FIELD DEBUGGER</h1>
+    
+    <div class="section">
+        <h2>STEP 1: Clear Everything</h2>
+        <button onclick="clearEverything()">🗑️ CLEAR CACHE & STORAGE</button>
+        <div id="clear-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>STEP 2: Check What's Loaded</h2>
+        <button onclick="checkPage()">🔍 CHECK PAGE</button>
+        <div id="check-result"></div>
+    </div>
+
+    <div class="section">
+        <h2>STEP 3: Direct Link</h2>
+        <button onclick="openPage()">🚀 OPEN AI CONFIG PAGE</button>
+        <p class="warning">After opening, come back here and click "CHECK PAGE" above</p>
+    </div>
+
+    <div class="section">
+        <h2>STEP 4: Manual Check Instructions</h2>
+        <ol class="warning">
+            <li>Open: <a href="https://nara-web-73384.web.app/admin/ai-api-config" target="_blank" style="color: #0ff;">https://nara-web-73384.web.app/admin/ai-api-config</a></li>
+            <li>Press F12 (Open DevTools)</li>
+            <li>Go to Console tab</li>
+            <li>Type: <code style="color: #f0f;">document.querySelector('input[placeholder="sk-proj-..."]')</code></li>
+            <li>Press Enter</li>
+            <li>If you see <span class="success">&lt;input&gt;</span> = Field EXISTS but hidden</li>
+            <li>If you see <span class="error">null</span> = Field not rendered</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>RESULTS:</h2>
+        <div id="results"></div>
+    </div>
+
+    <script>
+        function log(message, type = 'success') {
+            const div = document.getElementById('results');
+            const p = document.createElement('p');
+            p.className = type;
+            p.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            div.appendChild(p);
+        }
+
+        function clearEverything() {
+            const result = document.getElementById('clear-result');
+            
+            try {
+                // Clear localStorage
+                localStorage.clear();
+                log('✅ localStorage cleared', 'success');
+                
+                // Clear sessionStorage
+                sessionStorage.clear();
+                log('✅ sessionStorage cleared', 'success');
+                
+                // Clear IndexedDB
+                indexedDB.databases().then(dbs => {
+                    dbs.forEach(db => {
+                        indexedDB.deleteDatabase(db.name);
+                        log(`✅ Deleted IndexedDB: ${db.name}`, 'success');
+                    });
+                });
+                
+                result.innerHTML = '<p class="success">✅ ALL CLEARED! Now reload the AI Config page with Ctrl+Shift+R</p>';
+                
+            } catch (error) {
+                result.innerHTML = `<p class="error">❌ Error: ${error.message}</p>`;
+                log(`❌ Clear error: ${error.message}`, 'error');
+            }
+        }
+
+        function checkPage() {
+            const result = document.getElementById('check-result');
+            result.innerHTML = '<p class="warning">Checking...</p>';
+            
+            // Open the page in a new window
+            const win = window.open('https://nara-web-73384.web.app/admin/ai-api-config', '_blank');
+            
+            setTimeout(() => {
+                result.innerHTML = `
+                    <p class="success">Page opened!</p>
+                    <p class="warning">Now in that page:</p>
+                    <ol class="warning">
+                        <li>Press F12</li>
+                        <li>In Console, type: <code style="color: #f0f;">document.querySelector('input[placeholder="sk-proj-..."]')</code></li>
+                        <li>If you see &lt;input&gt; = Field exists!</li>
+                        <li>If you see null = Field missing (report to developer)</li>
+                    </ol>
+                `;
+                log('Page check initiated', 'success');
+            }, 1000);
+        }
+
+        function openPage() {
+            window.open('https://nara-web-73384.web.app/admin/ai-api-config', '_blank');
+            log('Opened AI Config page', 'success');
+        }
+
+        // Auto-check on load
+        window.onload = function() {
+            log('🔍 Debugger loaded', 'success');
+            log('📍 Target: https://nara-web-73384.web.app/admin/ai-api-config', 'warning');
+        };
+    </script>
+
+    <div class="section">
+        <h2>📸 EXPECTED RESULT</h2>
+        <p class="warning">You should see a PURPLE section that looks like:</p>
+        <pre style="color: #0ff;">
+┌─────────────────────────────────────────────┐
+│  🧠 OpenAI ChatGPT [NEW!]      [Enabled ▼]  │
+│  GPT-5 powered intelligent script generation│
+├─────────────────────────────────────────────┤
+│  OpenAI API Key:                            │
+│  [________________________] 👁️               │
+│  Get from: platform.openai.com/api-keys     │
+│                                              │
+│  Model: [🚀 GPT-5 ▼]                        │
+└─────────────────────────────────────────────┘
+        </pre>
+        <p class="warning">It should be BETWEEN:</p>
+        <ul class="warning">
+            <li>⬆️ Google Cloud TTS (green section)</li>
+            <li>⬇️ Azure Speech Services (blue section)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>🚨 IF STILL NOT VISIBLE</h2>
+        <p class="error">Copy this information and send to developer:</p>
+        <button onclick="copyDiagnostics()">📋 COPY DIAGNOSTICS</button>
+        <pre id="diagnostics" style="color: #fff; background: #333; padding: 10px; margin-top: 10px;">
+Browser: <span id="browser"></span>
+URL: https://nara-web-73384.web.app/admin/ai-api-config
+Cache Cleared: <span id="cache-status">Not yet</span>
+Field Found: <span id="field-status">Not checked</span>
+Console Errors: <span id="console-errors">Check F12</span>
+        </pre>
+    </div>
+
+    <script>
+        document.getElementById('browser').textContent = navigator.userAgent;
+        
+        function copyDiagnostics() {
+            const text = document.getElementById('diagnostics').textContent;
+            navigator.clipboard.writeText(text);
+            alert('Diagnostics copied to clipboard!');
+            log('📋 Diagnostics copied', 'success');
+        }
+    </script>
+</body>
+</html>

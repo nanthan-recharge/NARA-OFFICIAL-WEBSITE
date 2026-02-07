@@ -1,0 +1,249 @@
+{
+  "hero": {
+    "badge": "Industry & Exporters",
+    "title": "Your Export Success Partner",
+    "description": "Real-time market intelligence, quality certification, compliance support, and expert guidance for Sri Lankan seafood exporters.",
+    "live": {
+      "title": "Live Export Prices",
+      "updatedLabel": "Updated: {{time}}",
+      "marketLabel": "{{unit}} \u2022 {{market}}"
+    }
+  },
+  "quickServices": {
+    "marketIntelligence": {
+      "title": "Market Intelligence",
+      "description": "Live export prices & market trends",
+      "badge": "Live Data",
+      "stat": "150+ Markets"
+    },
+    "qualityTesting": {
+      "title": "Quality Testing",
+      "description": "Product testing & certification",
+      "badge": "Fast Track",
+      "stat": "24-48hrs"
+    },
+    "exportCompliance": {
+      "title": "Export Compliance",
+      "description": "Certifications & documentation",
+      "badge": "Official",
+      "stat": "ISO Certified"
+    },
+    "logisticsSupport": {
+      "title": "Logistics Support",
+      "description": "Shipping & port information",
+      "badge": "Real-time",
+      "stat": "3 Major Ports"
+    }
+  },
+  "keyStats": {
+    "exportValue": {
+      "label": "Export Value (2024)",
+      "value": "$485M"
+    },
+    "exportMarkets": {
+      "label": "Export Markets",
+      "value": "72"
+    },
+    "certifiedExporters": {
+      "label": "Certified Exporters",
+      "value": "420+"
+    },
+    "monthlyShipments": {
+      "label": "Monthly Shipments",
+      "value": "1,200+"
+    }
+  },
+  "marketPrices": {
+    "heading": "Current Export Market Prices",
+    "description": "Real-time pricing from major international markets",
+    "cta": "View Full Market Intelligence Dashboard",
+    "columns": {
+      "product": "Product",
+      "grade": "Grade",
+      "price": "Price",
+      "change": "Change",
+      "markets": "Target Markets"
+    },
+    "rows": {
+      "yellowfinTuna": {
+        "name": "Yellowfin Tuna",
+        "unit": "USD/kg",
+        "grade": "Sashimi Grade",
+        "primaryMarket": "Japan Market",
+        "markets": ["Japan", "USA", "EU"]
+      },
+      "tigerPrawns": {
+        "name": "Tiger Prawns",
+        "unit": "USD/kg",
+        "grade": "Premium",
+        "primaryMarket": "China Market",
+        "markets": ["China", "USA", "Middle East"]
+      },
+      "mudCrabs": {
+        "name": "Mud Crabs",
+        "unit": "USD/kg",
+        "grade": "Live Export",
+        "primaryMarket": "Singapore Market",
+        "markets": ["Singapore", "Hong Kong", "Malaysia"]
+      },
+      "seaCucumber": {
+        "name": "Sea Cucumber",
+        "unit": "USD/kg",
+        "grade": "Dried Premium",
+        "primaryMarket": "China & Hong Kong",
+        "markets": ["China", "Hong Kong"]
+      }
+    }
+  },
+  "certificationServices": {
+    "heading": "Export Certification & Compliance",
+    "description": "Fast-track certification services for all major export markets",
+    "labels": {
+      "requirements": "Requirements:",
+      "processing": "{{time}}"
+    },
+    "items": {
+      "eu": {
+        "title": "EU Export Certification",
+        "description": "Health certificates for EU market access",
+        "requirements": [
+          "HACCP compliance",
+          "Competent authority approval",
+          "Traceability records"
+        ],
+        "processingTime": "3-5 business days"
+      },
+      "usfda": {
+        "title": "USFDA Certification",
+        "description": "FDA compliance for US exports",
+        "requirements": [
+          "FSMA compliance",
+          "Facility registration",
+          "Prior notice filing"
+        ],
+        "processingTime": "5-7 business days"
+      },
+      "halal": {
+        "title": "Halal Certification",
+        "description": "Islamic dietary standards certification",
+        "requirements": [
+          "Halal slaughter compliance",
+          "Ingredient verification",
+          "Processing audit"
+        ],
+        "processingTime": "2-4 business days"
+      },
+      "organic": {
+        "title": "Organic Certification",
+        "description": "Organic aquaculture product certification",
+        "requirements": [
+          "Organic feed compliance",
+          "Chemical-free processing",
+          "Third-party audit"
+        ],
+        "processingTime": "10-14 business days"
+      }
+    }
+  },
+  "exportSupport": {
+    "heading": "Export Support Services",
+    "description": "Comprehensive support to grow your export business",
+    "items": {
+      "marketResearch": {
+        "title": "Market Research",
+        "description": "Access comprehensive market analysis, competitor insights, and demand forecasts",
+        "features": [
+          "150+ country profiles",
+          "Trade statistics",
+          "Consumer trends"
+        ]
+      },
+      "buyerMatching": {
+        "title": "Buyer Matching",
+        "description": "Connect with verified international buyers and distributors",
+        "features": [
+          "10,000+ buyer database",
+          "Trade missions",
+          "B2B platform"
+        ]
+      },
+      "trainingPrograms": {
+        "title": "Training Programs",
+        "description": "Expert-led training on export compliance and quality standards",
+        "features": [
+          "HACCP training",
+          "Export documentation",
+          "Quality management"
+        ]
+      }
+    }
+  },
+  "industryNews": {
+    "heading": "Industry News & Regulatory Updates",
+    "description": "Stay informed about market changes and compliance requirements",
+    "items": {
+      "regulation": {
+        "category": "Regulation",
+        "title": "New EU Import Requirements for Seafood Products",
+        "date": "2 days ago",
+        "summary": "Updated health certificate requirements effective from next month"
+      },
+      "marketAlert": {
+        "category": "Market Alert",
+        "title": "Strong Demand for Tuna in Japanese Market",
+        "date": "1 week ago",
+        "summary": "Prices expected to remain strong through Q4 2025"
+      },
+      "tradeFair": {
+        "category": "Trade Fair",
+        "title": "Seafood Expo Asia 2025 Registration Open",
+        "date": "2 weeks ago",
+        "summary": "Early bird registration closing soon for Hong Kong exhibition"
+      }
+    }
+  },
+  "supportSection": {
+    "heading": "Need Export Support?",
+    "description": "Our export support team is ready to assist with certifications, market intelligence, and compliance guidance.",
+    "contacts": {
+      "helpline": {
+        "label": "Export Helpline",
+        "value": "+94 11 252 2000",
+        "available": "24/7"
+      },
+      "inquiries": {
+        "label": "Export Inquiries",
+        "value": "export@nara.ac.lk",
+        "available": "Mon-Fri 8AM-5PM"
+      },
+      "office": {
+        "label": "Main Office",
+        "value": "Crow Island, Colombo 15",
+        "available": "Directions"
+      }
+    },
+    "metrics": {
+      "mtExported": {
+        "value": "45K+",
+        "label": "MT Exported (2024)"
+      },
+      "qualityPass": {
+        "value": "98%",
+        "label": "Quality Pass Rate"
+      },
+      "activeExporters": {
+        "value": "420+",
+        "label": "Active Exporters"
+      },
+      "processingDays": {
+        "value": "3-5",
+        "label": "Days Avg Processing"
+      }
+    }
+  },
+  "buttons": {
+    "access": "Access",
+    "applyNow": "Apply Now",
+    "readMore": "Read more"
+  }
+}

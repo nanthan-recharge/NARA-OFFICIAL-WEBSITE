@@ -1,0 +1,100 @@
+{
+  "tabs": {
+    "home": "Home",
+    "releases": "Press Releases",
+    "assets": "Media Assets",
+    "stories": "Stories",
+    "contacts": "Media Contacts"
+  },
+  "hero": {
+    "title": "Media Press Kit",
+    "description": "Access press releases, high-resolution media assets, and story content for accurate reporting on NARA's marine research and conservation efforts"
+  },
+  "quickActions": {
+    "download": "Download Full Media Kit",
+    "subscribe": "Subscribe to Updates",
+    "rss": "RSS Feed",
+    "downloadSuccess": "Media kit package downloaded successfully.",
+    "downloadFailed": "Unable to generate media kit package.",
+    "rssSuccess": "RSS feed downloaded successfully.",
+    "rssFailed": "Unable to generate RSS feed."
+  },
+  "stats": {
+    "pressReleases": "Press Releases",
+    "mediaAssets": "Media Assets",
+    "stories": "Stories",
+    "mediaContacts": "Media Contacts"
+  },
+  "toolbar": {
+    "lastUpdated": "Last Updated: Today, 3:45 PM",
+    "activeContacts": "3 Active Media Contacts",
+    "shareTwitter": "Share on Twitter",
+    "shareFacebook": "Share on Facebook",
+    "shareLinkedIn": "Share on LinkedIn",
+    "adminPanel": "Admin Panel",
+    "lastUpdatedLive": "Last updated from live data: {{value}}",
+    "lastUpdatedFallback": "Last updated: unavailable",
+    "activeContactsLive": "{{count}} active media contacts"
+  },
+  "actions": {
+    "copySource": "Copy Source",
+    "copyCitationSuccess": "Citation copied to clipboard.",
+    "copyCitationUnavailable": "Clipboard access is not available on this device.",
+    "copyCitationFailed": "Unable to copy citation right now."
+  },
+  "contacts": {
+    "pressInquiry": "Press Inquiry"
+  },
+  "status": {
+    "loadErrorTitle": "Unable to load latest data",
+    "loadErrorDescription": "Failed to load media press data: {{message}}",
+    "retry": "Retry",
+    "noReleases": "No press releases available yet.",
+    "noStories": "No stories available yet.",
+    "noContacts": "No media contacts available yet."
+  },
+  "sections": {
+    "latestReleases": "Latest Press Releases",
+    "featuredStories": "Featured Stories",
+    "quickDownloads": "Quick Downloads",
+    "pressReleases": "Press Releases",
+    "mediaAssets": "Media Assets Library",
+    "allStories": "All Stories",
+    "ourTeam": "Our Media Team"
+  },
+  "common": {
+    "viewAll": "View All",
+    "new": "NEW",
+    "readTime": "2 min read",
+    "share": "Share",
+    "readMore": "Read Full Release",
+    "downloadPDF": "Download PDF",
+    "featured": "Featured",
+    "readStory": "Read Story",
+    "files": "files",
+    "download": "Download",
+    "preview": "Preview",
+    "attachments": "attachment(s)",
+    "noItems": "No items found",
+    "noAssets": "No assets found",
+    "noAssetsDescription": "Try adjusting your filters or check back later for new content"
+  },
+  "assets": {
+    "title": "Media Assets Library",
+    "description": "High-resolution images, videos, logos, and documents for press use",
+    "downloadAll": "Download All",
+    "downloadAllSuccess": "Media kit package downloaded",
+    "downloadAllFailed": "Failed to package media assets",
+    "advancedFilters": "Advanced Filters",
+    "all": "All Assets",
+    "images": "Images",
+    "videos": "Videos",
+    "documents": "Documents",
+    "logos": "Logos",
+    "sort": {
+      "latest": "Latest first",
+      "oldest": "Oldest first",
+      "downloads": "Most downloaded"
+    }
+  }
+}

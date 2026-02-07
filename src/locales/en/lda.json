@@ -1,0 +1,215 @@
+{
+  "hero": {
+    "badge": "Learning & Development",
+    "title": "Advance Your Career in",
+    "titleHighlight": "Marine Science",
+    "subtitle": "World-class training programs, certifications, and professional development opportunities for ocean researchers and maritime professionals",
+    "cta": {
+      "primary": "Browse Courses",
+      "secondary": "View Career Paths"
+    },
+    "stats": {
+      "courses": {
+        "value": "150+",
+        "label": "Active Courses"
+      },
+      "students": {
+        "value": "12,000+",
+        "label": "Students Enrolled"
+      },
+      "completion": {
+        "value": "92%",
+        "label": "Completion Rate"
+      },
+      "satisfaction": {
+        "value": "4.8/5",
+        "label": "Student Rating"
+      }
+    }
+  },
+  "categories": {
+    "title": "Course Categories",
+    "subtitle": "Specialized training across all aspects of marine science and ocean management",
+    "items": {
+      "marineBiology": {
+        "name": "Marine Biology",
+        "description": "Study marine organisms, ecosystems, and conservation",
+        "courses": "45 courses"
+      },
+      "oceanography": {
+        "name": "Oceanography",
+        "description": "Physical, chemical, and geological ocean processes",
+        "courses": "38 courses"
+      },
+      "fisheries": {
+        "name": "Fisheries Management",
+        "description": "Sustainable fishing practices and resource management",
+        "courses": "32 courses"
+      },
+      "conservation": {
+        "name": "Conservation & Policy",
+        "description": "Marine protection strategies and environmental policy",
+        "courses": "28 courses"
+      },
+      "technology": {
+        "name": "Marine Technology",
+        "description": "Advanced instrumentation and data analysis",
+        "courses": "25 courses"
+      },
+      "safety": {
+        "name": "Maritime Safety",
+        "description": "Safety protocols and emergency response",
+        "courses": "22 courses"
+      }
+    }
+  },
+  "featured": {
+    "title": "Featured Courses",
+    "subtitle": "Popular programs curated by industry experts",
+    "viewAll": "View All Courses"
+  },
+  "course": {
+    "level": "Level",
+    "duration": "Duration",
+    "language": "Language",
+    "format": "Format",
+    "enrolled": "Enrolled",
+    "rating": "Rating",
+    "instructor": "Instructor",
+    "startDate": "Start Date",
+    "certificate": "Certificate Available",
+    "enroll": "Enroll Now",
+    "viewDetails": "View Details",
+    "ongoing": "Ongoing",
+    "upcoming": "Upcoming",
+    "completed": "Completed",
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    },
+    "formats": {
+      "online": "Online",
+      "inPerson": "In-Person",
+      "hybrid": "Hybrid",
+      "selfPaced": "Self-Paced"
+    }
+  },
+  "certifications": {
+    "title": "Professional Certifications",
+    "subtitle": "Industry-recognized credentials that advance your career",
+    "types": {
+      "research": {
+        "name": "Marine Research Specialist",
+        "description": "Comprehensive training in research methodology and data analysis",
+        "duration": "6 months",
+        "requirements": "Bachelor's degree + 2 years experience"
+      },
+      "conservation": {
+        "name": "Ocean Conservation Expert",
+        "description": "Advanced conservation strategies and ecosystem management",
+        "duration": "4 months",
+        "requirements": "Relevant degree + field experience"
+      },
+      "safety": {
+        "name": "Maritime Safety Officer",
+        "description": "Safety management systems and emergency response",
+        "duration": "3 months",
+        "requirements": "Maritime experience required"
+      },
+      "data": {
+        "name": "Ocean Data Analyst",
+        "description": "Advanced data science for oceanographic research",
+        "duration": "5 months",
+        "requirements": "Technical background + programming skills"
+      }
+    }
+  },
+  "learningPaths": {
+    "title": "Career Learning Paths",
+    "subtitle": "Structured programs designed to achieve specific career goals",
+    "viewPath": "View Learning Path",
+    "coursesIncluded": "courses included",
+    "estimatedTime": "Estimated completion"
+  },
+  "instructors": {
+    "title": "World-Class Instructors",
+    "subtitle": "Learn from leading experts in marine science and ocean research",
+    "experience": "years experience",
+    "students": "students taught",
+    "courses": "courses",
+    "rating": "instructor rating",
+    "viewProfile": "View Profile"
+  },
+  "benefits": {
+    "title": "Why Choose NARA Academy",
+    "subtitle": "Benefits that set us apart",
+    "items": {
+      "expert": {
+        "title": "Expert Faculty",
+        "description": "Learn from renowned scientists and industry professionals with decades of experience"
+      },
+      "certified": {
+        "title": "Industry-Recognized",
+        "description": "Earn certificates valued by employers worldwide in marine and maritime sectors"
+      },
+      "flexible": {
+        "title": "Flexible Learning",
+        "description": "Study at your own pace with online, hybrid, and in-person options available"
+      },
+      "practical": {
+        "title": "Hands-On Training",
+        "description": "Real-world projects, lab work, and field studies for practical experience"
+      },
+      "network": {
+        "title": "Professional Network",
+        "description": "Connect with peers, mentors, and industry leaders globally"
+      },
+      "support": {
+        "title": "Career Support",
+        "description": "Job placement assistance, mentorship, and ongoing professional guidance"
+      }
+    }
+  },
+  "testimonials": {
+    "title": "Student Success Stories",
+    "subtitle": "Hear from graduates who transformed their careers"
+  },
+  "enrollment": {
+    "title": "Ready to Start Learning?",
+    "subtitle": "Join thousands of professionals advancing their marine science careers",
+    "cta": {
+      "browse": "Browse All Courses",
+      "contact": "Contact Admissions"
+    },
+    "info": {
+      "admissions": "Admissions Open Year-Round",
+      "support": "24/7 Student Support",
+      "financial": "Scholarship & Financial Aid Available"
+    }
+  },
+  "search": {
+    "placeholder": "Search courses, instructors, topics...",
+    "filters": {
+      "all": "All Courses",
+      "category": "Category",
+      "level": "Level",
+      "format": "Format",
+      "language": "Language",
+      "duration": "Duration"
+    },
+    "results": "{{count}} courses found",
+    "noResults": "No courses match your search criteria"
+  },
+  "dashboard": {
+    "title": "My Learning Dashboard",
+    "myCourses": "My Courses",
+    "progress": "Progress",
+    "certificates": "Certificates",
+    "upcoming": "Upcoming Sessions",
+    "completed": "{{percent}}% Complete",
+    "continuelearning": "Continue Learning",
+    "viewCertificate": "View Certificate"
+  }
+}

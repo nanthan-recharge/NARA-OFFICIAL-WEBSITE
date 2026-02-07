@@ -1,0 +1,43 @@
+{
+    "header": {
+        "title": "Live Vessel Tracking",
+        "subtitle": "Sri Lankan Waters - Real-time AIS Data",
+        "lastUpdate": "Last Update",
+        "loading": "Loading...",
+        "refreshNow": "Refresh Now"
+    },
+    "stats": {
+        "title": "Vessel Statistics",
+        "totalVessels": "Total Vessels",
+        "showAll": "Show All Vessels"
+    },
+    "vesselTypes": {
+        "cargo": "Cargo",
+        "tanker": "Tanker",
+        "passenger": "Passenger",
+        "fishing": "Fishing",
+        "other": "Other"
+    },
+    "popup": {
+        "flag": "Flag",
+        "type": "Type",
+        "speed": "Speed",
+        "course": "Course",
+        "destination": "Destination",
+        "eta": "ETA",
+        "knots": "knots",
+        "loadingVessels": "Loading vessels..."
+    },
+    "nara": {
+        "name": "NARA",
+        "fullName1": "National Aquatic Resources",
+        "fullName2": "Research & Development Agency",
+        "country": "🇱🇰 Sri Lanka"
+    },
+    "legend": {
+        "title": "Vessel Types",
+        "dataSource": "Data: VesselFinder + AISHub APIs",
+        "liveUpdates": "Live updates every 3 minutes",
+        "accurateData": "✅ Real ocean data - accurate positions"
+    }
+}

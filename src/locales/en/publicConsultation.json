@@ -1,0 +1,101 @@
+{
+  "seo": {
+    "title": "Public Consultation Portal - NARA",
+    "description": "Share your feedback on ocean and fisheries policies, programmes, and digital services led by NARA."
+  },
+  "nav": {
+    "title": "Public Consultation",
+    "browse": "Browse Consultations"
+  },
+  "loading": {
+    "list": "Loading Public Consultations...",
+    "details": "Loading consultation details..."
+  },
+  "hero": {
+    "title": "Public Consultation Portal",
+    "description": "Your voice matters. Share your feedback on marine policies and national initiatives."
+  },
+  "filters": {
+    "searchLabel": "Search",
+    "searchPlaceholder": "Search consultations...",
+    "statusLabel": "Status",
+    "categoryLabel": "Category",
+    "statusOptions": {
+      "all": "All Status",
+      "open": "Open",
+      "closed": "Closed"
+    },
+    "categoryOptions": {
+      "all": "All Categories",
+      "marine_policy": "Marine Policy",
+      "environmental": "Environmental",
+      "fisheries": "Fisheries",
+      "conservation": "Conservation"
+    }
+  },
+  "cards": {
+    "participants": "Participants",
+    "feedback": "Feedback",
+    "comments": "Comments",
+    "votes": "Votes",
+    "views": "Views",
+    "closes": "Closes: {{date}}"
+  },
+  "details": {
+    "back": "\u2190 Back to Consultations",
+    "submitTitle": "Submit Your Feedback",
+    "feedbackLabel": "Your Feedback *",
+    "feedbackPlaceholder": "Share your thoughts, concerns, or suggestions...",
+    "nameLabel": "Your Name *",
+    "namePlaceholder": "Jane Doe",
+    "emailLabel": "Your Email *",
+    "emailPlaceholder": "jane@example.com",
+    "sentimentLabel": "Sentiment",
+    "submitButton": "Submit Feedback",
+    "communityTitle": "Community Feedback",
+    "discussionTitle": "Discussion",
+    "commentNamePlaceholder": "Your name",
+    "commentEmailPlaceholder": "Your email",
+    "commentPlaceholder": "Join the discussion...",
+    "commentSubmit": "Post Comment"
+  },
+  "feedback": {
+    "sentiments": {
+      "positive": "Positive / Supportive",
+      "neutral": "Neutral",
+      "negative": "Concerned / Opposed"
+    },
+    "anonymous": "Anonymous",
+    "notAvailable": "N/A",
+    "upvotes": "{{count}} Upvotes"
+  },
+  "alerts": {
+    "selectConsultation": "Please select a consultation first.",
+    "feedbackError": "Error submitting feedback: {{error}}",
+    "feedbackSuccess": "Thank you for your feedback! Your input has been submitted successfully.",
+    "commentError": "Error posting comment: {{error}}",
+    "commentSuccess": "Comment posted successfully!",
+    "voteNamePrompt": "Enter your name:",
+    "voteEmailPrompt": "Enter your email:",
+    "voteMissing": "Name and email are required to vote.",
+    "voteError": "Error submitting vote: {{error}}",
+    "voteSuccess": "Thank you for voting!"
+  },
+  "status": {
+    "draft": "Draft",
+    "open": "Open",
+    "closed": "Closed",
+    "archived": "Archived"
+  },
+  "category": {
+    "marine_policy": "Marine Policy",
+    "environmental": "Environmental",
+    "fisheries": "Fisheries",
+    "conservation": "Conservation"
+  },
+  "discussion": {
+    "postedAt": "Posted at {{timestamp}}",
+    "likes": "{{count}}",
+    "joinPlaceholder": "Join the discussion..."
+  }
+}

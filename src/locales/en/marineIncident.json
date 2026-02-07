@@ -1,0 +1,201 @@
+{
+  "seo": {
+    "title": "Marine Incident Portal - NARA",
+    "description": "Report marine incidents, contribute citizen science observations, and monitor response activity across Sri Lanka's waters."
+  },
+  "loading": "Loading Marine Incident Portal...",
+  "hero": {
+    "title": "Marine Incident Portal",
+    "subtitle": "Report marine incidents, contribute to citizen science, and help safeguard Sri Lanka's ocean",
+    "stats": {
+      "totalIncidents": "Total Incidents",
+      "activeCases": "Active Cases",
+      "observations": "Observations",
+      "resolved": "Resolved"
+    }
+  },
+  "tabs": {
+    "home": "Home",
+    "report": "Report Incident",
+    "map": "Incident Map",
+    "observations": "Citizen Science",
+    "status": "Track Status"
+  },
+  "quickActions": {
+    "report": {
+      "title": "Report an Incident",
+      "description": "Witnessed a fish kill, stranding, or pollution event? Report it immediately so our rapid response teams can act.",
+      "cta": "Report Now"
+    },
+    "observe": {
+      "title": "Citizen Science",
+      "description": "Contribute to national research by sharing your observations of marine mammals, blooms, and unusual behaviour.",
+      "cta": "Submit Observation"
+    }
+  },
+  "observationsView": {
+    "title": "Citizen Science Observations",
+    "empty": "No observations submitted yet.",
+    "submitted": "Submitted on {{date}}",
+    "observer": "Observer",
+    "locationPending": "Location not provided"
+  },
+  "statusView": {
+    "title": "Incident Details",
+    "back": "\u2190 Back to incidents",
+    "reportedOn": "Reported on",
+    "incidentType": "Incident Type",
+    "severity": "Severity",
+    "status": "Status",
+    "description": "Description",
+    "empty": "Select an incident to view details."
+  },
+  "sections": {
+    "recentIncidents": "Recent Incidents",
+    "viewOnMap": "View on Map",
+    "criticalIncidents": "Critical Incidents",
+    "mapLegend": "Incident Types",
+    "filters": "Filters"
+  },
+  "labels": {
+    "locationRecorded": "Location recorded",
+    "noLocation": "No location",
+    "locationCaptured": "Location Captured ✓",
+    "captureLocation": "Capture Current Location",
+    "latLong": "Lat: {{lat}}, Lng: {{lng}}",
+    "postedAt": "{{timestamp}}"
+  },
+  "status": {
+    "reported": "Reported",
+    "under_investigation": "Under Investigation",
+    "resolved": "Resolved"
+  },
+  "severity": {
+    "low": {
+      "label": "Low",
+      "description": "Minor incident"
+    },
+    "medium": {
+      "label": "Medium",
+      "description": "Requires attention"
+    },
+    "high": {
+      "label": "High",
+      "description": "Serious incident"
+    },
+    "critical": {
+      "label": "Critical",
+      "description": "Emergency response needed"
+    }
+  },
+  "incidentTypes": {
+    "fish_kill": "Fish Kill",
+    "stranding": "Marine Animal Stranding",
+    "algal_bloom": "Algal Bloom",
+    "pollution": "Pollution / Oil Spill",
+    "unusual_behavior": "Unusual Marine Behaviour",
+    "other": "Other"
+  },
+  "filters": {
+    "incidentType": "Incident Type",
+    "status": "Status",
+    "severity": "Severity",
+    "options": {
+      "incidentType": {
+        "all": "All Types"
+      },
+      "status": {
+        "all": "All Statuses"
+      },
+      "severity": {
+        "all": "All Severities"
+      }
+    }
+  },
+  "alerts": {
+    "geolocationError": "Unable to get your location. Please enable location services.",
+    "geolocationUnsupported": "Geolocation is not supported by your browser.",
+    "photoError": "Error handling photos",
+    "incidentSuccess": "Incident reported successfully! Incident ID: {{id}}",
+    "incidentFailure": "Error submitting incident. Please try again.",
+    "observationSuccess": "Observation submitted successfully! Observation ID: {{id}}",
+    "observationFailure": "Error submitting observation. Please try again."
+  },
+  "forms": {
+    "report": {
+      "title": "Report Marine Incident",
+      "incidentTypeLabel": "Incident Type *",
+      "incidentTypePlaceholder": "Select incident type",
+      "incidentTypeOptions": {
+        "fish_kill": "Fish Kill",
+        "stranding": "Marine Animal Stranding",
+        "algal_bloom": "Algal Bloom",
+        "pollution": "Pollution / Oil Spill",
+        "unusual_behavior": "Unusual Marine Behaviour",
+        "other": "Other"
+      },
+      "incidentTitleLabel": "Incident Title *",
+      "incidentTitlePlaceholder": "Brief description of the incident",
+      "descriptionLabel": "Detailed Description *",
+      "descriptionPlaceholder": "Provide as much detail as possible about what you observed...",
+      "severityLabel": "Severity Assessment *",
+      "severityOptions": {
+        "low": "Low - Minor incident",
+        "medium": "Medium - Requires attention",
+        "high": "High - Serious incident",
+        "critical": "Critical - Emergency response needed"
+      },
+      "locationLabel": "Location",
+      "photosLabel": "Photos (Optional but recommended)",
+      "addPhotos": "Add Photos",
+      "processing": "Processing...",
+      "photoPreview": "Preview {{index}}",
+      "contactTitle": "Your Contact Information",
+      "nameLabel": "Full Name *",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email Address *",
+      "emailPlaceholder": "your.email@example.com",
+      "phoneLabel": "Phone Number",
+      "phonePlaceholder": "+94 XX XXX XXXX",
+      "cancel": "Cancel",
+      "submit": "Submit Report",
+      "submitting": "Submitting..."
+    },
+    "observation": {
+      "title": "Submit Citizen Science Observation",
+      "typeLabel": "Observation Type *",
+      "typePlaceholder": "Select observation type",
+      "typeOptions": {
+        "stranding": "Marine Animal Stranding",
+        "unusual_behavior": "Unusual Behaviour",
+        "species_sighting": "Species Sighting",
+        "pollution": "Pollution / Debris",
+        "other": "Other"
+      },
+      "speciesLabel": "Species / Subject",
+      "speciesPlaceholder": "Species name or description",
+      "descriptionLabel": "Observation Details *",
+      "descriptionPlaceholder": "Describe what you observed...",
+      "locationLabel": "Location",
+      "photosLabel": "Photos (Optional)",
+      "addPhotos": "Add Photos",
+      "processing": "Processing...",
+      "photoPreview": "Preview {{index}}",
+      "contactTitle": "Your Contact Information",
+      "nameLabel": "Full Name *",
+      "namePlaceholder": "Your full name",
+      "emailLabel": "Email Address *",
+      "emailPlaceholder": "your.email@example.com",
+      "cancel": "Cancel",
+      "submit": "Submit Observation",
+      "submitting": "Submitting..."
+    }
+  },
+  "map": {
+    "legendTitle": "Incident Types",
+    "filtersTitle": "Filters",
+    "incidentTypeAll": "All Types",
+    "statusAll": "All Statuses",
+    "severityAll": "All Severities"
+  }
+}

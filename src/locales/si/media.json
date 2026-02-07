@@ -1,0 +1,100 @@
+{
+  "tabs": {
+    "home": "මුල් පිටුව",
+    "releases": "මාධ්‍ය නිවේදන",
+    "assets": "මාධ්‍ය ද්‍රව්‍ය",
+    "stories": "කතා",
+    "contacts": "මාධ්‍ය සම්බන්ධතා"
+  },
+  "hero": {
+    "title": "මාධ්‍ය කට්ටලය",
+    "description": "නාරාගේ සාගර පර්යේෂණ සහ සංරක්ෂණ ප්‍රයත්නයන් පිළිබඳ නිවැරදි වාර්තා සඳහා මාධ්‍ය නිවේදන, උසස් විභේදන මාධ්‍ය ද්‍රව්‍ය සහ කතා අන්තර්ගතය වෙත ප්‍රවේශය"
+  },
+  "quickActions": {
+    "download": "සම්පූර්ණ මාධ්‍ය කට්ටලය බාගන්න",
+    "subscribe": "යාවත්කාලීන සඳහා ලියාපදිංචි වන්න",
+    "rss": "RSS පෝෂණය",
+    "downloadSuccess": "මාධ්‍ය කට්ටලය සාර්ථකව බාගත විය.",
+    "downloadFailed": "මාධ්‍ය කට්ටලය සෑදිය නොහැක.",
+    "rssSuccess": "RSS පෝෂණය සාර්ථකව බාගත විය.",
+    "rssFailed": "RSS පෝෂණය සෑදිය නොහැක."
+  },
+  "stats": {
+    "pressReleases": "මාධ්‍ය නිවේදන",
+    "mediaAssets": "මාධ්‍ය ද්‍රව්‍ය",
+    "stories": "කතා",
+    "mediaContacts": "මාධ්‍ය සම්බන්ධතා"
+  },
+  "toolbar": {
+    "lastUpdated": "අවසන් යාවත්කාලීනය: අද, 3:45 PM",
+    "activeContacts": "සක්‍රිය මාධ්‍ය සම්බන්ධතා 3",
+    "shareTwitter": "Twitter හි බෙදාගන්න",
+    "shareFacebook": "Facebook හි බෙදාගන්න",
+    "shareLinkedIn": "LinkedIn හි බෙදාගන්න",
+    "adminPanel": "පරිපාලන පුවරුව",
+    "lastUpdatedLive": "සජීවී දත්ත අනුව අවසන් යාවත්කාලීනය: {{value}}",
+    "lastUpdatedFallback": "අවසන් යාවත්කාලීනය: ලබාගත නොහැක",
+    "activeContactsLive": "සක්‍රිය මාධ්‍ය සම්බන්ධතා {{count}}"
+  },
+  "actions": {
+    "copySource": "මූලාශ්‍රය පිටපත් කරන්න",
+    "copyCitationSuccess": "උපුටාදැක්වීම clipboard වෙත පිටපත් විය.",
+    "copyCitationUnavailable": "මෙම උපාංගයේ clipboard ප්‍රවේශය නොමැත.",
+    "copyCitationFailed": "දැන් උපුටාදැක්වීම පිටපත් කළ නොහැක."
+  },
+  "contacts": {
+    "pressInquiry": "මාධ්‍ය විමසුම"
+  },
+  "status": {
+    "loadErrorTitle": "නවතම දත්ත පූරණය කළ නොහැක",
+    "loadErrorDescription": "මාධ්‍ය දත්ත පූරණය අසාර්ථකයි: {{message}}",
+    "retry": "නැවත උත්සාහ කරන්න",
+    "noReleases": "තවමත් මාධ්‍ය නිවේදන නොමැත.",
+    "noStories": "තවමත් කතා නොමැත.",
+    "noContacts": "තවමත් මාධ්‍ය සම්බන්ධතා නොමැත."
+  },
+  "sections": {
+    "latestReleases": "නවතම මාධ්‍ය නිවේදන",
+    "featuredStories": "විශේෂිත කතා",
+    "quickDownloads": "ඉක්මන් බාගත කිරීම්",
+    "pressReleases": "මාධ්‍ය නිවේදන",
+    "mediaAssets": "මාධ්‍ය ද්‍රව්‍ය පුස්තකාලය",
+    "allStories": "සියලුම කතා",
+    "ourTeam": "අපගේ මාධ්‍ය කණ්ඩායම"
+  },
+  "common": {
+    "viewAll": "සියල්ල බලන්න",
+    "new": "නව",
+    "readTime": "විනාඩි 2 කියවීම",
+    "share": "බෙදාගන්න",
+    "readMore": "සම්පූර්ණ නිවේදනය කියවන්න",
+    "downloadPDF": "PDF බාගන්න",
+    "featured": "විශේෂිත",
+    "readStory": "කතාව කියවන්න",
+    "files": "ගොනු",
+    "download": "බාගන්න",
+    "preview": "පෙරදසුන",
+    "attachments": "ඇමුණුම්",
+    "noItems": "අයිතම හමු නොවීය",
+    "noAssets": "ද්‍රව්‍ය හමු නොවීය",
+    "noAssetsDescription": "ඔබේ පෙරහන් සකස් කිරීමට උත්සාහ කරන්න හෝ නව අන්තර්ගතය සඳහා පසුව නැවත පරීක්ෂා කරන්න"
+  },
+  "assets": {
+    "title": "මාධ්‍ය ද්‍රව්‍ය පුස්තකාලය",
+    "description": "මාධ්‍ය භාවිතය සඳහා උසස් විභේදන රූප, වීඩියෝ, ලාංඡන සහ ලේඛන",
+    "downloadAll": "සියල්ල බාගන්න",
+    "downloadAllSuccess": "මාධ්‍ය කට්ටලය බාගත විය",
+    "downloadAllFailed": "මාධ්‍ය ද්‍රව්‍ය ඇසුරුම සෑදීමට අසාර්ථක විය",
+    "advancedFilters": "උසස් පෙරහන්",
+    "all": "සියලුම ද්‍රව්‍ය",
+    "images": "රූප",
+    "videos": "වීඩියෝ",
+    "documents": "ලේඛන",
+    "logos": "ලාංඡන",
+    "sort": {
+      "latest": "නවතම පළමුව",
+      "oldest": "පැරණි පළමුව",
+      "downloads": "වැඩි බාගත කිරීම්"
+    }
+  }
+}

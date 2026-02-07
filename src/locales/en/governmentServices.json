@@ -1,0 +1,309 @@
+{
+    "meta": {
+        "title": "Government Services Portal - NARA",
+        "description": "Apply, monitor, and coordinate NARA regulatory, operational, and scientific government services"
+    },
+    "hero": {
+        "badge": "NARA Government Services Portal",
+        "title": "Service Delivery Hub for",
+        "titleHighlight": "National Aquatic Governance",
+        "description": "Apply, monitor, and coordinate NARA regulatory, operational, and scientific government services from one place. This portal is structured for ministries, provincial authorities, industry operators, and technical teams.",
+        "submitEia": "Submit EIA Application",
+        "applyLicense": "Apply Digital License",
+        "reportEmergency": "Report Marine Emergency",
+        "dutyWindow": "Duty Window",
+        "emergencyHotline": "Emergency Hotline: 1915",
+        "serviceDesk": "Service Desk: 24/7 intake",
+        "location": "Crow Island, Colombo 15"
+    },
+    "metrics": {
+        "services": {
+            "value": "24",
+            "label": "Integrated Digital Services",
+            "sublabel": "Across NARA divisions"
+        },
+        "sla": {
+            "value": "92%",
+            "label": "SLA Compliance",
+            "sublabel": "Last 90 days"
+        },
+        "applications": {
+            "value": "690+",
+            "label": "Monthly Applications",
+            "sublabel": "Licensing + EIA + reporting"
+        },
+        "alerts": {
+            "value": "24/7",
+            "label": "Emergency Operations",
+            "sublabel": "Marine monitoring desk"
+        }
+    },
+    "workflow": {
+        "sectionLabel": "How Services Flow",
+        "title": "Government Service Workflow",
+        "coordinationLink": "Coordination Workspace",
+        "steps": {
+            "submit": {
+                "title": "Submit",
+                "description": "Start requests through digital forms for EIA, licensing, and emergency response."
+            },
+            "review": {
+                "title": "Review",
+                "description": "NARA technical officers validate scope, compliance, and supporting evidence."
+            },
+            "coordinate": {
+                "title": "Coordinate",
+                "description": "Inter-agency coordination is triggered with timeline tracking and ownership."
+            },
+            "deliver": {
+                "title": "Deliver",
+                "description": "Decision outputs, permits, datasets, and advisories are delivered to stakeholders."
+            }
+        }
+    },
+    "directory": {
+        "sectionLabel": "Service Directory",
+        "title": "Find the Right NARA Service",
+        "subtitle": "Filter services by category, audience, or keyword to quickly route work.",
+        "servicesAvailable": "services available",
+        "searchPlaceholder": "Search by service, owner, or purpose",
+        "allCategories": "All Categories",
+        "serviceOwner": "Service Owner",
+        "deliveryMode": "Delivery Mode",
+        "requiredInputs": "Required Inputs",
+        "startEia": "Start EIA Request",
+        "startLicense": "Start License Application",
+        "submitEmergency": "Submit Emergency Report",
+        "openService": "Open Service"
+    },
+    "categories": {
+        "regulatory": "Regulatory & Compliance",
+        "operations": "Operations & Field Response",
+        "intelligence": "Data & Evidence Services",
+        "collaboration": "Collaboration & Program Delivery"
+    },
+    "audiences": {
+        "all": "All Audiences",
+        "ministries": "Ministries",
+        "provincial": "Provincial Authorities",
+        "industry": "Industry Operators",
+        "research": "Research & Technical Teams",
+        "public": "Public Services"
+    },
+    "services": {
+        "eiaManagement": {
+            "title": "Environmental Impact Assessment (EIA) Management",
+            "owner": "Environmental Studies Division",
+            "sla": "15 working days for first review",
+            "delivery": "Digital submission + technical panel review",
+            "description": "Submit coastal and marine development projects for scientific and regulatory environmental review.",
+            "docs": [
+                "Project concept note",
+                "Location details",
+                "Environmental baseline data"
+            ]
+        },
+        "digitalLicensing": {
+            "title": "Digital Marine Licensing",
+            "owner": "Fisheries Technology + Admin",
+            "sla": "7 working days after complete documentation",
+            "delivery": "Online application and status updates",
+            "description": "Apply for fishing, anchoring, and marine industrial licenses with validation and renewal workflow.",
+            "docs": [
+                "Applicant identity",
+                "Vessel/operation documents",
+                "Safety or compliance records"
+            ]
+        },
+        "complianceInspections": {
+            "title": "Compliance & Inspection Registry",
+            "owner": "National Compliance Cell",
+            "sla": "High-risk issues triaged within 24 hours",
+            "delivery": "Inspection logs and enforcement records",
+            "description": "Track environmental and operational compliance outcomes for ports, fishery harbours, and marine facilities.",
+            "docs": [
+                "Inspection reports",
+                "Corrective action plans",
+                "Follow-up verification"
+            ]
+        },
+        "marineEmergency": {
+            "title": "Marine Emergency Reporting Desk",
+            "owner": "NARA Emergency Coordination Unit",
+            "sla": "Immediate intake + rapid dispatch routing",
+            "delivery": "24/7 incident reporting and response escalation",
+            "description": "Report oil spills, illegal fishing, coastal hazards, or marine incidents for immediate operational action.",
+            "docs": [
+                "Incident details",
+                "Location",
+                "Contact information"
+            ]
+        },
+        "fishAdvisory": {
+            "title": "Fish Advisory & Safety Guidance",
+            "owner": "Oceanography + Fisheries Analytics",
+            "sla": "Daily advisory cycle",
+            "delivery": "Operational forecasts and alerts",
+            "description": "Receive fishing zone advisories and risk guidance for safer, data-backed marine operations.",
+            "docs": [
+                "Vessel operator account (optional)"
+            ]
+        },
+        "marineForecast": {
+            "title": "Marine Forecast & Risk Outlook",
+            "owner": "Ocean Observation Center",
+            "sla": "Continuous updates",
+            "delivery": "Forecast maps and risk dashboards",
+            "description": "Monitor sea-state, weather, and operational risk conditions for planning and field operations.",
+            "docs": [
+                "None"
+            ]
+        },
+        "openData": {
+            "title": "Open Data Portal",
+            "owner": "Data & Intelligence Unit",
+            "sla": "Dataset refresh by publishing schedule",
+            "delivery": "Machine-readable datasets",
+            "description": "Access NARA's validated marine and fisheries datasets for planning, analytics, and evidence workflows.",
+            "docs": [
+                "None"
+            ]
+        },
+        "evidenceRepository": {
+            "title": "Scientific Evidence Repository",
+            "owner": "Research Excellence Unit",
+            "sla": "Policy brief updates by publication cycle",
+            "delivery": "Policy-ready summaries and scientific references",
+            "description": "Retrieve policy briefs, technical references, and peer-reviewed outputs to support official decisions.",
+            "docs": [
+                "None"
+            ]
+        },
+        "labResults": {
+            "title": "Laboratory Result Services",
+            "owner": "NARA Laboratory Network",
+            "sla": "As per test protocol",
+            "delivery": "Digital result publication and verification",
+            "description": "View test outputs and report status for aquatic product quality, safety, and technical assessments.",
+            "docs": [
+                "Sample submission reference"
+            ]
+        },
+        "vesselBooking": {
+            "title": "Research Vessel Booking",
+            "owner": "Marine Operations & Logistics",
+            "sla": "Planning confirmation within 5 working days",
+            "delivery": "Mission scheduling and crew coordination",
+            "description": "Coordinate scientific cruise logistics, onboard instrumentation, and marine sampling missions.",
+            "docs": [
+                "Mission plan",
+                "Team details",
+                "Equipment request"
+            ]
+        },
+        "collaborationPlatform": {
+            "title": "Research Collaboration Platform",
+            "owner": "Partnership & Innovation Desk",
+            "sla": "Partner screening in 10 working days",
+            "delivery": "Project collaboration and innovation matching",
+            "description": "Develop multi-stakeholder research and implementation programs with NARA divisions and partners.",
+            "docs": [
+                "Concept note",
+                "Partner profile"
+            ]
+        },
+        "procurementRecruitment": {
+            "title": "Procurement & Recruitment Portal",
+            "owner": "Administration Division",
+            "sla": "As per procurement cycle",
+            "delivery": "Tender, recruitment, and official notices",
+            "description": "Track procurement, staffing, and tender opportunities aligned with NARA service delivery programs.",
+            "docs": [
+                "Bid or applicant documents"
+            ]
+        }
+    },
+    "operations": {
+        "sectionLabel": "Live Operations",
+        "title": "Operational Situation Board",
+        "incidentPortal": "Incident Portal",
+        "items": {
+            "ops001": {
+                "title": "Mannar Coastal Elevation Monitoring",
+                "owner": "Oceanography Division",
+                "location": "Gulf of Mannar",
+                "note": "Weekly shoreline and sea-level variance review in progress."
+            },
+            "ops002": {
+                "title": "Palk Bay Illegal Trawling Enforcement Support",
+                "owner": "Fisheries + Coast Guard Coordination",
+                "location": "Palk Bay",
+                "note": "High-priority compliance support with active patrol coordination."
+            },
+            "ops003": {
+                "title": "Bar Reef Recovery Observation Program",
+                "owner": "Marine Biological Resources Division",
+                "location": "Bar Reef Sanctuary",
+                "note": "Coral recovery metrics improving in current assessment cycle."
+            }
+        },
+        "statuses": {
+            "active": "Active",
+            "urgent": "Urgent",
+            "monitoring": "Monitoring"
+        }
+    },
+    "programs": {
+        "title": "Agency Program Tracker",
+        "items": {
+            "prog1": {
+                "name": "National Coastal Quality Assurance Program",
+                "lead": "Environmental Studies Division"
+            },
+            "prog2": {
+                "name": "Fisheries Risk Intelligence Rollout",
+                "lead": "Fishing Technology Division"
+            },
+            "prog3": {
+                "name": "Marine Data Harmonization Initiative",
+                "lead": "Data & Evidence Unit"
+            }
+        }
+    },
+    "activity": {
+        "title": "Recent Activity Feed",
+        "channel": "Digital Government Services Desk",
+        "newEia": "New EIA application submitted",
+        "newLicense": "New digital license application submitted",
+        "newEmergency": "Emergency incident report submitted"
+    },
+    "reporting": {
+        "sectionLabel": "Reporting",
+        "title": "Export Government Service Reports",
+        "subtitle": "Generate Excel or PDF outputs for operational reviews and ministry reporting.",
+        "eiaTitle": "EIA Reporting Pack",
+        "eiaDescription": "Export sample EIA records in Excel or PDF format.",
+        "licenseTitle": "License Oversight Pack",
+        "licenseDescription": "Export current licensing records for compliance and finance reviews.",
+        "emergencyTitle": "Emergency Incident Pack",
+        "emergencyDescription": "Export active incident records for command-center and audit reporting.",
+        "exported": "exported",
+        "exportFailed": "Export failed"
+    },
+    "contacts": {
+        "title": "NARA Government Service Contacts",
+        "description": "For workflow support, technical clarifications, or urgent escalation, contact the dedicated desks below.",
+        "operationsDesk": "Operations Desk",
+        "operationsNote": "24/7 emergency intake channel",
+        "policyDesk": "Policy & Evidence Desk",
+        "policyNote": "Policy briefs, data, and technical references"
+    },
+    "quickLinks": {
+        "openData": "Open Data Portal",
+        "scientificEvidence": "Scientific Evidence Repository",
+        "fishAdvisory": "Fish Advisory Service",
+        "liveOcean": "Live Ocean Data",
+        "vesselBooking": "Research Vessel Booking",
+        "procurement": "Procurement & Recruitment"
+    }
+}

@@ -1,0 +1,176 @@
+{
+  "hero": {
+    "badge": "ජාතික ජල බුද්ධිය",
+    "title": "NARA පුවත් හා යාවත්කාලීන මධ්‍යස්ථානය",
+    "subtitle": "ශ්‍රී ලංකාවේ සාගර පර්යේෂණ නව සොයාගැනීම්, ප්‍රතිපත්ති හවුල්කාරිත්වයන් සහ වෙරළ ආරක්ෂණ උත්සාහයන් ගැන නිතර දැනුවත්ව සිටින්න.",
+    "description": "නාරා පාලන මධ්‍යස්ථානයේ දිස්ත්‍රික්‍ත-පරිපාලන වාර්තා, විද්‍යාත්මක ක්ෂේත්‍ර සටහන්, ප්‍රතිපත්ති සාරාංශ සහ ප්‍රජා බලපෑම් කතා මෙහි එක් වේ. සෑම දත්තක්ම සනාථ කරමින් හවුල්කරුවන්ට විශ්වාසයෙන් ක්‍රියා කිරීමට අවශ්‍ය තොරතුරු ලබා දෙයි.",
+    "badges": [
+      { "id": "marine", "label": "සාගර විද්‍යා සාරාංශ" },
+      { "id": "innovation", "label": "නව්‍යතා නිරීක්ෂණය" }
+    ],
+    "ctas": [
+      { "id": "explore", "label": "සියලුම පුවත් බලන්න", "href": "#latest", "variant": "primary" },
+      { "id": "alerts", "label": "දැනුම්දීම් සඳහා ලියාපදිංචි වන්න", "href": "/contact-us", "variant": "secondary", "icon": "play" }
+    ],
+    "ctaDefault": "තවදුරටත් ගවේෂණය කරන්න",
+    "stats": {
+      "minutesSuffix": "විනා",
+      "minsFallback": "—",
+      "noReadTime": "දත්ත යාවත්කාලීන වෙමින්",
+      "totalArticles": "ප්‍රකාශිත පුවත්",
+      "totalViews": "පාඨක ප්‍රවේශය",
+      "totalCategories": "ආවරණය කරන අංශ",
+      "averageReadTime": "සාමාන්‍ය කියවීමේ වේලාව"
+    },
+    "ticker": {
+      "label": "ජීවත් යාවත්කාලීන පුවරුව",
+      "heading": "නවතම බුද්ධි සාරාංශ",
+      "subheading": "අද පහසු කළ යාවත්කාලීන {{count}}ක්",
+      "live": "ජීවත්ව",
+      "genericCategory": "විශේෂ",
+      "noDate": "දිනය සටහන් කර නැත",
+      "noSummary": "සම්පූර්ණ තොරතුරු එකত্র කරමින් ඇත. මොහොතකින් නැවත පිරික්සන්න.",
+      "openStory": "පුවත විවෘත කරන්න",
+      "loading": "ජීවත් යාවත්කාලීන පූරණය වෙමින්…",
+      "empty": "දැනට ජීවත් යාවත්කාලීන නොමැත. කරුණාකර පසුව නැවත පිරික්සන්න."
+    }
+  },
+  "filters": {
+    "sectionEyebrow": "පුවත් මධ්‍යස්ථානය",
+    "sectionTitle": "නවතම පුවත් සහ යාවත්කාලීන",
+    "sectionDescription": "සාගර බුද්ධිය, ප්‍රතිපත්ති යාවත්කාලීන සහ පර්යේෂණ විප්ලව පිළිබඳව යාවත්කාලීන තොරතුරු ලබාගන්න.",
+    "advanced": "උසස් පෙරහන්",
+    "clearAll": "සියලුම පෙරහන් ඉවත් කරන්න",
+    "searchPlaceholder": "පුවත්, කර්තෘවරු, ස්ථාන හෝ ටැග් සොයන්න…",
+    "allCategories": "සියලුම ප්‍රවර්ග",
+    "sortLabel": "පුවත් අනුපිළිවෙලට සකස් කරන්න",
+    "sortOptions": {
+      "dateDesc": "නවතම පුවත්",
+      "dateAsc": "පැරණි පුවත්",
+      "viewsDesc": "වැඩිම දසුන්",
+      "sharesDesc": "වැඩිම බෙදාගැනීම්",
+      "titleAsc": "මාතෘකාව A–Z",
+      "titleDesc": "මාතෘකාව Z–A",
+      "categoryAsc": "ප්‍රවර්ග A–Z"
+    },
+    "dateFrom": "ආරම්භ දිනය",
+    "dateTo": "අවසන් දිනය"
+  },
+  "results": {
+    "title": "ප්‍රතිඵල සාරාංශය",
+    "summary": "ප්‍රකාශිත ලිපි {{total}} යෙන් {{count}} පෙන්වයි",
+    "categorySuffix": "\"{{category}}\" ප්‍රවර්ගය තුළ",
+    "searchSuffix": "\"{{term}}\" සෙවුමට ගැළපේ",
+    "dateRangeLabel": "දිනය අනුව පෙරහන්",
+    "filteredDescription": "ප්‍රවර්ග, ප්‍රධාන පද හෝ දින කාල පරාසය වෙනස් කර වඩාත් පිරිපහදු කරන්න.",
+    "unfilteredDescription": "නවතම පුවත් ආවරණය පෙන්වයි. පුවත් පෝෂණය පුද්ගලීකරණය කිරීමට ඉහත පාලක භාවිතා කරන්න.",
+    "clearCategory": "ප්‍රවර්ග පෙරහන ඉවත් කරන්න",
+    "clearSearch": "සෙවුම් පෙරහන ඉවත් කරන්න",
+    "clearDate": "දින පරාසය ඉවත් කරන්න",
+    "emptyTitle": "සෙවීමට ගැළපෙන ලිපි නොමැත",
+    "emptyDescription": "පෙරහන් වෙනස් කර නැවත උත්සාහ කරන්න හෝ සියලුම ප්‍රවර්ග පිරික්සා නවතම NARA යාවත්කාලීන සොයාගන්න.",
+    "emptyResetButton": "පෙරහන් යළි සකසන්න",
+    "dataSource": {
+      "error": "ජීවත් පුවත් මධ්‍යස්ථානය වෙත සම්බන්ධ විය නොහැකි විය. අවසන් යාවත්කාලීන දත්ත පෙන්වයි.",
+      "localFallback": "සංරක්ෂිත දත්ත පමණක් පෙන්වයි. ජීවත් ප්‍රකාශන සඳහා පාලන පුවරුව සම්බන්ධ කරන්න."
+    }
+  },
+  "articles": {
+    "featured": "විශේෂ පුවත්",
+    "readTimeShort": "{{minutes}} විනා කියවීම",
+    "readFull": "සම්පූර්ණ ලිපිය කියවන්න",
+    "moreTags": "+{{count}} තවත්",
+    "datePending": "දිනය සටහන් කර නොමැත",
+    "teamByline": "NARA කණ්ඩායම"
+  },
+  "pagination": {
+    "pageInfo": "පිටුව {{current}} / {{total}}"
+  },
+  "modal": {
+    "highlightsTitle": "ප්‍රධාන අවධානයන්",
+    "stats": {
+      "views": "දසුන්",
+      "shares": "බෙදාගැනීම්",
+      "readTime": "කියවීමේ කාලය (විනා)",
+      "tags": "ටැග්"
+    },
+    "relatedTopics": "ගැළපෙන විෂයයන්",
+    "noTags": "ටැග් නොමැත",
+    "publishedBy": "{{author}} විසින් ප්‍රකාශනය",
+    "defaultAuthor": "NARA සන්නිවේදන",
+    "publishedOn": "ප්‍රකාශිත දිනය: {{date}}",
+    "close": "වසන්න"
+  },
+  "layout": {
+    "spotlightTitle": "විශේෂ සාරාංශය",
+    "spotlight": {
+      "noHighlights": "පාලන කණ්ඩායම නව අවධානයන් ප්‍රකාශයට පත් කළ විගස මෙහි පෙන්වනු ඇත.",
+      "views": "විශේෂ දසුන්",
+      "shares": "විශේෂ බෙදාගැනීම්"
+    },
+    "moreStoriesTitle": "තවත් පුවත්",
+    "moreStoriesSubtitle": "ඔබට මග හැරුණු පුවත් සාරාංශ. සාගර අංශය හරහා කතන්දර, ප්‍රතිපත්ති යාවත්කාලීන සහ ක්ෂේත්‍ර ක්‍රියාකාරකම් ගවේෂණය කරන්න.",
+    "timelineTitle": "වේගවත් විකාශන",
+    "timelineEmpty": "නව යාවත්කාලීන පුවත් මධ්‍යස්ථානයෙන් පසු මෙහි දිස්වනු ඇත.",
+    "admin": {
+      "title": "පාලන සම්බන්ධතා තත්ත්වය",
+      "statusTitle": "පුවත් මධ්‍යස්ථානයේ තත්ත්වය",
+      "connected": "පුවත් පාලන පුවරුව සමඟ ජීවත් සම්බන්ධතාවය",
+      "cached": "සංරක්ෂිත පුවත් දත්ත පෙන්වයි",
+      "error": "බැකප් දත්ත පෙන්වයි. ජීවත් යාවත්කාලීන සඳහා පාලන පුවරුව සම්බන්ධ කරන්න.",
+      "unknown": "පුවත් මධ්‍යස්ථානයේ තත්ත්වය හඳුනාගත නොහැක",
+      "sourceLabel": "දත්ත ප්‍රභවය",
+      "sourceLive": "ජීවත් පෝෂණය",
+      "sourceLocal": "දේශීය දත්ත කට්ටලය",
+      "sourceFallback": "බැකප් අන්තර්ගතය",
+      "sourceUnknown": "නොදන්නා",
+      "lastUpdated": "අවසන් යාවත්කාලීනය: {{date}}",
+      "lastUpdatedLabel": "අවසන් යාවත්කාලීනය",
+      "articleCount": "ප්‍රකාශිත ලිපි {{count}} ක්",
+      "articleCountLabel": "ලබාගත හැකි ලිපි",
+      "quickStats": "ඉක්මන් මිනුම්",
+      "totalViews": "සම්පූර්ණ කියවීම්",
+      "readTime": "සාමාන්‍ය කියවීමේ වේලාව",
+      "openPanel": "පාලන පුවරුව විවෘත කරන්න"
+    }
+  },
+  "share": {
+    "button": "බෙදාගන්න",
+    "title": "මෙම යාවත්කාලීනය බෙදාගන්න",
+    "facebook": "Facebook තුළ බෙදාගන්න",
+    "twitter": "X (Twitter) තුළ බෙදාගන්න",
+    "linkedin": "LinkedIn තුළ බෙදාගන්න",
+    "whatsapp": "WhatsApp මඟින් බෙදාගන්න",
+    "email": "ඊමේල් කරන්න",
+    "copy": "සබැඳිය පිටපත් කරන්න",
+    "pdf": "PDF බාගත කරන්න",
+    "native": "උපාංගයේ බෙදාගැනීම භාවිත කරන්න",
+    "linkLabel": "සෘජු සබැඳිය",
+    "copied": "සබැඳිය පිටපත් කරන ලදී",
+    "pdfTitleFallback": "NARA පුවත් ලිපිය",
+    "sections": {
+      "summary": "සාරාංශය",
+      "content": "සම්පූර්ණ අන්තර්ගතය",
+      "highlights": "ප්‍රධාන අවධානයන්",
+      "tags": "ටැග්",
+      "metadata": "ප්‍රකාශන විස්තර"
+    }
+  },
+  "categories": {
+    "education-outreach": "අධ්‍යාපන හා ප්‍රවර්ධන",
+    "research-development": "පර්යේෂණ හා සංවර්ධන",
+    "policy-management": "නීති හා කළමනාකරණය",
+    "technology-innovation": "තාක්ෂණ හා නව්‍යතා",
+    "environmental-initiatives": "පරිසර උත්සාහ",
+    "conservation-awareness": "සංරක්ෂණ අවබෝධය",
+    "community-development": "ප්‍රජා සංවර්ධනය",
+    "capacity-building": "ක්ෂමතා වර්ධනය",
+    "technology-integration": "තාක්ෂණ ඒකාබද්ධ කිරීම",
+    "international-cooperation": "ජාත්‍යන්තර සහයෝගිතාව",
+    "industry-support": "කාර්මික සහයෝගය",
+    "industry-development": "කාර්මික සංවර්ධනය",
+    "cultural-events": "සංස්කෘතික වැඩසටහන්",
+    "institutional-milestones": "ආයතනික මයිල්තීරු",
+    "conservation-partnerships": "සංරක්ෂණ හවුල්කාරිත්වයන්"
+  }
+}

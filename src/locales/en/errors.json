@@ -1,0 +1,13 @@
+{
+  "unknownError": "Unknown error",
+  "somethingWentWrong": "Something went wrong",
+  "unexpectedError": "We encountered an unexpected error while processing your request.",
+  "pageNotFound": "Page Not Found",
+  "pageNotFoundDescription": "The page you're looking for doesn't exist. Let's get you back!",
+  "goBack": "Go Back",
+  "backToHome": "Back to Home",
+  "back": "Back",
+  "tryAgain": "Try Again",
+  "loading": "Loading...",
+  "pleaseWait": "Please wait..."
+}

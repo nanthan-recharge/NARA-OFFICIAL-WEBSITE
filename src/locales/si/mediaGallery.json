@@ -1,0 +1,131 @@
+{
+  "hero": {
+    "title": "NARA මාධ්‍ය ගැලරිය",
+    "subtitle": "සත්‍යාපිත NARA මාධ්‍ය හරහා මුහුදු පර්යේෂණ, සංරක්ෂණ සන්ධිස්ථාන සහ ක්ෂේත්‍ර මෙහෙයුම් ගවේෂණය කරන්න.",
+    "kicker": "රජයේ දැනුම් දෘශ්‍ය සංරක්ෂිතය",
+    "ctaImages": "රූප පිරික්සන්න",
+    "ctaVideos": "වීඩියෝ පිරික්සන්න",
+    "status": {
+      "loading": "Hero carousel සකස් වෙමින් පවතී...",
+      "featured": "පරිපාලනය තේරූ විශේෂ මාධ්‍ය Hero carousel හි දර්ශනය වෙයි.",
+      "latest": "විශේෂ Hero අයිතම නොමැත. නවතම අනුමත මාධ්‍ය පෙන්වයි.",
+      "fallback": "පරිපාලන උඩුගත කිරීම් ලැබෙන තෙක් සකස් කළ නියැදි Hero ස්ලයිඩ් පෙන්වයි.",
+      "public": "Hero carousel සඳහා public media gallery hero folder හි ඇති සියලුම රූප භාවිතා කරයි."
+    }
+  },
+  "search": {
+    "placeholder": "පින්තූර, වීඩියෝ, ටැග್, ස්ථාන සෙවීම්..."
+  },
+  "tabs": {
+    "images": "රූප",
+    "videos": "වීඩියෝ"
+  },
+  "filters": {
+    "toggle": "පෙරහන්",
+    "categoryLabel": "ප්‍රවර්ගය",
+    "sourceLabel": "මූලාශ්‍රය",
+    "dateLabel": "දින පරාසය",
+    "categories": {
+      "all": "සියලු මාධ්‍ය",
+      "research": "පර්යේෂණ ක්‍රියාකාරකම්",
+      "marine-life": "මුහුදු ජීවය",
+      "events": "සිද්ධීන් හා සම්මේළන",
+      "facilities": "පහසුකම් සහ උපකරණ",
+      "field-work": "ක්ෂේත්‍ර කාර්ය",
+      "conservation": "සංරක්ෂණ උත්සාහ",
+      "education": "අධ්‍යාපන හා පුහුණුව",
+      "partnerships": "හවුල්කාරිත්ව"
+    },
+    "sources": {
+      "all": "සියලු මූලාශ්‍ර",
+      "manual": "NARA නිල",
+      "social": "සමාජ මාධ්‍ය",
+      "news": "පුවත් මාධ්‍ය",
+      "partners": "හවුල් ආයතන"
+    },
+    "dates": {
+      "all": "සියලු කාලය",
+      "today": "අද",
+      "week": "කලින් දින 7",
+      "month": "කලින් දින 30",
+      "year": "කලින් මාස 12"
+    }
+  },
+  "stats": {
+    "approvedItems": "අනුමත සම්පත්",
+    "totalViews": "මොත්තම දර්ශන",
+    "categories": "ප්‍රවර්ග",
+    "sources": "මූලාශ්‍ර",
+    "lastUpdated": {
+      "placeholder": "පරිපාලන පැනලයෙන් පළමු සමකාලීනය බලා සිටියි",
+      "value": "අවසන් වරට යාවත්කාලීන කළේ {{date}}"
+    }
+  },
+  "loading": "මාධ්‍ය පූරණය වෙමින්...",
+  "empty": {
+    "title": "මාධ්‍ය හමු නොවීය",
+    "description": "ඔබගේ සෙවීම හෝ පෙරහන් වෙනස් කරන්න"
+  },
+  "fallback": {
+    "notice": "පරිපාලන පැනලයෙන් සජීවී ගැලරිය බාගත වන අතරතුර අප සකස් කළ නියැදි මාධ්‍ය දර්ශනය වෙයි."
+  },
+  "insights": {
+    "sources": {
+      "title": "උසස් මූලාශ්‍ර",
+      "empty": "මූලාශ්‍ර තවම නොමැත."
+    },
+    "tags": {
+      "title": "ප්‍රවණ ටැග්",
+      "empty": "මාධ්‍ය පදසුන ලැබීමෙන් පසු ටැග් පෙන්වනු ඇත."
+    },
+    "latest": {
+      "title": "නවතම යාවත්කාලීන",
+      "empty": "අලුතින් අනුමත වූ මාධ්‍ය මෙහි පෙන්වනු ඇත."
+    }
+  },
+  "labels": {
+    "dateUnknown": "දිනය නොමැත"
+  },
+  "actions": {
+    "download": "බාගන්න",
+    "share": "බෙදාගන්න",
+    "favorite": "ප්‍රියතම වලට එකතු කරන්න",
+    "favorited": "ප්‍රියතම",
+    "openOriginal": "මූලික දර්ශනය විවෘත කරන්න",
+    "watchSource": "මූලාශ්‍රයෙන් බලන්න"
+  },
+  "metrics": {
+    "views": "{{count}} දර්ශන",
+    "likes": "{{count}} කැමති",
+    "photoBy": "ඡායාරූපය ලබාදුන්නේ"
+  },
+  "mediaFallback": {
+    "empty": "මාධ්‍ය නොමැත"
+  },
+  "tags": {
+    "research": "පර්යේෂණ",
+    "marine-biology": "මුහුදු ජීව විද්‍යාව",
+    "field-work": "ක්ෂේත්‍ර කටයුතු",
+    "coral": "පවල්",
+    "conservation": "සංරක්ෂණ",
+    "underwater": "ජලයටැසී",
+    "conference": "සම්මේලනය",
+    "international": "ජාත්‍යන්තර",
+    "collaboration": "සහයෝගිතාව",
+    "turtles": "මුහුදු කරත්ත",
+    "wildlife": "වනජීවී",
+    "laboratory": "රසායනාගාරය",
+    "equipment": "උපකරණ",
+    "education": "අධ්‍යාපනය",
+    "outreach": "ප්‍රවේශ වැඩසටහන්",
+    "students": "සිසුන්",
+    "annual-review": "වාර්ෂික සමාලෝචනය",
+    "highlights": "ප්‍රධාන අවධානම්",
+    "coral-reefs": "පවල් පරළි",
+    "documentary": "චිත්‍රපටය",
+    "training": "පුහුණුව",
+    "methods": "ක්‍රම",
+    "whales": "මාළිඟු",
+    "migration": "ගමනාගමනය"
+  }
+}

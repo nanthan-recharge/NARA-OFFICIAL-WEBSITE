@@ -1,0 +1,49 @@
+{
+  "hero": {
+    "title": "මාධ්‍ය පුවත්පත් කට්ටලය",
+    "description": "NARA හි සාගර පර්යේෂණ සහ සංරක්ෂණ ප්‍රයත්නයන් පිළිබඳ නිවැරදි වාර්තාකරණය සඳහා මුදා හැරීම්, ඉහළ-විභේදන මාධ්‍ය වත්කම් සහ කථා අන්තර්ගතය ප්‍රවේශ කරන්න"
+  },
+  "tabs": {
+    "home": "මුල් පිටුව",
+    "releases": "පුවත්පත් නිවේදන",
+    "assets": "මාධ්‍ය වත්කම්",
+    "stories": "කථා",
+    "contacts": "මාධ්‍ය සම්බන්ධතා"
+  },
+  "stats": {
+    "pressReleases": "පුවත්පත් නිවේදන",
+    "mediaAssets": "මාධ්‍ය වත්කම්",
+    "stories": "කථා",
+    "mediaContacts": "මාධ්‍ය සම්බන්ධතා"
+  },
+  "sections": {
+    "latestReleases": "නවතම පුවත්පත් නිවේදන",
+    "featuredStories": "විශේෂාංගගත කථා",
+    "quickDownloads": "ඉක්මන් බාගැනීම්",
+    "pressReleases": "පුවත්පත් නිවේදන",
+    "mediaAssets": "මාධ්‍ය වත්කම්",
+    "allStories": "සියලුම කථා",
+    "ourTeam": "අපගේ මාධ්‍ය කණ්ඩායම"
+  },
+  "featured": "විශේෂාංගගත",
+  "readStory": "කථාව කියවන්න",
+  "files": "ගොනු",
+  "attachments": "ඇමුණුම්",
+  "downloadPDF": "PDF බාගන්න",
+  "download": "බාගන්න",
+  "fileSize": "ගොනු ප්‍රමාණය",
+  "dimensions": "මාන",
+  "format": "ආකෘතිය",
+  "resolution": "විභේදනය",
+  "highRes": "ඉහළ විභේදනය",
+  "noItems": "අයිතම හමු නොවීය",
+  "contactInfo": "සම්බන්ධතා තොරතුරු",
+  "role": "භූමිකාව",
+  "availableFor": "සඳහා ලබා ගත හැකිය",
+  "mediaInquiries": "මාධ්‍ය විමසීම්",
+  "interviews": "සම්මුඛ පරීක්ෂණ",
+  "technicalQuestions": "තාක්ෂණික ප්‍රශ්න",
+  "generalPress": "සාමාන්‍ය පුවත්පත්",
+  "adminPanel": "පරිපාලක පුවරුවෙන් කළමනාකරණය කරන්න",
+  "lastUpdated": "අවසන් යාවත්කාලීනය"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "nara-news-agent",
+  "version": "0.1.0",
+  "description": "Automated news ingestion agent for NARA Digital Ocean website",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "scrape": "node src/index.js run-once",
+    "schedule": "node src/index.js schedule"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "dependencies": {
+    "@google-cloud/vertexai": "^0.4.0",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
+    "firebase-admin": "^12.6.0",
+    "luxon": "^3.4.4",
+    "node-cron": "^3.0.3",
+    "p-retry": "^6.0.1",
+    "pino": "^8.17.0",
+    "rss-parser": "^3.13.0",
+    "sanitize-html": "^2.13.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0",
+    "pino-pretty": "^10.3.0"
+  }
+}

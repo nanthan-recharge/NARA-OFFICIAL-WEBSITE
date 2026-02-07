@@ -1,0 +1,96 @@
+{
+  "messages": {
+    "welcome": "Welcome! Your account has been created successfully. Please check your email to verify your account.",
+    "submissionSuccess": "Research paper submitted successfully! Your submission is under review and you will be notified once it has been processed.",
+    "updateSuccess": "Profile updated successfully!",
+    "updateError": "Failed to update profile"
+  },
+  "roles": {
+    "researcher": "Researcher",
+    "student": "Student",
+    "public": "Public Member",
+    "institution": "Institution / Organization",
+    "default": "Library User"
+  },
+  "header": {
+    "quickActions": "Quick Actions",
+    "viewProfile": "View Full Profile",
+    "signOut": "Sign Out",
+    "cardLabel": "Card: {{cardNumber}}"
+  },
+  "tabs": {
+    "overview": "Overview",
+    "profile": "My Profile",
+    "loans": "My Loans",
+    "settings": "Settings"
+  },
+  "buttons": {
+    "browseCatalogue": "Browse Catalogue",
+    "submitResearch": "Submit Research",
+    "getHelp": "Get Help",
+    "editProfile": "Edit Profile",
+    "cancel": "Cancel",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "resendVerification": "Resend Verification Email",
+    "changePassword": "Change Password",
+    "deleteAccount": "Delete Account"
+  },
+  "overview": {
+    "title": "Dashboard Overview",
+    "stats": {
+      "activeLoans": "Active Loans",
+      "totalBorrowed": "Total Borrowed",
+      "finesOwed": "Fines Owed",
+      "finesValue": "Rs. {{amount}}"
+    },
+    "account": {
+      "title": "Account Information",
+      "cardStatus": "Library Card Status",
+      "maxLoans": "Max Loans Allowed",
+      "maxLoansValue": "{{count}} books",
+      "loanPeriod": "Loan Period",
+      "loanPeriodValue": "{{days}} days",
+      "cardExpiry": "Card Expiry"
+    },
+    "permissions": {
+      "title": "Your Permissions",
+      "canBorrow": "Can Borrow",
+      "canSubmitResearch": "Can Submit Research",
+      "premiumAccess": "Premium Access"
+    }
+  },
+  "profile": {
+    "title": "My Profile",
+    "fields": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "emailNote": "Email cannot be changed",
+      "phoneNumber": "Phone Number",
+      "institution": "Institution",
+      "researchArea": "Research Area"
+    }
+  },
+  "loans": {
+    "title": "My Loans",
+    "empty": "You don't have any active loans at the moment"
+  },
+  "settings": {
+    "title": "Settings",
+    "emailVerification": {
+      "title": "Email Verification",
+      "status": "Status: {{status}}",
+      "verified": "Verified",
+      "notVerified": "Not Verified"
+    },
+    "security": {
+      "title": "Account Security",
+      "changePassword": "Change Password"
+    },
+    "danger": {
+      "title": "Danger Zone",
+      "description": "Once you delete your account, there is no going back."
+    }
+  }
+}

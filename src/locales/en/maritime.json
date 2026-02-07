@@ -1,0 +1,854 @@
+{
+  "meta": {
+    "title": "Maritime Services Hub | NARA Sri Lanka",
+    "description": "Access real-time ocean intelligence, nautical chart catalogs, hydrographic services, and maritime data APIs for Sri Lanka's waters"
+  },
+  "nav": {
+    "title": "Maritime Services",
+    "subtitle": "Ocean Intelligence & Navigation",
+    "items": [
+      {
+        "id": "overview",
+        "label": "Overview"
+      },
+      {
+        "id": "ocean-data",
+        "label": "Ocean Data"
+      },
+      {
+        "id": "services",
+        "label": "Services"
+      },
+      {
+        "id": "charts",
+        "label": "Charts"
+      }
+    ]
+  },
+  "hero": {
+    "badge": "Real-time Ocean Intelligence",
+    "title": "Maritime Services",
+    "highlight": "Intelligence Hub",
+    "description": "Access real-time sea level data, professional nautical charts, hydrographic surveys, and comprehensive maritime services for Sri Lanka's territorial waters and EEZ.",
+    "primaryCta": "View Live Ocean Data",
+    "secondaryCta": "Browse Charts",
+    "stats": [
+      {
+        "id": "stations",
+        "value": "2",
+        "label": "Active Stations"
+      },
+      {
+        "id": "interval",
+        "value": "6 min",
+        "label": "Update Interval"
+      },
+      {
+        "id": "monitoring",
+        "value": "24/7",
+        "label": "Monitoring"
+      }
+    ]
+  },
+  "statsOverview": {
+    "items": [
+      {
+        "id": "stations",
+        "value": "2",
+        "label": "Active IOC Stations",
+        "sublabel": "Real-time monitoring"
+      },
+      {
+        "id": "uptime",
+        "value": "99.8%",
+        "label": "Data Uptime",
+        "sublabel": "Quality assurance"
+      },
+      {
+        "id": "frequency",
+        "value": "6 min",
+        "label": "Update Frequency",
+        "sublabel": "IOC sea level data"
+      },
+      {
+        "id": "charts",
+        "value": "30+",
+        "label": "Nautical Charts",
+        "sublabel": "Sri Lankan waters"
+      },
+      {
+        "id": "coverage",
+        "value": "24/7",
+        "label": "Monitoring",
+        "sublabel": "Continuous coverage"
+      },
+      {
+        "id": "apis",
+        "value": "4",
+        "label": "Free Data APIs",
+        "sublabel": "IOC, NOAA, NASA, Copernicus"
+      }
+    ]
+  },
+  "quickActions": {
+    "heading": "Quick Actions",
+    "subheading": "Fast access to our most popular services",
+    "actions": [
+      {
+        "id": "bookSurvey",
+        "title": "Book Hydrographic Survey",
+        "description": "Schedule professional bathymetric surveys",
+        "cta": "Book Now"
+      },
+      {
+        "id": "orderChart",
+        "title": "Order Nautical Charts",
+        "description": "Browse and purchase official charts",
+        "cta": "Browse Catalog"
+      },
+      {
+        "id": "accessData",
+        "title": "Access Live Ocean Data",
+        "description": "Real-time temperature, currents, waves & salinity data",
+        "cta": "View Live Data"
+      },
+      {
+        "id": "stormglassWeather",
+        "title": "Maritime Weather Conditions",
+        "description": "Wave heights, tides & marine forecasts for Sri Lankan ports",
+        "cta": "View Maritime Weather"
+      },
+      {
+        "id": "nasaOcean",
+        "title": "NASA Ocean Color Data",
+        "description": "Satellite sea surface temperature & chlorophyll observations",
+        "cta": "View NASA Data"
+      },
+      {
+        "id": "weatherDashboard",
+        "title": "Coastal Weather Dashboard",
+        "description": "Real-time weather conditions & 5-day forecasts",
+        "cta": "View Weather"
+      },
+      {
+        "id": "requestData",
+        "title": "Request Historical Data",
+        "description": "Access archived oceanographic datasets",
+        "cta": "Submit Request"
+      },
+      {
+        "id": "training",
+        "title": "Training Programs",
+        "description": "Professional maritime training courses",
+        "cta": "View Programs"
+      },
+      {
+        "id": "consultation",
+        "title": "Expert Consultation",
+        "description": "Get technical advice from our team",
+        "cta": "Contact Us"
+      }
+    ]
+  },
+  "oceanData": {
+    "badge": "Real-Time Ocean Intelligence",
+    "heading": "Ocean Data Dashboard",
+    "description": "Access comprehensive ocean data including sea level monitoring, temperature, currents, waves, salinity, and chlorophyll concentration for Sri Lankan waters",
+    "features": [
+      {
+        "id": "updates",
+        "title": "6-Minute Updates",
+        "description": "Real-time data from IOC sea level monitoring network"
+      },
+      {
+        "id": "sources",
+        "title": "Free Data Sources",
+        "description": "Access NASA, NOAA, Copernicus, and IOC datasets"
+      },
+      {
+        "id": "uptime",
+        "title": "99.8% Uptime",
+        "description": "Quality-assured data with automated QA/QC pipelines"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "sea-level",
+        "label": "Sea Level Monitoring",
+        "description": "Real-time sea level data from IOC stations"
+      },
+      {
+        "id": "data-sources",
+        "label": "Data Sources",
+        "description": "Free & premium ocean data APIs"
+      },
+      {
+        "id": "historical",
+        "label": "Historical Data",
+        "description": "Access archived datasets"
+      },
+      {
+        "id": "integration",
+        "label": "Integration Guide",
+        "description": "Developer resources & APIs"
+      }
+    ],
+    "cta": {
+      "heading": "Need Help Integrating Ocean Data?",
+      "description": "Our team can help you integrate real-time ocean data into your applications, set up custom dashboards, and access historical datasets.",
+      "button": "Contact Ocean Data Team"
+    }
+  },
+  "seaLevel": {
+    "stations": [
+      {
+        "id": "colombo",
+        "name": "Colombo",
+        "region": "Western Province",
+        "update": "6-minute realtime feed"
+      },
+      {
+        "id": "trincomalee",
+        "name": "Trincomalee",
+        "region": "Eastern Province",
+        "update": "6-minute realtime feed"
+      }
+    ],
+    "labels": {
+      "live": "Live",
+      "coordinates": "Coordinates",
+      "currentLevel": "Current Sea Level",
+      "trend": "Trend",
+      "dataQuality": "Data Quality",
+      "realTime": "Real-time",
+      "updateInterval": "Update interval",
+      "timestamp": "Last updated",
+      "nextHigh": "Next High",
+      "nextLow": "Next Low",
+      "tideStatus": "Tide Status",
+      "samples": "Samples",
+      "status": "Status",
+      "uptime": "Uptime",
+      "pattern": "Tidal movement pattern",
+      "qualityNote": "Quality assurance metrics"
+    },
+    "trend": {
+      "rising": "Rising",
+      "falling": "Falling",
+      "stable": "Stable"
+    },
+    "quality": {
+      "excellent": "Excellent"
+    },
+    "buttons": {
+      "exportData": "Export Data",
+      "viewDocumentation": "View Documentation",
+      "copy": "Copy",
+      "copied": "Copied!"
+    },
+    "chart": {
+      "heading": "24-Hour Sea Level Trend",
+      "description": "Last updated",
+      "placeholder": "Real-time Chart Integration Ready",
+      "note": "Connect to IOC API for live visualization"
+    },
+    "api": {
+      "title": "IOC Sea Level Monitoring API",
+      "provider": "UNESCO - Intergovernmental Oceanographic Commission"
+    }
+  },
+  "dataSources": {
+    "tabs": [
+      {
+        "id": "free",
+        "label": "Free Sources"
+      },
+      {
+        "id": "paid",
+        "label": "Premium Sources"
+      },
+      {
+        "id": "pricing",
+        "label": "Pricing Tiers"
+      }
+    ],
+    "free": [
+      {
+        "id": "ioc",
+        "name": "IOC Sea Level Monitoring",
+        "provider": "UNESCO",
+        "access": "Open · No auth",
+        "pricing": "FREE",
+        "description": "Real-time sea level observations for Colombo and Trincomalee including tidal harmonics, surge, and tsunami alerts.",
+        "update": "Every 6 minutes",
+        "coverage": "Sri Lankan tide gauge network",
+        "formats": [
+          "JSON",
+          "XML",
+          "CSV"
+        ],
+        "cta": "View API Details"
+      },
+      {
+        "id": "noaa",
+        "name": "NOAA Tides & Currents",
+        "provider": "NOAA",
+        "access": "Open · Station selection required",
+        "pricing": "FREE",
+        "description": "Water level, tide predictions, and meteorological data for the closest reference stations to Sri Lanka coasts.",
+        "update": "1 minute – hourly",
+        "coverage": "Global reference network",
+        "formats": [
+          "JSON",
+          "CSV"
+        ],
+        "cta": "View API Details"
+      },
+      {
+        "id": "copernicus",
+        "name": "Copernicus Marine Service",
+        "provider": "EU Copernicus",
+        "access": "Free · Registration required",
+        "pricing": "FREE",
+        "description": "Daily satellite and model products covering the Indian Ocean: currents, sea surface height, salinity, waves, and more.",
+        "update": "Daily",
+        "coverage": "Indian Ocean (0.25°)",
+        "formats": [
+          "NetCDF",
+          "CSV"
+        ],
+        "cta": "View API Details"
+      },
+      {
+        "id": "nasa",
+        "name": "NASA Ocean Color & EarthData",
+        "provider": "NASA",
+        "access": "Free · EarthData login",
+        "pricing": "FREE",
+        "description": "Sea surface temperature, chlorophyll-a, and ocean color observations from MODIS, VIIRS, and SeaWiFS missions.",
+        "update": "Daily to weekly",
+        "coverage": "Global",
+        "formats": [
+          "HDF",
+          "NetCDF"
+        ],
+        "cta": "View API Details"
+      }
+    ],
+    "paid": [
+      {
+        "id": "stormglass",
+        "name": "Stormglass Maritime Weather API",
+        "pricing": "Free 50 req/day · $50–500/mo",
+        "description": "High-resolution wave, sea temperature, currents, salinity, and tide forecasts for custom coordinates.",
+        "notes": "Requires VITE_STORMGLASS_API_KEY header authorization.",
+        "cta": "View Pricing",
+        "tier": "Basic"
+      },
+      {
+        "id": "weatherapi",
+        "name": "WeatherAPI.com Marine",
+        "pricing": "Free tier · $10–50/mo",
+        "description": "Marine forecasts, tide tables, swell direction, and wave height for Sri Lankan coastal coordinates.",
+        "notes": "Set VITE_WEATHERAPI_KEY for authenticated requests.",
+        "cta": "View Pricing",
+        "tier": "Basic"
+      },
+      {
+        "id": "marineTraffic",
+        "name": "Marine Traffic AIS API",
+        "pricing": "€200–€2000/mo",
+        "description": "Vessel tracking, port intelligence, and ocean condition overlays for operational planning.",
+        "notes": "Enterprise subscription required. Integrate via secure backend proxy.",
+        "cta": "View Pricing",
+        "tier": "Professional"
+      }
+    ],
+    "tiers": [
+      {
+        "id": "free",
+        "title": "Free Tier",
+        "price": "$0 / month",
+        "inclusions": [
+          "IOC sea level feed",
+          "Copernicus (registered)",
+          "NASA Ocean Color",
+          "NOAA reference stations"
+        ],
+        "cta": "Get Started Free"
+      },
+      {
+        "id": "basic",
+        "title": "Basic Tier",
+        "price": "$60 / month",
+        "inclusions": [
+          "Stormglass Basic",
+          "WeatherAPI Marine",
+          "Email alert automations"
+        ],
+        "cta": "Contact Sales"
+      },
+      {
+        "id": "professional",
+        "title": "Professional Tier",
+        "price": "≈ $900 / month",
+        "inclusions": [
+          "Stormglass Pro",
+          "Marine Traffic API",
+          "Dedicated processing budget"
+        ],
+        "cta": "Contact Sales"
+      }
+    ],
+    "support": {
+      "heading": "Integration Support Available",
+      "description": "Need help integrating these data sources into your systems? Our team can assist with API setup, authentication configuration, data processing pipelines, and custom dashboard development.",
+      "button": "Request Technical Consultation"
+    },
+    "labels": {
+      "freeBadge": "FREE ✓",
+      "integrationNote": "Integration Note:",
+      "recommended": "RECOMMENDED"
+    }
+  },
+  "historical": {
+    "archives": [
+      {
+        "id": "nara",
+        "title": "NARA Internal Archives",
+        "description": "Confidential datasets curated by the Hydrographic Division for Sri Lankan waters",
+        "items": [
+          {
+            "name": "Tide Gauge Records",
+            "detail": "Colombo, Trincomalee, Galle · Since 1990s",
+            "format": "CSV, SQL backups",
+            "iconKey": "tide-gauge"
+          },
+          {
+            "name": "Samudra Maru Cruise Logs",
+            "detail": "Physical & digital oceanography campaigns",
+            "format": "NetCDF, XLS, PDF",
+            "iconKey": "cruise-logs"
+          },
+          {
+            "name": "Research Station Measurements",
+            "detail": "Mannar, Jaffna, Kalpitiya laboratories",
+            "format": "Excel, CSV",
+            "iconKey": "research-station"
+          }
+        ]
+      },
+      {
+        "id": "international",
+        "title": "International Repositories",
+        "description": "Freely accessible archives for historical baselines and climate analysis",
+        "items": [
+          {
+            "name": "PSMSL · Station 1283 (Colombo)",
+            "detail": "Monthly & annual mean sea level · 1986–present",
+            "link": "https://www.psmsl.org/data/obtaining/",
+            "iconKey": "psmsl"
+          },
+          {
+            "name": "CEDA Environmental Data",
+            "detail": "Historical ocean temperature, salinity, currents",
+            "link": "https://data.ceda.ac.uk/",
+            "iconKey": "ceda"
+          },
+          {
+            "name": "ARGO Global Floats",
+            "detail": "Temperature & salinity profiles · 0–2000m depth",
+            "link": "https://argo.ucsd.edu/data/",
+            "iconKey": "argo"
+          }
+        ]
+      }
+    ],
+    "form": {
+      "title": "Request Historical Data Access",
+      "description": "Submit a request to access NARA's historical oceanographic datasets. Our team will review and provide access within 2-3 business days.",
+      "labels": {
+        "name": "Full Name *",
+        "organization": "Organization *",
+        "email": "Email Address *",
+        "dataset": "Dataset Requested *",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "format": "Preferred Format",
+        "purpose": "Research Purpose *"
+      },
+      "placeholders": {
+        "name": "Dr. John Doe",
+        "organization": "University of Colombo",
+        "email": "john.doe@university.edu",
+        "purpose": "Describe how you plan to use this data..."
+      },
+      "datasets": [
+        {
+          "id": "tide-gauge",
+          "label": "Tide Gauge Records"
+        },
+        {
+          "id": "cruise-logs",
+          "label": "Samudra Maru Cruise Logs"
+        },
+        {
+          "id": "research-station",
+          "label": "Research Station Measurements"
+        },
+        {
+          "id": "other",
+          "label": "Other (specify in purpose)"
+        }
+      ],
+      "formats": [
+        "CSV",
+        "NetCDF",
+        "Excel",
+        "SQL",
+        "PDF"
+      ],
+      "submit": "Submit Data Request",
+      "success": "Your data access request has been submitted. Our team will contact you within 2 business days."
+    },
+    "policy": {
+      "title": "Data Access Policy",
+      "items": [
+        "Free access for academic research and non-commercial purposes",
+        "Commercial usage requires separate licensing agreement",
+        "Proper citation of NARA datasets is mandatory in publications"
+      ]
+    }
+  },
+  "integrationGuide": {
+    "quickStart": {
+      "title": "Developer Integration Guide",
+      "subtitle": "Everything you need to integrate ocean data into your applications",
+      "metrics": [
+        {
+          "label": "Quick setup time",
+          "value": "5 min"
+        },
+        {
+          "label": "Free data sources",
+          "value": "4 APIs"
+        },
+        {
+          "label": "Simple integration",
+          "value": "REST"
+        }
+      ]
+    },
+    "npmCommand": "npm install axios react-apexcharts apexcharts leaflet react-leaflet @turf/turf date-fns swr",
+    "packages": [
+      {
+        "name": "axios",
+        "purpose": "HTTP client for authenticated backend proxies"
+      },
+      {
+        "name": "react-apexcharts / apexcharts",
+        "purpose": "High-frequency time series visualization"
+      },
+      {
+        "name": "leaflet / react-leaflet",
+        "purpose": "Interactive map overlays for station coverage"
+      },
+      {
+        "name": "@turf/turf",
+        "purpose": "Geospatial calculations and EEZ analytics"
+      },
+      {
+        "name": "date-fns",
+        "purpose": "Reliable time-range handling in the browser"
+      },
+      {
+        "name": "swr",
+        "purpose": "Stale-while-revalidate data fetching for dashboards"
+      }
+    ],
+    "codeExamples": [
+      {
+        "id": "sea-level",
+        "title": "Fetch IOC Sea Level Data"
+      },
+      {
+        "id": "copernicus",
+        "title": "Copernicus Marine Data (Backend)"
+      },
+      {
+        "id": "chart",
+        "title": "Chart Visualization with ApexCharts"
+      }
+    ],
+    "buttons": {
+      "copy": "Copy",
+      "copied": "Copied!"
+    },
+    "roadmap": [
+      {
+        "id": "phase1",
+        "title": "Phase 1 · Free Data (Month 1–2)",
+        "items": [
+          "Integrate IOC sea level feed with live dashboards",
+          "Display real-time charts with alert thresholds",
+          "Launch interactive station map",
+          "Provide basic historical downloads"
+        ]
+      },
+      {
+        "id": "phase2",
+        "title": "Phase 2 · Enhanced Products (Month 3–4)",
+        "items": [
+          "Add NASA SST and Copernicus currents & salinity",
+          "Expand historical archival search and request flow",
+          "Enable CSV/NetCDF packaging with notifications",
+          "Introduce automated event alerts"
+        ]
+      },
+      {
+        "id": "phase3",
+        "title": "Phase 3 · Advanced Intelligence (Month 5–6)",
+        "items": [
+          "Integrate paid APIs for wave forecasting & AIS traffic",
+          "Deliver mobile app companion dashboards",
+          "Launch research portal with analyst workbench",
+          "Support premium decision-support services"
+        ]
+      }
+    ],
+    "env": {
+      "title": "Required Environment Variables",
+      "items": [
+        "VITE_STORMGLASS_API_KEY",
+        "VITE_WEATHERAPI_KEY",
+        "VITE_COPERNICUS_USERNAME",
+        "VITE_COPERNICUS_PASSWORD",
+        "VITE_NASA_EARTHDATA_TOKEN"
+      ]
+    },
+    "support": {
+      "heading": "Need Development Support?",
+      "description": "Our technical team can provide integration assistance, custom API development, and ongoing support for your ocean data projects.",
+      "primary": "Schedule Consultation",
+      "secondary": "View Full Documentation"
+    },
+    "packagesTitle": "Required NPM Packages",
+    "packagesSubtitle": "Install these dependencies for full functionality",
+    "codeTitle": "Code Examples",
+    "roadmapTitle": "Implementation Roadmap",
+    "roadmapSubtitle": "Suggested phased approach for integration"
+  },
+  "services": {
+    "heading": "Our Services",
+    "subheading": "Comprehensive maritime services backed by decades of expertise in hydrography, oceanography, and marine research",
+    "items": [
+      {
+        "id": "hydrographic-survey",
+        "name": "Hydrographic Survey",
+        "description": "Professional bathymetric surveys and seafloor mapping using advanced multibeam sonar technology",
+        "status": "Available",
+        "startingFrom": "Starting from",
+        "duration": "Duration",
+        "cta": "Request Quote",
+        "features": [
+          "Multibeam sonar mapping",
+          "Side-scan sonar imaging",
+          "Sub-bottom profiling",
+          "GPS positioning"
+        ]
+      },
+      {
+        "id": "chart-supply",
+        "name": "Nautical Chart Supply",
+        "description": "Official nautical charts for Sri Lankan waters, updated with latest hydrographic data",
+        "status": "Available",
+        "startingFrom": "Starting from",
+        "duration": "Duration",
+        "cta": "Request Quote",
+        "features": [
+          "Digital & paper formats",
+          "Latest editions",
+          "Custom coverage",
+          "Certified charts"
+        ]
+      },
+      {
+        "id": "data-processing",
+        "name": "Oceanographic Data Processing",
+        "description": "Advanced processing and analysis of marine data including CTD, ADCP, and water quality measurements",
+        "status": "Available",
+        "startingFrom": "Starting from",
+        "duration": "Duration",
+        "cta": "Request Quote",
+        "features": [
+          "CTD data analysis",
+          "Current profiling",
+          "Quality control",
+          "Report generation"
+        ]
+      },
+      {
+        "id": "vessel-positioning",
+        "name": "Vessel Positioning Services",
+        "description": "Real-time DGPS positioning and navigation support for research vessels and commercial ships",
+        "status": "Available",
+        "startingFrom": "Starting from",
+        "duration": "Duration",
+        "cta": "Request Quote",
+        "features": [
+          "DGPS corrections",
+          "Real-time positioning",
+          "Route planning",
+          "24/7 support"
+        ]
+      },
+      {
+        "id": "training",
+        "name": "Maritime Training",
+        "description": "Professional training in hydrography, navigation, and oceanographic instrumentation",
+        "status": "Limited",
+        "startingFrom": "Starting from",
+        "duration": "Duration",
+        "cta": "Request Quote",
+        "features": [
+          "Hands-on training",
+          "Certification",
+          "Equipment familiarization",
+          "Field practice"
+        ]
+      },
+      {
+        "id": "consultation",
+        "name": "Maritime Consultation",
+        "description": "Expert consultation on marine projects, EIA studies, and oceanographic research",
+        "status": "Available",
+        "startingFrom": "Starting from",
+        "duration": "Duration",
+        "cta": "Request Quote",
+        "features": [
+          "Expert advice",
+          "Project planning",
+          "Feasibility studies",
+          "Technical reports"
+        ]
+      }
+    ],
+    "labels": {
+      "duration": "Duration",
+      "features": "Key features"
+    },
+    "reasons": [
+      {
+        "id": "experience",
+        "title": "30+ Years",
+        "description": "Industry experience"
+      },
+      {
+        "id": "certified",
+        "title": "IHO Certified",
+        "description": "International standards"
+      },
+      {
+        "id": "team",
+        "title": "Expert Team",
+        "description": "Qualified professionals"
+      },
+      {
+        "id": "support",
+        "title": "24/7 Support",
+        "description": "Round-the-clock assistance"
+      }
+    ],
+    "statusLabels": {
+      "available": "Available",
+      "limited": "Limited"
+    }
+  },
+  "charts": {
+    "heading": "Chart Catalog",
+    "subheading": "Browse and order official nautical charts for Sri Lankan waters, updated with the latest hydrographic surveys",
+    "searchPlaceholder": "Search by chart number or location...",
+    "filters": {
+      "all": "All Charts"
+    },
+    "categories": [
+      {
+        "id": "harbour",
+        "label": "Harbour Charts"
+      },
+      {
+        "id": "coastal",
+        "label": "Coastal Charts"
+      },
+      {
+        "id": "offshore",
+        "label": "Offshore Charts"
+      }
+    ],
+    "samples": [
+      {
+        "id": "sl-101",
+        "chartNumber": "SL-101",
+        "title": "Colombo Harbour Approaches",
+        "scale": "1:50,000",
+        "edition": "Edition 7 · 2024",
+        "coverage": "Western Province · Colombo Port to Kalutara",
+        "format": "Digital",
+        "price": "LKR 8,500",
+        "status": "Available",
+        "category": "harbour"
+      },
+      {
+        "id": "sl-214",
+        "chartNumber": "SL-214",
+        "title": "Trincomalee Bay and Approaches",
+        "scale": "1:25,000",
+        "edition": "Edition 4 · 2024",
+        "coverage": "Eastern Province · Trincomalee Port limits",
+        "format": "Bundle",
+        "price": "LKR 9,100",
+        "status": "Available",
+        "category": "harbour"
+      },
+      {
+        "id": "sl-305",
+        "chartNumber": "SL-305",
+        "title": "Jaffna Peninsula to Palk Strait",
+        "scale": "1:150,000",
+        "edition": "Edition 5 · 2023",
+        "coverage": "Northern Province · Delft Island to Puttalam",
+        "format": "Digital",
+        "price": "LKR 7,600",
+        "status": "Available",
+        "category": "coastal"
+      },
+      {
+        "id": "sl-410",
+        "chartNumber": "SL-410",
+        "title": "Sri Lanka Offshore Energy Blocks",
+        "scale": "1:500,000",
+        "edition": "Edition 2 · 2024",
+        "coverage": "EEZ · Bathymetry and leased blocks",
+        "format": "Digital",
+        "price": "LKR 11,200",
+        "status": "Available",
+        "category": "offshore"
+      }
+    ],
+    "buttons": {
+      "order": "Order Chart",
+      "preview": "Preview"
+    },
+    "custom": {
+      "heading": "Need a Custom Chart?",
+      "description": "We can create custom nautical charts for specific areas, updated with your requirements",
+      "cta": "Request Custom Chart"
+    }
+  },
+  "cta": {
+    "heading": "Ready to Navigate Sri Lanka's Waters?",
+    "description": "Access real-time ocean data, professional maritime services, and official nautical charts",
+    "primary": "Contact Maritime Division",
+    "secondary": "Download Resources"
+  }
+}

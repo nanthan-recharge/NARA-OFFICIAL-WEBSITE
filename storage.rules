@@ -1,0 +1,167 @@
+rules_version = '2';
+
+// NARA Firebase Storage Security Rules - SIMPLIFIED FOR PUBLIC ACCESS
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Public assets (logos, images, documents)
+    match /public/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Library PDFs and QR codes (FULL PUBLIC READ ACCESS - NO AUTH REQUIRED)
+    match /pdfs/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Tamil translations (FULL PUBLIC READ ACCESS)
+    match /pdfs_tamil/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Sinhala translations (FULL PUBLIC READ ACCESS)
+    match /pdfs_sinhala/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    match /qr-codes/{allPaths=**} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+    
+    // Division images (DEVELOPMENT MODE: PUBLIC WRITE)
+    match /divisions/{divisionId}/{allPaths=**} {
+      allow read: if true;
+      allow write: if true; // DEVELOPMENT MODE: Open for public uploads
+    }
+
+    // Podcast videos (DEVELOPMENT MODE: PUBLIC WRITE)
+    match /podcasts/{allPaths=**} {
+      allow read: if true; // Anyone can view podcasts
+      allow write: if true; // DEVELOPMENT MODE: Open for public uploads
+    }
+
+    // News and article images
+    match /news/{newsId}/{fileName} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Library research submissions
+    match /research/{userId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Library research supplementary files
+    match /research/{userId}/supplementary/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Research project files
+    match /research_projects/{projectId}/{fileName} {
+      allow read: if true; // Simplified - all research is public
+      allow write: if request.auth != null;
+    }
+
+    // Publication files
+    match /publications/{publicationId}/{fileName} {
+      allow read: if true; // Public access
+      allow write: if request.auth != null;
+    }
+
+    // User profile images and documents
+    match /users/{userId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Application documents
+    match /applications/{applicationId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Emergency response report attachments
+    match /emergency_incidents/{reportId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if true; // Public can submit
+    }
+
+    match /non_emergency_support/{reportId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if true;
+    }
+
+    match /environmental_incidents/{reportId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if true;
+    }
+
+    // Event images and documents
+    match /events/{eventId}/{fileName} {
+      allow read: if true;
+      allow write: if request.auth != null;
+    }
+
+    // Temporary uploads
+    match /temp/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+      allow delete: if request.auth != null;
+    }
+
+    // Administrative files
+    match /admin/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null;
+    }
+
+    // Library member photos
+    match /library_members/{memberId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == memberId;
+    }
+
+    // Research content uploads (DEVELOPMENT MODE: PUBLIC WRITE)
+    match /research-content/{allPaths=**} {
+      allow read: if true;  // Anyone can read/download research papers
+      allow write: if true; // DEVELOPMENT MODE: Open for public uploads
+    }
+
+    // ============================================
+    // MARINE SPATIAL PLANNING (MSP) STORAGE
+    // ============================================
+
+    // MSP Photo Attachments
+    match /msp-photos/{projectId}/{photoId} {
+      // Anyone authenticated can read MSP photos
+      allow read: if request.auth != null;
+
+      // Anyone authenticated can upload photos
+      allow write: if request.auth != null;
+
+      // Can delete if authenticated
+      allow delete: if request.auth != null;
+    }
+
+    // MSP Exports (GeoJSON, CSV, PDF, etc.)
+    match /msp-exports/{projectId}/{exportId} {
+      // Anyone authenticated can read exports
+      allow read: if request.auth != null;
+
+      // Anyone authenticated can create exports
+      allow write: if request.auth != null;
+    }
+
+    // Default deny rule
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

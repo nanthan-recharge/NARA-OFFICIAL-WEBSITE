@@ -1,0 +1,119 @@
+{
+  "directory": {
+    "badge": "Educational Network",
+    "title": "NARA",
+    "subtitle": "School Directory System",
+    "description": "Comprehensive database of educational institutions across Sri Lanka promoting marine science and environmental education"
+  },
+  "stats": {
+    "schools": "Institutions",
+    "students": "Students",
+    "districts": "Districts",
+    "avgStudents": "Avg. Students"
+  },
+  "search": {
+    "placeholder": "Search institutions by name or location..."
+  },
+  "filters": {
+    "allDistricts": "All Districts",
+    "allYears": "All Years"
+  },
+  "sort": {
+    "name": "Sort by Name",
+    "students": "Sort by Students",
+    "year": "Sort by Year"
+  },
+  "results": {
+    "showing": "Showing",
+    "of": "of"
+  },
+  "actions": {
+    "download": "Download Data",
+    "upload": "Upload Data",
+    "admin": "Admin",
+    "print": "Print",
+    "cancel": "Cancel",
+    "save": "Save",
+    "close": "Close"
+  },
+  "card": {
+    "students": "Students",
+    "since": "Since"
+  },
+  "map": {
+    "schoolLocation": "School Location",
+    "totalShowing": "Showing",
+    "schools": "schools"
+  },
+  "loading": "Loading data...",
+  "error": "Error loading data",
+  "noResults": "No institutions found matching your criteria",
+  "clearFilters": "Clear Filters",
+  "noDatabase": "Database not yet configured",
+  "noDatabaseDesc": "Upload Excel file to populate this category",
+  "uploadFirst": "Upload First Dataset",
+  "upload": {
+    "title": "Upload School Data",
+    "subtitle": "Upload Excel file for",
+    "dragDrop": "Drag & drop your Excel file here",
+    "orClick": "or click to browse files",
+    "supportedFormats": "Supports .xlsx, .xls, .csv files",
+    "invalidFileType": "Please upload an Excel (.xlsx, .xls) or CSV file",
+    "fileTooLarge": "File size must be less than 10MB",
+    "fileReady": "File ready for upload",
+    "uploading": "Uploading...",
+    "success": "Upload successful! Data will be available shortly.",
+    "uploadFailed": "Upload failed. Please try again.",
+    "instructions": "File Format Requirements",
+    "instruction1": "First row should contain column headers",
+    "instruction2": "Required columns: School Name, District, Students",
+    "instruction3": "Optional columns: Contact Person, Phone, Email, Partner Since",
+    "instruction4": "Maximum file size: 10MB"
+  },
+  "admin": {
+    "title": "School Database Admin",
+    "subtitle": "Manage school databases and configurations",
+    "tabs": {
+      "overview": "Overview",
+      "databases": "Databases",
+      "settings": "Settings"
+    },
+    "stats": {
+      "totalDatabases": "Total Databases",
+      "activeDatabases": "Active Databases",
+      "pendingDatabases": "Pending Databases"
+    },
+    "recentActivity": "Recent Activity",
+    "activity": {
+      "uploadSuccess": "Aqua School database updated successfully",
+      "pendingUpload": "11th Grade Schools database pending upload",
+      "systemUpdate": "System configuration updated"
+    },
+    "databases": {
+      "title": "Database Management"
+    },
+    "addDatabase": "Add Database",
+    "enterUrl": "Enter database URL...",
+    "status": {
+      "active": "Active",
+      "pending": "Pending"
+    },
+    "viewSource": "View Source",
+    "edit": "Edit",
+    "refresh": "Refresh",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this database?",
+    "overview": {
+      "title": "System Overview"
+    },
+    "settings": {
+      "title": "System Settings",
+      "cache": "Cache Settings",
+      "cacheDuration": "Cache Duration",
+      "autoRefresh": "Auto Refresh",
+      "notifications": "Notifications",
+      "emailAlerts": "Email Alerts",
+      "systemAlerts": "System Alerts"
+    }
+  }
+}

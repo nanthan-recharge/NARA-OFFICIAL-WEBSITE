@@ -1,0 +1,31 @@
+{
+  "name": "nara-library-mcp-agent",
+  "version": "1.0.0",
+  "description": "MCP Agent for automatically updating NARA Digital Library with ocean science publications",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "fetch": "node src/fetchBooks.js",
+    "update-catalogue": "node src/updateCatalogue.js",
+    "test": "node src/test.js"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "dotenv": "^16.3.1",
+    "node-cron": "^3.0.3",
+    "uuid": "^9.0.1",
+    "crypto": "^1.0.1"
+  },
+  "keywords": [
+    "mcp",
+    "library",
+    "ocean-science",
+    "nara",
+    "marine-research"
+  ],
+  "author": "NARA",
+  "license": "MIT"
+}

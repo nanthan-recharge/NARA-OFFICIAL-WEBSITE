@@ -1,0 +1,760 @@
+{
+  "hero": {
+    "badge": "NARA ගෝලීය එකමුතුවේ ජාලය",
+    "title": "ලෝක ප්‍රමුඛ මුහුදු ආයතන එකට එක්ව මුහුදු විද්‍යාවේ අනාගතය ගොඩනඟති",
+    "description": "රට 54 ක විශ්වාසදායී ගවේෂණ නායකයින් සමඟ එක්ව සංක්‍රම විදිහට සංචාර සැලසුම් කරන්න, ප්‍රකාශන වේගවත් කරන්න, සහ උපයාගත මුහුදු ව්‍යාපෘති සඳහා අධික බලපෑම් ගන්වන අරමුදල් විවෘත කරන්න.",
+    "searchPlaceholder": "ගවේෂකයින්, ආයතන, හෝ වැඩසටහන් සොයන්න",
+    "primaryCta": "හවුල්ගන්නා අය සොයන්න",
+    "secondaryCta": "එකමුතුවට එක්වන්න",
+    "stats": {
+      "institutes": {
+        "label": "විශ්වාසදායී ආයතන",
+        "description": "ආසියා, යුරෝපය සහ අනෙකුත් ඉඩම් 6 කින් හවුල්කරුවන්"
+      },
+      "researchers": {
+        "label": "හවුල්ව ක්‍රියාත්මක වන ගවේෂකයින්",
+        "description": "හවුල් ආයතන විසින් තහවුරු කළ අක්ෂය වෘත්තිකරුවන්"
+      },
+      "projects": {
+        "label": "ක්‍රියාත්මක එක්වූ මෙහෙයුම්",
+        "description": "විෂය 18 ක වැඩසටහන් පරාසයක පවත්නා ව්‍යාපෘති"
+      },
+      "funding": {
+        "label": "අරමුදල් විවෘත කළ ප්‍රමාණය",
+        "description": "තරගකාරී ප්‍රදාන, දායක අරමුදල්, හා නව්‍යතා පිරිවැය"
+      }
+    }
+  },
+  "institutes": {
+    "heading": "එකමුතුව හැඩගස්වන විශ්වාසදායී ගවේෂණ ආයතන",
+    "description": "NARA ලෝකයේම විශ්වාසදායී මුහුදු විද්‍යා ආයතන සමඟ හවුල්කාරිත්වයන් සැලසුම් කරයි. වෘත්තීය සුදුසුකම්, මෙහෙයුම් සූදානම, සහ හවුල් පාලන යාන්ත්‍රණ ඒකලයක් ගොඩනඟයි.",
+    "filterPlaceholder": "ප්‍රදේශ අනුව පෙරහනවන්න",
+    "filters": [
+      {
+        "value": "all",
+        "label": "සියළු ප්‍රදේශ"
+      },
+      {
+        "value": "north-america",
+        "label": "උතුරු ඇමරිකාව"
+      },
+      {
+        "value": "europe",
+        "label": "යුරෝපය"
+      },
+      {
+        "value": "asia",
+        "label": "දකුණු හා නැගෙනහිර ආසියාව"
+      },
+      {
+        "value": "asia-pacific",
+        "label": "ආසියා-ප්‍රශාන්ත"
+      }
+    ],
+    "cta": "හවුල් වැඩසටහන් බලන්න",
+    "list": [
+      {
+        "name": "Woods Hole Oceanographic Institution",
+        "region": "north-america",
+        "country": "එමරිකා එක්සත් ජනපදය",
+        "partnership": "ගෝලීය මුහුදු නිරීක්ෂණ එකමුතුව",
+        "ranking": "#1 මුහුදු විද්‍යාව (QS)",
+        "focus": ["ගැඹුරු මුහුදු සොයා ගැනීම්", "ස්වයංක්‍රීය මුහුදු පද්ධති"],
+        "coverImage": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Norwegian Institute of Marine Research",
+        "region": "europe",
+        "country": "නෝර්වේ",
+        "partnership": "ආර්ක්ටික් නිල් ආර්ථික කවුන්සිලය",
+        "ranking": "EU Horizon ශ්‍රේෂ්ඨත්ව මධ්‍යස්ථානය",
+        "focus": ["ධෘව පරිසර පද්ධති", "තිරසාර ධීවර කර්මය"],
+        "coverImage": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "National Institute of Oceanography Goa",
+        "region": "asia",
+        "country": "ඉන්දියාව",
+        "partnership": "ඉන්දීය සාගර කාලගුණ පිරිහැර ගිවිසුම",
+        "ranking": "ඉන්දීය සාගර ගවේෂණයේ ඉහළ මධ්‍යස්ථාන 5 අතර",
+        "focus": ["මෝසම අනාවැකි", "මුහුදු ජීව විවිධත්වය"],
+        "coverImage": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Scripps Institution of Oceanography",
+        "region": "north-america",
+        "country": "එමරිකා එක්සත් ජනපදය",
+        "partnership": "ප්‍රශාන්ත කාලගුණ නව්‍යතා ජාලය",
+        "ranking": "#2 මුහුදු විද්‍යාව (ARWU)",
+        "focus": ["කාලගුණ ආදර්ශන", "නිල් තාක්ෂණ සංවර්ධන"],
+        "coverImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Commonwealth Scientific and Industrial Research Organisation",
+        "region": "asia-pacific",
+        "country": "ඔස්ට්‍රේලියාව",
+        "partnership": "මහා පරල් වැව ආරක්ෂක වැඩසටහන",
+        "ranking": "UNESCO මුහුදු විද්‍යා හවුල්කරු",
+        "focus": ["කෝරල් ප්‍රතිරෝධය", "ඩිජිටල් ට්වින් මුහුදු"],
+        "coverImage": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "name": "Ifremer – French Research Institute for Exploitation of the Sea",
+        "region": "europe",
+        "country": "ප්‍රංශය",
+        "partnership": "අත්ලාන්තික් මහා වරාය නව්‍යතා සංක්‍රමණය",
+        "ranking": "EU Restore Our Ocean මෙහෙයුම් නායක",
+        "focus": ["මුහුදු රොබෝටිකාව", "වෙරළ බුද්ධිමතාත්මක කිරීම"],
+        "coverImage": "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&w=900&q=80"
+      }
+    ]
+  },
+  "collaborations": {
+    "heading": "ලෝක පුරා විවිධ හවුල් වැඩසටහන්",
+    "description": "විශ්වාසදායී ගවේෂණ මාර්ගවලදී මෙහෙයුම් ප්‍රතිඵල, බෙදාගත් වතපස හා වේගවත් යොමු සහාය ලබා ගන්න.",
+    "cta": "හවුල් සංවාදයක් සකස් කරන්න",
+    "cardCta": "වෙනස් වීමට උපාය ක්‍රම බලන්න",
+    "list": [
+      {
+        "id": "indo-pacific",
+        "title": "ඉන්දු-ප්‍රශාන්ත මුහුදු සෞඛ්‍ය නිරීක්ෂණය",
+        "host": "NARA × Scripps Institution of Oceanography",
+        "region": "ප්‍රශාන්ත කලාපය",
+        "summary": "කෝරල් ප්‍රතිරෝධය සහ කාලගුණ අන්ත විපරම් සැලකිල්ලට ගනිමින් ස්වයංක්‍රීය නිරීක්ෂණ පද්ධති හා AI අනාවැකි ආකෘති ගොඩනඟයි.",
+        "deadline": "2025 පුරා නිරන්තර අයදුම්",
+        "focus": "ස්වයංක්‍රීය මුහුදු පද්ධති"
+      },
+      {
+        "id": "arctic-bridge",
+        "title": "ආර්ක්ටික් නිල් ආර්ථික සම්බන්ධතාවය",
+        "host": "NARA × Norwegian Institute of Marine Research",
+        "region": "ආර්ක්ටික් වටා",
+        "summary": "තිරසාර ධීවර කර්මාන්තය, বরফ ගමනාගමන විශ්ලේෂණ හා ජාතික දැනුම එකට ගෙනෙන පුළුල් වේදිකාවක්.",
+        "deadline": "යෝජනා 2025 ජූනි 30 දක්වා",
+        "focus": "තිරසාර ධීවර කර්මාන්තය"
+      },
+      {
+        "id": "coral-vanguard",
+        "title": "ගෝලීය කොරල් වෙන්ගාර්ඩ් ජාලය",
+        "host": "NARA × CSIRO × Ifremer",
+        "region": "ගෝලීය දකුණු",
+        "summary": "කෝරල් ශබ්ද නිරීක්ෂණය, ජනාකීය පුනරුත්ථාපනය හා ප්‍රජාත්මක ආරක්ෂණය සඳහා රීෆ් ස්ථාන 18 ක නවීන ක්ෂේත්‍රගත පරීක්ෂණ.",
+        "deadline": "පෑද්ද වනවිට ආරාධනා ජාරි කරයි",
+        "focus": "කෝරල් ප්‍රතිරෝධය"
+      }
+    ]
+  },
+  "modules": {
+    "heading": "උසස් එකමුතු වැඩ තිළිණය",
+    "description": "අපගේ හවුල් ආයතන සමඟ නිර්මාණය කළ විශේෂ වැඩ කිරීම් අතරින් මාරු වෙමින් සොයාගැනීම හා බලපෑම වේගවත් කරන්න.",
+    "signIn": "පිවිසෙන්න",
+    "requestAccess": "ප්‍රවේශය ඉල්ලන්න",
+    "empty": "එකමුතු මොඩියුලයක් තෝරා ක්‍රියාත්මක වන්න.",
+    "list": [
+      {
+        "id": "networking",
+        "icon": "Users",
+        "title": "ගෝලීය ගවේෂණ ජාලය",
+        "description": "ඔබේ මෙහෙයුමට ගැලපෙන ගවේෂණිකයින්, ප්‍රතිපත්ති විශේෂඥයින් සහ තාක්ෂණවේදීන් 150 කට වැඩි පිරිසක් සොයාගන්න.",
+        "highlight": "සජීවී ලබා ගත හැකිභාවය හා ආරක්ෂිත පණිවුඩ"
+      },
+      {
+        "id": "projects",
+        "icon": "Briefcase",
+        "title": "එක්වූ මෙහෙයුම් පාලක කවුළුව",
+        "description": "නියමිත පියවර, අනුකූලතා වැඩපිළිවෙළ සහ වත්කම් අනුගමනය සමඟ බහු ආයතනික සංචාර සැලසුම් කරන්න.",
+        "highlight": "ව්‍යාපෘති ක්‍රීඩාපොත් හා බජට් විස්තර"
+      },
+      {
+        "id": "peer-review",
+        "icon": "FileCheck",
+        "title": "මුහුදු හවුල් විගණන प्रयोगශාලාව",
+        "description": "එලිට් විගණන කණ්ඩායම් සහ AI දෘශ්‍යාවලිය සමඟ දෙබෑසික අතිරේක විගණනක් ක්‍රියාත්මක කරන්න.",
+        "highlight": "වේගවත් සම්පාදන මාර්ග"
+      },
+      {
+        "id": "grants",
+        "icon": "DollarSign",
+        "title": "නිල් අරමුදල් ස්ටූඩියෝව",
+        "description": "සජීවී සමානාත්මකය, බලපෑම් ආකෘති කිරීම සහ ඉදිරිපත් කිරීම් අනුගමනය සමඟ උසස් අරමුදල් යෝජනා සමගල වන්න.",
+        "highlight": "2024දී USD 2.3M ලබාදුන්වා"
+      },
+      {
+        "id": "partnerships",
+        "icon": "Handshake",
+        "title": "මූලික හවුල්කාරිත්ව මධ්‍යස්ථානය",
+        "description": "විශ්වාසදායී ආයතන සමඟ ගිවිසුම්, දත්ත බෙදාගැනීම් පාලනය හා දෛනික අනුකූලතා සකස් කරන්න.",
+        "highlight": "බහුපාර්ශවීය හවුල් නිර්මාණය"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "මුහුදු බුද්ධිමතාත්මක අලුත් යුගය එකසුරුව ගොඩනඟමු",
+    "description": "අපගේ හවුල් සම්බන්ධතා නිලධාරී ඔබේ ආයතනයට සුදුසු වැඩසටහන, පාලන ආකෘතිය සහ අරමුදල් මාර්ගය තත්පර 48 කින් සම්බන්ධ කරයි.",
+    "primary": "ආරම්භක ලේඛනයක් ඉල්ලන්න",
+    "secondary": "මූලික උපදේශන ගැසට්ටුව සැකසන්න",
+    "features": [
+      "ISO 27001 හා GDPR අනුකූල එක්වූ වැඩ",
+      "සජීවී මෙහෙයුම් ටෙලෙමැට්‍රි පුවරු",
+      "ජාත්‍යන්තර ගවේෂණ කවුන්සිල 12 කින් අනුමත"
+    ]
+  },
+  "network": {
+    "title": "ගවේෂක ජාලය",
+    "description": "ලොව පුරා මුහුදු විද්‍යාඥයින් හා ගවේෂකයින් සමඟ සම්බන්ධ වන්න",
+    "invite": "ගවේෂකයෙකු ආරාධනා කරන්න",
+    "searchPlaceholder": "ගවේෂකයින් සොයන්න...",
+    "expertisePlaceholder": "විශේෂත්වය අනුව පෙරහනවන්න",
+    "institutionPlaceholder": "ආයතන අනුව පෙරහනවන්න",
+    "rolePlaceholder": "කාර්යභාරය අනුව පෙරහනවන්න",
+    "loading": "පරික්ෂා කරමින්...",
+    "results": "ගවේෂකයින් {{count}}ක් සොයාගන්න ලදී",
+    "advancedFilters": "උසස් පෙරහන්",
+    "refresh": "නැවත පූරණය",
+    "emptyTitle": "ගවේෂකයින් හමු නොවීය",
+    "emptyDescription": "ඔබේ සෙවුම් අගයන් හෝ පෙරහන් වෙනස් කර නැවත උත්සාහ කරන්න",
+    "reset": "සෙවුම යළි සකස් කරන්න",
+    "connect": "සම්බන්ධ වන්න",
+    "viewProfile": "පැතිකඩ බලන්න",
+    "card": {
+      "anonymous": "නිරූපිත නොවූ ගවේෂක",
+      "institution": "ආයතනය",
+      "bioFallback": "මුහුදු ආරක්ෂාව හා තිරසාර සංවර්ධනයට අවධානය යොමු කරන මුහුදු විද්‍යා ගවේෂකයෙකු.",
+      "more": "+{{count}} තව"
+    },
+    "profile": {
+      "about": "ආරම්භක තොරතුරු",
+      "expertise": "විශේෂත්ව කලාප",
+      "impact": "ගවේෂණ බලපෑම",
+      "publications": "ප්‍රකාශන",
+      "citations": "උපුටා දැක්වීම්",
+      "collaborations": "සහයෝගීත්ව",
+      "hIndex": "H-Index",
+      "lead": "නායක ගවේෂකයා",
+      "level": "මට්ටම",
+      "bioFallback": "මුහුදු විද්‍යාව ඉදිරියට ගෙන යාමට සමබර ගවේෂණ හා නව්‍ය ක්‍රියාවලියන් හරහා කැප වූ අත්දැකීම් සපිරි ගවේෂකයෙකි.",
+      "sendConnection": "සම්බන්ධතා ඉල්ලීමක් යවන්න",
+      "sendMessage": "පණිවිඩයක් යවන්න"
+    },
+    "filters": {
+      "expertise": [
+        {
+          "value": "all",
+          "label": "සියළු විශේෂත්ව"
+        },
+        {
+          "value": "marine-biology",
+          "label": "මුහුදු ජීව විද්‍යාව"
+        },
+        {
+          "value": "oceanography",
+          "label": "මුහුදු විද්‍යාව"
+        },
+        {
+          "value": "coastal-engineering",
+          "label": "වෙරළ ඉංජිනේරු විද්‍යාව"
+        },
+        {
+          "value": "fisheries",
+          "label": "ධීවර විද්‍යාව"
+        },
+        {
+          "value": "marine-technology",
+          "label": "මුහුදු තාක්ෂණය"
+        },
+        {
+          "value": "environmental-science",
+          "label": "පාරිසරික විද්‍යාව"
+        }
+      ],
+      "institutions": [
+        {
+          "value": "all",
+          "label": "සියළු ආයතන"
+        },
+        {
+          "value": "university",
+          "label": "විශ්වවිද්‍යාල"
+        },
+        {
+          "value": "government",
+          "label": "රජයේ ආයතන"
+        },
+        {
+          "value": "private",
+          "label": "පුද්ගලික ගවේෂණ"
+        },
+        {
+          "value": "ngo",
+          "label": "එන්ජීඕ / හවුල් පදනම්"
+        }
+      ],
+      "roles": [
+        {
+          "value": "all",
+          "label": "සියළු භූමිකා"
+        },
+        {
+          "value": "senior_researcher",
+          "label": "ජ්‍යෙෂ්ඨ ගවේෂක"
+        },
+        {
+          "value": "researcher",
+          "label": "ගවේෂක"
+        },
+        {
+          "value": "postdoc",
+          "label": "පශ්චාත් උපාධි අධ්‍යයන"
+        },
+        {
+          "value": "phd_student",
+          "label": "PhD සිසු"
+        }
+      ]
+    },
+    "metrics": {
+      "publications": "ප්‍රකාශන",
+      "citations": "උපුටා දැක්වීම්",
+      "collaborations": "සහයෝගීත්ව",
+      "hIndex": "H-Index"
+    },
+    "alerts": {
+      "signinConnect": "සම්බන්ධතා ඉල්ලීම් යවීමට කරුණාකර පිවිසෙන්න",
+      "signinJoin": "ව්‍යාපෘතිවලට සම්බන්ධ වීමට කරුණාකර පිවිසෙන්න",
+      "connectSuccess": "සම්බන්ධතා ඉල්ලීම සාර්ථකව යවන ලදී!"
+    }
+  },
+  "projects": {
+    "heading": "ව්‍යාපෘති කළමනාකරණය",
+    "description": "ආයතන අතර සම්මුඛ ගවේෂණ ව්‍යාපෘති කළමනාකරණය කරන්න",
+    "buttons": {
+      "new": "නව ව්‍යාපෘතිය"
+    },
+    "filters": {
+      "statusPlaceholder": "තත්ත්වය අනුව පෙරහනවන්න",
+      "searchPlaceholder": "ව්‍යාපෘති සොයන්න...",
+      "more": "වැඩි පෙරහන්"
+    },
+    "statusOptions": [
+      {
+        "value": "all",
+        "label": "සියළු තත්ත්ව"
+      },
+      {
+        "value": "planning",
+        "label": "සැලසුම් කිරීම"
+      },
+      {
+        "value": "active",
+        "label": "ක්‍රියාත්මක"
+      },
+      {
+        "value": "completed",
+        "label": "සම්පූර්ණයි"
+      },
+      {
+        "value": "on_hold",
+        "label": "පාවිච්චි නැත"
+      }
+    ],
+    "tabs": {
+      "all": "ගෝලීය මෙහෙයුම්",
+      "mine": "මගේ ව්‍යාපෘති"
+    },
+    "labels": {
+      "untitled": "නම් නොකළ ව්‍යාපෘතිය",
+      "lead": "ප්‍රදාන ගවේෂක",
+      "division": "අංශය",
+      "description": "මුහුදු විද්‍යාව හා ආරක්ෂාව මත අවධානය යොමු කරන ගවේෂණ ව්‍යාපෘතියක්.",
+      "collaborators": "සහයෝගීන්:",
+      "collaboratorCount": "{{count}} සහයෝගිකයින්",
+      "viewDetails": "විස්තර බලන්න",
+      "requestJoin": "සම්බන්ධ වීමට ඉල්ලන්න",
+      "updated": "අවසන් යාවත්කාලීන දිනය {{date}}",
+      "create": "ව්‍යාපෘතියක් සාදන්න",
+      "search": "ව්‍යාපෘති සොයන්න...",
+      "empty": "ව්‍යාපෘති හමු නොවීය",
+      "emptyDescription": "සජීවී හවුල්කාරිත්ව සොයාගැනීමට ටැබ හෝ පෙරහන් වෙනස් කරන්න.",
+      "mineEmpty": "ඔබ තවමත් ව්‍යාපෘති ආරම්භ කර නැත",
+      "mineEmptyDescription": "වෘත්තීය සහයෝගීන්ට ආරාධනා කිරීමට සහ මූලික මෙහෙයුම් එක පිහදෙන්න මේ ස්ථානය භාවිතා කරන්න.",
+      "launch": "නව මෙහෙයුමක් ආරම්භ කරන්න",
+      "signin": "ඔබේ ව්‍යාපෘති බැලීමට පිවිසෙන්න",
+      "count": "{{count}} ව්‍යාපෘති",
+      "team": "කණ්ඩායම් සාමාජිකයේන්",
+      "teamLead": "නායක ගවේෂකයා",
+      "teamMember": "කණ්ඩායම් සාමාජිකයා",
+      "collaboratorRole": "සහයෝගික",
+      "moreMembers": "+{{count}} වැඩි සාමාජිකයන්",
+      "joinDiscussion": "සංවාදයට එක්වන්න",
+      "viewTimeline": "කාල සටහන බලන්න",
+      "viewDocuments": "ලේඛන බලන්න",
+      "tbd": "තීරණය වී නැත",
+      "ongoing": "දිගටම සිදුවෙයි"
+    },
+    "alerts": {
+      "signinJoin": "ව්‍යාපෘතිවලට සම්බන්ධ වීමට කරුණාකර පිවිසෙන්න",
+      "joinSuccess": "සම්බන්ධ වීමට ඇති ඉල්ලීම සාර්ථකයි!",
+      "signinCreate": "ව්‍යාපෘතියක් සෑදීමට කරුණාකර පිවිසෙන්න",
+      "createSuccess": "ව්‍යාපෘතිය සාර්ථකව නිර්මාණය විය!",
+      "createError": "ව්‍යාපෘතිය නිර්මාණය කිරීමේදී දෝෂයක් සිදු විය. කරුණාකර නැවත උත්සාහ කරන්න."
+    },
+    "detail": {
+      "descriptionHeading": "ව්‍යාපෘති විස්තරය",
+      "detailsHeading": "ව්‍යාපෘති තොරතුරු",
+      "teamHeading": "කණ්ඩායම් සාමාජිකයන්",
+      "status": "තත්ත්වය",
+      "start": "ඇරඹූ දිනය",
+      "end": "අවසන් දිනය",
+      "budget": "ආයෝජනය",
+      "defaultDescription": "විස්තරාත්මක ව්‍යාපෘති විස්තර මෙහි පෙන්වනු ඇත.",
+      "started": "{{date}} දින ආරම්භ කරන ලදී"
+    },
+    "create": {
+      "title": "නව ව්‍යාපෘතියක් තනන්න",
+      "fields": {
+        "title": "ව්‍යාපෘති නාමය",
+        "description": "ව්‍යාපෘති විස්තරය",
+        "start": "ඇරඹූ දිනය",
+        "end": "අවසන් දිනය (විකල්ප)",
+        "budget": "ආයෝජනය (USD)"
+      },
+      "placeholders": {
+        "budget": "උදා. 50000"
+      },
+      "public": "මෙම ව්‍යාපෘතිය පොදු දැක්මට සක්‍රීය කරන්න",
+      "submit": "ව්‍යාපෘතිය නිර්මාණය කරන්න",
+      "cancel": "අවලංගු කරන්න"
+    }
+  },
+  "peerReview": {
+    "heading": "මුහුදු හවුල් විගණන ශාලාව",
+    "description": "AI සහායයෙන් ඉදිරිපත් කිරීම්, විගණන වෙන්කිරීම් සහ සම්පාදක තීරණ විශ්ලේෂණය කරන්න.",
+    "system": {
+      "heading": "සහ-විගණන පද්ධතිය",
+      "description": "මනස්කෘති ඉදිරිපත් කර, විගණන සිදු කර, ප්‍රකාශන ප්‍රගතිය පවත්වාගෙන යන්න"
+    },
+    "tabs": {
+      "publications": "ප්‍රකාශිත ගවේෂණ",
+      "submissions": "මගේ ඉදිරිපත්",
+      "reviews": "විගණන ඉල්ලීම්"
+    },
+    "filters": {
+      "statusPlaceholder": "තත්ත්වය අනුව පෙරහනවන්න",
+      "searchPlaceholder": "ප්‍රකාශන සොයන්න...",
+      "more": "වැඩි පෙරහන්"
+    },
+    "statusOptions": [
+      {
+        "value": "all",
+        "label": "සියළු තත්ත්ව"
+      },
+      {
+        "value": "draft",
+        "label": "කෙටුම්පත්"
+      },
+      {
+        "value": "submitted",
+        "label": "ඉදිරිපත් කළේ"
+      },
+      {
+        "value": "under_review",
+        "label": "විගණනය යටතේ"
+      },
+      {
+        "value": "accepted",
+        "label": "අනුමත"
+      },
+      {
+        "value": "published",
+        "label": "ප්‍රකාශිත"
+      }
+    ],
+    "statusLabels": {
+      "pending": "අපේක්ෂිත",
+      "in_progress": "සකස්වෙමින්",
+      "completed": "අවසන්"
+    },
+    "publicationCard": {
+      "titleFallback": "ගවේෂණ ප්‍රකාශන මාතෘකාව",
+      "dateFallback": "ප්‍රකාශන දිනය තීරණය වී නැත",
+      "journalFallback": "ජර්නල් නම",
+      "authorsLabel": "කතුවරු:",
+      "moreAuthors": "+{{count}} තවත්",
+      "citations": "උපුටා දැක්වීම් {{count}}",
+      "views": "නරික්ශණ {{count}}",
+      "view": "බලන්න",
+      "edit": "සංස්කරණය"
+    },
+    "submissions": {
+      "heading": "මනස්කෘති ඉදිරිපත්",
+      "description": "ඔබේ ගවේෂණ මනස්කෘති ඉදිරිපත් කර ප්‍රගතිය පාලනය කරන්න",
+      "cta": "මනස්කෘතිය ඉදිරිපත් කරන්න",
+      "emptyHeading": "මනස්කෘති සොයාගත නොහැක",
+      "emptyDescription": "ඔබේ පළමු ගවේෂණ මනස්කෘතිය peer review සදහා ඉදිරිපත් කරන්න",
+      "signinHeading": "ඔබේ ගවේෂණය ඉදිරිපත් කරන්න",
+      "signinDescription": "මනස්කෘති ඉදිරිපත් කිරීම හා සහ-විගණනයට පැමිණීමට පිවිසෙන්න"
+    },
+    "reviews": {
+      "heading": "සහ-විගණන ඉල්ලීම්",
+      "description": "ගවේෂකයන්ගේ මනස්කෘති ව पेशකිරීම मूल्याङ्कනය කරන්න",
+      "emptyHeading": "විගණන ඉල්ලීම් නොමැත",
+      "emptyDescription": "ඔබ සමඟ ගැළපෙන විට විගණන ඉල්ලීම් මෙතැන පෙන්වයි",
+      "signinHeading": "සහ-විගණනකරුවෙකු වන්න",
+      "signinDescription": "සහ-විගණනය හරහා විද්‍යාත්මක ප්‍රජාවට දායක වීමට පිවිසෙන්න",
+      "submitted": "{{date}} දින ඉදිරිපත් කළේ",
+      "due": "{{date}} දක්වා",
+      "manuscriptType": "මනස්කෘති වර්ගය",
+      "estimatedLength": "ආකල්න දිග",
+      "reviewDeadline": "විගණන අවසන් වේ {{days}} දිනකින්",
+      "view": "විස්තර බලන්න",
+      "decline": "ප්‍රතික්ෂේප කරන්න",
+      "accept": "විගණනය භාරගන්න",
+      "continue": "විගණනය තවදුරටත්",
+      "journal": "සඟරාව"
+    },
+    "publicationsList": {
+      "heading": "ප්‍රකාශිත ගවේෂණ",
+      "description": "මුහුදු විද්‍යායේ නවතම ප්‍රකාශන",
+      "empty": "ප්‍රකාශන නොමැත",
+      "emptyDescription": "නව ප්‍රකාශන සඳහා නැවත බලන්න."
+    },
+    "modals": {
+      "submit": {
+        "title": "මනස්කෘතිය ඉදිරිපත් කරන්න",
+        "fields": {
+          "title": "මනස්කෘති මාතෘකාව",
+          "abstract": "සාරාංශය",
+          "type": "මනස්කෘති වර්ගය",
+          "journal": "ඉලක්ක ජර්නලය",
+          "keywords": "මූලික පද (කොමාවෙන් වෙන් කරන්න)",
+          "coAuthors": "සම-කතුවරු (කොමාවෙන් වෙන් කරන්න)"
+        },
+        "placeholders": {
+          "abstract": "ඔබේ මනස්කෘතියේ කෙටි සාරාංශයක් ලබා දෙන්න...",
+          "journal": "උදා. Marine Biology Journal",
+          "keywords": "marine biology, coral reefs, conservation",
+          "coAuthors": "Dr. Jane Smith, Prof. John Doe"
+        },
+        "infoHeading": "ඊළඟ පියවර:",
+        "steps": [
+          "ඔබේ මනස්කෘතිය කෙටුම්පතක් ලෙස සුරකිනු ඇත",
+          "මනස්කෘති ගොනුව හා අමුණා ඇති ලේඛන උඩුගත කරන්න",
+          "සහ-විගණන ගැළපීමේ ක්‍රියාවලිය සම්පූර්ණ කරන්න",
+          "සම්පාදක සමාලෝචනයට ඉදිරිපත් කරන්න"
+        ],
+        "submit": "කෙටුම්පත ලෙස සුරකින්න",
+        "cancel": "අවලංගු කරන්න",
+        "types": [
+          {
+            "value": "research_article",
+            "label": "ගවේෂණ ලිපිය"
+          },
+          {
+            "value": "review_article",
+            "label": "සමාලෝචන ලිපිය"
+          },
+          {
+            "value": "short_communication",
+            "label": "කෙටි සන්නිවේදනය"
+          },
+          {
+            "value": "case_study",
+            "label": "දෘශ්ටාන්ත අධ්‍යයනය"
+          },
+          {
+            "value": "technical_note",
+            "label": "තාක්ෂණික සටහන"
+          }
+        ]
+      }
+    },
+    "alerts": {
+      "signinSubmit": "මනස්කෘති ඉදිරිපත් කිරීමට කරුණාකර පිවිසෙන්න",
+      "submitSuccess": "මනස්කෘතිය සාර්ථක ලෙස ඉදිරිපත් කරන ලදී!",
+      "submitError": "මනස්කෘතිය ඉදිරිපත් කිරීමේ දෝෂයක්. නැවත උත්සාහ කරන්න.",
+      "signinReview": "විගණන ඉල්ලීම් දැක්කම පිවිසෙන්න",
+      "serviceUnavailable": "ප්‍රකාශන සේවාව දැන් ලබාගත නොහැක. කරුණාකර ටික වේලාවකින් නැවත උත්සාහ කරන්න."
+    }
+  },
+  "grants": {
+    "heading": "නිල් අරමුදල් ස්ටූඩියෝව",
+    "description": "ක්‍රියාකාරී අයදුම්, නව අවස්ථා, සහ අයදුම් යාන්ත්‍රණ ඔබේ කණ්ඩායම සමඟ ගලපා අනුගමනය කරන්න.",
+    "tabs": {
+      "opportunities": "විවෘත අවස්ථා",
+      "myGrants": "මගේ අයදුම්"
+    },
+    "filters": {
+      "statusPlaceholder": "තත්ත්වය තෝරන්න",
+      "categoryPlaceholder": "වර්ගය තෝරන්න",
+      "searchPlaceholder": "අරමුදල් සොයන්න...",
+      "more": "වැඩි පෙරහන්"
+    },
+    "statusOptions": [
+      {
+        "value": "all",
+        "label": "සියළු තත්ත්ව"
+      },
+      {
+        "value": "draft",
+        "label": "කෙටුම්පත්"
+      },
+      {
+        "value": "submitted",
+        "label": "ඉදිරිපත්"
+      },
+      {
+        "value": "under_review",
+        "label": "විගණනය යටතේ"
+      },
+      {
+        "value": "approved",
+        "label": "අනුමත"
+      },
+      {
+        "value": "rejected",
+        "label": "ප්‍රතික්ෂේප"
+      }
+    ],
+    "categoryOptions": [
+      {
+        "value": "all",
+        "label": "සියළු කාණ්ඩ"
+      },
+      {
+        "value": "conservation",
+        "label": "ආරක්ෂණය"
+      },
+      {
+        "value": "environmental",
+        "label": "පාරිසරික"
+      },
+      {
+        "value": "climate",
+        "label": "කාලගුණ ගවේෂණ"
+      },
+      {
+        "value": "technology",
+        "label": "තාක්ෂණ සංවර්ධන"
+      },
+      {
+        "value": "education",
+        "label": "අධ්‍යාපන හා ප්‍රවර්ධන"
+      }
+    ],
+    "labels": {
+      "eligibility": "ප්‍රධාන සුදුසුකම්",
+      "competition": "තරඟ පාරිසරය",
+      "applications": "අයදුම් {{count}}ක් ලැබී ඇත",
+      "successRate": "සාර්ථකත්ව අනුපාතය {{rate}}",
+      "requirements": "ඉදිරිපත් කිරීමේ අවශ්‍යතා",
+      "contact": "අරමුදල් සම්බන්ධීකරු",
+      "email": "විද්‍යුත් තැපෑල",
+      "apply": "යෝජනා ඉදිරිපත් කරන්න",
+      "signin": "අයදුම් කිරීමට පිවිසෙන්න",
+      "empty": "අලුත් අරමුදල් අවස්ථා නොමැත",
+      "emptyDescription": "නව අවස්ථා සදහා ඉක්මනින් නැවත බලන්න.",
+      "myEmpty": "ඔබ තවමත් අයදුම් ඉදිරිපත් කර නැත",
+      "myEmptyDescription": "ඔබේ තරඟ යාන්ත්‍රණය මෙහි අනුගමනය කරන්න.",
+      "create": "නව අයදුම අරඹන්න",
+      "count": "{{count}} අරමුදල්",
+      "totalAward": "මුළු අරමුදල",
+      "due": "{{date}} දක්වා",
+      "duration": "{{months}} මාස",
+      "deadline": "අවසන් දිනය: තවත් දින {{days}}",
+      "viewDetails": "විස්තර බලන්න",
+      "applyShort": "අයදුම් කරන්න",
+      "appliedOn": "{{date}} දින අයදුම් කළේ",
+      "requestedAmount": "${{amount}}K ඉල්ලා ඇත",
+      "awardPeriod": "සම්මාන කාලය: {{start}} - {{end}}",
+      "lastUpdated": "අවසන් යාවත්කාලීන: {{date}}",
+      "associatedProject": "සම්බන්ධ ව්‍යාපෘතිය",
+      "coInvestigators": "සහ-ගවේෂකයින්",
+      "moreInvestigators": "+{{count}} තවත්",
+      "awardAmount": "ලැබුණු අරමුදල",
+      "durationLabel": "කාල සීමාව",
+      "deadlineLabel": "අයදුම් අවසන් දිනය",
+      "daysRemaining": "{{days}} දින",
+      "contactPerson": "සම්බන්ධතා පුද්ගලයා",
+      "contactEmail": "විද්‍යුත් තැපෑල",
+      "applyForGrant": "අරමුදලකට අයදුම් කරන්න",
+      "browseOpportunities": "අවස්ථා සොයන්න",
+      "noApplications": "අයදුම් නොමැත",
+      "noGrants": "අරමුදල් නොමැත",
+      "collaboratorCount": "{{count}} සහයෝගිකයින්",
+      "opportunitiesEmptyDescription": "ඔබේ සෙවුම් කට්ටල හෝ පෙරහන් වෙනස් කර බලන්න",
+      "applicationsEmptyDescription": "පළමුව ලබා ඇති අරමුදල් අවස්ථා වෙත අයදුම් කරන්න",
+      "tbd": "තීරණය වී නැත"
+    },
+    "opportunity": {
+      "view": "විස්තර බලන්න",
+      "apply": "අයදුම් කරන්න",
+      "due": "{{date}} දක්වා",
+      "duration": "{{months}} මාස",
+      "deadline": "අවසන් දිනය: තවත් දින {{days}}"
+    },
+    "my": {
+      "title": "අරමුදල් අයදුම",
+      "view": "විස්තර බලන්න",
+      "edit": "යාවත්කාලීන කරන්න",
+      "associatedProject": "සම්බන්ධ ව්‍යාපෘතිය",
+      "coInvestigators": "සහ-ගවේෂකයින්"
+    },
+    "detail": {
+      "overviewHeading": "අරමුදල් විස්තර",
+      "requirementsHeading": "ඉදිරිපත් කිරීමේ අවශ්‍යතා",
+      "eligibilityHeading": "සුදුසුකම්",
+      "competitionHeading": "තරඟ සංඛ්‍යා ලේඛන",
+      "contactHeading": "සම්බන්ධතා තොරතුරු",
+      "duration": "කාල සීමාව",
+      "deadline": "අයදුම් අවසන් දිනය",
+      "remaining": "ඉතිරි දින",
+      "apply": "අරමුදලකට අයදුම් කරන්න",
+      "signin": "අයදුම් කිරීමට පිවිසෙන්න"
+    },
+    "alerts": {
+      "signinApply": "අරමුදල් සඳහා අයදුම් කිරීමට කරුණාකර පිවිසෙන්න",
+      "applySaved": "අරමුදල් අයදුම කෙටුම්පතක් ලෙස සුරකින ලදී!",
+      "applyError": "අයදුම සුරක්ෂිත කිරීමේදී දෝෂයක්. කරුණාකර නැවත උත්සාහ කරන්න."
+    },
+    "application": {
+      "title": "අරමුදලකට අයදුම් කරන්න",
+      "subtitle": "{{title}} - {{funder}}",
+      "fields": {
+        "projectTitle": "ව්‍යාපෘති මාතෘකාව",
+        "projectDescription": "ව්‍යාපෘති විස්තරය",
+        "requestedAmount": "ඉල්ලා ඇති මුදල (USD)",
+        "duration": "ව්‍යාපෘති කාලය (මාස)",
+        "coInvestigators": "සහ-ගවේෂකයින් (කොමාවෙන් වෙන් කරන්න)",
+        "project": "සම්බන්ධ ව්‍යාපෘතිය"
+      },
+      "placeholders": {
+        "description": "ඔබේ ගවේෂණ ව්‍යාපෘතිය, අරමුණු සහ අපේක්ෂිත ප්‍රතිඵල විස්තර කරන්න...",
+        "coInvestigators": "Dr. Jane Smith, Prof. John Doe"
+      },
+      "infoHeading": "ඊළඟ පියවර:",
+      "steps": [
+        "ඔබගේ අයදුම කෙටුම්පතක් ලෙස සුරකිනු ඇත",
+        "අවශ්‍ය සියලු ලේඛන හා ඇමිණුම් සම්පූර්ණ කරන්න",
+        "අවසන් දිනයට පෙර සමාලෝචනය කර ඉදිරිපත් කරන්න",
+        "\"මගේ අයදුම්\" හි ඔබේ අයදුම් තත්ත්වය අනුගමනය කරන්න"
+      ],
+      "submit": "අයදුම් කෙටුම්පත සුරකින්න",
+      "cancel": "අවලංගු කරන්න"
+    }
+  },
+  "partnerships": {
+    "heading": "මූලික හවුල් මධ්‍යස්ථානය",
+    "description": "NARA හවුල්කරුවන්ට ලබාගත හැකි ජාල, දත්ත බෙදාගැනීම් රාමුව, හා මෙහෙයුම් කණ්ඩායම් සොයන්න.",
+    "networks": {
+      "title": "ක්‍රියාකාරී ජාල",
+      "cta": "ජාලයට එක්වන්න",
+      "empty": "ක්‍රියාකාරී ජාල නොමැත"
+    },
+    "collaborations": {
+      "title": "විවෘත හවුල් ඉල්ලීම්",
+      "cta": "විස්තර බලන්න",
+      "empty": "දැනට විවෘත හවුල් අවස්ථා නොමැත"
+    },
+    "signin": "හවුල් තොරතුරු නැරඹීමට පිවිසෙන්න"
+  }
+}

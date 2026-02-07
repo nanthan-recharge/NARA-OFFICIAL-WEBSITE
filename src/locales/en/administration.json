@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "title": "Leadership & Administration - NARA",
+    "description": "Meet NARA's leadership team and organizational structure"
+  },
+  "hero": {
+    "badge": "Leadership",
+    "title": "Leadership & Administration",
+    "subtitle": "Our organizational structure ensures excellence in marine research, with dedicated leaders guiding NARA's mission across Sri Lanka."
+  },
+  "sections": {
+    "chairman": "Chairman",
+    "executiveLeadership": "Executive Leadership",
+    "divisionHeads": "Heads of Divisions",
+    "governingBoard": "Governing Board Members"
+  },
+  "labels": {
+    "position": "Position",
+    "division": "Division",
+    "education": "Education",
+    "expertise": "Areas of Expertise",
+    "contact": "Contact",
+    "email": "Email",
+    "phone": "Phone",
+    "mobile": "Mobile",
+    "member": "Member",
+    "positionVacant": "Position currently vacant",
+    "seekingCandidate": "Seeking qualified candidate"
+  },
+  "positions": {
+    "chairman": "Chairman",
+    "directorGeneral": "Director General",
+    "deputyDirectorGeneral": "Deputy Director General",
+    "principalScientist": "Principal Scientist",
+    "seniorScientist": "Senior Scientist",
+    "chiefHydrographer": "Chief Hydrographer",
+    "director": "Director",
+    "researcher": "Researcher",
+    "positionOpen": "Position Open"
+  },
+  "divisions": {
+    "environmentalStudies": "Environmental Studies Division",
+    "fishingTechnology": "Fishing Technology Division",
+    "hydrographic": "National Hydrographic Office",
+    "aquaculture": "Inland Aquatic Resources and Aquaculture Division",
+    "marineBiology": "Marine Biological Resources Division",
+    "monitoring": "Monitoring and Evaluation",
+    "oceanography": "Oceanography Division",
+    "socioEconomics": "Socio-Economics & Marketing Research Division",
+    "administration": "Administration & Human Resources Management",
+    "postHarvest": "Post Harvest Technology Division"
+  },
+  "descriptions": {
+    "chairmanDesc": "Supreme administrative authority overseeing NARA's strategic direction, governance, and long-term vision for marine research excellence.",
+    "dgDesc": "Chief executive officer managing day-to-day operations and implementing strategic initiatives.",
+    "ddgDesc": "Deputy chief executive supporting operational excellence and strategic planning.",
+    "researchDevelopment": "Research and Development"
+  }
+}

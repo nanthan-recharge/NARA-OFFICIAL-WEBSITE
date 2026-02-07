@@ -1,0 +1,219 @@
+{
+  "seo": {
+    "title": "Sri Lankan Fish Market Intelligence - NARA",
+    "description": "Real-time prices, seasonal trends, and export data for fishermen, traders & researchers"
+  },
+  "loading": "Loading market data...",
+  "hero": {
+    "title": "Sri Lankan Fish Market Intelligence",
+    "subtitle": "Real-time prices, seasonal trends, and export data for fishermen, traders & researchers",
+    "description": "Live data from {{markets}} major markets covering {{species}} commercial species",
+    "dataBadge": {
+      "label": "REAL DATA",
+      "source": "from fisheries.gov.lk & malupola.com"
+    },
+    "stats": {
+      "speciesTracked": "Species Tracked",
+      "marketsCovered": "Markets Covered",
+      "realtimeUpdates": "Real-time Updates",
+      "daysHistory": "Days History"
+    }
+  },
+  "tabs": {
+    "dashboard": "Live Market Dashboard",
+    "trends": "Price Trends & Analysis",
+    "comparison": "Market Comparison",
+    "export": "Export Intelligence",
+    "budget": "Budget & Subsidies",
+    "forecast": "Seasonal Forecast"
+  },
+  "dashboard": {
+    "title": "Live Market Prices",
+    "search": "Search species...",
+    "filterAll": "All Categories",
+    "priceCard": {
+      "perKg": "per kilogram",
+      "trend7day": "7-day trend",
+      "demandHigh": "High Export Demand"
+    }
+  },
+  "trends": {
+    "title": "Price Trends & Historical Analysis",
+    "selectSpecies": "Select Species",
+    "selectMarket": "Select Market",
+    "stats": {
+      "currentPrice": "Current Price",
+      "avg90Day": "90-Day Average",
+      "priceRange": "Price Range",
+      "trend30Day": "30-Day Trend"
+    },
+    "chartTitle": "90-Day Price History",
+    "chartAxisPrice": "Price"
+  },
+  "comparison": {
+    "title": "Market Comparison",
+    "topSpeciesToday": "Top Species Today:"
+  },
+  "exportIntelligence": {
+    "title": "Export Market Intelligence",
+    "banner": {
+      "title": "Top Export Species",
+      "subtitle": "High-value species for international markets",
+      "tracked": "Premium Species Tracked"
+    },
+    "speciesCard": {
+      "avgPrice": "Average Market Price",
+      "range": "Range:",
+      "demand": "Export Demand:",
+      "demandLevels": {
+        "veryHigh": "VERY HIGH",
+        "high": "HIGH",
+        "moderate": "MODERATE"
+      }
+    }
+  },
+  "budget": {
+    "title": "Fisheries Sector Budget & Financial Support",
+    "overview": {
+      "totalBudget": {
+        "label": "Total Sector Budget 2025",
+        "sublabel": "Ministry of Fisheries Allocation"
+      },
+      "beneficiaries": {
+        "label": "Active Beneficiaries",
+        "sublabel": "Registered Fishermen"
+      },
+      "exportTarget": {
+        "label": "Export Target 2025",
+        "sublabel": "Fish & Seafood Exports"
+      }
+    },
+    "subsidies": {
+      "title": "Government Subsidy Programs",
+      "fuel": {
+        "title": "Fuel Subsidy",
+        "description": "For multi-day fishing boats",
+        "amount": "LKR 50/liter",
+        "details": "Maximum 5,000 liters per month per registered vessel",
+        "apply": "Apply at District Fisheries Office"
+      },
+      "ice": {
+        "title": "Ice Subsidy",
+        "description": "Quality preservation support",
+        "amount": "LKR 25/kg",
+        "details": "For deep-sea fishing operations (up to 1 ton per trip)",
+        "apply": "Claim with trip documentation"
+      },
+      "gear": {
+        "title": "Gear Subsidy",
+        "description": "Fishing equipment support",
+        "amount": "50% Coverage",
+        "details": "Up to LKR 250,000 for nets, lines & sustainable gear",
+        "apply": "Annual application period: Jan-Mar"
+      },
+      "insurance": {
+        "title": "Insurance Support",
+        "description": "Life & vessel insurance",
+        "amount": "75% Premium",
+        "details": "Government covers 75% of insurance premiums",
+        "apply": "Via National Insurance Trust Fund"
+      }
+    },
+    "loans": {
+      "title": "Low-Interest Loan Schemes",
+      "boatPurchase": {
+        "title": "Boat Purchase Loan",
+        "amount": "Loan Amount:",
+        "amountValue": "Up to LKR 5M",
+        "rate": "Interest Rate:",
+        "rateValue": "4% per annum",
+        "repayment": "Repayment:",
+        "repaymentValue": "7 years",
+        "contact": "Contact: Bank of Ceylon Fisheries Division"
+      },
+      "workingCapital": {
+        "title": "Working Capital Loan",
+        "amount": "Loan Amount:",
+        "amountValue": "Up to LKR 2M",
+        "rate": "Interest Rate:",
+        "rateValue": "6% per annum",
+        "repayment": "Repayment:",
+        "repaymentValue": "3 years",
+        "contact": "Contact: Regional Rural Development Banks"
+      },
+      "aquaculture": {
+        "title": "Aquaculture Investment Loan",
+        "amount": "Loan Amount:",
+        "amountValue": "Up to LKR 10M",
+        "rate": "Interest Rate:",
+        "rateValue": "5% per annum",
+        "repayment": "Repayment:",
+        "repaymentValue": "10 years",
+        "contact": "Contact: National Aquaculture Development Authority"
+      }
+    },
+    "incentives": {
+      "title": "Export Incentive Schemes",
+      "valueAdded": {
+        "title": "Value-Added Processing Incentive",
+        "description": "For certified processing facilities",
+        "benefit": "Benefit:",
+        "benefitValue": "Tax relief + 15% export rebate",
+        "eligibility": "Eligibility:",
+        "eligibilityValue": "HACCP/ISO 22000 certified exporters"
+      },
+      "newMarket": {
+        "title": "New Market Development Grant",
+        "description": "For expanding to new countries",
+        "benefit": "Benefit:",
+        "benefitValue": "Up to LKR 500,000 per year",
+        "eligibility": "Eligibility:",
+        "eligibilityValue": "Documented export contracts in new markets"
+      }
+    }
+  },
+  "forecast": {
+    "title": "Seasonal Fishing Forecast",
+    "peak": "Peak Season",
+    "moderate": "Moderate Season",
+    "low": "Low Season",
+    "months": {
+      "jan": "January",
+      "feb": "February",
+      "mar": "March",
+      "apr": "April",
+      "may": "May",
+      "jun": "June",
+      "jul": "July",
+      "aug": "August",
+      "sep": "September",
+      "oct": "October",
+      "nov": "November",
+      "dec": "December"
+    }
+  },
+  "footer": {
+    "dataSource": "Data Sources:",
+    "fisheries": "Department of Fisheries & Aquatic Resources",
+    "malupola": "Malupola.com Market Network",
+    "lastUpdated": "Last Updated:",
+    "disclaimer": "Prices shown are indicative and may vary by location, quality grade, and market conditions"
+  },
+  "loading": {
+    "message": "Loading market data...",
+    "initializing": "Initializing data sources...",
+    "fetching": "Fetching latest prices..."
+  },
+  "errors": {
+    "loadFailed": "Failed to load market data",
+    "retry": "Retry",
+    "noData": "No data available",
+    "selectSpecies": "Please select a species",
+    "selectMarket": "Please select a market"
+  },
+  "tooltips": {
+    "realData": "Live data sourced from government fisheries databases and verified market networks",
+    "trend": "Price movement trend over the last 7 days",
+    "demand": "Current export demand level based on international buyer interest"
+  }
+}

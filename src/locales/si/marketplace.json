@@ -1,0 +1,166 @@
+{
+  "hero": {
+    "badge": "NARA ඩිජිටල් වෙළඳපොළ",
+    "title": "ප්‍රිමියම් සාගර දත්ත",
+    "titleHighlight": "නිෂ්පාදන සහ සේවා",
+    "subtitle": "NARA හි ප්‍රවීණ කණ්ඩායමෙන් උසස් තත්ත්වයේ සාගර දත්ත කට්ටල, පර්යේෂණ මෙවලම්, උපදේශන සේවා සහ විශේෂිත පුහුණු වැඩසටහන් ලබා ගන්න",
+    "cta": {
+      "primary": "නිෂ්පාදන බලන්න",
+      "secondary": "විකුණුම්කරුවෙක් වන්න"
+    },
+    "stats": {
+      "products": {
+        "value": "500+",
+        "label": "ඩිජිටල් නිෂ්පාදන"
+      },
+      "customers": {
+        "value": "5,000+",
+        "label": "සතුටු ගනුදෙනුකරුවන්"
+      },
+      "revenue": {
+        "value": "$2M+",
+        "label": "මුළු විකුණුම්"
+      },
+      "rating": {
+        "value": "4.9/5",
+        "label": "සාමාන්‍ය ශ්‍රේණිගත කිරීම"
+      }
+    }
+  },
+  "categories": {
+    "title": "නිෂ්පාදන කාණ්ඩ",
+    "subtitle": "සාගර විද්‍යා නිෂ්පාදන එකතුව",
+    "items": {
+      "datasets": {
+        "name": "සාගර දත්ත කට්ටල",
+        "description": "උසස් සාගර විද්‍යා දත්ත",
+        "count": "නිෂ්පාදන 250+"
+      },
+      "tools": {
+        "name": "පර්යේෂණ මෙවලම්",
+        "description": "මෘදුකාංග සහ විශ්ලේෂණ මෙවලම්",
+        "count": "නිෂ්පාදන 120+"
+      },
+      "consulting": {
+        "name": "උපදේශන සේවා",
+        "description": "ප්‍රවීණ උපදේශන සේවා",
+        "count": "සේවා 80+"
+      },
+      "training": {
+        "name": "පුහුණු වැඩසටහන්",
+        "description": "වෘත්තීය පාඨමාලා සහ වැඩමුළු",
+        "count": "වැඩසටහන් 50+"
+      },
+      "reports": {
+        "name": "පර්යේෂණ වාර්තා",
+        "description": "සවිස්තරාත්මක විශ්ලේෂණ වාර්තා",
+        "count": "වාර්තා 200+"
+      },
+      "apis": {
+        "name": "API ප්‍රවේශය",
+        "description": "සැබෑ කාලීන දත්ත API",
+        "count": "API 30+"
+      }
+    }
+  },
+  "filters": {
+    "search": "නිෂ්පාදන සොයන්න...",
+    "category": "කාණ්ඩය",
+    "priceRange": "මිල පරාසය",
+    "rating": "අවම ශ්‍රේණිගත කිරීම",
+    "sortBy": "වර්ග කරන්න",
+    "allCategories": "සියලු කාණ්ඩ",
+    "free": "නොමිලේ",
+    "paid": "ගෙවන ලද",
+    "sortOptions": {
+      "popular": "වඩාත් ජනප්‍රිය",
+      "newest": "අළුත්ම",
+      "priceLow": "මිල: අඩු සිට ඉහළ",
+      "priceHigh": "මිල: ඉහළ සිට අඩු",
+      "rating": "ඉහළම ශ්‍රේණිගත කිරීම"
+    }
+  },
+  "product": {
+    "addToCart": "කරත්තයට එක් කරන්න",
+    "buyNow": "දැන් මිලදී ගන්න",
+    "viewDetails": "විස්තර බලන්න",
+    "free": "නොමිලේ",
+    "price": "මිල",
+    "format": "ආකෘතිය",
+    "size": "ප්‍රමාණය",
+    "downloads": "බාගැනීම්",
+    "rating": "ශ්‍රේණිගත කිරීම",
+    "reviews": "සමාලෝචන",
+    "seller": "විකුණුම්කරු",
+    "lastUpdated": "අවසන් යාවත්කාලය",
+    "license": "බලපත්‍ර වර්ගය",
+    "previewAvailable": "පෙරදසුන ලබා ගත හැක",
+    "instantDownload": "ක්ෂණික බාගැනීම",
+    "lifetime": "ජීවිත කාල ප්‍රවේශය",
+    "support": "සහාය ඇතුළත්"
+  },
+  "cart": {
+    "title": "සාප්පු කරත්තය",
+    "empty": "ඔබේ කරත්තය හිස්",
+    "items": "අයිතම {{count}}",
+    "subtotal": "උප එකතුව",
+    "tax": "බදු",
+    "total": "එකතුව",
+    "checkout": "චෙක්අවුට් කරන්න",
+    "continueShopping": "සාප්පු යෑම දිගටම කරගෙන යන්න",
+    "remove": "ඉවත් කරන්න",
+    "clearCart": "කරත්තය හිස් කරන්න"
+  },
+  "checkout": {
+    "title": "චෙක්අවුට්",
+    "billingInfo": "බිල්පත් තොරතුරු",
+    "paymentMethod": "ගෙවීම් ක්‍රමය",
+    "orderSummary": "ඇණවුම් සාරාංශය",
+    "placeOrder": "ඇණවුම දෙන්න",
+    "processingPayment": "ගෙවීම් සැකසෙමින්...",
+    "paymentSuccess": "ගෙවීම සාර්ථකයි!",
+    "paymentFailed": "ගෙවීම අසාර්ථක විය",
+    "fields": {
+      "fullName": "සම්පූර්ණ නම",
+      "email": "විද්‍යුත් තැපෑල",
+      "organization": "සංවිධානය",
+      "country": "රට",
+      "address": "ලිපිනය",
+      "city": "නගරය",
+      "zipCode": "තැපැල් කේතය",
+      "phone": "දුරකථන අංකය"
+    }
+  },
+  "seller": {
+    "dashboard": "විකුණුම්කරු උපකරණ පුවරුව",
+    "addProduct": "නිෂ්පාදනය එක් කරන්න",
+    "myProducts": "මගේ නිෂ්පාදන",
+    "sales": "විකුණුම්",
+    "revenue": "ආදායම",
+    "customers": "ගනුදෙනුකරුවන්",
+    "analytics": "විශ්ලේෂණ",
+    "settings": "සැකසීම්"
+  },
+  "reviews": {
+    "title": "පාරිභෝගික සමාලෝචන",
+    "writeReview": "සමාලෝචනයක් ලියන්න",
+    "yourRating": "ඔබේ ශ්‍රේණිගත කිරීම",
+    "yourReview": "ඔබේ සමාලෝචනය",
+    "submit": "ඉදිරිපත් කරන්න",
+    "helpful": "ප්‍රයෝජනවත්",
+    "verified": "තහවුරු කළ මිලදී ගැනීම",
+    "noReviews": "සමාලෝචන තවමත් නැත"
+  },
+  "related": {
+    "title": "සම්බන්ධිත නිෂ්පාදන",
+    "customers": "ගනුදෙනුකරුවන් මෙයද මිලදී ගත්හ",
+    "viewMore": "තව බලන්න"
+  },
+  "seller Dashboard": {
+    "welcome": "විකුණුම්කරු පාලක පුවරුවට සාදරයෙන් පිළිගනිමු",
+    "uploadProduct": "නව නිෂ්පාදනයක් උඩුගත කරන්න",
+    "manageProducts": "නිෂ්පාදන කළමනාකරණය",
+    "viewSales": "විකුණුම් වාර්තා බලන්න",
+    "withdrawFunds": "මුදල් ආපසු ලබාගන්න"
+  }
+}

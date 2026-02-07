@@ -1,0 +1,97 @@
+{
+  "notFound": {
+    "title": "Page Not Found",
+    "subtitle": "404 - The page you're looking for doesn't exist",
+    "message": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.",
+    "goBack": "Go Back",
+    "backToHome": "Back to Home"
+  },
+  "errorBoundary": {
+    "title": "Something Went Wrong",
+    "subtitle": "We're sorry for the inconvenience",
+    "message": "An unexpected error has occurred. Please try refreshing the page or contact support if the problem persists.",
+    "error": "Error",
+    "unknownError": "Unknown error",
+    "reload": "Reload Page",
+    "goHome": "Go to Homepage"
+  },
+  "adminLogin": {
+    "title": "NARA Admin Portal",
+    "subtitle": "Sign In to Admin Panel",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "admin@nara.gov.lk",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "signInButton": "Sign In",
+    "signingIn": "Signing in...",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "backToWebsite": "Back to Website",
+    "error": {
+      "invalidCredentials": "Invalid email or password",
+      "unauthorized": "Unauthorized: Admin access required",
+      "networkError": "Network error. Please check your connection.",
+      "generic": "An error occurred. Please try again."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "skipToMainContent": "Skip to main content",
+    "back": "Back"
+  },
+  "researchForms": {
+    "titlePlaceholder": "E.g., Coral Reef Assessment in Sri Lankan Waters",
+    "descriptionPlaceholder": "Brief summary of the research...",
+    "authorsPlaceholder": "Dr. John Doe, Dr. Jane Smith",
+    "keywordsPlaceholder": "coral, reef, climate"
+  },
+  "accessibility": {
+    "toolbar": {
+      "title": "Accessibility Tools",
+      "subtitle": "Customize your viewing experience",
+      "close": "Close",
+      "fontSize": {
+        "label": "Text Size",
+        "description": "Adjust text size for better readability",
+        "decrease": "Decrease text size",
+        "increase": "Increase text size",
+        "reset": "Reset to default"
+      },
+      "contrast": {
+        "label": "Contrast",
+        "description": "Adjust color contrast",
+        "normal": "Normal",
+        "high": "High Contrast",
+        "dark": "Dark Mode"
+      },
+      "lineSpacing": {
+        "label": "Line Spacing",
+        "description": "Adjust spacing between lines",
+        "normal": "Normal",
+        "increased": "Increased",
+        "double": "Double"
+      },
+      "letterSpacing": {
+        "label": "Letter Spacing",
+        "description": "Adjust spacing between letters",
+        "normal": "Normal",
+        "wide": "Wide",
+        "wider": "Extra Wide"
+      },
+      "cursor": {
+        "label": "Cursor",
+        "description": "Change cursor style",
+        "default": "Default",
+        "large": "Large",
+        "extraLarge": "Extra Large"
+      },
+      "readingGuide": {
+        "label": "Reading Guide",
+        "description": "Show horizontal line to follow text",
+        "off": "Off",
+        "on": "On"
+      },
+      "reset": "Reset All Settings"
+    }
+  }
+}

@@ -1,0 +1,795 @@
+{
+  "hero": {
+    "liveDataLabel": "Live Data",
+    "badge": "Sri Lanka Government Research Agency",
+    "agencyName": "NATIONAL AQUATIC RESOURCES RESEARCH AND DEVELOPMENT AGENCY",
+    "slogan": "Safeguarding Sri Lanka's Aquatic Wealth and Health Through Science",
+    "title": {
+      "lead": "Commanding",
+      "highlight": "200 Nautical Miles",
+      "trail": "of Sovereign Ocean Intelligence",
+      "lineOne": "National Aquatic Resources",
+      "lineTwo": "Research and Development Agency"
+    },
+    "description": "Advancing scientific research and innovation in marine and aquatic resources through responsible management, sustainable practices, and cutting-edge research to protect ecosystems and drive the nation's blue economy.",
+    "welcomeText": "Welcome to NARA Website",
+    "welcome": {
+      "english": "Welcome to NARA Website",
+      "sinhala": "NARA වෙත සාදරයෙන් පිළිගනිමු",
+      "tamil": "NARA க்கு வரவேற்கிறோம்"
+    },
+    "primaryCta": "Explore Research",
+    "secondaryCta": "Contact Us",
+    "actions": {
+      "sync": "Sync Live Sensors",
+      "launch": "Launch Intelligence Console"
+    },
+    "stats": {
+      "activeSensors": {
+        "label": "Active Sensors",
+        "caption": "Satellite, buoy, and ROV network"
+      },
+      "protectedWaters": {
+        "label": "Protected Waters",
+        "caption": "EEZ coverage within 200 NM"
+      },
+      "liveAlerts": {
+        "label": "Live Alerts",
+        "caption": "Fisheries, NAVIC, and weather"
+      }
+    },
+    "lastUpdated": "Last updated",
+    "overview": {
+      "sovereignWaters": {
+        "label": "Sovereign Waters",
+        "value": "200 NM EEZ Radius"
+      },
+      "lastSync": {
+        "label": "Last Sync"
+      },
+      "tagline": "Sri Lanka's Premier Marine & Freshwater Research Agency",
+      "description": "Advancing scientific research and innovation in marine and aquatic resources through responsible management, sustainable practices, and cutting-edge research to protect ecosystems and drive the nation's blue economy.",
+      "since": "Established 1981",
+      "divisions": "10 Research Divisions",
+      "scientists": "100+ Scientists",
+      "primaryCta": "Explore Research",
+      "secondaryCta": "Contact Us"
+    }
+  },
+  "research": {
+    "heading": "Research Excellence",
+    "description": "Leading ocean research with cutting-edge technology and scientific innovation",
+    "areas": {
+      "marineBiodiversity": {
+        "title": "Marine Biodiversity",
+        "description": "Protecting 50,000+ marine species",
+        "unit": "Species Documented",
+        "statFallback": "15K"
+      },
+      "climateResearch": {
+        "title": "Climate Research",
+        "description": "Real-time ocean temperature monitoring",
+        "unit": "Climate Tracking",
+        "statFallback": "24/7"
+      },
+      "conservation": {
+        "title": "Conservation",
+        "description": "Sustainable fishing practices",
+        "unit": "Success Rate",
+        "statFallback": "85%"
+      },
+      "satelliteMonitoring": {
+        "title": "Satellite Monitoring",
+        "description": "AI-powered ocean surveillance",
+        "unit": "Daily Observations",
+        "statFallback": "500"
+      }
+    }
+  },
+  "intelligence": {
+    "heading": {
+      "lead": "Real-Time",
+      "highlight": "Ocean Intelligence"
+    },
+    "description": "Monitor ocean conditions, marine traffic, and environmental data in real-time with our advanced satellite and sensor network covering Sri Lankan waters.",
+    "livePoints": [
+      "127 Active Research Stations",
+      "3,847 Marine Species Tracked",
+      "15 Research Vessels at Sea"
+    ],
+    "cta": "Access Live Dashboard",
+    "floatingStats": {
+      "temperature": {
+        "value": "28.5°C",
+        "label": "Ocean Temp"
+      },
+      "ph": {
+        "value": "7.8",
+        "label": "pH Level"
+      }
+    }
+  },
+  "mission": {
+    "badge": "National Aquatic Research Authority",
+    "heading": "Safeguarding Sri Lanka's Aquatic Wealth Through Science",
+    "description": "The National Aquatic Resources Research & Development Agency (NARA) is Sri Lanka's premier institute for marine and freshwater science, dedicated to safeguarding and sustainably developing the nation's aquatic wealth. We conduct cutting-edge research, guide policy on fisheries and ocean resources, and drive innovation in the Blue Economy to benefit ecosystems and communities.",
+    "stats": [
+      {
+        "value": "40+",
+        "label": "Years of Research Excellence"
+      },
+      {
+        "value": "460,000 km²",
+        "label": "Ocean Territory Under Watch"
+      },
+      {
+        "value": "100+",
+        "label": "Completed Research Projects"
+      }
+    ],
+    "focusResearch": "Coastal, deep sea, and inland water programmes powering national policy and the blue economy.",
+    "focusCommunity": "Alliances with fishing communities, academia, and defence agencies safeguard livelihoods and maritime security.",
+    "ctaLearn": "About NARA",
+    "ctaConsult": "Request a briefing",
+    "telemetryLabel": "Mission telemetry online",
+    "briefing": "Live observatories, ocean drones, and GovCERT-secured data streams coordinate a 200 NM protective radius across Sri Lanka’s sovereign waters.",
+    "viewAllDivisions": "View all divisions"
+  },
+  "unifiedHub": {
+    "badge": "All-in-One Command Center",
+    "heading": "NARA Main Services",
+    "subheading": "Everything you need in one powerful platform – from research data to government services and ocean intelligence",
+    "tabs": {
+      "portals": "Flagship Portals",
+      "services": "Essential Services",
+      "tools": "Quick Tools"
+    },
+    "portals": [
+      {
+        "title": "Research Excellence",
+        "subtitle": "Portal",
+        "description": "Scientific publications, datasets, and collaborative research tools",
+        "metrics": [
+          {
+            "label": "Publications",
+            "value": "2,500+"
+          },
+          {
+            "label": "Datasets",
+            "value": "850+"
+          }
+        ],
+        "features": [
+          "API Access",
+          "Data Downloads",
+          "Collaboration Tools"
+        ],
+        "cta": "Explore Research",
+        "icon": "microscope",
+        "gradient": "from-purple-600 via-violet-600 to-fuchsia-600"
+      },
+      {
+        "title": "Government Services",
+        "subtitle": "Portal",
+        "description": "EIA applications, licenses, compliance monitoring, and emergency response",
+        "metrics": [
+          {
+            "label": "Active Services",
+            "value": "8"
+          },
+          {
+            "label": "Applications",
+            "value": "24/7"
+          }
+        ],
+        "features": [
+          "EIA & Licensing",
+          "Emergency Response",
+          "Nautical Charts & Surveys"
+        ],
+        "cta": "Access Services",
+        "icon": "file",
+        "gradient": "from-blue-600 via-cyan-600 to-teal-600"
+      },
+      {
+        "title": "Digital Marketplace",
+        "subtitle": "Platform",
+        "description": "Purchase research data, reports, and specialized marine products",
+        "metrics": [
+          {
+            "label": "Products",
+            "value": "350+"
+          },
+          {
+            "label": "Downloads",
+            "value": "12K+"
+          }
+        ],
+        "features": [
+          "Secure Checkout",
+          "Instant Delivery",
+          "API Access"
+        ],
+        "cta": "Browse Store",
+        "icon": "shopping",
+        "gradient": "from-emerald-600 via-green-600 to-teal-600"
+      }
+    ],
+    "services": [
+      {
+        "title": "Marine Laboratory",
+        "description": "ISO-certified water quality testing and fish sample analysis",
+        "turnaround": "24-48 hours",
+        "icon": "flask",
+        "link": "/lab-results"
+      },
+      {
+        "title": "Fisheries Advisory",
+        "description": "Expert guidance, safety alerts, and fishing zone recommendations",
+        "availability": "24/7 Support",
+        "icon": "info",
+        "link": "/fish-advisory-system"
+      },
+      {
+        "title": "Data & Publications",
+        "description": "Access research papers, technical reports, and ocean datasets",
+        "access": "Open Access",
+        "icon": "database",
+        "link": "/open-data-portal"
+      },
+      {
+        "title": "Training Programs",
+        "description": "Workshops, certifications, and capacity building initiatives",
+        "programs": "25+ Courses",
+        "icon": "graduation",
+        "link": "/learning-development-academy"
+      },
+      {
+        "title": "Emergency Response",
+        "description": "24/7 marine incident reporting and rapid response coordination",
+        "response": "< 2 hours",
+        "icon": "alert",
+        "link": "/marine-incident-portal"
+      },
+      {
+        "title": "Export Intelligence",
+        "description": "Market trends, trade statistics, and export opportunities",
+        "updated": "Daily Updates",
+        "icon": "trending",
+        "link": "/export-market-intelligence"
+      }
+    ],
+    "quickTools": [
+      {
+        "title": "Weather Forecast",
+        "icon": "cloud",
+        "link": "/marine-forecast"
+      },
+      {
+        "title": "Fish Prices",
+        "icon": "dollar",
+        "link": "/export-market-intelligence"
+      },
+      {
+        "title": "Tide Tables",
+        "icon": "waves",
+        "link": "/marine-forecast"
+      },
+      {
+        "title": "License Portal",
+        "icon": "file",
+        "link": "/government-services-portal"
+      }
+    ]
+  },
+  "integration": {
+    "badge": "Seamless Partnerships",
+    "title": "Integration Command Center",
+    "subtitle": "Share updates with partners and keep hands-on control in one place.",
+    "description": "Give collaborators what they need without adding extra work for your teams.",
+    "summaryCards": [
+      {
+        "title": "Invite partners in minutes",
+        "description": "Send a sandbox link with starter docs and an API key—no custom setup required."
+      },
+      {
+        "title": "Update data yourself",
+        "description": "Upload files, trigger syncs, or publish advisories from the admin panel without touching code."
+      },
+      {
+        "title": "Stay in the loop",
+        "description": "Dashboard cards flag recent activity, upcoming syncs, and anything that needs your attention."
+      }
+    ],
+    "howItWorks": {
+      "heading": "What this unlocks",
+      "caption": "Partners access the same trusted information you see, while NARA keeps ownership of every update.",
+      "steps": [
+        {
+          "title": "Invite a partner",
+          "description": "Create sandbox access and share the quick-start pack so they can test straight away."
+        },
+        {
+          "title": "Publish or sync",
+          "description": "Use the admin panel to add new data, approve changes, or run a scheduled sync."
+        },
+        {
+          "title": "Promote to live",
+          "description": "When everything looks good, switch the feed to production and keep monitoring from the dashboard."
+        }
+      ]
+    },
+    "tabs": {
+      "partners": {
+        "label": "For Partners",
+        "heading": "A guided hand-off for external teams",
+        "body": "Partners receive clear documentation, a sandbox key, and a support contact to keep them moving.",
+        "benefits": [
+          "Step-by-step quick start guide with sample requests",
+          "Sandbox and production keys managed from one place",
+          "Status alerts so partners know when data refreshes"
+        ],
+        "actions": [
+          {
+            "label": "Share the partner console",
+            "to": "/integration-systems-platform"
+          },
+          {
+            "label": "Download quick-start kit",
+            "to": "/media-press-kit"
+          }
+        ]
+      },
+      "admin": {
+        "label": "For NARA Teams",
+        "heading": "Keep manual control when you need it",
+        "body": "The admin panel lets staff post new data, approve changes, and pause access without touching code.",
+        "benefits": [
+          "Upload files or edit copy with built-in checks",
+          "Optional approvals so sensitive updates get reviewed",
+          "Pause or resume feeds with a single toggle"
+        ],
+        "actions": [
+          {
+            "label": "Open the admin panel",
+            "to": "/admin/dashboard"
+          },
+          {
+            "label": "Read the operations guide",
+            "to": "/admin/content"
+          }
+        ]
+      },
+      "playground": {
+        "label": "Try It First",
+        "heading": "Experiment safely before you go live",
+        "body": "A ready-made playground mirrors the live endpoints so teams can prototype and learn quickly.",
+        "benefits": [
+          "Mock responses that mirror live payloads",
+          "Copy-and-paste examples for popular languages",
+          "Notifications when an endpoint changes"
+        ],
+        "actions": [
+          {
+            "label": "Launch the playground",
+            "to": "/open-data-portal"
+          },
+          {
+            "label": "Talk to the integration desk",
+            "to": "/contact-us"
+          }
+        ]
+      }
+    },
+    "security": {
+      "title": "Trust built in",
+      "body": "Role-based access, audit history, and automated alerts protect national data while keeping partners informed.",
+      "checklist": [
+        "Separate sandbox and production keys for every partner",
+        "Automatic email when thresholds or quotas are reached",
+        "Exportable audit trail for compliance reviews"
+      ]
+    }
+  },
+  "academy": {
+    "badge": "NARA Academy",
+    "titleLine1": "Nurturing Future",
+    "titleLine2": "Ocean Leaders",
+    "subtitle": "Comprehensive marine education programs from school students to advanced researchers",
+    "updated": "Updated",
+    "programs": {
+      "aquaSchool": {
+        "title": "Aqua School",
+        "subtitle": "Marine Education for Young Minds",
+        "description": "Inspiring the next generation of ocean guardians through interactive learning and hands-on marine science education.",
+        "features": [
+          "Interactive Marine Science Courses",
+          "Virtual Ocean Explorations",
+          "Student Research Projects",
+          "Environmental Awareness Programs"
+        ],
+        "stats": [
+          {
+            "label": "Students",
+            "value": "5,000+"
+          },
+          {
+            "label": "Courses",
+            "value": "25+"
+          },
+          {
+            "label": "Schools",
+            "value": "150+"
+          }
+        ]
+      },
+      "nexus": {
+        "title": "Nexus Graduate Program",
+        "subtitle": "Advanced Marine Research & Innovation",
+        "description": "Empowering graduate students and researchers with cutting-edge marine science education and research opportunities.",
+        "features": [
+          "Master's & PhD Programs",
+          "Research Fellowships",
+          "Industry Partnerships",
+          "International Collaborations"
+        ],
+        "stats": [
+          {
+            "label": "Graduates",
+            "value": "1,200+"
+          },
+          {
+            "label": "Projects",
+            "value": "300+"
+          },
+          {
+            "label": "Partners",
+            "value": "50+"
+          }
+        ]
+      }
+    },
+    "keyFeatures": "Key Features",
+    "visitWebsite": "Visit Website",
+    "explore": "Explore",
+    "preview": "Preview",
+    "loadingPreview": "Loading preview...",
+    "badges": {
+      "accredited": "Accredited Programs",
+      "industryAligned": "Industry Aligned",
+      "expertFaculty": "Expert Faculty",
+      "globalRecognition": "Global Recognition"
+    }
+  },
+  "missionControl": {
+    "badge": "National Mission Control",
+    "title": "Safeguarding Sri Lanka's Blue Economy",
+    "description": "The National Aquatic Resources Research & Development Agency orchestrates ocean intelligence, policy, and innovation to secure a resilient maritime future for the nation.",
+    "learnMore": "Review mandate brief",
+    "form": {
+      "title": "Request a Strategic Briefing",
+      "description": "Receive monthly intelligence dispatches, mission updates, and collaboration windows from the command center.",
+      "placeholders": {
+        "name": "Full name",
+        "email": "Work email"
+      },
+      "cta": "Join the mission",
+      "privacy": "We protect your data in alignment with GovCERT SL and global research ethics protocols."
+    }
+  },
+  "highlights": {
+    "heading": "Impact at a Glance",
+    "description": "A national command centre powering real-time ocean intelligence, policy enforcement, and blue economy resilience.",
+    "cards": {
+      "programs": {
+        "label": "Research Programs",
+        "value": "42",
+        "description": "Active ocean science missions advancing biodiversity, climate, and naval readiness."
+      },
+      "observatories": {
+        "label": "Observatories",
+        "value": "18",
+        "description": "Coastal, deep-sea, and satellite-linked stations monitoring the Indian Ocean corridor."
+      },
+      "dataAssets": {
+        "label": "Data Assets",
+        "value": "12.4M",
+        "description": "Verified datapoints fueling analytics, conservation, and maritime decision systems."
+      },
+      "partners": {
+        "label": "Allied Partners",
+        "value": "65+",
+        "description": "Government, academic, and private alliances powering responsible ocean management initiatives."
+      }
+    }
+  },
+  "navigation": {
+    "missionPillars": {
+      "heading": "Mission Pillars",
+      "links": {
+        "dashboard": "Ocean Intelligence Dashboard",
+        "research": "Research Excellence Portal",
+        "knowledge": "Knowledge Discovery Center",
+        "partnership": "Partnership Innovation Gateway"
+      }
+    },
+    "commandCenters": {
+      "heading": "Command Centers",
+      "links": {
+        "maritime": "Maritime Services Hub",
+        "emergency": "Emergency Response Network",
+        "integration": "Integration Systems Platform",
+        "learning": "Learning & Development Academy"
+      }
+    },
+    "policy": {
+      "heading": "Policy & Compliance",
+      "links": {
+        "bulletins": "Mission Bulletins",
+        "transactions": "Secure Transactions",
+        "charter": "Data Protection Charter",
+        "accessibility": "Accessibility Statement"
+      }
+    }
+  },
+  "contact": {
+    "heading": "Contact & Duty Desk",
+    "address": "Crow Island, Colombo 15, Sri Lanka",
+    "hours": "Mission operations: 08:30 - 18:00 IST",
+    "phoneLabel": "Phone",
+    "phoneValue": "+94 11 234 5678",
+    "emailLabel": "Email",
+    "emailValue": "info@nara.gov.lk",
+    "follow": "Follow Us",
+    "social": {
+      "facebook": "Facebook",
+      "twitter": "Twitter",
+      "linkedin": "LinkedIn",
+      "youtube": "YouTube"
+    },
+    "socialAlt": {
+      "facebook": "Visit NARA on Facebook",
+      "twitter": "Visit NARA on Twitter",
+      "linkedin": "Visit NARA on LinkedIn",
+      "youtube": "Visit NARA on YouTube"
+    }
+  },
+  "divisions": {
+    "heading": "Our Research Divisions",
+    "subheading": "Specialized teams advancing marine and freshwater science across multiple disciplines",
+    "list": [
+      {
+        "name": "Marine Biology",
+        "description": "Studying marine biodiversity and ecosystem health"
+      },
+      {
+        "name": "Fisheries & Aquaculture",
+        "description": "Supporting sustainable fishing and aquatic farming practices"
+      },
+      {
+        "name": "Oceanography",
+        "description": "Monitoring ocean climate and marine ecosystems"
+      },
+      {
+        "name": "Environmental Management",
+        "description": "Protecting coastal and marine environments"
+      },
+      {
+        "name": "Inland Water Resources",
+        "description": "Managing freshwater lakes, rivers, and reservoirs"
+      },
+      {
+        "name": "Marine Biotechnology",
+        "description": "Developing innovations from marine organisms"
+      }
+    ]
+  },
+  "essentialServices": {
+    "heading": "Essential Services",
+    "subheading": "Access critical marine research, testing, and advisory services for Sri Lanka's blue economy",
+    "cards": {
+      "fishAdvisory": {
+        "title": "Fish Advisory System",
+        "description": "Real-time safety alerts, water quality warnings, and consumption advisories for all Sri Lankan waters",
+        "cta": "View Advisories"
+      },
+      "labTesting": {
+        "title": "Laboratory Testing",
+        "description": "ISO-certified water quality, fish sample analysis, and environmental testing with rapid turnaround",
+        "cta": "Request Testing"
+      },
+      "marineIncident": {
+        "title": "Marine Incident Reporting",
+        "description": "24/7 emergency response for oil spills, pollution incidents, and environmental hazards",
+        "cta": "Report Incident"
+      },
+      "openData": {
+        "title": "Open Data Portal",
+        "description": "Access research datasets, ocean monitoring data, and biodiversity records via API or download",
+        "cta": "Browse Data"
+      },
+      "exportIntelligence": {
+        "title": "Export Intelligence",
+        "description": "Market trends, trade statistics, and export opportunities for Sri Lankan marine products",
+        "cta": "View Insights"
+      },
+      "publicConsultation": {
+        "title": "Public Consultation",
+        "description": "Participate in policy development, EIA reviews, and community engagement initiatives",
+        "cta": "Join Discussion"
+      }
+    }
+  },
+  "milestones": {
+    "heading": "Four Decades of Excellence",
+    "subheading": "Celebrating milestones in marine research, conservation, and innovation since 1981",
+    "timeline": [
+      {
+        "year": "1981",
+        "title": "NARA Established",
+        "description": "Founded by Act 54 of 1981 to advance aquatic research"
+      },
+      {
+        "year": "1985",
+        "title": "First Marine Survey",
+        "description": "Conducted nationwide marine resource assessment"
+      },
+      {
+        "year": "1990s",
+        "title": "EEZ Research",
+        "description": "Initiated 200 nautical mile Exclusive Economic Zone studies"
+      },
+      {
+        "year": "2020",
+        "title": "Coral Restoration",
+        "description": "Pioneered innovative coral reef restoration projects"
+      }
+    ],
+    "achievementsHeading": "Impact & Recognition",
+    "achievements": [
+      {
+        "number": "150+",
+        "label": "New Marine Species Discovered"
+      },
+      {
+        "number": "5+",
+        "label": "Marine Protected Areas Established"
+      },
+      {
+        "number": "20+",
+        "label": "International Research Partners"
+      },
+      {
+        "number": "1000+",
+        "label": "Fishermen Trained Annually"
+      }
+    ],
+    "cta": "Explore Our Complete Journey"
+  },
+  "news": {
+    "heading": "Latest News & Updates",
+    "subheading": "Stay informed with our recent announcements and activities",
+    "viewAll": "View All News",
+    "readMore": "Read more",
+    "learnMore": "Learn more",
+    "articles": [
+      {
+        "id": "scientific-sessions-2025",
+        "date": "Feb 15, 2025",
+        "title": "Bridging Research and Policy for Blue Growth: NARA Scientific Sessions 2025",
+        "description": "NARA's flagship annual symposium successfully concluded, bringing together marine scientists and policymakers to strategize on sustainable fisheries management and the blue economy roadmap for 2030.",
+        "fullContent": "The National Aquatic Resources Research and Development Agency (NARA) successfully held its Scientific Sessions 2025 under the theme 'Bridging Research and Policy for Blue Growth.' The event, held in Colombo, emphasized the critical role of scientific research in sustainable fisheries management, protecting aquatic ecosystems, and advancing Sri Lanka's blue economy. Over 200 researchers, policymakers, and industry stakeholders participated, presenting findings on climate resilience, deep-sea exploration, and aquaculture innovations.",
+        "image": "/images/news/scientific-session-2025.jpg"
+      },
+      {
+        "id": "sofdc-construction-begins",
+        "date": "Dec 05, 2025",
+        "title": "Construction Begins for Sri Lanka Ocean and Fisheries Data Center (SOFDC)",
+        "description": "A landmark collaboration with KIOST and Haebom Data Inc. to build a state-of-the-art data center dedicated to aquatic research and digitalization.",
+        "fullContent": "NARA, in collaboration with the Korea Institute of Ocean Science & Technology (KIOST) and Haebom Data Inc., has initiated the construction of the new Sri Lanka Ocean and Fisheries Data Center (SOFDC). This state-of-the-art facility will serve as the central hub for the country's aquatic research data, enhancing digital capabilities in ocean monitoring, fisheries forecasting, and climate data analysis. The project marks a significant step forward in NARA's digital transformation journey.",
+        "image": "/images/news/data-center-groundbreaking.jpg"
+      },
+      {
+        "id": "grant-secured-marine-infrastructure",
+        "date": "Dec 20, 2024",
+        "title": "$3 Million Grant Secured for Marine Infrastructure Upgrade",
+        "description": "NARA has secured major international funding to modernize its research vessel fleet and upgrade coastal laboratories, enhancing our deep-sea monitoring capabilities.",
+        "fullContent": "In a major boost to Sri Lanka's marine research capabilities, NARA has secured $3 million in international funding. This grant is earmarked for the modernization of the research vessel fleet and the upgrading of coastal laboratories. The investment will significantly enhance NARA's capacity for deep-sea monitoring, water quality analysis, and real-time oceanographic surveillance, ensuring Sri Lanka remains at the forefront of Indian Ocean marine science.",
+        "image": "/images/news/funding-news.jpg"
+      },
+      {
+        "id": "aqua-planet-expo-2025",
+        "date": "Nov 21, 2025",
+        "title": "NARA at Aqua Planet Sri Lanka 2025",
+        "description": "Showcasing scientific innovations at the International Aquatic Expo to commemorate World Fisheries Day.",
+        "fullContent": "Coinciding with World Fisheries Day, NARA played a strategic scientific role at the 'Aqua Planet Sri Lanka 2025' International Aquatic Expo. The agency showcased its latest innovations in sustainable aquaculture, value-added marine products, and ocean observation technologies. The exhibition provided a platform to connect with industry leaders, investors, and the public, highlighting the economic potential of Sri Lanka's aquatic resources.",
+        "image": "/images/news/aqua-planet-expo.jpg"
+      }
+    ],
+    "advisory": {
+      "title": "Fisheries Advisory Notice",
+      "description": "Temporary suspension of sea cucumber and lobster harvesting in effect for Zone A3 to allow stock replenishment. Monitored by NARA Research Division.",
+      "link": "View full advisory"
+    }
+  },
+  "knowledge": {
+    "badge": "Knowledge Hub",
+    "heading": "Discover the latest publications",
+    "description": "Browse curated research, advisories, and technical publications powering Sri Lanka's responsible aquatic management.",
+    "tiles": {
+      "library": {
+        "title": "Research Library",
+        "description": "Access peer-reviewed studies, policy briefs, and technical reports across every marine discipline.",
+        "cta": "Open library"
+      },
+      "advisory": {
+        "title": "Advisory Notices",
+        "description": "Track the latest fisheries, safety, and environmental advisories issued by NARA command.",
+        "cta": "View advisories"
+      },
+      "datasets": {
+        "title": "Open Data Portal",
+        "description": "Download validated datasets, bathymetry, and satellite feeds supporting national planning.",
+        "cta": "Explore datasets"
+      }
+    },
+    "defaultTitle": "Knowledge Resource",
+    "defaultDescription": "Discover curated resources supporting Sri Lanka's responsible aquatic management.",
+    "defaultCta": "Explore"
+  },
+  "footer": {
+    "badge": "This is an Official Sri Lanka Government Website",
+    "ministry": "Under the Ministry of Fisheries, Sri Lanka",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "transparency": "Transparency",
+      "compliance": "ISO 27001 | GovCERT SL"
+    },
+    "craftedBy": "Crafted by",
+    "copyright": "© 2025 National Aquatic Resources Research & Development Agency.",
+    "craftedLinkLabel": "www.safenetcreations.com",
+    "craftedLink": "https://www.safenetcreations.com"
+  },
+  "portal": {
+    "heading": "Quick Access",
+    "subheading": "Reach core service platforms from one place",
+    "cards": {
+      "research": {
+        "title": "Research Portal",
+        "description": "Research publications and dataset access"
+      },
+      "maritime": {
+        "title": "Maritime Services",
+        "description": "Shipping and port services information"
+      },
+      "marketplace": {
+        "title": "Digital Marketplace",
+        "description": "Securely purchase data and reports"
+      }
+    },
+    "cta": "Open Portal"
+  },
+  "services": {
+    "heading": "Priority Services",
+    "subheading": "Reliable services tailored for researchers, fishing communities, industry, and the public.",
+    "list": [
+      {
+        "name": "Marine Laboratory Services",
+        "description": "Scientific testing for water quality and aquatic sample analysis"
+      },
+      {
+        "name": "Fisheries Advisory",
+        "description": "Practical guidance and safety advisories for fishing communities"
+      },
+      {
+        "name": "Data and Publications",
+        "description": "Access to research reports and open datasets"
+      },
+      {
+        "name": "Training Programmes",
+        "description": "Training and workshop programmes for capacity development"
+      }
+    ]
+  }
+}

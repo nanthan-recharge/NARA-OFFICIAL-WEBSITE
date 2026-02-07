@@ -1,0 +1,328 @@
+{
+  "hero": {
+    "badge": "ஆராய்ச்சி பிரிவு",
+    "title": "ஆராய்ச்சி சிறப்பு",
+    "description": "புதுமையான ஆராய்ச்சி, கண்டுபிடிப்புகள் மற்றும் உலகளாவிய கூட்டாண்மையின் மூலம் கடல் அறிவியலை முன்னேற்றுகிறோம்"
+  },
+  "metrics": {
+    "fallback": [
+      {
+        "key": "activeProjects",
+        "label": "செயலில் உள்ள திட்டங்கள்",
+        "value": "47",
+        "change": "+12%",
+        "icon": "Briefcase"
+      },
+      {
+        "key": "publications2024",
+        "label": "வெளியீடுகள் (2024)",
+        "value": "89",
+        "change": "+23%",
+        "icon": "FileText"
+      },
+      {
+        "key": "internationalCollaborations",
+        "label": "சர்வதேச கூட்டாண்மைகள்",
+        "value": "32",
+        "change": "+8%",
+        "icon": "Globe"
+      },
+      {
+        "key": "researchFunding",
+        "label": "ஆராய்ச்சி நிதியுதவி",
+        "value": "$12.4M",
+        "change": "+15%",
+        "icon": "TrendingUp"
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "key": "publications",
+      "label": "வெளியீடுகள்"
+    },
+    {
+      "key": "teams",
+      "label": "ஆராய்ச்சி அணிகள்"
+    },
+    {
+      "key": "projects",
+      "label": "திட்டங்கள்"
+    },
+    {
+      "key": "datasets",
+      "label": "தரவுத் தொகுப்புகள்"
+    },
+    {
+      "key": "collaboration",
+      "label": "கூட்டாண்மை"
+    }
+  ],
+  "publications": {
+    "title": "ஆராய்ச்சி வெளியீடுகள்",
+    "searchPlaceholder": "வெளியீடுகளைத் தேடுங்கள்...",
+    "categories": [
+      {
+        "value": "all",
+        "label": "அனைத்து பிரிவுகள்"
+      },
+      {
+        "value": "Marine Biology",
+        "label": "கடல் உயிரியல்"
+      },
+      {
+        "value": "Climate Science",
+        "label": "காலநிலை அறிவியல்"
+      },
+      {
+        "value": "Ocean Technology",
+        "label": "கடல் தொழில்நுட்பம்"
+      },
+      {
+        "value": "Conservation",
+        "label": "பாதுகாப்பு"
+      }
+    ],
+    "sortOptions": [
+      {
+        "value": "year",
+        "label": "வெளியீட்டு ஆண்டு"
+      },
+      {
+        "value": "citations",
+        "label": "மேற்கோள்கள்"
+      },
+      {
+        "value": "impact",
+        "label": "தாக்க மதிப்பெண்"
+      },
+      {
+        "value": "downloads",
+        "label": "பதிவிறக்கங்கள்"
+      }
+    ],
+    "sort": {
+      "highToLow": "{{label}} (உயர்ந்தது முதல் தாழ்ந்தது வரை)",
+      "lowToHigh": "{{label}} (தாழ்ந்தது முதல் உயர்ந்தது வரை)"
+    },
+    "labels": {
+      "citations": "மேற்கோள்கள்",
+      "downloads": "பதிவிறக்கங்கள்",
+      "impact": "IF",
+      "pdf": "PDF"
+    },
+    "empty": {
+      "title": "வெளியீடுகள் எதுவும் இல்லை",
+      "description": "உங்கள் தேடல் அளவுகோல்கள் அல்லது வடிகட்டிகளை மாற்றி முயற்சிக்கவும்."
+    },
+    "loadMore": "மேலும் வெளியீடுகளை ஏற்றவும்",
+    "fallback": [
+      {
+        "id": 1,
+        "title": "இலங்கை கடல்நீரில் ஆழ்கடல் உயிரின வள வரைபடம்",
+        "authors": "Dr. Sarah Chen, Prof. Kumar Silva, Dr. Amanda Roberts",
+        "year": 2024,
+        "journal": "Nature Ocean Sciences",
+        "impact": 12.5,
+        "citations": 245,
+        "category": "Marine Biology",
+        "thumbnail": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "abstract": "ஆழ்கடல் சூழல்களின் விரிவான பகுப்பாய்வு 127 புதிய இனங்களை வெளிப்படுத்துகிறது...",
+        "tags": [
+          "ஆழ்கடல்",
+          "உயிரின வளம்",
+          "புதிய இனங்கள்"
+        ],
+        "downloadCount": 3847
+      },
+      {
+        "id": 2,
+        "title": "கோரல் பாறை அமைப்புகளில் காலநிலை தாக்கம்: 10 ஆண்டு ஆய்வு",
+        "authors": "Prof. Michael Thompson, Dr. Priya Fernando",
+        "year": 2024,
+        "journal": "Science Advances",
+        "impact": 9.8,
+        "citations": 189,
+        "category": "Climate Science",
+        "thumbnail": "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=400",
+        "abstract": "நீண்டகால கண்காணிப்புகள் கொரல் உயிர்வாழ்வுக்கான முக்கிய வெப்பநிலை வரம்புகளை வெளிப்படுத்துகிறது...",
+        "tags": [
+          "காலநிலை மாற்றம்",
+          "கோரல் பாறைகள்",
+          "பாதுகாப்பு"
+        ],
+        "downloadCount": 2156
+      },
+      {
+        "id": 3,
+        "title": "AI இயக்கப்படும் கடல் நீரோட்ட கணிப்பு மாதிரிகள்",
+        "authors": "Dr. James Liu, Prof. Nimal Perera",
+        "year": 2023,
+        "journal": "Journal of Marine Technology",
+        "impact": 8.2,
+        "citations": 156,
+        "category": "Ocean Technology",
+        "thumbnail": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400",
+        "abstract": "இயந்திரக் கற்றல் குறிப்புட்கள் 94% துல்லியத்துடன் நீரோட்டங்களைக் கணிக்கின்றன...",
+        "tags": [
+          "AI",
+          "கடல் நீரோட்டங்கள்",
+          "முன்கூட்டிய மாதிரிவடிவமைப்பு"
+        ],
+        "downloadCount": 1892
+      }
+    ]
+  },
+  "teams": {
+    "labels": {
+      "lead": "மேற்பார்வை: {{name}}",
+      "members": "உறுப்பினர்கள்",
+      "projects": "திட்டங்கள்",
+      "funding": "நிதியுதவி"
+    },
+    "viewProfile": "குழு சுயவிவரத்தைப் பார்க்க",
+    "stats": [
+      {
+        "value": "152",
+        "label": "மொத்த ஆய்வாளர்கள்",
+        "icon": "Users"
+      },
+      {
+        "value": "47",
+        "label": "PhD தேர்வர்கள்",
+        "icon": "Award"
+      },
+      {
+        "value": "23",
+        "label": "சர்வதேச கூட்டாளர்கள்",
+        "icon": "Globe"
+      }
+    ],
+    "fallback": [
+      {
+        "name": "கடல் உயிரின வள அலகு",
+        "lead": "Dr. Sarah Chen",
+        "members": 12,
+        "projects": 8,
+        "funding": "$2.5M",
+        "icon": "Fish",
+        "color": "from-blue-500 to-cyan-500"
+      },
+      {
+        "name": "காலநிலை ஆராய்ச்சி பிரிவு",
+        "lead": "Prof. Kumar Silva",
+        "members": 18,
+        "projects": 12,
+        "funding": "$4.2M",
+        "icon": "Thermometer",
+        "color": "from-purple-500 to-pink-500"
+      },
+      {
+        "name": "கடல் தொழில்நுட்ப ஆய்வகம்",
+        "lead": "Dr. James Liu",
+        "members": 15,
+        "projects": 10,
+        "funding": "$3.8M",
+        "icon": "Cpu",
+        "color": "from-green-500 to-teal-500"
+      },
+      {
+        "name": "பாதுகாப்பு ஆராய்ச்சி",
+        "lead": "Prof. Amanda Roberts",
+        "members": 10,
+        "projects": 6,
+        "funding": "$1.9M",
+        "icon": "Shield",
+        "color": "from-orange-500 to-red-500"
+      }
+    ]
+  },
+  "projects": {
+    "heading": "செயலில் உள்ள ஆராய்ச்சி திட்டங்கள்",
+    "description": "பல துறைகளில் 47 திட்டங்கள் நடைபெற்று வருகின்றன",
+    "labels": {
+      "progress": "முன்னேற்றம்",
+      "team": "குழு",
+      "budget": "நிதி",
+      "deadline": "இறுதி தேதி"
+    },
+    "fallback": [
+      {
+        "title": "ஆழ்கடல் ஆய்வு முயற்சி",
+        "status": "நடைமுறையில்",
+        "progress": 65,
+        "team": "கடல் உயிரின வள அலகு",
+        "budget": "$3.2M",
+        "deadline": "Dec 2024",
+        "description": "உயர்நிலை ROV தொழில்நுட்பத்தைப் பயன்படுத்தி வரைபடமில்லை ஆன ஆழ்கடல் பகுதிகளை வரைபடம் போடுதல்"
+      },
+      {
+        "title": "கோரல் மறுசீரமைப்பு திட்டம்",
+        "status": "நடைமுறையில்",
+        "progress": 45,
+        "team": "பாதுகாப்பு ஆராய்ச்சி",
+        "budget": "$1.8M",
+        "deadline": "Mar 2025",
+        "description": "புதுமையான மாற்று நட்டு முறைகளைப் பயன்படுத்தி பெருமளவிலான கோரல் பாறை மறுசீரமைப்பு"
+      },
+      {
+        "title": "AI கடல் கண்காணிப்பு அமைப்பு",
+        "status": "சோதனை கட்டம்",
+        "progress": 80,
+        "team": "கடல் தொழில்நுட்ப ஆய்வகம்",
+        "budget": "$2.5M",
+        "deadline": "Sep 2024",
+        "description": "நேரடி கடல் நிலை கண்காணிப்புக்கான AI மாதிரிகளை உருவாக்குதல்"
+      },
+      {
+        "title": "காலநிலை தாக்க மதிப்பீடு",
+        "status": "தரவு சேகரிப்பு",
+        "progress": 30,
+        "team": "காலநிலை ஆராய்ச்சி பிரிவு",
+        "budget": "$4.1M",
+        "deadline": "Jun 2025",
+        "description": "கடல் சூழல்களில் காலநிலை மாற்றத்தின் பாதிப்புகளைப் பற்றிய விரிவான ஆய்வு"
+      }
+    ]
+  },
+  "impact": {
+    "heading": "உலகளாவிய ஆராய்ச்சி தாக்கம்",
+    "description": "எங்கள் ஆராய்ச்சி உலகளாவிய கடல் பாதுகாப்பை வடிவமைக்கிறது",
+    "points": [
+      {
+        "value": "3,847",
+        "label": "மேற்கோள்கள்"
+      },
+      {
+        "value": "89",
+        "label": "கட்டுரைகள்"
+      },
+      {
+        "value": "32",
+        "label": "நாடுகள்"
+      },
+      {
+        "value": "245",
+        "label": "கூட்டாளர்கள்"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "எங்கள் ஆராய்ச்சி சமூகத்தில் சேருங்கள்",
+    "description": "உலகத் தரம் வாய்ந்த விஞ்ஞானிகளுடன் ஒத்துழைத்து கடல் பாதுகாப்பிற்கு பங்களியுங்கள்",
+    "primary": "ஆராய்ச்சியாளராகுங்கள்",
+    "secondary": "ஆராய்ச்சி குழுவை தொடர்புகொள்ளுங்கள்"
+  },
+  "placeholders": {
+    "datasets": {
+      "title": "ஆராய்ச்சி தரவு மையம்",
+      "description": "திருத்தப்பட்ட கடலியல் தரவுத் தொகுப்புகள், மேல்தர நூலகங்கள் மற்றும் பகுப்பாய்வு குழாய்களை அணுகுங்கள்.",
+      "cta": "தரவு அணுகலை கோருங்கள்"
+    },
+    "collaboration": {
+      "title": "கூட்டு வலையமைப்பு",
+      "description": "NARA விஞ்ஞானிகளுடன் கூட்டு பணிகள், அறிவுப் பரிமாற்றம் மற்றும் புதுமை திட்டங்களில் இணைந்துச் செயல்படுங்கள்.",
+      "cta": "கூட்டாண்மைகளை ஆராயுங்கள்"
+    }
+  }
+}

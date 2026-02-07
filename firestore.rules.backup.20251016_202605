@@ -1,0 +1,285 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // ============================================
+    // HELPER FUNCTIONS
+    // ============================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return request.auth != null && 
+             request.auth.token.admin == true;
+    }
+    
+    function isOwner(uid) {
+      return request.auth != null && 
+             request.auth.uid == uid;
+    }
+    
+    function isLibrarian() {
+      return request.auth != null && 
+             exists(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.role in ['admin', 'librarian'];
+    }
+    
+    function isResearcher() {
+      return request.auth != null && 
+             exists(/databases/$(database)/documents/libraryUsers/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/libraryUsers/$(request.auth.uid)).data.role == 'researcher';
+    }
+    
+    // ============================================
+    // EXISTING COLLECTIONS (Keep these)
+    // ============================================
+    
+    // Publications Collection
+    match /publications/{publicationId} {
+      allow read: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Projects Collection
+    match /projects/{projectId} {
+      allow read: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Partners Collection
+    match /partners/{partnerId} {
+      allow read: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Teams Collection
+    match /teams/{teamId} {
+      allow read: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Media Images Collection
+    match /media_images/{imageId} {
+      allow read: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Media Videos Collection
+    match /media_videos/{videoId} {
+      allow read: if true;
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Admin Profiles Collection
+    match /adminProfiles/{userId} {
+      allow read: if isAdmin() || isOwner(userId);
+      allow create: if isAdmin();
+      allow update: if isAdmin() || isOwner(userId);
+      allow delete: if isAdmin();
+    }
+    
+    // Researcher Profiles Collection
+    match /researcherProfiles/{userId} {
+      allow read: if isAuthenticated();
+      allow create: if isAuthenticated() && isOwner(userId);
+      allow update: if isOwner(userId) || isAdmin();
+      allow delete: if isAdmin();
+    }
+    
+    // Government EIA Applications
+    match /government_eia_applications/{applicationId} {
+      allow read: if isAuthenticated() && 
+                     (isOwner(resource.data.userId) || isAdmin());
+      allow create: if isAuthenticated();
+      allow update: if isAuthenticated() && 
+                      (isOwner(resource.data.userId) || isAdmin());
+      allow delete: if isAdmin();
+    }
+
+    // Government Licenses
+    match /government_licenses/{licenseId} {
+      allow read: if isAuthenticated() && 
+                     (isOwner(resource.data.userId) || isAdmin());
+      allow create: if isAuthenticated();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // User Analytics
+    match /analytics/{userId} {
+      allow read: if isAuthenticated() && isOwner(userId);
+      allow write: if isAuthenticated() && isOwner(userId);
+    }
+    
+    // Admin Logs
+    match /admin_logs/{logId} {
+      allow read: if isAdmin();
+      allow write: if isAdmin();
+    }
+    
+    // ============================================
+    // NEW: LIBRARY USER SYSTEM COLLECTIONS
+    // ============================================
+    
+    // Library Users Collection
+    match /libraryUsers/{userId} {
+      // Users can read their own profile
+      // Admins and librarians can read all profiles
+      allow read: if isOwner(userId) || isAdmin() || isLibrarian();
+      
+      // Users can create their own profile during registration
+      allow create: if isAuthenticated() && 
+                       isOwner(userId) &&
+                       request.resource.data.uid == request.auth.uid &&
+                       request.resource.data.email == request.auth.token.email;
+      
+      // Users can update their own profile
+      // Admins and librarians can update any profile
+      // Prevent users from changing their role, permissions, or statistics
+      allow update: if (isOwner(userId) && 
+                        request.resource.data.role == resource.data.role &&
+                        request.resource.data.uid == resource.data.uid &&
+                        request.resource.data.email == resource.data.email &&
+                        request.resource.data.permissions == resource.data.permissions &&
+                        request.resource.data.libraryCard == resource.data.libraryCard) ||
+                       isAdmin() || 
+                       isLibrarian();
+      
+      // Only admins can delete user profiles
+      allow delete: if isAdmin();
+    }
+    
+    // Research Submissions Collection
+    match /researchSubmissions/{submissionId} {
+      // Public can read approved/published submissions
+      // Authors can read their own submissions (any status)
+      // Admins can read all submissions
+      allow read: if (resource.data.submission.status in ['approved', 'published'] &&
+                      resource.data.visibility in ['public', 'institutional']) ||
+                     isOwner(resource.data.authorId) ||
+                     isAdmin() ||
+                     isLibrarian();
+      
+      // Only researchers can create submissions
+      allow create: if isAuthenticated() && 
+                       isResearcher() && 
+                       request.resource.data.authorId == request.auth.uid &&
+                       request.resource.data.submission.status == 'pending';
+      
+      // Authors can update their own submissions if status is 'pending' or 'revision_requested'
+      // They cannot change the status themselves
+      // Admins can always update (for review/approval)
+      allow update: if (isOwner(resource.data.authorId) && 
+                        resource.data.submission.status in ['pending', 'revision_requested'] &&
+                        request.resource.data.submission.status == resource.data.submission.status) ||
+                       isAdmin() ||
+                       isLibrarian();
+      
+      // Only admins can delete submissions
+      allow delete: if isAdmin();
+    }
+    
+    // Patron Borrowing Records (for library system integration)
+    match /patronBorrowings/{recordId} {
+      // Users can read their own borrowing records
+      // Admins and librarians can read all records
+      allow read: if isAuthenticated() && 
+                     (isOwner(resource.data.userId) || 
+                      isAdmin() || 
+                      isLibrarian());
+      
+      // Only admins and librarians can create/update borrowing records
+      allow write: if isAdmin() || isLibrarian();
+    }
+    
+    // User Favorites/Reading Lists
+    match /userFavorites/{userId}/items/{itemId} {
+      // Users can only access their own favorites
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Library Fines
+    match /libraryFines/{fineId} {
+      // Users can read their own fines
+      // Admins and librarians can read all fines
+      allow read: if isAuthenticated() &&
+                     (isOwner(resource.data.userId) ||
+                      isAdmin() ||
+                      isLibrarian());
+      
+      // Only admins and librarians can create/update fines
+      allow write: if isAdmin() || isLibrarian();
+    }
+    
+    // Library Holds/Reservations
+    match /libraryHolds/{holdId} {
+      // Users can read their own holds
+      // Admins and librarians can read all holds
+      allow read: if isAuthenticated() &&
+                     (isOwner(resource.data.userId) ||
+                      isAdmin() ||
+                      isLibrarian());
+      
+      // Users can create holds for themselves
+      allow create: if isAuthenticated() &&
+                       isOwner(request.resource.data.userId);
+      
+      // Users can cancel their own holds
+      // Admins and librarians can update any hold
+      allow update: if isOwner(resource.data.userId) ||
+                       isAdmin() ||
+                       isLibrarian();
+      
+      // Users can delete their own holds
+      // Admins can delete any hold
+      allow delete: if isOwner(resource.data.userId) ||
+                       isAdmin() ||
+                       isLibrarian();
+    }
+    
+    // User Notifications
+    match /userNotifications/{userId}/notifications/{notificationId} {
+      // Users can only access their own notifications
+      allow read, write: if isOwner(userId);
+    }
+    
+    // Research Comments/Reviews (optional feature)
+    match /researchComments/{commentId} {
+      // Anyone can read comments on published research
+      allow read: if true;
+      
+      // Authenticated users can create comments
+      allow create: if isAuthenticated() &&
+                       request.resource.data.userId == request.auth.uid;
+      
+      // Users can update/delete their own comments
+      // Admins can moderate any comment
+      allow update, delete: if isOwner(resource.data.userId) || isAdmin();
+    }
+    
+    // User Activity Log (optional)
+    match /userActivityLog/{userId}/activities/{activityId} {
+      // Users can read their own activity log
+      // Admins can read all activity logs
+      allow read: if isOwner(userId) || isAdmin();
+      
+      // Only the system (via Cloud Functions) or admins should write to activity logs
+      allow write: if isAdmin();
+    }
+  }
+}

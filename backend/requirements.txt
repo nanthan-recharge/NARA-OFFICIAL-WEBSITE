@@ -1,0 +1,20 @@
+# NARA Copernicus Marine API Backend Requirements
+
+# Core Flask dependencies
+flask==3.0.0
+flask-cors==4.0.0
+
+# Copernicus Marine Toolbox
+copernicusmarine==1.2.0
+
+# Data processing
+pandas==2.1.4
+numpy==1.26.2
+xarray==2023.12.0
+
+# NetCDF support (required by Copernicus Marine)
+netCDF4==1.6.5
+
+# Additional utilities
+python-dotenv==1.0.0
+gunicorn==21.2.0  # For production deployment

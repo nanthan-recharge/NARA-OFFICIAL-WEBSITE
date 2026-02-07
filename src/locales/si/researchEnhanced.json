@@ -1,0 +1,1260 @@
+{
+  "hero": {
+    "badge": "ගවේෂණ විශිෂ්ටත්ව වේදිකාව",
+    "titleLine1": "මුහුදු විද්‍යාව ඉදිරියට",
+    "titleLine2": "තිරසාර අනාගතයක් සඳහා",
+    "description": "ශ්‍රී ලංකාවේ මූලික ජලජ ගවේෂණ ආයතනයෙන් සිදු කරන මුහුදු ජීව විද්‍යාව, මුහුදු විද්‍යාව සහ කාලගුණ විද්‍යාව පිළිබඳ අපූරු ගවේෂණ සොයාගන්න",
+    "kicker": "රාජ්‍ය තීරණ සහාය",
+    "liveStatus": "සජීවී ගවේෂණ සහ ප්‍රතිපත්ති දත්ත ප්‍රවාහය සක්‍රියයි",
+    "actions": {
+      "policyBriefs": "ප්‍රතිපත්ති සාරාංශ",
+      "datasets": "දත්ත කට්ටල",
+      "collaborate": "ගවේෂණ සහයෝගීතාව"
+    }
+  },
+  "metrics": {
+    "cards": [
+      {
+        "id": "publications",
+        "label": "සම්පූර්ණ ප්‍රකාශන",
+        "value": "1,247",
+        "change": "+15.3%",
+        "icon": "FileText",
+        "color": "from-cyan-400 to-blue-600",
+        "description": "සම්මත ජර්නල් ලිපි"
+      },
+      {
+        "id": "citations",
+        "label": "ගෝලීය උපුටා දැක්වීම්",
+        "value": "28,439",
+        "change": "+22.7%",
+        "icon": "TrendingUp",
+        "color": "from-purple-400 to-pink-600",
+        "description": "අපගේ කාර්යය උපුටා දැක්වූ අවස්ථා"
+      },
+      {
+        "id": "hIndex",
+        "label": "H-සූචකය",
+        "value": "67",
+        "change": "+3",
+        "icon": "Award",
+        "color": "from-amber-400 to-orange-600",
+        "description": "ගවේෂණ බලපෑම් දර්ශකය"
+      },
+      {
+        "id": "collaborations",
+        "label": "ගෝලීය හවුල්කරුවන්",
+        "value": "89",
+        "change": "+12",
+        "icon": "Globe",
+        "color": "from-green-400 to-emerald-600",
+        "description": "ජාත්‍යන්තර ගවේෂණ ආයතන"
+      },
+      {
+        "id": "projects",
+        "label": "ක්‍රියාවලියේ ඇති ව්‍යාපෘති",
+        "value": "156",
+        "change": "+18",
+        "icon": "Target",
+        "color": "from-blue-400 to-indigo-600",
+        "description": "සක්‍රීය ගවේෂණ උත්සාහයන්"
+      },
+      {
+        "id": "funding",
+        "label": "ගවේෂණ අරමුදල්",
+        "value": "$12.4M",
+        "change": "+28%",
+        "icon": "DollarSign",
+        "color": "from-rose-400 to-red-600",
+        "description": "ලැබූ මුළු අරමුදල්"
+      }
+    ]
+  },
+  "areas": [
+    {
+      "id": "marine-biology",
+      "name": "මුහුදු ජීව විද්‍යාව",
+      "count": 342,
+      "icon": "Fish",
+      "color": "cyan"
+    },
+    {
+      "id": "climate",
+      "name": "කාලගුණ වෙනස්කම",
+      "count": 218,
+      "icon": "Waves",
+      "color": "blue"
+    },
+    {
+      "id": "fisheries",
+      "name": "මාළුපිටි කළමනාකරණය",
+      "count": 189,
+      "icon": "Fish",
+      "color": "green"
+    },
+    {
+      "id": "oceanography",
+      "name": "මුහුදු විද්‍යාව",
+      "count": 167,
+      "icon": "Waves",
+      "color": "purple"
+    },
+    {
+      "id": "conservation",
+      "name": "ආරක්ෂාව",
+      "count": 143,
+      "icon": "Heart",
+      "color": "pink"
+    },
+    {
+      "id": "policy",
+      "name": "මුහුදු ප්‍රතිපත්ති",
+      "count": 98,
+      "icon": "FileText",
+      "color": "amber"
+    }
+  ],
+  "tabs": [
+    {
+      "id": "publications",
+      "label": "ප්‍රකාශන",
+      "icon": "FileText",
+      "count": "1,247"
+    },
+    {
+      "id": "teams",
+      "label": "ගවේෂණ කණ්ඩායම්",
+      "icon": "Users",
+      "count": "12"
+    },
+    {
+      "id": "projects",
+      "label": "ක්‍රියාකාරී ව්‍යාපෘති",
+      "icon": "Target",
+      "count": "156"
+    },
+    {
+      "id": "impact",
+      "label": "බලපෑම් හා විශ්ලේෂණ",
+      "icon": "BarChart3"
+    },
+    {
+      "id": "collaboration",
+      "label": "ලෝක ව්‍යාප්තිය",
+      "icon": "Globe",
+      "count": "89"
+    }
+  ],
+  "filters": {
+    "searchPlaceholder": "ප්‍රකාශන සොයන්න...",
+    "advanced": "උසස්",
+    "year": {
+      "options": {
+        "2022": "2022",
+        "2023": "2023",
+        "2024": "2024",
+        "all": "සියලු අවුරුදු"
+      }
+    },
+    "type": {
+      "options": {
+        "all": "සියලු වර්ග",
+        "journal": "ජර්නල් ලිපිය",
+        "conference": "සම්මන්ත්‍රණ ලිපිය",
+        "report": "තාක්ෂණික වාර්තාව"
+      }
+    },
+    "sort": {
+      "options": {
+        "citations": "වැඩිපුර උපුටා දැක්වූ",
+        "recent": "මෑතකාලීන",
+        "downloads": "වැඩිපුර බාගතවීම්",
+        "impact": "ඉහළ බලපෑම් අගය"
+      }
+    },
+    "area": {
+      "options": {
+        "all": "සියලු ක්ෂේත්‍ර"
+      }
+    }
+  },
+  "publications": {
+    "items": [
+      {
+        "id": "climate-coral",
+        "access": "open",
+        "accessLabel": "විවෘත ප්‍රවේශය",
+        "area": "කාලගුණ වෙනස්කම",
+        "title": "කාලගුණය මගින් ඇති වූ ශ්‍රී ලංකා පවල පද්ධති වෙනස්කම්: අවුරුදු 30 ක අධ්‍යයනය",
+        "authors": "Dr. Priya Fernando, Dr. Raj Kumar, Dr. Sarah Miller",
+        "journal": "Nature Climate Change",
+        "year": 2024,
+        "type": "ජර්නල් ලිපිය",
+        "citations": 342,
+        "downloads": 1847,
+        "impactFactor": 29.3,
+        "abstract": "ශීතල සागर ජල උෂ්ණත්වය ඉහළ යාමෙන් ශ්‍රී ලංකා පවල ජීව විවිධත්වය මත ඇති බලපෑම් අවුරුදු 30 ක දත්ත මත විග්‍රහ කළෙමු. අපගේ කණගාටුදායක සොයාගත් තොරතුරු ජනසන්ඛ්‍යාව හා පද්ධති පිළිබඳ වැදගත් වෙනස්කම් හෙළි කරයි.",
+        "doi": "10.1038/s41558-024-01234-5",
+        "tags": [
+          "පවල් පද්ධති",
+          "කාලගුණ වෙනස්කම",
+          "ජීව විවිධත්වය",
+          "ශ්‍රී ලංකාව"
+        ],
+        "highlights": [
+          "අවුරුදු 30 ක දිගු දත්ත කට්ටලය",
+          "නව්‍ය ජීව විවිධත්ව මැනීම",
+          "පවල් ආරක්ෂාව සඳහා ප්‍රතිපත්ති නිර්දේශ"
+        ]
+      },
+      {
+        "id": "ai-fisheries",
+        "access": "open",
+        "accessLabel": "විවෘත ප්‍රවේශය",
+        "area": "මාළුපිටි කළමනාකරණය",
+        "title": "කාටුකර්ම ගබඩා ඇගයීම සඳහා AI බලගැන්වු පද්ධතියෙන් තිරසාර මාළුපිටි කළමනාකරණය",
+        "authors": "Dr. Nimal Perera, Dr. Chen Wei, Dr. Emma Thompson",
+        "journal": "Science Advances",
+        "year": 2024,
+        "type": "ජර්නල් ලිපිය",
+        "citations": 218,
+        "downloads": 2134,
+        "impactFactor": 13.6,
+        "abstract": "සජීවී සංග්‍රහණ දත්ත, හදාරම් සහ සංවේදක තොරතුරු එකතු කර AI පදවුණු කය මූලික මත්ස්‍ය සම්පත් ඇගයීමේ ක්‍රමයක් ඉදිරිපත් කරමු. එය සම්ප්‍රදායික ක්‍රමවලට වඩා 43% කින් වැඩි නිරවද්‍යතාවය ලබාදේ.",
+        "doi": "10.1126/sciadv.abcd1234",
+        "tags": [
+          "AI",
+          "මාළුපිටි",
+          "තිරසාරත්වය",
+          "දූර සංවේදනය"
+        ],
+        "highlights": [
+          "43% ක නිවැරදිභාව ඉහළ දීම",
+          "සජීවී මට්ටමේ නිරීක්ෂණ පද්ධතිය",
+          "මාළුපිටි කලාප 12 කට ව්‍යාප්ත කළා"
+        ]
+      },
+      {
+        "id": "microplastics-indian-ocean",
+        "access": "open",
+        "accessLabel": "විවෘත ප්‍රවේශය",
+        "area": "මුහුදු ජීව විද්‍යාව",
+        "title": "ඉන්දියන් මහා සමුද්‍රයේ මයික්‍රෝ ප්ලාස්ටික් බෙදාහැරීම් රටා: සම්පූර්ණ සමීක්ෂණයක්",
+        "authors": "Dr. Ayesha Khan, Dr. Michael Brown, Dr. Lakshmi Dissanayake",
+        "journal": "Environmental Science & Technology",
+        "year": 2023,
+        "type": "ජර්නල් ලිපිය",
+        "citations": 487,
+        "downloads": 3201,
+        "impactFactor": 11.4,
+        "abstract": "ඉන්දියන් මහා සමුද්‍රයේ ස්ථාන 200 කට වැඩි පරාසයකදී නියළු ස්කන්ධ පිරවීම් සිදු කර උණුසුම් ස්ථාන හා ප්‍රධාන සම්භවයන් තීරණය කළෙමු. වෙරළ තීර ප්‍රදේශවල ඉතා ඉහළ සංකීර්ණතා හෙළිවිය.",
+        "doi": "10.1021/acs.est.3c12345",
+        "tags": [
+          "මයික්‍රෝ ප්ලාස්ටික්",
+          "ද්රව්‍ය දූෂණය",
+          "ඉන්දියන් මහ සාගරය",
+          "මුහුදු සෞඛ්‍යය"
+        ],
+        "highlights": [
+          "200 කට වැඩි නියැලුම් ස්ථාන",
+          "ඉන්දියන් මහා සමුද්‍රයේ මුල්ම සම්පූර්ණ සමීක්ෂණය",
+          "උණුසුම් ස්ථාන හඳුනාගැනීම"
+        ]
+      },
+      {
+        "id": "blue-carbon-valuation",
+        "access": "subscription",
+        "accessLabel": "සාමාජිකත්වය අවශ්‍යයි",
+        "area": "ආරක්ෂාව",
+        "title": "නිල් කාබන් ව්‍යාප්ත කිරීමේ ආර්ථික අගය: ශ්‍රී ලංකා මඩුවැව් පරිසර පද්ධති",
+        "authors": "Dr. Sunil Wickramasinghe, Dr. Jane Wilson, Dr. Carlos Rodriguez",
+        "journal": "Nature Sustainability",
+        "year": 2023,
+        "type": "ජර්නල් ලිපිය",
+        "citations": 294,
+        "downloads": 1652,
+        "impactFactor": 27.2,
+        "abstract": "ශ්‍රී ලංකාවේ මඩුවැව් පරිසර පද්ධති කාබන් සෙරීමේ හැකියාව ගණනය කර ඒවාෙන් ලැබෙන පරිසර සේවා සඳහා ප්‍රථම සම්පූර්ණ ආර්ථික අගය ලබාදුන්නෙමු.",
+        "doi": "10.1038/s41893-023-12345-6",
+        "tags": [
+          "නිල් කාබන්",
+          "මඩුවැව්",
+          "කාලගුණ සමනය",
+          "ආර්ථිකය"
+        ],
+        "highlights": [
+          "ආර්ථික අගය මිලකරණ රාමුව",
+          "කාබන් ණය හැකියාව",
+          "ප්‍රතිපත්ති ක්‍රියාත්මක කිරීමේ මගපෙන්වීම"
+        ]
+      }
+    ],
+    "labels": {
+      "highlights": "විශේෂ වැදගත්කම්",
+      "showMore": "තව බලන්න",
+      "showLess": "අඩු කරන්න",
+      "viewPaper": "ප්‍රකාශනය බලන්න",
+      "openAccess": "විවෘත ප්‍රවේශය",
+      "citations": "උපුටා දැක්වීම් {{count}}",
+      "downloads": "බාගත කිරීම් {{count}}",
+      "impactFactor": "බලපෑම් සාපේක්ෂය: {{value}}",
+      "openReader": "කියවන්න",
+      "openDOI": "DOI විවෘත කරන්න",
+      "downloadPDF": "PDF",
+      "source": "මූලාශ්‍රය"
+    },
+    "loading": "ප්‍රකාශන පූරණය වෙමින් පවතී...",
+    "empty": {
+      "description": "තෝරාගත් පෙරහන් සඳහා ප්‍රකාශන නොමැත."
+    }
+  },
+  "teams": {
+    "items": [
+      {
+        "id": 1,
+        "name": "මුහුදු ජීව විවිධත්ව ප්‍රयोगශාලාව",
+        "lead": "Dr. Priya Fernando",
+        "members": 24,
+        "projects": 12,
+        "publications": 156,
+        "funding": "$2.3M",
+        "focus": "පවල් පද්ධති, මුහුදු ජීව ආරක්ෂාව, ජීව විවිධත්ව ඇගයීම්"
+      },
+      {
+        "id": 2,
+        "name": "කාලගුණ හා මුහුදු විද්‍යා අංශය",
+        "lead": "Dr. Nimal Perera",
+        "members": 18,
+        "projects": 9,
+        "publications": 127,
+        "funding": "$3.1M",
+        "focus": "මුහුදු උෂ්ණත්ව නිරීක්ෂණය, මුහුදු මට්ටම් ඉහළ යෑම, කාලගුණ ආදර්ශක"
+      },
+      {
+        "id": 3,
+        "name": "තිරසාර මාළුපිටි කණ්ඩායම",
+        "lead": "Dr. Ayesha Khan",
+        "members": 15,
+        "projects": 8,
+        "publications": 98,
+        "funding": "$1.8M",
+        "focus": "ගබඩා ඇගයීම්, නැවුම් තාක්ෂණය, තිරසාර ක්‍රියාමාර්ග"
+      }
+    ],
+    "labels": {
+      "members": "සාමාජිකයින්",
+      "projects": "ව්‍යාපෘති",
+      "publications": "ප්‍රකාශන",
+      "funding": "අරමුදල්",
+      "ledBy": "{{name}}ගේ මගපෙන්වීමෙන්",
+      "leadBy": "{{name}}ගේ මගපෙන්වීමෙන්"
+    },
+    "actions": {
+      "viewProfile": "කණ්ඩායම් පැතිකඩ බලන්න"
+    }
+  },
+  "projects": {
+    "filters": {
+      "categories": {
+        "all": "සියලු ව්‍යාපෘති",
+        "marineBiology": "මුහුදු ජීව විද්‍යාව",
+        "climate": "කාලගුණ ගවේෂණය",
+        "fisheries": "මාළුපිටි",
+        "conservation": "ආරක්ෂාව",
+        "policy": "ප්‍රතිපත්ති හා පාලනය"
+      },
+      "status": {
+        "all": "සියලු තත්ත්වයන්"
+      }
+    },
+    "statusLabels": {
+      "active": "ක්‍රියාත්මක",
+      "planning": "සැලසුම් කිරීම",
+      "completing": "අවසන්කිරීම",
+      "completed": "සම්පූර්ණ",
+      "upcoming": "ඉදිරියේ"
+    },
+    "labels": {
+      "category": "ප්‍රවර්ගය",
+      "status": "තත්ත්වය",
+      "progress": "ප්‍රගතිය",
+      "budget": "අවශ්‍ය අයවැය",
+      "spent": "වියදම් කළේ:",
+      "team": "කණ්ඩායම",
+      "members": "සාමාජිකයින්",
+      "output": "ප්‍රතිදානය",
+      "papers": "ලේඛන",
+      "objectives": "ඉලක්ක:",
+      "outcomes": "ප්‍රධාන ප්‍රතිඵල:",
+      "partners": "හවුල්කරුවන්:",
+      "timeline": "කාලසටහන:",
+      "pi": "ප්‍රධාන පර්යේෂකයා:"
+    },
+    "actions": {
+      "viewDetails": "විස්තර බලන්න",
+      "showLess": "අඩුවෙන් පෙන්වන්න",
+      "projectPage": "ව්‍යාපෘති පිටුව"
+    },
+    "items": {
+      "microplasticNetwork": {
+        "title": "ඉන්දියන් මහ සාගරයේ මයික්‍රෝ ප්ලාස්ටික් නිරීක්ෂණ ජාලය",
+        "description": "මයික්‍රෝ ප්ලාස්ටික් දූෂණ රටා නිරීක්ෂණය කර නිරවද්‍ය අනාවැකි සකස් කිරීමට ඉන්දියන් මහ සාගරය පුරා නිරීක්ෂණ ස්ථාන ජාලයක් පිහිටුවීමට ව්‍යාපෘතිය ඉලක්ක කරයි.",
+        "objectives": [
+          "ඉන්දියන් මහ සාගරය පුරා නිරීක්ෂණ ස්ථාන 50 ක් පිහිටුවීම",
+          "AI මත පදනම් වූ මයික්‍රෝ ප්ලාස්ටික් අනාවරණ පද්ධතිය සංවර්ධනය කිරීම",
+          "මළ ද්‍රව්‍ය සම්ප්‍රේෂණයට පෙර පූර්ව පූර්වාකල්පන මාදිලි සකස් කිරීම",
+          "මුහුදු සෞඛ්‍යය පිළිබඳ සම්පූර්ණ වාර්තා ප්‍රකාශ කිරීම"
+        ],
+        "milestones": [
+          "ස්ථාන යෙදවීමේ 1 වන අදියර",
+          "AI ආකෘති සංවර්ධනය",
+          "දත්ත සංග्रहණය සහ විශ්ලේෂණය",
+          "අවසන් වාර්තාව සහ ප්‍රකාශය"
+        ],
+        "outcomes": [
+          "ස්ථාන 32 ක් ක්‍රියාත්මක",
+          "ප්‍රකාශන 2 ක්",
+          "දත්ත ලක්ෂ 45,000 කට වැඩි පූර්ණතාව සංග්‍රහණය"
+        ]
+      },
+      "coralRestoration": {
+        "title": "ශ්‍රී ලාංකික පවල් පද්ධති ප්‍රතිසාධන මෙහෙයුම",
+        "description": "පවල් උද්‍යානයේ නවෝත්පාදන ක්‍රම සහ ප්‍රජා සම්බන්ධතා වැඩසටහන් හරහා විශාල පරිමාණ පවල් පද්ධති ප්‍රතිසාධනයක් සිදු කරයි.",
+        "objectives": [
+          "දූෂිත පවල් පද්ධති 10 හෙක්ටයාර් ප්‍රතිසාධනය",
+          "පවල් උද්‍යානයේදී ප්‍රජා සාමාජිකයින් 100 දෙනෙකු පුහුණු කිරීම",
+          "පවල් නර්සරී 5 ක් පිහිටුවීම",
+          "දිගුකාලීන පරිසර ප්‍රතිසාධනය නිරීක්ෂණය"
+        ],
+        "milestones": [
+          "ස්ථානාංක ඇගයීම",
+          "නර්සරී පිහිටුවීම",
+          "පවල් ප්‍රතිස්ථාපනය",
+          "බලපෑම් ඇගයීම"
+        ],
+        "outcomes": [
+          "හෙක්ටයාර් 7.8ක් ප්‍රතිසාධනය",
+          "ප්‍රජා සාමාජිකයින් 85 දෙනෙකු පුහුණු",
+          "පවල් කැබලි 15,000+ ප්‍රතිස්ථාපනය"
+        ]
+      },
+      "aiStockAssessment": {
+        "title": "AI බලපෑම් ඇති මත්ස්‍ය ගබඩා ඇගයීම් පද්ධතිය",
+        "description": "සජීවී සංග්‍රහණ දත්ත, හදාරම් හා පරිසර පරාමිතීන් භාවිතයෙන් මත්ස්‍ය ගබඩා ඇගයීමට යන්ත්‍ර කற்றල ආකෘති සංවර්ධනය කිරීම.",
+        "objectives": [
+          "මත්ස්‍ය කලාප 12 කට AI ආකෘති ක්‍රියාත්මක කිරීම",
+          "ගබඩා ඇගයීම් නිරවද්‍යතාවය 40% කින් වැඩි කිරීම",
+          "සජීවී නිරීක්ෂණ පුවරුව සෑදීම",
+          "මත්ස්‍ය නිලධාරින් 500 දෙනෙකු පුහුණු කිරීම"
+        ],
+        "milestones": [
+          "දත්ත සංග්‍රහණය හා ලේබල කිරීම",
+          "ආකෘති පුහුණු කිරීම හා සත්‍යාපනය",
+          "පද්ධතිය යෙදවීම",
+          "ජාතික වශයෙන් දියත් කිරීම"
+        ],
+        "outcomes": [
+          "AI ආකෘතියේ නිරවද්‍යතාවය 87% දක්වා වැඩි විය",
+          "පිලෝට් කලාප 3 ක්",
+          "නිලධාරින් 120 දෙනෙකු පුහුණු කළහ"
+        ]
+      },
+      "blueCarbonValuation": {
+        "title": "නිල් කාබන් සෙරීමේ ආර්ථික අගය",
+        "description": "ශ්‍රී ලංකා මැදිවැනි සහ සීග්‍රාස් පද්ධති ලබාදෙන කාබන් සෙරීමේ සේවාවන්ගේ ආර්ථික අගය සම්පූර්ණයෙන් ඇගයීම.",
+        "objectives": [
+          "මුහුදු වෙරළ කාබන් පද්ධති සියල්ල මැපීම",
+          "කාබන් සෙරීමේ අනුපාතයන් ගණනය කිරීම",
+          "ආර්ථික අගය හඳුනා ගැනීම",
+          "කාර්බන් ණය රාමුව සංවර්ධනය කිරීම"
+        ],
+        "milestones": [
+          "පරිසර පටුනක් සැකසීම",
+          "ක්ෂේත්‍ර මිනුම්",
+          "ආර්ථික විශ්ලේෂණය",
+          "ප්‍රතිපත්ති නිර්දේශ"
+        ],
+        "outcomes": [
+          "$45M/වසර කාබන් අගය හඳුනා ගැනීම",
+          "හෙක්ටයාර් 12,000 ක පරිසර සිතියම්",
+          "ප්‍රකාශන 4 ක්"
+        ]
+      },
+      "oceanAcidification": {
+        "title": "මුහුදු අම්ලිකරණය මුහුදු ජීවිතය මත බලපාන ආකාරය",
+        "description": "මුහුදු අම්ලිකරණය ශ්‍රී ලංකා මුහුදු ජීව විවිධත්වය හා පාරිසරික සේවාවන් මත ඇති කරන දිගුකාලීන බලපෑම් පරීක්ෂා කරයි.",
+        "objectives": [
+          "මුහුදු pH නිරීක්ෂණ ස්ථාන 8 ක් පිහිටුවීම",
+          "සංවේශිත අම්ලිකරණ අත්හදා බැලීම්",
+          "ප්‍රධාන ජීවීන් 50 කට බලපෑම් ඇගයීම",
+          "උපරිම යාන්ත්‍රණ අභියෝග විසඳුම් සංවර්ධනය"
+        ],
+        "milestones": [
+          "උපකරණ මිලදී ගැනීම",
+          "ස්ථාපන",
+          "දත්ත සංග්‍රහණ අදියර",
+          "අවසාන ඇගයීම"
+        ],
+        "outcomes": [
+          "සැලසුම් අදියර 85% සම්පූර්ණ",
+          "හවුල්කරුවන් නිශ්චිත කර ගත්னர்",
+          "උපකරණ ඇණවුම් කරන ලදි"
+        ]
+      },
+      "fishingTechnology": {
+        "title": "තිරසාර මාළුපිටි තාක්ෂණ නවෝත්පාදනය",
+        "description": "අතිරේක අල්ලා ගැනීම් අඩු කර චයන හැකියාව වැඩි කරන නවෝත්පාදන මාළුපිටි තාක්ෂණයන් සංවර්ධනය හා අත්හදා බලයි.",
+        "objectives": [
+          "නව උපකරණ වර්ග 3 ක් නිර්මාණය",
+          "නාවික වාහන 100 ක සමඟ ක්ෂේත්‍ර පරීක්ෂා",
+          "අතුරු අල්ලා ගැනීම 60% ක් අඩු කිරීම",
+          "තාක්ෂණ භාවිතා කිරීමේ රාමුව සකස් කිරීම"
+        ],
+        "milestones": [
+          "තාක්ෂණික සැලසුම්",
+          "මාදිලි පරීක්ෂණ",
+          "ක්ෂේත්‍ර අත්හදා බලීම්",
+          "වණිජීකරණය"
+        ],
+        "outcomes": [
+          "උපකරණ වර්ග 2 ක් ක්ෂේත්‍රයේ පරීක්ෂා කිරීමට සාර්ථක විය",
+          "අතුරු අල්ලා ගැනීම් 45% කින් අඩු විය",
+          "නාවික වාහන 45 ක් ව්‍යාපෘතියට සම්බන්ධ විය"
+        ]
+      }
+    }
+  },
+  "advancedSearch": {
+    "title": "උසස් සෙවීම",
+    "header": {
+      "default": "ප්‍රකාශන 1,247 පුරා සොයන්න",
+      "activeFilters": "ක්‍රියාත්මක පෙරහන් {{count}}"
+    },
+    "researchAreas": [
+      "මුහුදු ජීව විද්‍යාව",
+      "කාලගුණ විපර්යාසය",
+      "මාළුපිටි කළමනාකරණය",
+      "මුහුදු විද්‍යාව",
+      "ආරක්ෂාව",
+      "මුහුදු ප්‍රතිපත්ති",
+      "අක්වාකල්චර්",
+      "වෙරළ ඉංජිනේරුකම",
+      "මුහුදු ජෛව තාක්ෂණය",
+      "මුහුදු ආදර්ශකරණය"
+    ],
+    "publicationTypes": [
+      "ජර්නල් ලිපිය",
+      "සම්මන්ත්‍රණ ලිපිය",
+      "තාක්ෂණික වාර්තාව",
+      "පොත් පරිච්ඡේදය",
+      "දත්ත කට්ටලය",
+      "නිබන්ධනය/ප්‍රබන්ධය",
+      "සංශෝධන ලිපිය",
+      "ප්‍රතිපත්ති සාරාංශය"
+    ],
+    "languages": [
+      {
+        "value": "all",
+        "label": "සියලු භාෂා"
+      },
+      {
+        "value": "en",
+        "label": "ඉංග්‍රීසි"
+      },
+      {
+        "value": "si",
+        "label": "සිංහල"
+      },
+      {
+        "value": "ta",
+        "label": "දෙමළ"
+      }
+    ],
+    "sections": {
+      "text": {
+        "heading": "පෙළ සෙවීම",
+        "fields": {
+          "keywords": {
+            "label": "මූලප දේ (ඕනෑම ක්ෂේත්‍රයක)",
+            "placeholder": "උදා., පවල් පරා, මයික්‍රෝප්ලාස්ටික්"
+          },
+          "title": {
+            "label": "මාතෘකාව",
+            "placeholder": "ප්‍රකාශන මාතෘකාව"
+          },
+          "author": {
+            "label": "කර්තෘ",
+            "placeholder": "කර්තෘ නාමය"
+          },
+          "institution": {
+            "label": "ආයතනය",
+            "placeholder": "ආයතන නාමය"
+          }
+        }
+      },
+      "date": {
+        "heading": "ප්‍රකාශන දිනය",
+        "fields": {
+          "fromYear": "ආරම්භක වසර",
+          "toYear": "අවසන් වසර"
+        }
+      },
+      "areas": {
+        "heading": "ගවේෂණ ක්ෂේත්‍ර"
+      },
+      "types": {
+        "heading": "ප්‍රකාශන වර්ගය"
+      },
+      "impact": {
+        "heading": "බලපෑම් දර්ශක",
+        "fields": {
+          "minCitations": "අවම උපුටා දැක්වීම්",
+          "maxCitations": "උපරිම උපුටා දැක්වීම්",
+          "minImpact": "අවම බලපෑම් සාපේක්ෂය",
+          "minCitationsPlaceholder": "උදා., 10",
+          "maxCitationsPlaceholder": "උදා., 1000",
+          "minImpactPlaceholder": "උදා., 5.0"
+        }
+      },
+      "additional": {
+        "heading": "අමතර පෙරහන්",
+        "openAccess": {
+          "label": "විවෘත ප්‍රවේශය පමණි",
+          "description": "නිදහස්ව ලබාගත හැකි ප්‍රකාශන පමණක් පෙන්වන්න"
+        },
+        "dataset": {
+          "label": "දත්ත කට්ටලය ඇත",
+          "description": "දත්ත කට්ටල සහිත ප්‍රකාශන"
+        },
+        "language": {
+          "label": "භාෂාව"
+        }
+      }
+    },
+    "actions": {
+      "reset": "සියලුම නැවත සකසන්න",
+      "cancel": "අවලංගු කරන්න",
+      "search": "සොයන්න"
+    }
+  },
+  "collaboration": {
+    "map": {
+      "title": "ගෝලීය හවුල්කාරිත්ව ජාලය",
+      "description": "හවුල්කාරිත්වය බැලීමට ප්‍රදේශයක් තෝරන්න",
+      "empty": "ගෝලීය හවුල්කාරිත්වය පෙන්වන අන්තර්ක්‍රියාකාරී සිතියම",
+      "subtitle": "{{institutions}} ආයතන {{countries}} රටවල"
+    },
+    "stats": {
+      "items": [
+        {
+          "id": "countries",
+          "label": "රටවල්",
+          "value": 42,
+          "icon": "Globe",
+          "color": "from-cyan-400 to-blue-600"
+        },
+        {
+          "id": "institutions",
+          "label": "හවුල් ආයතන",
+          "value": 89,
+          "icon": "Building",
+          "color": "from-purple-400 to-pink-600"
+        },
+        {
+          "id": "publications",
+          "label": "සමවු ප්‍රකාශන",
+          "value": 456,
+          "icon": "FileText",
+          "color": "from-green-400 to-emerald-600"
+        },
+        {
+          "id": "researchers",
+          "label": "සහකාර පර්යේෂකයින්",
+          "value": 723,
+          "icon": "Users",
+          "color": "from-amber-400 to-orange-600"
+        }
+      ]
+    },
+    "region": {
+      "metrics": {
+        "countries": "රටවල්",
+        "institutions": "ආයතන",
+        "publications": "ප්‍රකාශන",
+        "researchers": "පර්යේෂකයින්"
+      },
+      "labels": {
+        "highlights": "ප්‍රධාන විශේෂාංග:",
+        "topCountries": "ප්‍රධාන රටවල්:"
+      }
+    },
+    "regions": {
+      "items": [
+        {
+          "id": "asia-pacific",
+          "name": "ආසියා-ප්‍රශාන්ත",
+          "countries": 18,
+          "institutions": 34,
+          "publications": 234,
+          "researchers": 312,
+          "color": "cyan",
+          "highlights": [
+            "ප්‍රමුඛ හවුල් මධ්‍යස්ථානය",
+            "උඩුම සමවු ප්‍රකාශන"
+          ],
+          "topCountries": [
+            "ජපානය",
+            "ඔස්ට්‍රේලියාව",
+            "සිංගප්පූරුව",
+            "ඉන්දියාව",
+            "චීනය"
+          ]
+        },
+        {
+          "id": "europe",
+          "name": "යුරෝපා",
+          "countries": 12,
+          "institutions": 28,
+          "publications": 156,
+          "researchers": 245,
+          "color": "blue",
+          "highlights": [
+            "ශක්තිමත් ගවේෂණ ජාල",
+            "යුරෝපීය සංගම අරමුදල් ව්‍යාපෘති"
+          ],
+          "topCountries": [
+            "එක්සත් රාජධානිය",
+            "ජර්මනිය",
+            "නෙදර්ලන්තය",
+            "ප්‍රංශය",
+            "නෝර්වේ"
+          ]
+        },
+        {
+          "id": "north-america",
+          "name": "උතුරු ඇමෙරිකාව",
+          "countries": 3,
+          "institutions": 18,
+          "publications": 98,
+          "researchers": 134,
+          "color": "purple",
+          "highlights": [
+            "ඉහළ බලපෑම් ඇති හවුල්කාරිත්ව",
+            "උසස් තාක්ෂණය"
+          ],
+          "topCountries": [
+            "එක්සත් ජනපදය",
+            "කානඩාව",
+            "මෙක්සිකෝව"
+          ]
+        },
+        {
+          "id": "africa",
+          "name": "අප්‍රිකාව",
+          "countries": 5,
+          "institutions": 6,
+          "publications": 34,
+          "researchers": 45,
+          "color": "green",
+          "highlights": [
+            "වැඩෙන හවුල්කාරිත්ව",
+            "ධාරිතා සංවර්ධනය"
+          ],
+          "topCountries": [
+            "දකුණු අප්‍රිකාව",
+            "කෙන්යාව",
+            "ටැන්සනියාව",
+            "මොරිෂස්"
+          ]
+        },
+        {
+          "id": "latin-america",
+          "name": "ලැටින් ඇමෙරිකාව",
+          "countries": 4,
+          "institutions": 3,
+          "publications": 21,
+          "researchers": 28,
+          "color": "amber",
+          "highlights": [
+            "ආරම්භ වන හවුල්කාරිත්ව",
+            "මුහුදු ජීව විවිධත්වය"
+          ],
+          "topCountries": [
+            "බ්‍රසීලය",
+            "චිලිය",
+            "පේරු",
+            "ආර්ජෙන්ටිනාව"
+          ]
+        }
+      ]
+    },
+    "partners": {
+      "heading": "හවුල් ආයතන",
+      "cta": "හවුල්කාරයා වන්න",
+      "metrics": {
+        "publications": "ප්‍රකාශන",
+        "projects": "ව්‍යාපෘති",
+        "mou": "ගිවිසුම",
+        "since": "{{year}} සිට"
+      },
+      "labels": {
+        "focusAreas": "අවධානයේ ක්ෂේත්‍ර:",
+        "achievements": "ප්‍රධාන ප්‍රතිඵල:",
+        "contact": "සම්බන්ධතා:"
+      },
+      "actions": {
+        "viewDetails": "විස්තර බලන්න",
+        "hideDetails": "විස්තර සඟවන්න"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "ජාතික සාගර හා වායුගෝල පාලකය (NOAA)",
+          "country": "එක්සත් ජනපදය",
+          "type": "රජයේ ආයතනය",
+          "region": "උතුරු ඇමෙරිකාව",
+          "joinedYear": 2015,
+          "status": "active",
+          "collaborationType": [
+            "ගවේෂණය",
+            "දත්ත බෙදාහැරීම",
+            "පුහුණුව"
+          ],
+          "jointPublications": 42,
+          "activeProjects": 5,
+          "mou": true,
+          "contact": {
+            "name": "Dr. Sarah Johnson",
+            "email": "sarah.johnson@noaa.gov",
+            "phone": "+1 301 555 0123"
+          },
+          "focusAreas": [
+            "කාලගුණ විපර්යාසය",
+            "මුහුදු විද්‍යාව",
+            "මුහුදු පාරිසරික පද්ධති"
+          ],
+          "achievements": [
+            "සමවු මුහුදු මොනිටරින් ජාලය",
+            "සම-රචිත කඩදාසි 15",
+            "තාක්ෂණ හුවමාරු වැඩසටහන"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "CSIRO Ocean සහ Atmosphere",
+          "country": "ඕස්ට්‍රේලියාව",
+          "type": "ගවේෂණ ආයතනය",
+          "region": "ආසියා-ප්‍රශාන්ත",
+          "joinedYear": 2017,
+          "status": "active",
+          "collaborationType": [
+            "ගවේෂණය",
+            "ශිෂ්‍ය හුවමාරුව",
+            "උපාංග බෙදාගැනීම"
+          ],
+          "jointPublications": 38,
+          "activeProjects": 4,
+          "mou": true,
+          "contact": {
+            "name": "Prof. Michael Chen",
+            "email": "m.chen@csiro.au",
+            "phone": "+61 3 9545 8000"
+          },
+          "focusAreas": [
+            "මුහුදු ජීව විද්‍යාව",
+            "කාලගුණ විද්‍යාව",
+            "මාළුපිටි"
+          ],
+          "achievements": [
+            "සමවු ගවේෂණ නෞකා වැඩසටහන",
+            "PhD ශිෂ්‍ය හුවමාරු 12",
+            "බෙදාගත් ප්‍රයෝගශාලා පහසුකම්"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "ටෝකියෝ විශ්වවිද්‍යාලය - මුහුදු ගවේෂණ ආයතනය",
+          "country": "ජපානය",
+          "type": "විශ්වවිද්‍යාලය",
+          "region": "ආසියා-ප්‍රශාන්ත",
+          "joinedYear": 2016,
+          "status": "active",
+          "collaborationType": [
+            "ගවේෂණය",
+            "ශිෂ්‍ය හුවමාරුව",
+            "සම්මන්ත්‍රණ"
+          ],
+          "jointPublications": 34,
+          "activeProjects": 3,
+          "mou": true,
+          "contact": {
+            "name": "Prof. Hiroshi Tanaka",
+            "email": "h.tanaka@ori.u-tokyo.ac.jp",
+            "phone": "+81 3 5841 6500"
+          },
+          "focusAreas": [
+            "මුහුදු විද්‍යාව",
+            "මුහුදු තාක්ෂණය",
+            "ජීව විවිධත්වය"
+          ],
+          "achievements": [
+            "වාර්ෂික සමවු සම්මන්ත්‍රණය",
+            "සමවු ගවේෂණ යාත්‍රා 8",
+            "තාක්ෂණ නවෝත්පාදන සම්මාන"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "GEOMAR Helmholtz මධ්‍යස්ථානය",
+          "country": "ජර්මනිය",
+          "type": "ගවේෂණ ආයතනය",
+          "region": "යුරෝපා",
+          "joinedYear": 2018,
+          "status": "active",
+          "collaborationType": [
+            "ගවේෂණය",
+            "දත්ත බෙදාහැරීම",
+            "පුහුණුව"
+          ],
+          "jointPublications": 28,
+          "activeProjects": 3,
+          "mou": true,
+          "contact": {
+            "name": "Dr. Klaus Schmidt",
+            "email": "k.schmidt@geomar.de",
+            "phone": "+49 431 600 0"
+          },
+          "focusAreas": [
+            "මුහුදු භූවිද්‍යාව",
+            "මුහුදු ගතිවිධිය",
+            "කාලගුණය"
+          ],
+          "achievements": [
+            "ගැඹුරු මුහුදු ගවේෂණ හවුල්කාරිත්වය",
+            "උපාංග බෙදාගැනීමේ ගිවිසුම",
+            "සමවු PhD වැඩසටහන"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "ස්ක්‍රිප්ස් මුහුදු විද්‍යා ආයතනය",
+          "country": "එක්සත් ජනපදය",
+          "type": "ගවේෂණ ආයතනය",
+          "region": "උතුරු ඇමෙරිකාව",
+          "joinedYear": 2014,
+          "status": "active",
+          "collaborationType": [
+            "ගවේෂණය",
+            "ශිෂ්‍ය හුවමාරුව",
+            "දත්ත බෙදාහැරීම"
+          ],
+          "jointPublications": 31,
+          "activeProjects": 4,
+          "mou": true,
+          "contact": {
+            "name": "Dr. Maria Rodriguez",
+            "email": "m.rodriguez@ucsd.edu",
+            "phone": "+1 858 534 3624"
+          },
+          "focusAreas": [
+            "මුහුදු විද්‍යාව",
+            "කාලගුණ ගවේෂණය",
+            "මුහුදු ජීව විද්‍යාව"
+          ],
+          "achievements": [
+            "දශකයක් පුරා පවතින හවුල්කාරිත්වය",
+            "සමවු ගවේෂණ ගමන් 20+",
+            "විශාල අරමුදල් හවුල් ව්‍යාපෘති"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "සිංගප්පූර් ජාතික විශ්වවිද්‍යාලය",
+          "country": "සිංගප්පූරුව",
+          "type": "විශ්වවිද්‍යාලය",
+          "region": "ආසියා-ප්‍රශාන්ත",
+          "joinedYear": 2019,
+          "status": "active",
+          "collaborationType": [
+            "ගවේෂණය",
+            "ශිෂ්‍ය හුවමාරුව",
+            "සමවු වැඩසටහන්"
+          ],
+          "jointPublications": 24,
+          "activeProjects": 2,
+          "mou": true,
+          "contact": {
+            "name": "Prof. Wei Lin",
+            "email": "wei.lin@nus.edu.sg",
+            "phone": "+65 6516 6666"
+          },
+          "focusAreas": [
+            "මුහුදු ජෛව තාක්ෂණය",
+            "අක්වාකල්චර්",
+            "ආරක්ෂණය"
+          ],
+          "achievements": [
+            "සමවු උපාධි වැඩසටහන",
+            "නවෝත්පාදන පරීක්ෂණාගාරය පිහිටුවීම",
+            "ආරම්භක ව්‍යාපෘති හවුල්කාරිත්ව"
+          ]
+        }
+      ]
+    },
+    "partner": {
+      "metrics": {
+        "publications": "ප්‍රකාශන",
+        "projects": "ව්‍යාපෘති",
+        "mou": "ගිවිසුම",
+        "since": "{{year}} සිට"
+      },
+      "labels": {
+        "focusAreas": "අවධානයේ ක්ෂේත්‍ර:",
+        "achievements": "ප්‍රධාන ප්‍රතිඵල:",
+        "contact": "සම්බන්ධතා:"
+      },
+      "actions": {
+        "viewDetails": "විස්තර බලන්න",
+        "hideDetails": "විස්තර සඟවන්න"
+      }
+    },
+    "opportunities": {
+      "heading": "හවුල්කාරිත්ව අවස්ථාවන්",
+      "labels": {
+        "value": "මූල්‍ය අගය:",
+        "duration": "කාලය:",
+        "deadline": "අවසන් දිනය:"
+      },
+      "apply": "දැන් අයදුම් කරන්න",
+      "items": [
+        {
+          "id": 1,
+          "title": "ආසියාන් මුහුදු විද්‍යා ජාලය - ගවේෂණ ශිෂ්‍යත්වය",
+          "type": "ශිෂ්‍යත්වය",
+          "deadline": "2025-03-15",
+          "region": "ආසියා-ප්‍රශාන්ත",
+          "value": "$50,000",
+          "duration": "මාස 12",
+          "description": "ආසියාන් රටවල මුහුදු විද්‍යා සමවු ගවේෂණ ව්‍යාපෘති සඳහා ශිෂ්‍යත්වයක්"
+        },
+        {
+          "id": 2,
+          "title": "යුරෝපය Horizon - නිල් ආර්ථික නවෝත්පාදන කැඳවීම",
+          "type": "ධනසහය",
+          "deadline": "2025-04-30",
+          "region": "යුරෝපා",
+          "value": "€2.5M",
+          "duration": "මාස 36",
+          "description": "තිරසාර නිල් ආර්ථිකය මූලික කරගත් විශාල-පරිමාණ සමවු ව්‍යාපෘති"
+        },
+        {
+          "id": 3,
+          "title": "ඉන්දියන් මහ සමුද්‍ර ගවේෂණ හුවමාරු වැඩසටහන",
+          "type": "හුවමාරුව",
+          "deadline": "2025-02-28",
+          "region": "ආසියා-ප්‍රශාන්ත",
+          "value": "$25,000",
+          "duration": "මාස 6",
+          "description": "ඉන්දියන් මහ සමුද්‍ර වෙරළ රටවලට පර්යේෂක හුවමාරුවක්"
+        }
+      ]
+    }
+  },
+  "impactAnalytics": {
+    "heading": "බලපෑම් විශ්ලේෂණය",
+    "range": {
+      "month": "මාසය",
+      "quarter": "කාර්තුව",
+      "year": "වසර",
+      "all": "සියල්ල"
+    },
+    "citationGrowth": {
+      "heading": "උපුටා දැක්වීම් වර්ධනය",
+      "subheading": "අවුරුදු 5 ක ප්‍රවණතා විශ්ලේෂණය"
+    },
+    "stats": {
+      "suffix": "මෙම වසරේ",
+      "partnerInstitutions": "හවුල් ආයතන",
+      "countries": "රටවල්",
+      "jointPublications": "සමවු ප්‍රකාශන",
+      "internationalCoauthors": "ජාත්‍යන්තර සම්මිශ්ර ලේඛකයින්"
+    },
+    "publicationTypes": {
+      "heading": "ප්‍රකාශන වර්ග අනුව",
+      "total": "මුළු ප්‍රකාශන: 1,247",
+      "journalArticles": "ජර්නල් ලිපි",
+      "conferencePapers": "සම්මන්ත්‍රණ ලිපි",
+      "technicalReports": "තාක්ෂණික වාර්තා",
+      "bookChapters": "පොත් පරිච්ඡේද",
+      "datasets": "දත්ත කට්ටල"
+    },
+    "impactByArea": {
+      "heading": "ගවේෂණ ක්ෂේත්‍ර මත බලපෑම්",
+      "subheading": "ප්‍රකාශන, උපුටා දැක්වීම්, H-දර්ශක",
+      "labels": {
+        "marineBiology": "මුහුදු ජීව විද්‍යාව",
+        "climateChange": "කාලගුණ වෙනස්කම",
+        "fisheries": "මාළුපිටි",
+        "oceanography": "මුහුදු විද්‍යාව",
+        "conservation": "ආරක්ෂාව",
+        "policy": "ප්‍රතිපත්ති"
+      },
+      "metrics": {
+        "publications": "ප්‍රකාශන",
+        "citations": "උපුටා දැක්වීම්",
+        "hIndex": "H-සූචකය"
+      }
+    },
+    "topPublications": {
+      "heading": "වැඩිපුර උපුටා දැක්වූ ප්‍රකාශන",
+      "subheading": "උපුටා දැක්වීම අනුව ඉහළ 5",
+      "citations": "{{count}} උපුටා දැක්වීම්",
+      "growth": "+{{value}}% වර්ධනය"
+    },
+    "geographic": {
+      "heading": "ගෝලීය සම්ප්‍රේෂණය",
+      "subheading": "ප්‍රදේශ අනුව උපුටා දැක්වීම්",
+      "regions": {
+        "asiaPacific": "ආසියා-ප්‍රශාන්ත",
+        "europe": "යුරෝපය",
+        "northAmerica": "උතුරු ඇමෙරිකාව",
+        "restOfWorld": "ලෝකයේ අනෙක් ප්‍රදේශ"
+      },
+      "institutions": "ආයතන {{count}}"
+    },
+    "downloads": {
+      "sectionHeading": "ප්‍රකාශන බාගත කිරීම්",
+      "sectionSubheading": "2024 මාසික ප්‍රවණතාව",
+      "months": {
+        "jan": "ජන",
+        "feb": "පෙබ",
+        "mar": "මාර්",
+        "apr": "අප්‍රි",
+        "may": "මැයි",
+        "jun": "ජූනි",
+        "jul": "ජූලි",
+        "aug": "අගෝ",
+        "sep": "සැප්",
+        "oct": "ඔක්",
+        "nov": "නොවැ",
+        "dec": "දෙසැ"
+      }
+    }
+  },
+  "governmentSections": {
+    "policy": {
+      "heading": "Policy Briefs & Evidence Access",
+      "subheading": "Direct pathways to validated evidence products for ministries, departments, and public authorities.",
+      "cards": [
+        {
+          "id": "policy-briefs",
+          "title": "Policy Briefs & Scientific Evidence",
+          "description": "Access curated policy briefs, technical guidance notes, and decision-ready scientific summaries for ministries and government agencies.",
+          "icon": "FileText",
+          "route": "/scientific-evidence-repository",
+          "cta": "Open Evidence Repository"
+        },
+        {
+          "id": "open-datasets",
+          "title": "Open Marine Datasets",
+          "description": "Explore validated marine datasets for planning, forecasting, compliance monitoring, and inter-agency analytics.",
+          "icon": "Database",
+          "route": "/open-data-portal",
+          "cta": "Open Data Portal"
+        },
+        {
+          "id": "public-consultation",
+          "title": "Public Consultation Intelligence",
+          "description": "Track stakeholder submissions and sentiment signals to strengthen policy design and implementation strategies.",
+          "icon": "MessageSquare",
+          "route": "/public-consultation-portal",
+          "cta": "View Consultation Insights"
+        }
+      ]
+    },
+    "programs": {
+      "heading": "National Priority Research Programs",
+      "subheading": "Government-aligned initiatives advancing fisheries resilience, coastal safety, biodiversity, and ocean intelligence.",
+      "items": [
+        {
+          "id": "fisheries-resilience",
+          "title": "Climate-Resilient Fisheries Management",
+          "leadAgency": "NARA + Department of Fisheries",
+          "status": "Active",
+          "timeline": "2025-2028",
+          "description": "Integrated assessments and predictive advisories to improve fish stock resilience and livelihoods under climate stress.",
+          "route": "/divisions/fishing-technology-division"
+        },
+        {
+          "id": "coastal-water-quality",
+          "title": "National Coastal Water Quality Assurance Program",
+          "leadAgency": "NARA + Coast Conservation",
+          "status": "Operational",
+          "timeline": "Ongoing",
+          "description": "Continuous monitoring of priority coastal zones to support environmental compliance, public health, and marine tourism governance.",
+          "route": "/divisions/environmental-studies-division"
+        },
+        {
+          "id": "marine-biodiversity",
+          "title": "Marine Biodiversity Safeguard Initiative",
+          "leadAgency": "NARA + Wildlife & Environment",
+          "status": "Scaling",
+          "timeline": "2024-2027",
+          "description": "Conservation intelligence and habitat restoration design for reefs, mangroves, and sensitive marine ecosystems.",
+          "route": "/divisions/marine-biological-division"
+        },
+        {
+          "id": "ocean-observations",
+          "title": "Ocean Observations for National Planning",
+          "leadAgency": "NARA + Hydrographic & Disaster Management",
+          "status": "Active",
+          "timeline": "2025-2029",
+          "description": "Operational oceanographic data and forecasting pipelines for navigation safety, preparedness, and blue-economy investments.",
+          "route": "/divisions/oceanography-marine-sciences-division"
+        }
+      ]
+    },
+    "outcomes": {
+      "heading": "Decision Support Outcomes",
+      "subheading": "Performance indicators for evidence use, inter-agency operations, and policy execution.",
+      "items": [
+        {
+          "id": "policy-supports",
+          "label": "Policy Support Notes Issued",
+          "value": "124",
+          "trend": "+18% YoY",
+          "description": "Briefs and technical advisories delivered to government institutions.",
+          "icon": "FileCheck"
+        },
+        {
+          "id": "regulatory-actions",
+          "label": "Evidence-Informed Regulatory Actions",
+          "value": "39",
+          "trend": "+11% YoY",
+          "description": "Regulatory or operational decisions supported by NARA outputs.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "id": "agency-collaborations",
+          "label": "Inter-Agency Research Collaborations",
+          "value": "52",
+          "trend": "+9% YoY",
+          "description": "Joint programs with ministries, provincial units, and research partners.",
+          "icon": "Building2"
+        },
+        {
+          "id": "open-data-usage",
+          "label": "Open Data Reuse Cases",
+          "value": "318",
+          "trend": "+27% YoY",
+          "description": "Confirmed use-cases of NARA datasets in planning and analytics.",
+          "icon": "BarChart3"
+        }
+      ]
+    }
+  },
+  "ui": {
+    "sourceLive": "සජීවී දත්ත",
+    "sourceFallback": "තෝරාගත් දත්ත කට්ටලය"
+  }
+}

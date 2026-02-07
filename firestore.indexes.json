@@ -1,0 +1,721 @@
+{
+    "indexes": [
+        {
+            "collectionGroup": "news",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "publishDate",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "news",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "category",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "publishDate",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "news",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "category",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "published_date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "news",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "featured",
+                    "order": "DESCENDING"
+                },
+                {
+                    "fieldPath": "published_date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "research_projects",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "start_date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "research_projects",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "division",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "priority",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "publications",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "type",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "publication_date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "publications",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "authors",
+                    "arrayConfig": "CONTAINS"
+                },
+                {
+                    "fieldPath": "publication_date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "procurement_notices",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "submission_deadline",
+                    "order": "ASCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "job_postings",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "department",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "application_deadline",
+                    "order": "ASCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "applications",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "applicant_id",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "submission_date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "events",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "event_type",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "start_date",
+                    "order": "ASCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "maritime_alerts",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "maritime_vessels",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "lastUpdate",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "maritime_permits",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "userId",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "submittedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "maritime_bookings",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "userId",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "fish_advisories",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "validUntil",
+                    "order": "ASCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "seasonal_restrictions",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "endDate",
+                    "order": "ASCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "fish_advisories",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "species",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "fish_advisories",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "zone",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "fish_market_prices",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "species",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "fish_market_prices",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "market",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "date",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "seasonal_restrictions",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "species",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "startDate",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "consultations",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "consultations",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "category",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "consultations",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "category",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "consultation_feedback",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "consultationId",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "submittedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "consultation_feedback",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "consultationId",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "sentiment",
+                    "order": "ASCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "consultation_feedback",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "consultationId",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "upvotes",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "consultation_comments",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "consultationId",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "postedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "researchers",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "specializations",
+                    "arrayConfig": "CONTAINS"
+                },
+                {
+                    "fieldPath": "registeredAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "researchers",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "institution",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "registeredAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "researchers",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "verificationStatus",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "registeredAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "collaboration_requests",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "collaboration_requests",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "researchArea",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "shared_resources",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "resourceType",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "sharedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "shared_resources",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "sharedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "joint_publications",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "researchArea",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "publishedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "funding_opportunities",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "funding_opportunities",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "fundingType",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "industry_partners",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "registeredAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "partnership_proposals",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "submittedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "partnership_projects",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "educational_content",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "category",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "publishedAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "student_competitions",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "predictions",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "type",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "impact_assessments",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "policyType",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "policy_simulations",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "policyType",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "status",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "economic_valuations",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "year",
+                    "order": "DESCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        },
+        {
+            "collectionGroup": "roi_calculations",
+            "queryScope": "COLLECTION",
+            "fields": [
+                {
+                    "fieldPath": "projectId",
+                    "order": "ASCENDING"
+                },
+                {
+                    "fieldPath": "createdAt",
+                    "order": "DESCENDING"
+                }
+            ]
+        }
+    ],
+    "fieldOverrides": []
+}

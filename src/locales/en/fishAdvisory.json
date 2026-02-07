@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "title": "Fish Advisory System - NARA",
+    "description": "Real-time fish advisories, safe fishing zones, market prices, and seasonal restrictions for fishers and the general public"
+  },
+  "hero": {
+    "badge": "Fish Advisory System",
+    "title": "Safe Fishing",
+    "highlight": "Informed Fishers",
+    "subtitle": "Real-time fish advisories, safe zone information, market prices, and seasonal restrictions to support sustainable fishing practices",
+    "primaryCta": "View Advisories",
+    "secondaryCta": "Explore Zones"
+  },
+  "tabs": {
+    "dashboard": "Dashboard",
+    "advisories": "Fish Advisories",
+    "zones": "Fishing Zones",
+    "prices": "Market Prices",
+    "restrictions": "Seasonal Restrictions"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "stats": {
+      "activeAdvisories": "Active Advisories",
+      "openZones": "Open Zones",
+      "priceUpdates": "Price Updates",
+      "activeRestrictions": "Active Restrictions"
+    },
+    "quickActions": {
+      "viewAdvisories": {
+        "title": "View Advisories",
+        "description": "Check current fish catch advisories and safety alerts"
+      },
+      "fishingZones": {
+        "title": "Fishing Zones",
+        "description": "Explore safe and restricted fishing zones"
+      },
+      "marketPrices": {
+        "title": "Market Prices",
+        "description": "View latest fish market prices and trends"
+      }
+    },
+    "recentAdvisories": "Recent Advisories",
+    "noAdvisories": "No active advisories. Safe fishing conditions!"
+  },
+  "advisories": {
+    "title": "Fish Advisories",
+    "count": "Active Advisories",
+    "severity": {
+      "critical": "Critical",
+      "high": "High",
+      "medium": "Medium",
+      "low": "Low"
+    },
+    "validUntil": "Valid until",
+    "noActive": {
+      "title": "No Active Advisories",
+      "description": "All fishing zones are currently safe. Check back for updates."
+    }
+  },
+  "zones": {
+    "title": "Fishing Zones",
+    "legend": {
+      "open": "Open",
+      "restricted": "Restricted",
+      "closed": "Closed"
+    },
+    "status": {
+      "open": "Open",
+      "restricted": "Restricted",
+      "closed": "Closed"
+    },
+    "coordinates": "Coordinates",
+    "noZones": {
+      "title": "No Zones Available",
+      "description": "Zone data will be added by administrators."
+    }
+  },
+  "prices": {
+    "title": "Fish Market Prices",
+    "latestUpdates": "Latest Updates",
+    "perKg": "per kg",
+    "lastUpdated": "Last Updated",
+    "increase": "increase",
+    "decrease": "decrease",
+    "noPrices": {
+      "title": "No Price Data Available",
+      "description": "Market prices will be updated regularly by administrators."
+    }
+  },
+  "restrictions": {
+    "title": "Seasonal Restrictions",
+    "active": "Active",
+    "from": "From",
+    "until": "Until",
+    "noRestrictions": {
+      "title": "No Active Restrictions",
+      "description": "No seasonal restrictions in effect at this time."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "species": "Species",
+    "zone": "Zone",
+    "date": "Date",
+    "status": "Status"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "title": "ගවේෂණ නෞකා වෙන්කර ගැනීම - NARA ඩිජිටල් සාගරය",
+    "description": "නාරාගේ නවීනතම ගවේෂණ නෞකා ඔබගේ මුහුදු සංචාර, සාගර විද්‍යා අධ්‍යයන සහ විද්‍යාත්මක මෙහෙයුම් සඳහා වෙන්කර ගන්න."
+  },
+  "hero": {
+    "title": "ගවේෂණ නෞකා වෙන්කර ගැනීම",
+    "subtitle": "ඔබගේ මුහුදු ගවේෂණ, සාගර විද්‍යා අධ්‍යයන සහ විද්‍යාත්මක මෙහෙයුම් සඳහා නාරාගේ උසස් තාක්ෂණික ගවේෂණ නෞකා වෙන්කර ගන්න.",
+    "stats": {
+      "total": "ගවේෂණ නෞකා",
+      "available": "දැනට ලබාගත හැක",
+      "active": "ක්‍රියාකාරී වෙන්කිරීම්",
+      "completed": "සම්පූර්ණ කළ මෙහෙයුම්"
+    }
+  },
+  "tabs": {
+    "browse": "නෞකා පිරික්සන්න",
+    "calendar": "ලබාදීමේ දිනදර්ශනය",
+    "myBookings": "මගේ වෙන්කිරීම්",
+    "track": "වෙන්කිරීම හඹා ගන්න"
+  },
+  "browse": {
+    "title": "ලබා ගත හැකි ගවේෂණ නෞකා",
+    "description": "අපගේ ගවේෂණ නෞකා රැල්ල පිරික්සමින් ඔබගේ මුහුදු සංචාරයට සුදුසුම නෞකාව වෙන්කර ගන්න.",
+    "specs": {
+      "lengthLabel": "දිග",
+      "lengthValue": "{{value}} මීටර්",
+      "capacityLabel": "ධාරිතාව",
+      "capacityValue": "{{value}} විද්‍යාඥයින්",
+      "speedLabel": "උපරිම වේගය",
+      "speedValue": "{{value}} නොට්",
+      "equipment": "උපකරණ",
+      "equipmentMore": "තවත් +{{count}}"
+    },
+    "buttons": {
+      "book": "මේ නෞකාව වෙන්කර ගන්න",
+      "unavailable": "දැනට ලබාගත නොහැක"
+    },
+    "empty": "දැනට නෞකා නොමැත. කරුණාකර පසුව නැවත පරීක්ෂා කරන්න."
+  },
+  "calendar": {
+    "title": "ලබාදීමේ දිනදර්ශනය",
+    "description": "දිනදර්ශන දසුන ඉක්මනින් එකතු වේ. වෙන්කිරීමේදී ලබා ගත හැකි බව පරීක්ෂා කිරීමට \"නෞකා පිරික්සන්න\" භාවිත කරන්න."
+  },
+  "myBookings": {
+    "title": "මගේ වෙන්කිරීම්",
+    "description": "ඔබගේ නෞකා වෙන්කිරීම් ඉල්ලීම් පෙන්වා කළමනාකරණය කරන්න.",
+    "labels": {
+      "bookingId": "වෙන්කිරීමේ හැඳුනුම් අංකය",
+      "departure": "පිටත් වීම",
+      "return": "නැවත පැමිණීම",
+      "departurePort": "පිටත් වීමේ වරාය",
+      "destination": "ගමනාන්තය",
+      "researchProject": "ගවේෂණ ව්‍යාපෘතිය"
+    },
+    "empty": "තවමත් වෙන්කිරීම් නොමැත. ඔබගේ පළමු වෙන්කිරීම සිදු කිරීමට නෞකා පිරික්සන්න."
+  },
+  "track": {
+    "title": "ඔබගේ වෙන්කිරීම හඹා ගන්න",
+    "description": "තත්වය පරීක්ෂා කිරීමට ඔබගේ වෙන්කිරීමේ හැඳුනුම් අංකය ඇතුළත් කරන්න.",
+    "inputPlaceholder": "වෙන්කිරීමේ හැඳුනුම් අංකය ඇතුළත් කරන්න (උදා., {{sample}})",
+    "button": "හඹා ගන්න",
+    "details": {
+      "title": "වෙන්කිරීමේ විස්තර",
+      "fields": {
+        "vesselName": "නෞකා නම",
+        "organization": "ආයතනය",
+        "cruiseDates": "ප්‍රයాణ දිනයන්",
+        "submissionDate": "ඉදිරිපත් කළ දිනය",
+        "approvalDate": "අනුමැතිය ලැබූ දිනය",
+        "adminNotes": "පරිපාලන සටහන්"
+      }
+    }
+  },
+  "modal": {
+    "title": "{{vessel}} වෙන්කර ගන්න",
+    "buttons": {
+      "cancel": "අවලංගු කරන්න",
+      "submit": "වෙන්කිරීමේ ඉල්ලීම ඉදිරිපත් කරන්න",
+      "submitting": "ඉදිරිපත් කරමින්..."
+    }
+  },
+  "form": {
+    "labels": {
+      "organizationName": "ආයතනයේ නම",
+      "principalInvestigator": "ප්‍රධාන පර්යේෂකයා",
+      "contactEmail": "සම්බන්ධතා ඊමේල්",
+      "contactPhone": "සම්බන්ධතා දුරකථන",
+      "researchProject": "ගවේෂණ ව්‍යාපෘති මාතෘකාව",
+      "purposeOfCruise": "ප්‍රයాణයේ අරමුණ",
+      "startDate": "ආරම්භක දිනය",
+      "endDate": "අවසාන දිනය",
+      "departurePort": "පිටත් වීමේ වරාය",
+      "destinationArea": "ගමනාන්ත ප්‍රදේශය",
+      "numberOfScientists": "විද්‍යාඥයින් සංඛ්‍යාව",
+      "equipmentRequired": "අවශ්‍ය උපකරණ",
+      "specialRequests": "විශේෂ ඉල්ලීම්"
+    },
+    "placeholders": {
+      "organizationName": "විශ්වවිද්‍යාල/ආයතනයේ නම",
+      "principalInvestigator": "ඩො. නම",
+      "contactEmail": "email@example.com",
+      "contactPhone": "+94 XX XXX XXXX",
+      "researchProject": "ව්‍යාපෘති මාතෘකාව",
+      "purposeOfCruise": "ඔබගේ ගවේෂණ ගමනේ අරමුණු හා ඉලක්ක විස්තර කරන්න...",
+      "departurePort": "උදා., කොළඹ වරාය",
+      "destinationArea": "උදා., දකුණු වෙරළ ප්‍රදේශ",
+      "equipmentRequired": "අවශ්‍ය විශේෂ උපකරණ හෝ පහසුකම් ලැයිස්තුගත කරන්න...",
+      "specialRequests": "අමතර අවශ්‍යතා හෝ ඉල්ලීම්...",
+      "numberOfScientists": "උපරිම ධාරිතාව: {{capacity}}"
+    }
+  },
+  "alerts": {
+    "availabilityUnavailable": "තෝරාගත් දිනයන් සඳහා මෙම නෞකාව ලබාගත නොහැක. කරුණාකර වෙනත් දිනයක් තෝරන්න.",
+    "bookingSuccess": "වෙන්කිරීම සාර්ථකයි! ඔබගේ හඹා ගැනීමේ හැඳුනුම් අංකය: {{id}}",
+    "bookingError": "වෙන්කිරීම ඉදිරිපත් කළ නොහැකි විය. කරුණාකර නැවත උත්සහ කරන්න.",
+    "trackingIdRequired": "කරුණාකර වෙන්කිරීමේ හැඳුනුම් අංකය ඇතුළත් කරන්න.",
+    "bookingNotFound": "වෙන්කිරීම හමු නොවුනි. හැඳුනුම් අංකය නැවත පරීක්ෂා කරන්න.",
+    "trackingError": "වෙන්කිරීම හඹා ගැනීමට නොහැකි විය.",
+    "availabilityError": "ලබාදීම් පරීක්ෂා කළ නොහැක. කරුණාකර නැවත උත්සහ කරන්න."
+  },
+  "status": {
+    "vessel": {
+      "available": "ලබා ගත හැක",
+      "in_use": "භාවිතයේ",
+      "maintenance": "නඩත්තු",
+      "unavailable": "ලබා ගත නොහැක"
+    },
+    "booking": {
+      "pending": "සමාලෝචනය වෙමින්",
+      "approved": "අනුමතයි",
+      "confirmed": "ස්ථිර කර ඇත",
+      "completed": "සම්පූර්ණයි",
+      "rejected": "ප්‍රතික්ෂේපිතයි",
+      "cancelled": "අහෝසි කරන ලදි"
+    },
+    "fallback": "නොදන්නා"
+  },
+  "misc": {
+    "na": "අදාළ නොවේ"
+  }
+}

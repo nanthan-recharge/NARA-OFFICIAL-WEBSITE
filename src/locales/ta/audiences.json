@@ -1,0 +1,185 @@
+{
+  "title": "பார்வையாளர் மையங்கள்",
+  "nav": {
+    "label": "பார்வையாளர்",
+    "generalPublic": "பொது மக்கள் & மீனவர்கள்",
+    "researchers": "ஆராய்ச்சியாளர்கள் & மாணவர்கள்",
+    "policy": "கொள்கை & ஒழுங்குமுறை",
+    "industry": "தொழில் & ஏற்றுமதியாளர்கள்",
+    "media": "ஊடகம், கூட்டாளர்கள் & நிதியாளர்கள்"
+  },
+  "generalPublic": {
+    "hero": {
+      "badge": "பாதுகாப்பாக இருங்கள்",
+      "title": "பொது மக்கள் மற்றும் கடற்கரை சமுதாயங்களுக்கான சேவைகள்",
+      "description": "மீன் பாதுகாப்பு அறிவுறுத்தல்கள், பருவ மாற்ற தகவல்கள், பயிற்சி வாய்ப்புகள் மற்றும் NARA தகவல்களை ஒரே இடத்தில் பெறுங்கள்.",
+      "ctas": [
+        { "label": "மீன் பாதுகாப்பு அறிவுறுத்தல்கள்", "href": "/fish-advisory-system" },
+        { "label": "ஆய்வக சேவைகள்", "href": "/lab-results" },
+        { "label": "பருவ நிலை புல்லெட்டின்கள்", "href": "/knowledge-discovery-center" }
+      ]
+    },
+    "sections": {
+      "advisories": {
+        "title": "அறிவுறுத்தல்கள் & எச்சரிக்கைகள்",
+        "items": [
+          { "label": "நேரடி உணவுப் பாதுகாப்பு வழிகாட்டிகள்", "href": "/fish-advisory-system" },
+          { "label": "அவசர & சம்பவத் தகவல்", "href": "/emergency-response-network" },
+          { "label": "மழைக்கால & பருவ அறிக்கைகள்", "href": "/knowledge-discovery-center" }
+        ]
+      },
+      "services": {
+        "title": "சமூக சேவைகள்",
+        "items": [
+          { "label": "ஆய்வக பரிசோதனை & சான்றிதழ்", "href": "/lab-results" },
+          { "label": "பயிற்சி & திறன் மேம்பாடு", "href": "/learning-development-academy" },
+          { "label": "டெண்டர்கள் & வேலை வாய்ப்புகள்", "href": "/procurement-recruitment-portal" }
+        ]
+      },
+      "stories": {
+        "title": "செயல்முறை & கதைகள்",
+        "description": "கடற்கரை சமூகங்களை மேம்படுத்தும் திட்டங்களையும் வெற்றிக் கதைகளையும் பார்வையிடுங்கள்.",
+        "href": "/media-gallery"
+      }
+    }
+  },
+  "researchers": {
+    "hero": {
+      "badge": "NARA உடன் ஆராயுங்கள்",
+      "title": "ஆராய்ச்சியாளர்கள் மற்றும் மாணவர்கள்",
+      "description": "தரவு, ஆய்வக வசதிகள், ஆய்வு கப்பல்கள் மற்றும் ஒத்துழைப்பிற்கான அழைப்புகளைப் பெறுங்கள்.",
+      "ctas": [
+        { "label": "தரவு கையேடு", "href": "/knowledge-discovery-center" },
+        { "label": "கப்பல் / கருவிகள் முன்பதிவு", "href": "/research-vessel-booking" },
+        { "label": "பயிற்சி & இணைப்பு", "href": "/learning-development-academy" }
+      ]
+    },
+    "sections": {
+      "datasets": {
+        "title": "தரவு & முறைகள்",
+        "items": [
+          { "label": "திறந்த தரவுகள் & API", "href": "/knowledge-discovery-center" },
+          { "label": "ஆய்வக செயல்முறைகள்", "href": "/lab-results" },
+          { "label": "வெளியீடுகள் & சுருக்கங்கள்", "href": "/digital-product-library" }
+        ]
+      },
+      "collaboration": {
+        "title": "ஒத்துழைக்க", "items": [
+          { "label": "ஆராய்ச்சி ஒத்துழைப்பு அழைப்புகள்", "href": "/research-collaboration-platform" },
+          { "label": "சர்வதேச கூட்டாண்மைகள்", "href": "/partnership-innovation-gateway" },
+          { "label": "நிதி & மானியங்கள்", "href": "/knowledge-discovery-center" }
+        ]
+      },
+      "support": {
+        "title": "மாணவர் ஆதரவு",
+        "description": "இணைப்புப் பதவிகள், தேசி மேற்பார்வை மற்றும் தேசிய சேவை வழிகளைத் தேடுங்கள்.",
+        "href": "/learning-development-academy"
+      }
+    }
+  },
+  "policy": {
+    "hero": {
+      "badge": "தகவல் அடிப்படையிலான முடிவுகள்",
+      "title": "கொள்கை & ஒழுங்குமுறை",
+      "description": "அறிக்கைகள், டாஷ்போர்டுகள், ஹைட்ரோகிராஃபிக் தயாரிப்புகள் மற்றும் சட்ட ஆதாரங்களை விரைவில் அணுகுங்கள்.",
+      "ctas": [
+        { "label": "ஆதார சுருக்கங்கள்", "href": "/scientific-evidence-repository" },
+        { "label": "டாஷ்போர்டுகள் & பகுப்பாய்வு", "href": "/integration-systems-platform" },
+        { "label": "RTI & சட்டங்கள்", "href": "/legal" }
+      ]
+    },
+    "sections": {
+      "evidence": {
+        "title": "கொள்கைக்கான அறிவியல்",
+        "items": [
+          { "label": "மூற்கடல் நுண்ணறிவு டாஷ்போர்ட்", "href": "/ocean-intelligence-dashboard-homepage" },
+          { "label": "Hydrographic தயாரிப்புகள்", "href": "/digital-product-library" },
+          { "label": "சாதனை & நிதி", "href": "/government-services-portal" }
+        ]
+      },
+      "compliance": {
+        "title": "சட்ட இணக்கம்",
+        "items": [
+          { "label": "RTI மற்றும் சட்டங்கள்", "href": "/legal" },
+          { "label": "பாதுகாப்பு & அணுகல்", "href": "/security-policy" },
+          { "label": "டெண்டர் வெளிப்படைமை", "href": "/procurement-recruitment-portal" }
+        ]
+      },
+      "contact": {
+        "title": "ஒழுங்குமுறை உதவி",
+        "description": "அமைப்புகள் தேவையான குறிப்பிட்ட தரவுகள் மற்றும் சுருக்கங்களுக்காக எங்கள் விஞ்ஞான அணியை அணுகலாம்.",
+        "href": "/contact-us"
+      }
+    }
+  },
+  "industry": {
+    "hero": {
+      "badge": "நம்பகமான வர்த்தக தோழன்",
+      "title": "தொழில் & ஏற்றுமதியாளர்கள்",
+      "description": "அங்கீகரிக்கப்பட்ட பரிசோதனைகளை முன்பதிவு செய்யுங்கள், தரநிலைகள் மற்றும் டெண்டர் வாய்ப்புகளைப் பின்பற்றுங்கள்.",
+      "ctas": [
+        { "label": "ஆய்வக சேவைகளை முன்பதிவு செய்யுங்கள்", "href": "/lab-results" },
+        { "label": "டெண்டர் & கொள்முதல்", "href": "/procurement-recruitment-portal" },
+        { "label": "தரநிலைகள் & சான்றிதழ்கள்", "href": "/nara-digital-marketplace" }
+      ]
+    },
+    "sections": {
+      "services": {
+        "title": "வணிக சேவைகள்",
+        "items": [
+          { "label": "பரிசோதனை & சான்றிதழ்", "href": "/lab-results" },
+          { "label": "ஆலோசனை & நுட்ப உதவி", "href": "/maritime-services-hub" },
+          { "label": "சாதன புதுமை", "href": "/integration-systems-platform" }
+        ]
+      },
+      "opportunities": {
+        "title": "வாய்ப்புகள்",
+        "items": [
+          { "label": "திறந்த டெண்டர்கள்", "href": "/procurement-recruitment-portal" },
+          { "label": "ஏற்றுமதி சந்தை நுண்ணறிவு", "href": "/export-market-intelligence" },
+          { "label": "பயிற்சி & திறன் மேம்பாடு", "href": "/learning-development-academy" }
+        ]
+      },
+      "support": {
+        "title": "ஒரே இட உதவி",
+        "description": "சோதனை அட்டவணை, கட்டணம் மற்றும் டிஜிட்டல் ஒருங்கிணைப்பு ஆதரவுக்கான எங்கள் தொழில் வசதி அலகை அணுகவும்.",
+        "href": "/contact-us"
+      }
+    }
+  },
+  "media": {
+    "hero": {
+      "badge": "பரப்புங்கள்",
+      "title": "ஊடகம், கூட்டாளர்கள் & நிதியாளர்கள்",
+      "description": "வெற்றிக் கதைகள், தாக்கம் கணக்குகள், சர்வதேச திட்டங்கள் மற்றும் தொடர்புகளை ஆராயுங்கள்.",
+      "ctas": [
+        { "label": "கதைகள் & ஊடக நூலகம்", "href": "/media-gallery" },
+        { "label": "தாக்கம் டாஷ்போர்டுகள்", "href": "/integration-systems-platform" },
+        { "label": "கூட்டாண்மை desk", "href": "/contact-us" }
+      ]
+    },
+    "sections": {
+      "stories": {
+        "title": "வெற்றிக் கதைகள்",
+        "description": "கடற்கரை மீட்பு, மீன் புதுமை மற்றும் சமூக வாழ்வாதாரக் கதைகளைப் பாருங்கள்.",
+        "href": "/media-gallery"
+      },
+      "projects": {
+        "title": "சர்வதேச திட்டங்கள்",
+        "items": [
+          { "label": "பிராந்திய தாக்கச் சங்கிலி", "href": "/regional-impact-network" },
+          { "label": "கூட்டாண்மை & புதுமை வாயில்", "href": "/partnership-innovation-gateway" },
+          { "label": "நிதியாளர் தொடர்புகள்", "href": "/contact-us" }
+        ]
+      },
+      "resources": {
+        "title": "பத்திரிகை வளங்கள்",
+        "items": [
+          { "label": "ஊடக தொகுப்பு & தொடர்புகள்", "href": "/media-press-kit" },
+          { "label": "சமீபத்திய செய்திகள்", "href": "/nara-news-updates-center" },
+          { "label": "முடிவு & நிதி அறிக்கைகள்", "href": "/government-services-portal" }
+        ]
+      }
+    }
+  }
+}

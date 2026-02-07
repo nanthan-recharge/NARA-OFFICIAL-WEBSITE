@@ -1,0 +1,22 @@
+{
+  "accessibilityOptions": "Accessibility Options",
+  "wcagCompliant": "WCAG 2.2 AA Compliant",
+  "textSize": "Text Size",
+  "smaller": "Smaller",
+  "normal": "Normal",
+  "larger": "Larger",
+  "contrastMode": "Contrast Mode",
+  "highContrast": "High Contrast",
+  "cursorSize": "Cursor Size",
+  "large": "Large",
+  "lineSpacing": "Line Spacing",
+  "increased": "Increased",
+  "letterSpacing": "Letter Spacing",
+  "highlightLinks": "Highlight Links",
+  "darkMode": "Dark Mode",
+  "resetToDefaults": "Reset to Defaults",
+  "settingsSaved": "These settings are saved to your device",
+  "skipToMain": "Skip to main content",
+  "openAccessibilityMenu": "Open Accessibility Menu",
+  "closeAccessibilityMenu": "Close Accessibility Menu"
+}

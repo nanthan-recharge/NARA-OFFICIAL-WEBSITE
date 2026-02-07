@@ -1,0 +1,515 @@
+{
+  "act": {
+    "id": "act-54-1981",
+    "number": "54",
+    "year": "1981",
+    "shortTitle": "NARA Act No. 54 of 1981",
+    "fullTitle": "National Aquatic Resources Research and Development Agency Act, No. 54 of 1981",
+    "longTitle": "AN ACT TO PROVIDE FOR THE ESTABLISHMENT OF THE NATIONAL AQUATIC RESOURCES RESEARCH AND DEVELOPMENT AGENCY, AND TO PROVIDE FOR MATTERS CONNECTED THEREWITH OR INCIDENTAL THERETO.",
+    "enactmentDate": "1981-09-04",
+    "preamble": "BE it enacted by the Parliament of the Democratic Socialist Republic of Sri Lanka as follows:-",
+    "sections": [
+      {
+        "id": "section-1",
+        "number": "1",
+        "title": "Short title and date of operation",
+        "content": "This Act may be cited as the National Aquatic Resources Research and Development Agency Act, No. 54 of 1981, and shall come into operation on such date as the Minister may, by Order published in the Gazette, appoint (in this Act referred to as the \"appointed date\").",
+        "marginalNote": "Short title and date of operation"
+      },
+      {
+        "id": "section-2",
+        "number": "2",
+        "title": "Establishment of the National Aquatic Resources Research and Development Agency",
+        "content": "There shall be established in accordance with the provisions of this Act, the National Aquatic Resources Research and Development Agency (hereinafter referred to as \"the Agency\") which shall be the principal national institution charged with the responsibility of carrying out and co-ordinating research, development and management activities on the subject of aquatic resources.",
+        "marginalNote": "Establishment of the National Aquatic Resources Research and Development Agency"
+      },
+      {
+        "id": "section-3",
+        "number": "3",
+        "title": "Agency to be a body corporate",
+        "content": "The Agency shall, by the name assigned to it by section 2, be a body corporate having perpetual succession and a common seal and may sue and be sued in its corporate name.",
+        "marginalNote": "Agency to be a body corporate"
+      },
+      {
+        "id": "section-4",
+        "number": "4",
+        "title": "Objects and functions of the Agency",
+        "content": "The objects and functions of the Agency shall be-",
+        "marginalNote": "Objects and functions of the Agency",
+        "subsections": [
+          {
+            "id": "section-4-a",
+            "letter": "a",
+            "content": "to ensure the application and utilization of scientific and technological expertise for the implementation of the national development programme on the subject of aquatic resources;"
+          },
+          {
+            "id": "section-4-b",
+            "letter": "b",
+            "content": "to promote and conduct research activities directed towards the identification, assessment, management and development of aquatic resources, and in particular in the following fields:---",
+            "subItems": [
+              {
+                "id": "section-4-b-i",
+                "roman": "i",
+                "content": "oceanography;"
+              },
+              {
+                "id": "section-4-b-ii",
+                "roman": "ii",
+                "content": "improvement and development of fishing craft, fishing gear and equipment, and fishing methods;"
+              },
+              {
+                "id": "section-4-b-iii",
+                "roman": "iii",
+                "content": "the social and economic aspects of the fishing industry, including the welfare of fishermen and their dependants;"
+              },
+              {
+                "id": "section-4-b-iv",
+                "roman": "iv",
+                "content": "the processing, preservation and marketing of fish and related products;"
+              },
+              {
+                "id": "section-4-b-v",
+                "roman": "v",
+                "content": "the development, management and conservation of aquatic resources in the inland waters, coastal wetlands and off-shore areas;"
+              }
+            ]
+          },
+          {
+            "id": "section-4-c",
+            "letter": "c",
+            "content": "to provide advisory and consultancy services on scientific, technological and legal matters relating to the exploitation, management and conservation of aquatic resources."
+          }
+        ]
+      },
+      {
+        "id": "section-5",
+        "number": "5",
+        "title": "Powers and duties of the Agency",
+        "content": "The Agency shall have the power-",
+        "marginalNote": "Powers and duties of the Agency",
+        "subsections": [
+          {
+            "id": "section-5-a",
+            "letter": "a",
+            "content": "to acquire in any manner whatsoever and hold any movable or immovable property and to sell or otherwise dispose of any such property;"
+          },
+          {
+            "id": "section-5-b",
+            "letter": "b",
+            "content": "to establish and maintain such facilities as offices, buildings, installations, laboratories, plant, equipment, vehicles, vessels and other crafts as the Agency may consider necessary for the exercise, performance and discharge of its powers, duties and functions;"
+          },
+          {
+            "id": "section-5-j",
+            "letter": "j",
+            "content": "to advise and make recommendations to any Ministry, any Government department or branch thereof, or any public corporation or any other person-",
+            "subItems": [
+              {
+                "id": "section-5-j-i",
+                "roman": "i",
+                "content": "on research, management, development and regulation, including the conservation and utilization, of the aquatic resources of Sri Lanka, and"
+              },
+              {
+                "id": "section-5-j-ii",
+                "roman": "ii",
+                "content": "the formulation of national policies relating to the management and development of the national aquatic resources of Sri Lanka;"
+              }
+            ]
+          },
+          {
+            "id": "section-5-k",
+            "letter": "k",
+            "content": "to prepare an Aquatic Resources Management Development and Research Plan and to revise such plan from time to time;"
+          },
+          {
+            "id": "section-5-l",
+            "letter": "l",
+            "content": "to institute and conduct surveys of national aquatic resources and off-shore areas of Sri Lanka;"
+          },
+          {
+            "id": "section-5-m",
+            "letter": "m",
+            "content": "to undertake and perform all such projects and functions as the Minister may, in consultation with the Governing Board, assign to the Agency in the implementation of the national development programme of the Ministry; and"
+          },
+          {
+            "id": "section-5-n",
+            "letter": "n",
+            "content": "to take all such measures as may be necessary for the fulfilment and performance of its objects and functions."
+          }
+        ]
+      },
+      {
+        "id": "section-6",
+        "number": "6",
+        "title": "Constitution of the Governing Board",
+        "content": "(1) The powers and duties of the Agency shall be vested in a Governing Board (hereinafter referred to as \"the Board\") which shall consist of the following members who shall be appointed by the Minister:---",
+        "marginalNote": "Constitution of the Governing Board",
+        "subsections": [
+          {
+            "id": "section-6-1",
+            "number": "1",
+            "content": "The powers and duties of the Agency shall be vested in a Governing Board (hereinafter referred to as \"the Board\") which shall consist of the following members who shall be appointed by the Minister:---",
+            "subItems": [
+              {
+                "id": "section-6-1-i",
+                "roman": "i",
+                "content": "not less than five persons and not more than seven persons selected from among persons having a high degree of competence in a field related to the work of the Agency;"
+              },
+              {
+                "id": "section-6-1-ii",
+                "roman": "ii",
+                "content": "the person for the time being holding office as the Secretary to the Ministry of the Minister in charge of the subject of Industries and Scientific Affairs or his representative nominated by such Minister;"
+              },
+              {
+                "id": "section-6-1-iii",
+                "roman": "iii",
+                "content": "the person for the time being holding office as the Secretary to the Ministry of the Minister in charge of the subject of Finance or his representative nominated by such Minister; and"
+              },
+              {
+                "id": "section-6-1-iv",
+                "roman": "iv",
+                "content": "the person for the time being holding office as the Director-General of the Agency."
+              }
+            ]
+          },
+          {
+            "id": "section-6-2",
+            "number": "2",
+            "content": "Every appointed member shall, unless he earlier vacates office by death, resignation or removal, hold office for a period of two years and shall be eligible for reappointment."
+          },
+          {
+            "id": "section-6-3",
+            "number": "3",
+            "content": "Where any appointed member vacates office prior to the expiration of his term of office, the Minister shall appoint another person in his place to hold office for the unexpired period of the term of office of the member whom he succeeds."
+          }
+        ]
+      },
+      {
+        "id": "section-7",
+        "number": "7",
+        "title": "Powers and duties of the Board",
+        "content": "(1) Subject to the other provisions of this Act, the Board may-",
+        "marginalNote": "Powers and duties of the Board",
+        "subsections": [
+          {
+            "id": "section-7-1",
+            "number": "1",
+            "content": "Subject to the other provisions of this Act, the Board may-",
+            "subItems": [
+              {
+                "id": "section-7-1-a",
+                "letter": "a",
+                "content": "formulate the policies of the Agency for the achievement of its objects;"
+              },
+              {
+                "id": "section-7-1-b",
+                "letter": "b",
+                "content": "perform any of the functions of the Agency;"
+              },
+              {
+                "id": "section-7-1-c",
+                "letter": "c",
+                "content": "establish with the approval of the Minister such departments and divisions of the Agency as may be necessary for the proper exercise, performance and discharge of its powers, duties and functions;"
+              },
+              {
+                "id": "section-7-1-d",
+                "letter": "d",
+                "content": "appoint, dismiss, exercise disciplinary control over and fix the wages and emoluments of the staff of the Agency;"
+              },
+              {
+                "id": "section-7-1-e",
+                "letter": "e",
+                "content": "determine the terms and conditions of service of such staff;"
+              },
+              {
+                "id": "section-7-1-f",
+                "letter": "f",
+                "content": "establish and regulate provident funds and welfare schemes for the benefit of the staff and their dependants and make contributions to any such fund or scheme;"
+              },
+              {
+                "id": "section-7-1-g",
+                "letter": "g",
+                "content": "administer and manage the affairs of the Agency."
+              }
+            ]
+          },
+          {
+            "id": "section-7-2",
+            "number": "2",
+            "content": "Rules may be made under this Act in respect of all or any of the matters referred to in subsection (1)."
+          }
+        ]
+      },
+      {
+        "id": "section-8",
+        "number": "8",
+        "title": "Chairman of the Board",
+        "content": "(1) The Chairman of the Board shall be appointed by the Minister from among the appointed members of the Board.",
+        "marginalNote": "Chairman of the Board"
+      },
+      {
+        "id": "section-9",
+        "number": "9",
+        "title": "Director-General of the Agency",
+        "content": "(1) The Minister may, on the recommendation of the Board, appoint a person qualified in relation to the work of the Agency as the Director-General of the Agency (hereinafter referred to as \"the Director-General\"). (2) The Director-General appointed under subsection (1) shall be remunerated in such manner and at such rates as may be determined by the Minister with the concurrence of the Minister in charge of the subject of Finance and shall be subject to such terms and conditions of service as may be specified by the Minister on the recommendation of the Board.",
+        "marginalNote": "Director-General of the Agency"
+      },
+      {
+        "id": "section-11",
+        "number": "11",
+        "title": "Secretary to the Board",
+        "content": "There shall be a Secretary to the Board, who shall be appointed by the Board on such terms and conditions of employment as may be determined by the Board and be subject to the general direction and control of the Board.",
+        "marginalNote": "Secretary to the Board"
+      },
+      {
+        "id": "section-12",
+        "number": "12",
+        "title": "Secretariat of the Agency",
+        "content": "There shall be a Secretariat of the Agency which shall be under the direction and control of the Director-General and shall perform such administrative and other functions as may be assigned to it by the Director-General.",
+        "marginalNote": "Secretariat of the Agency"
+      },
+      {
+        "id": "section-13",
+        "number": "13",
+        "title": "The National Aquatic Resources Management Council",
+        "content": "(1) There shall be a National Aquatic Resources Management Council (hereinafter referred to as \"the Council\") which shall consist of the following members:---",
+        "marginalNote": "The National Aquatic Resources Management Council",
+        "subsections": [
+          {
+            "id": "section-13-2-i",
+            "letter": "i",
+            "content": "a person having a high degree of competence in a field related to aquatic resources management and development or is otherwise specially qualified in relation to some aspect of the work of the Agency;"
+          },
+          {
+            "id": "section-13-2-ii",
+            "letter": "ii",
+            "content": "a representative from the marine products processing and export industry;"
+          },
+          {
+            "id": "section-13-2-iii",
+            "letter": "iii",
+            "content": "a representative from the Board;"
+          }
+        ]
+      },
+      {
+        "id": "section-14",
+        "number": "14",
+        "title": "Powers and duties of the Council",
+        "content": "The powers and duties of the Council shall be-",
+        "marginalNote": "Powers and duties of the Council",
+        "subsections": [
+          {
+            "id": "section-14-a",
+            "letter": "a",
+            "content": "to advise and make recommendations to the Minister on matters relating to the management and development of aquatic resources in Sri Lanka; and"
+          },
+          {
+            "id": "section-14-b",
+            "letter": "b",
+            "content": "to prepare and keep under continual review the Resources Management Development and Research Plan."
+          }
+        ]
+      },
+      {
+        "id": "section-15",
+        "number": "15",
+        "title": "Chairman of the Council",
+        "content": "(1) The Secretary to the Ministry of the Minister in charge of the subject of Fisheries shall be ex officio Chairman of the Council. (2) The Chairman of the Council shall preside at every meeting of the Council and in the absence of the Chairman at any meeting of the Council, the members of the Council present at that meeting shall elect from among themselves a person to preside at that meeting.",
+        "marginalNote": "Chairman of the Council"
+      },
+      {
+        "id": "section-16",
+        "number": "16",
+        "title": "Proceedings of the Council",
+        "content": "(1) The Chairman shall convene a meeting of the Council once in every three months. (2) The Chairman shall give at least fourteen days' notice to each of the members and shall specify in such notice the business to be dealt with at such meeting. (3) The Chairman shall at the request of ten members of the Council summon a special meeting of the Council within seven days after being requested to do so in writing. (4) The Chairman shall give at least two days' notice in writing of such special meeting of the Council to each of the members and shall specify in such notice the business to be dealt with at such meeting.",
+        "marginalNote": "Proceedings of the Council &c."
+      },
+      {
+        "id": "section-17",
+        "number": "17",
+        "title": "Scientific and Technical Committee",
+        "content": "The following shall constitute a Standing Committee of the Agency known as the Scientific and Technical Committee (hereinafter referred to as the \"Committee\"):---",
+        "marginalNote": "Scientific and Technical Committee",
+        "subsections": [
+          {
+            "id": "section-17-a",
+            "letter": "a",
+            "content": "the Director-General;"
+          },
+          {
+            "id": "section-17-b",
+            "letter": "b",
+            "content": "the members of the Council appointed under paragraph (a) of subsection (2) of section 13; and"
+          },
+          {
+            "id": "section-17-c",
+            "letter": "c",
+            "content": "the ex officio members of the Council."
+          }
+        ]
+      },
+      {
+        "id": "section-20",
+        "number": "20",
+        "title": "Remuneration of members of Board and Council",
+        "content": "The members of the Board and Council shall be remunerated in such manner and at such rates as may be determined by the Minister with the concurrence of the Minister in charge of the subject of Finance.",
+        "marginalNote": "Remuneration of members of Board and Council"
+      },
+      {
+        "id": "section-21",
+        "number": "21",
+        "title": "Removal of appointed members of the Board or Council",
+        "content": "Where any appointed member of the Board or member of the Council appointed under paragraph (a) of subsection (2) of section 13 is deemed by a majority of the other members of the Board or Council, as the case may be, to be unsuitable for the performance of his functions under this Act on account of his misconduct or incapacity or inefficiency the Minister may upon the recommendation of such other members of the Board or Council, as the case may be, remove such member.",
+        "marginalNote": "Removal of appointed members of the Board or Council"
+      },
+      {
+        "id": "section-22",
+        "number": "22",
+        "title": "Disclosure of interest by members of Board or Council",
+        "content": "A member of the Board or Council who is directly or indirectly interested financially or otherwise in any matter coming before the Board or Council shall disclose the nature of his interest and shall not take part in any deliberation or decision of the Board or Council with regard to that matter.",
+        "marginalNote": "Disclosure of interest by members of Board or Council"
+      },
+      {
+        "id": "section-23",
+        "number": "23",
+        "title": "Vacancy among members not to invalidate act or proceeding of the Board or Council",
+        "content": "No act or proceeding of the Board or Council shall be deemed to be invalid by reason only of the existence of any vacancy among its members or any defect in the appointment of any of its members.",
+        "marginalNote": "Vacancy among members not to invalidate act or proceeding of the Board or Council"
+      },
+      {
+        "id": "section-24",
+        "number": "24",
+        "title": "Appointment of public officers to the staff of the Agency",
+        "content": "(1) At the request of the Board, any public officer may, with the consent of that officer and of the Secretary to the Ministry in which that officer is employed or attached, be temporarily appointed to the staff of the Agency for such period as may be determined by the Board with like consent, or with like consent be permanently appointed to such staff. (2) Where any public officer referred to in subsection (1) is temporarily appointed to the staff of the Agency under that subsection, the provisions of section 13 (2) of the Transport Board Law, No. 19 of 1978, shall, mutatis mutandis, apply to and in relation to him. (3) Where any public officer referred to in subsection (1) is permanently appointed to the staff of the Agency under that subsection, the provisions of section 13 (3) of the Transport Board Law, No. 19 of 1978, shall, mutatis mutandis, apply to and in relation to him.",
+        "marginalNote": "Appointment of public officers to the staff of the Agency"
+      },
+      {
+        "id": "section-25",
+        "number": "25",
+        "title": "Agency deemed to be a scheduled institution within the meaning of the Bribery Act",
+        "content": "The Agency shall be deemed to be a scheduled Institution within the meaning of the Bribery Act and the provisions of that Act shall be construed accordingly.",
+        "marginalNote": "Agency deemed to be a scheduled institution within the meaning of the Bribery Act"
+      },
+      {
+        "id": "section-26",
+        "number": "26",
+        "title": "Advisors",
+        "content": "The Board may with the prior sanction of the Minister and with the concurrence of the Minister in charge of the subject of Finance appoint such advisors as may be necessary to advise the Board on matters relating to the work of the Agency.",
+        "marginalNote": "Advisors"
+      },
+      {
+        "id": "section-27",
+        "number": "27",
+        "title": "Furnishing of information to the Minister",
+        "content": "The Board shall furnish to the Minister such information as he may call for from time to time in respect of the activities and financial position of the Agency: Provided, however, that no information in relation to matters which the Agency is bound to treat as confidential under any agreement with any party, other than any Government department or branch thereof, shall be disclosed under this section.",
+        "marginalNote": "Furnishing of information to the Minister"
+      },
+      {
+        "id": "section-28",
+        "number": "28",
+        "title": "Minister's directions to the Board",
+        "content": "The Minister may after obtaining the written observations of the Board give the Agency, in writing, general or special directions as to the exercise, performance and discharge of its powers, duties and functions in relation to matters which are of national interest and the Board shall give effect to such directions.",
+        "marginalNote": "Minister's directions to the Board"
+      },
+      {
+        "id": "section-29",
+        "number": "29",
+        "title": "The Fund of the Agency",
+        "content": "(1) The Agency shall have and maintain its own Fund. (2) There shall be paid into the Fund of the Agency all such sums of money as may be granted to it from time to time by Parliament or by any Provincial Council. (3) There shall be paid out of the Fund of the Agency all sums of money required to defray any expenditure incurred by the Agency in the exercise, performance and discharge of its powers, duties and functions.",
+        "marginalNote": "The Fund of the Agency"
+      },
+      {
+        "id": "section-30",
+        "number": "30",
+        "title": "Withdrawal and investment of moneys of the Fund",
+        "content": "The mode and manner of withdrawal of any moneys from the Fund and the investment of any moneys of the Fund shall be made by the Board in accordance with such regulations as may be made from time to time for that purpose.",
+        "marginalNote": "Withdrawal and investment of moneys of the Fund"
+      },
+      {
+        "id": "section-31",
+        "number": "31",
+        "title": "Agency to be exempt from payment of tax",
+        "content": "(1) The Agency shall be exempt from the payment of income tax and from the payment of any rates or taxes on immovable property. (2) Any person who makes a payment to the Agency for services rendered or as a contribution to the general support of the Agency may claim the amount of such payment as a deduction from income in the year in which such payment is actually made for the purpose of computing liability for income tax.",
+        "marginalNote": "Agency to be exempt from payment of tax, &c."
+      },
+      {
+        "id": "section-32",
+        "number": "32",
+        "title": "Financial year of the Agency and audit of accounts",
+        "content": "(1) The financial year of the Agency shall be the calendar year. (2) The Board shall cause proper books of accounts to be kept of the income and expenditure, assets and liabilities and all other transactions of the Agency. (3) The provisions of Article 154 of the Constitution relating to the accounts of public corporations shall apply to the audit of the accounts of the Agency.",
+        "marginalNote": "Financial year of the Agency and audit of accounts"
+      },
+      {
+        "id": "section-33",
+        "number": "33",
+        "title": "Special export duty for providing the Fund with an income",
+        "content": "(1) There shall be charged, levied and paid an export duty in respect of aquatic products exported from Sri Lanka, of such amount as may be determined from time to time by resolution of Parliament. (2) Any resolution made under subsection (1) may be varied or rescinded at any time by a like resolution. (3) This section shall have effect as though it formed part of the Customs Ordinance, and the provisions of that Ordinance shall apply accordingly: Provided that the export duty imposed by this Act shall be in addition to any export duty imposed by or under that Ordinance or any other written law. (4) The proceeds of the export duty imposed by this Act shall be paid monthly to the Agency by the Principal Collector of Customs and shall be credited to the Fund of the Agency.",
+        "marginalNote": "Special export duty for providing the Fund with an income"
+      },
+      {
+        "id": "section-34",
+        "number": "34",
+        "title": "Records",
+        "content": "The Director-General shall cause to be maintained records containing the particulars of researches, studies, tests, experiments and other investigations conducted by the officers of the Agency and of discoveries or inventions made by them.",
+        "marginalNote": "Records"
+      },
+      {
+        "id": "section-35",
+        "number": "35",
+        "title": "State property both movable and immovable to be made available to the Agency",
+        "content": "The Minister may, by Order published in the Gazette, transfer to and vest in the Agency the possession and use of any movable or immovable property of the State for the purposes of the Agency: Provided, however, that no Order affecting any immovable property of the State shall be made by the Minister under the preceding provisions of this section without the concurrence of the Minister in charge of the subject of Lands: Provided further that no Order affecting any movable property of the State shall be made by the Minister under the preceding provisions of this section without the concurrence of the Minister having control over such property.",
+        "marginalNote": "State property both movable and immovable to be made available to the Agency"
+      },
+      {
+        "id": "section-36",
+        "number": "36",
+        "title": "Transfer of certain research projects to the Agency",
+        "content": "As soon as may be after the appointed date, the Agency shall take over the responsibility for the direction, support and continuance of all or any of the research projects carried on by any division or any public corporation under the Minister or by any other person for or on behalf of such division or corporation, as may be ordered by the Minister to be transferred to the Agency.",
+        "marginalNote": "Transfer of certain research projects to the Agency"
+      },
+      {
+        "id": "section-37",
+        "number": "37",
+        "title": "Acquisition of immovable property under the Land Acquisition Act",
+        "content": "(1) Where any immovable property is required to be acquired for any purpose of the Agency and the Minister, by Order published in the Gazette, approves of the proposed acquisition, that property shall be deemed to be required for a public purpose and may accordingly be acquired under the Land Acquisition Act and be transferred to the Agency. (2) Any sum payable for the acquisition of any immovable property under the Land Acquisition Act for the Agency shall be paid out of the Fund of the Agency.",
+        "marginalNote": "Acquisition of immovable property under the Land Acquisition Act"
+      },
+      {
+        "id": "section-38",
+        "number": "38",
+        "title": "Protection for action taken under this Act or on the direction of the Agency",
+        "content": "(1) No suit or prosecution shall lie- (a) against the Agency for any act which in good faith is done or purported to be done by the Agency under this Act; or (b) against any member, officer, servant or agent of the Agency for any act which in good faith is done or purported to be done by him under this Act or on the direction of the Agency. (2) Any expense incurred by the Agency in any suit or prosecution brought by or against the Agency before any court shall be paid out of the Fund of the Agency and any costs paid to, or recovered by, the Agency in any such suit or prosecution shall be credited to the Fund of the Agency. (3) Any expense incurred by such person as is referred to in paragraph (b) of subsection (1) in any suit or prosecution brought against him before any court in respect of any act which is done or is purported to be done by him under this Act or on the direction of the Agency shall, if the court holds that such act is in good faith, be paid out of the Fund of the Agency, unless such expense is recovered by him in such suit or prosecution.",
+        "marginalNote": "Protection for action taken under this Act or on the direction of the Agency"
+      },
+      {
+        "id": "section-39",
+        "number": "39",
+        "title": "No officer or servant can engage in service to any other employer",
+        "content": "No officer or servant of the Agency shall engage in any paid service to any other employer without obtaining the prior consent in writing of both the Director-General and the Board.",
+        "marginalNote": "No officer or servant can engage in service to any other employer"
+      },
+      {
+        "id": "section-40",
+        "number": "40",
+        "title": "Regulations",
+        "content": "(1) The Minister may, in consultation with the Board, make regulations for all matters in respect of which regulations are authorized or required to be made under this Act. (2) Every regulation made by the Minister under this Act shall be published in the Gazette and shall come into operation on the date of such publication or on such later date as may be specified in the regulation. (3) Every regulation made by the Minister shall, as soon as convenient after the date of its publication, be brought before Parliament for approval. Any regulation which is not so approved shall be deemed to be rescinded as from the date of disapproval but without prejudice to anything previously done thereunder.",
+        "marginalNote": "Regulations"
+      },
+      {
+        "id": "section-41",
+        "number": "41",
+        "title": "Rules",
+        "content": "(1) The Agency may make rules in respect of all or any of the matters for which rules are authorized or required by this Act to be made. (2) A rule made by the Agency under subsection (1) shall not have effect until it is approved by the Minister and notification of such approval is published in the Gazette.",
+        "marginalNote": "Rules"
+      },
+      {
+        "id": "section-42",
+        "number": "42",
+        "title": "Interpretation",
+        "content": "In this Act, unless the context otherwise required- \"aquatic product\" means any aquatic resource or substance, processed or unprocessed taken from within or beneath the medium of water within or outside Sri Lanka; \"aquatic resources\" means all living and non-living resources found in or taken from within or beneath the medium of water; \"national aquatic resources\" means all living and non-living resources contained in or found beneath the medium of water and which are subject to the sovereignty, jurisdiction or control of Sri Lanka: \"off-shore areas\" means all those areas which are subject to the sovereignty, jurisdiction or control of Sri Lanka in accordance with the provisions of the Maritime Zones Law, No. 22 of 1976: \"public corporation\" means any corporation, board or other body which was or is established by or under any written law other than the Companies Ordinance, with funds or capital wholly or partly provided by the Government by way of grant, loan or otherwise.",
+        "marginalNote": "Interpretation"
+      }
+    ],
+    "totalSections": 42
+  }
+}

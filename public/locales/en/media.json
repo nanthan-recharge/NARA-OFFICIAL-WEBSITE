@@ -1,0 +1,49 @@
+{
+  "hero": {
+    "title": "Media Press Kit",
+    "description": "Access press releases, high-resolution media assets, and story content for accurate reporting on NARA's marine research and conservation efforts"
+  },
+  "tabs": {
+    "home": "Home",
+    "releases": "Press Releases",
+    "assets": "Media Assets",
+    "stories": "Stories",
+    "contacts": "Media Contacts"
+  },
+  "stats": {
+    "pressReleases": "Press Releases",
+    "mediaAssets": "Media Assets",
+    "stories": "Stories",
+    "mediaContacts": "Media Contacts"
+  },
+  "sections": {
+    "latestReleases": "Latest Press Releases",
+    "featuredStories": "Featured Stories",
+    "quickDownloads": "Quick Downloads",
+    "pressReleases": "Press Releases",
+    "mediaAssets": "Media Assets",
+    "allStories": "All Stories",
+    "ourTeam": "Our Media Team"
+  },
+  "featured": "Featured",
+  "readStory": "Read Story",
+  "files": "files",
+  "attachments": "attachment(s)",
+  "downloadPDF": "Download PDF",
+  "download": "Download",
+  "fileSize": "File size",
+  "dimensions": "Dimensions",
+  "format": "Format",
+  "resolution": "Resolution",
+  "highRes": "High Resolution",
+  "noItems": "No items found",
+  "contactInfo": "Contact Information",
+  "role": "Role",
+  "availableFor": "Available for",
+  "mediaInquiries": "Media Inquiries",
+  "interviews": "Interviews",
+  "technicalQuestions": "Technical Questions",
+  "generalPress": "General Press",
+  "adminPanel": "Manage in Admin Panel",
+  "lastUpdated": "Last updated"
+}

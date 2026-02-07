@@ -1,0 +1,65 @@
+{
+  "title": "Scientific Evidence Repository",
+  "subtitle": "Evidence-Based Policy & Research Database",
+  "description": "Access peer-reviewed research, policy briefs, and data visualizations supporting marine conservation decisions",
+  "nav": {
+    "home": "Home",
+    "documents": "Evidence Documents",
+    "briefs": "Policy Briefs",
+    "data": "Data Visualizations",
+    "search": "Search Results"
+  },
+  "categories": {
+    "all": "All Categories",
+    "research_paper": "Research Paper",
+    "technical_report": "Technical Report",
+    "policy_analysis": "Policy Analysis",
+    "data_report": "Data Report",
+    "review": "Review"
+  },
+  "policyAreas": {
+    "all": "All Policy Areas",
+    "fisheries_management": "Fisheries Management",
+    "marine_conservation": "Marine Conservation",
+    "aquaculture": "Aquaculture",
+    "coastal_management": "Coastal Management",
+    "climate_change": "Climate Change",
+    "sustainable_development": "Sustainable Development"
+  },
+  "stats": {
+    "totalDocuments": "Total Documents",
+    "policyBriefs": "Policy Briefs",
+    "dataVisualizations": "Data Visualizations",
+    "citations": "Total Citations"
+  },
+  "search": {
+    "placeholder": "Search evidence documents...",
+    "button": "Search",
+    "results": "Search Results",
+    "noResults": "No results found"
+  },
+  "document": {
+    "authors": "Authors",
+    "published": "Published",
+    "citations": "Citations",
+    "downloads": "Downloads",
+    "abstract": "Abstract",
+    "keywords": "Keywords",
+    "download": "Download PDF",
+    "cite": "Cite",
+    "share": "Share"
+  },
+  "filters": {
+    "category": "Category",
+    "policyArea": "Policy Area",
+    "dateRange": "Date Range",
+    "apply": "Apply Filters",
+    "clear": "Clear All"
+  },
+  "actions": {
+    "viewAll": "View All",
+    "loadMore": "Load More",
+    "explore": "Explore",
+    "readMore": "Read More"
+  }
+}

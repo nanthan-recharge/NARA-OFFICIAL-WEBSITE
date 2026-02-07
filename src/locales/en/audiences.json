@@ -1,0 +1,186 @@
+{
+  "title": "Audience Hubs",
+  "nav": {
+    "label": "Audiences",
+    "generalPublic": "General Public & Fishers",
+    "researchers": "Researchers & Students",
+    "policy": "Policy & Regulators",
+    "industry": "Industry & Exporters",
+    "media": "Media, Partners & Donors"
+  },
+  "generalPublic": {
+    "hero": {
+      "badge": "Stay safe & informed",
+      "title": "Services for general public & coastal communities",
+      "description": "Check the latest fish advisories, seasonal ocean updates, training opportunities, and agency news that matter to coastal livelihoods.",
+      "ctas": [
+        { "label": "Fish safety advisories", "href": "/fish-advisory-system" },
+        { "label": "Lab testing & bookings", "href": "/lab-results" },
+        { "label": "Seasonal bulletins", "href": "/knowledge-discovery-center" }
+      ]
+    },
+    "sections": {
+      "advisories": {
+        "title": "Advisories & alerts",
+        "items": [
+          { "label": "Real-time fish consumption guidance", "href": "/fish-advisory-system" },
+          { "label": "Emergency response & incident reporting", "href": "/emergency-response-network" },
+          { "label": "Monsoon & seasonal outlooks", "href": "/knowledge-discovery-center" }
+        ]
+      },
+      "services": {
+        "title": "Community services",
+        "items": [
+          { "label": "Laboratory testing & certification", "href": "/lab-results" },
+          { "label": "Training & capacity building", "href": "/learning-development-academy" },
+          { "label": "Procurement & job opportunities", "href": "/procurement-recruitment-portal" }
+        ]
+      },
+      "stories": {
+        "title": "Programmes & stories",
+        "description": "Explore field projects, livelihoods support, and technology pilots improving Sri Lanka’s coastal communities.",
+        "href": "/media-gallery"
+      }
+    }
+  },
+  "researchers": {
+    "hero": {
+      "badge": "Collaborate with NARA",
+      "title": "Researchers & students",
+      "description": "Access datasets, laboratory infrastructure, research vessels, and calls for collaborators to accelerate marine science.",
+      "ctas": [
+        { "label": "Dataset catalogue", "href": "/knowledge-discovery-center" },
+        { "label": "Book a vessel or instrument", "href": "/research-vessel-booking" },
+        { "label": "Internships & attachments", "href": "/learning-development-academy" }
+      ]
+    },
+    "sections": {
+      "datasets": {
+        "title": "Data & methods",
+        "items": [
+          { "label": "Open datasets & APIs", "href": "/knowledge-discovery-center" },
+          { "label": "Laboratory methodologies", "href": "/lab-results" },
+          { "label": "Publications & briefs", "href": "/digital-product-library" }
+        ]
+      },
+      "collaboration": {
+        "title": "Collaborate with NARA",
+        "items": [
+          { "label": "Research collaboration calls", "href": "/research-collaboration-platform" },
+          { "label": "International partnerships", "href": "/partnership-innovation-gateway" },
+          { "label": "Funding & grants", "href": "/knowledge-discovery-center" }
+        ]
+      },
+      "support": {
+        "title": "Student pathways",
+        "description": "Find internship placements, thesis supervision, and national service schemes that connect early-career researchers with our experts.",
+        "href": "/learning-development-academy"
+      }
+    }
+  },
+  "policy": {
+    "hero": {
+      "badge": "Evidence for decision-makers",
+      "title": "Policy & regulators",
+      "description": "Quickly access briefs, dashboards, hydrographic products, and legal resources that support national ocean governance.",
+      "ctas": [
+        { "label": "Evidence briefs", "href": "/scientific-evidence-repository" },
+        { "label": "Dashboards & analytics", "href": "/integration-systems-platform" },
+        { "label": "Acts, RTI & compliance", "href": "/legal" }
+      ]
+    },
+    "sections": {
+      "evidence": {
+        "title": "Science for policy",
+        "items": [
+          { "label": "Ocean intelligence dashboard", "href": "/ocean-intelligence-dashboard-homepage" },
+          { "label": "Hydrographic products", "href": "/digital-product-library" },
+          { "label": "Performance & budget", "href": "/government-services-portal" }
+        ]
+      },
+      "compliance": {
+        "title": "Acts & compliance",
+        "items": [
+          { "label": "RTI, acts & regulations", "href": "/legal" },
+          { "label": "Security & accessibility", "href": "/security-policy" },
+          { "label": "Procurement & recruitment transparency", "href": "/procurement-recruitment-portal" }
+        ]
+      },
+      "contact": {
+        "title": "Regulator support",
+        "description": "Schedule a briefing or request tailored datasets from our science teams.",
+        "href": "/contact-us"
+      }
+    }
+  },
+  "industry": {
+    "hero": {
+      "badge": "Trusted partner for trade",
+      "title": "Industry & exporters",
+      "description": "Book accredited testing, access standards and certifications, and keep track of procurement and innovation opportunities.",
+      "ctas": [
+        { "label": "Book lab services", "href": "/lab-results" },
+        { "label": "Procurement & tenders", "href": "/procurement-recruitment-portal" },
+        { "label": "Quality standards & certifications", "href": "/nara-digital-marketplace" }
+      ]
+    },
+    "sections": {
+      "services": {
+        "title": "Commercial services",
+        "items": [
+          { "label": "Lab testing & certification", "href": "/lab-results" },
+          { "label": "Consultancy & advisory", "href": "/maritime-services-hub" },
+          { "label": "Innovation & gear testing", "href": "/integration-systems-platform" }
+        ]
+      },
+      "opportunities": {
+        "title": "Opportunities",
+        "items": [
+          { "label": "Open tenders", "href": "/procurement-recruitment-portal" },
+          { "label": "Export market intelligence", "href": "/export-market-intelligence" },
+          { "label": "Training & workforce development", "href": "/learning-development-academy" }
+        ]
+      },
+      "support": {
+        "title": "One-stop helpdesk",
+        "description": "Talk to NARA’s industry facilitation unit for custom testing schedules, fees, and digital integration.",
+        "href": "/contact-us"
+      }
+    }
+  },
+  "media": {
+    "hero": {
+      "badge": "Share the impact",
+      "title": "Media, partners & donors",
+      "description": "Explore stories, metrics, and international collaborations to understand NARA’s impact and engage with our teams.",
+      "ctas": [
+        { "label": "Story & media library", "href": "/media-gallery" },
+        { "label": "Impact dashboards", "href": "/integration-systems-platform" },
+        { "label": "Partnership desk", "href": "/contact-us" }
+      ]
+    },
+    "sections": {
+      "stories": {
+        "title": "Success stories",
+        "description": "Search case studies and photo essays for coastal resilience, fisheries innovation, and community livelihoods.",
+        "href": "/media-gallery"
+      },
+      "projects": {
+        "title": "International programmes",
+        "items": [
+          { "label": "Regional impact network", "href": "/regional-impact-network" },
+          { "label": "Partnership & innovation gateway", "href": "/partnership-innovation-gateway" },
+          { "label": "Donor resources & contacts", "href": "/contact-us" }
+        ]
+      },
+      "resources": {
+        "title": "Press resources",
+        "items": [
+          { "label": "Press kit & media contacts", "href": "/media-press-kit" },
+          { "label": "Latest news", "href": "/nara-news-updates-center" },
+          { "label": "Budget & performance reports", "href": "/government-services-portal" }
+        ]
+      }
+    }
+  }
+}

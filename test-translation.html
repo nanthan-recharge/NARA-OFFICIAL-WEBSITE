@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Gemini Translation</title>
+    <script type="module">
+        import { GoogleGenerativeAI } from 'https://esm.run/@google/generative-ai';
+
+        const API_KEY = 'AIzaSyD1fb8vPW6MkEtAt_tK2OGKLqPZu-z6FAE';
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        async function testTranslation() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '🔄 Testing translation...';
+
+            try {
+                const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+                
+                // Test Sinhala
+                const promptSi = `Translate the following English text to Sinhala (සිංහල). Provide ONLY the translation, no explanations:
+
+"Coral Reef Health Assessment"`;
+
+                resultDiv.innerHTML += '<br>📤 Requesting Sinhala translation...';
+                const resultSi = await model.generateContent(promptSi);
+                const siTranslation = resultSi.response.text().trim();
+
+                // Test Tamil
+                const promptTa = `Translate the following English text to Tamil (தமிழ்). Provide ONLY the translation, no explanations:
+
+"Coral Reef Health Assessment"`;
+
+                resultDiv.innerHTML += '<br>📤 Requesting Tamil translation...';
+                const resultTa = await model.generateContent(promptTa);
+                const taTranslation = resultTa.response.text().trim();
+
+                // Show results
+                resultDiv.innerHTML = `
+                    <h2 style="color: green;">✅ Translation Test Successful!</h2>
+                    <p><strong>Original (English):</strong> Coral Reef Health Assessment</p>
+                    <p><strong>Sinhala (සිංහල):</strong> ${siTranslation}</p>
+                    <p><strong>Tamil (தமிழ்):</strong> ${taTranslation}</p>
+                    <hr>
+                    <p style="color: green;">Your Gemini API is working! Translation should work in upload form.</p>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <h2 style="color: red;">❌ Translation Test Failed</h2>
+                    <p><strong>Error:</strong> ${error.message}</p>
+                    <p>Your API key might be invalid or rate limited.</p>
+                    <p>Get a new key at: <a href="https://makersuite.google.com/app/apikey" target="_blank">https://makersuite.google.com/app/apikey</a></p>
+                `;
+            }
+        }
+
+        window.onload = () => {
+            testTranslation();
+        };
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        #result {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 { margin-top: 0; }
+        p { line-height: 1.6; }
+    </style>
+</head>
+<body>
+    <div id="result">Loading...</div>
+</body>
+</html>

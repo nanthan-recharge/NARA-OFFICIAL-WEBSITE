@@ -1,0 +1,412 @@
+{
+  "hero": {
+    "title": "NARA Digital Library",
+    "subtitle": "Sri Lanka's Premier Marine & Aquatic Research Library",
+    "searchPlaceholder": "Search by title, author, subject, ISBN, keywords...",
+    "searchButton": "Search",
+    "hideFilters": "Hide Filters",
+    "advancedSearch": "Advanced Search",
+    "browseCategories": "Browse All Categories",
+    "stats": {
+      "totalItems": "Total Items",
+      "categories": "Categories",
+      "languages": "Languages",
+      "yearsCovered": "Years Covered"
+    }
+  },
+  "membership": {
+    "title": "Join NARA Digital Library",
+    "subtitle": "Access thousands of marine research resources",
+    "free": {
+      "name": "Free Reader",
+      "price": "Free",
+      "features": [
+        "Browse catalogue",
+        "View abstracts",
+        "Search & filter",
+        "View item details"
+      ],
+      "cta": "Browse Now"
+    },
+    "student": {
+      "name": "Student Access",
+      "price": "Free for Students",
+      "features": [
+        "Everything in Free",
+        "Borrow up to 5 items",
+        "14-day loan period",
+        "Reading lists",
+        "Download PDFs"
+      ],
+      "cta": "Register as Student"
+    },
+    "researcher": {
+      "name": "Researcher Premium",
+      "price": "Free for Researchers",
+      "features": [
+        "Everything in Student",
+        "Borrow up to 10 items",
+        "30-day loan period",
+        "Submit research",
+        "Premium access",
+        "Priority support"
+      ],
+      "cta": "Register as Researcher"
+    },
+    "loginPrompt": "Already have an account?",
+    "loginLink": "Sign In"
+  },
+  "sections": {
+    "newArrivals": "New Arrivals",
+    "popularItems": "Popular This Month",
+    "staffPicks": "Staff Picks",
+    "recentlyRead": "Continue Reading",
+    "featuredCollections": "Featured Collections",
+    "sinhalaTranslations": "Sinhala Translations",
+    "tamilTranslations": "Tamil Translations",
+    "digitalResources": "Digital Resources",
+    "browseByCategory": "Browse by Category"
+  },
+  "categories": {
+    "books": "Books & Monographs",
+    "journals": "Journals & Papers",
+    "maps": "Maps & Spatial Data",
+    "special": "Special Collections",
+    "digital": "Digital Resources",
+    "government": "Government Publications"
+  },
+  "materialTypes": {
+    "ACT": "Acts & Legislation",
+    "ATC": "Atapattu Collection",
+    "BOBP": "BOBP Reports",
+    "CD": "CDs & Multimedia",
+    "DMAP": "Digital Maps",
+    "EBOOK": "Electronic Books",
+    "FAO": "FAO Publications",
+    "IOC": "IOC Reports",
+    "IWMI": "IWMI Reports",
+    "JR": "Journals",
+    "LBOOK": "Lending Books",
+    "MAP": "Maps & Charts",
+    "NEWS": "Newspaper Articles",
+    "PREF": "Permanent Reference",
+    "PROC": "Conference Proceedings",
+    "UACOL": "Prof. Upali Amarasinghe Collection",
+    "RBOOK": "Reference Books",
+    "RPAPER": "Research Papers",
+    "RNARA": "NARA Research Reports",
+    "SREF": "Special Reference",
+    "SLBOOK": "Sri Lanka Collection - Books",
+    "SLREP": "Sri Lanka Collection - Reports",
+    "THESIS": "Theses & Dissertations",
+    "WFISH": "World Fisheries Collection",
+    "EJART": "e-Journal Articles",
+    "EREP": "e-Reports"
+  },
+  "filters": {
+    "advancedFilters": "Advanced Filters",
+    "materialType": "Material Type",
+    "allTypes": "All Types",
+    "publicationYear": "Publication Year",
+    "allYears": "All Years",
+    "language": "Language",
+    "allLanguages": "All Languages",
+    "availability": "Availability",
+    "available": "Available Only",
+    "sortBy": "Sort By",
+    "sortRelevance": "Relevance",
+    "sortNewest": "Newest First",
+    "sortOldest": "Oldest First",
+    "sortTitle": "Title A-Z",
+    "sortTitleDesc": "Title Z-A",
+    "sortPopular": "Most Popular",
+    "activeFilters": "Active Filters:",
+    "year": "Year:",
+    "clearAll": "Clear All",
+    "quickFilters": "Quick Filters:",
+    "eBooks": "E-Books",
+    "naraResearch": "NARA Research",
+    "theses": "Theses",
+    "thisYear": "This Year",
+    "viewGrid": "Grid View",
+    "viewList": "List View"
+  },
+  "results": {
+    "title": "Search Results",
+    "itemsFound": "items found",
+    "item": "item",
+    "items": "items",
+    "itemsInCollection": "items in collection",
+    "searching": "Searching catalogue...",
+    "loadingItems": "Loading items...",
+    "noItemsFound": "No items found",
+    "tryDifferent": "Try a different search term or adjust your filters",
+    "page": "Page",
+    "of": "of",
+    "backToCategories": "Back to Categories",
+    "showingResults": "Showing"
+  },
+  "availability": {
+    "available": "Available",
+    "checkedOut": "Checked Out",
+    "onHold": "On Hold",
+    "processing": "Processing",
+    "checkouts": "checkouts"
+  },
+  "actions": {
+    "readOnline": "Read Online",
+    "download": "Download PDF",
+    "borrow": "Borrow",
+    "placeHold": "Place Hold",
+    "bookmark": "Bookmark",
+    "share": "Share",
+    "cite": "Cite",
+    "viewDetails": "View Details",
+    "reserve": "Reserve"
+  },
+  "browse": {
+    "title": "Browse by Category",
+    "item": "item",
+    "items": "items",
+    "viewAll": "View All"
+  },
+  "featured": {
+    "naraResearch": {
+      "title": "NARA Research Reports",
+      "description": "Explore original research from NARA scientists covering marine biology, fisheries, and oceanography.",
+      "cta": "Browse Research"
+    },
+    "academicResources": {
+      "title": "Academic Resources",
+      "description": "Access theses, dissertations, and academic papers from Sri Lankan universities.",
+      "cta": "Browse Academic"
+    },
+    "specialCollections": {
+      "title": "Special Collections",
+      "description": "Unique and rare materials from the Atapattu and Amarasinghe collections.",
+      "cta": "Explore Collections"
+    }
+  },
+  "externalResources": {
+    "title": "External Digital Resources",
+    "dspace": "Digital Research Archive",
+    "koha": "Online Catalog System"
+  },
+  "about": {
+    "title": "About NARA Library",
+    "description": "The NARA Library is Sri Lanka's leading aquatic and marine research library, housing over 3,000 publications spanning decades of scientific research.",
+    "openHours": {
+      "title": "Opening Hours",
+      "schedule": "Mon-Fri: 8:30 AM - 4:30 PM"
+    },
+    "contact": {
+      "title": "Contact Library",
+      "email": "library@nara.ac.lk"
+    }
+  },
+  "services": {
+    "title": "Library Services",
+    "patronPortal": {
+      "title": "Patron Portal",
+      "description": "Manage your loans, holds, and reading lists"
+    },
+    "digitalRepository": {
+      "title": "Digital Repository",
+      "description": "Access our complete digital research collection"
+    },
+    "needHelp": {
+      "title": "Need Help?",
+      "description": "Contact our librarians for research assistance"
+    }
+  },
+  "subscription": {
+    "title": "Unlock Full Library Access",
+    "subtitle": "Choose the plan that fits your needs",
+    "compareFeatures": "Compare Features",
+    "signUpNow": "Sign Up Now",
+    "currentPlan": "Current Plan"
+  },
+  "catalogue": {
+    "agencyName": "National Aquatic Resources Research & Development Agency",
+    "libraryType": {
+      "physical": "Physical Library",
+      "digital": "Digital Library"
+    },
+    "groupMeta": {
+      "categories": "{{count}} categories"
+    },
+    "badges": {
+      "new": "New",
+      "sinhala": "Sinhala",
+      "tamil": "Tamil"
+    },
+    "actions": {
+      "view": "View"
+    },
+    "errors": {
+      "searchTitle": "Search Error",
+      "searchFailed": "Failed to search catalogue. Please try again.",
+      "loadFailed": "Failed to load items. Please try again."
+    },
+    "results": {
+      "backToBrowse": "Back to browse",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "sections": {
+      "physicalBrowseTitle": "Physical Library - {{title}}",
+      "physicalBrowseSubtitle": "Browse NARA's physical collection categories",
+      "newArrivalsSubtitle": "Recently added to our collection",
+      "popularSubtitle": "Most borrowed and viewed this month",
+      "staffPicksSubtitle": "Curated recommendations from our librarians",
+      "translationSubtitle": "Recently uploaded curated translations",
+      "booksCount": "{{count}} books",
+      "addedDate": "Added {{date}}"
+    },
+    "membershipBanner": {
+      "title": "Join the NARA Library",
+      "description": "Get access to borrowing, research submissions, and more. Free to join.",
+      "freeAccess": "Free: Browse",
+      "studentAccess": "Student: Borrow 5",
+      "researcherAccess": "Researcher: Borrow 10",
+      "cta": "Join the Library"
+    },
+    "staffPicks": {
+      "badge": "Staff Pick",
+      "items": {
+        "marineBiodiversity": {
+          "title": "Marine Biodiversity of Sri Lankan Waters",
+          "author": "Dr. Arjan Rajasuriya",
+          "category": "Marine Biology"
+        },
+        "sustainableFisheries": {
+          "title": "Sustainable Fisheries Management",
+          "author": "Prof. Nimal Fernando",
+          "category": "Fisheries Science"
+        },
+        "coastalRestoration": {
+          "title": "Coastal Ecosystem Restoration",
+          "author": "Dr. Chamari Silva",
+          "category": "Conservation Science"
+        }
+      }
+    },
+    "membershipPlans": {
+      "title": "Library Membership Plans",
+      "subtitle": "Choose the right access level for your needs",
+      "free": {
+        "name": "Free Reader",
+        "description": "Browse and discover resources",
+        "price": "Free",
+        "cta": "Get Started",
+        "features": {
+          "browse": "Browse full catalogue",
+          "details": "View item details",
+          "search": "Search & filter",
+          "borrow": "Borrow items",
+          "submit": "Submit research"
+        }
+      },
+      "student": {
+        "badge": "Popular",
+        "name": "Student Access",
+        "description": "For students and learners",
+        "price": "Free",
+        "priceSuffix": "/ with ID",
+        "cta": "Register as Student",
+        "features": {
+          "includesFree": "Everything in Free",
+          "borrow": "Borrow up to 5 items",
+          "loan": "14-day loan period",
+          "holds": "Place holds on items",
+          "submit": "Submit research"
+        }
+      },
+      "researcher": {
+        "name": "Researcher Premium",
+        "description": "Full access for researchers",
+        "price": "Free",
+        "priceSuffix": "/ verified",
+        "cta": "Register as Researcher",
+        "features": {
+          "includesStudent": "Everything in Student",
+          "borrow": "Borrow up to 10 items",
+          "loan": "30-day loan period",
+          "submit": "Submit research papers",
+          "digital": "Premium digital access"
+        }
+      }
+    }
+  },
+  "itemDetail": {
+    "breadcrumb": {
+      "library": "Library",
+      "item": "Item Details"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "readOnline": "Read Online",
+      "translations": "Translations",
+      "details": "Details",
+      "related": "Related Items"
+    },
+    "overview": {
+      "abstract": "Abstract",
+      "subjects": "Subject Headings",
+      "keywords": "Keywords",
+      "noAbstract": "No abstract available for this item."
+    },
+    "details": {
+      "title": "Full Details",
+      "isbn": "ISBN",
+      "issn": "ISSN",
+      "publisher": "Publisher",
+      "edition": "Edition",
+      "pages": "Pages",
+      "language": "Language",
+      "callNumber": "Call Number",
+      "location": "Location",
+      "shelfLocation": "Shelf Location",
+      "barcode": "Barcode",
+      "materialType": "Material Type",
+      "acquisitionDate": "Acquisition Date",
+      "status": "Status"
+    },
+    "sidebar": {
+      "availability": "Availability",
+      "location": "Location",
+      "qrCode": "QR Code",
+      "scanToAccess": "Scan to access on mobile",
+      "share": "Share This Item",
+      "cite": "Citation",
+      "citationFormats": "Citation Formats"
+    },
+    "reader": {
+      "fullScreen": "Full Screen",
+      "exitFullScreen": "Exit Full Screen",
+      "downloadPdf": "Download PDF",
+      "openInNewTab": "Open in New Tab",
+      "loading": "Loading document...",
+      "noPreview": "Preview not available"
+    },
+    "translations": {
+      "available": "Available Translations",
+      "original": "Original (English)",
+      "sinhala": "Sinhala Translation",
+      "tamil": "Tamil Translation",
+      "noTranslations": "No translations available for this item",
+      "viewTranslation": "View Translation",
+      "aiTranslated": "AI Translated"
+    },
+    "related": {
+      "title": "Related Items",
+      "noRelated": "No related items found"
+    },
+    "loginPrompt": {
+      "title": "Sign in for full access",
+      "description": "Sign in to borrow items, create bookmarks, and access premium features",
+      "signIn": "Sign In",
+      "register": "Create Account"
+    }
+  }
+}

@@ -1,0 +1,797 @@
+{
+  "hero": {
+    "badge": "Research Excellence Portal",
+    "kicker": "Government Decision Support",
+    "titleLine1": "Evidence for National",
+    "titleLine2": "Marine Governance",
+    "description": "A strategic research portal connecting policy briefs, scientific evidence, and operational marine data for Sri Lankan public institutions.",
+    "liveStatus": "Live research and policy intelligence feed active",
+    "actions": {
+      "policyBriefs": "Policy Briefs",
+      "datasets": "Datasets",
+      "collaborate": "Research Collaboration"
+    }
+  },
+  "metrics": {
+    "cards": [
+      {
+        "id": "publications",
+        "label": "Total Publications",
+        "value": "1,247",
+        "change": "+15.3%",
+        "icon": "FileText",
+        "description": "Peer-reviewed and policy-linked publications"
+      },
+      {
+        "id": "citations",
+        "label": "Global Citations",
+        "value": "28,439",
+        "change": "+22.7%",
+        "icon": "TrendingUp",
+        "description": "Global usage of NARA research outputs"
+      },
+      {
+        "id": "collaborations",
+        "label": "Partner Institutions",
+        "value": "89",
+        "change": "+12",
+        "icon": "Globe",
+        "description": "Active local and international collaborations"
+      },
+      {
+        "id": "projects",
+        "label": "Active Projects",
+        "value": "156",
+        "change": "+18",
+        "icon": "Target",
+        "description": "Ongoing national and strategic programs"
+      },
+      {
+        "id": "funding",
+        "label": "Research Funding",
+        "value": "$12.4M",
+        "change": "+28%",
+        "icon": "BarChart3",
+        "description": "Current grant and mission investments"
+      },
+      {
+        "id": "briefs",
+        "label": "Policy Briefs",
+        "value": "124",
+        "change": "+18%",
+        "icon": "FileCheck",
+        "description": "Decision-support briefs delivered"
+      }
+    ]
+  },
+  "areas": [
+    {
+      "id": "all",
+      "name": "All Areas",
+      "count": 0,
+      "icon": "BookOpen",
+      "color": "slate"
+    },
+    {
+      "id": "marine-biology",
+      "name": "Marine Biology",
+      "count": 342,
+      "icon": "Fish",
+      "color": "cyan"
+    },
+    {
+      "id": "climate",
+      "name": "Climate Change",
+      "count": 218,
+      "icon": "Waves",
+      "color": "blue"
+    },
+    {
+      "id": "fisheries",
+      "name": "Fisheries",
+      "count": 189,
+      "icon": "Fish",
+      "color": "emerald"
+    },
+    {
+      "id": "oceanography",
+      "name": "Oceanography",
+      "count": 167,
+      "icon": "Waves",
+      "color": "indigo"
+    },
+    {
+      "id": "conservation",
+      "name": "Conservation",
+      "count": 143,
+      "icon": "Heart",
+      "color": "teal"
+    },
+    {
+      "id": "policy",
+      "name": "Policy",
+      "count": 98,
+      "icon": "FileText",
+      "color": "amber"
+    }
+  ],
+  "tabs": [
+    {
+      "id": "publications",
+      "label": "Publications",
+      "icon": "FileText",
+      "count": "1,247"
+    },
+    {
+      "id": "teams",
+      "label": "Research Teams",
+      "icon": "Users",
+      "count": "12"
+    },
+    {
+      "id": "projects",
+      "label": "Active Projects",
+      "icon": "Target",
+      "count": "156"
+    },
+    {
+      "id": "impact",
+      "label": "Impact & Analytics",
+      "icon": "BarChart3"
+    },
+    {
+      "id": "collaboration",
+      "label": "Global Collaboration",
+      "icon": "Globe",
+      "count": "89"
+    }
+  ],
+  "filters": {
+    "searchPlaceholder": "Search publications, authors, or keywords...",
+    "year": {
+      "options": {
+        "all": "All Years"
+      }
+    },
+    "type": {
+      "options": {
+        "all": "All Types",
+        "journal": "Journal Article",
+        "conference": "Conference Paper",
+        "report": "Technical Report"
+      }
+    },
+    "area": {
+      "options": {
+        "all": "All Areas"
+      }
+    },
+    "sort": {
+      "options": {
+        "citations": "Most Cited",
+        "recent": "Most Recent",
+        "downloads": "Most Downloaded",
+        "impact": "Highest Impact"
+      }
+    }
+  },
+  "governmentSections": {
+    "policy": {
+      "heading": "Policy Briefs & Evidence Access",
+      "subheading": "Direct pathways to validated evidence products for ministries, departments, and public authorities.",
+      "cards": [
+        {
+          "id": "policy-briefs",
+          "title": "Policy Briefs & Scientific Evidence",
+          "description": "Access curated policy briefs, technical guidance notes, and decision-ready scientific summaries for ministries and government agencies.",
+          "icon": "FileText",
+          "route": "/scientific-evidence-repository",
+          "cta": "Open Evidence Repository"
+        },
+        {
+          "id": "open-datasets",
+          "title": "Open Marine Datasets",
+          "description": "Explore validated marine datasets for planning, forecasting, compliance monitoring, and inter-agency analytics.",
+          "icon": "Database",
+          "route": "/open-data-portal",
+          "cta": "Open Data Portal"
+        },
+        {
+          "id": "public-consultation",
+          "title": "Public Consultation Intelligence",
+          "description": "Track stakeholder submissions and sentiment signals to strengthen policy design and implementation strategies.",
+          "icon": "MessageSquare",
+          "route": "/public-consultation-portal",
+          "cta": "View Consultation Insights"
+        }
+      ]
+    },
+    "programs": {
+      "heading": "National Priority Research Programs",
+      "subheading": "Government-aligned initiatives advancing fisheries resilience, coastal safety, biodiversity, and ocean intelligence.",
+      "items": [
+        {
+          "id": "fisheries-resilience",
+          "title": "Climate-Resilient Fisheries Management",
+          "leadAgency": "NARA + Department of Fisheries",
+          "status": "Active",
+          "timeline": "2025-2028",
+          "description": "Integrated assessments and predictive advisories to improve fish stock resilience and livelihoods under climate stress.",
+          "route": "/divisions/fishing-technology-division"
+        },
+        {
+          "id": "coastal-water-quality",
+          "title": "National Coastal Water Quality Assurance Program",
+          "leadAgency": "NARA + Coast Conservation",
+          "status": "Operational",
+          "timeline": "Ongoing",
+          "description": "Continuous monitoring of priority coastal zones to support environmental compliance, public health, and marine tourism governance.",
+          "route": "/divisions/environmental-studies-division"
+        },
+        {
+          "id": "marine-biodiversity",
+          "title": "Marine Biodiversity Safeguard Initiative",
+          "leadAgency": "NARA + Wildlife & Environment",
+          "status": "Scaling",
+          "timeline": "2024-2027",
+          "description": "Conservation intelligence and habitat restoration design for reefs, mangroves, and sensitive marine ecosystems.",
+          "route": "/divisions/marine-biological-division"
+        },
+        {
+          "id": "ocean-observations",
+          "title": "Ocean Observations for National Planning",
+          "leadAgency": "NARA + Hydrographic & Disaster Management",
+          "status": "Active",
+          "timeline": "2025-2029",
+          "description": "Operational oceanographic data and forecasting pipelines for navigation safety, preparedness, and blue-economy investments.",
+          "route": "/divisions/oceanography-marine-sciences-division"
+        }
+      ]
+    },
+    "outcomes": {
+      "heading": "Decision Support Outcomes",
+      "subheading": "Performance indicators for evidence use, inter-agency operations, and policy execution.",
+      "items": [
+        {
+          "id": "policy-supports",
+          "label": "Policy Support Notes Issued",
+          "value": "124",
+          "trend": "+18% YoY",
+          "description": "Briefs and technical advisories delivered to government institutions.",
+          "icon": "FileCheck"
+        },
+        {
+          "id": "regulatory-actions",
+          "label": "Evidence-Informed Regulatory Actions",
+          "value": "39",
+          "trend": "+11% YoY",
+          "description": "Regulatory or operational decisions supported by NARA outputs.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "id": "agency-collaborations",
+          "label": "Inter-Agency Research Collaborations",
+          "value": "52",
+          "trend": "+9% YoY",
+          "description": "Joint programs with ministries, provincial units, and research partners.",
+          "icon": "Building2"
+        },
+        {
+          "id": "open-data-usage",
+          "label": "Open Data Reuse Cases",
+          "value": "318",
+          "trend": "+27% YoY",
+          "description": "Confirmed use-cases of NARA datasets in planning and analytics.",
+          "icon": "BarChart3"
+        }
+      ]
+    }
+  },
+  "publications": {
+    "loading": "Loading publications...",
+    "empty": {
+      "description": "No publications found for the selected filters."
+    },
+    "items": [
+      {
+        "id": "climate-coral",
+        "title": "Climate-Driven Changes in Sri Lankan Coral Reef Ecosystems: A 30-Year Study",
+        "authors": [
+          "Dr. Priya Fernando",
+          "Dr. Raj Kumar",
+          "Dr. Sarah Miller"
+        ],
+        "area": "Climate Change",
+        "year": 2024,
+        "journal": "Nature Climate Change",
+        "type": "Journal Article",
+        "citations": 342,
+        "downloads": 1847,
+        "impactFactor": 29.3,
+        "abstract": "This 30-year longitudinal study examines the effect of rising ocean temperatures on coral reef biodiversity in Sri Lankan waters, with clear adaptation guidance for management agencies.",
+        "doi": "10.1038/s41558-024-01234-5",
+        "downloadUrl": "",
+        "tags": [
+          "Coral Reefs",
+          "Climate Change",
+          "Biodiversity",
+          "Sri Lanka"
+        ],
+        "highlights": [
+          "30-year longitudinal dataset for policy planning",
+          "Hotspot map for reef degradation risk",
+          "Priority intervention recommendations for coastal authorities"
+        ]
+      },
+      {
+        "id": "ai-fisheries",
+        "title": "Sustainable Fisheries Management Through AI-Powered Stock Assessment",
+        "authors": [
+          "Dr. Nimal Perera",
+          "Dr. Chen Wei",
+          "Dr. Emma Thompson"
+        ],
+        "area": "Fisheries Management",
+        "year": 2024,
+        "journal": "Science Advances",
+        "type": "Journal Article",
+        "citations": 218,
+        "downloads": 2134,
+        "impactFactor": 13.6,
+        "abstract": "This study presents a machine-learning framework for near-real-time fish stock assessment using satellite and acoustic signals, improving prediction reliability for national fisheries controls.",
+        "doi": "10.1126/sciadv.abcd1234",
+        "downloadUrl": "",
+        "tags": [
+          "AI",
+          "Fisheries",
+          "Sustainability",
+          "Remote Sensing"
+        ],
+        "highlights": [
+          "43% improvement over baseline stock prediction methods",
+          "Tested across 12 coastal management zones",
+          "Suitable for operational national advisory systems"
+        ]
+      },
+      {
+        "id": "microplastics-indian-ocean",
+        "title": "Microplastic Distribution Patterns in the Indian Ocean: A Comprehensive Survey",
+        "authors": [
+          "Dr. Ayesha Khan",
+          "Dr. Michael Brown",
+          "Dr. Lakshmi Dissanayake"
+        ],
+        "area": "Marine Biology",
+        "year": 2023,
+        "journal": "Environmental Science & Technology",
+        "type": "Journal Article",
+        "citations": 487,
+        "downloads": 3201,
+        "impactFactor": 11.4,
+        "abstract": "Systematic sampling across 200+ Indian Ocean locations identifies microplastic concentration hotspots and key source pathways relevant to marine environmental regulation.",
+        "doi": "10.1021/acs.est.3c12345",
+        "downloadUrl": "",
+        "tags": [
+          "Microplastics",
+          "Pollution",
+          "Indian Ocean",
+          "Marine Health"
+        ],
+        "highlights": [
+          "200+ sampled locations across priority marine areas",
+          "Hotspot prioritization model for cleanup investments",
+          "Direct evidence support for pollution control policy"
+        ]
+      },
+      {
+        "id": "blue-carbon-valuation",
+        "title": "Blue Carbon Sequestration in Mangrove Ecosystems: Economic Valuation",
+        "authors": [
+          "Dr. Sunil Wickramasinghe",
+          "Dr. Jane Wilson",
+          "Dr. Carlos Rodriguez"
+        ],
+        "area": "Conservation",
+        "year": 2023,
+        "journal": "Nature Sustainability",
+        "type": "Journal Article",
+        "citations": 294,
+        "downloads": 1652,
+        "impactFactor": 27.2,
+        "abstract": "The paper quantifies the carbon sequestration capacity of Sri Lankan mangroves and provides an economic valuation model for national climate financing discussions.",
+        "doi": "10.1038/s41893-023-12345-6",
+        "downloadUrl": "",
+        "tags": [
+          "Blue Carbon",
+          "Mangroves",
+          "Climate Mitigation",
+          "Economics"
+        ],
+        "highlights": [
+          "National-scale valuation framework",
+          "Supports carbon-credit ready project design",
+          "Policy-ready recommendations for treasury and environment units"
+        ]
+      }
+    ],
+    "labels": {
+      "openReader": "Open Reader",
+      "openDOI": "Open DOI",
+      "downloadPDF": "PDF",
+      "showMore": "Show More",
+      "showLess": "Show Less",
+      "source": "Source",
+      "citations": "Citations",
+      "downloads": "Downloads",
+      "impactFactor": "Impact Factor"
+    }
+  },
+  "teams": {
+    "items": [
+      {
+        "id": "marine-biodiversity-lab",
+        "name": "Marine Biodiversity Lab",
+        "lead": "Dr. Priya Fernando",
+        "members": 24,
+        "projects": 12,
+        "publications": 156,
+        "funding": "$2.3M",
+        "focus": "Coral reef ecosystems, marine species conservation, and biodiversity intelligence."
+      },
+      {
+        "id": "climate-oceanography-division",
+        "name": "Climate & Oceanography Division",
+        "lead": "Dr. Nimal Perera",
+        "members": 18,
+        "projects": 9,
+        "publications": 127,
+        "funding": "$3.1M",
+        "focus": "Sea level rise, climate impact modelling, and operational ocean observations."
+      },
+      {
+        "id": "sustainable-fisheries-group",
+        "name": "Sustainable Fisheries Group",
+        "lead": "Dr. Ayesha Khan",
+        "members": 15,
+        "projects": 8,
+        "publications": 98,
+        "funding": "$1.8M",
+        "focus": "Stock assessment, gear innovation, and fisheries policy readiness."
+      }
+    ],
+    "labels": {
+      "members": "Members",
+      "projects": "Projects",
+      "publications": "Publications",
+      "funding": "Funding",
+      "leadBy": "Lead: {{name}}"
+    },
+    "actions": {
+      "viewProfile": "View Team Profile"
+    }
+  },
+  "projects": {
+    "filters": {
+      "categories": {
+        "all": "All Projects",
+        "marineBiology": "Marine Biology",
+        "climate": "Climate Research",
+        "fisheries": "Fisheries",
+        "conservation": "Conservation",
+        "policy": "Policy & Governance"
+      },
+      "status": {
+        "all": "All Status"
+      }
+    },
+    "statusLabels": {
+      "active": "Active",
+      "planning": "Planning",
+      "completing": "Completing",
+      "completed": "Completed",
+      "upcoming": "Upcoming"
+    },
+    "labels": {
+      "category": "Category",
+      "status": "Status",
+      "progress": "Progress",
+      "budget": "Budget",
+      "spent": "Spent:",
+      "team": "Team",
+      "members": "Members",
+      "output": "Output",
+      "papers": "Papers",
+      "objectives": "Objectives:",
+      "outcomes": "Key Outcomes:",
+      "partners": "Partners:",
+      "timeline": "Timeline:",
+      "pi": "PI:"
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "showLess": "Show Less",
+      "projectPage": "Project Page"
+    }
+  },
+  "impactAnalytics": {
+    "heading": "Impact Analytics",
+    "range": {
+      "month": "Month",
+      "quarter": "Quarter",
+      "year": "Year",
+      "all": "All"
+    },
+    "citationGrowth": {
+      "heading": "Citation Growth",
+      "subheading": "5-year trend analysis"
+    },
+    "stats": {
+      "suffix": "this year",
+      "partnerInstitutions": "Partner Institutions",
+      "countries": "Countries",
+      "jointPublications": "Joint Publications",
+      "internationalCoauthors": "International Co-authors"
+    },
+    "publicationTypes": {
+      "heading": "Publications by Type",
+      "total": "Total publications: 1,247",
+      "journalArticles": "Journal Articles",
+      "conferencePapers": "Conference Papers",
+      "technicalReports": "Technical Reports",
+      "bookChapters": "Book Chapters",
+      "datasets": "Datasets"
+    },
+    "impactByArea": {
+      "heading": "Impact by Research Area",
+      "subheading": "Publications, citations, and h-index",
+      "labels": {
+        "marineBiology": "Marine Biology",
+        "climateChange": "Climate Change",
+        "fisheries": "Fisheries",
+        "oceanography": "Oceanography",
+        "conservation": "Conservation",
+        "policy": "Policy"
+      },
+      "metrics": {
+        "publications": "Publications",
+        "citations": "Citations",
+        "hIndex": "H-Index"
+      }
+    },
+    "topPublications": {
+      "heading": "Top Cited Publications",
+      "subheading": "Top 5 by citation count",
+      "citations": "{{count}} citations",
+      "growth": "+{{value}}% growth"
+    },
+    "geographic": {
+      "heading": "Global Reach",
+      "subheading": "Citations by region",
+      "regions": {
+        "asiaPacific": "Asia-Pacific",
+        "europe": "Europe",
+        "northAmerica": "North America",
+        "restOfWorld": "Rest of World"
+      },
+      "institutions": "{{count}} institutions"
+    },
+    "downloads": {
+      "heading": "Monthly Downloads",
+      "subheading": "User access trend",
+      "sectionHeading": "Publication Downloads",
+      "sectionSubheading": "Monthly trend for 2024",
+      "months": {
+        "jan": "Jan",
+        "feb": "Feb",
+        "mar": "Mar",
+        "apr": "Apr",
+        "may": "May",
+        "jun": "Jun",
+        "jul": "Jul",
+        "aug": "Aug",
+        "sep": "Sep",
+        "oct": "Oct",
+        "nov": "Nov",
+        "dec": "Dec"
+      }
+    },
+    "tabs": {
+      "citations": "Citations",
+      "downloads": "Downloads"
+    }
+  },
+  "collaboration": {
+    "map": {
+      "title": "Global Partnership Network",
+      "description": "Select a region to view collaboration details",
+      "empty": "Interactive map visualization of global partnerships",
+      "subtitle": "{{institutions}} institutions across {{countries}} countries"
+    },
+    "stats": {
+      "items": [
+        {
+          "id": "countries",
+          "label": "Countries",
+          "value": 42,
+          "icon": "Globe",
+          "color": "from-cyan-400 to-blue-600"
+        },
+        {
+          "id": "institutions",
+          "label": "Partner Institutions",
+          "value": 89,
+          "icon": "Building",
+          "color": "from-purple-400 to-pink-600"
+        },
+        {
+          "id": "publications",
+          "label": "Joint Publications",
+          "value": 456,
+          "icon": "FileText",
+          "color": "from-green-400 to-emerald-600"
+        },
+        {
+          "id": "researchers",
+          "label": "Collaborating Researchers",
+          "value": 723,
+          "icon": "Users",
+          "color": "from-amber-400 to-orange-600"
+        }
+      ]
+    },
+    "region": {
+      "metrics": {
+        "countries": "Countries",
+        "institutions": "Institutions",
+        "publications": "Publications",
+        "researchers": "Researchers"
+      },
+      "labels": {
+        "highlights": "Highlights:",
+        "topCountries": "Top Countries:"
+      }
+    },
+    "regions": {
+      "items": [
+        {
+          "id": "asia-pacific",
+          "name": "Asia-Pacific",
+          "countries": 18,
+          "institutions": 34,
+          "publications": 234,
+          "researchers": 312,
+          "color": "cyan",
+          "highlights": [
+            "Leading collaboration hub",
+            "Most joint publications"
+          ],
+          "topCountries": [
+            "Japan",
+            "Australia",
+            "Singapore",
+            "India",
+            "China"
+          ]
+        },
+        {
+          "id": "europe",
+          "name": "Europe",
+          "countries": 12,
+          "institutions": 28,
+          "publications": 156,
+          "researchers": 245,
+          "color": "blue",
+          "highlights": [
+            "Strong research networks",
+            "EU-funded projects"
+          ],
+          "topCountries": [
+            "United Kingdom",
+            "Germany",
+            "Netherlands",
+            "France",
+            "Norway"
+          ]
+        },
+        {
+          "id": "north-america",
+          "name": "North America",
+          "countries": 3,
+          "institutions": 18,
+          "publications": 98,
+          "researchers": 134,
+          "color": "purple",
+          "highlights": [
+            "High-impact collaborations",
+            "Advanced technology partnerships"
+          ],
+          "topCountries": [
+            "United States",
+            "Canada",
+            "Mexico"
+          ]
+        }
+      ]
+    },
+    "partners": {
+      "heading": "Partner Institutions",
+      "cta": "Become a Partner",
+      "items": [
+        {
+          "id": 1,
+          "name": "National Oceanic and Atmospheric Administration (NOAA)",
+          "country": "United States",
+          "type": "Government Agency",
+          "region": "North America",
+          "joinedYear": 2015,
+          "status": "active",
+          "collaborationType": [
+            "Research",
+            "Data Sharing",
+            "Training"
+          ],
+          "jointPublications": 42,
+          "activeProjects": 5,
+          "mou": true,
+          "contact": {
+            "name": "Dr. Sarah Johnson",
+            "email": "sarah.johnson@noaa.gov",
+            "phone": "+1 301 555 0123"
+          },
+          "focusAreas": [
+            "Climate Change",
+            "Oceanography",
+            "Marine Ecosystems"
+          ],
+          "achievements": [
+            "Joint ocean monitoring network",
+            "15 co-authored papers",
+            "Technology transfer program"
+          ]
+        }
+      ]
+    },
+    "partner": {
+      "metrics": {
+        "publications": "Publications",
+        "projects": "Projects",
+        "mou": "MoU",
+        "since": "Since {{year}}"
+      },
+      "labels": {
+        "focusAreas": "Focus Areas:",
+        "achievements": "Key Achievements:",
+        "contact": "Contact:"
+      },
+      "actions": {
+        "viewDetails": "View Details",
+        "hideDetails": "Hide Details"
+      }
+    },
+    "opportunities": {
+      "heading": "Collaboration Opportunities",
+      "labels": {
+        "value": "Value:",
+        "duration": "Duration:",
+        "deadline": "Deadline:"
+      },
+      "apply": "Apply Now",
+      "items": [
+        {
+          "id": 1,
+          "title": "ASEAN Marine Science Network - Research Fellowship",
+          "type": "Fellowship",
+          "deadline": "2025-03-15",
+          "region": "Asia-Pacific",
+          "value": "$50,000",
+          "duration": "12 months",
+          "description": "Fellowship for joint marine science research projects across ASEAN countries."
+        }
+      ]
+    }
+  },
+  "ui": {
+    "sourceLive": "Live Data",
+    "sourceFallback": "Curated Dataset"
+  }
+}

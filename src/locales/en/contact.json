@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "title": "Contact Us",
+    "description": "We’re here to help. Reach out to NARA for inquiries, support, or collaboration opportunities."
+  },
+  "seo": {
+    "title": "Contact Us - NARA Digital Ocean Platform",
+    "description": "Get in touch with the National Aquatic Resources Research and Development Agency (NARA)."
+  },
+  "sections": {
+    "info": {
+      "title": "Get In Touch",
+      "office": {
+        "title": "Main Office",
+        "lines": [
+          "National Aquatic Resources Research and Development Agency",
+          "Crow Island, Colombo 15",
+          "Sri Lanka"
+        ]
+      },
+      "phone": {
+        "title": "Phone",
+        "lines": [
+          "+94 11 252 1000",
+          "+94 11 252 1100"
+        ]
+      },
+      "email": {
+        "title": "Email",
+        "primary": "info@nara.gov.lk",
+        "secondary": "director@nara.gov.lk"
+      },
+      "hours": {
+        "title": "Working Hours",
+        "lines": [
+          "Monday - Friday: 8:30 AM - 4:15 PM",
+          "Saturday - Sunday: Closed",
+          "(Except Public Holidays)"
+        ]
+      },
+      "quickLinks": {
+        "title": "Quick Links",
+        "careers": "Careers & Recruitment",
+        "news": "News & Updates",
+        "emergency": "Emergency Hotline"
+      }
+    },
+    "form": {
+      "title": "Send Us A Message",
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Enter your name"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "you@example.com"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "How can we help?"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Let us know how we can support you"
+        }
+      },
+      "submit": "Submit Message",
+      "disclaimer": "By submitting this form you agree to our data protection and privacy practices.",
+      "responseNotice": "We'll respond to your inquiry within 1-2 business days."
+    },
+    "map": {
+      "title": "Find Us",
+      "comingSoon": "Map integration coming soon",
+      "location": "Crow Island, Colombo 15, Sri Lanka",
+      "getDirections": "Get Directions"
+    }
+  }
+}

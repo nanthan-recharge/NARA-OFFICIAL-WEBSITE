@@ -1,0 +1,112 @@
+{
+  "hero": {
+    "title": "Project Pipeline Tracker",
+    "subtitle": "Track NARA's research projects in real-time. Monitor progress, budgets, outputs, and impact through our public transparency dashboard."
+  },
+  "stats": {
+    "totalProjects": "Total Projects",
+    "activeProjects": "Active Projects",
+    "completedProjects": "Completed Projects",
+    "totalBudget": "Total Budget"
+  },
+  "ragStatus": {
+    "title": "Project Health (RAG Status)",
+    "green": {
+      "label": "On Track (Green)",
+      "description": "Projects proceeding as planned"
+    },
+    "amber": {
+      "label": "At Risk (Amber)",
+      "description": "Minor issues requiring attention"
+    },
+    "red": {
+      "label": "Critical (Red)",
+      "description": "Significant delays or issues"
+    }
+  },
+  "quickActions": {
+    "browseProjects": {
+      "title": "Browse All Projects",
+      "description": "Explore our complete research portfolio with advanced filtering"
+    },
+    "criticalProjects": {
+      "title": "Critical Projects",
+      "description": "View projects requiring immediate attention"
+    }
+  },
+  "divisions": {
+    "title": "Projects by Division"
+  },
+  "projects": {
+    "title": "Research Projects",
+    "subtitle": "Browse and track all public research projects",
+    "backToDashboard": "Back to Dashboard",
+    "backToProjects": "Back to Projects"
+  },
+  "filters": {
+    "search": "Search",
+    "searchPlaceholder": "Search projects, PI, keywords...",
+    "status": "Status",
+    "ragStatus": "RAG Status",
+    "division": "Division",
+    "allStatuses": "All Statuses",
+    "allRAG": "All RAG",
+    "allDivisions": "All Divisions",
+    "showing": "Showing {{filtered}} of {{total}} projects",
+    "clearFilters": "Clear Filters",
+    "noProjects": "No projects found matching your filters"
+  },
+  "projectStatus": {
+    "planning": "Planning",
+    "active": "Active",
+    "on_hold": "On Hold",
+    "completed": "Completed"
+  },
+  "ragLabels": {
+    "green": "Green (On Track)",
+    "amber": "Amber (At Risk)",
+    "red": "Red (Critical)"
+  },
+  "divisionNames": {
+    "marineBiology": "Marine Biology & Ecosystems",
+    "fisheriesScience": "Fisheries Science",
+    "aquaculture": "Aquaculture",
+    "environmentalMonitoring": "Environmental Monitoring",
+    "postHarvest": "Post-Harvest & Quality",
+    "hydrography": "Hydrography"
+  },
+  "projectCard": {
+    "progress": "Progress",
+    "principalInvestigator": "Principal Investigator",
+    "budget": "Budget",
+    "milestones": "milestones"
+  },
+  "projectDetail": {
+    "projectId": "Project ID",
+    "division": "Division",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "progress": "Progress",
+    "completion": "Completion",
+    "latestUpdate": "Latest Update:",
+    "budget": "Budget",
+    "totalBudget": "Total Budget",
+    "spent": "Spent",
+    "remaining": "Remaining",
+    "utilization": "Utilization",
+    "team": "Research Team",
+    "principalInvestigator": "Principal Investigator",
+    "teamMembers": "Team Members",
+    "milestones": "Milestones",
+    "target": "Target:",
+    "completed": "Completed:",
+    "outputs": "Research Outputs",
+    "citations": "citations"
+  },
+  "outputTypes": {
+    "publication": "Publication",
+    "report": "Report",
+    "dataset": "Dataset",
+    "other": "Other"
+  }
+}

@@ -1,0 +1,285 @@
+{
+  "hero": {
+    "badge": "අත්‍යවශ්‍ය ඒකාබද්ධතාව",
+    "title": "එකාබද්ධතා වේදිකාව",
+    "subtitle": "රජයේ දත්ත සමුදා, හවුල්කරුවන්ගේ API, සහ උපාංග දත්ත පස්සෙට එකම පාලන මට්ටමකින් කළමනාකරණය කරන්න.",
+    "description": "වේදිකාවට සම්බන්ධ සියලුම පද්ධති නිරන්තරව නිරීක්ෂණය කරමින් NARA කණ්ඩායම් සඳහා විශ්වාසදායී බුද්ධිය සහ ආරක්ෂාව සපයයි.",
+    "badges": [
+      {
+        "id": "sovereign",
+        "label": "රාජ්‍ය දත්ත හුවමාරු"
+      },
+      {
+        "id": "resilience",
+        "label": "24/7 නිරීක්ෂණය"
+      }
+    ],
+    "ctas": [
+      {
+        "id": "playbook",
+        "label": "එකාබද්ධ යෙදුම් පංතිය",
+        "href": "#modules",
+        "variant": "primary"
+      },
+      {
+        "id": "contact",
+        "label": "එකාබද්ධ අංශය හා සම්බන්ධ වන්න",
+        "href": "/contact-us",
+        "variant": "secondary"
+      }
+    ],
+    "metrics": {
+      "totalIntegrations": "සම්බන්ධිත පද්ධති",
+      "activeConnections": "සක්‍රීය නාලිකා",
+      "avgHealthScore": "ආරෝగ్య ශ්‍රේණිය",
+      "uptimeEstimate": "ක්‍රියාකාලය (ඇණවුම)",
+      "alertsCount": "සක්‍රීය හදිසි නිවේදන",
+      "refresh": "තත්ත්වය නැවුම් කරන්න",
+      "lastUpdated": "{{time}} ට යාවත්කාලීන කෙරිණි"
+    },
+    "alerts": {
+      "badge": "සජීව නිරීක්ෂණය",
+      "title": "ජීවත් අනතුරු ඇඟවීම්",
+      "empty": "සියලුම නාලිකා සාමාන්‍ය සීමාවන් තුළ ක්‍රියාත්මක වේ.",
+      "statusLabel": "{{status}} නාලිකාව"
+    },
+    "statusBreakdown": {
+      "title": "තත්ත්ව විෂ්ලේෂණය",
+      "active": "සක්‍රීය",
+      "maintenance": "අලුත්වැඩියා",
+      "error": "අනතුරු ඇඟවීම",
+      "inactive": "අක්‍රීය"
+    },
+    "ctaDefault": "තව දැනගන්න",
+    "cmsFallback": {
+      "title": "එකාබද්ධතා වේදිකාව",
+      "subtitle": "විශේෂ ඒකාබද්ධ ක්‍රියාකාරකම් හරහා සියලුම බාහිර පද්ධති කළමනාකරණය කරන්න",
+      "description": "ශ්‍රී ලංකාවේ මුහුදු බුද්ධිය ක්‍රියාත්මක තබාගන්නා සියලුම ඉන්ටර්ෆේස් එකම ස්ථානයකින් නියාමනය කරන්න.",
+      "badges": [
+        {
+          "id": "governance",
+          "label": "ආරක්ෂිත දත්ත නාලිකා"
+        }
+      ],
+      "ctas": [
+        {
+          "id": "contact",
+          "label": "එකාබද්ධතා විගණනියක් වෙන් කරන්න",
+          "href": "/contact-us",
+          "variant": "primary"
+        }
+      ]
+    }
+  },
+  "tabs": {
+    "ariaLabel": "එකාබද්ධ ඒකක යාත්‍රණය",
+    "government": {
+      "label": "රජයේ දත්ත",
+      "description": "අන්තර් රාජ්‍ය දත්ත හුවමාරු API"
+    },
+    "research": {
+      "label": "ගවේශණ ජාල",
+      "description": "ගෝලීය හවුල්කරුවන් හා දැනුම හුවමාරු කිරීම"
+    },
+    "satellite": {
+      "label": "සැටලයිට් දත්ත",
+      "description": "ස්වයංක්‍රීය දත්ත උපාංග හා සැකසුම්"
+    },
+    "api": {
+      "label": "API කළමනාකරණය",
+      "description": "බාහිර API ද්වාර හා විශ්ලේෂණ"
+    }
+  },
+  "monitor": {
+    "heading": "පද්ධති සෞඛ්‍යය",
+    "empty": "තවම දත්ත නොමැත. ප්‍රභවයක් සම්බන්ධ කරන්න.",
+    "healthLabel": "{{value}}%",
+    "error": "දත්ත නැවුම් කළ නොහැකි විය. ඉතිහාසගත අගයන් පෙන්වයි."
+  },
+  "guidelines": {
+    "security": {
+      "title": "ආරක්ෂක හොඳ පුරුදු",
+      "items": [
+        "සියලු API HTTPS/TLS සහිතයි.",
+        "භූමිකා පදනම්ව පරිශීලක සීමා.",
+        "කරാറු අනුව відповідність ස්වයංක්‍රීයව පරීක්ෂා කරයි.",
+        "ව්‍යාපාරික පරීක්ෂණ හා පිරික්සුම් නිතර."
+      ]
+    },
+    "collaboration": {
+      "title": "සහයෝගී වැඩ",
+      "items": [
+        "සජීව දත්ත සමමුහුර්ත කිරීම.",
+        "සහ හවුල් ව්‍යාපෘති සඳහා ස්වයංක්‍රීය වැඩ සැලසුම්.",
+        "සංස්කරණ පාලනය සහිත ලේඛන හුවමාරු.",
+        "තිනෙරා භාෂා අතුරු මුහුණතෙන් ප්‍රාදේශීය එකඟතාව."
+      ]
+    }
+  },
+  "common": {
+    "statuses": {
+      "active": "සක්‍රීය",
+      "inactive": "අක්‍රීය",
+      "maintenance": "අලුත්වැඩියා",
+      "error": "දෝෂ",
+      "pending": "නිලිය",
+      "processing": "සැකසෙමින්",
+      "queued": "පේළි",
+      "completed": "සම්පූර්ණ",
+      "default": "තත්ත්වය"
+    },
+    "securityLevels": {
+      "public": "සමාජ",
+      "internal": "අභ්‍යන්තර",
+      "confidential": "රහස්‍ය",
+      "classified": "ගෝපන",
+      "default": "ආරක්ෂිත"
+    },
+    "fields": {
+      "name": "නම",
+      "description": "විස්තරය",
+      "apiUrl": "API ලිපිනය",
+      "dataFormat": "දත්ත ආකෘතිය",
+      "securityLevel": "ආරක්ෂක පියවර"
+    },
+    "dataFormats": {
+      "json": "JSON",
+      "xml": "XML",
+      "csv": "CSV",
+      "binary": "ද්වයික"
+    },
+    "actions": {
+      "cancel": "අවලංගු",
+      "add": " එකතු"
+    },
+    "labels": {
+      "syncShort": "පැය {{value}} කට වරක්"
+    }
+  },
+  "government": {
+    "title": "රජයේ දත්ත සම්බන්ධතා",
+    "subtitle": "අමාත්‍යාංශ සහ ආයතන සම්බන්ධතා පාලනය කරන්න.",
+    "actions": {
+      "add": "සම්බන්ධතා එකතු කරන්න",
+      "edit": "සම්බන්ධතා සංස්කරණය",
+      "delete": "ඉවත් කරන්න",
+      "deactivate": "අක්‍රීය කරන්න",
+      "activate": "සක්‍රීය කරන්න",
+      "configure": "සැකසුම්"
+    },
+    "stats": {
+      "total": "එකතුව",
+      "active": "සක්‍රීය",
+      "pending": "නිලිය",
+      "formats": "áකෘති"
+    },
+    "labels": {
+      "url": "ලිපිනය:",
+      "lastSync": "අවසාන සමමුහුර්තය:"
+    },
+    "empty": {
+      "title": "සම්බන්ධතා නොමැත",
+      "description": "පළමු බාහිර පද්ධතිය සක්‍රීය කරන්න.",
+      "cta": "ප්‍රථම සම්බන්ධතාවය එකතු කරන්න"
+    },
+    "modal": {
+      "createTitle": "නව සම්බන්ධතාවයකු රචනා කරන්න",
+      "editTitle": "සම්බන්ධතාවය සංස්කරණය",
+      "fields": {
+        "syncFrequency": "සමමුහුර්ත වේලාව (පැය)"
+      },
+      "placeholders": {
+        "name": "EPA Environmental Data Gateway",
+        "description": "EPA වෙතින් සජීව දත්ත",
+        "apiUrl": "https://api.epa.gov/environmental-data"
+      },
+      "actions": {
+        "create": "සම්බන්ධතාවය සුරකින්න",
+        "update": "සම්බන්ධතාවය යාවත්කාලීන"
+      }
+    }
+  },
+  "research": {
+    "title": "ජාත්‍යන්තර ගවේශන ජාල",
+    "subtitle": "ගවේශන ආයතන හා ගිවිසුම් එකතුව",
+    "actions": {
+      "add": "ආයතනය එකතු කරන්න",
+      "edit": "ආයතනය සංස්කරණය",
+      "delete": "ආයතනය ඉවත් කරන්න",
+      "approve": "අනුමත කරන්න",
+      "suspend": "අත්හිටුවන්න"
+    },
+    "statuses": {
+      "active": "සක්‍රීය හවුල්කරුවා",
+      "pending": "අනුමැතිය අපේක්ෂිත",
+      "inactive": "අක්‍රීය"
+    },
+    "stats": {
+      "total": "මුළු ආයතන",
+      "active": "සක්‍රීය හවුල්කාරීත්ව",
+      "pending": "අනුමත නොවූ",
+      "countries": "රටවල්"
+    },
+    "researchAreas": {
+      "title": "ගවේශන ප්‍රදේශ"
+    },
+    "cards": {
+      "researchAreas": "ගවේශන ප්‍රදේශ",
+      "moreAreas": "තවත් {{count}}"
+    },
+    "links": {
+      "visit": "වෙබ් අඩවියට යන්න"
+    },
+    "labels": {
+      "partnershipSince": "හවුල්කාරීත්වය ආරම්භය",
+      "agreements": "{{count}} ගිවිසුම්"
+    },
+    "empty": {
+      "title": "ගවේශන ආයතන නොමැත",
+      "description": "ඔබේ ජාලය ගොඩනඟන්න ආරම්භ කරන්න.",
+      "cta": "පළමු ආයතනය එකතු කරන්න"
+    },
+    "modal": {
+      "createTitle": "ගවේශන ආයතනය එකතු කරන්න",
+      "editTitle": "ආයතනය සංස්කරණය",
+      "fields": {
+        "name": "ආයතන නාමය",
+        "country": "රට",
+        "website": "වෙබ් ලිපිනය",
+        "email": "ඊමේල්",
+        "status": "කූට්ටුවේ තත්ත්වය",
+        "areas": "ගවේශන ප්‍රදේශ"
+      },
+      "placeholders": {
+        "name": "Marine Research Institute",
+        "country": "ഐස්ලන්ත",
+        "website": "https://www.mri.is",
+        "email": "contact@mri.is",
+        "area": "Marine biology"
+      },
+      "actions": {
+        "create": "ආයතනය සුරකින්න",
+        "update": "ආයතනය යාවත්කාලීන"
+      }
+    }
+  },
+  "satellite": {
+    "title": "සැටලයිට් දත්ත සැකසීම",
+    "subtitle": "සජීව උපාංග දත්ත හා AI විශ්ලේෂණ",
+    "actions": {
+      "newJob": "නව ක්‍රියාව",
+      "addSource": "උපරිමය එකතු කරන්න",
+      "start": "ආරම්භ කරන්න",
+      "pause": "වැළැක්වන්න"
+    }
+  },
+  "api": {
+    "title": "API කළමනාකරණ ද්වාරය",
+    "subtitle": "බාහිර ප්‍රවේශය හා භාවිත විශ්ලේෂණය",
+    "actions": {
+      "addEndpoint": "පිහිටුම එකතු කරන්න",
+      "toggleOn": "සක්‍රීය",
+      "toggleOff": "අක්‍රීය"
+    }
+  }
+}

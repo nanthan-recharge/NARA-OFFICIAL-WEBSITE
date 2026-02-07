@@ -1,0 +1,77 @@
+{
+  "categories": {
+    "education-outreach": "Education & Outreach",
+    "research-development": "Research & Development",
+    "policy-management": "Policy & Management",
+    "technology-innovation": "Technology & Innovation",
+    "environmental-initiatives": "Environmental Initiatives",
+    "conservation-awareness": "Conservation & Awareness",
+    "community-development": "Community Development",
+    "capacity-building": "Capacity Building",
+    "technology-integration": "Technology Integration",
+    "international-cooperation": "International Cooperation",
+    "industry-support": "Industry Support",
+    "industry-development": "Industry Development",
+    "cultural-events": "Cultural Events",
+    "institutional-milestones": "Institutional Milestones",
+    "conservation-partnerships": "Conservation Partnerships"
+  },
+  "filters": {
+    "allCategories": "All Categories",
+    "search": "Search articles...",
+    "sortBy": "Sort by",
+    "filterBy": "Filter by",
+    "dateRange": "Date Range",
+    "from": "From",
+    "to": "To",
+    "apply": "Apply",
+    "reset": "Reset",
+    "showing": "Showing",
+    "of": "of",
+    "articles": "articles"
+  },
+  "sorting": {
+    "date": "Date",
+    "title": "Title",
+    "views": "Views",
+    "popularity": "Popularity"
+  },
+  "article": {
+    "by": "by",
+    "at": "at",
+    "minRead": "min read",
+    "views": "Views",
+    "shares": "Shares",
+    "readMore": "Read More",
+    "readFull": "Read Full Article",
+    "share": "Share",
+    "keyPoints": "Key Points",
+    "relatedArticles": "Related Articles",
+    "close": "Close"
+  },
+  "hero": {
+    "title": "News & Updates Center",
+    "subtitle": "Stay informed with the latest developments from NARA",
+    "description": "Your source for marine science news, research updates, and institutional announcements"
+  },
+  "sections": {
+    "featured": "Featured News",
+    "latest": "Latest Updates",
+    "spotlight": "In the Spotlight",
+    "trending": "Trending Now"
+  },
+  "actions": {
+    "loadMore": "Load More Articles",
+    "viewAll": "View All News",
+    "subscribe": "Subscribe to Updates",
+    "previous": "Previous",
+    "next": "Next"
+  },
+  "empty": {
+    "title": "No articles found",
+    "description": "Try adjusting your filters or search terms",
+    "action": "Clear Filters"
+  },
+  "loading": "Loading articles...",
+  "error": "Failed to load articles. Please try again later."
+}

@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;600;700&display=swap');
+
+/* NARA Government Design System - Technical Specification v1.0 */
+@import './government-theme.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations for dropdown menus */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Ensure dropdowns are visible and above other content */
+.z-50 {
+  z-index: 9999 !important;
+}
+
+/* Theme-specific adjustments */
+.dark {
+  color-scheme: dark;
+}
+
+.glow {
+  color-scheme: dark;
+}
+
+/* Glow theme special effects */
+.glow button {
+  transition: all 0.3s ease;
+}
+
+.glow button:hover {
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.4);
+}
+
+@layer base {
+  :root {
+    /* Core Colors - UWA Oceans Institute + NASA Aesthetic */
+    --color-background: #0A0F1C; /* Deep space navy */
+    --color-foreground: #F8FAFC; /* Crisp white */
+    --color-border: #1E293B; /* Dark slate border */
+    --color-input: #0F172A; /* Dark input background */
+    --color-ring: #0EA5E9; /* Bright cyan ring */
+    
+    /* Card Colors */
+    --color-card: #0F172A; /* Dark card background */
+    --color-card-foreground: #F8FAFC; /* Light text on dark */
+    --color-popover: #1E293B; /* Popover background */
+    --color-popover-foreground: #F8FAFC; /* Popover text */
+    
+    /* Muted Colors */
+    --color-muted: #1E293B; /* Muted background */
+    --color-muted-foreground: #94A3B8; /* Muted text */
+    
+    /* Primary Colors - Deep Ocean Blues to Cyan Gradients */
+    --color-primary: #0C4A6E; /* Deep ocean blue */
+    --color-primary-foreground: #F0F9FF; /* Light cyan text */
+    
+    /* Secondary Colors */
+    --color-secondary: #1E40AF; /* NASA blue */
+    --color-secondary-foreground: #DBEAFE; /* Light blue text */
+    
+    /* Accent Colors */
+    --color-accent: #06B6D4; /* Bright cyan accent */
+    --color-accent-foreground: #0C4A6E; /* Dark text on bright */
+    
+    /* State Colors */
+    --color-success: #10B981; /* Emerald success */
+    --color-success-foreground: #064E3B; /* Dark emerald text */
+    
+    --color-warning: #F59E0B; /* Amber warning */
+    --color-warning-foreground: #78350F; /* Dark amber text */
+    
+    --color-error: #EF4444; /* Red error */
+    --color-error-foreground: #7F1D1D; /* Dark red text */
+    
+    --color-destructive: #DC2626; /* Destructive red */
+    --color-destructive-foreground: #FEF2F2; /* Light red text */
+    
+    /* Ocean Intelligence Palette Extensions */
+    --color-ocean-deep: #0C4A6E; /* Deep ocean depths */
+    --color-ocean-medium: #0284C7; /* Mid-ocean blue */
+    --color-ocean-light: #0EA5E9; /* Surface waters */
+    --color-coral-warm: #F97316; /* Coral orange */
+    --color-surface: #1E293B; /* Dark surface */
+    --color-text-primary: #F8FAFC; /* Primary light text */
+    --color-text-secondary: #94A3B8; /* Secondary muted text */
+    
+    /* Glass Morphism Variables */
+    --glass-background: rgba(15, 23, 42, 0.7); /* Dark glass */
+    --glass-border: rgba(148, 163, 184, 0.1); /* Subtle border */
+    --glass-backdrop: blur(12px); /* Backdrop blur */
+    
+    /* Animation Variables */
+    --animation-duration: 400ms;
+    --animation-timing: cubic-bezier(0.4, 0, 0.2, 1);
+    --animation-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* Spacing System - NASA/Scientific Precision */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+  }
+  
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1, "liga" 1, "kern" 1;
+    font-optical-sizing: auto;
+  }
+
+  /* Tamil Font Fixes - Prevent letter spacing issues */
+  html[lang="ta"], 
+  html[lang="ta"] body,
+  html[lang="ta"] * {
+    font-family: 'Noto Sans Tamil', 'Tamil Sangam MN', 'Lohit Tamil', sans-serif !important;
+    letter-spacing: 0 !important;
+    word-spacing: normal !important;
+    font-feature-settings: normal !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Sinhala Font Fixes - Prevent letter spacing issues */
+  html[lang="si"],
+  html[lang="si"] body,
+  html[lang="si"] * {
+    font-family: 'Noto Sans Sinhala', 'Iskoola Pota', 'Noto Sans', sans-serif !important;
+    letter-spacing: 0 !important;
+    word-spacing: normal !important;
+    font-feature-settings: normal !important;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* English - Keep default fonts and spacing */
+  html[lang="en"],
+  html[lang="en"] body {
+    font-family: 'Space Grotesk', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  
+  /* Typography System - Space Grotesk + Inter + NASA Aesthetic */
+  .font-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+  }
+  
+  .font-subheading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  
+  .font-body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  .font-body-medium {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+  
+  .font-cta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  
+  .font-cta-medium {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+  
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    font-feature-settings: "liga" 0;
+  }
+  
+  .font-mono-medium {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-feature-settings: "liga" 0;
+  }
+  
+  /* Advanced Ocean + NASA Animations */
+  @keyframes ocean-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 30px rgba(6, 182, 212, 0.3);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 50px rgba(6, 182, 212, 0.6);
+    }
+  }
+  
+  @keyframes data-flow {
+    0% {
+      transform: translateX(-100%) translateY(-100%);
+      opacity: 0;
+    }
+    25% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+    75% {
+      opacity: 0.5;
+    }
+    100% {
+      transform: translateX(100%) translateY(100%);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes depth-reveal {
+    from {
+      transform: translateY(30px) rotateX(15deg);
+      opacity: 0;
+      filter: blur(4px);
+    }
+    to {
+      transform: translateY(0) rotateX(0deg);
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+  
+  @keyframes parallax-float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    25% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(0deg);
+    }
+    75% {
+      transform: translateY(-10px) rotate(-1deg);
+    }
+  }
+  
+  @keyframes particle-drift {
+    0% {
+      transform: translateX(0) translateY(0) scale(1);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(100px) translateY(-100px) scale(0.5);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes counter-animate {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes glass-shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .animate-ocean-pulse {
+    animation: ocean-pulse 3s ease-in-out infinite;
+  }
+  
+  .animate-data-flow {
+    animation: data-flow 4s ease-in-out infinite;
+  }
+  
+  .animate-depth-reveal {
+    animation: depth-reveal 0.8s var(--animation-timing) forwards;
+  }
+  
+  .animate-parallax-float {
+    animation: parallax-float 6s ease-in-out infinite;
+  }
+  
+  .animate-particle-drift {
+    animation: particle-drift 8s linear infinite;
+  }
+  
+  .animate-counter {
+    animation: counter-animate 0.6s var(--animation-spring) forwards;
+  }
+  
+  .animate-glass-shimmer {
+    animation: glass-shimmer 2s infinite linear;
+  }
+  
+  /* Glass Morphism Effects */
+  .glass-morphism {
+    background: var(--glass-background);
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+  }
+  
+  .glass-card {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    box-shadow: 
+      0 4px 32px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-button {
+    background: rgba(6, 182, 212, 0.1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+    transition: all var(--animation-duration) var(--animation-timing);
+  }
+  
+  .glass-button:hover {
+    background: rgba(6, 182, 212, 0.2);
+    border-color: rgba(6, 182, 212, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.3);
+  }
+  
+  /* Particle System Base */
+  .particles-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(6, 182, 212, 0.6);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  
+  /* UWA/NASA Scientific Modernism Utilities */
+  .ocean-depth-shadow {
+    box-shadow: 
+      0 4px 16px rgba(12, 74, 110, 0.2), 
+      0 8px 32px rgba(12, 74, 110, 0.1),
+      0 16px 64px rgba(12, 74, 110, 0.05);
+  }
+  
+  .coral-glow {
+    box-shadow: 
+      0 0 24px rgba(249, 115, 22, 0.3),
+      0 0 48px rgba(249, 115, 22, 0.15);
+  }
+  
+  .scientific-border {
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+  
+  .authority-text {
+    color: var(--color-text-primary);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  .wisdom-text {
+    color: var(--color-text-secondary);
+    font-weight: 400;
+    line-height: 1.7;
+  }
+  
+  /* Interactive States - NASA Style */
+  .interactive-scale {
+    transition: all var(--animation-duration) var(--animation-spring);
+  }
+  
+  .interactive-scale:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.2);
+  }
+  
+  .interactive-lift {
+    transition: all var(--animation-duration) var(--animation-timing);
+    transform-style: preserve-3d;
+  }
+  
+  .interactive-lift:hover {
+    transform: translateY(-8px) rotateX(5deg);
+    box-shadow: 
+      0 16px 48px rgba(12, 74, 110, 0.2),
+      0 32px 80px rgba(12, 74, 110, 0.1);
+  }
+  
+  .interactive-glow {
+    position: relative;
+    overflow: hidden;
+    transition: all var(--animation-duration) var(--animation-timing);
+  }
+  
+  .interactive-glow:hover {
+    box-shadow: 
+      0 0 32px rgba(6, 182, 212, 0.4),
+      inset 0 0 32px rgba(6, 182, 212, 0.1);
+  }
+  
+  .interactive-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg, 
+      transparent, 
+      rgba(6, 182, 212, 0.4), 
+      transparent
+    );
+    transition: left 0.6s;
+  }
+  
+  .interactive-glow:hover::before {
+    left: 100%;
+  }
+  
+  /* Real-time Counter Animations */
+  .counter-metric {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Parallax Effects */
+  .parallax-layer-1 {
+    transform: translateZ(0);
+  }
+  
+  .parallax-layer-2 {
+    transform: translateZ(-1px) scale(2);
+  }
+  
+  .parallax-layer-3 {
+    transform: translateZ(-2px) scale(3);
+  }
+  
+  /* Breaking News System */
+  .breaking-news-ticker {
+    background: linear-gradient(
+      90deg,
+      rgba(239, 68, 68, 0.8),
+      rgba(249, 115, 22, 0.8)
+    );
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  
+  .breaking-news-item {
+    animation: ticker-scroll 30s linear infinite;
+  }
+  
+  @keyframes ticker-scroll {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Research Division Cards */
+  .research-card {
+    background: linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.9) 0%,
+      rgba(30, 41, 59, 0.8) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(148, 163, 184, 0.1);
+    transition: all var(--animation-duration) var(--animation-spring);
+  }
+  
+  .research-card:hover {
+    background: linear-gradient(
+      135deg,
+      rgba(30, 41, 59, 0.95) 0%,
+      rgba(51, 65, 85, 0.9) 100%
+    );
+    border-color: rgba(6, 182, 212, 0.3);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+      0 12px 48px rgba(6, 182, 212, 0.15),
+      0 4px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Mobile Optimization */
+  @media (max-width: 768px) {
+    .mobile-touch-target {
+      min-height: 48px;
+      min-width: 48px;
+    }
+    
+    .mobile-spacing {
+      padding: var(--spacing-md);
+    }
+    
+    .mobile-glass {
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+  }
+  
+  /* High Contrast Mode Support */
+  @media (prefers-contrast: high) {
+    :root {
+      --color-border: #FFFFFF;
+      --color-text-primary: #FFFFFF;
+      --color-background: #000000;
+      --glass-border: rgba(255, 255, 255, 0.3);
+    }
+  }
+  
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-ocean-pulse,
+    .animate-data-flow,
+    .animate-depth-reveal,
+    .animate-parallax-float,
+    .animate-particle-drift,
+    .animate-counter,
+    .animate-glass-shimmer,
+    .interactive-scale,
+    .interactive-lift {
+      animation: none;
+      transition: none;
+    }
+    
+    .parallax-layer-1,
+    .parallax-layer-2,
+    .parallax-layer-3 {
+      transform: none;
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    .glass-morphism,
+    .glass-card,
+    .glass-button {
+      background: white !important;
+      backdrop-filter: none !important;
+      -webkit-backdrop-filter: none !important;
+      border: 1px solid #000 !important;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "badge": "NARA Divisions",
+    "title": "Explore Our Divisions",
+    "subtitle": "Discover world-class marine research across 21 specialized divisions and regional centers. Download comprehensive guides and explore our expertise.",
+    "searchPlaceholder": "Search divisions by name, expertise, or services...",
+    "searchAria": "Search divisions",
+    "stats": [
+      { "icon": "Building2", "value": "21", "label": "Divisions" },
+      { "icon": "Users", "value": "200+", "label": "Researchers" },
+      { "icon": "MapPin", "value": "5", "label": "Regional Centers" },
+      { "icon": "Award", "value": "50+", "label": "Services" }
+    ]
+  },
+  "categories": {
+    "all": "All Divisions",
+    "research": "Research Divisions",
+    "regional": "Regional Centers",
+    "supporting": "Supporting Divisions"
+  },
+  "sections": {
+    "research": {
+      "title": "Research Divisions",
+      "subtitle": "12 specialized divisions driving marine science, fisheries technology, and aquatic research across Sri Lanka"
+    },
+    "regional": {
+      "title": "Regional Research Centers",
+      "subtitle": "5 research centers strategically positioned across coastal Sri Lanka for field-based research and community support"
+    },
+    "supporting": {
+      "title": "Supporting Divisions",
+      "subtitle": "Administrative, financial, and operational backbone ensuring NARA's research mission runs effectively"
+    }
+  },
+  "results": {
+    "summary": "Showing {{count}} of {{total}} divisions",
+    "summary_one": "Showing {{count}} of {{total}} division",
+    "matching": "matching \"{{query}}\""
+  },
+  "empty": {
+    "title": "No Divisions Found",
+    "description": "Try adjusting your search or filter criteria.",
+    "clear": "Clear Filters"
+  },
+  "card": {
+    "pdfAvailable": "PDF Available",
+    "metrics": {
+      "focusAreas": "Focus Areas",
+      "services": "Services",
+      "team": "Team"
+    },
+    "pdfInfo": {
+      "title": "Download Division Guide",
+      "pages": "{{count}} pages",
+      "pages_one": "{{count}} page",
+      "size": "{{size}} KB"
+    },
+    "actions": {
+      "explore": "Explore Division",
+      "download": "Download PDF"
+    }
+  },
+  "cta": {
+    "heading": "Ready to Collaborate?",
+    "description": "Partner with our world-class research divisions to advance marine science and sustainable ocean management.",
+    "primary": "Contact Us",
+    "secondary": "View Research",
+    "downloadAll": "Download All PDFs"
+  },
+  "pdfCard": {
+    "headerTitle": "Division Guide",
+    "headerSubtitle": "Official Documentation",
+    "badge": "PDF",
+    "fileInfo": {
+      "formatLabel": "Format",
+      "formatValue": "PDF",
+      "pagesLabel": "Pages",
+      "sizeLabel": "Size"
+    },
+    "buttons": {
+      "download": "Download PDF",
+      "downloading": "Downloading...",
+      "downloaded": "Downloaded!",
+      "preview": "Preview"
+    },
+    "fileNameLabel": "File name"
+  }
+}

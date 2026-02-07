@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head><title>Test localStorage</title></head>
+<body>
+<h1>Check localStorage Images</h1>
+<button onclick="checkImages()">Check Images</button>
+<pre id="output"></pre>
+<script>
+function checkImages() {
+  const data = localStorage.getItem('nara_division_images');
+  document.getElementById('output').textContent = data || 'No data found';
+  if (data) {
+    const parsed = JSON.parse(data);
+    console.log('Found images:', parsed);
+  }
+}
+</script>
+</body>
+</html>

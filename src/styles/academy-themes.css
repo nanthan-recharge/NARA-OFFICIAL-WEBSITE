@@ -1,0 +1,219 @@
+/* Learning Development Academy Theme Styles */
+
+/* Normal Mode (Light) */
+[data-theme="normal"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg-primary: #111827;
+  --bg-secondary: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+  --border-color: #374151;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Glow Mode */
+[data-theme="glow"] {
+  --bg-primary: #000000;
+  --bg-secondary: #0a0a0a;
+  --text-primary: #00ffff;
+  --text-secondary: #00cccc;
+  --border-color: rgba(0, 255, 255, 0.3);
+  --accent: #00ffff;
+  --accent-hover: #00e6e6;
+  --card-shadow: 0 0 40px rgba(0, 255, 255, 0.3);
+}
+
+/* Glow Mode Special Effects */
+[data-theme="glow"] .glow-button {
+  background: linear-gradient(45deg, #00ffff, #0066ff, #ff00ff);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease infinite;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.5),
+              0 0 60px rgba(0, 255, 255, 0.3),
+              inset 0 0 20px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="glow"] .glow-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.7),
+              0 0 80px rgba(0, 255, 255, 0.5),
+              inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="glow"] .glow-button::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shimmer 2s linear infinite;
+}
+
+[data-theme="glow"] .glow-card {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 102, 255, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.2),
+              inset 0 0 20px rgba(0, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+[data-theme="glow"] .glow-card:hover {
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.4),
+              inset 0 0 30px rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.5);
+}
+
+[data-theme="glow"] .glow-text {
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5),
+               0 0 40px rgba(0, 255, 255, 0.3);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+[data-theme="glow"] .glow-input {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  color: #00ffff;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.2),
+              inset 0 0 10px rgba(0, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+[data-theme="glow"] .glow-input:focus {
+  border-color: rgba(0, 255, 255, 0.6);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4),
+              inset 0 0 15px rgba(0, 255, 255, 0.1);
+  outline: none;
+}
+
+[data-theme="glow"] .glow-badge {
+  background: linear-gradient(45deg, rgba(0, 255, 255, 0.2), rgba(255, 0, 255, 0.2));
+  border: 1px solid rgba(0, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Animations */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+/* Scrollbar Styling for Glow Mode */
+[data-theme="glow"] ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+[data-theme="glow"] ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+[data-theme="glow"] ::-webkit-scrollbar-thumb {
+  background: linear-gradient(45deg, #00ffff, #0066ff);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+[data-theme="glow"] ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(45deg, #00e6e6, #0059e6);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+}
+
+/* Selection Styling */
+[data-theme="glow"] ::selection {
+  background: rgba(0, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+/* Focus Outlines */
+[data-theme="glow"] *:focus-visible {
+  outline: 2px solid rgba(0, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* Gradient Text for Glow Mode */
+[data-theme="glow"] .gradient-text {
+  background: linear-gradient(45deg, #00ffff, #0066ff, #ff00ff, #00ffff);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Neon Border Effect */
+[data-theme="glow"] .neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(#000, #000) padding-box,
+              linear-gradient(45deg, #00ffff, #0066ff, #ff00ff) border-box;
+  border-radius: 12px;
+}
+
+[data-theme="glow"] .neon-border::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #00ffff, #0066ff, #ff00ff);
+  border-radius: 12px;
+  opacity: 0.5;
+  filter: blur(10px);
+  z-index: -1;
+  animation: gradient-shift 3s ease infinite;
+}

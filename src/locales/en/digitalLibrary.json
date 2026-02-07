@@ -1,0 +1,219 @@
+{
+  "hero": {
+    "badge": "Digital assets suite",
+    "title": "Digital Product Library",
+    "description": "Discover curated ocean intelligence ready for research, policy, and innovation."
+  },
+  "metrics": [
+    {
+      "id": "datasets",
+      "label": "Published datasets",
+      "value": "128",
+      "delta": "+12 newly curated",
+      "icon": "Database",
+      "description": "Observation, modelling, and survey records"
+    },
+    {
+      "id": "visualizations",
+      "label": "Interactive dashboards",
+      "value": "64",
+      "delta": "+8 refreshed",
+      "icon": "LineChart",
+      "description": "Maps, storyboards, and live analytics"
+    },
+    {
+      "id": "toolkits",
+      "label": "Analysis toolkits",
+      "value": "23",
+      "delta": "+3 upgraded",
+      "icon": "Cpu",
+      "description": "Scripts, notebooks, and processing pipelines"
+    },
+    {
+      "id": "publications",
+      "label": "Linked publications",
+      "value": "340",
+      "delta": "+18 this year",
+      "icon": "FileText",
+      "description": "Peer-reviewed outputs referencing the library"
+    }
+  ],
+  "search": {
+    "tagline": "Search across datasets, tools, visualisations, and media packages.",
+    "placeholder": "Search datasets, tools, publications...",
+    "filters": [
+      { "id": "all", "label": "All resources" },
+      { "id": "datasets", "label": "Datasets" },
+      { "id": "tools", "label": "Toolkits" },
+      { "id": "maps", "label": "Maps & dashboards" },
+      { "id": "media", "label": "Media & briefs" }
+    ]
+  },
+  "categories": [
+    {
+      "id": "datasets",
+      "title": "Research datasets",
+      "description": "Quality-controlled observational and model outputs delivered in analysis-ready formats.",
+      "icon": "Database",
+      "badge": "NetCDF · CSV · GeoTIFF"
+    },
+    {
+      "id": "tools",
+      "title": "Analysis toolkits",
+      "description": "Reusable scripts, notebooks, and Docker images for automating marine science workflows.",
+      "icon": "Terminal",
+      "badge": "Python · R · Docker"
+    },
+    {
+      "id": "maps",
+      "title": "Interactive maps",
+      "description": "Web dashboards that visualise coastal risk, fisheries effort, and climate indicators in real time.",
+      "icon": "Map",
+      "badge": "StoryMaps · Deck.GL"
+    },
+    {
+      "id": "media",
+      "title": "Media kits",
+      "description": "Briefing packs, infographics, and outreach assets ready for stakeholder distribution.",
+      "icon": "Camera",
+      "badge": "Infographics · Video"
+    },
+    {
+      "id": "publications",
+      "title": "Linked publications",
+      "description": "Access the articles and policy briefs that contextualise every digital asset.",
+      "icon": "FileText",
+      "badge": "Open access"
+    },
+    {
+      "id": "apis",
+      "title": "Developer APIs",
+      "description": "Stream ocean intelligence straight into your applications with low-latency endpoints.",
+      "icon": "Server",
+      "badge": "REST · CSV · Webhooks"
+    }
+  ],
+  "featured": {
+    "heading": "Featured releases",
+    "subheading": "Handpicked resources updated in the last 90 days.",
+    "items": [
+      {
+        "id": "io-temp-atlas",
+        "title": "Indian Ocean temperature anomaly atlas",
+        "type": "datasets",
+        "excerpt": "Gridded sea-surface and subsurface temperature anomalies (0–700 m) at 0.1° resolution from 2000–2024.",
+        "updated": "June 2024",
+        "format": "NetCDF",
+        "size": "1.2 GB",
+        "tags": ["temperature", "climate", "ocean-observing"],
+        "action": "Download dataset",
+        "link": "#"
+      },
+      {
+        "id": "coastal-risk-dashboard",
+        "title": "Sri Lanka coastal resilience dashboard",
+        "type": "maps",
+        "excerpt": "Interactive coastal flood, erosion, and community exposure viewer with scenario modelling.",
+        "updated": "May 2024",
+        "format": "Web dashboard",
+        "size": "Live",
+        "tags": ["risk", "coast", "visualisation"],
+        "action": "Launch dashboard",
+        "link": "#"
+      },
+      {
+        "id": "fisheries-insight-suite",
+        "title": "Fisheries insight modelling suite",
+        "type": "tools",
+        "excerpt": "Jupyter workflows for catch forecasting, vessel effort dynamics, and quota simulations.",
+        "updated": "April 2024",
+        "format": "Notebook bundle",
+        "size": "240 MB",
+        "tags": ["fisheries", "forecasting", "python"],
+        "action": "Download toolkit",
+        "link": "#"
+      },
+      {
+        "id": "blue-carbon-brief",
+        "title": "Blue carbon valuation media kit",
+        "type": "media",
+        "excerpt": "Press-ready fact sheets, infographics, and quote bank covering Sri Lanka's blue carbon assets.",
+        "updated": "June 2024",
+        "format": "PDF & PNG",
+        "size": "35 MB",
+        "tags": ["communications", "policy", "blue-carbon"],
+        "action": "Download media kit",
+        "link": "#"
+      }
+    ]
+  },
+  "collections": {
+    "heading": "Curated collections",
+    "description": "Each collection combines datasets, narratives, and decision tools for a specific mission.",
+    "items": [
+      {
+        "id": "monsoon-outlook",
+        "title": "Monsoon outlook intelligence pack",
+        "summary": "Seasonal climate drivers, rainfall anomalies, and advisories for coastal communities.",
+        "contents": "8 datasets · 3 dashboards · 4 briefs",
+        "icon": "CloudRain",
+        "accent": "from-cyan-500/20 to-blue-500/10",
+        "stat": "Updated fortnightly"
+      },
+      {
+        "id": "fisheries-sustainability",
+        "title": "Sustainable fisheries operations",
+        "summary": "Fuel optimisation, catch per unit effort, and compliance monitoring resources.",
+        "contents": "5 datasets · 2 notebooks · 6 KPIs",
+        "icon": "Fish",
+        "accent": "from-emerald-500/20 to-teal-500/10",
+        "stat": "Trusted by 18 agencies"
+      },
+      {
+        "id": "marine-plastics",
+        "title": "Marine plastics watch",
+        "summary": "Microplastic transects, shoreline audits, and mitigation success stories.",
+        "contents": "6 datasets · 4 maps · 5 media assets",
+        "icon": "Recycle",
+        "accent": "from-rose-500/20 to-orange-500/10",
+        "stat": "New insights monthly"
+      }
+    ]
+  },
+  "apis": {
+    "heading": "Developer access",
+    "description": "Automate analysis pipelines with secure, rate-limited APIs backed by the library.",
+    "items": [
+      {
+        "id": "catalog-api",
+        "title": "Product catalogue API",
+        "description": "Query metadata, licensing, and provenance for every published asset.",
+        "icon": "ListTree",
+        "link": "#",
+        "linkLabel": "View API schema"
+      },
+      {
+        "id": "stream-api",
+        "title": "Real-time telemetry stream",
+        "description": "Subscribe to buoy, tide gauge, and satellite event feeds via webhooks.",
+        "icon": "Radio",
+        "link": "#",
+        "linkLabel": "Request access"
+      },
+      {
+        "id": "tile-service",
+        "title": "Map tile service",
+        "description": "Embed high-resolution ocean layers directly inside GIS and web maps.",
+        "icon": "Layers",
+        "link": "#",
+        "linkLabel": "Get tile URL"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Need a tailored digital package?",
+    "description": "Our data management team can help assemble custom bundles, translations, and delivery pipelines for your project.",
+    "primary": "Request a consultation",
+    "secondary": "View usage guidelines"
+  }
+}

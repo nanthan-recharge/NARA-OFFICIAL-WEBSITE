@@ -1,0 +1,201 @@
+{
+  "seo": {
+    "title": "සමුද්‍ර සිදුවීම් ද්වාරය - NARA",
+    "description": "ශ්‍රී ලංකා ජලයේ සිදුවෙන මත්ස්‍ය හා සාගර අනතුරු වාර්තා කරන්න, පුරවැසි විද්‍යා නිරීක්ෂණ සපයන්න, සහ ප්‍රතිචාර බලපැවැත්වීම් නිරීක්ෂණය කරන්න."
+  },
+  "observationsView": {
+    "title": "පුරවැසි විද්‍යා නිරීක්ෂණ",
+    "empty": "තවම නිරීක්ෂණයක් සමර්පණය වීിട്ടില്ല.",
+    "submitted": "සමර්පිත දිනය {{date}}",
+    "observer": "නිරීක්ෂකයා",
+    "locationPending": "ස්ථානය සපයා නොමැත"
+  },
+  "statusView": {
+    "title": "සිදුවීමේ විස්තර",
+    "back": "← සිදුවීම් ලැයිස්තුවට",
+    "reportedOn": "වාර්තා කළ දිනය",
+    "incidentType": "සිදුවීමේ වර්ගය",
+    "severity": "බරපතලභාවය",
+    "status": "තත්ත්වය",
+    "description": "විස්තර",
+    "empty": "විස්තර දර්ශනයට සිදුවීමක් තෝරන්න."
+  },
+  "loading": "සමුද්‍ර සිදුවීම් ද්වාරය පූරණය වෙමින්...",
+  "hero": {
+    "title": "සමුද්‍ර සිදුවීම් ද්වාරය",
+    "subtitle": "සමුද්‍ර අනතුරු වාර්තා කරන්න, පුරවැසි විද්‍යාවට දායක වන්න, සහ ශ්‍රී ලංකා සාගරය ආරක්ෂා කිරීමට උදව් කරන්න",
+    "stats": {
+      "totalIncidents": "සම්පූර්ණ සිදුවීම්",
+      "activeCases": "ක්‍රියාකාරී සිදුවීම්",
+      "observations": "නිරීක්ෂණ",
+      "resolved": "විසඳා ඇත"
+    }
+  },
+  "tabs": {
+    "home": "මුල් පිටුව",
+    "report": "සිදුවීම වාර්තා කරන්න",
+    "map": "සිදුවීම් සිතියම",
+    "observations": "පුරවැසි විද්‍යාව",
+    "status": "ප්‍රගතිය භාවිතා කරන්න"
+  },
+  "quickActions": {
+    "report": {
+      "title": "සිදුවීමක් වාර්තා කරන්න",
+      "description": "මත්ස්‍ය මරණයක්, සුරතලා විරල වෙත ගසන සතුන්, හෝ දූෂණයක් දැක තිබේද? වහාම වාර්තා කරන්න එවිට අපගේ දැඩි ප්‍රතිචාර කණ්ඩායම් ක්‍රියාත්මක කළ හැක.",
+      "cta": "දැන් වාර්තා කරන්න"
+    },
+    "observe": {
+      "title": "පුරවැසි විද්‍යාව",
+      "description": "සමුද්‍ර සතුන්, කිරිලු මල විස්සීම සහ විශිෂ්ට හැසිරීම් පිළිබඳ ඔබගේ නිරීක්ෂණ බෙදාගනිමින් ජාතික පර්යේෂණයට දායක වන්න.",
+      "cta": "නිරීක්ෂණය යවන්න"
+    }
+  },
+  "sections": {
+    "recentIncidents": "මෑත සිදුවීම්",
+    "viewOnMap": "සිතියමේ බලන්න",
+    "criticalIncidents": "අත්‍යවශ්‍ය සිදුවීම්",
+    "mapLegend": "සිදුවීම් වර්ග",
+    "filters": "පෙරහන්"
+  },
+  "labels": {
+    "locationRecorded": "ස්ථානය සටහන් වී ඇත",
+    "noLocation": "ස්ථානය නැත",
+    "locationCaptured": "ස්ථානය ලබාගෙන ඇත ✓",
+    "captureLocation": "වර්තමාන ස්ථානය ලබාගන්න",
+    "latLong": "අක්ෂාංශ: {{lat}}, රේඛාංශ: {{lng}}",
+    "postedAt": "{{timestamp}}"
+  },
+  "status": {
+    "reported": "වාර්තා වී ඇත",
+    "under_investigation": "විමර්ශනය කරමින්",
+    "resolved": "විසඳා ඇත"
+  },
+  "severity": {
+    "low": {
+      "label": "අඩු",
+      "description": "සුළු සිදුවීම"
+    },
+    "medium": {
+      "label": "මධ්‍යස්ථ",
+      "description": " අවධානය අවශ්‍යයි"
+    },
+    "high": {
+      "label": "ඉහළ",
+      "description": "ගැඹුරු සිදුවීම"
+    },
+    "critical": {
+      "label": "අත්‍යවශ්‍ය",
+      "description": "හුදෙක් හදිසි ප්‍රතිචාර අවශ්‍යයි"
+    }
+  },
+  "incidentTypes": {
+    "fish_kill": "මත්ස්‍ය මරණය",
+    "stranding": "සාගර සතුන්ගේ වෙරළ ගැසීම",
+    "algal_bloom": "ශාකීය පැල්ලම",
+    "pollution": "දූෂණය / තෙල් කහඹෑම",
+    "unusual_behavior": "විශිෂ්ට සාගර හැසිරීම්",
+    "other": "වෙනත්"
+  },
+  "filters": {
+    "incidentType": "සිදුවීමේ වර්ගය",
+    "status": "තත්ත්වය",
+    "severity": "බරපතලභාවය",
+    "options": {
+      "incidentType": {
+        "all": "සියලු වර්ග"
+      },
+      "status": {
+        "all": "සියලු තත්ත්ව"
+      },
+      "severity": {
+        "all": "සියලු බරපතලභාව"
+      }
+    }
+  },
+  "alerts": {
+    "geolocationError": "ඔබගේ ස්ථානය ලබා ගැනීමට නොහැකි විය. කරුණාකර ස්ථානයේ සේවා සක්‍රීය කරන්න.",
+    "geolocationUnsupported": "ඔබගේ බ්‍රව්සර් විසින් ස්ථානගත කිරීමට සහය නොදක්වයි.",
+    "photoError": "ඡායාරූප සැකසීමේ දෝෂයකි",
+    "incidentSuccess": "සිදුවීම සාර්ථකව වාර්තා විය! සිදුවීමේ හැඳුනුම්පත: {{id}}",
+    "incidentFailure": "සිදුවීම යැවීමේ දෝෂයකි. කරුණාකර නැවත උත්සාහ කරන්න.",
+    "observationSuccess": "නිරීක්ෂණය සාර්ථකව යැවුණි! නිරීක්ෂණ හැඳුනුම්පත: {{id}}",
+    "observationFailure": "නිරීක්ෂණය යැවීමේ දෝෂයකි. කරුණාකර නැවත උත්සාහ කරන්න."
+  },
+  "forms": {
+    "report": {
+      "title": "සමුද්‍ර සිදුවීම වාර්තා කරන්න",
+      "incidentTypeLabel": "සිදුවීමේ වර්ගය *",
+      "incidentTypePlaceholder": "සිදුවීමේ වර්ගය තෝරන්න",
+      "incidentTypeOptions": {
+        "fish_kill": "මත්ස්‍ය මරණය",
+        "stranding": "සාගර සතුන්ගේ වෙරළ ගැසීම",
+        "algal_bloom": "ශාකීය පැල්ලම",
+        "pollution": "දූෂණය / තෙල් කහඹෑම",
+        "unusual_behavior": "විශිෂ්ට සාගර හැසිරීම්",
+        "other": "වෙනත්"
+      },
+      "incidentTitleLabel": "සිදුවීමේ මාතෘකාව *",
+      "incidentTitlePlaceholder": "සිදුවීමේ කෙටි විස්තරයක්",
+      "descriptionLabel": "සම්පූර්ණ විස්තරය *",
+      "descriptionPlaceholder": "ඔබ නිරීක්ෂණය කළ දෙය ගැන හැකි ඉල්ලීමෙන් විස්තර ලබා දෙන්න...",
+      "severityLabel": "බරපතලභාව ඇගයීම *",
+      "severityOptions": {
+        "low": "අඩු - සුළු සිදුවීම",
+        "medium": "මධ්‍යස්ථ - අවධානය අවශ්‍යයි",
+        "high": "ඉහළ - ගැඹුරු සිදුවීම",
+        "critical": "අත්‍යවශ්‍ය - හදිසි ප්‍රතිචාර අවශ්‍යයි"
+      },
+      "locationLabel": "ස්ථානය",
+      "photosLabel": "ඡායාරූප (විකල්ප, නමුත් නිර්දේශ කරයි)",
+      "addPhotos": "ඡායාරූප එකතු කරන්න",
+      "processing": "කකියාමින්...",
+      "photoPreview": "පෙරදසුන {{index}}",
+      "contactTitle": "ඔබගේ සම්බන්ධතා තොරතුරු",
+      "nameLabel": "පූර්ණ නම *",
+      "namePlaceholder": "ඔබගේ සම්පූර්ණ නම",
+      "emailLabel": "විද්‍යුත් තැපැල් ලිපිනය *",
+      "emailPlaceholder": "your.email@example.com",
+      "phoneLabel": "දුරකථන අංකය",
+      "phonePlaceholder": "+94 XX XXX XXXX",
+      "cancel": "අවලංගු කරන්න",
+      "submit": "වාර්තාව යවන්න",
+      "submitting": "යවන අතර..."
+    },
+    "observation": {
+      "title": "පුරවැසි විද්‍යා නිරීක්ෂණය යවන්න",
+      "typeLabel": "නිරීක්ෂණ වර්ගය *",
+      "typePlaceholder": "නිරීක්ෂණ වර්ගය තෝරන්න",
+      "typeOptions": {
+        "stranding": "සාගර සතුන්ගේ වෙරළ ගැසීම",
+        "unusual_behavior": "විශිෂ්ට හැසිරීම්",
+        "species_sighting": "ජීවීන් දැක්වීම",
+        "pollution": "දූෂණය / අපද්‍රව්‍ය",
+        "other": "වෙනත්"
+      },
+      "speciesLabel": "ජීව විද්‍යා නාමය / විස්තරය",
+      "speciesPlaceholder": "ජීවියාගේ නම හෝ විස්තරය",
+      "descriptionLabel": "නිරීක්ෂණ විස්තර *",
+      "descriptionPlaceholder": "ඔබ නිරීක්ෂණය කළ දේ විස්තර කරන්න...",
+      "locationLabel": "ස්ථානය",
+      "photosLabel": "ඡායාරූප (විකල්ප)",
+      "addPhotos": "ඡායාරූප එකතු කරන්න",
+      "processing": "කකියාමින්...",
+      "photoPreview": "පෙරදසුන {{index}}",
+      "contactTitle": "ඔබගේ සම්බන්ධතා තොරතුරු",
+      "nameLabel": "පූර්ණ නම *",
+      "namePlaceholder": "ඔබගේ සම්පූර්ණ නම",
+      "emailLabel": "විද්‍යුත් තැපැල් ලිපිනය *",
+      "emailPlaceholder": "your.email@example.com",
+      "cancel": "අවලංගු කරන්න",
+      "submit": "නිරීක්ෂණය යවන්න",
+      "submitting": "යවන අතර..."
+    }
+  },
+  "map": {
+    "legendTitle": "සිදුවීම් වර්ග",
+    "filtersTitle": "පෙරහන්",
+    "incidentTypeAll": "සියලු වර්ග",
+    "statusAll": "සියලු තත්ත්ව",
+    "severityAll": "සියලු බරපතලභාව"
+  }
+}

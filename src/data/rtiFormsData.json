@@ -1,0 +1,1159 @@
+{
+  "organization": {
+    "name": "National Aquatic Resources Research and Development Agency",
+    "abbreviation": "NARA",
+    "logo_file": "nara-logo.jpg",
+    "country": "Sri Lanka",
+    "act": "Right to Information Act No. 12 of 2016"
+  },
+  "forms": {
+    "RTI-01": {
+      "form_id": "RTI-01",
+      "form_name": "Information Application Form",
+      "form_title": "Application to receive Information",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "note": "Note that completion of this Form is not a compulsory requirement to make a request for information and that any written letter, e-mail or a verbal request with the essential information to identify the requested information is sufficient.",
+      "recipient": "Information Officer",
+      "fields": [
+        {
+          "field_number": "01",
+          "field_name": "name_of_requestor",
+          "field_label": "Name of Requestor",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "02",
+          "field_name": "address",
+          "field_label": "Address",
+          "field_type": "textarea",
+          "required": true
+        },
+        {
+          "field_number": "03",
+          "field_name": "contact_no",
+          "field_label": "Contact No. (if any)",
+          "field_type": "text",
+          "required": false
+        },
+        {
+          "field_number": "04",
+          "field_name": "email_address",
+          "field_label": "Email Address (if any)",
+          "field_type": "email",
+          "required": false
+        },
+        {
+          "field_number": "05",
+          "field_name": "details_about_information_requested",
+          "field_label": "Details about Information requested",
+          "field_type": "group",
+          "subfields": [
+            {
+              "subfield_id": "I",
+              "subfield_name": "specific_public_authority",
+              "subfield_label": "Specific Public Authority",
+              "field_type": "text"
+            },
+            {
+              "subfield_id": "II",
+              "subfield_name": "information_requested",
+              "subfield_label": "Information requested",
+              "field_type": "textarea"
+            },
+            {
+              "subfield_id": "III",
+              "subfield_name": "specific_period",
+              "subfield_label": "Specific period information is requested (if applicable)",
+              "field_type": "text"
+            }
+          ]
+        },
+        {
+          "field_number": "06",
+          "field_name": "manner_information_requested",
+          "field_label": "Manner in which information is requested",
+          "field_type": "checkbox",
+          "options": [
+            "inspect relevant work, documents, records",
+            "Take notes, extracts or certified copies of documents or records",
+            "Take certified samples of material",
+            "Obtain information in the form of CD/DVD/storage media/tapes/video cassettes/ any other electronic mode/ printouts where such information is stored in a computer or in any other device"
+          ]
+        },
+        {
+          "field_number": "07",
+          "field_name": "language_preference",
+          "field_label": "Language in which requestor prefers access",
+          "field_type": "select",
+          "options": [
+            "Sinhala",
+            "Tamil",
+            "English"
+          ]
+        },
+        {
+          "field_number": "08",
+          "field_name": "life_liberty_concern",
+          "field_label": "Does the information request concern the life and personal liberty of a citizen?",
+          "field_type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "conditional": {
+            "if_yes": {
+              "field_name": "reason_for_belief",
+              "field_label": "If Yes, give reason for belief",
+              "field_type": "textarea"
+            }
+          }
+        },
+        {
+          "field_number": "09",
+          "field_name": "other_details",
+          "field_label": "Any other details",
+          "field_type": "textarea",
+          "required": false
+        },
+        {
+          "field_number": "10",
+          "field_name": "relevant_documents",
+          "field_label": "Relevant documents attached (If any)",
+          "field_type": "list",
+          "max_items": 3
+        },
+        {
+          "field_number": "11",
+          "field_name": "sri_lankan_citizen",
+          "field_label": "Is the requestor a citizen of Sri Lanka?",
+          "field_type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": true
+        }
+      ],
+      "signature_section": {
+        "date": "Date",
+        "signature": "Signature"
+      }
+    },
+    "RTI-08": {
+      "form_id": "RTI-08",
+      "form_name": "Acceptance of Appeal",
+      "form_title": "Acknowledgement of Appeal Submission",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "description": "Acknowledgement issued by the Designated Officer confirming receipt of an appeal.",
+      "recipient": "Designated Officer",
+      "fields": [
+        {
+          "field_number": "01",
+          "field_name": "appeal_reference_number",
+          "field_label": "Appeal Reference Number",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "02",
+          "field_name": "date_received",
+          "field_label": "Date Appeal Received",
+          "field_type": "date",
+          "required": true
+        },
+        {
+          "field_number": "03",
+          "field_name": "appellant_name",
+          "field_label": "Name of Appellant",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "04",
+          "field_name": "appellant_address",
+          "field_label": "Address of Appellant",
+          "field_type": "textarea",
+          "required": true
+        },
+        {
+          "field_number": "05",
+          "field_name": "appellant_contact",
+          "field_label": "Contact Number / Email",
+          "field_type": "text",
+          "required": false
+        },
+        {
+          "field_number": "06",
+          "field_name": "preferred_contact_method",
+          "field_label": "Preferred Communication Method",
+          "field_type": "radio",
+          "options": [
+            "Phone",
+            "Email",
+            "Registered Post"
+          ],
+          "required": true
+        },
+        {
+          "field_number": "07",
+          "field_name": "original_request_reference",
+          "field_label": "Original RTI Request Reference Number",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "08",
+          "field_name": "information_officer_decision_date",
+          "field_label": "Date of Information Officer's Decision",
+          "field_type": "date",
+          "required": false
+        },
+        {
+          "field_number": "09",
+          "field_name": "documents_received",
+          "field_label": "Documents Received with Appeal",
+          "field_type": "list",
+          "max_items": 5
+        },
+        {
+          "field_number": "10",
+          "field_name": "appeal_decision_due_date",
+          "field_label": "Appeal Decision Due Date",
+          "field_type": "date",
+          "required": true,
+          "note": "Designated Officer must respond within 14 days of receiving the appeal."
+        },
+        {
+          "field_number": "11",
+          "field_name": "remarks",
+          "field_label": "Remarks / Next Steps Communicated",
+          "field_type": "textarea",
+          "required": false,
+          "rows": 4
+        }
+      ],
+      "signature_section": {
+        "date": "Date",
+        "signature": "Designated Officer Signature"
+      }
+    },
+    "RTI-02": {
+      "form_id": "RTI-02",
+      "form_name": "Acknowledgement of Information Request",
+      "form_title": "Acknowledgement of Request for Information",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "description": "Official acknowledgement issued by the Information Officer when an information request is received.",
+      "recipient": "Information Officer",
+      "fields": [
+        {
+          "field_number": "01",
+          "field_name": "public_authority",
+          "field_label": "Public Authority",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "02",
+          "field_name": "request_reference",
+          "field_label": "Information Request Reference No.",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "03",
+          "field_name": "request_received_date",
+          "field_label": "Date of Receipt of Request",
+          "field_type": "date",
+          "required": true
+        },
+        {
+          "field_number": "04",
+          "field_name": "requestor_name",
+          "field_label": "Name of Requestor",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "05",
+          "field_name": "requestor_address",
+          "field_label": "Address of Requestor",
+          "field_type": "textarea",
+          "required": true
+        },
+        {
+          "field_number": "06",
+          "field_name": "mode_of_request",
+          "field_label": "Mode of Request",
+          "field_type": "radio",
+          "options": [
+            "In person",
+            "Email",
+            "Post",
+            "Fax"
+          ],
+          "required": true
+        },
+        {
+          "field_number": "07",
+          "field_name": "summary_of_information",
+          "field_label": "Summary of Information Requested",
+          "field_type": "textarea",
+          "required": false,
+          "rows": 4
+        },
+        {
+          "field_number": "08",
+          "field_name": "response_due_date",
+          "field_label": "Date Information Will Be Provided",
+          "field_type": "date",
+          "required": true,
+          "note": "Standard response time is 14 days from the date of receipt."
+        },
+        {
+          "field_number": "09",
+          "field_name": "fee_payable",
+          "field_label": "Fee Payable (if any)",
+          "field_type": "text",
+          "required": false
+        },
+        {
+          "field_number": "10",
+          "field_name": "information_officer_contact",
+          "field_label": "Information Officer Contact Details",
+          "field_type": "textarea",
+          "required": true
+        }
+      ],
+      "signature_section": {
+        "date": "Date",
+        "signature": "Information Officer Signature"
+      }
+    },
+    "RTI-03": {
+      "form_id": "RTI-03",
+      "form_name": "Register of Information Requests",
+      "form_title": "Register of Information Requests",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "description": "Register to track all information requests received under the RTI Act",
+      "table_columns": [
+        {
+          "column_number": "1",
+          "column_name": "registration_number",
+          "column_label": "Reg. No. Application",
+          "data_type": "text"
+        },
+        {
+          "column_number": "2",
+          "column_name": "application_date",
+          "column_label": "Date",
+          "data_type": "date"
+        },
+        {
+          "column_number": "3",
+          "column_name": "requestor_details",
+          "column_label": "Name and Address of Requestor",
+          "data_type": "text"
+        },
+        {
+          "column_number": "4",
+          "column_name": "contact_no",
+          "column_label": "Contact No.",
+          "data_type": "text"
+        },
+        {
+          "column_number": "5",
+          "column_name": "type_of_information",
+          "column_label": "Type of Information (in brief)",
+          "data_type": "text"
+        },
+        {
+          "column_number": "6",
+          "column_name": "date_receipt_letter",
+          "column_label": "Date of Receipt letter",
+          "data_type": "date"
+        },
+        {
+          "column_number": "7",
+          "column_name": "date_decision_letter",
+          "column_label": "Date of Decision Letter",
+          "data_type": "date"
+        },
+        {
+          "column_number": "8",
+          "column_name": "fee",
+          "column_label": "Fee",
+          "data_type": "currency"
+        },
+        {
+          "column_number": "9",
+          "column_name": "date_information_provided",
+          "column_label": "Date Information Provided",
+          "data_type": "date"
+        },
+        {
+          "column_number": "10",
+          "column_name": "rti_05_date",
+          "column_label": "RTI Form 05 date if information is denied",
+          "data_type": "date"
+        },
+        {
+          "column_number": "11",
+          "column_name": "manner_provided",
+          "column_label": "Manner in which information provided",
+          "data_type": "text"
+        }
+      ]
+    },
+    "RTI-04": {
+      "form_id": "RTI-04",
+      "form_name": "Decision to Provide Information",
+      "form_title": "Decision to Provide Information",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "header_fields": [
+        {
+          "field_name": "registration_number",
+          "field_label": "Registration Number of the Request",
+          "field_type": "text"
+        },
+        {
+          "field_name": "date_request_received",
+          "field_label": "Date Request Received",
+          "field_type": "date"
+        },
+        {
+          "field_name": "public_authority",
+          "field_label": "Name of the public authority",
+          "field_type": "text",
+          "default": "National Aquatic Resources Research and Development Agency (NARA)"
+        }
+      ],
+      "content": {
+        "paragraph_1": "This is to inform you that we have decided to approve your request for information dated [DATE] with Registration Number [REG_NUMBER].",
+        "paragraph_2": "The manner in which information is to be provided:",
+        "manner_options": [
+          "inspect relevant work, documents, records",
+          "Take notes, extracts or certified copies of documents or records",
+          "Take certified samples of material",
+          "Obtain information in the form of CD/DVD/storage media/tapes/video cassettes/ any other electronic mode/ printouts where such information is stored in a computer or in any other device"
+        ],
+        "payment_instruction": {
+          "field_name": "fee_amount",
+          "instruction": "In order to provide the information please pay the necessary fee of Rs. [AMOUNT] by cash, bank draft or pay order or postal order or postage stamps to our office."
+        },
+        "timeline": "We will provide you with the information within 14 days of payment of the required fee. We will also inform you within the same period (with reasons) if there is any extension needed to the time period in which to provide the information.",
+        "appeal_notice": "If you have not satisfied with the time frame mention in the Section 04 you may submit an appeal to the designated officer within two weeks by RTI 10 form."
+      },
+      "designated_officer": {
+        "name": "Name",
+        "designation": "Designation",
+        "address": "Address",
+        "contact_details": "Contact details"
+      },
+      "closing": {
+        "salutation": "Yours, Faithfully,",
+        "signature": "Information Officer (signed)",
+        "name_designation": "Name & Designation",
+        "date": "Date"
+      }
+    },
+    "RTI-05": {
+      "form_id": "RTI-05",
+      "form_name": "Rejection of Information Request",
+      "form_title": "Rejection of Information Request",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "header_fields": [
+        {
+          "field_name": "registration_number",
+          "field_label": "Registration Number",
+          "field_type": "text"
+        },
+        {
+          "field_name": "date_request_received",
+          "field_label": "Date Request Received",
+          "field_type": "date"
+        },
+        {
+          "field_name": "public_authority",
+          "field_label": "Public Authority",
+          "field_type": "text",
+          "default": "National Aquatic Resources Research and Development Agency (NARA)"
+        }
+      ],
+      "content": {
+        "opening_statement": "This is to inform you that we have decided to reject your request for information dated [DATE] with Registration Number [REG_NUMBER] as it is exempted information covered by Section 5 [SECTION_NUMBER] of the Act/ the information is already published/ or is not in our possession, custody, or control.",
+        "published_info_location": {
+          "field_name": "published_location",
+          "instruction": "In case the information is already published, you can find it here:",
+          "field_type": "text"
+        },
+        "reasons_section": {
+          "title": "Reasons for justifying the decision to rely upon on the above mention clause/s:",
+          "reason_fields": [
+            {
+              "reason_number": "I",
+              "field_name": "reason_1",
+              "field_type": "textarea"
+            },
+            {
+              "reason_number": "II",
+              "field_name": "reason_2",
+              "field_type": "textarea"
+            }
+          ],
+          "note": "(add more space or additional pages as needed)"
+        },
+        "appeal_notice": "You may under Section 31 (1) or Section 25 (7) of the Act, prefer an Appeal against this decision, or on the grounds that there has been non-compliance with time frames specified in the Act, to the following officer within 14 days. You may, for this purpose, use Form RTI 10, although this is not mandatory as long as you provide the information contained in that Form."
+      },
+      "designated_officer": {
+        "name": "Name",
+        "designation": "Designation",
+        "address": "Address",
+        "email": "Email"
+      },
+      "closing": {
+        "salutation": "Yours, Faithfully,",
+        "signature": "Information Officer (signed)",
+        "name_designation": "Name & Designation",
+        "date": "Date"
+      }
+    },
+    "RTI-06": {
+      "form_id": "RTI-06",
+      "form_name": "Extension of time to provide information",
+      "form_title": "Extension of time to provide information",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "header_fields": [
+        {
+          "field_name": "registration_number",
+          "field_label": "Registration Number",
+          "field_type": "text"
+        },
+        {
+          "field_name": "date_request_received",
+          "field_label": "Date Request Received",
+          "field_type": "date"
+        },
+        {
+          "field_name": "public_authority",
+          "field_label": "Public Authority",
+          "field_type": "text",
+          "default": "National Aquatic Resources Research and Development Agency (NARA)"
+        }
+      ],
+      "content": {
+        "opening_statement": "This is to inform you that your request for information dated [DATE] with Registration Number [REG_NUMBER] requires additional time to process.",
+        "extension_details": {
+          "original_deadline": {
+            "field_name": "original_deadline",
+            "field_label": "Original deadline",
+            "field_type": "date"
+          },
+          "new_deadline": {
+            "field_name": "new_deadline",
+            "field_label": "Extended deadline",
+            "field_type": "date"
+          },
+          "extension_period": {
+            "field_name": "extension_days",
+            "field_label": "Number of days extension",
+            "field_type": "number"
+          }
+        },
+        "reasons_for_extension": {
+          "field_name": "extension_reasons",
+          "field_label": "Reasons for extension",
+          "field_type": "textarea",
+          "description": "Provide detailed reasons why extension is necessary"
+        },
+        "legal_reference": "This extension is granted under Section 24(3) of the Right to Information Act No. 12 of 2016.",
+        "appeal_notice": "If you are not satisfied with this extension, you may submit an appeal to the designated officer within 14 days using Form RTI 10."
+      },
+      "designated_officer": {
+        "name": "Name",
+        "designation": "Designation",
+        "address": "Address",
+        "contact_details": "Contact details"
+      },
+      "closing": {
+        "salutation": "Yours, Faithfully,",
+        "signature": "Information Officer (signed)",
+        "name_designation": "Name & Designation",
+        "date": "Date"
+      }
+    },
+    "RTI-07": {
+      "form_id": "RTI-07",
+      "form_name": "Communication to Third Party",
+      "form_title": "Communication to Third Party",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "header_fields": [
+        {
+          "field_name": "third_party_name",
+          "field_label": "Name of Third Party",
+          "field_type": "text"
+        },
+        {
+          "field_name": "third_party_address",
+          "field_label": "Address",
+          "field_type": "textarea"
+        },
+        {
+          "field_name": "date",
+          "field_label": "Date",
+          "field_type": "date"
+        }
+      ],
+      "content": {
+        "reference": {
+          "field_name": "application_ref",
+          "field_label": "Reference: Application Registration Number",
+          "field_type": "text"
+        },
+        "subject": "Subject: Notice under Section 28 of the Right to Information Act No. 12 of 2016",
+        "opening_paragraph": "We have received a request for information under the Right to Information Act No. 12 of 2016, dated [DATE] with Registration Number [REG_NUMBER].",
+        "information_relates": {
+          "field_name": "third_party_information",
+          "field_label": "The requested information relates to",
+          "field_type": "textarea"
+        },
+        "disclosure_notice": "Under Section 28 of the RTI Act, we are required to notify you that this information may be disclosed unless you submit written representations within [NUMBER] days from the date of this notice, stating reasons why the information should not be disclosed.",
+        "representation_instruction": "If you believe the information should not be disclosed, please submit your representations in writing to the undersigned within the specified timeframe.",
+        "third_party_rights": {
+          "right_1": "You have the right to make representations against disclosure",
+          "right_2": "You have the right to appeal if the information is disclosed despite your representations",
+          "right_3": "Your representations will be considered before making a final decision"
+        },
+        "timeline": {
+          "field_name": "response_deadline",
+          "field_label": "Deadline for response",
+          "field_type": "date"
+        }
+      },
+      "contact_info": {
+        "information_officer": {
+          "name": "Name",
+          "designation": "Designation",
+          "address": "Address",
+          "contact_details": "Contact details"
+        }
+      },
+      "closing": {
+        "salutation": "Yours, Faithfully,",
+        "signature": "Information Officer (signed)",
+        "name_designation": "Name & Designation",
+        "date": "Date"
+      }
+    },
+    "RTI-09": {
+      "form_id": "RTI-09",
+      "form_name": "Act No 12 of 2016 Register of Appeal",
+      "form_title": "Register of Appeals under Right to Information Act No. 12 of 2016",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "description": "Register to track all appeals received under the RTI Act",
+      "table_columns": [
+        {
+          "column_number": "1",
+          "column_name": "appeal_registration_number",
+          "column_label": "Appeal Registration Number",
+          "data_type": "text"
+        },
+        {
+          "column_number": "2",
+          "column_name": "appeal_date",
+          "column_label": "Date Appeal Received",
+          "data_type": "date"
+        },
+        {
+          "column_number": "3",
+          "column_name": "original_request_number",
+          "column_label": "Original Request Registration Number",
+          "data_type": "text"
+        },
+        {
+          "column_number": "4",
+          "column_name": "appellant_name",
+          "column_label": "Name of Appellant",
+          "data_type": "text"
+        },
+        {
+          "column_number": "5",
+          "column_name": "appellant_address",
+          "column_label": "Address of Appellant",
+          "data_type": "text"
+        },
+        {
+          "column_number": "6",
+          "column_name": "grounds_of_appeal",
+          "column_label": "Grounds of Appeal (Brief)",
+          "data_type": "text"
+        },
+        {
+          "column_number": "7",
+          "column_name": "appeal_type",
+          "column_label": "Type of Appeal",
+          "data_type": "select",
+          "options": [
+            "First Appeal to Designated Officer",
+            "Appeal to RTI Commission"
+          ]
+        },
+        {
+          "column_number": "8",
+          "column_name": "decision_date",
+          "column_label": "Date of Decision",
+          "data_type": "date"
+        },
+        {
+          "column_number": "9",
+          "column_name": "decision_outcome",
+          "column_label": "Decision Outcome",
+          "data_type": "select",
+          "options": [
+            "Allowed",
+            "Partially Allowed",
+            "Dismissed"
+          ]
+        },
+        {
+          "column_number": "10",
+          "column_name": "remarks",
+          "column_label": "Remarks",
+          "data_type": "text"
+        }
+      ]
+    },
+    "RTI-10": {
+      "form_id": "RTI-10",
+      "form_name": "Appeal to the Designated Officer",
+      "form_title": "Appeal to the Designated Officer",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "recipient": "Designated Officer, NARA",
+      "fields": [
+        {
+          "field_number": "01",
+          "field_name": "appellant_name",
+          "field_label": "Name of Person Appealing",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "02",
+          "field_name": "address",
+          "field_label": "Address",
+          "field_type": "textarea",
+          "required": true
+        },
+        {
+          "field_number": "03",
+          "field_name": "contact_number",
+          "field_label": "Contact Number (if any)",
+          "field_type": "text",
+          "required": false
+        },
+        {
+          "field_number": "04",
+          "field_name": "email_address",
+          "field_label": "Email Address (if any)",
+          "field_type": "email",
+          "required": false
+        },
+        {
+          "field_number": "05",
+          "field_name": "authorized_representative",
+          "field_label": "Name, Address and Contact details of authorized representative (if any)",
+          "field_type": "textarea",
+          "required": false
+        },
+        {
+          "field_number": "06",
+          "field_name": "public_authority_name",
+          "field_label": "Name of Public Authority concerned",
+          "field_type": "text",
+          "required": true
+        },
+        {
+          "field_number": "07",
+          "field_name": "information_officer_details",
+          "field_label": "Name, Address and Contact Details of Information Officer concerned",
+          "field_type": "textarea",
+          "required": true
+        },
+        {
+          "field_number": "08",
+          "field_name": "original_request_details",
+          "field_label": "Date request made to Information Officer and Registration Number",
+          "field_type": "text",
+          "required": true,
+          "note": "(Attach copy of request)"
+        },
+        {
+          "field_number": "09",
+          "field_name": "received_reply",
+          "field_label": "Did you receive a reply from the Information Officer?",
+          "field_type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": true,
+          "note": "(If Yes, attach copy of reply)"
+        },
+        {
+          "field_number": "10",
+          "field_name": "date_receipt_decision",
+          "field_label": "Date of receipt of decision from the Information Officer",
+          "field_type": "date",
+          "required": false
+        },
+        {
+          "field_number": "11",
+          "field_name": "grounds_of_appeal",
+          "field_label": "Grounds of Appeal",
+          "field_type": "textarea",
+          "required": true,
+          "rows": 15
+        },
+        {
+          "field_number": "12",
+          "field_name": "information_requested_on_appeal",
+          "field_label": "Information Requested on Appeal (Details, Duration, and Subject)",
+          "field_type": "textarea",
+          "required": true
+        },
+        {
+          "field_number": "13",
+          "field_name": "decision_requested",
+          "field_label": "Decision requested",
+          "field_type": "textarea",
+          "required": true
+        },
+        {
+          "field_number": "14",
+          "field_name": "delay_reason",
+          "field_label": "If the Appeal has not been submitted within the specified time period, cause of delay [Section 32(2)]",
+          "field_type": "textarea",
+          "required": false
+        },
+        {
+          "field_number": "15",
+          "field_name": "previous_appeal",
+          "field_label": "Whether any previous Appeal in respect of this same matter has been preferred?",
+          "field_type": "radio",
+          "options": [
+            "Yes",
+            "No"
+          ],
+          "required": true
+        },
+        {
+          "field_number": "16",
+          "field_name": "other_details",
+          "field_label": "Any other details (including if the request for information concerns the life and liberty of a citizen)",
+          "field_type": "textarea",
+          "required": false
+        },
+        {
+          "field_number": "17",
+          "field_name": "documents_attached",
+          "field_label": "List of the Documents attached",
+          "field_type": "textarea",
+          "required": false
+        }
+      ],
+      "signature_section": {
+        "date": "Date",
+        "signature": "Signature"
+      }
+    },
+    "RTI-11": {
+      "form_id": "RTI-11",
+      "form_name": "Register of Rejection of Requests",
+      "form_title": "Register of Rejection of Information Requests",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "description": "Register to track all rejected information requests under the RTI Act",
+      "table_columns": [
+        {
+          "column_number": "1",
+          "column_name": "registration_number",
+          "column_label": "Registration Number",
+          "data_type": "text"
+        },
+        {
+          "column_number": "2",
+          "column_name": "request_date",
+          "column_label": "Date of Request",
+          "data_type": "date"
+        },
+        {
+          "column_number": "3",
+          "column_name": "requestor_name",
+          "column_label": "Name of Requestor",
+          "data_type": "text"
+        },
+        {
+          "column_number": "4",
+          "column_name": "requestor_address",
+          "column_label": "Address of Requestor",
+          "data_type": "text"
+        },
+        {
+          "column_number": "5",
+          "column_name": "information_requested",
+          "column_label": "Information Requested (Brief)",
+          "data_type": "text"
+        },
+        {
+          "column_number": "6",
+          "column_name": "rejection_date",
+          "column_label": "Date of Rejection",
+          "data_type": "date"
+        },
+        {
+          "column_number": "7",
+          "column_name": "rejection_reason",
+          "column_label": "Reason for Rejection",
+          "data_type": "text"
+        },
+        {
+          "column_number": "8",
+          "column_name": "section_cited",
+          "column_label": "Section of Act Cited",
+          "data_type": "text"
+        },
+        {
+          "column_number": "9",
+          "column_name": "appeal_filed",
+          "column_label": "Appeal Filed (Yes/No)",
+          "data_type": "select",
+          "options": [
+            "Yes",
+            "No"
+          ]
+        },
+        {
+          "column_number": "10",
+          "column_name": "appeal_outcome",
+          "column_label": "Appeal Outcome",
+          "data_type": "text"
+        },
+        {
+          "column_number": "11",
+          "column_name": "remarks",
+          "column_label": "Remarks",
+          "data_type": "text"
+        }
+      ]
+    },
+    "RTI-12": {
+      "form_id": "RTI-12",
+      "form_name": "Details of the Information Officers",
+      "form_title": "Details of Information Officers and Designated Officers",
+      "organization": "National Aquatic Resources Research and Development Agency (NARA)",
+      "logo": "nara-logo.jpg",
+      "description": "Register of Information Officers and Designated Officers appointed under the RTI Act",
+      "sections": [
+        {
+          "section_name": "Information Officer Details",
+          "fields": [
+            {
+              "field_name": "io_name",
+              "field_label": "Name of Information Officer",
+              "field_type": "text"
+            },
+            {
+              "field_name": "io_designation",
+              "field_label": "Designation",
+              "field_type": "text"
+            },
+            {
+              "field_name": "io_office_address",
+              "field_label": "Office Address",
+              "field_type": "textarea"
+            },
+            {
+              "field_name": "io_telephone",
+              "field_label": "Telephone Number",
+              "field_type": "text"
+            },
+            {
+              "field_name": "io_mobile",
+              "field_label": "Mobile Number",
+              "field_type": "text"
+            },
+            {
+              "field_name": "io_email",
+              "field_label": "Email Address",
+              "field_type": "email"
+            },
+            {
+              "field_name": "io_fax",
+              "field_label": "Fax Number",
+              "field_type": "text"
+            },
+            {
+              "field_name": "io_appointment_date",
+              "field_label": "Date of Appointment",
+              "field_type": "date"
+            }
+          ]
+        },
+        {
+          "section_name": "Designated Officer Details",
+          "fields": [
+            {
+              "field_name": "do_name",
+              "field_label": "Name of Designated Officer",
+              "field_type": "text"
+            },
+            {
+              "field_name": "do_designation",
+              "field_label": "Designation",
+              "field_type": "text"
+            },
+            {
+              "field_name": "do_office_address",
+              "field_label": "Office Address",
+              "field_type": "textarea"
+            },
+            {
+              "field_name": "do_telephone",
+              "field_label": "Telephone Number",
+              "field_type": "text"
+            },
+            {
+              "field_name": "do_mobile",
+              "field_label": "Mobile Number",
+              "field_type": "text"
+            },
+            {
+              "field_name": "do_email",
+              "field_label": "Email Address",
+              "field_type": "email"
+            },
+            {
+              "field_name": "do_fax",
+              "field_label": "Fax Number",
+              "field_type": "text"
+            },
+            {
+              "field_name": "do_appointment_date",
+              "field_label": "Date of Appointment",
+              "field_type": "date"
+            }
+          ]
+        },
+        {
+          "section_name": "Additional Assistant Information Officers (if any)",
+          "fields": [
+            {
+              "field_name": "aio_name",
+              "field_label": "Name of Assistant Information Officer",
+              "field_type": "text"
+            },
+            {
+              "field_name": "aio_designation",
+              "field_label": "Designation",
+              "field_type": "text"
+            },
+            {
+              "field_name": "aio_contact",
+              "field_label": "Contact Details",
+              "field_type": "textarea"
+            },
+            {
+              "field_name": "aio_responsibilities",
+              "field_label": "Area of Responsibility",
+              "field_type": "textarea"
+            }
+          ],
+          "repeatable": true
+        }
+      ],
+      "footer": {
+        "last_updated": "Last Updated Date",
+        "published_on_website": "Published on Website (Yes/No)",
+        "website_url": "Website URL"
+      }
+    }
+  },
+  "form_list": [
+    {
+      "form_id": "RTI-01",
+      "form_name": "Information Application Form",
+      "category": "Request Forms"
+    },
+    {
+      "form_id": "RTI-02",
+      "form_name": "Acknowledgement of Information Request",
+      "category": "Response Forms"
+    },
+    {
+      "form_id": "RTI-03",
+      "form_name": "Register of Information Requests",
+      "category": "Register Forms"
+    },
+    {
+      "form_id": "RTI-04",
+      "form_name": "Decision to Provide Information",
+      "category": "Response Forms"
+    },
+    {
+      "form_id": "RTI-05",
+      "form_name": "Rejection of Information Request",
+      "category": "Response Forms"
+    },
+    {
+      "form_id": "RTI-06",
+      "form_name": "Extension of time to provide information",
+      "category": "Response Forms"
+    },
+    {
+      "form_id": "RTI-07",
+      "form_name": "Communication to Third Party",
+      "category": "Notice Forms"
+    },
+    {
+      "form_id": "RTI-08",
+      "form_name": "Acceptance of Appeal",
+      "category": "Appeal Forms"
+    },
+    {
+      "form_id": "RTI-09",
+      "form_name": "Act No 12 of 2016 Register of Appeal",
+      "category": "Register Forms"
+    },
+    {
+      "form_id": "RTI-10",
+      "form_name": "Appeal to the Designated Officer",
+      "category": "Appeal Forms"
+    },
+    {
+      "form_id": "RTI-11",
+      "form_name": "Register of Rejection of Requests",
+      "category": "Register Forms"
+    },
+    {
+      "form_id": "RTI-12",
+      "form_name": "Details of the Information Officers",
+      "category": "Administrative Forms"
+    }
+  ],
+  "metadata": {
+    "created_date": "2025-10-27",
+    "version": "1.0",
+    "compliance": "Right to Information Act No. 12 of 2016",
+    "notes": "All forms are designed to comply with Sri Lankan RTI Act requirements"
+  }
+}

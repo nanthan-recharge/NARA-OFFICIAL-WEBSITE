@@ -1,0 +1,684 @@
+{
+  "about": {
+    "hero": {
+      "badge": "History & Milestones",
+      "title": "History and Milestone Achievements of NARA",
+      "headline": "Pioneering Responsible Aquatic Management in Sri Lanka",
+      "description": "Since its inception, the National Aquatic Resources Research and Development Agency (NARA) has stood at the forefront of safeguarding and advancing Sri Lanka's priceless aquatic wealth. As the nation's premier institute for marine and freshwater science, NARA embodies a legacy of innovation, conservation, and sustainable development. From responding to newly expanded maritime boundaries to forging global collaborations today, our journey reflects a commitment to science-driven solutions that uplift ecosystems, communities, and the Blue Economy.\n\nAs we celebrate over four decades of impact, we invite you to explore the milestones that define our enduring mission and the people who make it possible.",
+      "stats": [
+        {
+          "value": "43+",
+          "label": "Years safeguarding Sri Lanka's waters"
+        },
+        {
+          "value": "460K sq km",
+          "label": "Exclusive Economic Zone under responsible management"
+        },
+        {
+          "value": "200 NM",
+          "label": "Oceanic frontier declared in 1981"
+        }
+      ]
+    },
+    "history": {
+      "title": "Our Founding and Evolution",
+      "intro": "NARA was born from a visionary need to harness scientific expertise for Sri Lanka's vast oceanic frontier. In 1981, following the United Nations Conference on the Law of the Sea, Sri Lanka declared a 200-nautical-mile Exclusive Economic Zone (EEZ)--an expansive 460,000 square kilometers of sea territory, nearly eight times the nation's land area.",
+      "body": [
+        "To manage this bounty responsibly, NARA was established under Act No. 54 of 1981, transforming the Department of Fisheries Research Division into a dedicated statutory body. Governed by a Board of Governors and empowered to conduct research, advise policymakers, and coordinate national efforts, NARA quickly became the apex authority on aquatic resources spanning oceanography, fisheries enhancement, socio-economic studies, and conservation.",
+        "This foundational step marked the dawn of integrated aquatic management in Sri Lanka. Through legislative refinement and global partnerships we have evolved to meet climate realities, biodiversity challenges, and the demands of a thriving Blue Economy--always guided by science, resilience, and service."
+      ],
+      "timelineTitle": "Timeline of Key Milestones",
+      "timeline": [
+        {
+          "year": "1981",
+          "title": "Act No. 54 Establishes NARA",
+          "description": "Officially constituted as Sri Lanka's principal institute for aquatic research, development, and management following the declaration of the 200 NM EEZ."
+        },
+        {
+          "year": "1986--2000",
+          "title": "National Focal Point for IUCN",
+          "description": "Advanced marine biodiversity conservation and international cooperation during a formative era of global environmental awareness."
+        },
+        {
+          "year": "1996",
+          "title": "Act No. 32 Empowers Expansion",
+          "description": "Landmark amendment expanded advisory, training, and coordination roles across coastal, inland, and offshore domains."
+        },
+        {
+          "year": "1997",
+          "title": "Socio-Economics Division Launch",
+          "description": "Established dedicated capacity to study fishing industry dynamics, market strategies, and community well-being."
+        },
+        {
+          "year": "2012",
+          "title": "Hydrographic Leadership",
+          "description": "Hosted the 12th North Indian Ocean Hydrographic Commission, commissioned a new research vessel, and conducted special R&D surveys to enhance mapping accuracy."
+        },
+        {
+          "year": "2013",
+          "title": "Policy Advisory Recognition",
+          "description": "Released comprehensive reports on EIA consultancies and resource management, solidifying NARA's role in national decision-making."
+        },
+        {
+          "year": "2020",
+          "title": "President's Awards for Research",
+          "description": "Two NARA scientists honored by the National Research Council for fisheries oceanography and environmental publications; secured key EIA consultancy assignments."
+        },
+        {
+          "year": "2021",
+          "title": "First Pelagic Stock Survey",
+          "description": "Completed the inaugural ordinary scientific survey of small pelagic fish abundance along the west and south shelves to inform sustainable quotas."
+        },
+        {
+          "year": "2024",
+          "title": "43rd Anniversary Celebrated",
+          "description": "Marked decades of leadership in aquatic conservation, research, and national development."
+        },
+        {
+          "year": "2025",
+          "title": "Sri Lanka Navy Partnership",
+          "description": "Signed MOU for collaborative operation of research vessels, amplifying EEZ monitoring and Blue Economy innovation."
+        }
+      ],
+      "timelineIntro": "Explore the milestones that transformed a pioneering mandate into a national legacy.",
+      "milestoneCount": "{{count}} milestone",
+      "milestoneCount_plural": "{{count}} milestones"
+    },
+    "logo": {
+      "title": "The NARA Emblem",
+      "subtitle": "Symbol of Excellence in Marine Research",
+      "description": [
+        "The National Aquatic Resources Research and Development Agency (NARA) emblem represents our commitment to advancing marine science and sustainable aquatic resource management in Sri Lanka."
+      ],
+      "features": [
+        {
+          "icon": "waves",
+          "title": "Ocean Waves",
+          "description": "Symbolise our focus on marine and aquatic ecosystems, representing the vast coastal waters and inland water bodies that are central to our research mission."
+        },
+        {
+          "icon": "fish",
+          "title": "Marine Life Elements",
+          "description": "Reflect our dedication to understanding and protecting aquatic biodiversity—from fisheries science to marine biology conservation."
+        },
+        {
+          "icon": "globe",
+          "title": "Circular Design",
+          "description": "Represents our holistic approach to marine research, encompassing oceanography, limnology, aquaculture, and socio-economic studies."
+        },
+        {
+          "icon": "sparkles",
+          "title": "Scientific Excellence",
+          "description": "Showcases our commitment to rigorous research, innovation, and sustainable development practices."
+        }
+      ],
+      "history": {
+        "title": "Emblem History",
+        "body": [
+          "Established in 1981, NARA's emblem has remained a constant symbol of scientific integrity and responsible marine management.",
+          "The design reflects our evolution from a nascent research institution to a world-class centre for aquatic research excellence, guiding our mission to protect and sustainably manage Sri Lanka's precious marine and aquatic resources for future generations."
+        ]
+      },
+      "stats": [
+        {
+          "icon": "calendar",
+          "label": "Established",
+          "value": "1981"
+        },
+        {
+          "icon": "users",
+          "label": "Researchers",
+          "value": "200+"
+        },
+        {
+          "icon": "flask",
+          "label": "Research Areas",
+          "value": "8"
+        },
+        {
+          "icon": "trophy",
+          "label": "Years of Excellence",
+          "value": "40+"
+        }
+      ]
+    },
+    "leadership": {
+      "title": "Leadership & Administration",
+      "intro": "Our organisational structure ensures excellence in marine research, with dedicated leaders guiding NARA's mission across Sri Lanka.",
+      "chairman": {
+        "title": "Chairman",
+        "name": "Senior Prof. M. J. S. Wijeyaratne",
+        "email": "chairman@nara.ac.lk",
+        "phone": "+94-11-2521881",
+        "appointmentDate": "10th February 2022",
+        "address": "National Aquatic Resources Research & Development Agency, Crow Island, Mattakkuliya, Colombo 15",
+        "description": "The Chairman of the Governing Board, appointed by the Minister. Supreme administrative authority overseeing NARA's strategic direction, governance, and long-term vision for marine research excellence."
+      },
+      "executives": [
+        {
+          "title": "Director General (Acting)",
+          "name": "Dr. Kamal Tennakoon",
+          "email": "dg@nara.ac.lk",
+          "phone": "+94-11-2521932",
+          "mobile": "+94-71-9353627",
+          "appointmentDate": "18th November 2022",
+          "address": "National Aquatic Resources Research & Development Agency, Crow Island, Mattakkuliya, Colombo 15",
+          "description": "The Director General and Governing Board Member (Ex-Officio). Chief executive officer managing day-to-day operations and implementing strategic initiatives."
+        },
+        {
+          "title": "Deputy Director General",
+          "subtitle": "Research and Development",
+          "name": "Dr. K.H.M.L. Amaralal",
+          "email": "lalith@nara.ac.lk",
+          "phone": "+94-11-2529754",
+          "mobile": "+94-71-9353275",
+          "description": "Deputy chief executive supporting operational excellence and strategic planning."
+        }
+      ],
+      "directorsTitle": "Heads of Divisions",
+      "directors": [
+        {
+          "name": "Dr. K.A.W.S. Weerasekara",
+          "position": "Principal Scientist",
+          "division": "Head, Environmental Studies Division",
+          "expertise": "Aquatic pollution, water quality assessment, pesticide residue analysis, harmful marine microalgae",
+          "education": "PhD in Environmental Management, M.Sc. in Natural Resource Management",
+          "email": "shyamalikaww@nara.ac.lk",
+          "icon": "leaf"
+        },
+        {
+          "name": "Dr. W.N.C. Priyadarshani",
+          "position": "Principal Scientist",
+          "division": "Acting Head, Fishing Technology Division",
+          "expertise": "Fishing technology, coral-associated fish, marine plankton and benthos diversity",
+          "education": "Specialisation in Fishing Technology",
+          "email": "nilanthi_priyadarshani@yahoo.com",
+          "icon": "anchor"
+        },
+        {
+          "name": "Mr. S.R.C. Ranaweera",
+          "position": "Chief Hydrographer",
+          "division": "National Hydrographic Office",
+          "expertise": "National charting programme, multibeam backscatter technology, hydrographic surveying",
+          "education": "Category A Certification in Hydrographic Surveying, Post Graduate Diploma in Ocean Mapping, Master in Business Studies",
+          "email": "roshanccom@gmail.com",
+          "icon": "waves"
+        },
+        {
+          "name": "Dr. P.P.M. Heenatigala",
+          "position": "Principal Scientist",
+          "division": "Head, Inland Aquatic Resources and Aquaculture Division",
+          "expertise": "Aquatic animal health management, bacterial and viral diseases, vaccine development for fish",
+          "education": "PhD in Genetics (Chinese Academy of Science), MSc in Food and Nutrition, BSc in Biological Science",
+          "email": "prajani@nara.ac.lk",
+          "icon": "shell"
+        },
+        {
+          "name": "Dr. R.P. Prabath Krishantha Jayasinghe",
+          "position": "Principal Scientist",
+          "division": "Head, Marine Biological Resources Division",
+          "expertise": "Fisheries management, marine biodiversity, coral reefs, tuna and billfish fisheries",
+          "education": "PhD in Marine and Coastal Management (Spain), M.Sc. in Water and Coastal Management (Portugal)",
+          "email": "prabath_jayasinghe@yahoo.com",
+          "icon": "fish"
+        },
+        {
+          "name": "Mr. P.A.D. Ajith Kumara",
+          "position": "Director",
+          "division": "Monitoring and Evaluation",
+          "expertise": "Sea cucumber aquaculture, population dynamics, indigenous fish species research",
+          "education": "M.Phil (University of Kelaniya), B.Sc. Special in Zoology",
+          "email": "ajithkumaranara@gmail.com",
+          "icon": "barChart"
+        },
+        {
+          "name": "Mr. R.M.R.M. Jayathilaka",
+          "position": "Senior Scientist",
+          "division": "Acting Head, Oceanography Division",
+          "expertise": "Coastal oceanography, climate change impacts, numerical modelling, coastal erosion",
+          "education": "PhD Candidate (Earth Resources Engineering), MSc in Coastal Engineering (IHE Delft, Netherlands)",
+          "email": "ruchira.jayathilaka@gmail.com",
+          "icon": "globe"
+        },
+        {
+          "name": "Ms. D.W.L.U. De Silva",
+          "position": "Researcher",
+          "division": "Acting Head, Socio-Economics & Marketing Research Division",
+          "expertise": "Socio-economic analysis, seafood value chains, climate change vulnerability, fish demand modelling",
+          "education": "Master of Science in Applied Statistics (University of Peradeniya)",
+          "email": "lasamiupsala@gmail.com",
+          "icon": "trendingUp"
+        },
+        {
+          "name": "Mr. R.D.P.P. Ranasinghe",
+          "position": "Director",
+          "division": "Administration & Human Resources Management",
+          "expertise": "Personnel management, administrative functions, human resource operations",
+          "education": "MBA, BSc, Diploma in HR",
+          "email": "directoradmin@nara.ac.lk",
+          "icon": "briefcase"
+        },
+        {
+          "name": "Vacant",
+          "position": "Position Open",
+          "division": "Post Harvest Technology Division",
+          "expertise": "Seeking qualified candidate",
+          "education": "",
+          "email": "",
+          "icon": "package",
+          "vacant": true
+        }
+      ],
+      "vacancyNotice": "Position currently vacant",
+      "board": {
+        "title": "The Governing Board Members of NARA 2023",
+        "description": "The Governing Board comprises members appointed by the Minister and Ex-Officio members representing key government agencies and institutions.",
+        "ministerAppointed": {
+          "title": "Members Appointed by the Minister",
+          "members": [
+            {
+              "name": "Senior Prof. M. J. S. Wijeyaratne",
+              "role": "Chairman, The Governing Board Member",
+              "address": "National Aquatic Resources Research & Development Agency, Crow Island, Mattakkuliya, Colombo 15",
+              "appointmentDate": "10th February 2022"
+            },
+            {
+              "name": "Mr. Selvendran Salivan de Marian",
+              "role": "The Governing Board Member",
+              "address": "No. 17/2, Uyarappulam, Anaikoddai, Jaffna",
+              "appointmentDate": "10th February 2022"
+            },
+            {
+              "name": "Prof. P. Vinobaba",
+              "role": "The Governing Board Member",
+              "address": "6/1, Vetharanium Square, Batticaloa",
+              "appointmentDate": "08th June 2023",
+              "note": "Replaced Mr. Gizal Chinthan de Silva (10th Feb 2022 to 08th June 2023)"
+            },
+            {
+              "name": "Mr. N. M. P. Chaminda Fernando",
+              "role": "The Governing Board Member",
+              "designation": "Secretary, Sri Lanka Aquaculture Development Alliance",
+              "address": "53B, Singhapura Road, Chilaw, 61000",
+              "appointmentDate": "10th February 2022"
+            },
+            {
+              "name": "Emeritus Prof. Upali S. Amarasinghe",
+              "role": "The Governing Board Member",
+              "designation": "Department of Zoology & Environmental Management",
+              "address": "University of Kelaniya, Kelaniya",
+              "appointmentDate": "10th February 2022"
+            },
+            {
+              "name": "Dr. (Ms.) J. M. Asoka",
+              "role": "The Governing Board Member",
+              "designation": "Director General, National Aquaculture Development Authority of Sri Lanka",
+              "address": "No. 41/1, New Parliament Rd, Pelawatte, Battaramulla",
+              "appointmentDate": "10th February 2022"
+            },
+            {
+              "name": "Prof. Alagaiah Navaratnarajah",
+              "role": "The Governing Board Member",
+              "address": "6, 3/2 Indra Lane, Colombo 04",
+              "appointmentDate": "04th April 2023"
+            }
+          ]
+        },
+        "exOfficioMembers": {
+          "title": "Ex-Officio Members Appointed by Official",
+          "members": [
+            {
+              "name": "Dr. Kamal Tennakoon",
+              "role": "The Director General, The Governing Board Member",
+              "designation": "Director General",
+              "address": "National Aquatic Resources Research & Development Agency, Crow Island, Mattakkuliya, Colombo 15",
+              "appointmentDate": "18th November 2022"
+            },
+            {
+              "name": "Mr. T. A. C. N. Thalangama",
+              "role": "The Governing Board Member",
+              "designation": "Additional Secretary",
+              "address": "Ministry of Ornamental Fish, Inland Fish and Prawn Farming, Fishery Harbour Development, Multiday Fishing Activities and Fish Exports, New Secretariat, Maligawatta, Colombo 10",
+              "appointmentDate": "10th October 2021"
+            },
+            {
+              "name": "Mr. A.P Kurumbalapitiya",
+              "role": "The Governing Board Member",
+              "designation": "Director General, Department of Management Audit",
+              "address": "Ministry of Finance, The Secretariat, Colombo 01",
+              "appointmentDate": "18th March 2022"
+            },
+            {
+              "name": "Ms. K.N. Kumari Somaratne",
+              "role": "The Governing Board Member",
+              "designation": "Additional Secretary (Development)",
+              "address": "Ministry of Ports & Shipping, No. 19, Chaithya Road, Colombo 01",
+              "appointmentDate": "12th February 2020"
+            },
+            {
+              "name": "Mr. S.J. Kahawatta",
+              "role": "The Governing Board Member",
+              "designation": "Director General",
+              "address": "Department of Fisheries & Aquatic Resources Development, Maligawatta Sec, Colombo 10",
+              "appointmentDate": "12th February 2020"
+            },
+            {
+              "name": "M.M.G.K. Meegahakotuwa",
+              "role": "The Governing Board Member",
+              "designation": "Director General (Planning)",
+              "address": "Ministry of Education, Isurupaya, Battaramulla",
+              "appointmentDate": "25th September 2020"
+            },
+            {
+              "name": "Rear Admiral K.A.P.S.K. Kariyapperuma",
+              "role": "The Governing Board Member",
+              "designation": "Naval Assistant to the Commander & Chief Hydrographer of the NAVY",
+              "appointmentDate": "20th September 2022"
+            },
+            {
+              "name": "Mr. W.S.L.C Perera",
+              "role": "The Governing Board Member",
+              "designation": "Surveyor General",
+              "address": "Survey Department of Sri Lanka, 150, Kirula Road, Narahenpita, Colombo 05",
+              "appointmentDate": "14th September 2023",
+              "note": "Replaced Mr. S. Sivanandarajah (01st January 2023 to 30th August 2023)"
+            }
+          ]
+        }
+      },
+      "organizationalStructure": {
+        "title": "Organizational Structure",
+        "description": "NARA's organizational structure is designed to ensure effective research, development, and management of Sri Lanka's aquatic resources.",
+        "hierarchy": [
+          {
+            "level": 1,
+            "position": "Governing Board"
+          },
+          {
+            "level": 2,
+            "position": "Chairman"
+          },
+          {
+            "level": 3,
+            "position": "Director General"
+          },
+          {
+            "level": 4,
+            "position": "Deputy Director General (Research & Development)"
+          }
+        ],
+        "divisions": [
+          {
+            "name": "Administration Division",
+            "description": "Handles administrative functions, personnel management, and human resources"
+          },
+          {
+            "name": "Finance Division",
+            "description": "Manages financial operations, budgeting, and accounting"
+          },
+          {
+            "name": "Service & Operation Division",
+            "description": "Oversees operational services and support functions"
+          },
+          {
+            "name": "Inland Aquatic Resources & Aquaculture Division",
+            "description": "Research and development in freshwater resources and aquaculture"
+          },
+          {
+            "name": "Internal Audit",
+            "description": "Independent audit and financial oversight"
+          },
+          {
+            "name": "Socio Economics & Market Research Division",
+            "description": "Socio-economic analysis and market research for fisheries sector"
+          },
+          {
+            "name": "Post Harvest Technology Division",
+            "description": "Research in fish processing, preservation, and value addition"
+          },
+          {
+            "name": "National Institute of Marine Sciences Division",
+            "description": "Advanced marine science research and training"
+          },
+          {
+            "name": "Marine Biological Resources Division",
+            "description": "Study of marine biodiversity and biological resources"
+          },
+          {
+            "name": "Environmental Studies Division",
+            "description": "Environmental impact assessment and water quality monitoring"
+          },
+          {
+            "name": "Fishing Technology Division",
+            "description": "Development and improvement of fishing gear and methods"
+          },
+          {
+            "name": "National Hydrographic Office",
+            "description": "Hydrographic surveying and nautical charting"
+          },
+          {
+            "name": "Monitoring & Evaluation Division",
+            "description": "Project monitoring, evaluation, and performance assessment"
+          }
+        ],
+        "regionalCenters": [
+          {
+            "name": "R.R.C Kalpitiya",
+            "location": "Kalpitiya",
+            "description": "Regional Research Center for Northwestern coastal research"
+          },
+          {
+            "name": "R.R.C Kadolkale (Negombo)",
+            "location": "Negombo",
+            "description": "Regional Research Center for Western province fisheries"
+          },
+          {
+            "name": "R.R.C.Panapitiya (Kalutara)",
+            "location": "Kalutara",
+            "description": "Regional Research Center for Southwestern coastal research"
+          },
+          {
+            "name": "R.R.C Kapparatota (Weligama)",
+            "location": "Weligama",
+            "description": "Regional Research Center for Southern province"
+          },
+          {
+            "name": "R.R.C Rekawa (Tangalle)",
+            "location": "Tangalle",
+            "description": "Regional Research Center for Southeastern coastal research"
+          }
+        ],
+        "supportOffices": [
+          {
+            "name": "Secretary to the Governing Board / Legal Officer",
+            "description": "Provides legal advisory and secretariat services to the Board"
+          }
+        ]
+      }
+    },
+    "achievements": {
+      "title": "Spotlight on Achievements: Driving Impact Through Science",
+      "intro": "Our milestones are more than dates--they represent tangible wins for sustainability, prosperity, and shared responsibility.",
+      "items": [
+        {
+          "title": "Scientific Excellence",
+          "description": "Thousands of studies over four decades, from acoustic fish stock surveys to seagrass mapping in Palk Bay, with national honors such as the 2020 President's Awards for cutting-edge publications."
+        },
+        {
+          "title": "Global Partnerships",
+          "description": "Collaborations with IUCN, the UK's Ocean Country Partnership Programme, and Norway's Nor-Lanka Blue Project have expanded youth training, coral conservation, and advanced trawl surveys."
+        },
+        {
+          "title": "Policy & Community Influence",
+          "description": "Advisory services shaping national fisheries plans, shark conservation strategies, and lagoon water quality standards--protecting over 519,800 sq km while empowering coastal livelihoods."
+        },
+        {
+          "title": "Innovation in Action",
+          "description": "Initiatives spanning shrimp disease surveillance, carbon sequestration assessments in Negombo mangroves, and eco-friendly livelihood programs that mitigate climate threats."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Join Our Journey",
+      "description": "Rise with us: immerse yourself in the milestones that continue to shape Sri Lanka's aquatic future and partner in the innovations still to come.",
+      "button": "Explore Our Mission"
+    },
+    "labels": {
+      "timelineDetailsHeading": "Key Milestone Details",
+      "milestoneAltSuffix": "milestone",
+      "leadershipTitleFallback": "Leadership & Administration",
+      "ministerAppointedFallback": "Members Appointed by the Minister",
+      "exOfficioFallback": "Ex-Officio Members",
+      "boardTitleFallback": "Governing Board Members of NARA 2023",
+      "orgDivisionsHeading": "Research & Administrative Divisions",
+      "regionalCentersHeading": "Regional Research Centers",
+      "hierarchyHeading": "Organizational Hierarchy",
+      "vacancyFallback": "Position currently vacant",
+      "patentNumberLabel": "Patent No",
+      "logoAlt": "NARA Logo",
+      "logoTitleFallback": "The NARA Emblem",
+      "directorsTitleFallback": "Division Heads"
+    },
+    "institutionalHighlights": {
+      "title": "Institutional Highlights",
+      "description": "Celebrating NARA's achievements in research, innovation, and national impact.",
+      "cards": {
+        "patents": {
+          "title": "Patents & Intellectual Property",
+          "stat": "12+",
+          "description": "Patents granted for aquaculture technologies and marine instruments."
+        },
+        "globalImpact": {
+          "title": "Global Impact",
+          "stat": "50+",
+          "description": "International research collaborations and major scientific expeditions completed."
+        },
+        "latestNews": {
+          "title": "Latest News",
+          "description": "Stay updated with our latest scientific discoveries and announcements.",
+          "cta": "Read Articles"
+        }
+      }
+    },
+    "divisionGallery": {
+      "title": "Our Divisions",
+      "description": "Advancing marine and freshwater research across diverse scientific disciplines.",
+      "cta": "Explore Division",
+      "researchDivisions": "Research Divisions",
+      "regionalCenters": "Regional Centers",
+      "supportingDivisions": "Supporting Divisions"
+    },
+    "newsSection": {
+      "title": "Latest News & Announcements",
+      "description": "Stay updated with the latest developments, research findings, and announcements from NARA.",
+      "items": [
+        {
+          "title": "New Marine Research Station Opened",
+          "date": "January 2025",
+          "description": "NARA inaugurated a new state-of-the-art marine research station in Negombo to expand coastal research capabilities."
+        },
+        {
+          "title": "International Research Partnership",
+          "date": "December 2024",
+          "description": "NARA signed an MoU with the Japanese Institute of Marine Science for collaborative ocean research programs."
+        },
+        {
+          "title": "Climate Research Initiative Launch",
+          "date": "November 2024",
+          "description": "A new initiative was launched to study climate change impacts on Sri Lankan marine ecosystems with UNESCO support."
+        }
+      ]
+    },
+    "patentsSection": {
+      "title": "Patents & Intellectual Property",
+      "description": "NARA's innovation and research excellence have resulted in several patent and intellectual property achievements.",
+      "patentLabel": "Patent No",
+      "items": [
+        {
+          "title": "Seaweed Extraction Process",
+          "year": "2023",
+          "patent": "LK/P/21234",
+          "description": "A novel extraction method for bioactive compounds from Sri Lankan seaweed species."
+        },
+        {
+          "title": "Fish Stock Assessment Algorithm",
+          "year": "2022",
+          "patent": "LK/P/20856",
+          "description": "An AI-based algorithm for predicting fish stock movements in tropical waters."
+        },
+        {
+          "title": "Marine Pollution Monitoring System",
+          "year": "2021",
+          "patent": "LK/P/19432",
+          "description": "An IoT-based real-time monitoring system for coastal water quality assessment."
+        },
+        {
+          "title": "Aquaculture Feed Formula",
+          "year": "2020",
+          "patent": "LK/P/18765",
+          "description": "A sustainable fish-feed formula using locally available agricultural by-products."
+        }
+      ]
+    },
+    "accomplishmentsSection": {
+      "title": "Major Accomplishments",
+      "description": "Key institutional milestones and achievements that have shaped NARA's legacy in marine research.",
+      "items": [
+        {
+          "icon": "Globe",
+          "title": "International Recognition",
+          "stat": "15+ Awards",
+          "description": "Received prestigious international awards for marine conservation efforts."
+        },
+        {
+          "icon": "BookOpen",
+          "title": "Published Research",
+          "stat": "2,500+",
+          "description": "Peer-reviewed scientific papers published in international journals."
+        },
+        {
+          "icon": "Users",
+          "title": "Scientists Trained",
+          "stat": "5,000+",
+          "description": "Marine scientists and researchers trained through NARA programs."
+        },
+        {
+          "icon": "Anchor",
+          "title": "Research Expeditions",
+          "stat": "200+",
+          "description": "Deep-sea and coastal research expeditions conducted."
+        },
+        {
+          "icon": "Fish",
+          "title": "Species Documented",
+          "stat": "3,500+",
+          "description": "Marine species catalogued and documented in Sri Lankan waters."
+        },
+        {
+          "icon": "Shield",
+          "title": "Conservation Projects",
+          "stat": "50+",
+          "description": "Active marine and freshwater conservation initiatives."
+        }
+      ]
+    },
+    "dataPolicy": {
+      "title": "Data Policy & Guidelines",
+      "description": "NARA is committed to open science and responsible data-sharing practices.",
+      "accessTitle": "Data Access",
+      "protectionTitle": "Data Protection",
+      "accessItems": [
+        "Research data are available for academic and government institutions.",
+        "Public datasets are accessible through our digital repository.",
+        "API access is available for approved research partners."
+      ],
+      "protectionItems": [
+        "Compliant with national data protection regulations.",
+        "Sensitive ecological data are protected with restricted access controls.",
+        "Secure storage and transmission protocols are enforced."
+      ],
+      "contactNote": "For data-access requests, please contact our Information Management Division.",
+      "contactEmail": "data@nara.ac.lk"
+    }
+  }
+}

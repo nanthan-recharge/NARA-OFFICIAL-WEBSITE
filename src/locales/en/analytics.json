@@ -1,0 +1,97 @@
+{
+  "hero": {
+    "title": "Analytics Hub",
+    "subtitle": "Data-Driven Insights for Marine & Blue Economy",
+    "description": "Harness the power of AI and advanced analytics to forecast trends, assess impacts, and optimize policies"
+  },
+  "tools": {
+    "predictive": {
+      "name": "Predictive Analytics",
+      "description": "AI-powered forecasting for fish stocks, climate impacts, and marine trends",
+      "features": {
+        "forecast": "Fish Stock Forecasting",
+        "climate": "Climate Impact Prediction",
+        "trends": "Trend Analysis",
+        "anomaly": "Anomaly Detection"
+      }
+    },
+    "impact": {
+      "name": "Impact Assessment",
+      "description": "Measure policy effectiveness and project outcomes with data-driven insights",
+      "features": {
+        "policy": "Policy Impact Tracking",
+        "outcomes": "Project Outcomes",
+        "roi": "ROI Calculation",
+        "reports": "Report Generation"
+      }
+    },
+    "economic": {
+      "name": "Economic Valuation",
+      "description": "Calculate blue economy contributions and investment returns",
+      "features": {
+        "gdp": "Blue Economy GDP",
+        "tourism": "Tourism Revenue",
+        "fisheries": "Fisheries Value",
+        "employment": "Employment Impact"
+      }
+    },
+    "simulator": {
+      "name": "Policy Simulator",
+      "description": "Model policy changes and simulate outcomes before implementation",
+      "features": {
+        "modeling": "Scenario Modeling",
+        "prediction": "Impact Prediction",
+        "costBenefit": "Cost-Benefit Analysis",
+        "risk": "Risk Assessment"
+      }
+    }
+  },
+  "insights": {
+    "title": "Recent Insights",
+    "success": {
+      "title": "Fish Stock Recovery Trend Detected",
+      "description": "Predictive models show 15% improvement in yellowfin tuna stocks over next 6 months"
+    },
+    "warning": {
+      "title": "Policy Review Recommended",
+      "description": "Marine conservation policy showing neutral impact - reassessment suggested"
+    },
+    "info": {
+      "title": "Blue Economy Growth",
+      "description": "Tourism sector contributing 2.3% to GDP, up 0.4% from last year"
+    },
+    "timestamp": {
+      "hours": "{{count}} hours ago",
+      "day": "1 day ago"
+    }
+  },
+  "stats": {
+    "models": "Active Models",
+    "accuracy": "Prediction Accuracy",
+    "insights": "Insights Generated",
+    "policies": "Policies Tracked"
+  },
+  "actions": {
+    "exploreTool": "Key Features",
+    "viewDashboard": "View Dashboard",
+    "learnMore": "Learn More",
+    "getStarted": "Get Started"
+  },
+  "valueProps": {
+    "aiTitle": "AI-Powered Predictions",
+    "aiDesc": "Machine learning algorithms forecast trends and predict outcomes with confidence intervals",
+    "dataTitle": "Data-Driven Decisions",
+    "dataDesc": "Evidence-based insights help policy makers make informed choices with measurable impact",
+    "riskTitle": "Risk Mitigation",
+    "riskDesc": "Simulate policy changes and assess risks before implementation to avoid costly mistakes"
+  },
+  "labels": {
+    "policiesTracked": "policies tracked",
+    "projectsMeasured": "projects measured",
+    "netValue": "Net value",
+    "avgROI": "Average ROI"
+  },
+  "messages": {
+    "fallback": "Showing sample analytics because live metrics are unavailable. Connect Firebase to display real-time data."
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "rti": {
+    "hero": {
+      "badge": "Transparency & Accountability",
+      "title": "Right to Information Act",
+      "headline": "Access Information, Empower Citizens",
+      "description": "NARA is committed to transparency and accountability under the Right to Information Act No. 12 of 2016. Access all RTI forms, guidelines, and downloadable documents to exercise your right to information."
+    },
+    "stats": {
+      "forms": {
+        "value": "12",
+        "label": "RTI Forms"
+      },
+      "documents": {
+        "value": "77+",
+        "label": "Documents Available"
+      },
+      "reports": {
+        "value": "39",
+        "label": "Annual Reports"
+      },
+      "response": {
+        "value": "14 Days",
+        "label": "Response Time"
+      }
+    },
+    "sections": {
+      "forms": {
+        "title": "RTI Forms & Templates",
+        "description": "Download official RTI forms to request information from NARA",
+        "forms": [
+          {
+            "code": "RTI-01",
+            "title": "Information Application",
+            "description": "Form to request information under the RTI Act",
+            "fileUrl": "/documents/rti/RTI-01-Information-Application.pdf",
+            "fileSize": "250 KB",
+            "icon": "file-text"
+          },
+          {
+            "code": "RTI-02",
+            "title": "Acknowledgement",
+            "description": "Official acknowledgement of information request",
+            "fileUrl": "/documents/rti/RTI-02-Acknowledgement.pdf",
+            "fileSize": "180 KB",
+            "icon": "check-circle"
+          },
+          {
+            "code": "RTI-03",
+            "title": "Register of Information Requests",
+            "description": "Template for maintaining register of RTI requests",
+            "fileUrl": "/documents/rti/RTI-03-Register-Information-Requests.pdf",
+            "fileSize": "220 KB",
+            "icon": "book-open"
+          },
+          {
+            "code": "RTI-04",
+            "title": "Decision to Provide Information",
+            "description": "Official decision to provide requested information",
+            "fileUrl": "/documents/rti/RTI-04-Decision-Provide-Information.pdf",
+            "fileSize": "200 KB",
+            "icon": "check-square"
+          },
+          {
+            "code": "RTI-05",
+            "title": "Rejection of Information Request",
+            "description": "Form for rejection of information request with reasons",
+            "fileUrl": "/documents/rti/RTI-05-Rejection-Information-Request.pdf",
+            "fileSize": "210 KB",
+            "icon": "x-circle"
+          },
+          {
+            "code": "RTI-06",
+            "title": "Extension of Time to Provide Information",
+            "description": "Request for extension of time beyond 14 days",
+            "fileUrl": "/documents/rti/RTI-06-Extension-Time.pdf",
+            "fileSize": "190 KB",
+            "icon": "clock"
+          },
+          {
+            "code": "RTI-07",
+            "title": "Communication to Third Party",
+            "description": "Form for third party consultation",
+            "fileUrl": "/documents/rti/RTI-07-Communication-Third-Party.pdf",
+            "fileSize": "200 KB",
+            "icon": "users"
+          },
+          {
+            "code": "RTI-08",
+            "title": "Acceptance of Appeal",
+            "description": "Acknowledgement of appeal submission",
+            "fileUrl": "/documents/rti/RTI-08-Acceptance-Appeal.pdf",
+            "fileSize": "185 KB",
+            "icon": "alert-circle"
+          },
+          {
+            "code": "RTI-09",
+            "title": "Register of Appeal (Act No 12 of 2016)",
+            "description": "Template for maintaining register of appeals",
+            "fileUrl": "/documents/rti/RTI-09-Register-Appeal.pdf",
+            "fileSize": "230 KB",
+            "icon": "folder"
+          },
+          {
+            "code": "RTI-10",
+            "title": "Appeal to the Designated Officer",
+            "description": "Form to file an appeal with designated officer",
+            "fileUrl": "/documents/rti/RTI-10-Appeal-Designated-Officer.pdf",
+            "fileSize": "240 KB",
+            "icon": "send"
+          },
+          {
+            "code": "RTI-11",
+            "title": "Register of Rejection of Requests",
+            "description": "Template for maintaining register of rejections",
+            "fileUrl": "/documents/rti/RTI-11-Register-Rejection.pdf",
+            "fileSize": "215 KB",
+            "icon": "list"
+          },
+          {
+            "code": "RTI-12",
+            "title": "Details of the Information Officers",
+            "description": "Contact details of RTI information officers at NARA",
+            "fileUrl": "/documents/rti/RTI-12-Information-Officers.pdf",
+            "fileSize": "195 KB",
+            "icon": "user"
+          }
+        ]
+      },
+      "documents": {
+        "title": "NARA Documents Library",
+        "description": "Access annual reports, research publications, and other official documents",
+        "categories": [
+          {
+            "name": "Annual Reports",
+            "count": 39,
+            "description": "Comprehensive annual reports from 2011-2023 in English, Sinhala & Tamil",
+            "icon": "calendar",
+            "downloadUrl": "/download/annual-reports"
+          },
+          {
+            "name": "Fisheries Industry Outlook",
+            "count": 3,
+            "description": "Industry outlook reports for 2020-2022",
+            "icon": "trending-up",
+            "downloadUrl": "/download/fisheries-outlook"
+          },
+          {
+            "name": "Scientific Sessions Proceedings",
+            "count": 7,
+            "description": "Proceedings from scientific sessions 2016-2022",
+            "icon": "flask-conical",
+            "downloadUrl": "/download/scientific-proceedings"
+          },
+          {
+            "name": "Special Documents",
+            "count": 2,
+            "description": "Special publications and reports",
+            "icon": "star",
+            "downloadUrl": "/download/special-documents"
+          }
+        ]
+      },
+      "officers": {
+        "title": "RTI Information Officers",
+        "description": "Contact our designated RTI officers for information requests",
+        "officers": [
+          {
+            "name": "Information Officer",
+            "designation": "Director / Administration",
+            "email": "rti@nara.ac.lk",
+            "phone": "011-2521000",
+            "office": "NARA Headquarters, Colombo"
+          },
+          {
+            "name": "Designated Officer (Appeals)",
+            "designation": "Additional Director General",
+            "email": "appeals.rti@nara.ac.lk",
+            "phone": "011-2521006",
+            "office": "NARA Headquarters, Colombo"
+          }
+        ]
+      },
+      "guidelines": {
+        "title": "How to Request Information",
+        "steps": [
+          {
+            "step": 1,
+            "title": "Download RTI-01 Form",
+            "description": "Download and fill the Information Application form (RTI-01)"
+          },
+          {
+            "step": 2,
+            "title": "Submit Your Request",
+            "description": "Submit the filled form via email, post, or in person to the Information Officer"
+          },
+          {
+            "step": 3,
+            "title": "Receive Acknowledgement",
+            "description": "You will receive an acknowledgement (RTI-02) within 3 working days"
+          },
+          {
+            "step": 4,
+            "title": "Get Information",
+            "description": "Information will be provided within 14 working days (extendable to 21 days)"
+          },
+          {
+            "step": 5,
+            "title": "Appeal if Needed",
+            "description": "If unsatisfied, you can appeal using RTI-10 form within 30 days"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "Need Information from NARA?",
+      "description": "Exercise your right to information by submitting an RTI request today",
+      "button": "Download RTI Forms",
+      "contact": "Contact RTI Officer"
+    }
+  }
+}

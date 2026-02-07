@@ -1,0 +1,131 @@
+{
+  "hero": {
+    "title": "NARA Media Gallery",
+    "subtitle": "Explore ocean research, conservation milestones, and field operations through verified NARA media.",
+    "kicker": "Government Knowledge Visual Archive",
+    "ctaImages": "Browse Images",
+    "ctaVideos": "Browse Videos",
+    "status": {
+      "loading": "Preparing hero carousel...",
+      "featured": "Hero carousel is showing admin-selected featured media.",
+      "latest": "No featured hero items yet. Showing latest approved media.",
+      "fallback": "Using curated sample hero slides until admin uploads are available.",
+      "public": "Hero carousel is using all images from the public media gallery hero folder."
+    }
+  },
+  "search": {
+    "placeholder": "Search images, videos, tags, locations..."
+  },
+  "tabs": {
+    "images": "Images",
+    "videos": "Videos"
+  },
+  "filters": {
+    "toggle": "Filters",
+    "categoryLabel": "Category",
+    "sourceLabel": "Source",
+    "dateLabel": "Date Range",
+    "categories": {
+      "all": "All Media",
+      "research": "Research Activities",
+      "marine-life": "Marine Life",
+      "events": "Events & Conferences",
+      "facilities": "Facilities & Equipment",
+      "field-work": "Field Work",
+      "conservation": "Conservation Efforts",
+      "education": "Education & Training",
+      "partnerships": "Partnerships"
+    },
+    "sources": {
+      "all": "All Sources",
+      "manual": "NARA Official",
+      "social": "Social Media",
+      "news": "News Outlets",
+      "partners": "Partner Organizations"
+    },
+    "dates": {
+      "all": "All Time",
+      "today": "Today",
+      "week": "Last 7 Days",
+      "month": "Last 30 Days",
+      "year": "Last 12 Months"
+    }
+  },
+  "stats": {
+    "approvedItems": "Approved Assets",
+    "totalViews": "Total Views",
+    "categories": "Categories",
+    "sources": "Sources",
+    "lastUpdated": {
+      "placeholder": "Awaiting first sync from admin panel",
+      "value": "Last updated {{date}}"
+    }
+  },
+  "loading": "Loading media...",
+  "empty": {
+    "title": "No media found",
+    "description": "Try adjusting your search or filters"
+  },
+  "fallback": {
+    "notice": "Showing curated sample media while the live gallery loads from the admin panel."
+  },
+  "insights": {
+    "sources": {
+      "title": "Top Sources",
+      "empty": "No sources available yet."
+    },
+    "tags": {
+      "title": "Trending Tags",
+      "empty": "Tags will appear once media is available."
+    },
+    "latest": {
+      "title": "Latest Updates",
+      "empty": "Newly approved media will surface here."
+    }
+  },
+  "labels": {
+    "dateUnknown": "Date unavailable"
+  },
+  "actions": {
+    "download": "Download",
+    "share": "Share",
+    "favorite": "Add to Favorites",
+    "favorited": "Favorited",
+    "openOriginal": "Open Original",
+    "watchSource": "Watch on Source"
+  },
+  "metrics": {
+    "views": "{{count}} views",
+    "likes": "{{count}} likes",
+    "photoBy": "Photo by"
+  },
+  "mediaFallback": {
+    "empty": "No media available"
+  },
+  "tags": {
+    "research": "Research",
+    "marine-biology": "Marine biology",
+    "field-work": "Field work",
+    "coral": "Coral",
+    "conservation": "Conservation",
+    "underwater": "Underwater",
+    "conference": "Conference",
+    "international": "International",
+    "collaboration": "Collaboration",
+    "turtles": "Sea turtles",
+    "wildlife": "Wildlife",
+    "laboratory": "Laboratory",
+    "equipment": "Equipment",
+    "education": "Education",
+    "outreach": "Outreach",
+    "students": "Students",
+    "annual-review": "Annual review",
+    "highlights": "Highlights",
+    "coral-reefs": "Coral reefs",
+    "documentary": "Documentary",
+    "training": "Training",
+    "methods": "Methods",
+    "whales": "Whales",
+    "migration": "Migration"
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "security": {
+    "title": "Security Policy",
+    "subtitle": "Information Security & Cyber Security Practices",
+    "effectiveDate": "Last Updated: January 1, 2025",
+    "intro": {
+      "title": "Our Security Commitment",
+      "text": "NARA is committed to protecting the confidentiality, integrity, and availability of all information assets."
+    },
+    "framework": {
+      "title": "Security Framework",
+      "text": "Our security program is aligned with:"
+    },
+    "technical": {
+      "title": "Technical Security Measures"
+    },
+    "organizational": {
+      "title": "Organizational Security Measures"
+    },
+    "incident": {
+      "title": "Security Incident Response"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "subtitle": "Personal Data Protection Act (PDPA) Compliance",
+    "effectiveDate": "Last Updated: January 1, 2025"
+  },
+  "terms": {
+    "title": "Terms of Use",
+    "subtitle": "Digital Services - National Aquatic Resources Research & Development Agency",
+    "effectiveDate": "Last Updated: January 1, 2025"
+  },
+  "cookie": {
+    "title": "Cookie Policy",
+    "subtitle": "How We Use Cookies and Similar Technologies",
+    "effectiveDate": "Last Updated: January 1, 2025"
+  },
+  "accessibility": {
+    "title": "Accessibility Statement",
+    "subtitle": "Our Commitment to Digital Accessibility",
+    "effectiveDate": "Last Updated: January 1, 2025"
+  },
+  "rti": {
+    "title": "Right to Information (RTI) Disclosure",
+    "subtitle": "Proactive Disclosure Under RTI Act No. 12 of 2016",
+    "effectiveDate": "Last Updated: January 1, 2025"
+  },
+  "dataRights": {
+    "title": "Data Subject Rights Portal",
+    "subtitle": "Exercise Your Rights Under the PDPA",
+    "effectiveDate": "Last Updated: January 1, 2025"
+  }
+}

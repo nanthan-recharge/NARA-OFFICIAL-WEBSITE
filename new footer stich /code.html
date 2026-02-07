@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NARA Modern Footer Design</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#0ea5e9", // Sky blue for primary accents
+                        "nara-dark-start": "#001f3f",
+                        "nara-dark-end": "#003366",
+                        "background-light": "#f0f9ff", // Very light blue for light mode
+                        "background-dark": "#001f3f",  // Deep navy for dark mode
+                        "card-dark": "rgba(255, 255, 255, 0.05)",
+                        "card-light": "rgba(255, 255, 255, 0.7)",
+                        "ticker-bg": "#003d7a", // Requested lighter blue for ticker
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                    },
+                    backgroundImage: {
+                        'ocean-gradient': 'linear-gradient(to right bottom, #001f3f, #002b55, #00386b, #004582, #005299)',
+                        'ocean-gradient-light': 'linear-gradient(to right bottom, #e0f2fe, #bae6fd)',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        .glass-card {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .light-mode-glass {
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(14, 165, 233, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+        }
+        .fab-pulse {
+            animation: pulse-ring 2s infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 35s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col justify-end font-sans transition-colors duration-300">
+<div class="fixed top-5 right-5 z-50">
+<button class="bg-white dark:bg-slate-800 p-2 rounded-full shadow-lg border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white transition-all hover:scale-110" onclick="document.documentElement.classList.toggle('dark')">
+<span class="material-symbols-outlined align-middle">contrast</span>
+</button>
+</div>
+<div class="flex-grow p-10 flex items-center justify-center text-slate-400 dark:text-slate-600">
+<p>Scroll down to view the footer</p>
+</div>
+<footer class="relative bg-ocean-gradient-light dark:bg-ocean-gradient text-slate-800 dark:text-white pb-8 overflow-hidden pt-0">
+<div class="bg-slate-50 dark:bg-[#020617] py-12 border-b border-slate-200 dark:border-white/5 relative z-30">
+<div class="container mx-auto px-6">
+<h3 class="text-center text-sm font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 mb-10 font-sans">
+                Our Partners &amp; Collaborators
+            </h3>
+<div class="flex flex-wrap justify-center items-center gap-8 md:gap-14 lg:gap-20">
+<a class="group flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-all duration-300" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-white/5 rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md mb-3 border border-slate-200 dark:border-white/10 group-hover:border-primary/30 transition-all">
+<i class="fas fa-anchor text-3xl md:text-4xl text-slate-400 dark:text-slate-500 group-hover:text-[#003d7a] dark:group-hover:text-sky-400 transition-colors"></i>
+</div>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 group-hover:text-[#003d7a] dark:group-hover:text-sky-300 text-center leading-tight">Ministry of<br/>Fisheries</span>
+</a>
+<a class="group flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-all duration-300" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-white/5 rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md mb-3 border border-slate-200 dark:border-white/10 group-hover:border-blue-500/30 transition-all">
+<i class="fas fa-wheat-awn text-3xl md:text-4xl text-slate-400 dark:text-slate-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"></i>
+</div>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 text-center uppercase">FAO</span>
+</a>
+<a class="group flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-all duration-300" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-white/5 rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md mb-3 border border-slate-200 dark:border-white/10 group-hover:border-sky-500/30 transition-all">
+<i class="fas fa-globe-asia text-3xl md:text-4xl text-slate-400 dark:text-slate-500 group-hover:text-sky-500 dark:group-hover:text-sky-400 transition-colors"></i>
+</div>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 group-hover:text-sky-500 dark:group-hover:text-sky-400 text-center uppercase">UNDP</span>
+</a>
+<a class="group flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-all duration-300" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-white/5 rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md mb-3 border border-slate-200 dark:border-white/10 group-hover:border-teal-500/30 transition-all">
+<i class="fas fa-microscope text-3xl md:text-4xl text-slate-400 dark:text-slate-500 group-hover:text-teal-500 dark:group-hover:text-teal-400 transition-colors"></i>
+</div>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 group-hover:text-teal-500 dark:group-hover:text-teal-400 text-center leading-tight">Marine<br/>Research</span>
+</a>
+<a class="group flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-all duration-300" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-white/5 rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md mb-3 border border-slate-200 dark:border-white/10 group-hover:border-indigo-500/30 transition-all">
+<i class="fas fa-graduation-cap text-3xl md:text-4xl text-slate-400 dark:text-slate-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors"></i>
+</div>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 text-center leading-tight">Ocean<br/>University</span>
+</a>
+<a class="group flex flex-col items-center justify-center opacity-70 hover:opacity-100 transition-all duration-300" href="#">
+<div class="w-16 h-16 md:w-20 md:h-20 bg-white dark:bg-white/5 rounded-full flex items-center justify-center shadow-sm group-hover:shadow-md mb-3 border border-slate-200 dark:border-white/10 group-hover:border-red-500/30 transition-all">
+<i class="fas fa-life-ring text-3xl md:text-4xl text-slate-400 dark:text-slate-500 group-hover:text-red-500 dark:group-hover:text-red-400 transition-colors"></i>
+</div>
+<span class="text-xs font-bold text-slate-500 dark:text-slate-400 group-hover:text-red-500 dark:group-hover:text-red-400 text-center leading-tight">Coast<br/>Guard</span>
+</a>
+</div>
+</div>
+</div>
+<div class="w-full bg-[#003d7a] relative z-20 border-b border-white/10 shadow-md">
+<div class="container mx-auto flex items-center h-12">
+<div class="relative z-10 h-full flex items-center bg-cyan-400 text-[#001f3f] font-bold text-sm uppercase tracking-wider px-6 shadow-[4px_0_10px_rgba(0,0,0,0.1)]">
+<span class="material-symbols-outlined text-xl mr-2">campaign</span>
+                    Latest News
+                    <div class="absolute right-0 top-0 bottom-0 translate-x-full w-0 h-0 border-t-[24px] border-t-transparent border-l-[12px] border-l-cyan-400 border-b-[24px] border-b-transparent"></div>
+</div>
+<div class="w-6 flex-shrink-0"></div>
+<div class="flex-grow overflow-hidden relative h-full flex items-center">
+<div class="animate-marquee whitespace-nowrap flex items-center gap-16 absolute">
+<a class="text-white hover:text-cyan-300 transition-colors text-sm font-medium flex items-center group" href="#">
+<span class="w-2 h-2 rounded-full bg-cyan-400 mr-3 group-hover:bg-cyan-200 transition-colors shadow-sm"></span>
+                            Annual Scientist Sessions 2026 Registration Open
+                        </a>
+<a class="text-white hover:text-cyan-300 transition-colors text-sm font-medium flex items-center group" href="#">
+<span class="w-2 h-2 rounded-full bg-cyan-400 mr-3 group-hover:bg-cyan-200 transition-colors shadow-sm"></span>
+                            New Research on Sustainable Fisheries in the Indian Ocean
+                        </a>
+<a class="text-white hover:text-cyan-300 transition-colors text-sm font-medium flex items-center group" href="#">
+<span class="w-2 h-2 rounded-full bg-cyan-400 mr-3 group-hover:bg-cyan-200 transition-colors shadow-sm"></span>
+                             Public Consultation: Marine Spatial Planning Draft Policy
+                        </a>
+<a class="text-white hover:text-cyan-300 transition-colors text-sm font-medium flex items-center group" href="#">
+<span class="w-2 h-2 rounded-full bg-cyan-400 mr-3 group-hover:bg-cyan-200 transition-colors shadow-sm"></span>
+                             NARA Discovers New Coral Species off the Southern Coast
+                        </a>
+<a class="text-white hover:text-cyan-300 transition-colors text-sm font-medium flex items-center group" href="#">
+<span class="w-2 h-2 rounded-full bg-cyan-400 mr-3 group-hover:bg-cyan-200 transition-colors shadow-sm"></span>
+                            Oceanographic Data Analysis Workshop - Apply Now
+                       </a>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob"></div>
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-cyan-300 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+<div class="container mx-auto px-6 relative z-10 pt-12">
+<div class="bg-white/40 dark:bg-card-dark glass-card rounded-2xl p-8 mb-16 shadow-lg border border-slate-200 dark:border-white/10">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+<div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 flex items-center">
+<span class="material-symbols-outlined mr-2 text-primary">mark_email_unread</span>
+                            Stay Updated with NARA
+                        </h3>
+<p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed max-w-md">
+                            Subscribe to receive the latest aquatic research updates, scientific publications, and official news directly to your inbox.
+                        </p>
+</div>
+<div>
+<form class="flex flex-col sm:flex-row gap-3">
+<div class="relative flex-grow">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-slate-400 text-lg">mail</span>
+</div>
+<input class="w-full pl-10 pr-4 py-3 bg-white/70 dark:bg-white/5 border border-slate-300 dark:border-white/20 rounded-lg text-slate-800 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all" placeholder="Enter your email address" required="" type="email"/>
+</div>
+<button class="px-6 py-3 bg-primary hover:bg-sky-600 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 flex items-center justify-center whitespace-nowrap" type="submit">
+                                Subscribe
+                                <span class="material-symbols-outlined ml-2 text-sm">send</span>
+</button>
+</form>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-3 pl-1">
+                            We respect your privacy. Unsubscribe at any time.
+                        </p>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+<div class="lg:col-span-4 space-y-8">
+<div class="flex items-center space-x-4">
+<div class="bg-white/90 p-1.5 rounded-full shadow-lg w-16 h-16 flex items-center justify-center shrink-0">
+<img alt="NARA Logo" class="w-full h-full object-cover rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0LvnnkhNkf-G21XicdtYxC6X6_ldsjqf-Budn2OdO5s6a0JWPl69uZRRCy-0LeGqE9L-7flXUmAAEI0a7FwL6Lo8qXWIPzTdC-Fg94X4GsyxyX_PJEiEsDnJ-fOKh-dc50nNQuaKrXAqWIgY2zDBSCQVxFBq3ZDcRoCHHl-J_QwAKRwTCo6zFSTfynRMvBl9tJc3pOKoN5-lFIlKDdNUd42bpCXiOE9bxcU92cdoXutazl-AVxaNxXxTWuAkpUcasewxYjICf1s0k"/>
+</div>
+<div>
+<h2 class="text-2xl font-bold tracking-wide text-slate-900 dark:text-white">NARA</h2>
+<p class="text-xs font-semibold tracking-widest text-slate-500 dark:text-sky-300 uppercase">Government of Sri Lanka</p>
+</div>
+</div>
+<p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 pr-4">
+                        National Aquatic Resources Research and Development Agency. Delivering scientific leadership for sustainable aquatic resources management and conservation for the future generation.
+                    </p>
+<div class="bg-white/40 dark:bg-card-dark glass-card rounded-xl p-5 border border-slate-200 dark:border-white/10 shadow-sm">
+<h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Official Address</h4>
+<p class="text-sm text-slate-800 dark:text-slate-200 leading-snug">
+                            Crow Island, Mattakkuliya, <br/>Colombo 15, Sri Lanka
+                        </p>
+</div>
+</div>
+<div class="lg:col-span-2 lg:ml-8">
+<h3 class="text-sm font-bold uppercase tracking-widest mb-6 text-slate-900 dark:text-sky-200 border-b-2 border-primary/30 w-fit pb-1">Quick Links</h3>
+<ul class="space-y-4">
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Home
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                About NARA
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Research Divisions
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Research Excellence
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Digital Library
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                News &amp; Updates
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Annual Reports
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Site Map
+                            </a>
+</li>
+</ul>
+</div>
+<div class="lg:col-span-2">
+<h3 class="text-sm font-bold uppercase tracking-widest mb-6 text-slate-900 dark:text-sky-200 border-b-2 border-primary/30 w-fit pb-1">Public Services</h3>
+<ul class="space-y-4">
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Vacancies
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Procurement &amp; Recruitment
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Scientist Sessions
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Public Consultation
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                Right to Information (RTI)
+                            </a>
+</li>
+<li>
+<a class="group flex items-center text-sm text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors duration-200" href="#">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-slate-500 mr-3 group-hover:bg-primary transition-colors"></span>
+                                NARA Act
+                            </a>
+</li>
+</ul>
+</div>
+<div class="lg:col-span-4 lg:pl-4 flex flex-col items-start lg:items-end">
+<h3 class="text-sm font-bold uppercase tracking-widest mb-6 text-slate-900 dark:text-sky-200 lg:w-full lg:text-right border-b-2 border-primary/30 pb-1 inline-block lg:block">Contact &amp; Connect</h3>
+<div class="bg-white/40 dark:bg-card-dark glass-card rounded-2xl p-6 w-full shadow-lg border border-slate-200 dark:border-white/10 mb-6">
+<div class="space-y-4 mb-6">
+<div class="flex items-start group">
+<span class="material-symbols-outlined text-primary dark:text-sky-400 mr-3 mt-0.5 group-hover:scale-110 transition-transform">location_on</span>
+<span class="text-sm text-slate-700 dark:text-slate-200">Crow Island, Mattakkuliya,<br/>Colombo 15</span>
+</div>
+<div class="flex items-center group">
+<span class="material-symbols-outlined text-primary dark:text-sky-400 mr-3 group-hover:scale-110 transition-transform">call</span>
+<a class="text-sm text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-white transition-colors" href="tel:+94112521000">+94 11 252 1000</a>
+</div>
+<div class="flex items-center group">
+<span class="material-symbols-outlined text-primary dark:text-sky-400 mr-3 group-hover:scale-110 transition-transform">mail</span>
+<a class="text-sm text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-white transition-colors" href="mailto:info@nara.ac.lk">info@nara.ac.lk</a>
+</div>
+</div>
+<div class="mb-5 overflow-hidden rounded-xl border border-slate-200 dark:border-white/10 shadow-sm relative group">
+<div class="w-full h-32 bg-slate-100 dark:bg-slate-800 relative">
+<div class="absolute inset-0 opacity-40 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/Colombo_location_map.svg')] bg-cover bg-center grayscale dark:invert"></div>
+<div class="absolute inset-0 bg-blue-500/5 mix-blend-overlay"></div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center group-hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary dark:text-sky-400 text-3xl drop-shadow-md">location_on</span>
+<span class="w-2 h-1 bg-black/20 rounded-full blur-[2px] mt-[-2px]"></span>
+</div>
+</div>
+<a class="flex items-center justify-center w-full py-2 bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 border-t border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-sky-300 transition-colors" href="https://maps.google.com" target="_blank">
+<span>Open in Google Maps</span>
+<span class="material-symbols-outlined text-xs ml-1.5">open_in_new</span>
+</a>
+</div>
+<div class="flex space-x-3 lg:justify-end">
+<a class="group w-9 h-9 flex items-center justify-center rounded-full border border-slate-400 dark:border-slate-500 text-slate-600 dark:text-slate-400 hover:border-[#1877F2] hover:bg-[#1877F2] hover:text-white transition-all duration-300 shadow-sm" href="#">
+<i class="fab fa-facebook-f text-sm"></i>
+</a>
+<a class="group w-9 h-9 flex items-center justify-center rounded-full border border-slate-400 dark:border-slate-500 text-slate-600 dark:text-slate-400 hover:border-[#0077B5] hover:bg-[#0077B5] hover:text-white transition-all duration-300 shadow-sm" href="#">
+<i class="fab fa-linkedin-in text-sm"></i>
+</a>
+<a class="group w-9 h-9 flex items-center justify-center rounded-full border border-slate-400 dark:border-slate-500 text-slate-600 dark:text-slate-400 hover:border-[#FF0000] hover:bg-[#FF0000] hover:text-white transition-all duration-300 shadow-sm" href="#">
+<i class="fab fa-youtube text-sm"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-300 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 dark:text-slate-400">
+<div class="mb-4 md:mb-0 text-center md:text-left flex flex-col md:flex-row md:items-center gap-4">
+<div class="flex flex-col md:block">
+<p class="mb-1 md:mb-0">© 2026 NARA. All rights reserved.</p>
+<p class="opacity-70">Developed by <span class="text-slate-700 dark:text-slate-300 font-medium">SafeNet Creations</span></p>
+</div>
+<div class="hidden md:block w-px h-8 bg-slate-300 dark:bg-white/10 mx-2"></div>
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center space-x-3 bg-white/40 dark:bg-white/5 rounded-full px-4 py-1.5 border border-slate-200 dark:border-white/10">
+<span class="material-symbols-outlined text-base text-primary">language</span>
+<div class="flex items-center space-x-3 font-medium">
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors" href="#">English</a>
+<span class="text-slate-300 dark:text-slate-600">|</span>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors font-sans" href="#">සිංහල</a>
+<span class="text-slate-300 dark:text-slate-600">|</span>
+<a class="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-white transition-colors font-sans" href="#">தமிழ்</a>
+</div>
+</div>
+<div class="relative group w-48 hidden md:block">
+<input class="w-full pl-8 pr-3 py-1.5 bg-white/40 dark:bg-white/5 border border-slate-300 dark:border-white/10 rounded-full text-xs text-slate-800 dark:text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary transition-all" placeholder="Search resources..." type="text"/>
+<span class="material-symbols-outlined absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+</div>
+</div>
+</div>
+<div class="flex space-x-6">
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Accessibility</a>
+<a class="hover:text-primary dark:hover:text-white transition-colors" href="#">Sitemap</a>
+</div>
+</div>
+</div>
+<div class="fixed bottom-6 right-6 flex flex-col items-center gap-4 z-50">
+<button aria-label="Accessibility Settings" class="w-12 h-12 bg-white/90 dark:bg-slate-800 text-slate-600 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-full shadow-lg flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors focus:outline-none hover:scale-105">
+<span class="material-symbols-outlined text-xl">visibility</span>
+</button>
+<button aria-label="Back to Top" class="w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:bg-sky-500 hover:-translate-y-1 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-sky-300/50 fab-pulse" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+<span class="material-symbols-outlined text-2xl">arrow_upward</span>
+</button>
+</div>
+</footer>
+<script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+</body></html>

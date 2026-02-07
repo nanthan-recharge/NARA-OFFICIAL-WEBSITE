@@ -1,0 +1,101 @@
+{
+  "seo": {
+    "title": "பொது ஆலோசனை தளம் - NARA",
+    "description": "NARA முன்னெடுக்கும் கடல் மற்றும் மீன்பிடி கொள்கைகள், திட்டங்கள் மற்றும் டிஜிட்டல் சேவைகள் குறித்து உங்கள் கருத்துகளை பகிருங்கள்."
+  },
+  "nav": {
+    "title": "பொது ஆலோசனை",
+    "browse": "ஆலோசனைகளை பார்க்க"
+  },
+  "loading": {
+    "list": "பொது ஆலோசனைகள் ஏற்றப்படுகிறது...",
+    "details": "ஆலோசனை விவரங்கள் ஏற்றப்படுகிறது..."
+  },
+  "hero": {
+    "title": "பொது ஆலோசனை தளம்",
+    "description": "உங்கள் குரல் முக்கியம். கடல் கொள்கைகள் மற்றும் தேசிய முயற்சிகளுக்கு உங்கள் கருத்தை பகிருங்கள்."
+  },
+  "filters": {
+    "searchLabel": "தேடல்",
+    "searchPlaceholder": "ஆலோசனைகளை தேடுங்கள்...",
+    "statusLabel": "நிலை",
+    "categoryLabel": "வகை",
+    "statusOptions": {
+      "all": "அனைத்து நிலைகள்",
+      "open": "திறந்த",
+      "closed": "மூடப்பட்டது"
+    },
+    "categoryOptions": {
+      "all": "அனைத்து வகைகள்",
+      "marine_policy": "கடல் கொள்கை",
+      "environmental": "சுற்றுச்சூழல்",
+      "fisheries": "மீன்பிடி",
+      "conservation": "பாதுகாப்பு"
+    }
+  },
+  "cards": {
+    "participants": "பங்கேற்பாளர்கள்",
+    "feedback": "கருத்துகள்",
+    "comments": "விமர்சனங்கள்",
+    "votes": "வாக்குகள்",
+    "views": "பார்வைகள்",
+    "closes": "மூடும் தேதி: {{date}}"
+  },
+  "details": {
+    "back": "\u2190 ஆலோசனைகளுக்கு திரும்ப",
+    "submitTitle": "உங்கள் கருத்தை அனுப்புங்கள்",
+    "feedbackLabel": "உங்கள் கருத்து *",
+    "feedbackPlaceholder": "உங்கள் எண்ணங்கள், கவலைகள் அல்லது பரிந்துரைகளை பகிருங்கள்...",
+    "nameLabel": "உங்கள் பெயர் *",
+    "namePlaceholder": "லீலா பெருமாள்",
+    "emailLabel": "உங்கள் மின்னஞ்சல் *",
+    "emailPlaceholder": "example@nara.gov.lk",
+    "sentimentLabel": "நிலைமையை உணர்வு",
+    "submitButton": "கருத்தை அனுப்பவும்",
+    "communityTitle": "சமூக கருத்துகள்",
+    "discussionTitle": "விவாதம்",
+    "commentNamePlaceholder": "உங்கள் பெயர்",
+    "commentEmailPlaceholder": "உங்கள் மின்னஞ்சல்",
+    "commentPlaceholder": "விவாதத்தில் இணையுங்கள்...",
+    "commentSubmit": "கருத்தை பதிவு செய்"
+  },
+  "feedback": {
+    "sentiments": {
+      "positive": "நல்ல / ஆதரவு",
+      "neutral": "நடுநிலை",
+      "negative": "கவலை / எதிர்ப்பு"
+    },
+    "anonymous": "அடையாளம் தெரியாத",
+    "notAvailable": "தகவல் இல்லை",
+    "upvotes": "{{count}} உயர்தர வாக்குகள்"
+  },
+  "alerts": {
+    "selectConsultation": "தயவுசெய்து முதலில் ஒரு ஆலோசனையைத் தேர்ந்தெடுக்கவும்.",
+    "feedbackError": "கருத்தை அனுப்பும் போது பிழை: {{error}}",
+    "feedbackSuccess": "உங்கள் கருத்துக்கு நன்றி! உங்கள் பதில் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது.",
+    "commentError": "கருத்தை பதிவு செய்யும்போது பிழை: {{error}}",
+    "commentSuccess": "கருத்து வெற்றிகரமாக பதிவு செய்யப்பட்டது!",
+    "voteNamePrompt": "உங்கள் பெயரை உள்ளிடுங்கள்:",
+    "voteEmailPrompt": "உங்கள் மின்னஞ்சலை உள்ளிடுங்கள்:",
+    "voteMissing": "வாக்களிக்க பெயரும் மின்னஞ்சலும் அவசியம்.",
+    "voteError": "வாக்கை சமர்ப்பிக்கும் போது பிழை: {{error}}",
+    "voteSuccess": "வாக்களித்ததற்கு நன்றி!"
+  },
+  "status": {
+    "draft": "வரைவு",
+    "open": "திறந்த",
+    "closed": "மூடப்பட்டது",
+    "archived": "சேமிக்கப்பட்டது"
+  },
+  "category": {
+    "marine_policy": "கடல் கொள்கை",
+    "environmental": "சுற்றுச்சூழல்",
+    "fisheries": "மீன்பிடி",
+    "conservation": "பாதுகாப்பு"
+  },
+  "discussion": {
+    "postedAt": "பதிவு செய்த நேரம்: {{timestamp}}",
+    "likes": "{{count}}",
+    "joinPlaceholder": "விவாதத்தில் இணையுங்கள்..."
+  }
+}

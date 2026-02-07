@@ -1,0 +1,102 @@
+{
+  "title": "Join NARA",
+  "subtitle": "Create your account to access NARA's digital services",
+  "selectRole": "Choose Your Account Type",
+  "alreadyHaveAccount": "Already have an account?",
+  "signIn": "Sign In",
+  "backToRoleSelection": "Back to role selection",
+  "createAccount": "Create Account",
+  "orContinueWith": "Or continue with",
+  "signUpWithGoogle": "Sign up with Google",
+  "roles": {
+    "student": {
+      "title": "Student",
+      "description": "Undergraduate or postgraduate student",
+      "badge": "Most Popular",
+      "features": [
+        "Borrow up to 5 books",
+        "14-day loan period",
+        "Purchase publications",
+        "Access student resources",
+        "Free membership"
+      ]
+    },
+    "researcher": {
+      "title": "Researcher / Faculty",
+      "description": "Academic researchers, professors, and faculty members",
+      "badge": "Full Access",
+      "features": [
+        "Borrow up to 10 books",
+        "30-day loan period",
+        "Submit research papers",
+        "Access premium resources",
+        "Purchase images & datasets",
+        "API access for data",
+        "Priority support"
+      ]
+    },
+    "professor": {
+      "title": "Professor / Senior Researcher",
+      "description": "Senior faculty and principal investigators",
+      "badge": "Premium",
+      "features": [
+        "Borrow up to 15 books",
+        "60-day loan period",
+        "Submit & review research",
+        "Full premium access",
+        "Unlimited image downloads",
+        "Full dataset access",
+        "Research collaboration tools",
+        "Dedicated support"
+      ]
+    },
+    "public": {
+      "title": "Public Member",
+      "description": "General public and marine enthusiasts",
+      "badge": "Basic",
+      "features": [
+        "Borrow up to 3 books",
+        "7-day loan period",
+        "Purchase publications",
+        "View catalogue",
+        "Reserve books",
+        "Access public resources"
+      ]
+    },
+    "institution": {
+      "title": "Institution / Organization",
+      "description": "Educational institutions, research centers, and organizations",
+      "badge": "Enterprise",
+      "features": [
+        "Borrow up to 25 books",
+        "90-day loan period",
+        "Bulk licensing options",
+        "Institutional repository access",
+        "Full dataset access",
+        "API integration",
+        "Dedicated account manager",
+        "Custom training sessions"
+      ]
+    }
+  },
+  "form": {
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "phoneNumber": "Phone Number",
+    "organization": "Organization",
+    "agreeTerms": "I agree to the",
+    "termsAndConditions": "Terms & Conditions",
+    "and": "and",
+    "privacyPolicy": "Privacy Policy",
+    "creating": "Creating Account...",
+    "required": "*"
+  },
+  "errors": {
+    "passwordMismatch": "Passwords do not match",
+    "passwordTooShort": "Password must be at least 8 characters",
+    "agreeTermsRequired": "You must agree to the terms and conditions"
+  }
+}

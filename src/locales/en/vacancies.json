@@ -1,0 +1,105 @@
+{
+  "badge": "Join Our Team",
+  "title": "Career Opportunities",
+  "subtitle": "Be part of Sri Lanka's leading aquatic research institution. Explore exciting career opportunities at NARA.",
+  "hiringBadge": "WE'RE HIRING",
+  "scrollToExplore": "Scroll to explore",
+  "daysLeft": "{{count}} days left",
+  "daysLeft_one": "1 day left",
+  "expired": "Expired",
+  "open": "Open",
+  "closed": "Closed",
+  "searchPlaceholder": "Search positions...",
+  "allDepartments": "All Departments",
+  "openPositions": "Open Positions",
+  "departments": "Departments",
+  "researchDivisions": "Research Divisions",
+  "noOpen": "No open positions available",
+  "noOpenHint": "Check back soon for new opportunities",
+  "noClosed": "No closed positions found",
+  "noClosedHint": "Try adjusting your search query",
+  "loading": "Loading vacancies...",
+  "applyNow": "Apply Now",
+  "viewDetails": "View Details",
+  "closingSoon": "Closing Soon",
+  "posted": "Posted",
+  "deadline": "Deadline",
+  "positions": "position",
+  "positionsPlural": "positions",
+  "moreQualifications": "+{{count}} more",
+  "fullTime": "Full Time",
+  "partTime": "Part Time",
+  "contract": "Contract",
+  "temporary": "Temporary",
+  "internship": "Internship",
+  "journey": {
+    "title": "Your Application Journey",
+    "subtitle": "Four simple steps to join our team",
+    "browse": {
+      "title": "Browse",
+      "desc": "Explore open positions that match your skills"
+    },
+    "apply": {
+      "title": "Apply",
+      "desc": "Submit your application with required documents"
+    },
+    "interview": {
+      "title": "Interview",
+      "desc": "Meet our team and showcase your expertise"
+    },
+    "join": {
+      "title": "Join",
+      "desc": "Start your career at NARA"
+    }
+  },
+  "whyJoin": {
+    "title": "Why Join NARA?",
+    "subtitle": "Be part of a team dedicated to safeguarding Sri Lanka's aquatic resources through cutting-edge research and development.",
+    "research": {
+      "title": "Research Excellence",
+      "desc": "Work alongside leading scientists and researchers in marine and aquatic sciences."
+    },
+    "facilities": {
+      "title": "Modern Facilities",
+      "desc": "Access state-of-the-art laboratories and research equipment."
+    },
+    "growth": {
+      "title": "Career Growth",
+      "desc": "Opportunities for professional development and career advancement."
+    },
+    "international": {
+      "title": "International Collaboration",
+      "desc": "Partner with global research institutions and contribute to international marine science."
+    },
+    "balance": {
+      "title": "Work-Life Balance",
+      "desc": "Enjoy a supportive work environment with flexible scheduling and employee wellness programs."
+    },
+    "impact": {
+      "title": "Impactful Research",
+      "desc": "Make a real difference in ocean conservation and sustainable fisheries management."
+    }
+  },
+  "career": {
+    "title": "Your Career Path at NARA",
+    "subtitle": "See where your journey can take you",
+    "intern": { "title": "Research Intern", "years": "Entry Level" },
+    "assistant": { "title": "Research Assistant", "years": "1-3 Years" },
+    "scientist": { "title": "Scientist", "years": "3-7 Years" },
+    "senior": { "title": "Senior Scientist", "years": "7-15 Years" },
+    "head": { "title": "Division Head", "years": "15+ Years" }
+  },
+  "cta": {
+    "title": "Have Questions About Careers at NARA?",
+    "subtitle": "Contact our Human Resources department for more information about career opportunities.",
+    "button": "Contact HR",
+    "alertTitle": "Get Job Alerts",
+    "alertDesc": "Be the first to know when new positions open up.",
+    "emailPlaceholder": "Enter your email",
+    "notify": "Notify Me"
+  },
+  "error": {
+    "title": "Unable to load vacancies",
+    "retry": "Try Again"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "seo": {
+    "title": "Open Data Portal - NARA",
+    "description": "Explore Sri Lanka's marine, fisheries, and coastal datasets published by the National Aquatic Resources Research and Development Agency."
+  },
+  "hero": {
+    "badge": "Sri Lanka Government Open Data Initiative",
+    "title": "Open Data Portal",
+    "subtitle": "Transparent, Accessible, Reusable Research Data",
+    "description": "NARA is committed to open government data principles. Unless otherwise noted, all datasets are licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).",
+    "licenseLabel": "Default License",
+    "licenseValue": "Creative Commons Attribution 4.0 (CC BY 4.0)"
+  },
+  "filters": {
+    "searchLabel": "Search",
+    "searchPlaceholder": "Search datasets...",
+    "categoryLabel": "Categories",
+    "results": "{{count}} dataset found",
+    "results_plural": "{{count}} datasets found"
+  },
+  "categories": {
+    "all": "All Categories",
+    "fisheries": "Fisheries",
+    "environment": "Environment",
+    "research": "Research",
+    "aquaculture": "Aquaculture",
+    "oceanography": "Oceanography",
+    "publications": "Publications"
+  },
+  "dataset": {
+    "records": "Records",
+    "updated": "Last Updated",
+    "license": "License"
+  },
+  "actions": {
+    "downloadCSV": "Download CSV",
+    "downloadJSON": "Download JSON",
+    "apiDocs": "View API Docs",
+    "openDataPolicy": "Open Data Policy",
+    "contact": "Contact us for custom data requests"
+  },
+  "cta": {
+    "title": "API Documentation",
+    "description": "Developers can access every dataset programmatically via our RESTful API. Full documentation is available online."
+  },
+  "links": {
+    "dataGovLk": "Also available on data.gov.lk"
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "messages": {
+    "welcome": "ඔබගේ ගිණුම සාර්ථකව සාදන ලදී. කරුණාකර ඔබගේ ඊමේල් පරික්ෂා කර ගිණුම සත්‍යපත් කරන්න.",
+    "submissionSuccess": "ගවේශන ලිපිය සාර්ථකව ඉදිරිපත් විය! එය පාලකයන් විසින් සමාලෝචනය කරමින් පවතී, අවසන් වූ විගස ඔබට දැනුම් ලබාදේ.",
+    "updateSuccess": "පෞද්ගලික විස්තර සාර්ථකව යාවත්කාලීන කළා!",
+    "updateError": "පෞද්ගලික විස්තර යාවත්කාලීන කිරීමට නොහැකි විය"
+  },
+  "roles": {
+    "researcher": "ගවේශක",
+    "student": "සිසු",
+    "public": "පොදු සාමාජික",
+    "institution": " සංවිධානය / ආයතනය",
+    "default": "පුස්තකාල භාවිතාකරු"
+  },
+  "header": {
+    "quickActions": "ඉක්මන් ක්‍රියාකාරකම්",
+    "viewProfile": "සම්පූර්ණ සවිස්තරය බලන්න",
+    "signOut": "පිටවන්න",
+    "cardLabel": "කාඩ්පත: {{cardNumber}}"
+  },
+  "tabs": {
+    "overview": "සාරාංශය",
+    "profile": "මගේ සවිස්තරය",
+    "loans": "මගේ ණය",
+    "settings": "සැකසුම්"
+  },
+  "buttons": {
+    "browseCatalogue": "ඛණ්ඩාවලිය බලන්න",
+    "submitResearch": "ගවේශන ලිපිය ඉදිරිපත් කරන්න",
+    "getHelp": "උදව් ලබන්න",
+    "editProfile": "සවිස්තරය සංස්කරණය කරන්න",
+    "cancel": "අවලංගු කරන්න",
+    "saveChanges": "වෙනස්කම් සුරකින්න",
+    "saving": "සුරකිමින්...",
+    "resendVerification": "සත්‍යපන ඊමේල් නැවත යවන්න",
+    "changePassword": "මුරපදය වෙනස් කරන්න",
+    "deleteAccount": "ගිණුම මකන්න"
+  },
+  "overview": {
+    "title": "ඩැෂ්බෝර්ඩ් සාරාංශය",
+    "stats": {
+      "activeLoans": "ක්‍රියාශීල ණය",
+      "totalBorrowed": "මුළු ණයගත් පිටපත්",
+      "finesOwed": "ගෙවිය යුතු දඩ මුදල්",
+      "finesValue": "රු. {{amount}}"
+    },
+    "account": {
+      "title": "ගිණුම් තොරතුරු",
+      "cardStatus": "පුස්තකාල කාඩ්පත් තත්ත්වය",
+      "maxLoans": "උපරිම ණය",
+      "maxLoansValue": "{{count}} පොත්",
+      "loanPeriod": "ණය කාලය",
+      "loanPeriodValue": "{{days}} දිනය",
+      "cardExpiry": "කාඩ්පත් අවලංගු දිනය"
+    },
+    "permissions": {
+      "title": "ඔබට ලබාදූ අවසර",
+      "canBorrow": "පොත් ණයගත කරගත හැක",
+      "canSubmitResearch": "ගවේශන ලිපි ඉදිරිපත් කළ හැක",
+      "premiumAccess": "ප්‍රිමියම් ප්‍රවේශය"
+    }
+  },
+  "profile": {
+    "title": "මගේ සවිස්තරය",
+    "fields": {
+      "firstName": "මුල් නම",
+      "lastName": "අවසන් නම",
+      "email": "ඊමේල් ලිපිනය",
+      "emailNote": "ඊමේල් ලිපිනය වෙනස් කිරීමට නොහැක",
+      "phoneNumber": "දුරකථන අංකය",
+      "institution": "ආයතනය",
+      "researchArea": "ගවේශන කලාපය"
+    }
+  },
+  "loans": {
+    "title": "මගේ ණය",
+    "empty": "දැනට ක්‍රියාත්මක ණය කිසිවක් නැත"
+  },
+  "settings": {
+    "title": "සැකසුම්",
+    "emailVerification": {
+      "title": "ඊමේල් සත්‍යපත කිරීම",
+      "status": "තත්ත්වය: {{status}}",
+      "verified": "සත්‍යපත්",
+      "notVerified": "සත්‍යපත් කර නැත"
+    },
+    "security": {
+      "title": "ගිණුම් ආරක්ෂාව",
+      "changePassword": "මුරපදය වෙනස් කරන්න"
+    },
+    "danger": {
+      "title": "අවදානම් කලාපය",
+      "description": "ගිණුම මකාදැමුවහොත් නැවත ප්‍රතිස්ථාපනය කළ නොහැක."
+    }
+  }
+}

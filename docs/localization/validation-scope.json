@@ -1,0 +1,6 @@
+{
+  "managedFiles": ["about.json", "home.json"],
+  "allowedExtraKeys": {
+    "researchEnhanced.json": ["*"]
+  }
+}

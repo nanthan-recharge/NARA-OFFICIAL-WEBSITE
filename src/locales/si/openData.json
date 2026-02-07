@@ -1,0 +1,49 @@
+{
+  "seo": {
+    "title": "විවෘත දත්ත ද්වාරය - NARA",
+    "description": "ජාතික ජල සම්පත් පර්යේෂණ සහ සංවර්ධන ආයතනය විසින් ප්‍රකාශයට පත් කරන ලද ශ්‍රී ලංකා සාගර, මත්ස්‍ය හා වෙරළ දත්ත සෙවිය."
+  },
+  "hero": {
+    "badge": "ශ්‍රී ලංකා රජයේ විවෘත දත්ත ව්‍යාපෘතිය",
+    "title": "විවෘත දත්ත ද්වාරය",
+    "subtitle": "විනිවිද පෙනෙන, ප්‍රවේශ විය හැකි, නැවත භාවිතා කළ හැකි පර්යේෂණ දත්ත",
+    "description": "NARA විවෘත රජයේ දත්ත මූලධර්මවලට කැපවී සිටී. වෙනත් ආකාරයකින් සඳහන් නොකළහොත් සියලු දත්ත කට්ටල Creative Commons Attribution 4.0 International (CC BY 4.0) යටතේ බලපත්‍ර ලබා ඇත.",
+    "licenseLabel": "පෙරනිමි බලපත්‍රය",
+    "licenseValue": "Creative Commons Attribution 4.0 (CC BY 4.0)"
+  },
+  "filters": {
+    "searchLabel": "සෙවීම",
+    "searchPlaceholder": "දත්ත කට්ටල සොයන්න...",
+    "categoryLabel": "කාණ්ඩ",
+    "results": "{{count}} දත්ත කට්ටලය හමු විය",
+    "results_plural": "{{count}} දත්ත කට්ටල හමු විය"
+  },
+  "categories": {
+    "all": "සියලු කාණ්ඩ",
+    "fisheries": "මත්ස්‍ය",
+    "environment": "පරිසරය",
+    "research": "පර්යේෂණ",
+    "aquaculture": "ජලජ වගාව",
+    "oceanography": "සාගර විද්‍යාව",
+    "publications": "ප්‍රකාශන"
+  },
+  "dataset": {
+    "records": "වාර්තා",
+    "updated": "අවසන් යාවත්කාලීන",
+    "license": "බලපත්‍රය"
+  },
+  "actions": {
+    "downloadCSV": "CSV බාගන්න",
+    "downloadJSON": "JSON බාගන්න",
+    "apiDocs": "API ලේඛන බලන්න",
+    "openDataPolicy": "විවෘත දත්ත ප්‍රතිපත්තිය",
+    "contact": "අභිරුචි දත්ත ඉල්ලීම් සඳහා අප හා සම්බන්ධ වන්න"
+  },
+  "cta": {
+    "title": "API ලේඛන",
+    "description": "සියලු දත්ත කට්ටල් RESTful API මගින් ක්‍රමගතව ප්‍රවේශ විය හැක. සම්පූර්ණ ලේඛන අපගේ වෙබ් අඩවියේ ඇත."
+  },
+  "links": {
+    "dataGovLk": "data.gov.lk හි ද ලබා ගත හැක"
+  }
+}

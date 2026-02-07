@@ -1,0 +1,112 @@
+{
+  "hero": {
+    "title": "ව්‍යාපෘති මාර්ග හරහා ලුහුබැඳීම",
+    "subtitle": "නාරාගේ පර්යේෂණ ව්‍යාපෘති තත්‍ය කාලීනව ලුහුබඳින්න. අපගේ පොදු පාරදෘශ්‍ය උපකරණ පුවරුව හරහා ප්‍රගතිය, අයවැය, ප්‍රතිදානයන් සහ බලපෑම නිරීක්ෂණය කරන්න."
+  },
+  "stats": {
+    "totalProjects": "මුළු ව්‍යාපෘති",
+    "activeProjects": "සක්‍රිය ව්‍යාපෘති",
+    "completedProjects": "සම්පූර්ණ කළ ව්‍යාපෘති",
+    "totalBudget": "මුළු අයවැය"
+  },
+  "ragStatus": {
+    "title": "ව්‍යාපෘති සෞඛ්‍යය (RAG තත්ත්වය)",
+    "green": {
+      "label": "මාර්ගයේ (කොළ)",
+      "description": "සැලසුම් පරිදි ඉදිරියට යන ව්‍යාපෘති"
+    },
+    "amber": {
+      "label": "අවදානමට (ඇම්බර්)",
+      "description": "අවධානය අවශ්‍ය සුළු ගැටළු"
+    },
+    "red": {
+      "label": "තීරණාත්මක (රතු)",
+      "description": "සැලකිය යුතු ප්‍රමාදයන් හෝ ගැටළු"
+    }
+  },
+  "quickActions": {
+    "browseProjects": {
+      "title": "සියලුම ව්‍යාපෘති බ්‍රවුස් කරන්න",
+      "description": "උසස් පෙරහන් සමඟ අපගේ සම්පූර්ණ පර්යේෂණ කළඹ ගවේෂණය කරන්න"
+    },
+    "criticalProjects": {
+      "title": "තීරණාත්මක ව්‍යාපෘති",
+      "description": "ක්ෂණික අවධානය අවශ්‍ය ව්‍යාපෘති බලන්න"
+    }
+  },
+  "divisions": {
+    "title": "අංශ අනුව ව්‍යාපෘති"
+  },
+  "projects": {
+    "title": "පර්යේෂණ ව්‍යාපෘති",
+    "subtitle": "සියලුම පොදු පර්යේෂණ ව්‍යාපෘති බ්‍රවුස් සහ ලුහුබඳින්න",
+    "backToDashboard": "උපකරණ පුවරුවට ආපසු",
+    "backToProjects": "ව්‍යාපෘති වෙත ආපසු"
+  },
+  "filters": {
+    "search": "සොයන්න",
+    "searchPlaceholder": "ව්‍යාපෘති, PI, මූල පද සොයන්න...",
+    "status": "තත්ත්වය",
+    "ragStatus": "RAG තත්ත්වය",
+    "division": "අංශය",
+    "allStatuses": "සියලුම තත්ත්වයන්",
+    "allRAG": "සියලුම RAG",
+    "allDivisions": "සියලුම අංශ",
+    "showing": "ව්‍යාපෘති {{total}} න් {{filtered}} ක් පෙන්වමින්",
+    "clearFilters": "පෙරහන් ඉවත් කරන්න",
+    "noProjects": "ඔබගේ පෙරහන් වලට ගැලපෙන ව්‍යාපෘති හමු නොවීය"
+  },
+  "projectStatus": {
+    "planning": "සැලසුම් කිරීම",
+    "active": "සක්‍රිය",
+    "on_hold": "අත්හිටුවා ඇත",
+    "completed": "සම්පූර්ණයි"
+  },
+  "ragLabels": {
+    "green": "කොළ (මාර්ගයේ)",
+    "amber": "ඇම්බර් (අවදානමට)",
+    "red": "රතු (තීරණාත්මක)"
+  },
+  "divisionNames": {
+    "marineBiology": "සාගර ජීව විද්‍යාව සහ පරිසර පද්ධති",
+    "fisheriesScience": "මත්ස්‍ය විද්‍යාව",
+    "aquaculture": "ජලජීවී වගාව",
+    "environmentalMonitoring": "පාරිසරික නිරීක්ෂණය",
+    "postHarvest": "අස්වනු නෙලීමෙන් පසු සහ ගුණාත්මකභාවය",
+    "hydrography": "ජල විද්‍යාව"
+  },
+  "projectCard": {
+    "progress": "ප්‍රගතිය",
+    "principalInvestigator": "ප්‍රධාන පර්යේෂකයා",
+    "budget": "අයවැය",
+    "milestones": "සන්ධිස්ථාන"
+  },
+  "projectDetail": {
+    "projectId": "ව්‍යාපෘති හැඳුනුම්පත",
+    "division": "අංශය",
+    "startDate": "ආරම්භක දිනය",
+    "endDate": "අවසන් දිනය",
+    "progress": "ප්‍රගතිය",
+    "completion": "සම්පූර්ණ කිරීම",
+    "latestUpdate": "නවතම යාවත්කාලීනය:",
+    "budget": "අයවැය",
+    "totalBudget": "මුළු අයවැය",
+    "spent": "වියදම් කළ",
+    "remaining": "ඉතිරි",
+    "utilization": "භාවිතය",
+    "team": "පර්යේෂණ කණ්ඩායම",
+    "principalInvestigator": "ප්‍රධාන පර්යේෂකයා",
+    "teamMembers": "කණ්ඩායම් සාමාජිකයින්",
+    "milestones": "සන්ධිස්ථාන",
+    "target": "ඉලක්කය:",
+    "completed": "සම්පූර්ණයි:",
+    "outputs": "පර්යේෂණ ප්‍රතිදාන",
+    "citations": "උපුටා දැක්වීම්"
+  },
+  "outputTypes": {
+    "publication": "ප්‍රකාශනය",
+    "report": "වාර්තාව",
+    "dataset": "දත්ත කට්ටලය",
+    "other": "වෙනත්"
+  }
+}

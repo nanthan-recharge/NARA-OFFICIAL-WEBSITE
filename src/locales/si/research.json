@@ -1,0 +1,328 @@
+{
+  "hero": {
+    "badge": "ගවේෂණ අංශය",
+    "title": "ගවේෂණ ශ්‍රේෂ්ඨත්වය",
+    "description": "ප්‍රබල නවෝත්පාදන, නවතම ගවේෂණ සහ ගෝලීය හවුල්කාරිත්වය ඔස්සේ මුහුදු විද්‍යාව ඉදිරියට ගෙන යයි"
+  },
+  "metrics": {
+    "fallback": [
+      {
+        "key": "activeProjects",
+        "label": "ක්‍රියාත්මක ව්‍යාපෘති",
+        "value": "47",
+        "change": "+12%",
+        "icon": "Briefcase"
+      },
+      {
+        "key": "publications2024",
+        "label": "ප්‍රකාශන (2024)",
+        "value": "89",
+        "change": "+23%",
+        "icon": "FileText"
+      },
+      {
+        "key": "internationalCollaborations",
+        "label": "ජාත්‍යන්තර හවුල්කාරිත්ව",
+        "value": "32",
+        "change": "+8%",
+        "icon": "Globe"
+      },
+      {
+        "key": "researchFunding",
+        "label": "ගවේෂණ අරමුදල්",
+        "value": "$12.4M",
+        "change": "+15%",
+        "icon": "TrendingUp"
+      }
+    ]
+  },
+  "tabs": [
+    {
+      "key": "publications",
+      "label": "ප්‍රකාශන"
+    },
+    {
+      "key": "teams",
+      "label": "ගවේෂණ කණ්ඩායම්"
+    },
+    {
+      "key": "projects",
+      "label": "ව්‍යාපෘති"
+    },
+    {
+      "key": "datasets",
+      "label": "දත්ත කට්ටල"
+    },
+    {
+      "key": "collaboration",
+      "label": "සහයෝගය"
+    }
+  ],
+  "publications": {
+    "title": "ගවේෂණ ප්‍රකාශන",
+    "searchPlaceholder": "ප්‍රකාශන සොයන්න...",
+    "categories": [
+      {
+        "value": "all",
+        "label": "සියළු කාණ්ඩ"
+      },
+      {
+        "value": "Marine Biology",
+        "label": "මුහුදු ජීව විද්‍යාව"
+      },
+      {
+        "value": "Climate Science",
+        "label": "කාලගුණ විද්‍යාව"
+      },
+      {
+        "value": "Ocean Technology",
+        "label": "මුහුදු තාක්ෂණ"
+      },
+      {
+        "value": "Conservation",
+        "label": "ආරක්ෂණය"
+      }
+    ],
+    "sortOptions": [
+      {
+        "value": "year",
+        "label": "ප්‍රකාශන වර්ෂය"
+      },
+      {
+        "value": "citations",
+        "label": "උපුටා දැක්වීම්"
+      },
+      {
+        "value": "impact",
+        "label": "ප්‍රභාව දර්ශකය"
+      },
+      {
+        "value": "downloads",
+        "label": "බාගත කිරීම්"
+      }
+    ],
+    "sort": {
+      "highToLow": "{{label}} (ඉහළ සිට පහළට)",
+      "lowToHigh": "{{label}} (පහළ සිට ඉහළට)"
+    },
+    "labels": {
+      "citations": "උපුටා දැක්වීම්",
+      "downloads": "බාගත කිරීම්",
+      "impact": "IF",
+      "pdf": "PDF"
+    },
+    "empty": {
+      "title": "ප්‍රකාශන හමු නොවීය",
+      "description": "ඔබේ සෙවුම් සාධක හෝ පෙරහන් වෙනස් කර නැවත උත්සාහ කරන්න."
+    },
+    "loadMore": "තවත් ප්‍රකාශන පෙන්වන්න",
+    "fallback": [
+      {
+        "id": 1,
+        "title": "ශ්‍රී ලංකා ජලයේ ගැඹුරු මුහුදු ජීව විවිධත්ව සිතියම්ගත කිරීම",
+        "authors": "Dr. Sarah Chen, Prof. Kumar Silva, Dr. Amanda Roberts",
+        "year": 2024,
+        "journal": "Nature Ocean Sciences",
+        "impact": 12.5,
+        "citations": 245,
+        "category": "Marine Biology",
+        "thumbnail": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400",
+        "abstract": "ගැඹුරු මුහුදු පද්ධති සම්පූර්ණ විශ්ලේෂණය හරහා නව වර්ග 127 ක් හෙළිවෙයි...",
+        "tags": [
+          "ගැඹුරු මුහුද",
+          "ජීව විවිධත්වය",
+          "නව වර්ග"
+        ],
+        "downloadCount": 3847
+      },
+      {
+        "id": 2,
+        "title": "කොරල් පද්ධති මත කාලගුණ බලපෑම: අවුරුදු 10 ක අධ්‍යයනය",
+        "authors": "Prof. Michael Thompson, Dr. Priya Fernando",
+        "year": 2024,
+        "journal": "Science Advances",
+        "impact": 9.8,
+        "citations": 189,
+        "category": "Climate Science",
+        "thumbnail": "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=400",
+        "abstract": "දිගුකාලීන නිරීක්ෂණයෙන් කොරල් ජීවිතයට අත්‍යවශ්‍ය උෂ්ණත්ව සීමා හෙළි කරයි...",
+        "tags": [
+          "කාලගුණ විපර්යාස",
+          "කොරල් පාලු",
+          "ආරක්ෂණය"
+        ],
+        "downloadCount": 2156
+      },
+      {
+        "id": 3,
+        "title": "AI බලගන්වූ මුහුදු ධාරා යොමුකිරීමේ ආකෘති",
+        "authors": "Dr. James Liu, Prof. Nimal Perera",
+        "year": 2023,
+        "journal": "Journal of Marine Technology",
+        "impact": 8.2,
+        "citations": 156,
+        "category": "Ocean Technology",
+        "thumbnail": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=400",
+        "abstract": "යන්ත්‍ර අධ්‍යයන ඇල්ගොරිතම 94% නිරවද්‍යතාවයකින් ධාරා අනාවැකිය කිරීම සපයයි...",
+        "tags": [
+          "AI",
+          "මුහුදු ධාරා",
+          "පූර්ව අනාවැකි"
+        ],
+        "downloadCount": 1892
+      }
+    ]
+  },
+  "teams": {
+    "labels": {
+      "lead": "නායක: {{name}}",
+      "members": "සාමාජිකයින්",
+      "projects": "ව්‍යාපෘති",
+      "funding": "අරමුදල්"
+    },
+    "viewProfile": "කණ්ඩායම් පැතිකඩ බලන්න",
+    "stats": [
+      {
+        "value": "152",
+        "label": "සම්පූර්ණ ගවේෂකයින්",
+        "icon": "Users"
+      },
+      {
+        "value": "47",
+        "label": "PhD අපේක්ෂිතයින්",
+        "icon": "Award"
+      },
+      {
+        "value": "23",
+        "label": "ජාත්‍යන්තර හවුල්කරුවන්",
+        "icon": "Globe"
+      }
+    ],
+    "fallback": [
+      {
+        "name": "මුහුදු ජීව විවිධත්ව ඒකකය",
+        "lead": "Dr. Sarah Chen",
+        "members": 12,
+        "projects": 8,
+        "funding": "$2.5M",
+        "icon": "Fish",
+        "color": "from-blue-500 to-cyan-500"
+      },
+      {
+        "name": "කාලගුණ ගවේෂණ කොට්ඨාසය",
+        "lead": "Prof. Kumar Silva",
+        "members": 18,
+        "projects": 12,
+        "funding": "$4.2M",
+        "icon": "Thermometer",
+        "color": "from-purple-500 to-pink-500"
+      },
+      {
+        "name": "මුහුදු තාක්ෂණාත්මක ශාලාව",
+        "lead": "Dr. James Liu",
+        "members": 15,
+        "projects": 10,
+        "funding": "$3.8M",
+        "icon": "Cpu",
+        "color": "from-green-500 to-teal-500"
+      },
+      {
+        "name": "ආරක්ෂණ ගවේෂණය",
+        "lead": "Prof. Amanda Roberts",
+        "members": 10,
+        "projects": 6,
+        "funding": "$1.9M",
+        "icon": "Shield",
+        "color": "from-orange-500 to-red-500"
+      }
+    ]
+  },
+  "projects": {
+    "heading": "ක්‍රියාත්මක ගවේෂණ ව්‍යාපෘති",
+    "description": "විවිධ විෂයන්ට අයත් ව්‍යාපෘති 47 ක් දැනට ක්‍රියාත්මක වේ",
+    "labels": {
+      "progress": "ප්‍රගතිය",
+      "team": "කණ්ඩායම",
+      "budget": "අයවැය",
+      "deadline": "කාලසීමාව"
+    },
+    "fallback": [
+      {
+        "title": "ගැඹුරු මුහුදු සොයාගැනීමේ උත්සාහය",
+        "status": "ඉදිරියෙන් සිදු වෙමින්",
+        "progress": 65,
+        "team": "මුහුදු ජීව විවිධත්ව ඒකකය",
+        "budget": "$3.2M",
+        "deadline": "Dec 2024",
+        "description": "උසස් ROV තාක්ෂණය භාවිතයෙන් නොසලකා හරින ලද ගැඹුරු මුහුදු ප්‍රදේශ සිතියම්ගත කිරීම"
+      },
+      {
+        "title": "කොරල් ප්‍රතිසාධන වැඩසටහන",
+        "status": "ඉදිරියෙන් සිදු වෙමින්",
+        "progress": 45,
+        "team": "ආරක්ෂණ ගවේෂණය",
+        "budget": "$1.8M",
+        "deadline": "Mar 2025",
+        "description": "නව්‍ය රෝපණ ක්‍රමවේද භාවිතයෙන් විශාල පරාසයක කොරල් පාලු නැවත පිළිවැඩීම"
+      },
+      {
+        "title": "AI මුහුදු නිරීක්ෂණ පද්ධතිය",
+        "status": "පරීක්ෂණ අවස්ථාව",
+        "progress": 80,
+        "team": "මුහුදු තාක්ෂණාත්මක ශාලාව",
+        "budget": "$2.5M",
+        "deadline": "Sep 2024",
+        "description": "සජීවීව මුහුදු තත්ත්ව නිරීක්ෂණයට AI ආකෘති සංවර්ධනය"
+      },
+      {
+        "title": "කාලගුණ බලපෑම් ඇගයීම",
+        "status": "දත්ත රැස්කිරීම",
+        "progress": 30,
+        "team": "කාලගුණ ගවේෂණ කොට්ඨාසය",
+        "budget": "$4.1M",
+        "deadline": "Jun 2025",
+        "description": "මුහුදු පරිසරයන් මත කාලගුණ විපර්යාස බලපෑම් සම්බන්ධ සම්පූර්ණ අධ්‍යයනය"
+      }
+    ]
+  },
+  "impact": {
+    "heading": "ගෝලීය ගවේෂණ බලපෑම",
+    "description": "අපගේ ගවේෂණය ලොව මුළුල්ලේ මුහුදු ආරක්ෂාව හැඩගන්වයි",
+    "points": [
+      {
+        "value": "3,847",
+        "label": "උපුටා දැක්වීම්"
+      },
+      {
+        "value": "89",
+        "label": "ප්‍රකාශන"
+      },
+      {
+        "value": "32",
+        "label": "රටවල්"
+      },
+      {
+        "value": "245",
+        "label": "හවුල්කරුවන්"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "අපගේ ගවේෂණ ප්‍රජාවට එක්වන්න",
+    "description": "ලොවප්‍රකට විද්‍යාඥයන් සමඟ හවුල් වී මුහුදු ආරක්ෂාව සඳහා දායක වන්න",
+    "primary": "ගවේෂකයෙකු වන්න",
+    "secondary": "ගවේෂණ කණ්ඩායමට සම්බන්ධ වන්න"
+  },
+  "placeholders": {
+    "datasets": {
+      "title": "ගවේෂණ දත්ත මධ්‍යස්ථානය",
+      "description": "සංවර්ධිත මුහුදු දත්ත කට්ටල, දත්ත පට තුළත් විශ්ලේෂණ පයිප්පල වෙත ප්‍රවේශ වන්න.",
+      "cta": "දත්ත ප්‍රවේශය ඉල්ලන්න"
+    },
+    "collaboration": {
+      "title": "සහයෝගී ජාලය",
+      "description": "NARA විද්‍යාඥයන් සමඟ සංයුක්ත මෙහෙයුම්, දැනුම් හුවමාරු සහ නව්‍යතා වැඩසටහන් වලට එක්වන්න.",
+      "cta": "හවුල්කාරිත්ව සොයන්න"
+    }
+  }
+}

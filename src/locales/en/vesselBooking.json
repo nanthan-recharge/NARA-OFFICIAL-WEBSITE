@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "title": "Research Vessel Booking - NARA Digital Ocean",
+    "description": "Reserve NARA's advanced research vessels for marine expeditions, oceanographic studies, and scientific missions."
+  },
+  "hero": {
+    "title": "Research Vessel Booking",
+    "subtitle": "Book NARA's state-of-the-art research vessels for your marine expeditions, oceanographic studies, and scientific research missions.",
+    "stats": {
+      "total": "Research Vessels",
+      "available": "Available Now",
+      "active": "Active Bookings",
+      "completed": "Completed Missions"
+    }
+  },
+  "tabs": {
+    "browse": "Browse Vessels",
+    "calendar": "Availability Calendar",
+    "myBookings": "My Bookings",
+    "track": "Track Booking"
+  },
+  "browse": {
+    "title": "Available Research Vessels",
+    "description": "Browse our fleet of research vessels and book the perfect vessel for your marine expedition.",
+    "specs": {
+      "lengthLabel": "Length",
+      "lengthValue": "{{value}} m",
+      "capacityLabel": "Capacity",
+      "capacityValue": "{{value}} scientists",
+      "speedLabel": "Max Speed",
+      "speedValue": "{{value}} knots",
+      "equipment": "Equipment",
+      "equipmentMore": "+{{count}} more"
+    },
+    "buttons": {
+      "book": "Book This Vessel",
+      "unavailable": "Currently Unavailable"
+    },
+    "empty": "No vessels available at the moment. Please check back later."
+  },
+  "calendar": {
+    "title": "Availability Calendar",
+    "description": "Calendar view coming soon. Use Browse Vessels to check availability during booking."
+  },
+  "myBookings": {
+    "title": "My Bookings",
+    "description": "View and manage your vessel booking requests.",
+    "labels": {
+      "bookingId": "Booking ID",
+      "departure": "Departure",
+      "return": "Return",
+      "departurePort": "Departure Port",
+      "destination": "Destination",
+      "researchProject": "Research Project"
+    },
+    "empty": "No bookings yet. Browse vessels to make your first booking."
+  },
+  "track": {
+    "title": "Track Your Booking",
+    "description": "Enter your booking ID to check the status.",
+    "inputPlaceholder": "Enter Booking ID (e.g., {{sample}})",
+    "button": "Track",
+    "details": {
+      "title": "Booking Details",
+      "fields": {
+        "vesselName": "Vessel Name",
+        "organization": "Organization",
+        "cruiseDates": "Cruise Dates",
+        "submissionDate": "Submission Date",
+        "approvalDate": "Approval Date",
+        "adminNotes": "Admin Notes"
+      }
+    }
+  },
+  "modal": {
+    "title": "Book {{vessel}}",
+    "buttons": {
+      "cancel": "Cancel",
+      "submit": "Submit Booking Request",
+      "submitting": "Submitting..."
+    }
+  },
+  "form": {
+    "labels": {
+      "organizationName": "Organization Name",
+      "principalInvestigator": "Principal Investigator",
+      "contactEmail": "Contact Email",
+      "contactPhone": "Contact Phone",
+      "researchProject": "Research Project Title",
+      "purposeOfCruise": "Purpose of Cruise",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "departurePort": "Departure Port",
+      "destinationArea": "Destination Area",
+      "numberOfScientists": "Number of Scientists",
+      "equipmentRequired": "Equipment Required",
+      "specialRequests": "Special Requests"
+    },
+    "placeholders": {
+      "organizationName": "University/Institute name",
+      "principalInvestigator": "Dr. Name",
+      "contactEmail": "email@example.com",
+      "contactPhone": "+94 XX XXX XXXX",
+      "researchProject": "Project title",
+      "purposeOfCruise": "Describe the purpose and objectives of your research cruise...",
+      "departurePort": "e.g., Colombo Port",
+      "destinationArea": "e.g., Southern Coastal Waters",
+      "equipmentRequired": "List any special equipment or facilities needed...",
+      "specialRequests": "Any special requirements or requests...",
+      "numberOfScientists": "Max capacity: {{capacity}}"
+    }
+  },
+  "alerts": {
+    "availabilityUnavailable": "Vessel is not available for the selected dates. Please choose different dates.",
+    "bookingSuccess": "Booking submitted successfully! Your tracking ID is: {{id}}",
+    "bookingError": "Failed to submit booking. Please try again.",
+    "trackingIdRequired": "Please enter a booking ID.",
+    "bookingNotFound": "Booking not found. Please check your booking ID.",
+    "trackingError": "Failed to track booking.",
+    "availabilityError": "Unable to check availability. Please try again."
+  },
+  "status": {
+    "vessel": {
+      "available": "Available",
+      "in_use": "In Use",
+      "maintenance": "Maintenance",
+      "unavailable": "Unavailable"
+    },
+    "booking": {
+      "pending": "Pending",
+      "approved": "Approved",
+      "confirmed": "Confirmed",
+      "completed": "Completed",
+      "rejected": "Rejected",
+      "cancelled": "Cancelled"
+    },
+    "fallback": "Unknown"
+  },
+  "misc": {
+    "na": "N/A"
+  }
+}

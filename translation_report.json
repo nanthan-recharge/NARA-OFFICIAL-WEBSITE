@@ -1,0 +1,824 @@
+{
+  "summary": {
+    "totalFiles": 37,
+    "filesWithIssues": 24,
+    "totalIssues": 566
+  },
+  "details": {
+    "about.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "about.leadership.chairman.email",
+        "about.leadership.chairman.phone"
+      ],
+      "untranslatedSi": [
+        "about.leadership.chairman.email",
+        "about.leadership.chairman.phone"
+      ]
+    },
+    "administration.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "analytics.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "audiences.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "generalPublic.sections.stories.href",
+        "researchers.sections.support.href",
+        "policy.sections.contact.href",
+        "industry.sections.support.href",
+        "media.sections.stories.href"
+      ],
+      "untranslatedSi": [
+        "generalPublic.sections.stories.href",
+        "researchers.sections.support.href",
+        "policy.sections.contact.href",
+        "industry.sections.support.href",
+        "media.sections.stories.href"
+      ]
+    },
+    "collaboration.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "network.profile.hIndex",
+        "network.metrics.hIndex",
+        "peerReview.modals.submit.placeholders.keywords",
+        "peerReview.modals.submit.placeholders.coAuthors",
+        "grants.application.subtitle",
+        "grants.application.placeholders.coInvestigators"
+      ],
+      "untranslatedSi": [
+        "network.profile.hIndex",
+        "network.metrics.hIndex",
+        "peerReview.modals.submit.placeholders.keywords",
+        "peerReview.modals.submit.placeholders.coAuthors",
+        "grants.application.subtitle",
+        "grants.application.placeholders.coInvestigators"
+      ]
+    },
+    "common.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "navbar.brand.title"
+      ],
+      "untranslatedSi": [
+        "navbar.brand.title"
+      ]
+    },
+    "contact.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "sections.info.email.primary",
+        "sections.info.email.secondary",
+        "sections.form.fields.email.placeholder"
+      ],
+      "untranslatedSi": [
+        "sections.info.email.primary",
+        "sections.info.email.secondary",
+        "sections.form.fields.email.placeholder"
+      ]
+    },
+    "digitalLibrary.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "divisions.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "exportMarket.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "fishAdvisory.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "home.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "research.areas.marineBiodiversity.statFallback",
+        "research.areas.climateResearch.statFallback",
+        "research.areas.conservation.statFallback",
+        "research.areas.satelliteMonitoring.statFallback",
+        "intelligence.floatingStats.temperature.value",
+        "intelligence.floatingStats.ph.value",
+        "integration.tabs.partners.label",
+        "integration.tabs.partners.heading",
+        "integration.tabs.partners.body",
+        "integration.tabs.admin.label",
+        "integration.tabs.admin.heading",
+        "integration.tabs.admin.body",
+        "integration.tabs.playground.label",
+        "integration.tabs.playground.heading",
+        "integration.tabs.playground.body",
+        "integration.security.title",
+        "integration.security.body",
+        "integration.cta.primary.label",
+        "integration.cta.primary.to",
+        "integration.cta.secondary.label",
+        "integration.cta.secondary.to",
+        "highlights.cards.programs.value",
+        "highlights.cards.observatories.value",
+        "highlights.cards.dataAssets.value",
+        "highlights.cards.partners.value",
+        "contact.phoneValue",
+        "contact.emailValue",
+        "contact.social.facebook",
+        "contact.social.twitter",
+        "contact.social.linkedin",
+        "contact.social.youtube",
+        "footer.legal.compliance",
+        "footer.craftedLinkLabel",
+        "footer.craftedLink"
+      ],
+      "untranslatedSi": [
+        "research.areas.marineBiodiversity.statFallback",
+        "research.areas.climateResearch.statFallback",
+        "research.areas.conservation.statFallback",
+        "research.areas.satelliteMonitoring.statFallback",
+        "intelligence.floatingStats.temperature.value",
+        "intelligence.floatingStats.ph.value",
+        "integration.tabs.partners.label",
+        "integration.tabs.partners.heading",
+        "integration.tabs.partners.body",
+        "integration.tabs.admin.label",
+        "integration.tabs.admin.heading",
+        "integration.tabs.admin.body",
+        "integration.tabs.playground.label",
+        "integration.tabs.playground.heading",
+        "integration.tabs.playground.body",
+        "integration.security.title",
+        "integration.security.body",
+        "integration.cta.primary.label",
+        "integration.cta.primary.to",
+        "integration.cta.secondary.label",
+        "integration.cta.secondary.to",
+        "highlights.cards.programs.value",
+        "highlights.cards.observatories.value",
+        "highlights.cards.dataAssets.value",
+        "highlights.cards.partners.value",
+        "contact.phoneValue",
+        "contact.emailValue",
+        "contact.social.facebook",
+        "contact.social.twitter",
+        "contact.social.linkedin",
+        "contact.social.youtube",
+        "footer.legal.compliance",
+        "footer.craftedLinkLabel",
+        "footer.craftedLink"
+      ]
+    },
+    "integration.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "monitor.healthLabel",
+        "common.dataFormats.json",
+        "common.dataFormats.xml",
+        "common.dataFormats.csv",
+        "government.modal.placeholders.name",
+        "government.modal.placeholders.apiUrl",
+        "research.modal.placeholders.name",
+        "research.modal.placeholders.website",
+        "research.modal.placeholders.email",
+        "research.modal.placeholders.area"
+      ],
+      "untranslatedSi": [
+        "monitor.healthLabel",
+        "common.dataFormats.json",
+        "common.dataFormats.xml",
+        "common.dataFormats.csv",
+        "government.modal.placeholders.name",
+        "government.modal.placeholders.apiUrl",
+        "research.modal.placeholders.name",
+        "research.modal.placeholders.website",
+        "research.modal.placeholders.email",
+        "research.modal.placeholders.area"
+      ]
+    },
+    "knowledge.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "hero.stats.publications.value",
+        "hero.stats.datasets.value",
+        "hero.stats.researchers.value",
+        "hero.stats.training.value"
+      ],
+      "untranslatedSi": [
+        "hero.stats.publications.value",
+        "hero.stats.datasets.value",
+        "hero.stats.researchers.value",
+        "hero.stats.training.value"
+      ]
+    },
+    "labResults.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "common.na"
+      ],
+      "untranslatedSi": [
+        "common.na"
+      ]
+    },
+    "lda.json": {
+      "missing": {
+        "ta": [
+          "certifications.types.research.name",
+          "certifications.types.research.description",
+          "certifications.types.research.duration",
+          "certifications.types.research.requirements",
+          "certifications.types.conservation.name",
+          "certifications.types.conservation.description",
+          "certifications.types.conservation.duration",
+          "certifications.types.conservation.requirements",
+          "certifications.types.safety.name",
+          "certifications.types.safety.description",
+          "certifications.types.safety.duration",
+          "certifications.types.safety.requirements",
+          "certifications.types.data.name",
+          "certifications.types.data.description",
+          "certifications.types.data.duration",
+          "certifications.types.data.requirements",
+          "benefits.items.expert.title",
+          "benefits.items.expert.description",
+          "benefits.items.certified.title",
+          "benefits.items.certified.description",
+          "benefits.items.flexible.title",
+          "benefits.items.flexible.description",
+          "benefits.items.practical.title",
+          "benefits.items.practical.description",
+          "benefits.items.network.title",
+          "benefits.items.network.description",
+          "benefits.items.support.title",
+          "benefits.items.support.description",
+          "enrollment.info.admissions",
+          "enrollment.info.support",
+          "enrollment.info.financial"
+        ]
+      },
+      "untranslatedTa": [
+        "hero.stats.courses.value",
+        "hero.stats.students.value",
+        "hero.stats.completion.value",
+        "hero.stats.satisfaction.value"
+      ],
+      "untranslatedSi": [
+        "hero.stats.courses.value",
+        "hero.stats.students.value",
+        "hero.stats.completion.value",
+        "hero.stats.satisfaction.value"
+      ]
+    },
+    "library.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "about.contact.email"
+      ],
+      "untranslatedSi": [
+        "about.contact.email"
+      ]
+    },
+    "libraryAuth.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "login.fields.emailPlaceholder"
+      ],
+      "untranslatedSi": [
+        "login.fields.emailPlaceholder"
+      ]
+    },
+    "libraryDashboard.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "marineIncident.json": {
+      "missing": {
+        "en": [
+          "hero.observation.title",
+          "hero.observation.typeLabel",
+          "hero.observation.typePlaceholder",
+          "hero.observation.typeOptions.stranding",
+          "hero.observation.typeOptions.unusual_behavior",
+          "hero.observation.typeOptions.species_sighting",
+          "hero.observation.typeOptions.pollution",
+          "hero.observation.typeOptions.other",
+          "hero.observation.speciesLabel",
+          "hero.observation.speciesPlaceholder",
+          "hero.observation.descriptionLabel",
+          "hero.observation.descriptionPlaceholder",
+          "hero.observation.locationLabel",
+          "hero.observation.photosLabel",
+          "hero.observation.addPhotos",
+          "hero.observation.processing",
+          "hero.observation.photoPreview",
+          "hero.observation.contactTitle",
+          "hero.observation.nameLabel",
+          "hero.observation.namePlaceholder",
+          "hero.observation.emailLabel",
+          "hero.observation.emailPlaceholder",
+          "hero.observation.cancel",
+          "hero.observation.submit",
+          "hero.observation.submitting"
+        ],
+        "ta": [
+          "forms.observation.title",
+          "forms.observation.typeLabel",
+          "forms.observation.typePlaceholder",
+          "forms.observation.typeOptions.stranding",
+          "forms.observation.typeOptions.unusual_behavior",
+          "forms.observation.typeOptions.species_sighting",
+          "forms.observation.typeOptions.pollution",
+          "forms.observation.typeOptions.other",
+          "forms.observation.speciesLabel",
+          "forms.observation.speciesPlaceholder",
+          "forms.observation.descriptionLabel",
+          "forms.observation.descriptionPlaceholder",
+          "forms.observation.locationLabel",
+          "forms.observation.photosLabel",
+          "forms.observation.addPhotos",
+          "forms.observation.processing",
+          "forms.observation.photoPreview",
+          "forms.observation.contactTitle",
+          "forms.observation.nameLabel",
+          "forms.observation.namePlaceholder",
+          "forms.observation.emailLabel",
+          "forms.observation.emailPlaceholder",
+          "forms.observation.cancel",
+          "forms.observation.submit",
+          "forms.observation.submitting"
+        ],
+        "si": [
+          "forms.observation.title",
+          "forms.observation.typeLabel",
+          "forms.observation.typePlaceholder",
+          "forms.observation.typeOptions.stranding",
+          "forms.observation.typeOptions.unusual_behavior",
+          "forms.observation.typeOptions.species_sighting",
+          "forms.observation.typeOptions.pollution",
+          "forms.observation.typeOptions.other",
+          "forms.observation.speciesLabel",
+          "forms.observation.speciesPlaceholder",
+          "forms.observation.descriptionLabel",
+          "forms.observation.descriptionPlaceholder",
+          "forms.observation.locationLabel",
+          "forms.observation.photosLabel",
+          "forms.observation.addPhotos",
+          "forms.observation.processing",
+          "forms.observation.photoPreview",
+          "forms.observation.contactTitle",
+          "forms.observation.nameLabel",
+          "forms.observation.namePlaceholder",
+          "forms.observation.emailLabel",
+          "forms.observation.emailPlaceholder",
+          "forms.observation.cancel",
+          "forms.observation.submit",
+          "forms.observation.submitting"
+        ]
+      },
+      "untranslatedTa": [
+        "labels.postedAt",
+        "forms.report.emailPlaceholder",
+        "forms.report.phonePlaceholder"
+      ],
+      "untranslatedSi": [
+        "labels.postedAt",
+        "forms.report.emailPlaceholder",
+        "forms.report.phonePlaceholder"
+      ]
+    },
+    "maritime.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "stats.vessels.value",
+        "stats.ports.value",
+        "stats.permits.value",
+        "stats.uptime.value",
+        "services.inspection.price",
+        "services.permits.price",
+        "services.registration.price",
+        "services.training.price",
+        "services.certification.price",
+        "footer.email",
+        "bookingModal.placeholders.phone"
+      ],
+      "untranslatedSi": [
+        "stats.vessels.value",
+        "stats.ports.value",
+        "stats.permits.value",
+        "stats.uptime.value",
+        "services.inspection.price",
+        "services.permits.price",
+        "services.registration.price",
+        "services.training.price",
+        "services.certification.price",
+        "footer.email",
+        "bookingModal.placeholders.phone"
+      ]
+    },
+    "marketplace.json": {
+      "missing": {
+        "ta": [
+          "seller Dashboard.welcome",
+          "seller Dashboard.uploadProduct",
+          "seller Dashboard.manageProducts",
+          "seller Dashboard.viewSales",
+          "seller Dashboard.withdrawFunds"
+        ],
+        "si": [
+          "seller Dashboard.welcome",
+          "seller Dashboard.uploadProduct",
+          "seller Dashboard.manageProducts",
+          "seller Dashboard.viewSales",
+          "seller Dashboard.withdrawFunds"
+        ]
+      },
+      "untranslatedTa": [
+        "hero.stats.products.value",
+        "hero.stats.customers.value",
+        "hero.stats.revenue.value",
+        "hero.stats.rating.value"
+      ],
+      "untranslatedSi": [
+        "hero.stats.products.value",
+        "hero.stats.customers.value",
+        "hero.stats.revenue.value",
+        "hero.stats.rating.value"
+      ]
+    },
+    "media.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "mediaGallery.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "news.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "hero.stats.minsFallback"
+      ],
+      "untranslatedSi": [
+        "hero.stats.minsFallback"
+      ]
+    },
+    "openData.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "hero.licenseValue"
+      ],
+      "untranslatedSi": [
+        "hero.licenseValue"
+      ]
+    },
+    "procurement.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "hero.metrics.partners.valueFallback",
+        "procurement.sidebar.vendorFallback",
+        "modals.login.emailPlaceholder",
+        "modals.login.passwordPlaceholder",
+        "modals.application.shared.separator",
+        "modals.application.recruitment.summary.departmentFallback",
+        "modals.application.recruitment.placeholders.portfolio",
+        "recruitment.sidebar.support.phone",
+        "recruitment.sidebar.support.email",
+        "recruitment.cards.departmentFallback",
+        "recruitment.sync.features.cms",
+        "dashboard.recent.separator",
+        "dashboard.recent.status.generic"
+      ],
+      "untranslatedSi": [
+        "hero.metrics.partners.valueFallback",
+        "procurement.sidebar.vendorFallback",
+        "modals.login.emailPlaceholder",
+        "modals.login.passwordPlaceholder",
+        "modals.application.shared.separator",
+        "modals.application.recruitment.summary.departmentFallback",
+        "modals.application.recruitment.placeholders.portfolio",
+        "recruitment.sidebar.support.phone",
+        "recruitment.sidebar.support.email",
+        "recruitment.cards.departmentFallback",
+        "recruitment.sync.features.cms",
+        "dashboard.recent.separator",
+        "dashboard.recent.status.generic"
+      ]
+    },
+    "project-pipeline.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "projectPipeline.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "publicConsultation.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "discussion.likes"
+      ],
+      "untranslatedSi": [
+        "discussion.likes"
+      ]
+    },
+    "registration.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "form.required"
+      ],
+      "untranslatedSi": [
+        "form.required"
+      ]
+    },
+    "research.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "publications.labels.impact",
+        "publications.labels.pdf"
+      ],
+      "untranslatedSi": [
+        "publications.labels.impact",
+        "publications.labels.pdf"
+      ]
+    },
+    "researchEnhanced.json": {
+      "missing": {
+        "en": [
+          "hero.badge",
+          "hero.titleLine1",
+          "hero.titleLine2",
+          "hero.description",
+          "metrics.cards",
+          "areas",
+          "tabs",
+          "filters.searchPlaceholder",
+          "filters.advanced",
+          "filters.year.options.2022",
+          "filters.year.options.2023",
+          "filters.year.options.2024",
+          "filters.year.options.all",
+          "filters.type.options.all",
+          "filters.type.options.journal",
+          "filters.type.options.conference",
+          "filters.type.options.report",
+          "filters.sort.options.citations",
+          "filters.sort.options.recent",
+          "filters.sort.options.downloads",
+          "filters.sort.options.impact",
+          "advancedSearch.title",
+          "advancedSearch.header.default",
+          "advancedSearch.header.activeFilters",
+          "advancedSearch.researchAreas",
+          "advancedSearch.publicationTypes",
+          "advancedSearch.languages",
+          "advancedSearch.sections.text.heading",
+          "advancedSearch.sections.text.fields.keywords.label",
+          "advancedSearch.sections.text.fields.keywords.placeholder",
+          "advancedSearch.sections.text.fields.title.label",
+          "advancedSearch.sections.text.fields.title.placeholder",
+          "advancedSearch.sections.text.fields.author.label",
+          "advancedSearch.sections.text.fields.author.placeholder",
+          "advancedSearch.sections.text.fields.institution.label",
+          "advancedSearch.sections.text.fields.institution.placeholder",
+          "advancedSearch.sections.date.heading",
+          "advancedSearch.sections.date.fields.fromYear",
+          "advancedSearch.sections.date.fields.toYear",
+          "advancedSearch.sections.areas.heading",
+          "advancedSearch.sections.types.heading",
+          "advancedSearch.sections.impact.heading",
+          "advancedSearch.sections.impact.fields.minCitations",
+          "advancedSearch.sections.impact.fields.maxCitations",
+          "advancedSearch.sections.impact.fields.minImpact",
+          "advancedSearch.sections.impact.fields.minCitationsPlaceholder",
+          "advancedSearch.sections.impact.fields.maxCitationsPlaceholder",
+          "advancedSearch.sections.impact.fields.minImpactPlaceholder",
+          "advancedSearch.sections.additional.heading",
+          "advancedSearch.sections.additional.openAccess.label",
+          "advancedSearch.sections.additional.openAccess.description",
+          "advancedSearch.sections.additional.dataset.label",
+          "advancedSearch.sections.additional.dataset.description",
+          "advancedSearch.sections.additional.language.label",
+          "advancedSearch.actions.reset",
+          "advancedSearch.actions.cancel",
+          "advancedSearch.actions.search",
+          "publications.items",
+          "publications.labels.highlights",
+          "publications.labels.showMore",
+          "publications.labels.showLess",
+          "publications.labels.viewPaper",
+          "publications.labels.openAccess",
+          "publications.labels.citations",
+          "publications.labels.downloads",
+          "publications.labels.impactFactor",
+          "teams.items",
+          "teams.labels.members",
+          "teams.labels.projects",
+          "teams.labels.publications",
+          "teams.labels.funding",
+          "teams.labels.ledBy",
+          "teams.actions.viewProfile",
+          "projects.filters.categories.all",
+          "projects.filters.categories.marineBiology",
+          "projects.filters.categories.climate",
+          "projects.filters.categories.fisheries",
+          "projects.filters.categories.conservation",
+          "projects.filters.categories.policy",
+          "projects.filters.status.all",
+          "projects.statusLabels.active",
+          "projects.statusLabels.planning",
+          "projects.statusLabels.completing",
+          "projects.statusLabels.completed",
+          "projects.statusLabels.upcoming",
+          "projects.labels.category",
+          "projects.labels.status",
+          "projects.labels.progress",
+          "projects.labels.budget",
+          "projects.labels.spent",
+          "projects.labels.team",
+          "projects.labels.members",
+          "projects.labels.output",
+          "projects.labels.papers",
+          "projects.labels.objectives",
+          "projects.labels.outcomes",
+          "projects.labels.partners",
+          "projects.labels.timeline",
+          "projects.labels.pi",
+          "projects.actions.viewDetails",
+          "projects.actions.showLess",
+          "projects.actions.projectPage",
+          "projects.items.microplasticNetwork.title",
+          "projects.items.microplasticNetwork.description",
+          "projects.items.microplasticNetwork.objectives",
+          "projects.items.microplasticNetwork.milestones",
+          "projects.items.microplasticNetwork.outcomes",
+          "projects.items.coralRestoration.title",
+          "projects.items.coralRestoration.description",
+          "projects.items.coralRestoration.objectives",
+          "projects.items.coralRestoration.milestones",
+          "projects.items.coralRestoration.outcomes",
+          "projects.items.aiStockAssessment.title",
+          "projects.items.aiStockAssessment.description",
+          "projects.items.aiStockAssessment.objectives",
+          "projects.items.aiStockAssessment.milestones",
+          "projects.items.aiStockAssessment.outcomes",
+          "projects.items.blueCarbonValuation.title",
+          "projects.items.blueCarbonValuation.description",
+          "projects.items.blueCarbonValuation.objectives",
+          "projects.items.blueCarbonValuation.milestones",
+          "projects.items.blueCarbonValuation.outcomes",
+          "projects.items.oceanAcidification.title",
+          "projects.items.oceanAcidification.description",
+          "projects.items.oceanAcidification.objectives",
+          "projects.items.oceanAcidification.milestones",
+          "projects.items.oceanAcidification.outcomes",
+          "projects.items.fishingTechnology.title",
+          "projects.items.fishingTechnology.description",
+          "projects.items.fishingTechnology.objectives",
+          "projects.items.fishingTechnology.milestones",
+          "projects.items.fishingTechnology.outcomes",
+          "collaboration.map.title",
+          "collaboration.map.description",
+          "collaboration.map.empty",
+          "collaboration.map.subtitle",
+          "collaboration.stats.items",
+          "collaboration.region.metrics.countries",
+          "collaboration.region.metrics.institutions",
+          "collaboration.region.metrics.publications",
+          "collaboration.region.metrics.researchers",
+          "collaboration.region.labels.highlights",
+          "collaboration.region.labels.topCountries",
+          "collaboration.regions.items",
+          "collaboration.partners.heading",
+          "collaboration.partners.cta",
+          "collaboration.partners.metrics.publications",
+          "collaboration.partners.metrics.projects",
+          "collaboration.partners.metrics.mou",
+          "collaboration.partners.metrics.since",
+          "collaboration.partners.labels.focusAreas",
+          "collaboration.partners.labels.achievements",
+          "collaboration.partners.labels.contact",
+          "collaboration.partners.actions.viewDetails",
+          "collaboration.partners.actions.hideDetails",
+          "collaboration.partners.items",
+          "collaboration.partner.metrics.publications",
+          "collaboration.partner.metrics.projects",
+          "collaboration.partner.metrics.mou",
+          "collaboration.partner.metrics.since",
+          "collaboration.partner.labels.focusAreas",
+          "collaboration.partner.labels.achievements",
+          "collaboration.partner.labels.contact",
+          "collaboration.partner.actions.viewDetails",
+          "collaboration.partner.actions.hideDetails",
+          "collaboration.opportunities.heading",
+          "collaboration.opportunities.labels.value",
+          "collaboration.opportunities.labels.duration",
+          "collaboration.opportunities.labels.deadline",
+          "collaboration.opportunities.apply",
+          "collaboration.opportunities.items",
+          "impactAnalytics.heading",
+          "impactAnalytics.range.month",
+          "impactAnalytics.range.quarter",
+          "impactAnalytics.range.year",
+          "impactAnalytics.range.all",
+          "impactAnalytics.citationGrowth.heading",
+          "impactAnalytics.citationGrowth.subheading",
+          "impactAnalytics.stats.suffix",
+          "impactAnalytics.stats.partnerInstitutions",
+          "impactAnalytics.stats.countries",
+          "impactAnalytics.stats.jointPublications",
+          "impactAnalytics.stats.internationalCoauthors",
+          "impactAnalytics.publicationTypes.heading",
+          "impactAnalytics.publicationTypes.total",
+          "impactAnalytics.publicationTypes.journalArticles",
+          "impactAnalytics.publicationTypes.conferencePapers",
+          "impactAnalytics.publicationTypes.technicalReports",
+          "impactAnalytics.publicationTypes.bookChapters",
+          "impactAnalytics.publicationTypes.datasets",
+          "impactAnalytics.impactByArea.heading",
+          "impactAnalytics.impactByArea.subheading",
+          "impactAnalytics.impactByArea.labels.marineBiology",
+          "impactAnalytics.impactByArea.labels.climateChange",
+          "impactAnalytics.impactByArea.labels.fisheries",
+          "impactAnalytics.impactByArea.labels.oceanography",
+          "impactAnalytics.impactByArea.labels.conservation",
+          "impactAnalytics.impactByArea.labels.policy",
+          "impactAnalytics.impactByArea.metrics.publications",
+          "impactAnalytics.impactByArea.metrics.citations",
+          "impactAnalytics.impactByArea.metrics.hIndex",
+          "impactAnalytics.topPublications.heading",
+          "impactAnalytics.topPublications.subheading",
+          "impactAnalytics.topPublications.citations",
+          "impactAnalytics.topPublications.growth",
+          "impactAnalytics.geographic.heading",
+          "impactAnalytics.geographic.subheading",
+          "impactAnalytics.geographic.regions.asiaPacific",
+          "impactAnalytics.geographic.regions.europe",
+          "impactAnalytics.geographic.regions.northAmerica",
+          "impactAnalytics.geographic.regions.restOfWorld",
+          "impactAnalytics.geographic.institutions",
+          "impactAnalytics.downloads.sectionHeading",
+          "impactAnalytics.downloads.sectionSubheading",
+          "impactAnalytics.downloads.months.jan",
+          "impactAnalytics.downloads.months.feb",
+          "impactAnalytics.downloads.months.mar",
+          "impactAnalytics.downloads.months.apr",
+          "impactAnalytics.downloads.months.may",
+          "impactAnalytics.downloads.months.jun",
+          "impactAnalytics.downloads.months.jul",
+          "impactAnalytics.downloads.months.aug",
+          "impactAnalytics.downloads.months.sep",
+          "impactAnalytics.downloads.months.oct",
+          "impactAnalytics.downloads.months.nov",
+          "impactAnalytics.downloads.months.dec"
+        ]
+      },
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "researchPortal.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "admin.form.doi"
+      ],
+      "untranslatedSi": [
+        "admin.form.doi"
+      ]
+    },
+    "scientific-evidence.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "scientificEvidence.json": {
+      "missing": {},
+      "untranslatedTa": [],
+      "untranslatedSi": []
+    },
+    "vesselBooking.json": {
+      "missing": {},
+      "untranslatedTa": [
+        "form.placeholders.contactEmail",
+        "form.placeholders.contactPhone"
+      ],
+      "untranslatedSi": [
+        "form.placeholders.contactEmail",
+        "form.placeholders.contactPhone"
+      ]
+    }
+  }
+}

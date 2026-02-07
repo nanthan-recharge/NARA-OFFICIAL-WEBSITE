@@ -1,0 +1,294 @@
+{
+  "title": "Marine Spatial Planning Viewer",
+  "subtitle": "A powerful tool for planning and managing ocean space usage",
+  "loadingMessage": "Loading Marine Spatial Planning Data...",
+
+  "navigation": {
+    "userGuide": "User Guide",
+    "help": "Help",
+    "planningMap": "Planning Map",
+    "map": "Map"
+  },
+
+  "guide": {
+    "whatIsTitle": "What is Marine Spatial Planning?",
+    "whatIsDescription": "Marine Spatial Planning (MSP) is a practical way to organize human activities in marine areas. This viewer allows you to:",
+    "benefit1": "Plan marine zones",
+    "benefit1Desc": "Define areas for fishing, shipping, conservation, and other activities",
+    "benefit2": "Avoid conflicts",
+    "benefit2Desc": "Prevent overlapping uses that could cause problems",
+    "benefit3": "Visualize proposals",
+    "benefit3Desc": "Draw and save zone boundaries on an interactive map",
+    "benefit4": "Measure areas",
+    "benefit4Desc": "Calculate sizes and distances for planning purposes",
+
+    "howToUseTitle": "How to Use This Tool",
+
+    "drawingToolsTitle": "Drawing Tools",
+    "polygonDesc": "Click points, double-click to finish",
+    "rectangleDesc": "Click two opposite corners",
+    "circleDesc": "Click to place center point",
+
+    "templatesTitle": "Quick Templates",
+    "templatesDesc": "Use pre-made zone templates for common scenarios:",
+    "fishingZones": "Fishing zones",
+    "protectedAreas": "Protected marine areas",
+    "shippingCorridors": "Shipping corridors",
+    "anchorageZones": "Anchorage zones",
+    "aquacultureGrids": "Aquaculture grids",
+
+    "measurementsTitle": "Measurements",
+    "measurementsDesc": "Calculate area and perimeter of zones. Areas are shown in square kilometers (km²).",
+
+    "saveTitle": "Save Your Work",
+    "saveDesc": "Download your drawings as JSON files to share with colleagues or continue editing later.",
+
+    "zoneTypesTitle": "Available Zone Types",
+
+    "maximizingTitle": "Maximizing This Tool",
+    "planningWorkflows": "Planning Workflows",
+    "planningWorkflowsDesc": "Start with templates, customize sizes, then combine multiple zones to create comprehensive marine plans",
+    "collaboration": "Collaboration",
+    "collaborationDesc": "Export your zones as JSON and share with stakeholders for review and discussion",
+    "undoRedo": "Undo/Redo",
+    "undoRedoDesc": "Experiment freely - use Undo/Redo to step through changes and find the best layout",
+
+    "getStarted": "Start Planning Marine Zones →",
+    "clickOutside": "Click anywhere outside this guide to start using the tool"
+  },
+
+  "toolbar": {
+    "drawingTools": "Drawing Tools",
+    "drawPolygon": "Draw Polygon",
+    "draw": "Draw",
+    "drawRectangle": "Draw Rectangle",
+    "rectangle": "Rectangle",
+    "drawCircle": "Draw Circle",
+    "circle": "Circle",
+    "measureArea": "Measure Area",
+    "measure": "Measure",
+    "zoneTemplates": "Zone Templates",
+    "templates": "Templates",
+    "clearDrawing": "Clear Drawing",
+    "clear": "Clear",
+    "undo": "Undo",
+    "redo": "Redo",
+    "saveDrawing": "Save Drawing",
+    "shapesCount": "shapes",
+    "drawingMode": "Drawing Mode",
+    "polygonInstructions": "Click to add points, double-click to finish",
+    "rectangleInstructions": "Click two opposite corners",
+    "circleInstructions": "Click to place circle",
+    "cancelDrawing": "Cancel Drawing",
+    "drawnShapes": "Drawn Shapes",
+    "deleteShape": "Delete shape"
+  },
+
+  "presets": {
+    "standardFishingZone": "Standard Fishing Zone",
+    "standardFishingZoneDesc": "5km² fishing area template",
+    "circularProtectedArea": "Circular Protected Area",
+    "circularProtectedAreaDesc": "Circular marine sanctuary",
+    "shippingCorridor": "Shipping Corridor",
+    "shippingCorridorDesc": "Standard shipping lane",
+    "anchorageZone": "Anchorage Zone",
+    "anchorageZoneDesc": "Circular anchorage area",
+    "aquacultureGrid": "Aquaculture Grid",
+    "aquacultureGridDesc": "Fish farming area",
+    "tip": "Tip:",
+    "tipText": "Click any template to add it to the map at the center of your view. You can then adjust its position and size."
+  },
+
+  "zoneTypes": {
+    "fishingZone": "Fishing Zone",
+    "protectedArea": "Protected Area",
+    "shippingLane": "Shipping Lane",
+    "anchorage": "Anchorage",
+    "militaryZone": "Military Zone",
+    "oilExploration": "Oil Exploration",
+    "aquaculture": "Aquaculture"
+  },
+
+  "help": {
+    "quickHelp": "Quick Help",
+    "polygon": "Polygon:",
+    "polygonHelp": "Click points, double-click to finish",
+    "rectangle": "Rectangle:",
+    "rectangleHelp": "Click two opposite corners",
+    "circle": "Circle:",
+    "circleHelp": "Click center point",
+    "templates": "Templates:",
+    "templatesHelp": "One-click preset zones",
+    "undoRedo": "Undo/Redo:",
+    "undoRedoHelp": "Step through changes",
+    "save": "Save:",
+    "saveHelp": "Download your drawing as JSON"
+  },
+
+  "popup": {
+    "type": "Type:",
+    "area": "Area:",
+    "radius": "Radius:",
+    "deleteShapeButton": "Delete Shape"
+  },
+  "researchEnhanced": {
+    "header": {
+      "title": "Research Marine Spatial Planning",
+      "subtitle": "For NARA Staff & Researchers",
+      "projects": "Projects",
+      "import": "Import",
+      "save": "Save",
+      "export": "Export"
+    },
+    "tabs": {
+      "draw": "Draw",
+      "measure": "Measure",
+      "data": "Data",
+      "templates": "Templates"
+    },
+    "project": {
+      "untitled": "Untitled Project",
+      "newConfirm": "Start a new project? Unsaved changes will be lost.",
+      "savedCloud": "Project \"{{name}}\" saved to cloud successfully!",
+      "savedLocal": "Project \"{{name}}\" saved locally (sign in for cloud sync)",
+      "saveError": "Error saving project: {{message}}",
+      "loadError": "Error loading project: {{message}}",
+      "zonesCount": "{{count}} zones",
+      "managerTitle": "Project Manager",
+      "managerSubtitle": "Manage your research projects",
+      "newProject": "New Project",
+      "savedProjects": "Saved Projects ({{count}})",
+      "noSaved": "No saved projects yet",
+      "load": "Load",
+      "close": "Close"
+    },
+    "draw": {
+      "drawingTools": "Drawing Tools",
+      "polygon": "Polygon",
+      "point": "Point",
+      "click": "Click",
+      "onMap": "on map to add points.",
+      "doubleClick": "Double-click",
+      "toFinish": "to finish.",
+      "actions": "Actions",
+      "undo": "Undo",
+      "redo": "Redo",
+      "clearAll": "Clear All",
+      "clearConfirm": "Clear all zones? This cannot be undone.",
+      "drawnZones": "Drawn Zones ({{count}})",
+      "none": "No zones drawn yet",
+      "zoneFallback": "Zone {{index}}",
+      "custom": "Custom"
+    },
+    "measure": {
+      "title": "Measurement Tools",
+      "distanceTitle": "Measure Distance",
+      "distanceHint": "Click points on map",
+      "areaTitle": "Measure Area",
+      "areaHint": "Draw polygon on map",
+      "clear": "Clear Measurement",
+      "results": "Results",
+      "distance": "Distance",
+      "area": "Area",
+      "bearing": "Bearing"
+    },
+    "data": {
+      "title": "Research Data Entry",
+      "description": "Select a zone on the map to add research data, observations, and notes.",
+      "selectedZone": "Selected Zone",
+      "formPlaceholder": "Data entry form would appear here for this zone.",
+      "selectPrompt": "Click a zone on the map to select it"
+    },
+    "templates": {
+      "tabTitle": "Research Templates",
+      "tabSubtitle": "Quick-start templates for common NARA research activities",
+      "selectionAlert": "Template \"{{name}}\" selected. Click on map to place it.",
+      "list": {
+        "coralReefStudy": {
+          "name": "Coral Reef Study Area",
+          "description": "Standard coral reef research grid (500m x 500m)"
+        },
+        "fishSurvey": {
+          "name": "Fish Population Survey",
+          "description": "Fish counting transect (1km line)"
+        },
+        "waterQualitySampling": {
+          "name": "Water Quality Sampling Station",
+          "description": "Circular sampling area (100m radius)"
+        },
+        "marineProtectedArea": {
+          "name": "Marine Protected Area Proposal",
+          "description": "Large protected zone (2km x 2km)"
+        },
+        "fishingGroundsAssessment": {
+          "name": "Fishing Grounds Assessment",
+          "description": "Traditional fishing area (3km x 2km)"
+        },
+        "oceanographicStation": {
+          "name": "Oceanographic Monitoring Station",
+          "description": "Fixed monitoring point"
+        },
+        "seagrassMeadow": {
+          "name": "Seagrass Meadow Survey",
+          "description": "Seagrass bed mapping (800m x 600m)"
+        },
+        "researchVesselTrack": {
+          "name": "Research Vessel Track",
+          "description": "Vessel route for survey"
+        },
+        "pollutionMonitoring": {
+          "name": "Pollution Monitoring Zone",
+          "description": "Pollution assessment area (1km x 1km)"
+        },
+        "aquacultureStudy": {
+          "name": "Aquaculture Site Assessment",
+          "description": "Fish farm site evaluation (500m x 500m)"
+        }
+      }
+    },
+    "zoneTypes": {
+      "researchZone": "Research Zone",
+      "fishSurvey": "Fish Survey",
+      "samplingStation": "Sampling Station",
+      "protectedArea": "Protected Area",
+      "fishingZone": "Fishing Zone",
+      "monitoringStation": "Monitoring Station",
+      "habitatSurvey": "Habitat Survey",
+      "vesselTrack": "Vessel Track",
+      "pollutionZone": "Pollution Zone",
+      "aquaculture": "Aquaculture",
+      "customZone": "Custom Zone"
+    },
+    "map": {
+      "unnamedZone": "Unnamed Zone",
+      "unnamedTrack": "Unnamed Track"
+    },
+    "stats": {
+      "title": "Zone Statistics",
+      "totalZones": "Total Zones",
+      "totalArea": "Total Area",
+      "totalDistance": "Total Distance",
+      "byZoneType": "By Zone Type"
+    },
+    "import": {
+      "title": "Import GeoJSON, KML, or CSV",
+      "success": "Successfully imported {{count}} zones",
+      "failed": "Import failed: {{message}}",
+      "error": "Error importing file: {{message}}"
+    },
+    "export": {
+      "title": "Export Options",
+      "json": "JSON Data",
+      "jsonDesc": "Complete project data",
+      "geojson": "GeoJSON",
+      "geojsonDesc": "GIS-compatible format",
+      "csv": "CSV Spreadsheet",
+      "csvDesc": "Excel-compatible data",
+      "pdf": "PDF Report",
+      "pdfDesc": "Professional report with maps",
+      "mapNotReady": "Map not ready. Please try again.",
+      "pdfSuccess": "PDF report \"{{filename}}\" generated successfully!",
+      "pdfError": "Error generating PDF report: {{message}}"
+    }
+  }
+}

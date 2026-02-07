@@ -1,0 +1,65 @@
+{
+  "title": "විද්‍යාත්මක සාක්ෂි ගබඩාව",
+  "subtitle": "සාක්ෂි මත පදනම් වූ ප්‍රතිපත්ති සහ පර්යේෂණ දත්ත ගබඩාව",
+  "description": "සාගර සංරක්ෂණ තීරණ සඳහා සම-සමාලෝචනය කළ පර්යේෂණ, ප්‍රතිපත්ති සංක්ෂිප්තය සහ දත්ත දෘශ්‍යකරණ වෙත ප්‍රවේශ වන්න",
+  "nav": {
+    "home": "මුල් පිටුව",
+    "documents": "සාක්ෂි ලේඛන",
+    "briefs": "ප්‍රතිපත්ති සංක්ෂිප්තය",
+    "data": "දත්ත දෘශ්‍යකරණ",
+    "search": "සෙවුම් ප්‍රතිඵල"
+  },
+  "categories": {
+    "all": "සියලුම කාණ්ඩ",
+    "research_paper": "පර්යේෂණ පත්‍රිකාව",
+    "technical_report": "තාක්ෂණික වාර්තාව",
+    "policy_analysis": "ප්‍රතිපත්ති විශ්ලේෂණය",
+    "data_report": "දත්ත වාර්තාව",
+    "review": "සමාලෝචනය"
+  },
+  "policyAreas": {
+    "all": "සියලුම ප්‍රතිපත්ති ක්ෂේත්‍ර",
+    "fisheries_management": "මත්ස්‍ය කළමනාකරණය",
+    "marine_conservation": "සාගර සංරක්ෂණය",
+    "aquaculture": "ජලජ වගාව",
+    "coastal_management": "වෙරළබඩ කළමනාකරණය",
+    "climate_change": "දේශගුණික විපර්යාස",
+    "sustainable_development": "තිරසාර සංවර්ධනය"
+  },
+  "stats": {
+    "totalDocuments": "මුළු ලේඛන",
+    "policyBriefs": "ප්‍රතිපත්ති සංක්ෂිප්තය",
+    "dataVisualizations": "දත්ත දෘශ්‍යකරණ",
+    "citations": "මුළු උපුටා දැක්වීම්"
+  },
+  "search": {
+    "placeholder": "සාක්ෂි ලේඛන සොයන්න...",
+    "button": "සොයන්න",
+    "results": "සෙවුම් ප්‍රතිඵල",
+    "noResults": "ප්‍රතිඵල හමු නොවීය"
+  },
+  "document": {
+    "authors": "කතුවරුන්",
+    "published": "ප්‍රකාශයට පත් කළ දිනය",
+    "citations": "උපුටා දැක්වීම්",
+    "downloads": "බාගැනීම්",
+    "abstract": "සාරාංශය",
+    "keywords": "මූල පද",
+    "download": "PDF බාගන්න",
+    "cite": "උපුටා දක්වන්න",
+    "share": "බෙදා ගන්න"
+  },
+  "filters": {
+    "category": "කාණ්ඩය",
+    "policyArea": "ප්‍රතිපත්ති ක්ෂේත්‍රය",
+    "dateRange": "දින පරාසය",
+    "apply": "පෙරීම් යොදන්න",
+    "clear": "සියල්ල මකන්න"
+  },
+  "actions": {
+    "viewAll": "සියල්ල බලන්න",
+    "loadMore": "තවත් පූරණය කරන්න",
+    "explore": "ගවේෂණය කරන්න",
+    "readMore": "වැඩිදුර කියවන්න"
+  }
+}

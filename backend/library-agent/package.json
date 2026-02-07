@@ -1,0 +1,39 @@
+{
+  "name": "nara-library-agent",
+  "version": "1.0.0",
+  "description": "Automated book download agent for NARA library system",
+  "main": "src/app.js",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "worker": "node src/workers/index.js",
+    "worker:dev": "nodemon src/workers/index.js",
+    "populate": "node scripts/populateQueue.js",
+    "test": "echo \"Tests not implemented yet\"",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:stop": "pm2 stop ecosystem.config.js",
+    "pm2:logs": "pm2 logs"
+  },
+  "dependencies": {
+    "axios": "^1.6.2",
+    "axios-retry": "^3.9.1",
+    "bullmq": "^4.15.0",
+    "cheerio": "^1.0.0-rc.12",
+    "cli-progress": "^3.12.0",
+    "dotenv": "^16.3.1",
+    "firebase-admin": "^13.5.0",
+    "ioredis": "^5.3.2",
+    "pg": "^8.16.3",
+    "pdf-parse": "^1.1.1",
+    "qrcode": "^1.5.3",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^4.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
+

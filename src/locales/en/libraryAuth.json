@@ -1,0 +1,179 @@
+{
+  "login": {
+    "title": "Welcome Back",
+    "subtitle": "Sign in to access your NARA Digital Library account",
+    "errors": {
+      "generic": "Login failed. Please check your credentials and try again.",
+      "invalidEmail": "Please enter a valid email address",
+      "wrongPassword": "Incorrect password. Please try again.",
+      "userNotFound": "No account found with this email address",
+      "tooManyAttempts": "Too many login attempts. Please try again later.",
+      "networkError": "Network error. Please check your connection."
+    },
+    "fields": {
+      "emailLabel": "Email Address",
+      "emailPlaceholder": "you@example.com",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter your password"
+    },
+    "links": {
+      "forgotPassword": "Forgot password?",
+      "noAccount": "Don't have an account?",
+      "register": "Create Account",
+      "backToLibrary": "Back to Library"
+    },
+    "rememberMe": "Remember me for 30 days",
+    "divider": "Or continue with",
+    "buttons": {
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "google": "Sign in with Google"
+    },
+    "benefits": {
+      "title": "Library Member Benefits",
+      "items": [
+        "Borrow up to 10 items at a time",
+        "Access 3,000+ research publications",
+        "Read in English, Sinhala, and Tamil",
+        "Download PDFs for offline reading",
+        "Submit and publish your research",
+        "Get personalized recommendations"
+      ]
+    }
+  },
+  "register": {
+    "title": "Join NARA Digital Library",
+    "subtitle": "Create your free account to access Sri Lanka's marine research library",
+    "steps": {
+      "choosePlan": "Choose Plan",
+      "personalInfo": "Your Information",
+      "verification": "Verification"
+    },
+    "plans": {
+      "title": "Choose Your Membership",
+      "subtitle": "All plans are completely free - a service of the Government of Sri Lanka",
+      "free": {
+        "name": "Free Reader",
+        "description": "Browse and discover our catalogue",
+        "features": [
+          "Browse full catalogue",
+          "View item details & abstracts",
+          "Search & advanced filters",
+          "View PDF previews"
+        ]
+      },
+      "student": {
+        "name": "Student Access",
+        "description": "Perfect for university students",
+        "features": [
+          "Everything in Free Reader",
+          "Borrow up to 5 items",
+          "14-day loan period",
+          "Download PDFs",
+          "Create reading lists"
+        ],
+        "badge": "Popular"
+      },
+      "researcher": {
+        "name": "Researcher Premium",
+        "description": "For professional researchers & academics",
+        "features": [
+          "Everything in Student Access",
+          "Borrow up to 10 items",
+          "30-day loan period",
+          "Submit research papers",
+          "Premium content access",
+          "Priority support"
+        ],
+        "badge": "Best Value"
+      },
+      "selectPlan": "Select This Plan",
+      "selected": "Selected"
+    },
+    "fields": {
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "email": "Email Address",
+      "emailPlaceholder": "you@example.com",
+      "password": "Password",
+      "passwordPlaceholder": "Create a strong password",
+      "confirmPassword": "Confirm Password",
+      "confirmPasswordPlaceholder": "Re-enter your password",
+      "phone": "Phone Number (Optional)",
+      "phonePlaceholder": "+94 XX XXX XXXX",
+      "university": "University / Institution",
+      "universityPlaceholder": "e.g., University of Colombo",
+      "studentId": "Student ID",
+      "studentIdPlaceholder": "Enter your student ID",
+      "institution": "Research Institution",
+      "institutionPlaceholder": "e.g., NARA, University of Peradeniya",
+      "researchArea": "Research Area",
+      "researchAreaPlaceholder": "e.g., Marine Biology, Oceanography",
+      "orcid": "ORCID ID (Optional)",
+      "orcidPlaceholder": "0000-0000-0000-0000"
+    },
+    "validation": {
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Please enter a valid email address",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must be at least 8 characters",
+      "passwordMismatch": "Passwords do not match",
+      "universityRequired": "University name is required for student accounts",
+      "institutionRequired": "Institution name is required for researcher accounts"
+    },
+    "verification": {
+      "title": "Almost There!",
+      "description": "We've sent a verification email to your address. Please verify your email to activate all library features.",
+      "checkEmail": "Check your email inbox",
+      "clickLink": "Click the verification link",
+      "startUsing": "Start using your library account",
+      "resend": "Didn't receive the email? Resend",
+      "terms": "By creating an account, you agree to our",
+      "termsLink": "Terms of Use",
+      "and": "and",
+      "privacyLink": "Privacy Policy"
+    },
+    "buttons": {
+      "next": "Continue",
+      "back": "Back",
+      "createAccount": "Create Account",
+      "creating": "Creating account...",
+      "google": "Sign up with Google",
+      "goToDashboard": "Go to Dashboard",
+      "goToLibrary": "Start Browsing"
+    },
+    "links": {
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "backToLibrary": "Back to Library"
+    },
+    "errors": {
+      "generic": "Registration failed. Please try again.",
+      "emailInUse": "An account already exists with this email",
+      "weakPassword": "Password is too weak. Please use at least 8 characters.",
+      "networkError": "Network error. Please check your connection."
+    }
+  },
+  "forgotPassword": {
+    "title": "Reset Password",
+    "subtitle": "Enter your email address and we'll send you a reset link",
+    "fields": {
+      "email": "Email Address",
+      "emailPlaceholder": "you@example.com"
+    },
+    "buttons": {
+      "sendReset": "Send Reset Link",
+      "sending": "Sending...",
+      "backToLogin": "Back to Sign In"
+    },
+    "success": "Password reset email sent! Check your inbox.",
+    "errors": {
+      "notFound": "No account found with this email address",
+      "generic": "Failed to send reset email. Please try again."
+    }
+  }
+}

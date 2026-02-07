@@ -1,0 +1,79 @@
+{
+  "title": "Project Pipeline Tracker",
+  "subtitle": "Monitor Research & Development Projects",
+  "description": "Track project progress, milestones, budgets and deliverables in real-time",
+  "nav": {
+    "dashboard": "Dashboard",
+    "projects": "All Projects",
+    "detail": "Project Details"
+  },
+  "filters": {
+    "status": {
+      "label": "Status",
+      "all": "All Status",
+      "planning": "Planning",
+      "active": "Active",
+      "completed": "Completed",
+      "on_hold": "On Hold"
+    },
+    "ragStatus": {
+      "label": "RAG Status",
+      "all": "All RAG",
+      "green": "Green (On Track)",
+      "amber": "Amber (At Risk)",
+      "red": "Red (Critical)"
+    },
+    "division": {
+      "label": "Division",
+      "all": "All Divisions"
+    },
+    "fundingSource": {
+      "label": "Funding Source",
+      "all": "All Sources"
+    },
+    "search": "Search projects..."
+  },
+  "stats": {
+    "totalProjects": "Total Projects",
+    "activeProjects": "Active Projects",
+    "totalBudget": "Total Budget",
+    "completionRate": "Completion Rate"
+  },
+  "project": {
+    "code": "Project Code",
+    "pi": "Principal Investigator",
+    "duration": "Duration",
+    "budget": "Budget",
+    "progress": "Progress",
+    "status": "Status",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "description": "Description",
+    "objectives": "Objectives",
+    "milestones": "Milestones",
+    "outputs": "Expected Outputs",
+    "team": "Project Team",
+    "documents": "Documents",
+    "updates": "Latest Updates"
+  },
+  "milestones": {
+    "title": "Project Milestones",
+    "completed": "Completed",
+    "pending": "Pending",
+    "delayed": "Delayed",
+    "dueDate": "Due Date",
+    "completionDate": "Completion Date"
+  },
+  "budget": {
+    "allocated": "Allocated Budget",
+    "spent": "Amount Spent",
+    "remaining": "Remaining",
+    "utilization": "Budget Utilization"
+  },
+  "actions": {
+    "viewDetails": "View Details",
+    "downloadReport": "Download Report",
+    "updateProgress": "Update Progress",
+    "exportData": "Export Data"
+  }
+}

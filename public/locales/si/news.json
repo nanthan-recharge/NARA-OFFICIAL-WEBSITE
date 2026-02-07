@@ -1,0 +1,77 @@
+{
+  "categories": {
+    "education-outreach": "අධ්‍යාපනය සහ ව්‍යාප්තිය",
+    "research-development": "පර්යේෂණ හා සංවර්ධන",
+    "policy-management": "ප්‍රතිපත්ති සහ කළමනාකරණය",
+    "technology-innovation": "තාක්ෂණය සහ නවෝත්පාදනය",
+    "environmental-initiatives": "පාරිසරික මුලපිරීම්",
+    "conservation-awareness": "සංරක්ෂණය සහ දැනුවත් කිරීම",
+    "community-development": "ප්‍රජා සංවර්ධනය",
+    "capacity-building": "ධාරිතා ගොඩනැගීම",
+    "technology-integration": "තාක්ෂණික ඒකාබද්ධතාවය",
+    "international-cooperation": "ජාත්‍යන්තර සහයෝගීතාවය",
+    "industry-support": "කර්මාන්ත සහාය",
+    "industry-development": "කර්මාන්ත සංවර්ධනය",
+    "cultural-events": "සංස්කෘතික උත්සව",
+    "institutional-milestones": "ආයතනික සන්ධිස්ථාන",
+    "conservation-partnerships": "සංරක්ෂණ හවුල්කාරිත්ව"
+  },
+  "filters": {
+    "allCategories": "සියලුම වර්ග",
+    "search": "ලිපි සොයන්න...",
+    "sortBy": "අනුපිළිවෙල කරන්න",
+    "filterBy": "පෙරීම",
+    "dateRange": "දින පරාසය",
+    "from": "සිට",
+    "to": "දක්වා",
+    "apply": "යොදන්න",
+    "reset": "යළි පිහිටුවන්න",
+    "showing": "පෙන්වමින්",
+    "of": "න්",
+    "articles": "ලිපි"
+  },
+  "sorting": {
+    "date": "දිනය",
+    "title": "ශීර්ෂය",
+    "views": "නැරඹුම්",
+    "popularity": "ජනප්‍රියත්වය"
+  },
+  "article": {
+    "by": "විසින්",
+    "at": "හිදී",
+    "minRead": "මිනිත්තු",
+    "views": "නැරඹුම්",
+    "shares": "බෙදාගැනීම්",
+    "readMore": "වැඩිදුර කියවන්න",
+    "readFull": "සම්පූර්ණ ලිපිය කියවන්න",
+    "share": "බෙදා ගන්න",
+    "keyPoints": "ප්‍රධාන කරුණු",
+    "relatedArticles": "ආශ්‍රිත ලිපි",
+    "close": "වසන්න"
+  },
+  "hero": {
+    "title": "පුවත් සහ යාවත්කාලීන මධ්‍යස්ථානය",
+    "subtitle": "NARA හි නවතම වර්ධනයන් පිළිබඳව දැනුවත්ව සිටින්න",
+    "description": "සමුද්‍ර විද්‍යා පුවත්, පර්යේෂණ යාවත්කාලීන සහ ආයතනික නිවේදන සඳහා ඔබේ මූලාශ්‍රය"
+  },
+  "sections": {
+    "featured": "විශේෂාංග පුවත්",
+    "latest": "නවතම යාවත්කාලීන",
+    "spotlight": "අවධානයට",
+    "trending": "ප්‍රවණතා"
+  },
+  "actions": {
+    "loadMore": "තවත් ලිපි පූරණය කරන්න",
+    "viewAll": "සියලු පුවත් බලන්න",
+    "subscribe": "යාවත්කාලීන සඳහා දායක වන්න",
+    "previous": "පෙර",
+    "next": "ඊළඟ"
+  },
+  "empty": {
+    "title": "ලිපි හමු නොවීය",
+    "description": "ඔබේ පෙරහන් හෝ සෙවුම් පද සකස් කිරීමට උත්සාහ කරන්න",
+    "action": "පෙරහන් ඉවත් කරන්න"
+  },
+  "loading": "ලිපි පූරණය වෙමින්...",
+  "error": "ලිපි පූරණය කිරීමට අසමත් විය. කරුණාකර පසුව නැවත උත්සාහ කරන්න."
+}

@@ -1,0 +1,38 @@
+2025-10-25 06:46:25,764 - fish_market_scraper - INFO - Firebase initialized successfully
+2025-10-25 06:46:25,765 - __main__ - INFO - 🚀 Fish Market Daily Scraper - STARTED
+2025-10-25 06:46:25,765 - __main__ - INFO - 📅 Schedule: Every day at 6:00 AM
+2025-10-25 06:46:25,765 - __main__ - INFO - 💾 Logs saved to: fish_scraper_daily.log
+2025-10-25 06:46:25,765 - __main__ - INFO - ================================================================================
+2025-10-25 06:46:25,765 - __main__ - INFO - Running initial scrape now...
+2025-10-25 06:46:25,765 - __main__ - INFO - ================================================================================
+2025-10-25 06:46:25,765 - __main__ - INFO - DAILY FISH MARKET SCRAPING - STARTED
+2025-10-25 06:46:25,765 - __main__ - INFO - Timestamp: 2025-10-25T06:46:25.765273
+2025-10-25 06:46:25,765 - __main__ - INFO - ================================================================================
+2025-10-25 06:46:25,765 - fish_market_scraper - INFO - ============================================================
+2025-10-25 06:46:25,765 - fish_market_scraper - INFO - Starting fish market data scraping
+2025-10-25 06:46:25,765 - fish_market_scraper - INFO - ============================================================
+2025-10-25 06:46:25,765 - fish_market_scraper - INFO - Starting scrape of fisheries.gov.lk
+2025-10-25 06:46:27,390 - fish_market_scraper - INFO - Downloading Excel file: https://www.fisheries.gov.lk/web/images/statistics/weekly/2025/Sep_4th_week_2025.xlsx
+2025-10-25 06:46:27,689 - fish_market_scraper - INFO - Extracted 32 price records from Excel
+2025-10-25 06:46:27,689 - fish_market_scraper - INFO - Starting scrape of Ceylon Fisheries Corporation
+2025-10-25 06:46:29,549 - fish_market_scraper - WARNING - CFC returned status 500 for Colombo
+2025-10-25 06:46:30,663 - fish_market_scraper - WARNING - CFC returned status 500 for Peliyagoda
+2025-10-25 06:46:31,787 - fish_market_scraper - WARNING - CFC returned status 500 for Negombo
+2025-10-25 06:46:31,787 - fish_market_scraper - INFO - Extracted 0 price records from CFC
+2025-10-25 06:46:31,787 - fish_market_scraper - INFO - Starting scrape of malupola.com
+2025-10-25 06:46:33,518 - fish_market_scraper - INFO - Extracted 18 price records from malupola.com
+2025-10-25 06:46:33,519 - fish_market_scraper - INFO - Saving 50 records to Firestore
+2025-10-25 06:46:35,538 - fish_market_scraper - INFO - Successfully saved data to Firestore
+2025-10-25 06:46:35,871 - fish_market_scraper - INFO - ============================================================
+2025-10-25 06:46:35,871 - fish_market_scraper - INFO - Scraping complete: 50 total records
+2025-10-25 06:46:35,871 - fish_market_scraper - INFO - Success rate: 2/3 scrapers
+2025-10-25 06:46:35,871 - fish_market_scraper - INFO - ============================================================
+2025-10-25 06:46:35,871 - __main__ - INFO - ================================================================================
+2025-10-25 06:46:35,871 - __main__ - INFO - DAILY SCRAPING - COMPLETED SUCCESSFULLY
+2025-10-25 06:46:35,871 - __main__ - INFO - Total records: 50
+2025-10-25 06:46:35,871 - __main__ - INFO - Success rate: 2/3
+2025-10-25 06:46:35,871 - __main__ - INFO - By source: {'FisheriesDeptScraper': 32, 'CeylonFisheriesCorpScraper': 0, 'MalupolaScraper': 18}
+2025-10-25 06:46:35,871 - __main__ - INFO - ================================================================================
+2025-10-25 06:46:35,873 - __main__ - INFO - 
+⏰ Scheduler is running. Press Ctrl+C to stop.
+

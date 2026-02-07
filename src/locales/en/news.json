@@ -1,0 +1,193 @@
+{
+  "hero": {
+    "badge": "National aquatic intelligence",
+    "title": "NARA News & Updates Center",
+    "subtitle": "Stay informed about Sri Lanka's latest marine research breakthroughs, strategic partnerships, and responsible coastal management initiatives.",
+    "description": "This newsroom curates verified insights from the NARA admin command center, blending scientific field notes, policy briefings, and community impact stories so every stakeholder can respond with confidence.",
+    "badges": [
+      {
+        "id": "marine",
+        "label": "Marine science briefings"
+      },
+      {
+        "id": "innovation",
+        "label": "Innovation watch"
+      }
+    ],
+    "ctas": [
+      {
+        "id": "explore",
+        "label": "Explore all stories",
+        "href": "#latest",
+        "variant": "primary"
+      },
+      {
+        "id": "alerts",
+        "label": "Subscribe to alerts",
+        "href": "/contact-us",
+        "variant": "secondary",
+        "icon": "play"
+      }
+    ],
+    "ctaDefault": "Discover more",
+    "stats": {
+      "minutesSuffix": "mins",
+      "minsFallback": "—",
+      "noReadTime": "Updating soon",
+      "totalArticles": "Published stories",
+      "totalViews": "Reader reach",
+      "totalCategories": "Coverage areas",
+      "averageReadTime": "Avg. read time"
+    },
+    "ticker": {
+      "label": "Live update feed",
+      "heading": "Latest intelligence briefings",
+      "subheading": "{{count}} curated updates today",
+      "live": "Live now",
+      "genericCategory": "Featured",
+      "noDate": "Date pending",
+      "noSummary": "We are gathering the full story. Check back shortly.",
+      "openStory": "Open story",
+      "loading": "Loading live updates…",
+      "empty": "No live updates yet. Check back soon."
+    }
+  },
+  "filters": {
+    "sectionTitle": "Latest News & Updates",
+    "advanced": "Advanced filters",
+    "clearAll": "Clear all filters",
+    "searchPlaceholder": "Search articles, authors, locations, or tags…",
+    "allCategories": "All categories",
+    "sortLabel": "Sort articles by",
+    "sortOptions": {
+      "dateDesc": "Newest first",
+      "dateAsc": "Oldest first",
+      "viewsDesc": "Most viewed",
+      "sharesDesc": "Most shared",
+      "titleAsc": "Title A–Z",
+      "titleDesc": "Title Z–A",
+      "categoryAsc": "Category A–Z"
+    },
+    "dateFrom": "Date from",
+    "dateTo": "Date to",
+    "sectionEyebrow": "Newsroom",
+    "sectionDescription": "Stay on top of maritime intelligence, policy updates, and research breakthroughs."
+  },
+  "results": {
+    "summary": "Showing {{count}} of {{total}} articles",
+    "categorySuffix": "in “{{category}}”",
+    "searchSuffix": "matching “{{term}}”",
+    "dateRangeLabel": "Date filter",
+    "emptyTitle": "No articles found",
+    "emptyDescription": "Try adjusting your filters or browse all categories to discover the latest NARA intelligence.",
+    "emptyResetButton": "Reset filters",
+    "dataSource": {
+      "error": "We couldn’t reach the live newsroom. Displaying the latest cached updates instead.",
+      "localFallback": "Showing cached newsroom data. Connect the admin panel to publish live updates."
+    },
+    "title": "Result overview",
+    "filteredDescription": "Refine further by adjusting categories, key terms, or the date window.",
+    "unfilteredDescription": "Showing the freshest newsroom coverage. Use the controls above to personalise the feed.",
+    "clearCategory": "Clear category filter",
+    "clearSearch": "Clear search filter",
+    "clearDate": "Clear date range"
+  },
+  "articles": {
+    "featured": "Featured",
+    "readTimeShort": "{{minutes}} min read",
+    "readFull": "Read full story",
+    "moreTags": "+{{count}} more",
+    "datePending": "Date pending",
+    "teamByline": "NARA Team"
+  },
+  "pagination": {
+    "pageInfo": "Page {{current}} of {{total}}"
+  },
+  "modal": {
+    "highlightsTitle": "Key highlights",
+    "stats": {
+      "views": "Views",
+      "shares": "Shares",
+      "readTime": "Read time (min)",
+      "tags": "Tags"
+    },
+    "relatedTopics": "Related topics",
+    "noTags": "No tags available",
+    "publishedBy": "Published by {{author}}",
+    "defaultAuthor": "NARA Communications",
+    "publishedOn": "Published on {{date}}",
+    "close": "Close"
+  },
+  "layout": {
+    "spotlightTitle": "Spotlight briefing",
+    "spotlight": {
+      "noHighlights": "Key takeaways will appear here once the admin publishes them.",
+      "views": "Spotlight views",
+      "shares": "Spotlight shares"
+    },
+    "moreStoriesTitle": "More newsroom stories",
+    "timelineTitle": "Rapid briefs",
+    "timelineEmpty": "More updates will appear here as soon as the newsroom publishes them.",
+    "admin": {
+      "title": "Admin sync status",
+      "connected": "Live sync with newsroom admin",
+      "cached": "Showing cached newsroom dataset",
+      "error": "Using fallback newsroom data. Connect the admin panel to publish.",
+      "unknown": "Newsroom status unknown",
+      "lastUpdated": "Last update: {{date}}",
+      "articleCount": "{{count}} stories published",
+      "openPanel": "Open admin panel",
+      "statusTitle": "Newsroom status",
+      "sourceLabel": "Data source",
+      "sourceLive": "Live feed",
+      "sourceLocal": "Local dataset",
+      "sourceFallback": "Fallback content",
+      "sourceUnknown": "Unknown",
+      "lastUpdatedLabel": "Last updated",
+      "articleCountLabel": "Articles available",
+      "quickStats": "Quick metrics",
+      "totalViews": "Lifetime reads",
+      "readTime": "Avg. read time"
+    },
+    "moreStoriesSubtitle": "Curated newsroom briefings you may have missed. Explore narratives, policy updates, and field activity across the maritime sector."
+  },
+  "share": {
+    "button": "Share",
+    "title": "Share this update",
+    "facebook": "Share on Facebook",
+    "twitter": "Share on X (Twitter)",
+    "linkedin": "Share on LinkedIn",
+    "whatsapp": "Share on WhatsApp",
+    "email": "Send by email",
+    "copy": "Copy link",
+    "pdf": "Download PDF",
+    "native": "Share via device",
+    "linkLabel": "Direct link",
+    "copied": "Link copied",
+    "pdfTitleFallback": "NARA News Article",
+    "sections": {
+      "summary": "Summary",
+      "content": "Full content",
+      "highlights": "Key highlights",
+      "tags": "Tags",
+      "metadata": "Publication details"
+    }
+  },
+  "categories": {
+    "education-outreach": "Education & Outreach",
+    "research-development": "Research & Development",
+    "policy-management": "Policy & Management",
+    "technology-innovation": "Technology & Innovation",
+    "environmental-initiatives": "Environmental Initiatives",
+    "conservation-awareness": "Conservation & Awareness",
+    "community-development": "Community Development",
+    "capacity-building": "Capacity Building",
+    "technology-integration": "Technology Integration",
+    "international-cooperation": "International Cooperation",
+    "industry-support": "Industry Support",
+    "industry-development": "Industry Development",
+    "cultural-events": "Cultural Events",
+    "institutional-milestones": "Institutional Milestones",
+    "conservation-partnerships": "Conservation Partnerships"
+  }
+}

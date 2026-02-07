@@ -1,0 +1,101 @@
+{
+  "seo": {
+    "title": "පොදු උපදෙස් වේදිකාව - NARA",
+    "description": "NARA නායකත්වය දරන සාගර හා මත්ස්‍ය ප්‍රතිපත්ති, වැඩසටහන් සහ ඩිජිටල් සේවාවන් පිළිබඳ ඔබගේ අදහස් බෙදාගන්න."
+  },
+  "nav": {
+    "title": "පොදු උපදෙස්",
+    "browse": "උපදෙස් සෙවීම"
+  },
+  "loading": {
+    "list": "පොදු උපදෙස් පූරණය වෙමින්...",
+    "details": "උපදෙස් විස්තර ලබාගනිමින්..."
+  },
+  "hero": {
+    "title": "පොදු උපදෙස් වේදිකාව",
+    "description": "ඔබගේ හඬ වැදගත්ය. සාගර ප්‍රතිපත්ති සහ ජාතික වැඩසටහන් පිළිබඳ ඔබගේ අදහස් බෙදාගන්න."
+  },
+  "filters": {
+    "searchLabel": "සෙවීම",
+    "searchPlaceholder": "උපදෙස් සෙවීම...",
+    "statusLabel": "තත්ත්වය",
+    "categoryLabel": "ප්‍රවර්ගය",
+    "statusOptions": {
+      "all": "සියලු තත්ත්ව",
+      "open": "විවෘත",
+      "closed": "වසන්"
+    },
+    "categoryOptions": {
+      "all": "සියලු ප්‍රවර්ග",
+      "marine_policy": "සාගර ප්‍රතිපත්ති",
+      "environmental": "පරිසරය",
+      "fisheries": "මත්ස්‍ය",
+      "conservation": "සංරක්ෂණ"
+    }
+  },
+  "cards": {
+    "participants": "පිවිසීම්",
+    "feedback": "අදහස්",
+    "comments": "අදහස් දැක්වීම්",
+    "votes": "ඡන්ද",
+    "views": "දර්ශන",
+    "closes": "අවසන් වේ: {{date}}"
+  },
+  "details": {
+    "back": "\u2190 උපදෙස් ලැයිස්තුවට පිවිසෙන්න",
+    "submitTitle": "ඔබගේ අදහස් යවන්න",
+    "feedbackLabel": "ඔබගේ අදහස *",
+    "feedbackPlaceholder": "ඔබගේ සිතේ තිබෙන අදහස්, සැලකිලි සහ යෝජනා බෙදාගන්න...",
+    "nameLabel": "ඔබගේ නම *",
+    "namePlaceholder": "අමරසිරි පෙරේරා",
+    "emailLabel": "ඔබගේ විද්‍යුත් තැපැල් *",
+    "emailPlaceholder": "example@nara.gov.lk",
+    "sentimentLabel": "අනපේක්ෂාව",
+    "submitButton": "අදහස යවන්න",
+    "communityTitle": "සමූහ අදහස්",
+    "discussionTitle": "සංවාදය",
+    "commentNamePlaceholder": "ඔබගේ නම",
+    "commentEmailPlaceholder": "ඔබගේ විද්‍යුත් තැපැල",
+    "commentPlaceholder": "සංවාදයට එක්වන්න...",
+    "commentSubmit": "අදහස පළ කරන්න"
+  },
+  "feedback": {
+    "sentiments": {
+      "positive": "ධනාත්මක / සහය",
+      "neutral": "නිරපේක්ෂ",
+      "negative": "කනස්සල්ල / විරුද්ධ"
+    },
+    "anonymous": "නාමරහිත",
+    "notAvailable": "නොපවතී",
+    "upvotes": "උසස් තේරීම් {{count}}"
+  },
+  "alerts": {
+    "selectConsultation": "කරුණාකර පළමුව උපදෙස් තෝරන්න.",
+    "feedbackError": "අදහස යැවීමේ දෝෂයකි: {{error}}",
+    "feedbackSuccess": "ඔබගේ අදහස සඳහා ස්තුතියි! ඔබේ ඉදිරිපත් කෙරුණා.",
+    "commentError": "අදහස පළ කිරීමේ දෝෂයකි: {{error}}",
+    "commentSuccess": "අදහස සාර්ථකව පළ කරන ලදී!",
+    "voteNamePrompt": "ඔබගේ නම ඇතුල් කරන්න:",
+    "voteEmailPrompt": "ඔබගේ විද්‍යුත් තැපැල් ඇතුල් කරන්න:",
+    "voteMissing": "ඡන්දය දැමීමට නම හා විද්‍යුත් තැපැල් අවශ්‍යය.",
+    "voteError": "ඡන්දය යැවීමේ දෝෂයකි: {{error}}",
+    "voteSuccess": "ඡන්දය දැමූ සඳහා ස්තුතියි!"
+  },
+  "status": {
+    "draft": "කෙටුම්පත",
+    "open": "විවෘත",
+    "closed": "වසන්",
+    "archived": "සංරක්ෂිත"
+  },
+  "category": {
+    "marine_policy": "සාගර ප්‍රතිපත්ති",
+    "environmental": "පරිසරය",
+    "fisheries": "මත්ස්‍ය",
+    "conservation": "සංරක්ෂණ"
+  },
+  "discussion": {
+    "postedAt": "පළ කළේ {{timestamp}}",
+    "likes": "{{count}}",
+    "joinPlaceholder": "සංවාදයට එක්වන්න..."
+  }
+}

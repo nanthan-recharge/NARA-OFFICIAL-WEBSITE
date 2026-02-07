@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "badge": "For Researchers & Students",
+    "title": "Laboratory Results Portal",
+    "description": "Access your test results, track samples, and manage laboratory analysis data in one comprehensive platform"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "results": "Lab Results",
+    "samples": "My Samples",
+    "track": "Track Sample"
+  },
+  "dashboard": {
+    "stats": {
+      "totalResults": "Total Results",
+      "completed": "Completed",
+      "pending": "Pending",
+      "totalSamples": "Total Samples"
+    },
+    "recentResults": {
+      "title": "Recent Results",
+      "viewAll": "View All",
+      "empty": "No results yet",
+      "fallbackName": "Test"
+    },
+    "recentSamples": {
+      "title": "Recent Samples",
+      "viewAll": "View All",
+      "empty": "No samples yet"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "items": {
+        "trackSample": "Track Sample",
+        "viewResults": "View Results",
+        "downloadReports": "Download Reports"
+      }
+    }
+  },
+  "results": {
+    "searchPlaceholder": "Search by test type, sample type...",
+    "filters": {
+      "status": {
+        "all": "All Status",
+        "completed": "Completed",
+        "pending": "Pending",
+        "in_progress": "In Progress"
+      }
+    },
+    "card": {
+      "sample": "Sample",
+      "date": "Date",
+      "project": "Project",
+      "viewDetails": "View Details"
+    },
+    "empty": "No results found",
+    "fallbackTitle": "Laboratory Test"
+  },
+  "samples": {
+    "searchPlaceholder": "Search by sample ID, type...",
+    "filters": {
+      "status": {
+        "all": "All Status",
+        "submitted": "Submitted",
+        "received": "Received",
+        "processing": "Processing",
+        "completed": "Completed"
+      }
+    },
+    "card": {
+      "type": "Type",
+      "submitted": "Submitted",
+      "location": "Location",
+      "track": "Track Sample"
+    },
+    "empty": "No samples found"
+  },
+  "track": {
+    "title": "Track Your Sample",
+    "inputPlaceholder": "Enter Sample ID (e.g., SMP-1234567890-ABC123)",
+    "button": "Track",
+    "submittedDate": "Submitted Date",
+    "location": "Location",
+    "receivedDate": "Received Date",
+    "completedDate": "Completed Date",
+    "notes": "Notes"
+  },
+  "status": {
+    "pending": "Pending",
+    "in_progress": "In Progress",
+    "processing": "Processing",
+    "completed": "Completed",
+    "submitted": "Submitted",
+    "received": "Received"
+  },
+  "common": {
+    "na": "N/A"
+  },
+  "alerts": {
+    "notFound": "Sample not found",
+    "error": "Error tracking sample"
+  }
+}

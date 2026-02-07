@@ -1,0 +1,76 @@
+{
+  "version": "2026-02-06",
+  "governance": {
+    "style": "formal-academic",
+    "bannedTerms": {
+      "si": ["සාගර හා මිරිදිය විද්‍යා"],
+      "ta": []
+    },
+    "mixedScriptAllowlistPaths": {
+      "si": ["about.hero.welcome.tamil", "home.hero.welcome.tamil"],
+      "ta": ["about.hero.welcome.sinhala", "home.hero.welcome.sinhala"]
+    }
+  },
+  "terms": [
+    {
+      "key": "freshwater_science",
+      "en": "Freshwater Science",
+      "si": "මිරිදිය විද්‍යා",
+      "ta": "நன்னீர் அறிவியல்"
+    },
+    {
+      "key": "marine_biology",
+      "en": "Marine Biology",
+      "si": "මුහුදු ජීව විද්‍යාව",
+      "ta": "கடல் உயிரியல்"
+    },
+    {
+      "key": "aquaculture",
+      "en": "Aquaculture",
+      "si": "ජලජ වගාව",
+      "ta": "நீரியல் வளர்ப்பு"
+    },
+    {
+      "key": "ocean_intelligence",
+      "en": "Ocean Intelligence",
+      "si": "සාගර බුද්ධි දත්ත",
+      "ta": "கடல் நுண்ணறிவு"
+    },
+    {
+      "key": "exclusive_economic_zone",
+      "en": "Exclusive Economic Zone",
+      "si": "සුවිශේෂී ආර්ථික කලාපය",
+      "ta": "தனிச்சிறப்பான பொருளாதார வலயம்"
+    },
+    {
+      "key": "open_data_portal",
+      "en": "Open Data Portal",
+      "si": "විවෘත දත්ත ද්වාරය",
+      "ta": "திறந்த தரவு தளம்"
+    },
+    {
+      "key": "environmental_impact_assessment",
+      "en": "Environmental Impact Assessment",
+      "si": "පාරිසරික බලපෑම් ඇගයීම",
+      "ta": "சுற்றுச்சூழல் தாக்க மதிப்பீடு"
+    },
+    {
+      "key": "research_division",
+      "en": "Research Division",
+      "si": "පර්යේෂණ අංශය",
+      "ta": "ஆராய்ச்சி பிரிவு"
+    },
+    {
+      "key": "data_policy",
+      "en": "Data Policy",
+      "si": "දත්ත ප්‍රතිපත්තිය",
+      "ta": "தரவு கொள்கை"
+    },
+    {
+      "key": "intellectual_property",
+      "en": "Intellectual Property",
+      "si": "බුද්ධිමය දේපළ",
+      "ta": "அறிவுசார் சொத்து"
+    }
+  ]
+}

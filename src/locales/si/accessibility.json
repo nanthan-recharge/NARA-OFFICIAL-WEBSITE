@@ -1,0 +1,22 @@
+{
+  "accessibilityOptions": "ප්‍රවේශ්‍යතා විකල්ප",
+  "wcagCompliant": "WCAG 2.2 AA අනුකූල",
+  "textSize": "පෙළ ප්‍රමාණය",
+  "smaller": "කුඩා",
+  "normal": "සාමාන්‍ය",
+  "larger": "විශාල",
+  "contrastMode": "ප්‍රතිවිරෝධතා ප්‍රකාරය",
+  "highContrast": "ඉහළ ප්‍රතිවිරෝධතාව",
+  "cursorSize": "කර්සර ප්‍රමාණය",
+  "large": "විශාල",
+  "lineSpacing": "පේළි පරතරය",
+  "increased": "වැඩිකළ",
+  "letterSpacing": "අක්ෂර පරතරය",
+  "highlightLinks": "සබැඳි උද්දීපනය කරන්න",
+  "darkMode": "අඳුරු ප්‍රකාරය",
+  "resetToDefaults": "පෙරනිමි වෙත යළි සකසන්න",
+  "settingsSaved": "මෙම සැකසීම් ඔබේ උපකරණයට සුරැකේ",
+  "skipToMain": "ප්‍රධාන අන්තර්ගතය වෙත යන්න",
+  "openAccessibilityMenu": "ප්‍රවේශ්‍යතා මෙනුව විවෘත කරන්න",
+  "closeAccessibilityMenu": "ප්‍රවේශ්‍යතා මෙනුව වසන්න"
+}

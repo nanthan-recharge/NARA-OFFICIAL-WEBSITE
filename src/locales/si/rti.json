@@ -1,0 +1,222 @@
+{
+  "rti": {
+    "hero": {
+      "badge": "විනිවිදභාවය සහ වගවීම",
+      "title": "තොරතුරු දැනගැනීමේ අයිතිය පිළිබඳ පනත",
+      "headline": "තොරතුරු ලබා ගන්න, පුරවැසියන් සවිබල ගන්වන්න",
+      "description": "2016 අංක 12 දරණ තොරතුරු දැනගැනීමේ අයිතිය පිළිබඳ පනත යටතේ විනිවිදභාවය සහ වගවීම සඳහා නාරා කැපවී සිටී. ඔබගේ තොරතුරු දැනගැනීමේ අයිතිය ක්‍රියාත්මක කිරීම සඳහා සියලුම RTI පෝරම, මාර්ගෝපදේශ සහ බාගත කළ හැකි ලේඛන වෙත ප්‍රවේශ වන්න."
+    },
+    "stats": {
+      "forms": {
+        "value": "12",
+        "label": "RTI පෝරම"
+      },
+      "documents": {
+        "value": "77+",
+        "label": "ලේඛන තිබේ"
+      },
+      "reports": {
+        "value": "39",
+        "label": "වාර්ෂික වාර්තා"
+      },
+      "response": {
+        "value": "14 Days",
+        "label": "ප්‍රතිචාර කාලය"
+      }
+    },
+    "sections": {
+      "forms": {
+        "title": "RTI පෝරම සහ ආකෘති",
+        "description": "නාරා වෙතින් තොරතුරු ඉල්ලීමට නිල RTI පෝරම බාගත කරන්න",
+        "forms": [
+          {
+            "code": "RTI-01",
+            "title": "තොරතුරු අයදුම්පත",
+            "description": "RTI පනත යටතේ තොරතුරු ඉල්ලීමට පෝරමය",
+            "fileUrl": "/documents/rti/RTI-01-Information-Application.pdf",
+            "fileSize": "250 KB",
+            "icon": "file-text"
+          },
+          {
+            "code": "RTI-02",
+            "title": "ලදුපත් කිරීම",
+            "description": "තොරතුරු ඉල්ලීම නිල වශයෙන් ලදුපත් කිරීම",
+            "fileUrl": "/documents/rti/RTI-02-Acknowledgement.pdf",
+            "fileSize": "180 KB",
+            "icon": "check-circle"
+          },
+          {
+            "code": "RTI-03",
+            "title": "තොරතුරු ඉල්ලීම් ලේඛනය",
+            "description": "RTI ඉල්ලීම් ලේඛනය පවත්වා ගැනීමේ ආකෘතිය",
+            "fileUrl": "/documents/rti/RTI-03-Register-Information-Requests.pdf",
+            "fileSize": "220 KB",
+            "icon": "book-open"
+          },
+          {
+            "code": "RTI-04",
+            "title": "තොරතුරු සැපයීමේ තීරණය",
+            "description": "ඉල්ලූ තොරතුරු සැපයීමේ නිල තීරණය",
+            "fileUrl": "/documents/rti/RTI-04-Decision-Provide-Information.pdf",
+            "fileSize": "200 KB",
+            "icon": "check-square"
+          },
+          {
+            "code": "RTI-05",
+            "title": "තොරතුරු ඉල්ලීම ප්‍රතික්ෂේප කිරීම",
+            "description": "හේතු සහිතව තොරතුරු ඉල්ලීම ප්‍රතික්ෂේප කිරීමේ පෝරමය",
+            "fileUrl": "/documents/rti/RTI-05-Rejection-Information-Request.pdf",
+            "fileSize": "210 KB",
+            "icon": "x-circle"
+          },
+          {
+            "code": "RTI-06",
+            "title": "තොරතුරු සැපයීමට කාලය දීර්ඝ කිරීම",
+            "description": "දින 14 ඉක්මවා කාලය දීර්ඝ කිරීමේ ඉල්ලීම",
+            "fileUrl": "/documents/rti/RTI-06-Extension-Time.pdf",
+            "fileSize": "190 KB",
+            "icon": "clock"
+          },
+          {
+            "code": "RTI-07",
+            "title": "තුන්වන පාර්ශවයට දැනුම් දීම",
+            "description": "තුන්වන පාර්ශව උපදේශන සඳහා පෝරමය",
+            "fileUrl": "/documents/rti/RTI-07-Communication-Third-Party.pdf",
+            "fileSize": "200 KB",
+            "icon": "users"
+          },
+          {
+            "code": "RTI-08",
+            "title": "අභියාචනය පිළිගැනීම",
+            "description": "අභියාචනය ඉදිරිපත් කිරීම ලදුපත් කිරීම",
+            "fileUrl": "/documents/rti/RTI-08-Acceptance-Appeal.pdf",
+            "fileSize": "185 KB",
+            "icon": "alert-circle"
+          },
+          {
+            "code": "RTI-09",
+            "title": "අභියාචන ලේඛනය (2016 අංක 12 දරණ පනත)",
+            "description": "අභියාචන ලේඛනය පවත්වා ගැනීමේ ආකෘතිය",
+            "fileUrl": "/documents/rti/RTI-09-Register-Appeal.pdf",
+            "fileSize": "230 KB",
+            "icon": "folder"
+          },
+          {
+            "code": "RTI-10",
+            "title": "නම් කළ නිලධාරියා වෙත අභියාචනය",
+            "description": "නම් කළ නිලධාරියා සමග අභියාචනයක් ඉදිරිපත් කිරීමේ පෝරමය",
+            "fileUrl": "/documents/rti/RTI-10-Appeal-Designated-Officer.pdf",
+            "fileSize": "240 KB",
+            "icon": "send"
+          },
+          {
+            "code": "RTI-11",
+            "title": "ඉල්ලීම් ප්‍රතික්ෂේප කිරීම් ලේඛනය",
+            "description": "ප්‍රතික්ෂේපිත ඉල්ලීම් ලේඛනය පවත්වා ගැනීමේ ආකෘතිය",
+            "fileUrl": "/documents/rti/RTI-11-Register-Rejection.pdf",
+            "fileSize": "215 KB",
+            "icon": "list"
+          },
+          {
+            "code": "RTI-12",
+            "title": "තොරතුරු නිලධාරීන්ගේ විස්තර",
+            "description": "නාරා හි RTI තොරතුරු නිලධාරීන්ගේ සම්බන්ධතා විස්තර",
+            "fileUrl": "/documents/rti/RTI-12-Information-Officers.pdf",
+            "fileSize": "195 KB",
+            "icon": "user"
+          }
+        ]
+      },
+      "documents": {
+        "title": "නාරා ලේඛන පුස්තකාලය",
+        "description": "වාර්ෂික වාර්තා, පර්යේෂණ ප්‍රකාශන සහ වෙනත් නිල ලේඛන වෙත ප්‍රවේශ වන්න",
+        "categories": [
+          {
+            "name": "වාර්ෂික වාර්තා",
+            "count": 39,
+            "description": "2011-2023 දක්වා ඉංග්‍රීසි, සිංහල සහ දෙමළ යන භාෂා තුනෙන්ම සවිස්තරාත්මක වාර්ෂික වාර්තා",
+            "icon": "calendar",
+            "downloadUrl": "/download/annual-reports"
+          },
+          {
+            "name": "ධීවර කර්මාන්ත දැක්ම",
+            "count": 3,
+            "description": "2020-2022 කර්මාන්ත දැක්ම වාර්තා",
+            "icon": "trending-up",
+            "downloadUrl": "/download/fisheries-outlook"
+          },
+          {
+            "name": "විද්‍යාත්මක සැසි ක්‍රියාකාරකම්",
+            "description": "2016-2022 විද්‍යාත්මක සැසි වලින් ප්‍රකාශන",
+            "count": 7,
+            "icon": "flask-conical",
+            "downloadUrl": "/download/scientific-proceedings"
+          },
+          {
+            "name": "විශේෂ ලේඛන",
+            "count": 2,
+            "description": "විශේෂ ප්‍රකාශන සහ වාර්තා",
+            "icon": "star",
+            "downloadUrl": "/download/special-documents"
+          }
+        ]
+      },
+      "officers": {
+        "title": "RTI තොරතුරු නිලධාරීන්",
+        "description": "තොරතුරු ඉල්ලීම් සඳහා අපගේ නම් කළ RTI නිලධාරීන් සම්බන්ධ කරගන්න",
+        "officers": [
+          {
+            "name": "තොරතුරු නිලධාරී",
+            "designation": "අධ්‍යක්ෂ / පරිපාලන",
+            "email": "rti@nara.ac.lk",
+            "phone": "011-2521000",
+            "office": "නාරා ප්‍රධාන කාර්යාලය, කොළඹ"
+          },
+          {
+            "name": "නම් කළ නිලධාරී (අභියාචන)",
+            "designation": "අතිරේක අධ්‍යක්ෂ ජනරාල්",
+            "email": "appeals.rti@nara.ac.lk",
+            "phone": "011-2521006",
+            "office": "නාරා ප්‍රධාන කාර්යාලය, කොළඹ"
+          }
+        ]
+      },
+      "guidelines": {
+        "title": "තොරතුරු ඉල්ලා සිටින ආකාරය",
+        "steps": [
+          {
+            "step": 1,
+            "title": "RTI-01 පෝරමය බාගත කරන්න",
+            "description": "තොරතුරු අයදුම්පත් පෝරමය (RTI-01) බාගත කර පුරවන්න"
+          },
+          {
+            "step": 2,
+            "title": "ඔබගේ ඉල්ලීම ඉදිරිපත් කරන්න",
+            "description": "පුරවා ඇති පෝරමය විද්‍යුත් තැපෑලෙන්, තැපෑලෙන් හෝ පෞද්ගලිකව තොරතුරු නිලධාරියා වෙත ඉදිරිපත් කරන්න"
+          },
+          {
+            "step": 3,
+            "title": "ලදුපත් කිරීම ලබා ගන්න",
+            "description": "වැඩ කරන දින 3ක් ඇතුළත ඔබට ලදුපත් කිරීමක් (RTI-02) ලැබෙනු ඇත"
+          },
+          {
+            "step": 4,
+            "title": "තොරතුරු ලබා ගන්න",
+            "description": "වැඩ කරන දින 14ක් ඇතුළත තොරතුරු සපයනු ලැබේ (දින 21 දක්වා දීර්ඝ කළ හැක)"
+          },
+          {
+            "step": 5,
+            "title": "අවශ්‍ය නම් අභියාචනය කරන්න",
+            "description": "සෑහීමකට පත් නොවේ නම්, ඔබට දින 30ක් ඇතුළත RTI-10 පෝරමය භාවිතා කර අභියාචනය කළ හැක"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "නාරා වෙතින් තොරතුරු අවශ්‍යද?",
+      "description": "අදම RTI ඉල්ලීමක් ඉදිරිපත් කිරීමෙන් ඔබගේ තොරතුරු දැනගැනීමේ අයිතිය ක්‍රියාත්මක කරන්න",
+      "button": "RTI පෝරම බාගත කරන්න",
+      "contact": "RTI නිලධාරියා සම්බන්ධ කරගන්න"
+    }
+  }
+}

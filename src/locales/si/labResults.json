@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "badge": "ගවේශකයන් හා ශිෂ්‍යයින් සඳහා",
+    "title": "රසායනාගාර ප්‍රතිඵල ද්වාරය",
+    "description": "ඔබගේ පරීක්ෂණ ප්‍රතිඵල ලබාගන්න, නියැදි ලුහුබැඳින්න, සහ රසායනාගාර විශ්ලේෂණ දත්ත එකම සම්පූර්ණ වේදිකාවක කළමනාකරණය කරන්න"
+  },
+  "nav": {
+    "dashboard": "උපකරණ පුවරුව",
+    "results": "රසායනාගාර ප්‍රතිඵල",
+    "samples": "මගේ නියැදි",
+    "track": "නියැදි ලුහුබැඳීම"
+  },
+  "dashboard": {
+    "stats": {
+      "totalResults": "සම්පූර්ණ ප්‍රතිඵල",
+      "completed": "සම්පූර්ණ",
+      "pending": "පොරොත්තුවෙන්",
+      "totalSamples": "සම්පූර්ණ නියැදි"
+    },
+    "recentResults": {
+      "title": "මෑත ප්‍රතිඵල",
+      "viewAll": "සියල්ල බලන්න",
+      "empty": "තවම ප්‍රතිඵල නොමැත",
+      "fallbackName": "පරීක්ෂණය"
+    },
+    "recentSamples": {
+      "title": "මෑත නියැදි",
+      "viewAll": "සියල්ල බලන්න",
+      "empty": "තවම නියැදි නොමැත"
+    },
+    "quickActions": {
+      "title": "ඉක්මන් ක්‍රියා",
+      "items": {
+        "trackSample": "නියැදි ලුහුබැඳීම",
+        "viewResults": "ප්‍රතිඵල බලන්න",
+        "downloadReports": "වාර්තා බාගන්න"
+      }
+    }
+  },
+  "results": {
+    "searchPlaceholder": "පරීක්ෂණ වර්ගය, නියැදි වර්ගය අනුව සොයන්න...",
+    "filters": {
+      "status": {
+        "all": "සියලු තත්ත්ව",
+        "completed": "සම්පූර්ණ",
+        "pending": "පොරොත්තුවෙන්",
+        "in_progress": "ක්‍රියාත්මකයි"
+      }
+    },
+    "card": {
+      "sample": "නියැදි",
+      "date": "දිනය",
+      "project": "ව්යාපෘතිය",
+      "viewDetails": "විස්තර බලන්න"
+    },
+    "empty": "ප්‍රතිඵල හමු නොවීය",
+    "fallbackTitle": "රසායනාගාර පරීක්ෂණය"
+  },
+  "samples": {
+    "searchPlaceholder": "නියැදි හැඳුනුම්පත හෝ වර්ගය අනුව සොයන්න...",
+    "filters": {
+      "status": {
+        "all": "සියලු තත්ත්ව",
+        "submitted": "ඉදිරිපත් කළ",
+        "received": "ලැබී ඇත",
+        "processing": "සැකසෙමින්",
+        "completed": "සම්පූර්ණ"
+      }
+    },
+    "card": {
+      "type": "වර්ගය",
+      "submitted": "ඉදිරිපත් කළ",
+      "location": "ස්ථානය",
+      "track": "නියැදි ලුහුබැඳීම"
+    },
+    "empty": "නියැදි හමු නොවීය"
+  },
+  "track": {
+    "title": "ඔබේ නියැදිය ලුහුබැඳින්න",
+    "inputPlaceholder": "නියැදි හැඳුනුම්පත ඇතුළත් කරන්න (උදා. SMP-1234567890-ABC123)",
+    "button": "ලුහුබඳින්න",
+    "submittedDate": "ඉදිරිපත් කළ දිනය",
+    "location": "ස්ථානය",
+    "receivedDate": "ලැබූ දිනය",
+    "completedDate": "සම්පූර්ණ කළ දිනය",
+    "notes": "සටහන්"
+  },
+  "status": {
+    "pending": "පොරොත්තුවෙන්",
+    "in_progress": "ක්‍රියාත්මකයි",
+    "processing": "සැකසෙමින්",
+    "completed": "සම්පූර්ණ",
+    "submitted": "ඉදිරිපත් කළ",
+    "received": "ලැබී ඇත"
+  },
+  "common": {
+    "na": "N/A"
+  },
+  "alerts": {
+    "notFound": "නියැදි හමු නොවීය",
+    "error": "නියැදි ලුහුබැඳීමේදී දෝෂයක් විය"
+  }
+}

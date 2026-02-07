@@ -1,0 +1,13 @@
+{
+  "unknownError": "නොදන්නා දෝෂයකි",
+  "somethingWentWrong": "යමක් වැරදී ඇත",
+  "unexpectedError": "ඔබගේ ඉල්ලීම සැකසීමේදී අපි අනපේක්ෂිත දෝෂයකට මුහුණ දුන්නෙමු.",
+  "pageNotFound": "පිටුව හමු නොවීය",
+  "pageNotFoundDescription": "ඔබ සොයන පිටුව නොපවතී. අපි ඔබව ආපසු ගෙනයමු!",
+  "goBack": "ආපසු යන්න",
+  "backToHome": "මුල් පිටුවට",
+  "back": "ආපසු",
+  "tryAgain": "නැවත උත්සාහ කරන්න",
+  "loading": "පූරණය වෙමින්...",
+  "pleaseWait": "කරුණාකර රැඳී සිටින්න..."
+}

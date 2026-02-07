@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "title": "Scientific Evidence Repository",
+    "subtitle": "Access peer-reviewed research, policy briefs, and data-driven insights to inform evidence-based marine and fisheries policy decisions",
+    "searchPlaceholder": "Search by keywords, authors, or topics...",
+    "searchButton": "Search",
+    "loading": "Loading..."
+  },
+  "navigation": {
+    "home": "Home",
+    "researchEvidence": "Research Evidence",
+    "policyBriefs": "Policy Briefs",
+    "dataVisualizations": "Data & Visualizations"
+  },
+  "statistics": {
+    "researchDocuments": "Research Documents",
+    "policyBriefs": "Policy Briefs",
+    "totalViews": "Total Views",
+    "dataVisualizations": "Data Visualizations"
+  },
+  "sections": {
+    "mostViewed": "Most Viewed Research",
+    "recentBriefs": "Recent Policy Briefs",
+    "browseByArea": "Browse by Policy Area"
+  },
+  "categories": {
+    "research_paper": "Research Paper",
+    "technical_report": "Technical Report",
+    "policy_analysis": "Policy Analysis",
+    "data_report": "Data Report",
+    "review": "Review",
+    "allCategories": "All Categories"
+  },
+  "policyAreas": {
+    "fisheries_management": "Fisheries Management",
+    "marine_conservation": "Marine Conservation",
+    "aquaculture": "Aquaculture",
+    "coastal_management": "Coastal Management",
+    "climate_change": "Climate Change",
+    "sustainable_development": "Sustainable Development",
+    "allPolicyAreas": "All Policy Areas"
+  },
+  "buttons": {
+    "viewDocument": "View Document",
+    "readBrief": "Read Brief",
+    "viewAll": "View All",
+    "download": "Download",
+    "readFullBrief": "Read Full Brief",
+    "viewVisualization": "View Visualization"
+  },
+  "labels": {
+    "authors": "Authors",
+    "views": "views",
+    "downloads": "downloads",
+    "published": "Published",
+    "keyRecommendations": "Key Recommendations"
+  },
+  "search": {
+    "title": "Search Results",
+    "foundDocuments": "Found {{count}} documents matching \"{{query}}\""
+  },
+  "emptyStates": {
+    "noDocuments": "No documents found matching your criteria.",
+    "noBriefs": "No policy briefs available at the moment.",
+    "noVisualizations": "No data visualizations available at the moment.",
+    "noSearchResults": "No documents found. Try different keywords."
+  }
+}

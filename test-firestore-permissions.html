@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firestore Permissions Test - NARA Maritime Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔒 Firestore Permissions Test - NARA Maritime Services Hub</h1>
+
+    <div class="test-container">
+        <h2>Instructions</h2>
+        <div class="info test-result">
+            <strong>Important:</strong> This test page verifies that Firestore security rules are correctly deployed for the Maritime Services Hub collections.
+            <br><br>
+            <strong>If you see permission errors:</strong>
+            <ol>
+                <li>Clear your browser cache completely (Ctrl+Shift+Delete or Cmd+Shift+Delete)</li>
+                <li>Open browser DevTools (F12)</li>
+                <li>Go to Application tab → Clear Storage → Clear site data</li>
+                <li>Refresh this page</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="test-container">
+        <h2>Test Controls</h2>
+        <button onclick="runAllTests()">🚀 Run All Tests</button>
+        <button onclick="clearResults()">🧹 Clear Results</button>
+        <button onclick="window.location.reload()">🔄 Refresh Page</button>
+    </div>
+
+    <div class="test-container">
+        <h2>Test Results</h2>
+        <div id="results"></div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js';
+        import { getFirestore, collection, getDocs, query, limit } from 'https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js';
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyAm7WGzLY7qM1i3pLgLhkceS1LTplYh6Lo",
+            authDomain: "nara-web-73384.firebaseapp.com",
+            projectId: "nara-web-73384",
+            storageBucket: "nara-web-73384.firebasestorage.app",
+            messagingSenderId: "455192505259",
+            appId: "1:455192505259:web:760c764d5e7d7da3b140ee"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Maritime Services collections to test
+        const collectionsToTest = [
+            { name: 'maritime_vessels', displayName: 'Maritime Vessels' },
+            { name: 'maritime_ports', displayName: 'Maritime Ports' },
+            { name: 'maritime_services', displayName: 'Maritime Services' },
+            { name: 'hydro_charts', displayName: 'Hydrographic Charts' },
+            { name: 'maritime_alerts', displayName: 'Maritime Alerts' },
+            { name: 'hydro_chart_requests', displayName: 'Chart Requests' },
+            { name: 'hydro_survey_requests', displayName: 'Survey Requests' },
+            { name: 'hydro_data_requests', displayName: 'Data Requests' },
+            { name: 'hydro_crowd_bathymetry', displayName: 'Crowd Bathymetry' },
+            { name: 'maritime_permits', displayName: 'Maritime Permits' },
+            { name: 'maritime_safety_reports', displayName: 'Safety Reports' },
+            { name: 'maritime_bookings', displayName: 'Maritime Bookings' }
+        ];
+
+        async function testCollection(collectionName, displayName) {
+            const resultsDiv = document.getElementById('results');
+            const testId = `test-${collectionName}`;
+
+            // Remove existing result for this collection
+            const existingResult = document.getElementById(testId);
+            if (existingResult) {
+                existingResult.remove();
+            }
+
+            const resultDiv = document.createElement('div');
+            resultDiv.id = testId;
+            resultDiv.className = 'test-result info';
+            resultDiv.innerHTML = `⏳ Testing <code>${collectionName}</code> (${displayName})...`;
+            resultsDiv.appendChild(resultDiv);
+
+            try {
+                const q = query(collection(db, collectionName), limit(1));
+                const snapshot = await getDocs(q);
+
+                resultDiv.className = 'test-result success';
+                resultDiv.innerHTML = `
+                    ✅ <strong>${displayName}</strong> (<code>${collectionName}</code>)<br>
+                    Status: <strong>READABLE</strong><br>
+                    Documents found: ${snapshot.size}<br>
+                    ${snapshot.size === 0 ? '<em>Note: Collection is empty but accessible</em>' : ''}
+                `;
+            } catch (error) {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    ❌ <strong>${displayName}</strong> (<code>${collectionName}</code>)<br>
+                    Status: <strong>PERMISSION DENIED</strong><br>
+                    Error: ${error.message}<br>
+                    <br>
+                    <strong>Action Required:</strong>
+                    <ol>
+                        <li>Clear browser cache and IndexedDB</li>
+                        <li>Open DevTools → Application → Clear Storage</li>
+                        <li>Refresh this page</li>
+                        <li>If error persists, check Firebase Console rules</li>
+                    </ol>
+                `;
+            }
+        }
+
+        async function runAllTests() {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<div class="info test-result">🔍 Starting tests for all Maritime Services collections...</div>';
+
+            let passed = 0;
+            let failed = 0;
+
+            for (const coll of collectionsToTest) {
+                await testCollection(coll.name, coll.displayName);
+                await new Promise(resolve => setTimeout(resolve, 500)); // Small delay between tests
+            }
+
+            // Count results
+            const successTests = document.querySelectorAll('.test-result.success').length;
+            const errorTests = document.querySelectorAll('.test-result.error').length;
+
+            // Add summary
+            const summaryDiv = document.createElement('div');
+            summaryDiv.className = successTests > 0 && errorTests === 0 ? 'test-result success' : 'test-result error';
+            summaryDiv.innerHTML = `
+                <h3>📊 Test Summary</h3>
+                ✅ Passed: ${successTests} / ${collectionsToTest.length}<br>
+                ❌ Failed: ${errorTests} / ${collectionsToTest.length}<br>
+                <br>
+                ${errorTests === 0
+                    ? '<strong>🎉 All permissions are correctly configured!</strong>'
+                    : '<strong>⚠️ Some collections have permission errors. Clear browser cache and try again.</strong>'
+                }
+            `;
+            resultsDiv.insertBefore(summaryDiv, resultsDiv.firstChild);
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        // Make functions available globally
+        window.runAllTests = runAllTests;
+        window.clearResults = clearResults;
+
+        // Auto-run tests on load
+        window.addEventListener('load', () => {
+            setTimeout(runAllTests, 1000);
+        });
+    </script>
+</body>
+</html>

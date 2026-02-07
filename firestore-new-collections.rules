@@ -1,0 +1,182 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+             request.auth.token.admin == true;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() &&
+             request.auth.uid == userId;
+    }
+
+    // ========== PROJECT PIPELINE TRACKER RULES ==========
+
+    // Research Projects
+    match /research_projects/{projectId} {
+      // Public read for projects marked as public
+      // Authenticated read for internal projects
+      // Admin-only write
+      allow read: if resource.data.visibility == 'public' ||
+                    (isAuthenticated() && resource.data.visibility == 'internal') ||
+                    isAdmin();
+
+      allow create: if isAdmin();
+
+      allow update: if isAdmin() &&
+                      request.resource.data.keys().hasAll(resource.data.keys());
+
+      allow delete: if isAdmin();
+    }
+
+    // Project Files (Firebase Storage references)
+    match /project_files/{fileId} {
+      allow read: if isAuthenticated();
+      allow write: if isAdmin();
+    }
+
+    // ========== RECRUITMENT ATS RULES ==========
+
+    // Recruitment Vacancies
+    match /recruitment_vacancies/{vacancyId} {
+      // Public read for published vacancies
+      // Admin read/write for all
+      allow read: if resource.data.status == 'published' || isAdmin();
+
+      allow create: if isAdmin();
+
+      allow update: if isAdmin() &&
+                      request.resource.data.keys().hasAll(resource.data.keys());
+
+      allow delete: if isAdmin();
+    }
+
+    // Recruitment Applications
+    match /recruitment_applications/{applicationId} {
+      // Applicants can read their own applications
+      // Admins can read/write all
+      allow read: if isAdmin() ||
+                    (isAuthenticated() && resource.data.applicantEmail == request.auth.token.email);
+
+      // Anyone can create (public application submission)
+      allow create: if true;
+
+      // Only admin can update
+      allow update: if isAdmin();
+
+      // Only admin can delete
+      allow delete: if isAdmin();
+    }
+
+    // Recruitment Interviews
+    match /recruitment_interviews/{interviewId} {
+      // Admins and assigned interviewers can read
+      // Candidates can read their own interview schedules
+      allow read: if isAdmin() ||
+                    (isAuthenticated() &&
+                     (request.auth.token.email in resource.data.interviewers ||
+                      resource.data.applicationId in get(/databases/$(database)/documents/recruitment_applications/$(resource.data.applicationId)).data.applicantEmail));
+
+      // Only admin can create/update
+      allow create, update: if isAdmin();
+
+      // Only admin can delete
+      allow delete: if isAdmin();
+    }
+
+    // Recruitment Documents (Firebase Storage references)
+    match /recruitment_documents/{documentId} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated();
+    }
+
+    // ========== ADDITIONAL SECURITY MEASURES ==========
+
+    // Rate limiting - prevent spam
+    // Implement using Cloud Functions with Firestore writes
+
+    // Validation rules
+    // Ensure required fields exist
+    match /research_projects/{projectId} {
+      allow create: if isAdmin() &&
+                      request.resource.data.keys().hasAll([
+                        'projectId', 'title', 'description', 'division',
+                        'principalInvestigator', 'status', 'ragStatus',
+                        'visibility', 'createdAt', 'updatedAt'
+                      ]);
+    }
+
+    match /recruitment_vacancies/{vacancyId} {
+      allow create: if isAdmin() &&
+                      request.resource.data.keys().hasAll([
+                        'vacancyId', 'jobTitle', 'department', 'description',
+                        'qualifications', 'status', 'closingDate',
+                        'createdAt', 'updatedAt'
+                      ]);
+    }
+
+    match /recruitment_applications/{applicationId} {
+      allow create: if request.resource.data.keys().hasAll([
+                      'applicationId', 'vacancyId', 'applicantName',
+                      'email', 'phone', 'status', 'submittedAt'
+                    ]) &&
+                    request.resource.data.status == 'submitted';
+    }
+  }
+}
+
+// ========== FIREBASE STORAGE RULES ==========
+// Save as storage.rules
+
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Project Pipeline Documents
+    match /project_documents/{projectId}/{fileName} {
+      // Public read for public projects
+      // Admin-only write
+      allow read: if true; // Check project visibility in production
+      allow write: if request.auth != null &&
+                     request.auth.token.admin == true;
+    }
+
+    // Recruitment Application Documents
+    match /recruitment_documents/{applicationId}/{fileName} {
+      // Allow upload during application submission
+      // Admins and applicants can read
+      allow read: if request.auth != null;
+      allow write: if request.auth != null ||
+                     request.auth == null; // Allow uploads during application
+      allow delete: if request.auth != null &&
+                      request.auth.token.admin == true;
+    }
+
+    // Lab Results Documents (from previous phase)
+    match /lab_labels/{requestId}/{fileName} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null &&
+                     request.auth.token.admin == true;
+    }
+
+    // Marine Incident Photos (from previous phase)
+    match /marine_incident_photos/{incidentId}/{fileName} {
+      allow read: if true; // Public read for transparency
+      allow write: if true; // Public upload for citizen reports
+    }
+
+    // General file size and type restrictions
+    match /{allPaths=**} {
+      allow read, write: if request.auth != null &&
+                           request.resource.size < 10 * 1024 * 1024 && // 10 MB limit
+                           request.resource.contentType.matches('image/.*|application/pdf|application/msword|application/vnd.openxmlformats-officedocument.*');
+    }
+  }
+}

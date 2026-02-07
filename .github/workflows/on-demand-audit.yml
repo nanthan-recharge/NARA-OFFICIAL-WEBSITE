@@ -1,0 +1,183 @@
+name: On-Demand Website Audit
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_pages:
+        description: 'Maximum pages to crawl'
+        required: true
+        default: '50'
+        type: choice
+        options:
+          - '10'
+          - '20'
+          - '50'
+          - '100'
+          - '200'
+
+      target_url:
+        description: 'Website URL to audit (optional - defaults to NARA production)'
+        required: false
+        default: 'https://nara-web-73384.web.app/'
+        type: string
+
+      check_external_links:
+        description: 'Check external links (slower)'
+        required: false
+        default: true
+        type: boolean
+
+      generate_comprehensive_report:
+        description: 'Generate comprehensive optimization report'
+        required: false
+        default: true
+        type: boolean
+
+jobs:
+  on-demand-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          cd website-optimization-agent
+          pip install -r requirements.txt
+
+      - name: Display audit configuration
+        run: |
+          echo "🎯 Audit Configuration:"
+          echo "  Target URL: ${{ inputs.target_url }}"
+          echo "  Max Pages: ${{ inputs.max_pages }}"
+          echo "  Check External Links: ${{ inputs.check_external_links }}"
+          echo "  Comprehensive Report: ${{ inputs.generate_comprehensive_report }}"
+
+      - name: Run basic audit
+        if: ${{ !inputs.generate_comprehensive_report }}
+        run: |
+          cd website-optimization-agent
+          python nara_optimizer.py \
+            --url "${{ inputs.target_url }}" \
+            --max-pages ${{ inputs.max_pages }} \
+            --output ../on_demand_audit
+
+      - name: Run comprehensive audit
+        if: ${{ inputs.generate_comprehensive_report }}
+        run: |
+          cd website-optimization-agent
+          python run_complete_optimization.py \
+            --url "${{ inputs.target_url }}" \
+            --max-pages ${{ inputs.max_pages }} \
+            --output ../on_demand_comprehensive
+
+      - name: Extract metrics
+        id: metrics
+        run: |
+          REPORT_DIR="${{ inputs.generate_comprehensive_report == 'true' && 'on_demand_comprehensive' || 'on_demand_audit' }}"
+
+          if [ -f "$REPORT_DIR/optimization_report.json" ]; then
+            TOTAL_PAGES=$(jq '.summary.total_pages // 0' "$REPORT_DIR/optimization_report.json")
+            BROKEN_LINKS=$(jq '.broken_links | length' "$REPORT_DIR/optimization_report.json")
+            DUPLICATES=$(jq '.duplicate_content | length' "$REPORT_DIR/optimization_report.json")
+            PLACEHOLDERS=$(jq '.placeholder_text | length' "$REPORT_DIR/optimization_report.json")
+            ACCESSIBILITY=$(jq '[.page_metadata[] | select(.accessibility_issues | length > 0)] | length' "$REPORT_DIR/optimization_report.json")
+
+            echo "total_pages=$TOTAL_PAGES" >> $GITHUB_OUTPUT
+            echo "broken_links=$BROKEN_LINKS" >> $GITHUB_OUTPUT
+            echo "duplicates=$DUPLICATES" >> $GITHUB_OUTPUT
+            echo "placeholders=$PLACEHOLDERS" >> $GITHUB_OUTPUT
+            echo "accessibility_issues=$ACCESSIBILITY" >> $GITHUB_OUTPUT
+            echo "report_dir=$REPORT_DIR" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate executive summary
+        run: |
+          REPORT_DIR="${{ steps.metrics.outputs.report_dir }}"
+          cat > "$REPORT_DIR/EXECUTIVE_SUMMARY.md" << 'EOF'
+          # On-Demand Audit - Executive Summary
+
+          **Requested by**: ${{ github.actor }}
+          **Date**: $(date +"%Y-%m-%d %H:%M:%S UTC")
+          **Target URL**: ${{ inputs.target_url }}
+          **Pages Analyzed**: ${{ steps.metrics.outputs.total_pages }}
+
+          ---
+
+          ## 🎯 Quick Status
+
+          | Category | Count | Status |
+          |----------|-------|--------|
+          | 🔗 Broken Links | ${{ steps.metrics.outputs.broken_links }} | ${{ steps.metrics.outputs.broken_links == '0' && '✅ GOOD' || steps.metrics.outputs.broken_links <= '5' && '⚠️ WARNING' || '❌ CRITICAL' }} |
+          | 📄 Duplicate Content | ${{ steps.metrics.outputs.duplicates }} | ${{ steps.metrics.outputs.duplicates == '0' && '✅ GOOD' || steps.metrics.outputs.duplicates <= '3' && '⚠️ WARNING' || '❌ CRITICAL' }} |
+          | 📝 Placeholder Text | ${{ steps.metrics.outputs.placeholders }} | ${{ steps.metrics.outputs.placeholders == '0' && '✅ GOOD' || '⚠️ NEEDS ATTENTION' }} |
+          | ♿ Accessibility Issues | ${{ steps.metrics.outputs.accessibility_issues }} | ${{ steps.metrics.outputs.accessibility_issues == '0' && '✅ EXCELLENT' || steps.metrics.outputs.accessibility_issues <= '10' && '⚠️ GOOD' || '❌ NEEDS IMPROVEMENT' }} |
+
+          ---
+
+          ## 📊 Overall Health Score
+
+          EOF
+
+          # Calculate health score
+          SCORE=100
+          BROKEN=${{ steps.metrics.outputs.broken_links }}
+          DUPES=${{ steps.metrics.outputs.duplicates }}
+          PLACEHOLDERS=${{ steps.metrics.outputs.placeholders }}
+          ACCESS=${{ steps.metrics.outputs.accessibility_issues }}
+
+          SCORE=$((SCORE - BROKEN * 5))
+          SCORE=$((SCORE - DUPES * 3))
+          SCORE=$((SCORE - PLACEHOLDERS * 1))
+          SCORE=$((SCORE - ACCESS * 2))
+
+          [ $SCORE -lt 0 ] && SCORE=0
+
+          echo "**Health Score**: $SCORE / 100" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          echo "" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+
+          if [ $SCORE -ge 90 ]; then
+            echo "🏆 **Status**: EXCELLENT - Website is in great shape!" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          elif [ $SCORE -ge 70 ]; then
+            echo "✅ **Status**: GOOD - Minor improvements recommended" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          elif [ $SCORE -ge 50 ]; then
+            echo "⚠️ **Status**: FAIR - Several issues need attention" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          else
+            echo "❌ **Status**: CRITICAL - Immediate action required" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          fi
+
+          echo "" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          echo "---" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          echo "" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          echo "📁 **Full reports available in workflow artifacts**" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          echo "" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+          echo "🤖 Generated by NARA Website Optimization Agent" >> "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+
+      - name: Display summary
+        run: |
+          REPORT_DIR="${{ steps.metrics.outputs.report_dir }}"
+          echo "📊 Audit Complete!"
+          echo ""
+          cat "$REPORT_DIR/EXECUTIVE_SUMMARY.md"
+
+      - name: Upload audit results
+        uses: actions/upload-artifact@v3
+        with:
+          name: on-demand-audit-${{ github.run_number }}-${{ github.actor }}
+          path: ${{ steps.metrics.outputs.report_dir }}/
+          retention-days: 60
+
+      - name: Upload to repository (if comprehensive)
+        if: ${{ inputs.generate_comprehensive_report }}
+        run: |
+          mkdir -p audit-history
+          TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+          cp -r on_demand_comprehensive "audit-history/audit_${TIMESTAMP}_by_${{ github.actor }}"
+          echo "📁 Audit saved to: audit-history/audit_${TIMESTAMP}_by_${{ github.actor }}"

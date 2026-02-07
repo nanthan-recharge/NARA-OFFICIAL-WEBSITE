@@ -1,0 +1,203 @@
+{
+  "language": {
+    "english": "ஆங்கிலம்",
+    "tamil": "தமிழ்",
+    "sinhala": "சிங்களம்"
+  },
+  "navbar": {
+    "languageLabel": "மொழி",
+    "back": "பின் செல்ல",
+    "register": "பதிவு செய்க",
+    "profile": "சுயவிவரம்",
+    "brand": {
+      "title": "NARA",
+      "subtitle": "கடல் ஆராய்ச்சி"
+    },
+    "themes": {
+      "ocean": "கடல்",
+      "cosmic": "விண்வெளி"
+    },
+    "menu": {
+      "research": {
+        "title": "ஆராய்ச்சி",
+        "links": {
+          "researchExcellencePortal": "ஆராய்ச்சி சிறப்புத் தளம்",
+          "researchCollaboration": "ஆராய்ச்சி கூட்டாண்மை",
+          "knowledgeDiscovery": "அறிவு கண்டுபிடிப்பு",
+          "partnershipInnovation": "கூட்டாண்மை புதுமை",
+          "vesselBooking": "ஆராய்ச்சி கப்பல் முன்பதிவு",
+          "labResults": "ஆய்வக முடிவுகள் தளம்",
+          "scientificEvidence": "அறிவியல் சான்று களஞ்சியம்",
+          "projectPipeline": "திட்ட குழாய் பாதை தடம்"
+        }
+      },
+      "services": {
+        "title": "சேவைகள்",
+        "links": {
+          "digitalMarketplace": "டிஜிட்டல் சந்தை",
+          "maritimeServices": "கடல்சார் சேவைகள்",
+          "governmentServices": "அரசு சேவைகள்",
+          "emergencyResponse": "அவசர நடவடிக்கை",
+          "fishAdvisory": "மீன் ஆலோசனை அமைப்பு",
+          "exportIntelligence": "ஏற்றுமதி சந்தை நுண்ணறிவு",
+          "marineIncident": "கடல் சம்பவ தளம்",
+          "integrationSystems": "ஒடுங்கிணைப்பு அமைப்புகள்",
+          "vesselTracking": "நேரடி கப்பல் கண்காணிப்பு"
+        }
+      },
+      "resources": {
+        "title": "வளங்கள்",
+        "links": {
+          "libraryCatalogue": "நூலக பட்டியல்",
+          "digitalProductLibrary": "டிஜிட்டல் தயாரிப்பு நூலகம்",
+          "learningAcademy": "கற்றல் அகாடமி",
+          "regionalImpact": "பிராந்திய தாக்கம்",
+          "publicConsultation": "பொது ஆலோசனை"
+        }
+      },
+      "media": {
+        "title": "ஊடகம்",
+        "links": {}
+      },
+      "data": {
+        "title": "தரவு மற்றும் பகுப்பாய்வு",
+        "links": {
+          "analyticsHub": "பகுப்பாய்வு மையம்",
+          "openData": "திறந்த தரவு தளம்",
+          "spatialPlanning": "கடல் இட திட்டமிடல்"
+        }
+      },
+      "about": {
+        "title": "எங்களை பற்றி",
+        "links": {
+          "ourStory": "எங்கள் கதை",
+          "regionalCenters": "பிராந்திய ஆராய்ச்சி மையங்கள்",
+          "supportingDivisions": "துணை பிரிவுகள்",
+          "mediaGallery": "ஊடக காட்சியகம்",
+          "newsUpdates": "செய்திகள் மற்றும் புதுப்பிப்புகள்",
+          "podcasts": "பாட்காஸ்ட்கள்",
+          "procurement": "கொள்முதல்",
+          "naraAct": "NARA சட்டம்",
+          "rti": "தகவல் அறியும் உரிமை",
+          "annualReports": "ஆண்டு அறிக்கைகள்"
+        }
+      },
+      "divisions": {
+        "title": "பிரிவுகள்",
+        "links": {
+          "allDivisions": "அனைத்து பிரிவுகள்",
+          "fisheriesScience": "கடல் மற்றும் உள்நாட்டு மீன்வள அறிவியல்",
+          "marineBiology": "கடல் உயிரியல் மற்றும் சுற்றுச்சூழல் அமைப்புகள்",
+          "aquaculture": "உள்நாட்டு நீர்வாழ் வளங்கள் மற்றும் மீன் வளர்ப்பு",
+          "fishingTechnology": "மீன்பிடி தொழில்நுட்பம்",
+          "qualityAssurance": "அறுவடைக்குப் பிந்தைய மற்றும் தர உறுதி",
+          "socioEconomics": "சமூக-பொருளாதார மற்றும் சந்தைப்படுத்தல்",
+          "hydrography": "நீர்நிலை வரைவியல் மற்றும் கடல்சார் வரைபடங்கள்",
+          "environmental": "சுற்றுச்சூழல் கண்காணிப்பு மற்றும் ஆலோசனை",
+          "information": "தகவல் மற்றும் விழிப்புணர்வு"
+        },
+        "submenu": {
+          "research": "ஆராய்ச்சி பிரிவுகள்",
+          "regional": "பிராந்திய ஆராய்ச்சி மையங்கள்",
+          "supporting": "துணை பிரிவுகள்"
+        }
+      },
+      "news": {
+        "title": "செய்திகள் மற்றும் புதுப்பிப்புகள்",
+        "links": {
+          "mediaPressKit": "ஊடக செய்தியாளர் கருவிப்பெட்டி"
+        }
+      },
+      "academy": {
+        "title": "நாரா அகாடமி",
+        "links": {
+          "aquaSchool": "அக்வா பள்ளி",
+          "nexus": "நெக்ஸஸ் பட்டதாரி திட்டம்",
+          "schoolDirectory": "பள்ளி அடைவு"
+        }
+      },
+      "education": {
+        "title": "கல்வி",
+        "links": {}
+      },
+      "community": {
+        "title": "சமூகம்",
+        "links": {}
+      },
+      "contact": {
+        "title": "தொடர்பு கொள்ள",
+        "links": {
+          "getInTouch": "எங்களை தொடர்பு கொள்ளுங்கள்"
+        }
+      }
+    },
+    "gov": {
+      "home": "முகப்பு",
+      "about": "எங்களைப் பற்றி",
+      "division": "பிரிவுகள்",
+      "research": "ஆராய்ச்சி",
+      "services": "சேவைகள்",
+      "library": "நூலகம்",
+      "vacancies": "காலிப்பணியிடங்கள்",
+      "procurement": "கொள்முதல்",
+      "scientistSession": "விஞ்ஞானிகள் அமர்வு",
+      "contact": "தொடர்பு",
+      "naraMail": "NARA அஞ்சல்"
+    },
+    "mainNavigation": "முதன்மை வழிசெலுத்தல்",
+    "mobileNavigation": "கைபேசி வழிசெலுத்தல்",
+    "goToHome": "முகப்புப் பக்கத்துக்கு செல்",
+    "govLogo": "இலங்கை அரசின் சின்னம்",
+    "naraLogo": "NARA சின்னம்",
+    "selectLanguage": "மொழியைத் தேர்ந்தெடுக்கவும்",
+    "languages": "கிடைக்கும் மொழிகள்",
+    "researchDivisions": "ஆராய்ச்சி பிரிவுகள்",
+    "viewAll": "அனைத்தையும் பார்க்க",
+    "divisionsMenu": "பிரிவு பட்டியல்",
+    "openMenu": "பட்டியலைத் திற",
+    "closeMenu": "பட்டியலை மூடு"
+  },
+  "loading": "ஏற்றுகிறது...",
+  "explore": "ஆராய்க",
+  "pleaseLogin": "தொடர உள்நுழையவும்",
+  "enrollmentSuccess": "பாடநெறியில் வெற்றிகரமாக பதிவு செய்யப்பட்டது!",
+  "enrollmentError": "பாடநெறியில் பதிவு செய்வதில் பிழை. மீண்டும் முயற்சிக்கவும்.",
+  "projectSubmitted": "திட்டம் வெற்றிகரமாக சமர்ப்பிக்கப்பட்டது!",
+  "projectError": "திட்டத்தை சமர்ப்பிப்பதில் பிழை. மீண்டும் முயற்சிக்கவும்.",
+  "searchPlaceholder": "பாடநெறிகள், ஆவணங்கள், பொருட்களைத் தேடவும்...",
+  "search": "தேடவும்",
+  "allCategories": "அனைத்து வகைகள்",
+  "allLevels": "அனைத்து நிலைகள்",
+  "beginner": "ஆரம்ப நிலை",
+  "intermediate": "இடைநிலை",
+  "advanced": "மேம்பட்ட",
+  "mostPopular": "மிகவும் பிரபலமானது",
+  "highestRated": "அதிக மதிப்பீடு பெற்ற",
+  "newest": "புதியது",
+  "noCoursesFound": "பாடநெறிகள் எதுவும் கிடைக்கவில்லை",
+  "weeks": "வாரங்கள்",
+  "viewPaper": "ஆவணத்தைப் பார்க்கவும்",
+  "download": "பதிவிறக்கவும்",
+  "cancel": "ரத்து செய்",
+  "title": "தலைப்பு",
+  "description": "விவரம்",
+  "category": "வகை",
+  "selectCategory": "வகையைத் தேர்ந்தெடுக்கவும்",
+  "attachFiles": "கோப்புகளை இணைக்கவும்",
+  "filesSelected": "கோப்புகள் தேர்ந்தெடுக்கப்பட்டது",
+  "submitting": "சமர்ப்பிக்கிறது...",
+  "submit": "சமர்ப்பிக்கவும்",
+  "admin": {
+    "csvExport": {
+      "success": "விண்ணப்பதாரர் CSV பதிவிறக்கப்பட்டது",
+      "error": "CSV ஏற்றுமதி தோல்வியடைந்தது. மீண்டும் முயற்சிக்கவும்."
+    }
+  },
+  "accessData": "தரவைப் பெறுக",
+  "selectDataset": "தரவுத்தொகுப்பைக் தேர்ந்தெடுக்கவும்...",
+  "accessibility": {
+    "skipToContent": "முதன்மை உள்ளடக்கத்துக்கு தாவு",
+    "mainContent": "முதன்மை உள்ளடக்கம்",
+    "navigation": "வழிசெலுத்தல்"
+  }
+}

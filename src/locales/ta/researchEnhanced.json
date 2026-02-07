@@ -1,0 +1,1260 @@
+{
+  "hero": {
+    "badge": "ஆராய்ச்சி சிறப்புத் தளம்",
+    "titleLine1": "கடல் அறிவியலை முன்னேற்றலாம்",
+    "titleLine2": "நிலைத்த எதிர்காலத்திற்காக",
+    "description": "இலங்கையின் முன்னணி நீரியல் ஆராய்ச்சி நிறுவனம் உருவாக்கும் கடல் உயிரியல், கடலியற்பியல் மற்றும் காலநிலை அறிவியல் குறித்த பாரம்பரியமற்ற கண்டுபிடிப்புகளை அறிந்து கொள்ளுங்கள்",
+    "kicker": "அரசு முடிவு ஆதரவு",
+    "liveStatus": "நேரடி ஆராய்ச்சி மற்றும் கொள்கை நுண்ணறிவு ஓட்டம் செயலில் உள்ளது",
+    "actions": {
+      "policyBriefs": "கொள்கை சுருக்கங்கள்",
+      "datasets": "தரவுத்தொகுப்புகள்",
+      "collaborate": "ஆராய்ச்சி ஒத்துழைப்பு"
+    }
+  },
+  "metrics": {
+    "cards": [
+      {
+        "id": "publications",
+        "label": "மொத்த வெளியீடுகள்",
+        "value": "1,247",
+        "change": "+15.3%",
+        "icon": "FileText",
+        "color": "from-cyan-400 to-blue-600",
+        "description": "சரிபார்க்கப்பட்ட இதழ் கட்டுரைகள்"
+      },
+      {
+        "id": "citations",
+        "label": "உலகளாவிய மேற்கோள்கள்",
+        "value": "28,439",
+        "change": "+22.7%",
+        "icon": "TrendingUp",
+        "color": "from-purple-400 to-pink-600",
+        "description": "எங்கள் பணியை மேற்கோள் காட்டிய முறைங்கள்"
+      },
+      {
+        "id": "hIndex",
+        "label": "H-சுட்டெண்",
+        "value": "67",
+        "change": "+3",
+        "icon": "Award",
+        "color": "from-amber-400 to-orange-600",
+        "description": "ஆராய்ச்சி தாக்க அளவுகோல்"
+      },
+      {
+        "id": "collaborations",
+        "label": "உலகளாவிய கூட்டாளிகள்",
+        "value": "89",
+        "change": "+12",
+        "icon": "Globe",
+        "color": "from-green-400 to-emerald-600",
+        "description": "சர்வதேச ஆராய்ச்சி நிறுவனங்கள்"
+      },
+      {
+        "id": "projects",
+        "label": "செயலில் உள்ள திட்டங்கள்",
+        "value": "156",
+        "change": "+18",
+        "icon": "Target",
+        "color": "from-blue-400 to-indigo-600",
+        "description": "முன்னெடுக்கும் ஆராய்ச்சி முயற்சிகள்"
+      },
+      {
+        "id": "funding",
+        "label": "ஆராய்ச்சி நிதியுதவி",
+        "value": "$12.4M",
+        "change": "+28%",
+        "icon": "DollarSign",
+        "color": "from-rose-400 to-red-600",
+        "description": "பெற்ற மொத்த உதவித்தொகைகள்"
+      }
+    ]
+  },
+  "areas": [
+    {
+      "id": "marine-biology",
+      "name": "கடல் உயிரியல்",
+      "count": 342,
+      "icon": "Fish",
+      "color": "cyan"
+    },
+    {
+      "id": "climate",
+      "name": "காலநிலை மாற்றம்",
+      "count": 218,
+      "icon": "Waves",
+      "color": "blue"
+    },
+    {
+      "id": "fisheries",
+      "name": "மீன்பிடி மேலாண்மை",
+      "count": 189,
+      "icon": "Fish",
+      "color": "green"
+    },
+    {
+      "id": "oceanography",
+      "name": "கடலியற்பியல்",
+      "count": 167,
+      "icon": "Waves",
+      "color": "purple"
+    },
+    {
+      "id": "conservation",
+      "name": "பாதுகாப்பு",
+      "count": 143,
+      "icon": "Heart",
+      "color": "pink"
+    },
+    {
+      "id": "policy",
+      "name": "கடல் கொள்கை",
+      "count": 98,
+      "icon": "FileText",
+      "color": "amber"
+    }
+  ],
+  "tabs": [
+    {
+      "id": "publications",
+      "label": "வெளியீடுகள்",
+      "icon": "FileText",
+      "count": "1,247"
+    },
+    {
+      "id": "teams",
+      "label": "ஆராய்ச்சி அணிகள்",
+      "icon": "Users",
+      "count": "12"
+    },
+    {
+      "id": "projects",
+      "label": "செயலில் உள்ள திட்டங்கள்",
+      "icon": "Target",
+      "count": "156"
+    },
+    {
+      "id": "impact",
+      "label": "தாக்கமும் பகுப்பாய்வும்",
+      "icon": "BarChart3"
+    },
+    {
+      "id": "collaboration",
+      "label": "உலகளாவிய வலையமைப்பு",
+      "icon": "Globe",
+      "count": "89"
+    }
+  ],
+  "filters": {
+    "searchPlaceholder": "வெளியீடுகளைத் தேடுங்கள்...",
+    "advanced": "மேம்பட்டவை",
+    "year": {
+      "options": {
+        "2022": "2022",
+        "2023": "2023",
+        "2024": "2024",
+        "all": "அனைத்து ஆண்டுகள்"
+      }
+    },
+    "type": {
+      "options": {
+        "all": "அனைத்து வகைகள்",
+        "journal": "இதழ் கட்டுரை",
+        "conference": "மாநாடு கட்டுரை",
+        "report": "தொழில்நுட்ப அறிக்கை"
+      }
+    },
+    "sort": {
+      "options": {
+        "citations": "அதிக மேற்கோள்",
+        "recent": "அண்மையவை",
+        "downloads": "அதிக பதிவிறக்கங்கள்",
+        "impact": "அதிக தாக்க மதிப்பெண்"
+      }
+    },
+    "area": {
+      "options": {
+        "all": "அனைத்து துறைகள்"
+      }
+    }
+  },
+  "advancedSearch": {
+    "title": "மேம்பட்ட தேடல்",
+    "header": {
+      "default": "1,247 வெளியீடுகளில் தேடுங்கள்",
+      "activeFilters": "{{count}} வடிகட்டிகள் செயலில்"
+    },
+    "researchAreas": [
+      "கடல் உயிரியல்",
+      "காலநிலை மாற்றம்",
+      "மீன்பிடி மேலாண்மை",
+      "கடலியற்பியல்",
+      "பாதுகாப்பு",
+      "கடல் கொள்கை",
+      "மீன் வளர்ப்பு",
+      "கரையோர பொறியியல்",
+      "கடல் உயிரி தொழில்நுட்பம்",
+      "கடல் மாதிரிவியல்"
+    ],
+    "publicationTypes": [
+      "இதழ் கட்டுரை",
+      "மாநாடு கட்டுரை",
+      "தொழில்நுட்ப அறிக்கை",
+      "நூல் அதிகாரம்",
+      "தரவு தொகுப்பு",
+      "முதுநிலை ஆய்வறிக்கை",
+      "மீளாய்வு கட்டுரை",
+      "கொள்கை சுருக்கம்"
+    ],
+    "languages": [
+      {
+        "value": "all",
+        "label": "அனைத்து மொழிகள்"
+      },
+      {
+        "value": "en",
+        "label": "ஆங்கிலம்"
+      },
+      {
+        "value": "si",
+        "label": "சிங்களம்"
+      },
+      {
+        "value": "ta",
+        "label": "தமிழ்"
+      }
+    ],
+    "sections": {
+      "text": {
+        "heading": "உரை தேடல்",
+        "fields": {
+          "keywords": {
+            "label": "முக்கிய சொற்கள் (எந்தத் துறையும்)",
+            "placeholder": "உ.தா., பவளப் பாறை, நுண்ணிழை"
+          },
+          "title": {
+            "label": "தலைப்பு",
+            "placeholder": "வெளியீட்டு தலைப்பு"
+          },
+          "author": {
+            "label": "ஆசிரியர்",
+            "placeholder": "ஆசிரியர் பெயர்"
+          },
+          "institution": {
+            "label": "நிறுவனம்",
+            "placeholder": "நிறுவனப் பெயர்"
+          }
+        }
+      },
+      "date": {
+        "heading": "வெளியீட்டு தேதி",
+        "fields": {
+          "fromYear": "தொடக்க ஆண்டு",
+          "toYear": "முடிவு ஆண்டு"
+        }
+      },
+      "areas": {
+        "heading": "ஆராய்ச்சி துறைகள்"
+      },
+      "types": {
+        "heading": "வெளியீடு வகை"
+      },
+      "impact": {
+        "heading": "தாக்க அளவுகோல்கள்",
+        "fields": {
+          "minCitations": "குறைந்த மேற்கோள்கள்",
+          "maxCitations": "அதிகபட்ச மேற்கோள்கள்",
+          "minImpact": "குறைந்த தாக்க மதிப்பெண்",
+          "minCitationsPlaceholder": "உ.தா., 10",
+          "maxCitationsPlaceholder": "உ.தா., 1000",
+          "minImpactPlaceholder": "உ.தா., 5.0"
+        }
+      },
+      "additional": {
+        "heading": "கூடுதல் வடிகட்டிகள்",
+        "openAccess": {
+          "label": "திறந்த அணுகல் மட்டும்",
+          "description": "இலவசமாக கிடைக்கும் வெளியீடுகளை மட்டும் காட்டவும்"
+        },
+        "dataset": {
+          "label": "தரவுத் தொகுப்பு உள்ளது",
+          "description": "இணைக்கப்பட்ட தரவுத் தொகுப்புகளுடன் உள்ள வெளியீடுகள்"
+        },
+        "language": {
+          "label": "மொழி"
+        }
+      }
+    },
+    "actions": {
+      "reset": "அனைத்தையும் மீட்டமை",
+      "cancel": "ரத்து செய்",
+      "search": "தேடுக"
+    }
+  },
+  "publications": {
+    "items": [
+      {
+        "id": "climate-coral",
+        "access": "open",
+        "accessLabel": "திறந்த அணுகல்",
+        "area": "காலநிலை மாற்றம்",
+        "title": "காலநிலை மாற்றம் காரணமான இலங்கைப் பவளப் பாறைகளின் மாற்றங்கள்: 30 ஆண்டு ஆய்வு",
+        "authors": "Dr. Priya Fernando, Dr. Raj Kumar, Dr. Sarah Miller",
+        "journal": "Nature Climate Change",
+        "year": 2024,
+        "type": "இதழ் கட்டுரை",
+        "citations": 342,
+        "downloads": 1847,
+        "impactFactor": 29.3,
+        "abstract": "இலங்கை கடல்புறங்களில் உயரும் கடல் வெப்பநிலை பவள உயிரியல் பன்மைப் பாலியில் ஏற்படுத்தும் தாக்கத்தை 30 ஆண்டுகள் முழுவதும் ஆய்வு செய்தோம். இன அமைப்பு மாற்றங்கள் மற்றும் சூழியல் தயா்மாற்றத்தில் முக்கிய மாற்றங்கள் பதிவாகின.",
+        "doi": "10.1038/s41558-024-01234-5",
+        "tags": [
+          "பவளப் பாறைகள்",
+          "காலநிலை மாற்றம்",
+          "உயிரின பல்வகை",
+          "இலங்கை"
+        ],
+        "highlights": [
+          "30 ஆண்டுகால நீளமான தரவுத்தொகுப்பு",
+          "புதிய உயிரின பல்வகை அளவுகோல்கள்",
+          "பவளப் பாதுகாப்புக்கான கொள்கைப் பரிந்துரைகள்"
+        ]
+      },
+      {
+        "id": "ai-fisheries",
+        "access": "open",
+        "accessLabel": "திறந்த அணுகல்",
+        "area": "மீன்பிடி மேலாண்மை",
+        "title": "கோஷ்டிகளைக் கண்காணிக்கும் செயற்கை நுண்ணறிவு வழித்தடம் மூலம் நிலையான மீன்பிடி மேலாண்மை",
+        "authors": "Dr. Nimal Perera, Dr. Chen Wei, Dr. Emma Thompson",
+        "journal": "Science Advances",
+        "year": 2024,
+        "type": "இதழ் கட்டுரை",
+        "citations": 218,
+        "downloads": 2134,
+        "impactFactor": 13.6,
+        "abstract": "செயற்கை நுண்ணறிவு மற்றும் செயற்கைக்கோள்/அலைக்கற்றை தரவை இணைத்து நேரடி மீன்பிடி கையிருப்பு மதிப்பீட்டை மேம்படுத்தும் அமைப்பை அறிமுகப்படுத்துகிறோம். பாரம்பரிய முறைகளை விட 43% அதிக துல்லியம் கிடைத்துள்ளது.",
+        "doi": "10.1126/sciadv.abcd1234",
+        "tags": [
+          "செயற்கை நுண்ணறிவு",
+          "மீன்பிடி",
+          "நிலைத்தன்மை",
+          "தொலை உணர்தல்"
+        ],
+        "highlights": [
+          "43% அதிக துல்லிய முன்னேற்றம்",
+          "நேரடி கண்காணிப்பு அமைப்பு",
+          "12 மீன்பிடி மண்டலங்களில் செயல்படுத்தப்பட்டது"
+        ]
+      },
+      {
+        "id": "microplastics-indian-ocean",
+        "access": "open",
+        "accessLabel": "திறந்த அணுகல்",
+        "area": "கடல் உயிரியல்",
+        "title": "இந்தியப் பெருங்கடலில் நுண்ணிழைத் துகள்களின் பரவல் மாற்றங்கள்: முழுமையான கணக்கெடுப்பு",
+        "authors": "Dr. Ayesha Khan, Dr. Michael Brown, Dr. Lakshmi Dissanayake",
+        "journal": "Environmental Science & Technology",
+        "year": 2023,
+        "type": "இதழ் கட்டுரை",
+        "citations": 487,
+        "downloads": 3201,
+        "impactFactor": 11.4,
+        "abstract": "200க்கும் மேற்பட்ட இடங்களை மாதிரி எடுத்து இந்தியப் பெருங்கடலில் நுண்ணிழை மாசுபாடு மையங்களை வரைபடமாக்கி முக்கிய மூலங்களை அடையாளம் கண்டோம். கடலோரப் பகுதிகளில் அதிர்ச்சிகரமான சிகிச்சைகள் பதிவாகின.",
+        "doi": "10.1021/acs.est.3c12345",
+        "tags": [
+          "நுண்ணிழை",
+          "மாசுபாடு",
+          "இந்தியப் பெருங்கடல்",
+          "கடல் ஆரோக்கியம்"
+        ],
+        "highlights": [
+          "200க்கும் மேற்பட்ட மாதிரி இடங்கள்",
+          "இந்தியப் பெருங்கடலின் முதல் விரிவான கணக்கெடுப்பு",
+          "அதிக சிகிச்சை மையங்கள் அடையாளம்"
+        ]
+      },
+      {
+        "id": "blue-carbon-valuation",
+        "access": "subscription",
+        "accessLabel": "சந்தா தேவை",
+        "area": "பாதுகாப்பு",
+        "title": "நீல கார்பன் சிக்கவைத்தல் மதிப்பீடு: இலங்கை மாங்க்ரோவ் சூழல்களின் பொருளாதார மதிப்பு",
+        "authors": "Dr. Sunil Wickramasinghe, Dr. Jane Wilson, Dr. Carlos Rodriguez",
+        "journal": "Nature Sustainability",
+        "year": 2023,
+        "type": "இதழ் கட்டுரை",
+        "citations": 294,
+        "downloads": 1652,
+        "impactFactor": 27.2,
+        "abstract": "இலங்கை மாங்க்ரோவ் காடுகள் கார்பன் சிக்கவைப்புத் திறனை கணக்கிட்டு, அந்த சூழலியல் சேவைகளின் பொருளாதார மதிப்பை முதல் முறையாக முழுமையாக மதிப்பிட்டோம்.",
+        "doi": "10.1038/s41893-023-12345-6",
+        "tags": [
+          "நீல கார்பன்",
+          "மாங்க்ரோவ்",
+          "காலநிலை நிவாரணம்",
+          "பொருளாதாரம்"
+        ],
+        "highlights": [
+          "பொருளாதார மதிப்பீட்டு கட்டமைப்பு",
+          "கார்பன் குறைப்பு கடன் திறன்",
+          "கொள்கை செயலாக்க வழிகாட்டி"
+        ]
+      }
+    ],
+    "labels": {
+      "highlights": "முக்கிய அம்சங்கள்",
+      "showMore": "மேலும் காண்க",
+      "showLess": "குறைவாக காண்க",
+      "viewPaper": "கட்டுரையைப் பார்க்க",
+      "openAccess": "திறந்த அணுகல்",
+      "citations": "{{count}} மேற்கோள்கள்",
+      "downloads": "{{count}} பதிவிறக்கங்கள்",
+      "impactFactor": "தாக்க மதிப்பெண்: {{value}}",
+      "openReader": "Reader திறக்க",
+      "openDOI": "DOI திறக்க",
+      "downloadPDF": "PDF",
+      "source": "மூலம்"
+    },
+    "loading": "வெளியீடுகள் ஏற்றப்படுகின்றன...",
+    "empty": {
+      "description": "தேர்ந்தெடுத்த வடிகட்டிகளுக்கு வெளியீடுகள் கிடைக்கவில்லை."
+    }
+  },
+  "teams": {
+    "items": [
+      {
+        "id": 1,
+        "name": "கடல் உயிரினப் பல்வகை ஆய்வகம்",
+        "lead": "Dr. Priya Fernando",
+        "members": 24,
+        "projects": 12,
+        "publications": 156,
+        "funding": "$2.3M",
+        "focus": "பவளப் பாறை சூழல்கள், கடல் உயிரினப் பாதுகாப்பு, உயிரின பல்வகை மதிப்பீடு"
+      },
+      {
+        "id": 2,
+        "name": "காலநிலை & கடலியற்பியல் பிரிவு",
+        "lead": "Dr. Nimal Perera",
+        "members": 18,
+        "projects": 9,
+        "publications": 127,
+        "funding": "$3.1M",
+        "focus": "கடல் வெப்பநிலை கண்காணிப்பு, கடல் மட்ட உயர்வு, காலநிலை மாதிரிகள்"
+      },
+      {
+        "id": 3,
+        "name": "நிலையான மீன்பிடிப் புலம்",
+        "lead": "Dr. Ayesha Khan",
+        "members": 15,
+        "projects": 8,
+        "publications": 98,
+        "funding": "$1.8M",
+        "focus": "கையிருப்பு மதிப்பீடு, மீன்பிடித் தொழில்நுட்பம், நிலையான நடைமுறைகள்"
+      }
+    ],
+    "labels": {
+      "members": "உறுப்பினர்கள்",
+      "projects": "திட்டங்கள்",
+      "publications": "வெளியீடுகள்",
+      "funding": "நிதியுதவி",
+      "ledBy": "{{name}} தலைமையில்",
+      "leadBy": "{{name}} தலைமையில்"
+    },
+    "actions": {
+      "viewProfile": "அணியின் சுயவிவரம்"
+    }
+  },
+  "projects": {
+    "filters": {
+      "categories": {
+        "all": "அனைத்து திட்டங்கள்",
+        "marineBiology": "கடல் உயிரியல்",
+        "climate": "காலநிலை ஆராய்ச்சி",
+        "fisheries": "மீன்பிடி",
+        "conservation": "பாதுகாப்பு",
+        "policy": "கொள்கை & நிர்வாகம்"
+      },
+      "status": {
+        "all": "அனைத்து நிலைகள்"
+      }
+    },
+    "statusLabels": {
+      "active": "செயல்பாட்டில்",
+      "planning": "திட்டமிடல்",
+      "completing": "முடிப்பில்",
+      "completed": "முடிந்தது",
+      "upcoming": "விரைவில்"
+    },
+    "labels": {
+      "category": "பிரிவு",
+      "status": "நிலை",
+      "progress": "முன்னேற்றம்",
+      "budget": "நிதித் திட்டம்",
+      "spent": "செலவிட்டது:",
+      "team": "அணி",
+      "members": "உறுப்பினர்கள்",
+      "output": "வெளியீடு",
+      "papers": "கட்டுரைகள்",
+      "objectives": "இலக்குகள்:",
+      "outcomes": "முக்கிய சாதனைகள்:",
+      "partners": "கூட்டாளர்கள்:",
+      "timeline": "காலவரிசை:",
+      "pi": "முன்னணி விஞ்ஞானி:"
+    },
+    "actions": {
+      "viewDetails": "விவரங்களைப் பார்க்க",
+      "showLess": "குறைவாக காண்க",
+      "projectPage": "திட்டப் பக்கம்"
+    },
+    "items": {
+      "microplasticNetwork": {
+        "title": "இந்தியப் பெருங்கடல் நுண்ணிழை கண்காணிப்பு வலை",
+        "description": "இந்தியப் பெருங்கடல் முழுவதும் நுண்ணிழை மாசுபாடு அமைப்புகளை கண்காணித்து கணிக்க விரிவான கண்காணிப்பு நிலைய வலையமைப்பை உருவாக்குகிறது.",
+        "objectives": [
+          "இந்தியப் பெருங்கடலில் 50 கண்காணிப்பு நிலையங்களை நிறுவுதல்",
+          "செயற்கை நுண்ணறிவு அடிப்படையிலான நுண்ணிழை கண்டறிதல் அமைப்பை உருவாக்குதல்",
+          "மாசுபாடு பரவலை கணிக்கும் மாதிரிகளை உருவாக்குதல்",
+          "கடல் ஆரோக்கியம் குறித்த முழுமையான அறிக்கைகளை வெளியிடுதல்"
+        ],
+        "milestones": [
+          "நிலைய அமைப்பு கட்டம் 1",
+          "AI மாதிரி மேம்பாடு",
+          "தரவு சேகரிப்பு & பகுப்பாய்வு",
+          "இறுதி அறிக்கை & வெளியீடு"
+        ],
+        "outcomes": [
+          "32 கண்காணிப்பு நிலையங்கள் அமைக்கப்பட்டன",
+          "2 ஆய்வு கட்டுரைகள் வெளியானது",
+          "45,000+ தரவுப் புள்ளிகள் சேகரிக்கப்பட்டன"
+        ]
+      },
+      "coralRestoration": {
+        "title": "இலங்கைப் பவளப் பாறை மறுசீரமைப்பு முயற்சி",
+        "description": "பவளத் தோட்டக்கலை மற்றும் சமூக ஒத்துழைப்பு வழியாக பெரிய அளவில் பவளப் பாறைகளை மீட்டெடுக்கும் திட்டம்.",
+        "objectives": [
+          "10 ஹெக்டேர் சேதமடைந்த பவளப் பாறைகளை மீட்டெடுத்தல்",
+          "100 சமூக உறுப்பினர்களுக்கு பவளத் தோட்டக்கலை பயிற்சி",
+          "5 பவள நர்சரிகளை நிறுவுதல்",
+          "நீண்டகால சூழியல் மீட்சியை கண்காணித்தல்"
+        ],
+        "milestones": [
+          "தள மதிப்பீடு",
+          "நர்சரி அமைத்தல்",
+          "பவள மாற்று நடவு",
+          "தாக்க மதிப்பீடு"
+        ],
+        "outcomes": [
+          "7.8 ஹெக்டேர் பகுதி மீட்டெடுக்கப்பட்டது",
+          "85 சமூக உறுப்பினர்கள் பயிற்சி பெற்றனர்",
+          "15,000+ பவளத் துண்டுகள் மாற்று நடவு செய்யப்பட்டது"
+        ]
+      },
+      "aiStockAssessment": {
+        "title": "செயற்கை நுண்ணறிவு இயக்கும் மீன் கையிருப்பு மதிப்பீட்டு அமைப்பு",
+        "description": "செயற்கைக்கோள் மற்றும் ஒலியியல் தரவுகளுடன் இயந்திரக் கற்றல் மாதிரிகளை இணைத்து நேரடி மீன் கையிருப்பு கண்காணிப்பை உருவாக்குகிறது.",
+        "objectives": [
+          "12 மீன்பிடி மண்டலங்களில் AI மாதிரிகளை செயல்படுத்துதல்",
+          "கையிருப்பு மதிப்பீட்டு துல்லியத்தை 40% உயர்த்துதல்",
+          "நேரடி கண்காணிப்பு தளப்புள்ளி உருவாக்குதல்",
+          "500 மீன்பிடி அதிகாரிகளுக்கு பயிற்சி வழங்குதல்"
+        ],
+        "milestones": [
+          "தரவு சேகரிப்பு & குறியிடல்",
+          "மாதிரி பயிற்சி & சரிபார்ப்பு",
+          "அமைப்பு நிறுவல்",
+          "தேசவியல் பயன்பாடு"
+        ],
+        "outcomes": [
+          "AI மாதிரி 87% துல்லியத்தை எட்டியது",
+          "3 முன்னோடி மண்டலங்களில் செயல்படுத்தப்பட்டது",
+          "120 அதிகாரிகள் பயிற்சியடைந்தனர்"
+        ]
+      },
+      "blueCarbonValuation": {
+        "title": "நீல கார்பன் சிக்கவைத்தல் மதிப்பீட்டு ஆய்வு",
+        "description": "இலங்கை மாங்க்ரோவ் மற்றும் கடற்கழனி சூழல்களின் கார்பன் சேமிப்பு மதிப்பை பொருளாதார ரீதியாக மதிப்பிடுகிறது.",
+        "objectives": [
+          "கடற்கரை நீல கார்பன் சூழல்களை வரைபடமிடுதல்",
+          "கார்பன் சிக்கவைத்தல் வீதங்களை கணக்கிடுதல்",
+          "பொருளாதார மதிப்பை கணக்கிடுதல்",
+          "கார்பன் குறைப்பு கருவூலம் வடிவமைத்தல்"
+        ],
+        "milestones": [
+          "சூழியல் வரைபடம்",
+          "தள அளவீடுகள்",
+          "பொருளாதார பகுப்பாய்வு",
+          "கொள்கை பரிந்துரைகள்"
+        ],
+        "outcomes": [
+          "$45M/வருட கார்பன் மதிப்பு அடையாளம்",
+          "12,000 ஹெக்டேர் வரைபடம்",
+          "4 ஆய்வு கட்டுரைகள் வெளியானது"
+        ]
+      },
+      "oceanAcidification": {
+        "title": "கடல் அமிலமயமாதல் கடல் உயிரினங்களுக்கு ஏற்படுத்தும் தாக்கம்",
+        "description": "கடல் அமிலமயமாதல் இலங்கை கடல் உயிரின பல்வகை மற்றும் சூழலியல் சேவைகளுக்கு ஏற்படுத்தும் நீண்டகால விளைவுகளை ஆய்வு செய்கிறது.",
+        "objectives": [
+          "8 கடல் pH கண்காணிப்பு நிலையங்களை நிறுவுதல்",
+          "கட்டுப்படுத்தப்பட்ட அமிலமயமாதல் பரிசோதனைகள் நடத்துதல்",
+          "50 முக்கிய இனங்களின் தாக்கத்தை மதிப்பிடுதல்",
+          "ஒவ்வாமைக் கையாளல் மூலோபாயங்களை உருவாக்குதல்"
+        ],
+        "milestones": [
+          "சாதனங்கள் கொள்முதல்",
+          "நிலைய நிறுவல்",
+          "தரவு சேகரிப்பு கட்டம்",
+          "இறுதி மதிப்பீடு"
+        ],
+        "outcomes": [
+          "திட்டமிடல் கட்டம் 85% நிறைவு",
+          "கூட்டாளர்கள் உறுதி செய்யப்பட்டனர்",
+          "சாதனங்கள் ஆர்டர் செய்யப்பட்டது"
+        ]
+      },
+      "fishingTechnology": {
+        "title": "நிலையான மீன்பிடி தொழில்நுட்ப புதுமை",
+        "description": "பக்கவிளை மீன்பிடியை குறைத்து, தேர்வுத்திறனை அதிகரிக்கும் புதுமையான மீன்பிடி தொழில்நுட்பங்களை உருவாக்கி சோதிக்கிறது.",
+        "objectives": [
+          "3 புதிய கருவி வகைகளை வடிவமைத்தல்",
+          "100 கப்பல்களுடன் களப் பரிசோதனைகள் நடத்துதல்",
+          "பக்கவிளை மீன்பிடியை 60% குறைத்தல்",
+          "தொழில்நுட்ப ஏற்றுக்கொள்ளும் கட்டமைப்பை உருவாக்குதல்"
+        ],
+        "milestones": [
+          "தொழில்நுட்ப வடிவமைப்பு",
+          "முன்மாதிரி சோதனை",
+          "களப் பரிசோதனைகள்",
+          "வணிகமயமாதல்"
+        ],
+        "outcomes": [
+          "2 கருவி வகைகள் களத்தில் சோதிக்கப்பட்டது",
+          "45% பக்கவிளை குறைவு",
+          "45 கப்பல்கள் பங்கேற்றன"
+        ]
+      }
+    }
+  },
+  "collaboration": {
+    "map": {
+      "title": "உலகளாவிய கூட்டாண்மை வலை",
+      "description": "கூட்டாண்மைகளைப் பார்க்க ஒரு பிராந்தியத்தைத் தேர்வு செய்யவும்",
+      "empty": "உலகளாவிய கூட்டாண்மைகளை காட்டும் இடைகால வரைபடம்",
+      "subtitle": "{{institutions}} நிறுவனங்கள் {{countries}} நாடுகளில்"
+    },
+    "stats": {
+      "items": [
+        {
+          "id": "countries",
+          "label": "நாடுகள்",
+          "value": 42,
+          "icon": "Globe",
+          "color": "from-cyan-400 to-blue-600"
+        },
+        {
+          "id": "institutions",
+          "label": "கூட்டாளர் நிறுவனங்கள்",
+          "value": 89,
+          "icon": "Building",
+          "color": "from-purple-400 to-pink-600"
+        },
+        {
+          "id": "publications",
+          "label": "கூட்டு வெளியீடுகள்",
+          "value": 456,
+          "icon": "FileText",
+          "color": "from-green-400 to-emerald-600"
+        },
+        {
+          "id": "researchers",
+          "label": "இணைந்து இயங்கும் ஆராய்ச்சியாளர்கள்",
+          "value": 723,
+          "icon": "Users",
+          "color": "from-amber-400 to-orange-600"
+        }
+      ]
+    },
+    "region": {
+      "metrics": {
+        "countries": "நாடுகள்",
+        "institutions": "நிறுவனங்கள்",
+        "publications": "வெளியீடுகள்",
+        "researchers": "ஆராய்ச்சியாளர்கள்"
+      },
+      "labels": {
+        "highlights": "முக்கிய அம்சங்கள்:",
+        "topCountries": "முக்கிய நாடுகள்:"
+      }
+    },
+    "regions": {
+      "items": [
+        {
+          "id": "asia-pacific",
+          "name": "ஆசிய-பசிபிக்",
+          "countries": 18,
+          "institutions": 34,
+          "publications": 234,
+          "researchers": 312,
+          "color": "cyan",
+          "highlights": [
+            "முன்னணி கூட்டாண்மை மையம்",
+            "அதிக கூட்டு வெளியீடுகள்"
+          ],
+          "topCountries": [
+            "ஜப்பான்",
+            "ஆஸ்திரேலியா",
+            "சிங்கப்பூர்",
+            "இந்தியா",
+            "சீனா"
+          ]
+        },
+        {
+          "id": "europe",
+          "name": "ஐரோப்பா",
+          "countries": 12,
+          "institutions": 28,
+          "publications": 156,
+          "researchers": 245,
+          "color": "blue",
+          "highlights": [
+            "வலுவான ஆய்வு வலையமைப்புகள்",
+            "ஐரோப்பிய ஒன்றியம் நிதியளித்த திட்டங்கள்"
+          ],
+          "topCountries": [
+            "ஐக்கிய இராச்சியம்",
+            "ஜெர்மனி",
+            "நெதர்லாந்து",
+            "பிரான்ஸ்",
+            "நார்வே"
+          ]
+        },
+        {
+          "id": "north-america",
+          "name": "வட அமெரிக்கா",
+          "countries": 3,
+          "institutions": 18,
+          "publications": 98,
+          "researchers": 134,
+          "color": "purple",
+          "highlights": [
+            "அதிக தாக்கம் உள்ள கூட்டாண்மைகள்",
+            "மேம்பட்ட தொழில்நுட்பம்"
+          ],
+          "topCountries": [
+            "அமெரிக்கா",
+            "கனடா",
+            "மெக்ஸிக்கோ"
+          ]
+        },
+        {
+          "id": "africa",
+          "name": "ஆப்பிரிக்கா",
+          "countries": 5,
+          "institutions": 6,
+          "publications": 34,
+          "researchers": 45,
+          "color": "green",
+          "highlights": [
+            "வளரும் கூட்டுறவுகள்",
+            "திறன் வளர்ப்பு"
+          ],
+          "topCountries": [
+            "தென் ஆப்பிரிக்கா",
+            "கென்யா",
+            "தான்சானியா",
+            "மொரீஷியஸ்"
+          ]
+        },
+        {
+          "id": "latin-america",
+          "name": "லத்தீன் அமெரிக்கா",
+          "countries": 4,
+          "institutions": 3,
+          "publications": 21,
+          "researchers": 28,
+          "color": "amber",
+          "highlights": [
+            "முளைக்கும் கூட்டாண்மைகள்",
+            "கடல் உயிரினப் பல்வகை"
+          ],
+          "topCountries": [
+            "பிரேசில்",
+            "சிலி",
+            "பெரு",
+            "அர்ஜென்டினா"
+          ]
+        }
+      ]
+    },
+    "partners": {
+      "heading": "கூட்டாளர் நிறுவனங்கள்",
+      "cta": "கூட்டாளராக இணையுங்கள்",
+      "metrics": {
+        "publications": "வெளியீடுகள்",
+        "projects": "திட்டங்கள்",
+        "mou": "ஒப்பந்தம்",
+        "since": "{{year}} முதல்"
+      },
+      "labels": {
+        "focusAreas": "கவனப்பகுதிகள்:",
+        "achievements": "முக்கிய சாதனைகள்:",
+        "contact": "தொடர்பு:"
+      },
+      "actions": {
+        "viewDetails": "விவரங்களைப் பார்க்க",
+        "hideDetails": "விவரங்களை மறைக்க"
+      },
+      "items": [
+        {
+          "id": 1,
+          "name": "தேசிய சமுத்திர மற்றும் விமானவியல் நிர்வாகம் (NOAA)",
+          "country": "அமெரிக்கா",
+          "type": "அரசு நிறுவனம்",
+          "region": "வட அமெரிக்கா",
+          "joinedYear": 2015,
+          "status": "active",
+          "collaborationType": [
+            "ஆராய்ச்சி",
+            "தரவு பகிர்வு",
+            "பயிற்சி"
+          ],
+          "jointPublications": 42,
+          "activeProjects": 5,
+          "mou": true,
+          "contact": {
+            "name": "Dr. Sarah Johnson",
+            "email": "sarah.johnson@noaa.gov",
+            "phone": "+1 301 555 0123"
+          },
+          "focusAreas": [
+            "காலநிலை மாற்றம்",
+            "கடலியற்பியல்",
+            "கடல் சூழலியல்"
+          ],
+          "achievements": [
+            "கூட்டு கடல் கண்காணிப்பு வலையமைப்பு",
+            "15 இணை எழுத்தாளர் ஆய்வு கட்டுரைகள்",
+            "தொழில்நுட்ப மாற்றுத் திட்டம்"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "CSIRO Oceans and Atmosphere",
+          "country": "ஆஸ்திரேலியா",
+          "type": "ஆராய்ச்சி நிறுவனம்",
+          "region": "ஆசிய-பசிபிக்",
+          "joinedYear": 2017,
+          "status": "active",
+          "collaborationType": [
+            "ஆராய்ச்சி",
+            "மாணவர் பரிமாற்றம்",
+            "சாதன பகிர்வு"
+          ],
+          "jointPublications": 38,
+          "activeProjects": 4,
+          "mou": true,
+          "contact": {
+            "name": "Prof. Michael Chen",
+            "email": "m.chen@csiro.au",
+            "phone": "+61 3 9545 8000"
+          },
+          "focusAreas": [
+            "கடல் உயிரியல்",
+            "காலநிலை அறிவியல்",
+            "மீன்பிடி"
+          ],
+          "achievements": [
+            "கூட்டு ஆய்வு கப்பல்கள் திட்டம்",
+            "12 முனைவர் பட்ட மாணவர் பரிமாற்றங்கள்",
+            "ஏகாதிபத்திய ஆய்வக வசதிகள்"
+          ]
+        },
+        {
+          "id": 3,
+          "name": "டோக்கியோ பல்கலைக்கழகம் - கடல் ஆராய்ச்சி நிறுவகம்",
+          "country": "ஜப்பான்",
+          "type": "பல்கலைக்கழகம்",
+          "region": "ஆசிய-பசிபிக்",
+          "joinedYear": 2016,
+          "status": "active",
+          "collaborationType": [
+            "ஆராய்ச்சி",
+            "மாணவர் பரிமாற்றம்",
+            "மாநாடுகள்"
+          ],
+          "jointPublications": 34,
+          "activeProjects": 3,
+          "mou": true,
+          "contact": {
+            "name": "Prof. Hiroshi Tanaka",
+            "email": "h.tanaka@ori.u-tokyo.ac.jp",
+            "phone": "+81 3 5841 6500"
+          },
+          "focusAreas": [
+            "கடலியற்பியல்",
+            "கடல் தொழில்நுட்பம்",
+            "உயிரினப் பல்வகை"
+          ],
+          "achievements": [
+            "ஆண்டுதோறும் கூட்டு கருத்தரங்கம்",
+            "8 கூட்டு ஆராய்ச்சி கடற்பயணங்கள்",
+            "தொழில்நுட்ப புதுமை விருதுகள்"
+          ]
+        },
+        {
+          "id": 4,
+          "name": "GEOMAR ஹெல்ம்‌ஹோல்ட்ஸ் மையம்",
+          "country": "ஜெர்மனி",
+          "type": "ஆராய்ச்சி நிறுவகம்",
+          "region": "ஐரோப்பா",
+          "joinedYear": 2018,
+          "status": "active",
+          "collaborationType": [
+            "ஆராய்ச்சி",
+            "தரவு பகிர்வு",
+            "பயிற்சி"
+          ],
+          "jointPublications": 28,
+          "activeProjects": 3,
+          "mou": true,
+          "contact": {
+            "name": "Dr. Klaus Schmidt",
+            "email": "k.schmidt@geomar.de",
+            "phone": "+49 431 600 0"
+          },
+          "focusAreas": [
+            "கடல் புவியியல்",
+            "கடல் இயக்கவியல்",
+            "காலநிலை"
+          ],
+          "achievements": [
+            "ஆழ்கடல் ஆராய்ச்சி கூட்டாண்மை",
+            "சாதன பகிர்வு ஒப்பந்தம்",
+            "கூட்டு முனைவர் பட்ட திட்டம்"
+          ]
+        },
+        {
+          "id": 5,
+          "name": "ஸ்கிரிப்ஸ் கடல் அறிவியல் நிறுவனம்",
+          "country": "அமெரிக்கா",
+          "type": "ஆராய்ச்சி நிறுவகம்",
+          "region": "வட அமெரிக்கா",
+          "joinedYear": 2014,
+          "status": "active",
+          "collaborationType": [
+            "ஆராய்ச்சி",
+            "மாணவர் பரிமாற்றம்",
+            "தரவு பகிர்வு"
+          ],
+          "jointPublications": 31,
+          "activeProjects": 4,
+          "mou": true,
+          "contact": {
+            "name": "Dr. Maria Rodriguez",
+            "email": "m.rodriguez@ucsd.edu",
+            "phone": "+1 858 534 3624"
+          },
+          "focusAreas": [
+            "கடல் அறிவியல்",
+            "காலநிலை ஆராய்ச்சி",
+            "கடல் உயிரியல்"
+          ],
+          "achievements": [
+            "பத்து ஆண்டுகளாக நீடிக்கும் கூட்டாண்மை",
+            "20+ கூட்டு கடற்பயணங்கள்",
+            "பெரும் மானிய ஒத்துழைப்புகள்"
+          ]
+        },
+        {
+          "id": 6,
+          "name": "சிங்கப்பூர் தேசிய பல்கலைக்கழகம்",
+          "country": "சிங்கப்பூர்",
+          "type": "பல்கலைக்கழகம்",
+          "region": "ஆசிய-பசிபிக்",
+          "joinedYear": 2019,
+          "status": "active",
+          "collaborationType": [
+            "ஆராய்ச்சி",
+            "மாணவர் பரிமாற்றம்",
+            "கூட்டு திட்டங்கள்"
+          ],
+          "jointPublications": 24,
+          "activeProjects": 2,
+          "mou": true,
+          "contact": {
+            "name": "Prof. Wei Lin",
+            "email": "wei.lin@nus.edu.sg",
+            "phone": "+65 6516 6666"
+          },
+          "focusAreas": [
+            "கடல் உயிரி தொழில்நுட்பம்",
+            "மீன் வளர்ப்பு",
+            "பாதுகாப்பு"
+          ],
+          "achievements": [
+            "கூட்டு முதுநிலைப் பட்ட திட்டம்",
+            "புதுமை ஆய்வகம் நிறுவப்பட்டது",
+            "தொடக்க நிறுவன துாண்டுதல்"
+          ]
+        }
+      ]
+    },
+    "partner": {
+      "metrics": {
+        "publications": "வெளியீடுகள்",
+        "projects": "திட்டங்கள்",
+        "mou": "ஒப்பந்தம்",
+        "since": "{{year}} முதல்"
+      },
+      "labels": {
+        "focusAreas": "கவனப்பகுதிகள்:",
+        "achievements": "முக்கிய சாதனைகள்:",
+        "contact": "தொடர்பு:"
+      },
+      "actions": {
+        "viewDetails": "விவரங்களைப் பார்க்க",
+        "hideDetails": "விவரங்களை மறைக்க"
+      }
+    },
+    "opportunities": {
+      "heading": "கூட்டாண்மை வாய்ப்புகள்",
+      "labels": {
+        "value": "மதிப்பு:",
+        "duration": "காலம்:",
+        "deadline": "காலக்கெடு:"
+      },
+      "apply": "உடனே விண்ணப்பிக்க",
+      "items": [
+        {
+          "id": 1,
+          "title": "ஆசியான் கடல் அறிவியல் வலை - ஆய்வு உதவித்தொகை",
+          "type": "உதவித்தொகை",
+          "deadline": "2025-03-15",
+          "region": "ஆசிய-பசிபிக்",
+          "value": "$50,000",
+          "duration": "12 மாதங்கள்",
+          "description": "ஆசியான் நாடுகளுக்கிடையே கடல் அறிவியல் கூட்டு ஆய்வு திட்டங்களுக்கு உதவித்தொகை"
+        },
+        {
+          "id": 2,
+          "title": "ஐரோப்பிய ஹொரைசன் - நீல பொருளாதார புதுமை அழைப்பு",
+          "type": "நிதியுதவி",
+          "deadline": "2025-04-30",
+          "region": "ஐரோப்பா",
+          "value": "€2.5M",
+          "duration": "36 மாதங்கள்",
+          "description": "நிலையான நீல பொருளாதாரத்தை மையப்படுத்திய மிகப்பெரிய கூட்டு திட்டங்கள்"
+        },
+        {
+          "id": 3,
+          "title": "இந்தியப் பெருங்கடல் ஆராய்ச்சி பரிமாற்றத் திட்டம்",
+          "type": "பரிமாற்றம்",
+          "deadline": "2025-02-28",
+          "region": "ஆசிய-பசிபிக்",
+          "value": "$25,000",
+          "duration": "6 மாதங்கள்",
+          "description": "இந்தியப் பெருங்கடலோர நாடுகளுக்கான ஆராய்ச்சியாளர் பரிமாற்றத் திட்டம்"
+        }
+      ]
+    }
+  },
+  "impactAnalytics": {
+    "heading": "தாக்க பகுப்பாய்வு",
+    "range": {
+      "month": "மாதம்",
+      "quarter": "காலாண்டு",
+      "year": "ஆண்டு",
+      "all": "அனைத்தும்"
+    },
+    "citationGrowth": {
+      "heading": "மேற்கோள் வளர்ச்சி",
+      "subheading": "5 ஆண்டுப் போக்கு பகுப்பாய்வு"
+    },
+    "stats": {
+      "suffix": "இவ்வாண்டில்",
+      "partnerInstitutions": "கூட்டாளர் நிறுவனங்கள்",
+      "countries": "நாடுகள்",
+      "jointPublications": "கூட்டு வெளியீடுகள்",
+      "internationalCoauthors": "சர்வதேச இணை எழுத்தாளர்கள்"
+    },
+    "publicationTypes": {
+      "heading": "வகை வாரியான வெளியீடுகள்",
+      "total": "மொத்தம்: 1,247 வெளியீடுகள்",
+      "journalArticles": "இதழ் கட்டுரைகள்",
+      "conferencePapers": "மாநாட்டு கட்டுரைகள்",
+      "technicalReports": "தொழில்நுட்ப அறிக்கைகள்",
+      "bookChapters": "நூல் அதிகாரங்கள்",
+      "datasets": "தரவு தொகுப்புகள்"
+    },
+    "impactByArea": {
+      "heading": "ஆய்வு துறைகளின் தாக்கம்",
+      "subheading": "வெளியீடுகள், மேற்கோள்கள், H-சுட்டெண்",
+      "labels": {
+        "marineBiology": "கடல் உயிரியல்",
+        "climateChange": "காலநிலை மாற்றம்",
+        "fisheries": "மீன்பிடி",
+        "oceanography": "கடலியற்பியல்",
+        "conservation": "பாதுகாப்பு",
+        "policy": "கொள்கை"
+      },
+      "metrics": {
+        "publications": "வெளியீடுகள்",
+        "citations": "மேற்கோள்கள்",
+        "hIndex": "H-சுட்டெண்"
+      }
+    },
+    "topPublications": {
+      "heading": "அதிக மேற்கோள் பெற்ற வெளியீடுகள்",
+      "subheading": "மேற்கோள் எண்ணிக்கையின் முதல் 5",
+      "citations": "{{count}} மேற்கோள்கள்",
+      "growth": "+{{value}}% வளர்ச்சி"
+    },
+    "geographic": {
+      "heading": "உலகளாவிய பரவல்",
+      "subheading": "பிராந்திய வாரியான மேற்கோள்கள்",
+      "regions": {
+        "asiaPacific": "ஆசிய-பசிபிக்",
+        "europe": "ஐரோப்பா",
+        "northAmerica": "வட அமெரிக்கா",
+        "restOfWorld": "மற்ற பகுதிகள்"
+      },
+      "institutions": "{{count}} நிறுவனங்கள்"
+    },
+    "downloads": {
+      "sectionHeading": "வெளியீடு பதிவிறக்கங்கள்",
+      "sectionSubheading": "2024 மாதாந்திர போக்கு",
+      "months": {
+        "jan": "ஜன",
+        "feb": "பிப்",
+        "mar": "மார்",
+        "apr": "ஏப்",
+        "may": "மே",
+        "jun": "ஜூன்",
+        "jul": "ஜூலை",
+        "aug": "ஆக",
+        "sep": "செப்",
+        "oct": "அக்",
+        "nov": "நவ",
+        "dec": "டிச"
+      }
+    }
+  },
+  "governmentSections": {
+    "policy": {
+      "heading": "Policy Briefs & Evidence Access",
+      "subheading": "Direct pathways to validated evidence products for ministries, departments, and public authorities.",
+      "cards": [
+        {
+          "id": "policy-briefs",
+          "title": "Policy Briefs & Scientific Evidence",
+          "description": "Access curated policy briefs, technical guidance notes, and decision-ready scientific summaries for ministries and government agencies.",
+          "icon": "FileText",
+          "route": "/scientific-evidence-repository",
+          "cta": "Open Evidence Repository"
+        },
+        {
+          "id": "open-datasets",
+          "title": "Open Marine Datasets",
+          "description": "Explore validated marine datasets for planning, forecasting, compliance monitoring, and inter-agency analytics.",
+          "icon": "Database",
+          "route": "/open-data-portal",
+          "cta": "Open Data Portal"
+        },
+        {
+          "id": "public-consultation",
+          "title": "Public Consultation Intelligence",
+          "description": "Track stakeholder submissions and sentiment signals to strengthen policy design and implementation strategies.",
+          "icon": "MessageSquare",
+          "route": "/public-consultation-portal",
+          "cta": "View Consultation Insights"
+        }
+      ]
+    },
+    "programs": {
+      "heading": "National Priority Research Programs",
+      "subheading": "Government-aligned initiatives advancing fisheries resilience, coastal safety, biodiversity, and ocean intelligence.",
+      "items": [
+        {
+          "id": "fisheries-resilience",
+          "title": "Climate-Resilient Fisheries Management",
+          "leadAgency": "NARA + Department of Fisheries",
+          "status": "Active",
+          "timeline": "2025-2028",
+          "description": "Integrated assessments and predictive advisories to improve fish stock resilience and livelihoods under climate stress.",
+          "route": "/divisions/fishing-technology-division"
+        },
+        {
+          "id": "coastal-water-quality",
+          "title": "National Coastal Water Quality Assurance Program",
+          "leadAgency": "NARA + Coast Conservation",
+          "status": "Operational",
+          "timeline": "Ongoing",
+          "description": "Continuous monitoring of priority coastal zones to support environmental compliance, public health, and marine tourism governance.",
+          "route": "/divisions/environmental-studies-division"
+        },
+        {
+          "id": "marine-biodiversity",
+          "title": "Marine Biodiversity Safeguard Initiative",
+          "leadAgency": "NARA + Wildlife & Environment",
+          "status": "Scaling",
+          "timeline": "2024-2027",
+          "description": "Conservation intelligence and habitat restoration design for reefs, mangroves, and sensitive marine ecosystems.",
+          "route": "/divisions/marine-biological-division"
+        },
+        {
+          "id": "ocean-observations",
+          "title": "Ocean Observations for National Planning",
+          "leadAgency": "NARA + Hydrographic & Disaster Management",
+          "status": "Active",
+          "timeline": "2025-2029",
+          "description": "Operational oceanographic data and forecasting pipelines for navigation safety, preparedness, and blue-economy investments.",
+          "route": "/divisions/oceanography-marine-sciences-division"
+        }
+      ]
+    },
+    "outcomes": {
+      "heading": "Decision Support Outcomes",
+      "subheading": "Performance indicators for evidence use, inter-agency operations, and policy execution.",
+      "items": [
+        {
+          "id": "policy-supports",
+          "label": "Policy Support Notes Issued",
+          "value": "124",
+          "trend": "+18% YoY",
+          "description": "Briefs and technical advisories delivered to government institutions.",
+          "icon": "FileCheck"
+        },
+        {
+          "id": "regulatory-actions",
+          "label": "Evidence-Informed Regulatory Actions",
+          "value": "39",
+          "trend": "+11% YoY",
+          "description": "Regulatory or operational decisions supported by NARA outputs.",
+          "icon": "ShieldCheck"
+        },
+        {
+          "id": "agency-collaborations",
+          "label": "Inter-Agency Research Collaborations",
+          "value": "52",
+          "trend": "+9% YoY",
+          "description": "Joint programs with ministries, provincial units, and research partners.",
+          "icon": "Building2"
+        },
+        {
+          "id": "open-data-usage",
+          "label": "Open Data Reuse Cases",
+          "value": "318",
+          "trend": "+27% YoY",
+          "description": "Confirmed use-cases of NARA datasets in planning and analytics.",
+          "icon": "BarChart3"
+        }
+      ]
+    }
+  },
+  "ui": {
+    "sourceLive": "நேரடி தரவு",
+    "sourceFallback": "தேர்ந்தெடுக்கப்பட்ட தரவுத்தொகுப்பு"
+  }
+}

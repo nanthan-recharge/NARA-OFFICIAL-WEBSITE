@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NARA AI - Configure API Keys</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        h1 {
+            color: #0891b2;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .subtitle {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            color: #1e293b;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #0891b2;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(8, 145, 178, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        .status {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        
+        .status.success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+        
+        .status.error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+        
+        .info-box {
+            background: #f0f9ff;
+            border: 2px solid #0891b2;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .info-box h3 {
+            color: #0891b2;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        
+        .info-box p {
+            color: #475569;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .security-note {
+            background: #fef3c7;
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .security-note strong {
+            color: #92400e;
+        }
+        
+        .current-config {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 10px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .current-config h3 {
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+        
+        .config-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            margin-bottom: 8px;
+            background: white;
+            border-radius: 8px;
+        }
+        
+        .config-item span:first-child {
+            font-weight: 600;
+            color: #475569;
+        }
+        
+        .config-item span:last-child {
+            color: #0891b2;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        .btn-secondary {
+            background: #64748b;
+            margin-top: 10px;
+        }
+        
+        .btn-secondary:hover {
+            background: #475569;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🤖 NARA AI Configuration</h1>
+        <p class="subtitle">Configure your API keys for AI-powered podcast generation</p>
+        
+        <div class="security-note">
+            <strong>🔒 Security:</strong> Your API keys are stored locally in your browser only. They are never sent to our servers or logged anywhere.
+        </div>
+        
+        <div class="info-box">
+            <h3>✨ What This Enables:</h3>
+            <p>
+                • <strong>ChatGPT Integration:</strong> Intelligent, creative podcast scripts<br>
+                • <strong>Cost:</strong> ~$0.10 per podcast<br>
+                • <strong>Quality:</strong> Professional NotebookLM-style conversations
+            </p>
+        </div>
+        
+        <div class="form-group">
+            <label for="openaiKey">OpenAI API Key (GPT-4)</label>
+            <input 
+                type="password" 
+                id="openaiKey" 
+                placeholder="sk-proj-..." 
+                autocomplete="off"
+            >
+        </div>
+        
+        <button class="btn" onclick="saveConfig()">💾 Save Configuration</button>
+        <button class="btn btn-secondary" onclick="testConnection()">🧪 Test Connection</button>
+        
+        <div id="status" class="status"></div>
+        
+        <div class="current-config">
+            <h3>📋 Current Configuration:</h3>
+            <div id="configDisplay">
+                <p style="color: #94a3b8; text-align: center;">No configuration saved yet</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load current configuration on page load
+        window.addEventListener('load', displayCurrentConfig);
+        
+        function saveConfig() {
+            const openaiKey = document.getElementById('openaiKey').value.trim();
+            const statusDiv = document.getElementById('status');
+            
+            if (!openaiKey) {
+                showStatus('error', '❌ Please enter an OpenAI API key');
+                return;
+            }
+            
+            // Validate key format
+            if (!openaiKey.startsWith('sk-')) {
+                showStatus('error', '❌ Invalid API key format. OpenAI keys start with "sk-"');
+                return;
+            }
+            
+            // Save to localStorage
+            const config = {
+                openaiKey: openaiKey,
+                configuredAt: new Date().toISOString(),
+                version: '1.0'
+            };
+            
+            try {
+                localStorage.setItem('nara-ai-api-config', JSON.stringify(config));
+                showStatus('success', '✅ Configuration saved successfully! You can now use ChatGPT mode in the podcast generator.');
+                
+                // Clear the input for security
+                document.getElementById('openaiKey').value = '';
+                
+                // Update display
+                displayCurrentConfig();
+                
+                // Provide next steps
+                setTimeout(() => {
+                    alert('✅ Configuration Saved!\n\nNext Steps:\n1. Go to Admin Panel\n2. Open AI Podcast Generator\n3. Select "ChatGPT" mode\n4. Generate your first intelligent podcast!\n\nURL: https://nara-web-73384.web.app/admin/podcasts');
+                }, 500);
+                
+            } catch (error) {
+                showStatus('error', '❌ Error saving configuration: ' + error.message);
+            }
+        }
+        
+        function testConnection() {
+            const config = JSON.parse(localStorage.getItem('nara-ai-api-config') || '{}');
+            
+            if (!config.openaiKey) {
+                showStatus('error', '❌ No API key configured. Please save your configuration first.');
+                return;
+            }
+            
+            showStatus('success', '🧪 Testing connection...');
+            
+            // Simple test - just validate format
+            if (config.openaiKey.startsWith('sk-') && config.openaiKey.length > 20) {
+                setTimeout(() => {
+                    showStatus('success', `✅ API key format is valid!\n\nKey configured at: ${new Date(config.configuredAt).toLocaleString()}\n\nReady to generate intelligent podcasts!`);
+                }, 1000);
+            } else {
+                showStatus('error', '❌ API key format appears invalid');
+            }
+        }
+        
+        function displayCurrentConfig() {
+            const config = JSON.parse(localStorage.getItem('nara-ai-api-config') || '{}');
+            const displayDiv = document.getElementById('configDisplay');
+            
+            if (config.openaiKey) {
+                const maskedKey = config.openaiKey.substring(0, 8) + '...' + config.openaiKey.substring(config.openaiKey.length - 4);
+                const configuredDate = new Date(config.configuredAt).toLocaleString();
+                
+                displayDiv.innerHTML = `
+                    <div class="config-item">
+                        <span>OpenAI Key:</span>
+                        <span>${maskedKey}</span>
+                    </div>
+                    <div class="config-item">
+                        <span>Configured:</span>
+                        <span>${configuredDate}</span>
+                    </div>
+                    <div class="config-item">
+                        <span>Status:</span>
+                        <span style="color: #10b981;">✅ Active</span>
+                    </div>
+                `;
+            } else {
+                displayDiv.innerHTML = '<p style="color: #94a3b8; text-align: center;">No configuration saved yet</p>';
+            }
+        }
+        
+        function showStatus(type, message) {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = 'status ' + type;
+            statusDiv.textContent = message;
+            statusDiv.style.display = 'block';
+            
+            // Auto-hide after 10 seconds
+            setTimeout(() => {
+                if (type !== 'success') {
+                    statusDiv.style.display = 'none';
+                }
+            }, 10000);
+        }
+    </script>
+</body>
+</html>

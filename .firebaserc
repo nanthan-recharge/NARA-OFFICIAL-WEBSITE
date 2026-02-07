@@ -1,0 +1,16 @@
+{
+    "projects": {
+        "default": "nara-web-73384"
+    },
+    "targets": {
+        "nara-web-73384": {
+            "hosting": {
+                "production": [
+                    "nara-web-73384"
+                ]
+            }
+        }
+    },
+    "etags": {},
+    "dataconnectEmulatorConfig": {}
+}

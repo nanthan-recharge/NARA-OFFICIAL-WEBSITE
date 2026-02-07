@@ -1,0 +1,261 @@
+{
+  "hero": {
+    "badge": "Mission-critical integrations",
+    "title": "Integration Systems Platform",
+    "subtitle": "Coordinate sovereign data exchanges, partner APIs, and satellite ingestion pipelines from a single command layer.",
+    "description": "The platform continuously supervises every connected system, ensuring NARA’s operational teams, research partners, and policy desks receive reliable intelligence with governance built in.",
+    "badges": [
+      { "id": "sovereign", "label": "Sovereign data exchange" },
+      { "id": "resilience", "label": "24/7 observability" }
+    ],
+    "ctas": [
+      { "id": "playbook", "label": "Open integration playbook", "href": "#modules", "variant": "primary" },
+      { "id": "contact", "label": "Connect with integration desk", "href": "/contact-us", "variant": "secondary" }
+    ],
+    "metrics": {
+      "totalIntegrations": "Connected systems",
+      "activeConnections": "Active pipelines",
+      "avgHealthScore": "Avg. health score",
+      "uptimeEstimate": "Uptime (est.)",
+      "alertsCount": "Active alerts",
+      "refresh": "Refresh status",
+      "lastUpdated": "Updated at {{time}}"
+    },
+    "alerts": {
+      "badge": "Realtime observability",
+      "title": "Live platform alerts",
+      "empty": "All integration pipelines are operating within tolerance thresholds.",
+      "statusLabel": "{{status}} channel"
+    },
+    "statusBreakdown": {
+      "title": "Status breakdown",
+      "active": "Active",
+      "maintenance": "Maintenance",
+      "error": "Alerting",
+      "inactive": "Inactive"
+    },
+    "ctaDefault": "Discover more",
+    "cmsFallback": {
+      "title": "Integration Systems Platform",
+      "subtitle": "Centralized hub for managing external system connections through specialized integration modules",
+      "description": "Monitor, orchestrate, and optimise every interface that keeps Sri Lanka’s marine intelligence operating at scale.",
+      "badges": [
+        { "id": "governance", "label": "Governed data pipelines" }
+      ],
+      "ctas": [
+        { "id": "contact", "label": "Schedule an integration audit", "href": "/contact-us", "variant": "primary" }
+      ]
+    }
+  },
+  "tabs": {
+    "ariaLabel": "Integration module navigation",
+    "government": {
+      "label": "Government databases",
+      "description": "API connectors for inter-governmental data sharing"
+    },
+    "research": {
+      "label": "Research networks",
+      "description": "Global institution partnerships and knowledge exchange"
+    },
+    "satellite": {
+      "label": "Satellite data",
+      "description": "Automated satellite feeds and processing pipelines"
+    },
+    "api": {
+      "label": "API management",
+      "description": "External API gateway, analytics, and lifecycle control"
+    }
+  },
+  "monitor": {
+    "heading": "System health monitor",
+    "empty": "No integration telemetry is available yet. Connect a source to begin monitoring.",
+    "healthLabel": "{{value}}%",
+    "error": "We could not refresh integration telemetry. Showing the most recent cached values."
+  },
+  "guidelines": {
+    "security": {
+      "title": "Security best practices",
+      "items": [
+        "All API connections enforce HTTPS/TLS and signed requests.",
+        "Role-based access guards sensitive data streams and credentials.",
+        "Compliance monitors validate sharing agreements in real time.",
+        "Quarterly audits and penetration testing harden the platform."
+      ]
+    },
+    "collaboration": {
+      "title": "Collaboration accelerators",
+      "items": [
+        "Live data synchronisation across government and research teams.",
+        "Workflow triggers automate partner notifications and tasks.",
+        "Version-controlled document store keeps shared artefacts aligned.",
+        "Tri-language interface keeps regional stakeholders in sync."
+      ]
+    }
+  },
+  "common": {
+    "statuses": {
+      "active": "Active",
+      "inactive": "Inactive",
+      "maintenance": "Maintenance",
+      "error": "Error",
+      "pending": "Pending",
+      "processing": "Processing",
+      "queued": "Queued",
+      "completed": "Completed",
+      "default": "Status"
+    },
+    "securityLevels": {
+      "public": "Public",
+      "internal": "Internal",
+      "confidential": "Confidential",
+      "classified": "Classified",
+      "default": "Secure"
+    },
+    "fields": {
+      "name": "Name",
+      "description": "Description",
+      "apiUrl": "API URL",
+      "dataFormat": "Data format",
+      "securityLevel": "Security level"
+    },
+    "dataFormats": {
+      "json": "JSON",
+      "xml": "XML",
+      "csv": "CSV",
+      "binary": "Binary"
+    },
+    "actions": {
+      "cancel": "Cancel",
+      "add": "Add"
+    },
+    "labels": {
+      "syncShort": "Sync every {{value}}h"
+    }
+  },
+  "government": {
+    "title": "Government database connections",
+    "subtitle": "Manage national registries and inter-agency feeds with auditable sync windows.",
+    "actions": {
+      "add": "Add connection",
+      "edit": "Edit connection",
+      "delete": "Remove connection",
+      "deactivate": "Deactivate",
+      "activate": "Activate",
+      "configure": "Advanced settings"
+    },
+    "stats": {
+      "total": "Total connections",
+      "active": "Active",
+      "pending": "Pending",
+      "formats": "Data formats"
+    },
+    "labels": {
+      "url": "URL:",
+      "lastSync": "Last sync:"
+    },
+    "empty": {
+      "title": "No database connections",
+      "description": "Start by registering your first ministry or agency endpoint.",
+      "cta": "Add your first connection"
+    },
+    "modal": {
+      "createTitle": "Add new connection",
+      "editTitle": "Edit connection",
+      "fields": {
+        "syncFrequency": "Sync frequency (hours)"
+      },
+      "placeholders": {
+        "name": "EPA Environmental Data Gateway",
+        "description": "Real-time environmental monitoring data from EPA",
+        "apiUrl": "https://api.epa.gov/environmental-data"
+      },
+      "actions": {
+        "create": "Create connection",
+        "update": "Update connection"
+      }
+    }
+  },
+  "research": {
+    "title": "International research networks",
+    "subtitle": "Curate strategic research institutions, agreements, and shared programmes.",
+    "actions": {
+      "add": "Add institution",
+      "edit": "Edit institution",
+      "delete": "Remove institution",
+      "approve": "Approve",
+      "suspend": "Suspend"
+    },
+    "statuses": {
+      "active": "Active partnership",
+      "pending": "Pending",
+      "inactive": "Inactive"
+    },
+    "stats": {
+      "total": "Total institutions",
+      "active": "Active partnerships",
+      "pending": "Pending",
+      "countries": "Countries"
+    },
+    "researchAreas": {
+      "title": "Research areas coverage"
+    },
+    "cards": {
+      "researchAreas": "Research areas",
+      "moreAreas": "+{{count}} more"
+    },
+    "links": {
+      "visit": "Visit website"
+    },
+    "labels": {
+      "partnershipSince": "Partnership since",
+      "agreements": "{{count}} agreement(s)"
+    },
+    "empty": {
+      "title": "No research institutions",
+      "description": "Start building your international research network.",
+      "cta": "Add your first institution"
+    },
+    "modal": {
+      "createTitle": "Add research institution",
+      "editTitle": "Edit institution",
+      "fields": {
+        "name": "Institution name",
+        "country": "Country",
+        "website": "Website URL",
+        "email": "Contact email",
+        "status": "Partnership status",
+        "areas": "Research areas"
+      },
+      "placeholders": {
+        "name": "Marine Research Institute",
+        "country": "Iceland",
+        "website": "https://www.mri.is",
+        "email": "contact@mri.is",
+        "area": "Marine biology"
+      },
+      "actions": {
+        "create": "Save institution",
+        "update": "Update institution"
+      }
+    }
+  },
+  "satellite": {
+    "title": "Satellite data processing",
+    "subtitle": "Real-time satellite feeds, automated ingestion, and AI analysis.",
+    "actions": {
+      "newJob": "New processing job",
+      "addSource": "Register source",
+      "start": "Start",
+      "pause": "Pause"
+    }
+  },
+  "api": {
+    "title": "API management gateway",
+    "subtitle": "Monitor partner access, reliability, and usage analytics.",
+    "actions": {
+      "addEndpoint": "Add endpoint",
+      "toggleOn": "Enable",
+      "toggleOff": "Disable"
+    }
+  }
+}

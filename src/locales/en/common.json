@@ -1,0 +1,203 @@
+{
+  "language": {
+    "english": "English",
+    "tamil": "Tamil",
+    "sinhala": "Sinhala"
+  },
+  "navbar": {
+    "languageLabel": "Language",
+    "back": "Back",
+    "register": "Register",
+    "profile": "Profile",
+    "brand": {
+      "title": "NARA",
+      "subtitle": "Ocean Research"
+    },
+    "gov": {
+      "home": "Home",
+      "about": "About",
+      "division": "Division",
+      "research": "Research",
+      "services": "Services",
+      "library": "Library",
+      "vacancies": "Vacancies",
+      "procurement": "Procurement",
+      "scientistSession": "Scientist Session",
+      "contact": "Contact Us",
+      "naraMail": "NARA Mail"
+    },
+    "mainNavigation": "Main navigation",
+    "mobileNavigation": "Mobile navigation",
+    "goToHome": "Go to home page",
+    "govLogo": "Government of Sri Lanka Emblem",
+    "naraLogo": "NARA Logo",
+    "selectLanguage": "Select Language",
+    "languages": "Available languages",
+    "researchDivisions": "Research Divisions",
+    "viewAll": "View All",
+    "divisionsMenu": "Divisions menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "themes": {
+      "ocean": "Ocean",
+      "cosmic": "Cosmic"
+    },
+    "menu": {
+      "research": {
+        "title": "Research",
+        "links": {
+          "researchExcellencePortal": "Research Excellence Portal",
+          "researchCollaboration": "Research Collaboration",
+          "knowledgeDiscovery": "Knowledge Discovery",
+          "partnershipInnovation": "Partnership Innovation",
+          "vesselBooking": "Research Vessel Booking",
+          "labResults": "Lab Results Portal",
+          "scientificEvidence": "Scientific Evidence Repository",
+          "projectPipeline": "Project Pipeline Tracker"
+        }
+      },
+      "services": {
+        "title": "Services",
+        "links": {
+          "digitalMarketplace": "Digital Marketplace",
+          "vesselTracking": "Live Vessel Tracking",
+          "governmentServices": "Government Services",
+          "emergencyResponse": "Emergency Response",
+          "fishAdvisory": "Fish Advisory System",
+          "exportIntelligence": "Export Market Intelligence",
+          "marineIncident": "Marine Incident Portal",
+          "integrationSystems": "Integration Systems",
+          "maritimeServices": "Maritime Services"
+        }
+      },
+      "resources": {
+        "title": "Resources",
+        "links": {
+          "libraryCatalogue": "Library Catalogue",
+          "digitalProductLibrary": "Digital Product Library",
+          "learningAcademy": "Learning Academy",
+          "regionalImpact": "Regional Impact",
+          "publicConsultation": "Public Consultation"
+        }
+      },
+      "media": {
+        "title": "Media",
+        "links": {}
+      },
+      "data": {
+        "title": "Data & Analytics",
+        "links": {
+          "analyticsHub": "Analytics Hub",
+          "openData": "Open Data Portal",
+          "spatialPlanning": "Marine Spatial Planning"
+        }
+      },
+      "about": {
+        "title": "About",
+        "links": {
+          "ourStory": "Our Story",
+          "regionalCenters": "Regional Research Centers",
+          "supportingDivisions": "Supporting Divisions",
+          "mediaGallery": "Media Gallery",
+          "newsUpdates": "News & Updates",
+          "podcasts": "Podcasts",
+          "procurement": "Procurement",
+          "naraAct": "NARA Act",
+          "rti": "Right to Information",
+          "annualReports": "Annual Reports"
+        }
+      },
+      "divisions": {
+        "title": "Divisions",
+        "links": {
+          "allDivisions": "All Divisions",
+          "fisheriesScience": "Marine & Inland Fisheries Science",
+          "marineBiology": "Marine Biology & Ecosystems",
+          "aquaculture": "Inland Aquatic Resources & Aquaculture",
+          "fishingTechnology": "Fishing Technology",
+          "qualityAssurance": "Post-Harvest & Quality Assurance",
+          "socioEconomics": "Socio-Economics & Marketing",
+          "hydrography": "Hydrography & Nautical Charts",
+          "environmental": "Environmental Monitoring & Advisory",
+          "information": "Information & Outreach"
+        },
+        "submenu": {
+          "research": "Research Divisions",
+          "regional": "Regional Research Centers",
+          "supporting": "Supporting Divisions"
+        }
+      },
+      "news": {
+        "title": "News & Updates",
+        "links": {
+          "mediaPressKit": "Media Press Kit"
+        }
+      },
+      "academy": {
+        "title": "NARA Academy",
+        "links": {
+          "aquaSchool": "Aqua School",
+          "nexus": "Nexus Graduate Program",
+          "schoolDirectory": "School Directory"
+        }
+      },
+      "education": {
+        "title": "Education",
+        "links": {}
+      },
+      "community": {
+        "title": "Community",
+        "links": {}
+      },
+      "contact": {
+        "title": "Contact",
+        "links": {
+          "getInTouch": "Contact Us"
+        }
+      }
+    }
+  },
+  "loading": "Loading...",
+  "explore": "Explore",
+  "pleaseLogin": "Please login to continue",
+  "enrollmentSuccess": "Successfully enrolled in course!",
+  "enrollmentError": "Error enrolling in course. Please try again.",
+  "projectSubmitted": "Project submitted successfully!",
+  "projectError": "Error submitting project. Please try again.",
+  "searchPlaceholder": "Search courses, papers, materials...",
+  "search": "Search",
+  "allCategories": "All Categories",
+  "allLevels": "All Levels",
+  "beginner": "Beginner",
+  "intermediate": "Intermediate",
+  "advanced": "Advanced",
+  "mostPopular": "Most Popular",
+  "highestRated": "Highest Rated",
+  "newest": "Newest",
+  "noCoursesFound": "No courses found",
+  "weeks": "weeks",
+  "viewPaper": "View Paper",
+  "download": "Download",
+  "cancel": "Cancel",
+  "title": "Title",
+  "description": "Description",
+  "category": "Category",
+  "selectCategory": "Select Category",
+  "attachFiles": "Attach Files",
+  "filesSelected": "files selected",
+  "submitting": "Submitting...",
+  "submit": "Submit",
+  "admin": {
+    "csvExport": {
+      "success": "Applicants CSV downloaded",
+      "error": "Unable to export applicants. Please retry."
+    }
+  },
+  "accessData": "Access Data",
+  "selectDataset": "Select dataset...",
+  "accessibility": {
+    "skipToContent": "Skip to main content",
+    "mainContent": "Main content",
+    "navigation": "Navigation"
+  }
+}

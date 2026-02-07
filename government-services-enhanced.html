@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NARA - Government Services Portal (Enhanced)</title>
+    <link rel="stylesheet" href="government-services-styles.css">
+</head>
+<body>
+
+    <main class="main-content">
+        <div class="header">
+            <h1>GOVERNMENT SERVICES PORTAL</h1>
+            <h2>Integrated Marine Governance Services</h2>
+            <p>Streamlined government services for environmental compliance, licensing, and emergency response coordination</p>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <p class="stat-value" id="eia-applications-value">0</p>
+                <p class="stat-label">EIA Applications</p>
+                <p class="stat-sub-label" id="eia-applications-subtext">+0 pending</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-value" id="active-licenses-value">0</p>
+                <p class="stat-label">Active Licenses</p>
+                <p class="stat-sub-label" id="active-licenses-subtext">0 total</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-value" id="compliance-rate-value">0%</p>
+                <p class="stat-label">Compliance Rate</p>
+                <p class="stat-sub-label" id="compliance-rate-subtext">0 compliant</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-value" id="active-emergencies-value">0</p>
+                <p class="stat-label">Active Emergencies</p>
+                <p class="stat-sub-label" id="active-emergencies-subtext">Live incidents</p>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+            <button id="new-eia-btn">New EIA Application</button>
+            <button id="apply-license-btn">Apply for License</button>
+            <button id="report-emergency-btn">Report Emergency</button>
+        </div>
+
+        <div class="recent-activity">
+            <h3>Recent EIA Applications</h3>
+            <table id="eia-table">
+                <thead>
+                    <tr>
+                        <th>Application ID</th>
+                        <th>Project Name</th>
+                        <th>Applicant</th>
+                        <th>Date Submitted</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <h3>Active Emergencies</h3>
+            <table id="emergency-table">
+                <thead>
+                    <tr>
+                        <th>Incident ID</th>
+                        <th>Location</th>
+                        <th>Severity</th>
+                        <th>Reported Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="chart-container">
+            <h3>EIA Application Status</h3>
+            <canvas id="eia-chart"></canvas>
+        </div>
+
+    </main>
+
+    <!-- Modals -->
+    <div id="eia-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>New EIA Application</h2>
+            <form>
+                <label for="projectName">Project Name:</label>
+                <input type="text" id="projectName" name="projectName">
+                <label for="applicantName">Applicant Name:</label>
+                <input type="text" id="applicantName" name="applicantName">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="license-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Apply for License</h2>
+            <form>
+                <label for="licenseType">License Type:</label>
+                <input type="text" id="licenseType" name="licenseType">
+                <label for="vesselName">Vessel Name:</label>
+                <input type="text" id="vesselName" name="vesselName">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="emergency-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Report Emergency</h2>
+            <form>
+                <label for="emergencyLocation">Location:</label>
+                <input type="text" id="emergencyLocation" name="emergencyLocation">
+                <label for="emergencyDetails">Details:</label>
+                <textarea id="emergencyDetails" name="emergencyDetails"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="government-services-scripts.js"></script>
+</body>
+</html>

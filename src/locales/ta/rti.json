@@ -1,0 +1,222 @@
+{
+  "rti": {
+    "hero": {
+      "badge": "வெளிப்படைத்தன்மை & பொறுப்புணர்வு",
+      "title": "தகவல் அறியும் உரிமைச் சட்டம்",
+      "headline": "தகவலை அணுகுங்கள், குடிமக்களை வலுப்படுத்துங்கள்",
+      "description": "2016 ஆம் ஆண்டின் தகவல் அறியும் உரிமைச் சட்டம் எண். 12 இன் கீழ் NARA வெளிப்படைத்தன்மை மற்றும் பொறுப்புணர்வுக்கு அர்ப்பணிக்கப்பட்டுள்ளது. உங்கள் தகவல் அறியும் உரிமையை நடைமுறைப்படுத்த அனைத்து RTI படிவங்கள், வழிகாட்டுதல்கள் மற்றும் பதிவிறக்கக்கூடிய ஆவணங்களை அணுகவும்."
+    },
+    "stats": {
+      "forms": {
+        "value": "12",
+        "label": "RTI படிவங்கள்"
+      },
+      "documents": {
+        "value": "77+",
+        "label": "ஆவணங்கள் கிடைக்கின்றன"
+      },
+      "reports": {
+        "value": "39",
+        "label": "ஆண்டு அறிக்கைகள்"
+      },
+      "response": {
+        "value": "14 Days",
+        "label": "பதில் அளிக்கும் காலம்"
+      }
+    },
+    "sections": {
+      "forms": {
+        "title": "RTI படிவங்கள் & வார்ப்புருக்கள்",
+        "description": "NARA இலிருந்து தகவல் கோர உத்தியோகபூர்வ RTI படிவங்களை பதிவிறக்கவும்",
+        "forms": [
+          {
+            "code": "RTI-01",
+            "title": "தகவல் விண்ணப்பம்",
+            "description": "RTI சட்டத்தின் கீழ் தகவலைக் கோரும் படிவம்",
+            "fileUrl": "/documents/rti/RTI-01-Information-Application.pdf",
+            "fileSize": "250 KB",
+            "icon": "file-text"
+          },
+          {
+            "code": "RTI-02",
+            "title": "ஒப்புகை",
+            "description": "தகவல் கோரிக்கைக்கான உத்தியோகபூர்வ ஒப்புகை",
+            "fileUrl": "/documents/rti/RTI-02-Acknowledgement.pdf",
+            "fileSize": "180 KB",
+            "icon": "check-circle"
+          },
+          {
+            "code": "RTI-03",
+            "title": "தகவல் கோரிக்கைகளின் பதிவேடு",
+            "description": "RTI கோரிக்கைகளின் பதிவேட்டை பராமரிப்பதற்கான வார்ப்புரு",
+            "fileUrl": "/documents/rti/RTI-03-Register-Information-Requests.pdf",
+            "fileSize": "220 KB",
+            "icon": "book-open"
+          },
+          {
+            "code": "RTI-04",
+            "title": "தகவல் வழங்குவதற்கான முடிவு",
+            "description": "கோரப்பட்ட தகவலை வழங்குவதற்கான உத்தியோகபூர்வ முடிவு",
+            "fileUrl": "/documents/rti/RTI-04-Decision-Provide-Information.pdf",
+            "fileSize": "200 KB",
+            "icon": "check-square"
+          },
+          {
+            "code": "RTI-05",
+            "title": "தகவல் கோரிக்கை நிராகரிப்பு",
+            "description": "காரணங்களுடன் தகவல் கோரிக்கையை நிராகரிக்கும் படிவம்",
+            "fileUrl": "/documents/rti/RTI-05-Rejection-Information-Request.pdf",
+            "fileSize": "210 KB",
+            "icon": "x-circle"
+          },
+          {
+            "code": "RTI-06",
+            "title": "தகவல் வழங்க கால நீட்டிப்பு",
+            "description": "14 நாட்களுக்கு மேல் கால நீட்டிப்பு கோரிக்கை",
+            "fileUrl": "/documents/rti/RTI-06-Extension-Time.pdf",
+            "fileSize": "190 KB",
+            "icon": "clock"
+          },
+          {
+            "code": "RTI-07",
+            "title": "மூன்றாம் தரப்பினருக்கான தொடர்பு",
+            "description": "மூன்றாம் தரப்பு ஆலோசனைக்கான படிவம்",
+            "fileUrl": "/documents/rti/RTI-07-Communication-Third-Party.pdf",
+            "fileSize": "200 KB",
+            "icon": "users"
+          },
+          {
+            "code": "RTI-08",
+            "title": "மேல்முறையீடு ஏற்பு",
+            "description": "மேல்முறையீடு சமர்ப்பிப்பின் ஒப்புகை",
+            "fileUrl": "/documents/rti/RTI-08-Acceptance-Appeal.pdf",
+            "fileSize": "185 KB",
+            "icon": "alert-circle"
+          },
+          {
+            "code": "RTI-09",
+            "title": "மேல்முறையீடு பதிவேடு (சட்டம் எண். 12, 2016)",
+            "description": "மேல்முறையீடுகளின் பதிவேட்டை பராமரிப்பதற்கான வார்ப்புரு",
+            "fileUrl": "/documents/rti/RTI-09-Register-Appeal.pdf",
+            "fileSize": "230 KB",
+            "icon": "folder"
+          },
+          {
+            "code": "RTI-10",
+            "title": "நியமிக்கப்பட்ட அலுவலருக்கு மேல்முறையீடு",
+            "description": "நியமிக்கப்பட்ட அலுவலரிடம் மேல்முறையீடு செய்வதற்கான படிவம்",
+            "fileUrl": "/documents/rti/RTI-10-Appeal-Designated-Officer.pdf",
+            "fileSize": "240 KB",
+            "icon": "send"
+          },
+          {
+            "code": "RTI-11",
+            "title": "நிராகரிக்கப்பட்ட கோரிக்கைகளின் பதிவேடு",
+            "description": "நிராகரிப்புகளின் பதிவேட்டை பராமரிப்பதற்கான வார்ப்புரு",
+            "fileUrl": "/documents/rti/RTI-11-Register-Rejection.pdf",
+            "fileSize": "215 KB",
+            "icon": "list"
+          },
+          {
+            "code": "RTI-12",
+            "title": "தகவல் அலுவலர்களின் விவரங்கள்",
+            "description": "NARA இல் RTI தகவல் அலுவலர்களின் தொடர்பு விவரங்கள்",
+            "fileUrl": "/documents/rti/RTI-12-Information-Officers.pdf",
+            "fileSize": "195 KB",
+            "icon": "user"
+          }
+        ]
+      },
+      "documents": {
+        "title": "NARA ஆவண நூலகம்",
+        "description": "ஆண்டு அறிக்கைகள், ஆராய்ச்சி வெளியீடுகள் மற்றும் பிற உத்தியோகபூர்வ ஆவணங்களை அணுகவும்",
+        "categories": [
+          {
+            "name": "ஆண்டு அறிக்கைகள்",
+            "count": 39,
+            "description": "2011-2023 வரையிலான விரிவான ஆண்டு அறிக்கைகள் ஆங்கிலம், சிங்களம் & தமிழில்",
+            "icon": "calendar",
+            "downloadUrl": "/download/annual-reports"
+          },
+          {
+            "name": "மீன்பிடித் தொழில் முன்னோக்கு",
+            "count": 3,
+            "description": "2020-2022 க்கான தொழில் முன்னோக்கு அறிக்கைகள்",
+            "icon": "trending-up",
+            "downloadUrl": "/download/fisheries-outlook"
+          },
+          {
+            "name": "அறிவியல் அமர்வுகள் நடவடிக்கைகள்",
+            "count": 7,
+            "description": "2016-2022 அறிவியல் அமர்வுகளின் நடவடிக்கைகள்",
+            "icon": "flask-conical",
+            "downloadUrl": "/download/scientific-proceedings"
+          },
+          {
+            "name": "சிறப்பு ஆவணங்கள்",
+            "count": 2,
+            "description": "சிறப்பு வெளியீடுகள் மற்றும் அறிக்கைகள்",
+            "icon": "star",
+            "downloadUrl": "/download/special-documents"
+          }
+        ]
+      },
+      "officers": {
+        "title": "RTI தகவல் அலுவலர்கள்",
+        "description": "தகவல் கோரிக்கைகளுக்கு எங்கள் நியமிக்கப்பட்ட RTI அலுவலர்களை தொடர்பு கொள்ளவும்",
+        "officers": [
+          {
+            "name": "தகவல் அலுவலர்",
+            "designation": "பணிப்பாளர் / நிர்வாகம்",
+            "email": "rti@nara.ac.lk",
+            "phone": "011-2521000",
+            "office": "NARA தலைமையகம், கொழும்பு"
+          },
+          {
+            "name": "நியமிக்கப்பட்ட அலுவலர் (மேல்முறையீடுகள்)",
+            "designation": "கூடுதல் பணிப்பாளர் நாயகம்",
+            "email": "appeals.rti@nara.ac.lk",
+            "phone": "011-2521006",
+            "office": "NARA தலைமையகம், கொழும்பு"
+          }
+        ]
+      },
+      "guidelines": {
+        "title": "தகவல் கோருவது எப்படி",
+        "steps": [
+          {
+            "step": 1,
+            "title": "RTI-01 படிவத்தை பதிவிறக்கவும்",
+            "description": "தகவல் விண்ணப்ப படிவத்தை (RTI-01) பதிவிறக்கி நிரப்பவும்"
+          },
+          {
+            "step": 2,
+            "title": "உங்கள் கோரிக்கையை சமர்ப்பிக்கவும்",
+            "description": "நிரப்பப்பட்ட படிவத்தை மின்னஞ்சல், தபால் அல்லது நேரடியாக தகவல் அலுவலரிடம் சமர்ப்பிக்கவும்"
+          },
+          {
+            "step": 3,
+            "title": "ஒப்புகையை பெறவும்",
+            "description": "3 வேலை நாட்களுக்குள் ஒப்புகையை (RTI-02) பெறுவீர்கள்"
+          },
+          {
+            "step": 4,
+            "title": "தகவலைப் பெறவும்",
+            "description": "14 வேலை நாட்களுக்குள் தகவல் வழங்கப்படும் (21 நாட்கள் வரை நீட்டிக்கலாம்)"
+          },
+          {
+            "step": 5,
+            "title": "தேவைப்பட்டால் மேல்முறையீடு செய்யவும்",
+            "description": "திருப்தியடையவில்லை எனில், 30 நாட்களுக்குள் RTI-10 படிவத்தைப் பயன்படுத்தி மேல்முறையீடு செய்யலாம்"
+          }
+        ]
+      }
+    },
+    "cta": {
+      "title": "NARA இலிருந்து தகவல் தேவையா?",
+      "description": "இன்று RTI கோரிக்கையை சமர்ப்பிப்பதன் மூலம் உங்கள் தகவல் அறியும் உரிமையை நடைமுறைப்படுத்துங்கள்",
+      "button": "RTI படிவங்களை பதிவிறக்கவும்",
+      "contact": "RTI அலுவலரை தொடர்பு கொள்ளவும்"
+    }
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "supportingDivisions": {
+    "hero": {
+      "badge": "Organizational Support",
+      "title": "Supporting Divisions",
+      "headline": "Empowering Excellence Through Strategic Support",
+      "description": "Our supporting divisions provide the essential infrastructure, administrative oversight, and operational excellence that enables NARA's research divisions to focus on their core mission of advancing aquatic science and sustainable resource management."
+    },
+    "stats": {
+      "divisions": {
+        "value": "3",
+        "label": "Support Units"
+      },
+      "staff": {
+        "value": "50+",
+        "label": "Support Staff"
+      },
+      "services": {
+        "value": "24/7",
+        "label": "Service Availability"
+      },
+      "efficiency": {
+        "value": "100%",
+        "label": "Operational Efficiency"
+      }
+    },
+    "divisions": {
+      "administrative": {
+        "name": "Administrative Division",
+        "tagline": "Human Resources & Administrative Excellence",
+        "icon": "users",
+        "description": "The Administrative Division serves as the backbone of NARA's organizational structure, managing human resources, staff development, and administrative operations to ensure smooth functioning across all departments.",
+        "vision": "Employees satisfaction and progress of NARA",
+        "mission": "Enhance the Human Resources and implementing all administrative matters efficiently and effectively to achieve the goals of NARA",
+        "keyFunctions": [
+          "Human Resource Management & Development",
+          "Staff Recruitment & Training Programs",
+          "Administrative Policy Implementation",
+          "Employee Welfare & Benefits Management",
+          "ISIMBU MEDURA Facility Management",
+          "Performance Evaluation Systems",
+          "Leave Management & Attendance",
+          "Organizational Development Initiatives"
+        ],
+        "services": [
+          {
+            "title": "ISIMBU MEDURA Facility",
+            "description": "Conference and event facility available for NARA staff and external parties",
+            "contact": "011-2521000 / 011-2521006"
+          },
+          {
+            "title": "HR Services",
+            "description": "Comprehensive human resource management including recruitment, training, and employee development",
+            "email": "humanresourcenara@gmail.com"
+          }
+        ],
+        "leadership": {
+          "director": "Mr. R.D.P.P. Ranasinghe",
+          "qualification": "MBA, BSc, Dip in HR",
+          "email": "directoradmin@nara.ac.lk",
+          "phone": "011-2521000"
+        }
+      },
+      "finance": {
+        "name": "Finance Division",
+        "tagline": "Responsible Financial Management & Accountability",
+        "icon": "dollar-sign",
+        "description": "The Finance Division ensures transparent and accountable management of NARA's financial resources, providing comprehensive financial services that support research excellence and organizational sustainability.",
+        "vision": "To provide an efficient and effective financial environment in which to carry out research and development activities on exploration, management and conservation of aquatic resources",
+        "mission": "Enhance Accountability and Transparency of utilization of Public Funds and use of scarce resources economically, efficiently & effectively while attending the goals of NARA",
+        "keyFunctions": [
+          "Financial Planning & Budget Management",
+          "Accounting & Financial Reporting",
+          "Internal Audit & Compliance",
+          "Grant & Project Financial Management",
+          "Procurement & Vendor Management",
+          "Payroll Administration",
+          "Asset Management & Inventory Control",
+          "Financial Policy Development"
+        ],
+        "bankDetails": {
+          "bank": "People's Bank, Mutwal Branch",
+          "accountHolder": "Director General / NARA",
+          "accountNumber": "214-100-15-3629716",
+          "fax": "011-2524430"
+        },
+        "leadership": {
+          "director": "Mr. N.S. Hewagama",
+          "email": "nishanthashewagamage@gmail.com",
+          "phone": "+94-11-2521383"
+        }
+      },
+      "serviceOperation": {
+        "name": "Service & Operation Division",
+        "tagline": "Infrastructure & Operational Support",
+        "icon": "settings",
+        "description": "The Service & Operation Division provides the essential infrastructure and operational support services that enable smooth day-to-day functioning of NARA's research facilities and administrative operations.",
+        "mission": "Provide comprehensive infrastructure development, maintenance, and operational support services to ensure optimal functioning of all NARA facilities and equipment",
+        "keyFunctions": [
+          "Infrastructure Development & Maintenance",
+          "Vehicle Fleet Management & Maintenance",
+          "Electrical Systems & Power Management",
+          "Civil Engineering & Construction Oversight",
+          "Mechanical Equipment Maintenance",
+          "Facilities Management & Security",
+          "Building Maintenance & Repairs",
+          "Equipment Procurement & Installation"
+        ],
+        "services": [
+          {
+            "title": "Infrastructure Development",
+            "description": "Planning, design, and execution of infrastructure projects including laboratory facilities, research stations, and office buildings"
+          },
+          {
+            "title": "Maintenance Services",
+            "description": "Comprehensive maintenance of electrical, civil, and mechanical systems across all NARA facilities"
+          },
+          {
+            "title": "Vehicle Management",
+            "description": "Fleet management including vehicle allocation, maintenance scheduling, and fuel management for research and administrative transport"
+          }
+        ],
+        "leadership": {
+          "director": "Mr. S.K.S. Liyanarachchi",
+          "email": "saman@nara.ac.lk",
+          "phone": "+94-11-2529737"
+        }
+      }
+    },
+    "cta": {
+      "title": "Need Support Services?",
+      "description": "Contact our supporting divisions for administrative, financial, or operational assistance",
+      "button": "Contact Support"
+    }
+  }
+}

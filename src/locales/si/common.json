@@ -1,0 +1,203 @@
+{
+  "language": {
+    "english": "ඉංග්‍රීසි",
+    "tamil": "දෙමළ",
+    "sinhala": "සිංහල"
+  },
+  "navbar": {
+    "languageLabel": "භාෂාව",
+    "back": "ආපසු",
+    "register": "ලියාපදිංචි වන්න",
+    "profile": "පැතිකඩ",
+    "brand": {
+      "title": "NARA",
+      "subtitle": "මුහුදු පර්යේෂණය"
+    },
+    "gov": {
+      "home": "මුල් පිටුව",
+      "about": "අප ගැන",
+      "division": "අංශ",
+      "research": "පර්යේෂණ",
+      "services": "සේවා",
+      "library": "පුස්තකාලය",
+      "vacancies": "පුරප්පාඩු",
+      "procurement": "ප්‍රසම්පාදන",
+      "scientistSession": "විද්‍යාඥ සැසිය",
+      "contact": "අප අමතන්න",
+      "naraMail": "NARA තැපෑල"
+    },
+    "mainNavigation": "ප්‍රධාන මාර්ගෝපදේශනය",
+    "mobileNavigation": "ජංගම මාර්ගෝපදේශනය",
+    "goToHome": "මුල් පිටුවට යන්න",
+    "govLogo": "ශ්‍රී ලංකා රජයේ ලාංඡනය",
+    "naraLogo": "NARA ලාංඡනය",
+    "selectLanguage": "භාෂාව තෝරන්න",
+    "languages": "පවතින භාෂාවන්",
+    "researchDivisions": "පර්යේෂණ අංශ",
+    "viewAll": "සියල්ල බලන්න",
+    "divisionsMenu": "අංශ මෙනුව",
+    "openMenu": "මෙනුව විවෘත කරන්න",
+    "closeMenu": "මෙනුව වසන්න",
+    "themes": {
+      "ocean": "මුහුද",
+      "cosmic": "අභ්‍යවකාශය"
+    },
+    "menu": {
+      "research": {
+        "title": "ගවේෂණ",
+        "links": {
+          "researchExcellencePortal": "ගවේෂණ ශ්‍රේෂ්ඨත්ව ද්වාරය",
+          "researchCollaboration": "ගවේෂණ සමාන්විතතාව",
+          "knowledgeDiscovery": "දැනුම සොයාගැනීම",
+          "partnershipInnovation": "හවුල්කාරී නව්‍යත්වය",
+          "vesselBooking": "පර්යේෂණ නෞකා වෙන්කිරීම්",
+          "labResults": "රසායනාගාර ප්‍රතිඵල ද්වාරය",
+          "scientificEvidence": "විද්‍යාත්මක සාක්ෂි ගබඩාව",
+          "projectPipeline": "ව්‍යාපෘති නල මාර්ග ලුහුබැඳීම"
+        }
+      },
+      "services": {
+        "title": "සේවා",
+        "links": {
+          "digitalMarketplace": "ඩිජිටල් වෙළඳ පොළ",
+          "maritimeServices": "සාගරික සේවාවන්",
+          "governmentServices": "රාජ්‍ය සේවාවන්",
+          "emergencyResponse": "හදිසි ප්‍රතිචාර",
+          "fishAdvisory": "මත්ස්‍ය උපදේශන පද්ධතිය",
+          "exportIntelligence": "අපනයන වෙළඳපල බුද්ධිමතාත්මක සේවාව",
+          "marineIncident": "සමුද්‍ර සිද්ධි ද්වාරය",
+          "integrationSystems": "ඒකාබද්ධ පද්ධති",
+          "vesselTracking": "සජීවී නෞකා නිරීක්ෂණය"
+        }
+      },
+      "resources": {
+        "title": "සාධන",
+        "links": {
+          "libraryCatalogue": "පුස්තකාල නාමාවලිය",
+          "digitalProductLibrary": "ඩිජිටල් නිෂ්පාදන පුස්තකාලය",
+          "learningAcademy": "ඉගෙනීමේ අකැඩමිය",
+          "regionalImpact": "ප්‍රාදේශීය බලපෑම",
+          "publicConsultation": "මහජන උපදේශන"
+        }
+      },
+      "media": {
+        "title": "මාධ්‍ය",
+        "links": {}
+      },
+      "data": {
+        "title": "දත්ත සහ විශ්ලේෂණය",
+        "links": {
+          "analyticsHub": "විශ්ලේෂණ මධ්‍යස්ථානය",
+          "openData": "විවෘත දත්ත ද්වාරය",
+          "spatialPlanning": "සමුද්‍ර අවකාශීය සැලසුම්කරණය"
+        }
+      },
+      "about": {
+        "title": "අප ගැන",
+        "links": {
+          "ourStory": "අපේ කතාව",
+          "regionalCenters": "ප්‍රාදේශීය පර්යේෂණ මධ්‍යස්ථාන",
+          "supportingDivisions": "සහායක අංශ",
+          "mediaGallery": "මාධ්‍ය ගැලරිය",
+          "newsUpdates": "පුවත් හා යාවත්කාලීන",
+          "podcasts": "පොඩ්කාස්ට්",
+          "procurement": "මිලදී ගැනීම්",
+          "naraAct": "NARA පනත",
+          "rti": "තොරතුරු දැනගැනීමේ අයිතිය",
+          "annualReports": "වාර්ෂික වාර්තා"
+        }
+      },
+      "divisions": {
+        "title": "අංශ",
+        "links": {
+          "allDivisions": "සියලු අංශ",
+          "fisheriesScience": "සමුද්‍ර සහ අභ්‍යන්තර මත්ස්‍ය විද්‍යාව",
+          "marineBiology": "සමුද්‍ර ජීව විද්‍යාව සහ පරිසර පද්ධති",
+          "aquaculture": "අභ්‍යන්තර ජලජ සම්පත් සහ ජලජීවී වගාව",
+          "fishingTechnology": "මසුන් ඇල්ලීමේ තාක්ෂණය",
+          "qualityAssurance": "පශ්චාත් අස්වනු සහ තත්ත්ව සහතික කිරීම",
+          "socioEconomics": "සමාජ-ආර්ථික විද්‍යාව සහ අලෙවිකරණය",
+          "hydrography": "ජල විද්‍යාව සහ නාවික සිතියම්",
+          "environmental": "පරිසර අධීක්ෂණය සහ උපදේශන",
+          "information": "තොරතුරු සහ ව්‍යාප්තිය"
+        },
+        "submenu": {
+          "research": "පර්යේෂණ අංශ",
+          "regional": "ප්‍රාදේශීය පර්යේෂණ මධ්‍යස්ථාන",
+          "supporting": "සහායක අංශ"
+        }
+      },
+      "news": {
+        "title": "පුවත් හා යාවත්කාලීන",
+        "links": {
+          "mediaPressKit": "මාධ්‍ය ප්‍රචාරක මෙවලම්"
+        }
+      },
+      "academy": {
+        "title": "නාරා අකාඩමිය",
+        "links": {
+          "aquaSchool": "අක්වා පාසල",
+          "nexus": "නෙක්සස් උපාධි වැඩසටහන",
+          "schoolDirectory": "පාසල් නාමාවලිය"
+        }
+      },
+      "education": {
+        "title": "අධ්‍යාපනය",
+        "links": {}
+      },
+      "community": {
+        "title": "ප්‍රජාව",
+        "links": {}
+      },
+      "contact": {
+        "title": "සම්බන්ධ වන්න",
+        "links": {
+          "getInTouch": "අප හා සම්බන්ධ වන්න"
+        }
+      }
+    }
+  },
+  "loading": "පූරණය වෙමින්...",
+  "explore": "ගවේෂණය කරන්න",
+  "pleaseLogin": "ඉදිරියට යාමට කරුණාකර ලොගින් වන්න",
+  "enrollmentSuccess": "පා course මාලාවට සාර්ථකව ලියාපදිංචි විය!",
+  "enrollmentError": "පා course මාලාවට ලියාපදිංචි වීමේ දෝෂයකි. කරුණාකර නැවත උත්සාහ කරන්න.",
+  "projectSubmitted": "ව්‍යාපෘතිය සාර්ථකව ඉදිරිපත් කරන ලදී!",
+  "projectError": "ව්‍යාපෘතිය ඉදිරිපත් කිරීමේ දෝෂයකි. කරුණාකර නැවත උත්සාහ කරන්න.",
+  "searchPlaceholder": "පා courses මාලා, පත්‍රිකා, ද්‍රව්‍ය සොයන්න...",
+  "search": "සොයන්න",
+  "allCategories": "සියලුම කාණ්ඩ",
+  "allLevels": "සියලුම මට්ටම්",
+  "beginner": "ආරම්භක",
+  "intermediate": "මැදි",
+  "advanced": "උසස්",
+  "mostPopular": "වඩාත් ජනප්‍රිය",
+  "highestRated": "ඉහළම ශ්‍රේණිගත",
+  "newest": "අලුත්ම",
+  "noCoursesFound": "පා courses මාලා හමු නොවීය",
+  "weeks": "සති",
+  "viewPaper": "පත්‍රිකාව බලන්න",
+  "download": "බාගන්න",
+  "cancel": "අවලංගු කරන්න",
+  "title": "මාතෘකාව",
+  "description": "විස්තරය",
+  "category": "කාණ්ඩය",
+  "selectCategory": "කාණ්ඩය තෝරන්න",
+  "attachFiles": "ගොනු ඇමුණුම් කරන්න",
+  "filesSelected": "ගොනු තෝරා ඇත",
+  "submitting": "ඉදිරිපත් කරමින්...",
+  "submit": "ඉදිරිපත් කරන්න",
+  "admin": {
+    "csvExport": {
+      "success": "අයදුම්කරු CSV බාගත කර ඇත",
+      "error": "CSV නිර්යාත කිරීම අසාර්ථක විය. නැවත උත්සාහ කරන්න."
+    }
+  },
+  "accessData": "දත්ත වෙත ප්‍රවේශ වන්න",
+  "selectDataset": "දත්ත කට්ටලයක් තෝරන්න...",
+  "accessibility": {
+    "skipToContent": "ප්‍රධාන අන්තර්ගතයට යන්න",
+    "mainContent": "ප්‍රධාන අන්තර්ගතය",
+    "navigation": "මාර්ගෝපදේශනය"
+  }
+}

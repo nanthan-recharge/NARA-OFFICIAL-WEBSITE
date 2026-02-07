@@ -1,0 +1,130 @@
+{
+  "hero": {
+    "badge": "NARA Digital Marketplace",
+    "title": "Premium Ocean Data",
+    "titleHighlight": "Products & Services",
+    "subtitle": "Access high-quality marine datasets, research tools, consulting services, and specialized training programs from NARA's expert team",
+    "cta": {
+      "primary": "Browse Products",
+      "secondary": "Become a Seller"
+    },
+    "stats": {
+      "products": { "value": "500+", "label": "Digital Products" },
+      "customers": { "value": "5,000+", "label": "Happy Customers" },
+      "revenue": { "value": "$2M+", "label": "Total Sales" },
+      "rating": { "value": "4.9/5", "label": "Average Rating" }
+    }
+  },
+  "categories": {
+    "title": "Product Categories",
+    "subtitle": "Browse our comprehensive collection of ocean science products",
+    "items": {
+      "datasets": { "name": "Marine Datasets", "description": "High-quality oceanographic data", "count": "250+ products" },
+      "tools": { "name": "Research Tools", "description": "Software and analysis tools", "count": "120+ products" },
+      "consulting": { "name": "Consulting Services", "description": "Expert advisory services", "count": "80+ services" },
+      "training": { "name": "Training Programs", "description": "Professional courses & workshops", "count": "50+ programs" },
+      "reports": { "name": "Research Reports", "description": "Comprehensive analysis reports", "count": "200+ reports" },
+      "apis": { "name": "API Access", "description": "Real-time data APIs", "count": "30+ APIs" }
+    }
+  },
+  "filters": {
+    "search": "Search products...",
+    "category": "Category",
+    "priceRange": "Price Range",
+    "rating": "Minimum Rating",
+    "sortBy": "Sort By",
+    "allCategories": "All Categories",
+    "free": "Free",
+    "paid": "Paid",
+    "sortOptions": {
+      "popular": "Most Popular",
+      "newest": "Newest First",
+      "priceLow": "Price: Low to High",
+      "priceHigh": "Price: High to Low",
+      "rating": "Highest Rated"
+    }
+  },
+  "product": {
+    "addToCart": "Add to Cart",
+    "buyNow": "Buy Now",
+    "viewDetails": "View Details",
+    "free": "FREE",
+    "price": "Price",
+    "format": "Format",
+    "size": "Size",
+    "downloads": "Downloads",
+    "rating": "Rating",
+    "reviews": "Reviews",
+    "seller": "Seller",
+    "lastUpdated": "Last Updated",
+    "license": "License Type",
+    "previewAvailable": "Preview Available",
+    "instantDownload": "Instant Download",
+    "lifetime": "Lifetime Access",
+    "support": "Support Included"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "items": "{{count}} items",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "continueShopping": "Continue Shopping",
+    "remove": "Remove",
+    "clearCart": "Clear Cart"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "billingInfo": "Billing Information",
+    "paymentMethod": "Payment Method",
+    "orderSummary": "Order Summary",
+    "placeOrder": "Place Order",
+    "processingPayment": "Processing Payment...",
+    "paymentSuccess": "Payment Successful!",
+    "paymentFailed": "Payment Failed",
+    "fields": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "organization": "Organization",
+      "country": "Country",
+      "address": "Address",
+      "city": "City",
+      "zipCode": "ZIP Code",
+      "phone": "Phone Number"
+    }
+  },
+  "seller": {
+    "dashboard": "Seller Dashboard",
+    "addProduct": "Add Product",
+    "myProducts": "My Products",
+    "sales": "Sales",
+    "revenue": "Revenue",
+    "customers": "Customers",
+    "analytics": "Analytics",
+    "settings": "Settings"
+  },
+  "reviews": {
+    "title": "Customer Reviews",
+    "writeReview": "Write a Review",
+    "yourRating": "Your Rating",
+    "yourReview": "Your Review",
+    "submit": "Submit Review",
+    "helpful": "Helpful",
+    "verified": "Verified Purchase",
+    "noReviews": "No reviews yet"
+  },
+  "related": {
+    "title": "Related Products",
+    "customers": "Customers Also Bought",
+    "viewMore": "View More"
+  },
+  "seller Dashboard": {
+    "welcome": "Welcome to Seller Dashboard",
+    "uploadProduct": "Upload New Product",
+    "manageProducts": "Manage Products",
+    "viewSales": "View Sales Reports",
+    "withdrawFunds": "Withdraw Funds"
+  }
+}

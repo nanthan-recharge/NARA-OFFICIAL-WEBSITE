@@ -1,0 +1,118 @@
+# NARA Website Optimization - Crontab Examples
+# ==============================================
+#
+# To install these cron jobs, edit your crontab:
+#   crontab -e
+#
+# Then copy the desired schedule lines below.
+#
+# IMPORTANT: Update the path to match your installation directory
+# Example: /home/user/nara_digital_ocean/website-optimization-agent/run_scheduled_audit.sh
+
+# Environment variables
+SHELL=/bin/bash
+PATH=/usr/local/bin:/usr/bin:/bin
+NOTIFICATION_EMAIL=admin@nara.gov.lk
+
+# -------------------------------------------------------------------
+# DAILY AUDITS
+# -------------------------------------------------------------------
+
+# Daily audit at 2:00 AM (50 pages)
+0 2 * * * cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --max-pages 50
+
+# Daily quick check at 6:00 AM (20 pages)
+0 6 * * * cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --max-pages 20
+
+# -------------------------------------------------------------------
+# WEEKLY AUDITS
+# -------------------------------------------------------------------
+
+# Weekly comprehensive audit every Sunday at midnight
+0 0 * * 0 cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --comprehensive --max-pages 100 --notify
+
+# Weekly audit every Monday at 9:00 AM with notification
+0 9 * * 1 cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --max-pages 100 --notify
+
+# -------------------------------------------------------------------
+# MONTHLY AUDITS
+# -------------------------------------------------------------------
+
+# Monthly comprehensive audit on the 1st at 3:00 AM
+0 3 1 * * cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --comprehensive --max-pages 200 --notify
+
+# -------------------------------------------------------------------
+# BUSINESS HOURS AUDITS
+# -------------------------------------------------------------------
+
+# Every weekday at 10:00 AM (Monday-Friday)
+0 10 * * 1-5 cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --max-pages 30
+
+# -------------------------------------------------------------------
+# CUSTOM SCHEDULES
+# -------------------------------------------------------------------
+
+# Every 6 hours
+0 */6 * * * cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --max-pages 20
+
+# Twice daily (8 AM and 8 PM)
+0 8,20 * * * cd /path/to/nara_digital_ocean/website-optimization-agent && ./run_scheduled_audit.sh --max-pages 50
+
+# -------------------------------------------------------------------
+# CRON SCHEDULE FORMAT REFERENCE
+# -------------------------------------------------------------------
+#
+# * * * * * command to execute
+# │ │ │ │ │
+# │ │ │ │ └─── Day of week (0-7, Sunday = 0 or 7)
+# │ │ │ └───── Month (1-12)
+# │ │ └─────── Day of month (1-31)
+# │ └───────── Hour (0-23)
+# └─────────── Minute (0-59)
+#
+# Special characters:
+#   *     any value
+#   ,     value list separator
+#   -     range of values
+#   /     step values
+#
+# Examples:
+#   0 0 * * 0     Every Sunday at midnight
+#   0 2 * * *     Every day at 2:00 AM
+#   0 */6 * * *   Every 6 hours
+#   0 9 * * 1-5   Weekdays at 9:00 AM
+#   0 0 1 * *     First day of every month at midnight
+#
+# -------------------------------------------------------------------
+# INSTALLATION INSTRUCTIONS
+# -------------------------------------------------------------------
+#
+# 1. Update the paths in the examples above to match your system
+# 2. Choose the schedule that fits your needs
+# 3. Edit your crontab:
+#      crontab -e
+# 4. Paste the selected cron job lines
+# 5. Save and exit
+# 6. Verify with:
+#      crontab -l
+#
+# -------------------------------------------------------------------
+# TROUBLESHOOTING
+# -------------------------------------------------------------------
+#
+# View cron logs (Ubuntu/Debian):
+#   grep CRON /var/log/syslog
+#
+# View audit logs:
+#   ls -lh audit-history/*.log
+#   tail -f audit-history/audit_*.log
+#
+# Test the script manually:
+#   cd /path/to/nara_digital_ocean/website-optimization-agent
+#   ./run_scheduled_audit.sh --max-pages 10
+#
+# Check cron is running:
+#   systemctl status cron    # Ubuntu/Debian
+#   systemctl status crond   # CentOS/RHEL
+#
+# -------------------------------------------------------------------

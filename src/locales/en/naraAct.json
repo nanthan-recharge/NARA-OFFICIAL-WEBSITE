@@ -1,0 +1,127 @@
+{
+  "naraAct": {
+    "hero": {
+      "badge": "Legal Framework",
+      "title": "NARA Act & Amendments",
+      "headline": "Empowering Aquatic Research and Development",
+      "description": "The National Aquatic Resources Research and Development Agency Act (Act No. 54 of 1981) established NARA as Sri Lanka's premier institute for marine and freshwater research. Through subsequent amendments, including the landmark Act No. 32 of 1996, NARA's mandate has expanded to encompass comprehensive advisory, training, and coordination roles across all aquatic domains."
+    },
+    "highlights": {
+      "title": "Key Highlights",
+      "items": [
+        {
+          "icon": "scale",
+          "title": "Act No. 54 of 1981",
+          "description": "Established NARA as a statutory body following the declaration of Sri Lanka's 200-nautical-mile Exclusive Economic Zone (EEZ), empowering the agency to conduct research, advise policymakers, and coordinate national aquatic resource management efforts."
+        },
+        {
+          "icon": "fileText",
+          "title": "Act No. 32 of 1996",
+          "description": "Landmark amendment that significantly expanded NARA's powers and functions, including enhanced advisory roles, training programs, and coordination mechanisms across coastal, inland, and offshore domains."
+        },
+        {
+          "icon": "shield",
+          "title": "Governance Structure",
+          "description": "NARA operates under a Board of Governors appointed by the Minister, ensuring transparent governance, strategic oversight, and alignment with national priorities for sustainable aquatic resource management."
+        },
+        {
+          "icon": "target",
+          "title": "Core Mandate",
+          "description": "Research and development in oceanography, fisheries, aquaculture, environmental studies, socio-economics, hydrography, and post-harvest technology to support the Blue Economy and sustainable development goals."
+        }
+      ]
+    },
+    "documents": {
+      "title": "Official Documents",
+      "subtitle": "Download the NARA Act and Amendments in your preferred language",
+      "naraAct": {
+        "title": "NARA Act No. 54 of 1981",
+        "description": "The founding legislation that established NARA as Sri Lanka's principal institute for aquatic research and development",
+        "versions": [
+          {
+            "language": "English",
+            "languageCode": "en",
+            "flag": "🇬🇧",
+            "fileUrl": "/documents/nara-act-1981-en.pdf",
+            "fileSize": "1.2 MB"
+          },
+          {
+            "language": "සිංහල",
+            "languageCode": "si",
+            "flag": "🇱🇰",
+            "fileUrl": "/documents/nara-act-1981-si.pdf",
+            "fileSize": "1.5 MB"
+          },
+          {
+            "language": "தமிழ்",
+            "languageCode": "ta",
+            "flag": "🇱🇰",
+            "fileUrl": "/documents/nara-act-1981-ta.pdf",
+            "fileSize": "1.4 MB"
+          }
+        ]
+      },
+      "amendment": {
+        "title": "NARA Amendment Act No. 32 of 1996",
+        "description": "The amendment that expanded NARA's mandate to include comprehensive advisory, training, and coordination functions",
+        "versions": [
+          {
+            "language": "English",
+            "languageCode": "en",
+            "flag": "🇬🇧",
+            "fileUrl": "/documents/nara-amendment-1996-en.pdf",
+            "fileSize": "0.8 MB"
+          },
+          {
+            "language": "සිංහල",
+            "languageCode": "si",
+            "flag": "🇱🇰",
+            "fileUrl": "/documents/nara-amendment-1996-si.pdf",
+            "fileSize": "1.0 MB"
+          },
+          {
+            "language": "தமிழ்",
+            "languageCode": "ta",
+            "flag": "🇱🇰",
+            "fileUrl": "/documents/nara-amendment-1996-ta.pdf",
+            "fileSize": "0.9 MB"
+          }
+        ]
+      },
+      "enactment": {
+        "title": "NARA Enactment - Complete Legal Framework",
+        "description": "Comprehensive compilation of the NARA Act and all subsequent amendments, providing the complete legal framework governing NARA's operations",
+        "versions": [
+          {
+            "language": "English",
+            "languageCode": "en",
+            "flag": "🇬🇧",
+            "fileUrl": "/documents/nara-enactment-en.pdf",
+            "fileSize": "2.5 MB"
+          },
+          {
+            "language": "සිංහල",
+            "languageCode": "si",
+            "flag": "🇱🇰",
+            "fileUrl": "/documents/nara-enactment-si.pdf",
+            "fileSize": "2.8 MB"
+          },
+          {
+            "language": "தமிழ்",
+            "languageCode": "ta",
+            "flag": "🇱🇰",
+            "fileUrl": "/documents/nara-enactment-ta.pdf",
+            "fileSize": "2.7 MB"
+          }
+        ]
+      },
+      "downloadButton": "Download {{language}} Version",
+      "selectLanguage": "Select Language"
+    },
+    "cta": {
+      "title": "Questions About NARA's Legal Mandate?",
+      "description": "Contact our administration office for inquiries regarding NARA's statutory functions, governance structure, or legal framework.",
+      "button": "Contact Us"
+    }
+  }
+}

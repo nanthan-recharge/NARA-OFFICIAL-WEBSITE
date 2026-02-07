@@ -1,0 +1,547 @@
+/**
+ * NARA Government Design System
+ * Technical Specification v1.0 - February 2026
+ *
+ * This file contains the official government color palette and design tokens
+ * for the National Aquatic Resources Research and Development Agency (NARA) website.
+ *
+ * Color Specifications:
+ * - Primary Navy Blue: #003366 (Headers, buttons, links)
+ * - Secondary Light Blue: #0066CC (Accents, highlights)
+ * - White: #FFFFFF (Backgrounds)
+ * - Dark Gray: #333333 (Body text)
+ *
+ * Accessibility: WCAG 2.1 Level AA Compliance
+ * - Minimum 16px body text
+ * - Contrast ratio: 4.5:1 for normal text, 3:1 for large text
+ */
+
+/* ===========================================
+   GOVERNMENT THEME - Light Mode (Default)
+   =========================================== */
+:root,
+[data-theme="government"],
+[data-theme="light"] {
+  /* Primary Colors */
+  --gov-primary: #003366;
+  --gov-primary-hover: #002244;
+  --gov-primary-active: #001a33;
+  --gov-primary-light: rgba(0, 51, 102, 0.1);
+
+  /* Secondary Colors */
+  --gov-secondary: #0066CC;
+  --gov-secondary-hover: #0052a3;
+  --gov-secondary-active: #004080;
+  --gov-secondary-light: rgba(0, 102, 204, 0.1);
+
+  /* Text Colors */
+  --gov-text: #333333;
+  --gov-text-muted: #666666;
+  --gov-text-light: #999999;
+  --gov-text-inverse: #FFFFFF;
+
+  /* Background Colors */
+  --gov-bg: #FFFFFF;
+  --gov-bg-secondary: #F5F7FA;
+  --gov-bg-tertiary: #E8ECF1;
+  --gov-bg-dark: #003366;
+
+  /* Link Colors */
+  --gov-link: #0066CC;
+  --gov-link-hover: #003366;
+  --gov-link-visited: #5c3d99;
+
+  /* Border Colors */
+  --gov-border: #D1D5DB;
+  --gov-border-light: #E5E7EB;
+  --gov-border-dark: #9CA3AF;
+
+  /* Status Colors */
+  --gov-success: #059669;
+  --gov-success-bg: rgba(5, 150, 105, 0.1);
+  --gov-warning: #D97706;
+  --gov-warning-bg: rgba(217, 119, 6, 0.1);
+  --gov-error: #DC2626;
+  --gov-error-bg: rgba(220, 38, 38, 0.1);
+  --gov-info: #0066CC;
+  --gov-info-bg: rgba(0, 102, 204, 0.1);
+
+  /* Focus States (Accessibility) */
+  --gov-focus-ring: 0 0 0 3px rgba(0, 102, 204, 0.5);
+  --gov-focus-outline: 2px solid #0066CC;
+
+  /* Shadows */
+  --gov-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --gov-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --gov-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --gov-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================================
+   TYPOGRAPHY - WCAG 2.1 AA Compliance
+   =========================================== */
+
+/* Base text - minimum 16px for body content */
+.gov-text-base {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--gov-text);
+}
+
+/* Headings with Navy Blue */
+.gov-heading-1 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gov-primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.gov-heading-2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--gov-primary);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+}
+
+.gov-heading-3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gov-primary);
+  line-height: 1.3;
+}
+
+.gov-heading-4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--gov-primary);
+  line-height: 1.35;
+}
+
+.gov-heading-5 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gov-primary);
+  line-height: 1.4;
+}
+
+.gov-heading-6 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gov-primary);
+  line-height: 1.4;
+}
+
+/* ===========================================
+   BUTTONS - Government Standard
+   =========================================== */
+
+.gov-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-decoration: none;
+}
+
+.gov-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--gov-focus-ring);
+}
+
+/* Primary Button - Navy Blue */
+.gov-btn-primary {
+  background-color: var(--gov-primary);
+  color: var(--gov-text-inverse);
+}
+
+.gov-btn-primary:hover {
+  background-color: var(--gov-primary-hover);
+}
+
+.gov-btn-primary:active {
+  background-color: var(--gov-primary-active);
+}
+
+/* Secondary Button - Light Blue */
+.gov-btn-secondary {
+  background-color: var(--gov-secondary);
+  color: var(--gov-text-inverse);
+}
+
+.gov-btn-secondary:hover {
+  background-color: var(--gov-secondary-hover);
+}
+
+.gov-btn-secondary:active {
+  background-color: var(--gov-secondary-active);
+}
+
+/* Outline Button */
+.gov-btn-outline {
+  background-color: transparent;
+  color: var(--gov-primary);
+  border: 2px solid var(--gov-primary);
+}
+
+.gov-btn-outline:hover {
+  background-color: var(--gov-primary);
+  color: var(--gov-text-inverse);
+}
+
+/* ===========================================
+   LINKS - Government Standard
+   =========================================== */
+
+.gov-link {
+  color: var(--gov-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 150ms ease;
+}
+
+.gov-link:hover {
+  color: var(--gov-link-hover);
+}
+
+.gov-link:focus-visible {
+  outline: var(--gov-focus-outline);
+  outline-offset: 2px;
+}
+
+/* ===========================================
+   CARDS - Government Standard
+   =========================================== */
+
+.gov-card {
+  background-color: var(--gov-bg);
+  border: 1px solid var(--gov-border-light);
+  border-radius: 8px;
+  box-shadow: var(--gov-shadow-sm);
+  overflow: hidden;
+  transition: box-shadow 200ms ease;
+}
+
+.gov-card:hover {
+  box-shadow: var(--gov-shadow-md);
+}
+
+.gov-card-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--gov-border-light);
+  background-color: var(--gov-bg-secondary);
+}
+
+.gov-card-body {
+  padding: 20px;
+}
+
+.gov-card-footer {
+  padding: 16px 20px;
+  border-top: 1px solid var(--gov-border-light);
+  background-color: var(--gov-bg-secondary);
+}
+
+/* ===========================================
+   NAVBAR - Government Standard
+   =========================================== */
+
+.gov-navbar {
+  background-color: var(--gov-primary);
+  color: var(--gov-text-inverse);
+  padding: 0 20px;
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--gov-shadow-md);
+}
+
+.gov-navbar-link {
+  color: var(--gov-text-inverse);
+  text-decoration: none;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
+  transition: background-color 150ms ease;
+}
+
+.gov-navbar-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.gov-navbar-link:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* ===========================================
+   FORMS - Government Standard + Accessibility
+   =========================================== */
+
+.gov-form-label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--gov-text);
+  margin-bottom: 8px;
+}
+
+.gov-form-input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 16px;
+  color: var(--gov-text);
+  background-color: var(--gov-bg);
+  border: 1px solid var(--gov-border);
+  border-radius: 6px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.gov-form-input:focus {
+  outline: none;
+  border-color: var(--gov-secondary);
+  box-shadow: var(--gov-focus-ring);
+}
+
+.gov-form-input:disabled {
+  background-color: var(--gov-bg-secondary);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Error state */
+.gov-form-input.error {
+  border-color: var(--gov-error);
+}
+
+.gov-form-error {
+  font-size: 14px;
+  color: var(--gov-error);
+  margin-top: 4px;
+}
+
+/* ===========================================
+   ACCESSIBILITY UTILITIES
+   =========================================== */
+
+/* Screen reader only */
+.gov-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip link for keyboard navigation */
+.gov-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: var(--gov-primary);
+  color: var(--gov-text-inverse);
+  padding: 8px 16px;
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.gov-skip-link:focus {
+  top: 0;
+}
+
+/* Focus visible for all interactive elements */
+.gov-focus-visible:focus-visible {
+  outline: var(--gov-focus-outline);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --gov-primary: #000066;
+    --gov-secondary: #0044AA;
+    --gov-text: #000000;
+    --gov-border: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===========================================
+   CONTRAST UTILITIES
+   Ensuring WCAG 2.1 AA 4.5:1 ratio
+   =========================================== */
+
+/* Navy Blue on White: Contrast ratio 8.59:1 (AAA) */
+.gov-contrast-navy-white {
+  background-color: var(--gov-bg);
+  color: var(--gov-primary);
+}
+
+/* White on Navy Blue: Contrast ratio 8.59:1 (AAA) */
+.gov-contrast-white-navy {
+  background-color: var(--gov-primary);
+  color: var(--gov-text-inverse);
+}
+
+/* Dark Gray on White: Contrast ratio 12.63:1 (AAA) */
+.gov-contrast-gray-white {
+  background-color: var(--gov-bg);
+  color: var(--gov-text);
+}
+
+/* Light Blue on White: Contrast ratio 4.56:1 (AA) */
+.gov-contrast-blue-white {
+  background-color: var(--gov-bg);
+  color: var(--gov-secondary);
+}
+
+/* ===========================================
+   GOVERNMENT HERO SECTION
+   =========================================== */
+
+.gov-hero {
+  background-color: var(--gov-primary);
+  color: var(--gov-text-inverse);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.gov-hero-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.gov-hero-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .gov-hero-title {
+    font-size: 28px;
+  }
+
+  .gov-hero-subtitle {
+    font-size: 18px;
+  }
+}
+
+/* ===========================================
+   GOVERNMENT FOOTER
+   =========================================== */
+
+.gov-footer {
+  background-color: var(--gov-primary);
+  color: var(--gov-text-inverse);
+  padding: 40px 20px;
+}
+
+.gov-footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.gov-footer-link:hover {
+  color: var(--gov-text-inverse);
+  text-decoration: underline;
+}
+
+/* ===========================================
+   MEGA MENU - Government Standard
+   =========================================== */
+
+.gov-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--gov-bg);
+  border-top: 3px solid var(--gov-secondary);
+  box-shadow: var(--gov-shadow-xl);
+  padding: 24px;
+  z-index: 1000;
+}
+
+.gov-mega-menu-section {
+  padding: 16px;
+}
+
+.gov-mega-menu-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gov-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--gov-secondary);
+}
+
+.gov-mega-menu-link {
+  display: block;
+  padding: 8px 0;
+  color: var(--gov-text);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 150ms ease;
+}
+
+.gov-mega-menu-link:hover {
+  color: var(--gov-secondary);
+}
+
+/* ===========================================
+   PRINT STYLES
+   =========================================== */
+
+@media print {
+  .gov-navbar,
+  .gov-footer,
+  .gov-skip-link {
+    display: none !important;
+  }
+
+  * {
+    background-color: white !important;
+    color: black !important;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}

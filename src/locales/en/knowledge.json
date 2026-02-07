@@ -1,0 +1,281 @@
+{
+  "hero": {
+    "badge": "Knowledge Discovery Center",
+    "title": "Empowering Marine Research",
+    "titleHighlight": "Through Knowledge & Innovation",
+    "subtitle": "Access NARA's comprehensive research database, marine datasets, training programs, and collaborative tools for ocean science advancement",
+    "cta": {
+      "primary": "Explore Resources",
+      "secondary": "Request Consultation"
+    },
+    "stats": {
+      "publications": {
+        "value": "1,200+",
+        "label": "Research Publications"
+      },
+      "datasets": {
+        "value": "500+",
+        "label": "Marine Datasets"
+      },
+      "researchers": {
+        "value": "300+",
+        "label": "Active Researchers"
+      },
+      "training": {
+        "value": "50+",
+        "label": "Training Programs"
+      }
+    }
+  },
+  "search": {
+    "placeholder": "Search publications, datasets, training programs...",
+    "advanced": "Advanced Search",
+    "filters": {
+      "all": "All Resources",
+      "publications": "Publications",
+      "datasets": "Datasets",
+      "training": "Training",
+      "tools": "Research Tools",
+      "experts": "Expert Consultation"
+    },
+    "aiAssist": "AI-Powered Search",
+    "suggestions": "Popular Searches",
+    "recent": "Recent Searches"
+  },
+  "publications": {
+    "title": "Research Publications",
+    "subtitle": "Browse peer-reviewed research from NARA scientists",
+    "viewAll": "View All Publications",
+    "filters": {
+      "year": "Publication Year",
+      "area": "Research Area",
+      "author": "Author",
+      "type": "Publication Type"
+    },
+    "labels": {
+      "citations": "{{count}} citations",
+      "downloads": "{{count}} downloads",
+      "openAccess": "Open Access",
+      "restricted": "Restricted Access",
+      "impactFactor": "Impact Factor: {{value}}",
+      "viewPdf": "View PDF",
+      "citePaper": "Cite This Paper",
+      "shareIcon": "Share"
+    }
+  },
+  "datasets": {
+    "title": "Marine Datasets & Resources",
+    "subtitle": "Access comprehensive ocean data collected by NARA",
+    "categories": {
+      "oceanography": "Oceanography",
+      "fisheries": "Fisheries Data",
+      "biodiversity": "Biodiversity",
+      "climate": "Climate Data",
+      "water": "Water Quality",
+      "coastal": "Coastal Surveys"
+    },
+    "labels": {
+      "size": "Dataset Size",
+      "format": "Format",
+      "updated": "Last Updated",
+      "license": "License",
+      "download": "Download Dataset",
+      "preview": "Preview Data",
+      "documentation": "View Documentation",
+      "api": "API Access"
+    }
+  },
+  "training": {
+    "title": "Training & Capacity Building",
+    "subtitle": "Professional development programs for marine researchers",
+    "types": {
+      "workshops": "Workshops",
+      "courses": "Online Courses",
+      "webinars": "Webinars",
+      "certifications": "Certifications",
+      "fieldwork": "Field Training"
+    },
+    "labels": {
+      "duration": "Duration",
+      "level": "Level",
+      "language": "Language",
+      "seats": "Available Seats",
+      "startDate": "Start Date",
+      "instructor": "Instructor",
+      "enroll": "Enroll Now",
+      "waitlist": "Join Waitlist",
+      "certificate": "Certificate Available",
+      "free": "Free",
+      "paid": "Paid"
+    },
+    "levels": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "expert": "Expert"
+    }
+  },
+  "tools": {
+    "title": "Research Tools & Software",
+    "subtitle": "Advanced tools for marine research and analysis",
+    "categories": {
+      "analysis": "Data Analysis Tools",
+      "modeling": "Ocean Modeling",
+      "visualization": "Visualization",
+      "gis": "GIS & Mapping",
+      "statistics": "Statistical Tools",
+      "simulation": "Simulation Software"
+    },
+    "labels": {
+      "download": "Download Tool",
+      "documentation": "Documentation",
+      "tutorial": "Video Tutorial",
+      "support": "Get Support",
+      "version": "Version",
+      "platform": "Platform",
+      "license": "License Type"
+    }
+  },
+  "experts": {
+    "title": "Expert Consultation Services",
+    "subtitle": "Connect with NARA's leading marine scientists",
+    "services": {
+      "research": "Research Collaboration",
+      "training": "Training Sessions",
+      "analysis": "Data Analysis",
+      "policy": "Policy Advisory",
+      "identification": "Species Identification",
+      "monitoring": "Environmental Monitoring"
+    },
+    "booking": {
+      "title": "Book a Consultation",
+      "selectExpert": "Select Expert",
+      "selectService": "Select Service",
+      "selectDate": "Select Date & Time",
+      "message": "Your Message",
+      "messagePlaceholder": "Describe your consultation needs...",
+      "submit": "Request Consultation",
+      "pending": "Pending Approval",
+      "confirmed": "Confirmed"
+    },
+    "expertCard": {
+      "specialization": "Specialization",
+      "experience": "{{years}} years experience",
+      "publications": "{{count}} publications",
+      "projects": "{{count}} active projects",
+      "availability": "Availability",
+      "bookNow": "Book Consultation",
+      "viewProfile": "View Full Profile"
+    }
+  },
+  "collaboration": {
+    "title": "Collaborative Research Platform",
+    "subtitle": "Work together on marine science projects",
+    "features": {
+      "workspace": {
+        "title": "Shared Workspaces",
+        "description": "Collaborate with researchers in real-time"
+      },
+      "notebook": {
+        "title": "Research Notebooks",
+        "description": "Document and share your research process"
+      },
+      "dataSharing": {
+        "title": "Secure Data Sharing",
+        "description": "Share datasets with access controls"
+      },
+      "version": {
+        "title": "Version Control",
+        "description": "Track changes and maintain data integrity"
+      },
+      "discussion": {
+        "title": "Discussion Forums",
+        "description": "Engage with the research community"
+      },
+      "review": {
+        "title": "Peer Review System",
+        "description": "Get feedback from expert reviewers"
+      }
+    },
+    "actions": {
+      "createWorkspace": "Create Workspace",
+      "joinProject": "Join Project",
+      "browseProjects": "Browse Projects"
+    }
+  },
+  "analytics": {
+    "title": "Research Impact Analytics",
+    "subtitle": "Track the reach and influence of marine research",
+    "metrics": {
+      "totalViews": "Total Views",
+      "downloads": "Downloads",
+      "citations": "Citations",
+      "collaborations": "Collaborations",
+      "altmetric": "Altmetric Score",
+      "engagement": "Engagement Rate"
+    },
+    "charts": {
+      "citationsOverTime": "Citations Over Time",
+      "geographicReach": "Geographic Reach",
+      "topKeywords": "Top Keywords",
+      "researchAreas": "Research Areas Distribution"
+    }
+  },
+  "library": {
+    "title": "Digital Library",
+    "subtitle": "Comprehensive collection of marine science literature",
+    "sections": {
+      "books": "Books & Monographs",
+      "journals": "Journals",
+      "reports": "Technical Reports",
+      "theses": "Theses & Dissertations",
+      "proceedings": "Conference Proceedings",
+      "archives": "Historical Archives"
+    },
+    "actions": {
+      "browse": "Browse Collection",
+      "search": "Search Library",
+      "request": "Request Material"
+    }
+  },
+  "newsletter": {
+    "title": "Stay Updated",
+    "subtitle": "Get the latest research updates and news",
+    "emailPlaceholder": "Enter your email",
+    "frequency": {
+      "label": "Email Frequency",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "quarterly": "Quarterly"
+    },
+    "interests": {
+      "label": "Your Interests",
+      "marine": "Marine Biology",
+      "fisheries": "Fisheries",
+      "climate": "Climate Science",
+      "conservation": "Conservation",
+      "policy": "Marine Policy"
+    },
+    "subscribe": "Subscribe Now",
+    "success": "Successfully subscribed!",
+    "privacy": "We respect your privacy. Unsubscribe anytime."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "categories": {
+      "access": "Data Access",
+      "publications": "Publications",
+      "training": "Training Programs",
+      "collaboration": "Collaboration",
+      "technical": "Technical Support"
+    }
+  },
+  "learningAcademy": "Learning Development Academy",
+  "academyDescription": "Advance your marine science career with comprehensive courses, research papers, and training materials",
+  "submitProject": "Submit Project",
+  "courses": "Courses",
+  "papers": "Research Papers",
+  "materials": "Training Materials",
+  "enrollNow": "Enroll Now",
+  "confirmEnrollment": "Confirm Enrollment"
+}

@@ -1,0 +1,482 @@
+{
+  "hero": {
+    "badge": "NARA Digital Procurement & Recruitment",
+    "title": "Seamless tenders & talent journeys for Sri Lanka’s ocean innovation hub",
+    "description": "Manage procurement submissions, collaborate with evaluators, and apply to multidisciplinary roles—all in one secure digital workspace governed by NARA.",
+    "actions": {
+      "procurement": "Browse procurement",
+      "recruitment": "View career roles",
+      "createAccount": "Create account"
+    },
+    "highlights": {
+      "security": "GovTech security & transparent audit trails",
+      "policy": "Integrated with national procurement policy"
+    },
+    "timeline": {
+      "title": "Live timeline",
+      "refresh": "Refresh data",
+      "items": [
+        {
+          "title": "Digital tender submissions rated in under 12 days",
+          "subtitle": "Average evaluation cycle across Q1 2024"
+        },
+        {
+          "title": "Trusted vendor network powering coastal modernization",
+          "subtitle": "1,200+ pre-qualified partners nationwide"
+        },
+        {
+          "title": "Scholarship-backed research fellowships live now",
+          "subtitle": "Work alongside NARA scientists on ocean intelligence"
+        }
+      ]
+    },
+    "auth": {
+      "loading": "Checking your secure session…",
+      "welcome": "Welcome back, {{name}}.",
+      "visitor": "partner",
+      "goToWorkspace": "Go to workspace",
+      "logout": "Logout",
+      "prompt": "Already registered? Secure login for vendors & candidates.",
+      "launchLogin": "Launch login"
+    },
+    "metrics": {
+      "procurement": {
+        "label": "Open procurement RFPs",
+        "hint": "{{count}} closing within 7 days",
+        "hintFallback": "Fresh tenders added daily"
+      },
+      "recruitment": {
+        "label": "Active career roles",
+        "hint": "{{count}} closing soon",
+        "hintFallback": "Multidisciplinary teams"
+      },
+      "review": {
+        "label": "Average review time",
+        "valueFallback": "12 days",
+        "hint": "Streamlined evaluation workflow"
+      },
+      "partners": {
+        "label": "Registered partners",
+        "valueFallback": "1.2K+",
+        "hint": "Pre-qualified national vendors"
+      }
+    }
+  },
+  "procurement": {
+    "heading": "Procurement Exchange",
+    "description": "Access live tenders, download technical briefs, and submit proposals that advance Sri Lanka’s blue-economy infrastructure.",
+    "filters": {
+      "scopeLabel": "Filter by scope",
+      "allOption": "All notices",
+      "sortLabel": "Sort",
+      "options": {
+        "deadline": "Closing soon",
+        "value": "Highest value",
+        "recent": "Recently published"
+      }
+    },
+    "sidebar": {
+      "title": "Opportunity Pulse",
+      "closingSoon": "Closing within 7 days",
+      "averageValue": "Average tender value",
+      "registeredVendors": "Registered vendors",
+      "vendorFallback": "1.2K+",
+      "support": {
+        "title": "Procurement Support",
+        "description": "Dedicated procurement officers are available for clarifications on documentation, site visits, and compliance requirements.",
+        "location": "Procurement Unit, NARA HQ"
+      }
+    },
+    "empty": "No active procurement notices match your filters right now.",
+    "cards": {
+      "deadlineLabel": "Deadline",
+      "tbc": "TBC",
+      "closed": "Closed",
+      "daysRemaining": "{{count}} days remaining",
+      "department": "Department",
+      "departmentFallback": "NARA Procurement",
+      "estimatedValue": "Estimated value",
+      "contact": "Contact procurement",
+      "bidOpening": "Bid opening",
+      "bidOpeningFallback": "Refer notice",
+      "viewRequirements": "View requirements",
+      "submitProposal": "Submit proposal",
+      "checklist": {
+        "title": "Submission checklist",
+        "empty": "Refer to RFP for the full documentation list."
+      },
+      "milestones": {
+        "title": "Key milestones",
+        "clarifications": "Clarifications window",
+        "clarificationsFallback": "Refer published notice",
+        "venue": "Bid opening venue",
+        "venueFallback": "NARA Procurement Division"
+      },
+      "categoryFallback": "Procurement",
+      "statusFallback": "Active"
+    }
+  },
+  "modals": {
+    "login": {
+      "badge": "Secure login",
+      "title": "Access your NARA workspace",
+      "description": "Sign in to continue submitting tenders and tracking applications.",
+      "emailLabel": "Email address",
+      "emailPlaceholder": "name@company.lk",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "••••••••",
+      "submit": "Login",
+      "submitting": "Authenticating…",
+      "switchPrompt": "New to the portal?",
+      "switchCta": "Create a vendor or talent account"
+    },
+    "registration": {
+      "badge": "Create account",
+      "title": "Join the NARA Partner Network",
+      "description": "Register once to access both procurement notices and recruitment opportunities.",
+      "firstNameLabel": "First name",
+      "lastNameLabel": "Last name",
+      "emailLabel": "Email address",
+      "phoneLabel": "Phone number",
+      "organizationLabel": "Organization",
+      "nicLabel": "NIC / Registration",
+      "accountTypeLabel": "Account type",
+      "accountOptions": {
+        "vendor": "Vendor / Supplier",
+        "consultant": "Consultant",
+        "individual": "Individual applicant"
+      },
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Create a secure password",
+      "submit": "Create account",
+      "submitting": "Creating account…"
+    },
+    "application": {
+      "uploading": "Uploading supporting documents…",
+      "shared": {
+        "cancel": "Cancel",
+        "submitProposal": "Submit proposal",
+        "submitApplication": "Submit application",
+        "submitting": "Submitting…",
+        "upload": "Upload",
+        "separator": "•",
+        "filesSuffix": "files",
+        "summary": {
+          "deadline": "Deadline",
+          "deadlineFallback": "Refer notice"
+        }
+      },
+      "procurement": {
+        "summary": {
+          "valueLabel": "Estimated value",
+          "valueFallback": "Upon request"
+        },
+        "fields": {
+          "companyName": "Company name",
+          "deliveryTimeline": "Delivery timeline (weeks)",
+          "technical": "Technical proposal",
+          "financial": "Financial proposal (LKR)",
+          "warranty": "Warranty period (months)",
+          "paymentTerms": "Payment terms",
+          "additionalInformation": "Additional information"
+        },
+        "placeholders": {
+          "technical": "Outline methodology, deployment schedule, equipment specifications, and compliance measures.",
+          "paymentTerms": "e.g., 30% advance, balance on commissioning",
+          "additionalInformation": "Certifications, local partners, or clarifications"
+        },
+        "uploadLabel": "Upload required documents",
+        "fallbackDocuments": {
+          "companyProfile": "Company profile",
+          "financialStatements": "Financial statements"
+        }
+      },
+      "recruitment": {
+        "summary": {
+          "departmentLabel": "Department",
+          "departmentFallback": "NARA",
+          "deadlineLabel": "Deadline",
+          "deadlineFallback": "Refer notice"
+        },
+        "fields": {
+          "fullName": "Full name",
+          "email": "Email address",
+          "phone": "Phone number",
+          "coverLetter": "Cover letter",
+          "portfolio": "LinkedIn profile / Portfolio"
+        },
+        "placeholders": {
+          "coverLetter": "Share your motivation, expertise, and alignment with NARA’s mission.",
+          "portfolio": "https://"
+        },
+        "uploadLabel": "Upload supporting documents",
+        "fallbackDocuments": {
+          "cv": "Curriculum Vitae",
+          "transcripts": "Academic transcripts",
+          "certifications": "Professional certifications"
+        }
+      },
+      "documents": {
+        "supporting": "Supporting Document"
+      }
+    }
+  },
+  "recruitment": {
+    "heading": "Talent Hub",
+    "description": "Join multidisciplinary teams advancing ocean science, climate resilience, and digital innovation across Sri Lanka’s maritime economy.",
+    "filters": {
+      "focusLabel": "Focus area",
+      "allOption": "All roles",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search by title, division, or keyword…",
+      "statusLabel": "Status",
+      "divisionLabel": "Division",
+      "gradeLabel": "Grade",
+      "allDivisions": "All divisions",
+      "allGrades": "All grades",
+      "sortLabel": "Sort",
+      "statusOptions": {
+        "all": "All statuses",
+        "open": "Open",
+        "review": "Under review",
+        "closed": "Closed"
+      },
+      "options": {
+        "deadline": "Closing soon",
+        "salary": "Highest salary",
+        "recent": "Recently posted"
+      }
+    },
+    "sidebar": {
+      "title": "Career Insights",
+      "closingSoon": "Roles closing soon",
+      "hybrid": "Hybrid / remote options",
+      "scholarship": "Scholarship-linked positions",
+      "support": {
+        "title": "Talent Concierge",
+        "description": "Our HR team guides shortlisted candidates through assessments, interviews, and relocation logistics.",
+        "phone": "+94 11 234 5680",
+        "location": "People & Culture Division",
+        "email": "careers@nara.gov.lk"
+      }
+    },
+    "empty": "No active roles match your filters right now.",
+    "cards": {
+      "categoryFallback": "Career role",
+      "statusFallback": "Open",
+      "statusLabels": {
+        "open": "Open",
+        "review": "Under review",
+        "closed": "Closed"
+      },
+      "statusNotes": {
+        "open": "Auto-updating from HR feed",
+        "review": "Panel assessing submissions",
+        "closed": "Archived for transparency"
+      },
+      "applyBy": "Apply by",
+      "tbc": "TBC",
+      "closed": "Closed",
+      "daysRemaining": "{{count}} days remaining",
+      "department": "Department",
+      "departmentFallback": "NARA",
+      "grade": "Service grade",
+      "gradeFallback": "NARA Service Grade",
+      "qualifications": "Qualifications",
+      "qualificationsFallback": "See full brief",
+      "salary": "Salary band",
+      "salaryFallback": "Aligned with NARA scales",
+      "buttons": {
+        "overview": "Role overview",
+        "apply": "Submit application",
+        "downloadPack": "Download pack",
+        "closed": "Applications closed",
+        "closedHint": "Applications are closed. Contact HR for clarifications."
+      },
+      "responsibilities": {
+        "title": "Responsibilities",
+        "empty": "Refer to the job description for detailed responsibilities."
+      },
+      "profile": {
+        "title": "Candidate profile",
+        "experience": "Experience",
+        "experienceFallback": "Graduate to senior levels considered",
+        "contractType": "Contract type",
+        "contractFallback": "Full-time"
+      }
+    },
+    "sync": {
+      "metrics": {
+        "open": "Live vacancies",
+        "review": "Under review",
+        "closed": "Closed this quarter",
+        "lastSync": "Last sync"
+      },
+      "hints": {
+        "open": "Auto-published from Vacancy Manager",
+        "review": "Awaiting panel approvals and PSC endorsements",
+        "closed": "Archived with RTI-ready summaries",
+        "auto": "HR feed + gazette watcher"
+      },
+      "features": {
+        "cms": "Vacancy Manager",
+        "cmsDescription": "HR can publish, update, or close roles from the CMS or connected Google Sheet feed.",
+        "gazette": "Gazette assist",
+        "gazetteDescription": "Upload gazette PDFs with structured summaries; NARA mentions are flagged for HR confirmation.",
+        "backOffice": "Back-office controls",
+        "backOfficeDescription": "Approvals, reminders, CSV exports, and acknowledgement logs keep RTI obligations covered.",
+        "gazettePending": "{{count}} gazettes flagged",
+        "pscPending": "{{count}} PSC links tracked"
+      },
+      "relative": {
+        "never": "Awaiting sync",
+        "now": "Just now",
+        "minutes": "{{count}} minutes ago",
+        "hours": "{{count}} hours ago",
+        "days": "{{count}} days ago"
+      }
+    },
+    "archive": {
+      "title": "Archive: closed roles",
+      "description": "Recent vacancies remain visible for transparency and RTI readiness.",
+      "download": "Download notice",
+      "moreHint": "Browse the complete archive from your workspace.",
+      "total": "{{count}} closed roles"
+    }
+  },
+  "dashboard": {
+    "heading": "My Workspace",
+    "description": "Track every procurement proposal and career application with live status updates, notifications, and secure document management.",
+    "metrics": {
+      "submitted": "Submitted applications",
+      "underReview": "Under review",
+      "awaiting": "Awaiting documents",
+      "unread": "Unread notifications"
+    },
+    "recent": {
+      "title": "Recent submissions",
+      "subtitle": "Last 10 records",
+      "separator": "•",
+      "types": {
+        "procurement": "Procurement",
+        "recruitment": "Career"
+      },
+      "empty": "No submissions yet. Start by applying to a tender or role.",
+      "status": {
+        "generic": "{{status}}",
+        "under_review": "Under review",
+        "submitted": "Submitted",
+        "approved": "Approved",
+        "shortlisted": "Shortlisted",
+        "awarded": "Awarded",
+        "rejected": "Rejected"
+      }
+    },
+    "notifications": {
+      "title": "Notifications",
+      "empty": "You are all caught up!"
+    },
+    "support": {
+      "title": "Need assistance?",
+      "description": "Our digital support desk can help with account access, submission troubleshooting, and document uploads.",
+      "cta": "Contact support"
+    },
+    "loading": {
+      "fetching": "Loading your workspace...",
+      "empty": "Dashboard data will appear after submitting applications."
+    }
+  },
+  "loading": {
+    "fetching": "Fetching the latest updates…"
+  },
+  "footer": {
+    "heading": "Co-create Sri Lanka’s ocean future with NARA",
+    "description": "Collaborate with us on maritime surveillance, climate-resilient fisheries, digital infrastructure, and community impact programmes across the island.",
+    "cta": {
+      "procurement": "Explore all procurement notices",
+      "recruitment": "Meet the teams hiring now"
+    }
+  },
+  "alerts": {
+    "applicationSuccess": "Application submitted successfully!"
+  },
+  "simplePortal": {
+    "hero": {
+      "badge": "🌊 Sri Lanka's Ocean Innovation Hub",
+      "title": "Build Your Future with",
+      "titleHighlight": "NARA",
+      "description": "Discover career opportunities and procurement tenders in marine research, ocean conservation, and sustainable development",
+      "signIn": "Sign In",
+      "registerNow": "Register Now"
+    },
+    "tabs": {
+      "jobs": {
+        "title": "Career Opportunities",
+        "count": "{{count}} positions available"
+      },
+      "tenders": {
+        "title": "Procurement Tenders",
+        "count": "{{count}} tenders open"
+      }
+    },
+    "stats": {
+      "activeJobs": "Active Jobs",
+      "openTenders": "Open Tenders",
+      "totalApplications": "Total Applications",
+      "successRate": "Success Rate"
+    },
+    "search": {
+      "jobsPlaceholder": "Search jobs by title, department, or location...",
+      "tendersPlaceholder": "Search tenders by title or category...",
+      "button": "Search"
+    },
+    "jobs": {
+      "heading": "Career Opportunities",
+      "subheading": "Join our team and make a difference in ocean conservation",
+      "filter": "Filter",
+      "noJobs": "No Jobs Available",
+      "noJobsMessage": "Check back soon for new opportunities!",
+      "status": "Open",
+      "applicants": "{{count}} applicants",
+      "department": "Department",
+      "location": "Location",
+      "salaryRange": "Salary Range",
+      "deadline": "Deadline",
+      "daysRemaining": "{{count}} days",
+      "viewDetails": "View Details",
+      "downloadJD": "Download JD",
+      "applyNow": "Apply Now",
+      "loading": "Loading portal data..."
+    },
+    "tenders": {
+      "heading": "Procurement Tenders",
+      "subheading": "Bid on government procurement opportunities",
+      "filter": "Filter",
+      "noTenders": "No Tenders Available",
+      "noTendersMessage": "Check back soon for new procurement opportunities!",
+      "status": "Open",
+      "tenderValue": "Tender Value",
+      "bidOpening": "Bid Opening",
+      "deadline": "Deadline",
+      "daysRemaining": "{{count}} days",
+      "requiredDocuments": "Required Documents:",
+      "viewDetails": "View Details",
+      "downloadDocuments": "Download Documents",
+      "submitBid": "Submit Bid"
+    },
+    "cta": {
+      "heading": "Ready to Get Started?",
+      "description": "Create your account today and unlock opportunities with NARA",
+      "createAccount": "Create Free Account"
+    },
+    "footer": {
+      "title": "NARA Portal",
+      "subtitle": "National Aquatic Resources Research & Development Agency",
+      "copyright": "© 2025 NARA. All rights reserved."
+    },
+    "error": {
+      "title": "Unable to load portal data",
+      "retry": "Try Again"
+    }
+  }
+}
