@@ -18,4 +18,6 @@ serviceAccountKey.json
 .cursor/rules/byterover-rules.mdc
 .kiro/steering/byterover-rules.md
 .qoder/rules/byterover-rules.md
-.augment/rules/byterover-rules.mdchrome-devtools-mcp/
+.augment/rules/byterover-rules.md
+chrome-devtools-mcp/
+.github/workflows/
