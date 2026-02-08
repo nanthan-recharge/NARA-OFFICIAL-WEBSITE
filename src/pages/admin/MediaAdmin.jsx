@@ -71,7 +71,7 @@ const MediaAdmin = () => {
   const handleLogout = async () => {
     try {
       await auth.signOut();
-      navigate('/admin/research-login');
+      navigate('/admin/login');
     } catch (error) {
       console.error('Logout error:', error);
     }

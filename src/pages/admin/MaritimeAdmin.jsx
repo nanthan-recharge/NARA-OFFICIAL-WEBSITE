@@ -8,7 +8,6 @@ import {
   getMaritimeAlerts,
   createMaritimeService,
   updateMaritimeService,
-  deleteMaritimeService,
   createMaritimeAlert
 } from '../../services/maritimeService';
 
@@ -55,8 +54,7 @@ const MaritimeAdmin = () => {
 
     setLoading(true);
     try {
-      const { createMaritimeService, createMaritimeAlert } = await import('../../services/maritimeService');
-      const { setDoc, doc, serverTimestamp } = await import('firebase/firestore');
+      const { setDoc, doc } = await import('firebase/firestore');
       const { db } = await import('../../firebase');
 
       // Add vessels
@@ -197,18 +195,20 @@ const MaritimeAdmin = () => {
               {(vessels.length === 0 && ports.length === 0) && (
                 <button
                   onClick={seedDemoData}
+                  disabled={loading}
                   className="px-4 py-2 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg transition-all shadow-lg shadow-sm flex items-center gap-2"
                 >
                   <Icons.Database className="w-4 h-4" />
-                  Setup Demo Data
+                  {loading ? 'Loading...' : 'Setup Demo Data'}
                 </button>
               )}
               <button
                 onClick={fetchData}
+                disabled={loading}
                 className="px-4 py-2 bg-gradient-to-r from-[#003366] to-[#0066CC] hover:from-[#002244] hover:to-[#003366] text-white rounded-lg transition-all shadow-lg shadow-sm flex items-center gap-2"
               >
-                <Icons.RefreshCw className="w-4 h-4" />
-                Refresh
+                <Icons.RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+                {loading ? 'Refreshing...' : 'Refresh'}
               </button>
             </div>
           </div>

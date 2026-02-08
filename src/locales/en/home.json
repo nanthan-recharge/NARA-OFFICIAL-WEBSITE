@@ -791,5 +791,13 @@
         "description": "Training and workshop programmes for capacity development"
       }
     ]
+  },
+  "library": {
+    "badge": "Research Library",
+    "heading": "Explore Our Research Library",
+    "subtitle": "Access peer-reviewed studies, policy briefs, and technical reports across every marine discipline.",
+    "showLess": "Show Less",
+    "viewMore": "View More",
+    "browseCta": "Browse Full Catalogue"
   }
 }

@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
-  fetchWeatherPoint,
   fetchTideData,
-  fetchMultipleLocations,
-  SRI_LANKA_LOCATIONS
+  fetchMultipleLocations
 } from '../../services/stormglassService';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -20,6 +19,7 @@ L.Icon.Default.mergeOptions({
 });
 
 export default function StormglassMaritimePage() {
+  const { t, i18n } = useTranslation('stormglass');
   const [allLocationsData, setAllLocationsData] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [tideData, setTideData] = useState(null);
@@ -27,16 +27,21 @@ export default function StormglassMaritimePage() {
   const [error, setError] = useState(null);
   const [autoRefresh, setAutoRefresh] = useState(false);
 
-  useEffect(() => {
-    fetchAllLocations();
+  const handleLocationSelect = useCallback(async (locationData) => {
+    setSelectedLocation(locationData);
 
-    if (autoRefresh) {
-      const interval = setInterval(fetchAllLocations, 5 * 60 * 1000); // 5 minutes
-      return () => clearInterval(interval);
+    // Fetch tide data for selected location
+    try {
+      const tides = await fetchTideData(locationData.location.lat, locationData.location.lng);
+      if (tides.success) {
+        setTideData(tides.data);
+      }
+    } catch (err) {
+      console.error('Tide fetch error:', err);
     }
-  }, [autoRefresh]);
+  }, []);
 
-  const fetchAllLocations = async () => {
+  const fetchAllLocations = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -53,29 +58,27 @@ export default function StormglassMaritimePage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
-  const handleLocationSelect = async (locationData) => {
-    setSelectedLocation(locationData);
+  useEffect(() => {
+    fetchAllLocations();
 
-    // Fetch tide data for selected location
-    try {
-      const tides = await fetchTideData(locationData.location.lat, locationData.location.lng);
-      if (tides.success) {
-        setTideData(tides.data);
-      }
-    } catch (err) {
-      console.error('Tide fetch error:', err);
+    if (autoRefresh) {
+      const interval = setInterval(fetchAllLocations, 5 * 60 * 1000); // 5 minutes
+      return () => clearInterval(interval);
     }
-  };
+    return undefined;
+  }, [autoRefresh, fetchAllLocations]);
+
+  const locale = i18n.language === 'si' ? 'si-LK' : i18n.language === 'ta' ? 'ta-LK' : 'en-US';
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-50">
       <SEOHead
-        title="Maritime Weather Data"
-        description="Real-time maritime weather data, wave heights, and ocean conditions from Stormglass integration."
+        title={t('meta.title')}
+        description={t('meta.description')}
         path="/stormglass-maritime"
-        keywords="maritime weather, wave data, ocean conditions, Stormglass"
+        keywords={t('meta.keywords')}
       />
       {/* Header */}
       <div className="bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-12">
@@ -85,9 +88,9 @@ export default function StormglassMaritimePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-4xl font-bold mb-4">Maritime Weather Conditions</h1>
+            <h1 className="text-4xl font-bold mb-4">{t('hero.title')}</h1>
             <p className="text-xl text-blue-100">
-              Real-time wave heights, water temperature, and maritime forecasts powered by Stormglass API
+              {t('hero.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -103,8 +106,8 @@ export default function StormglassMaritimePage() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Data Controls</h3>
-              <p className="text-sm text-gray-600">Select location and configure auto-refresh</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('controls.title')}</h3>
+              <p className="text-sm text-gray-600">{t('controls.subtitle')}</p>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -115,7 +118,7 @@ export default function StormglassMaritimePage() {
                   onChange={(e) => setAutoRefresh(e.target.checked)}
                   className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
-                <span className="text-sm text-gray-700">Auto-refresh (5 min)</span>
+                <span className="text-sm text-gray-700">{t('controls.autoRefresh')}</span>
               </label>
 
               <button
@@ -123,7 +126,7 @@ export default function StormglassMaritimePage() {
                 disabled={loading}
                 className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition-colors"
               >
-                {loading ? 'Loading...' : 'Refresh Data'}
+                {loading ? t('controls.loading') : t('controls.refresh')}
               </button>
             </div>
           </div>
@@ -131,7 +134,7 @@ export default function StormglassMaritimePage() {
 
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg mb-8">
-            <p className="font-semibold">Error Loading Data</p>
+            <p className="font-semibold">{t('errors.loadTitle')}</p>
             <p className="text-sm">{error}</p>
           </div>
         )}
@@ -143,7 +146,7 @@ export default function StormglassMaritimePage() {
           transition={{ delay: 0.3 }}
           className="bg-white rounded-xl shadow-lg p-6 mb-8"
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Sri Lankan Maritime Locations</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('map.title')}</h2>
 
           <div className="h-96 rounded-lg overflow-hidden">
             <MapContainer
@@ -169,9 +172,9 @@ export default function StormglassMaritimePage() {
                       <h3 className="font-bold text-lg">{locData.location.name}</h3>
                       {locData.success && locData.data?.current && (
                         <div className="mt-2 space-y-1 text-sm">
-                          <p>Wave Height: {locData.data.current.waveHeight?.toFixed(2) || 'N/A'} m</p>
-                          <p>Water Temp: {locData.data.current.waterTemperature?.toFixed(1) || 'N/A'} °C</p>
-                          <p>Current Speed: {locData.data.current.currentSpeed?.toFixed(2) || 'N/A'} m/s</p>
+                          <p>{t('popup.waveHeight')}: {locData.data.current.waveHeight?.toFixed(2) || 'N/A'} m</p>
+                          <p>{t('popup.waterTemp')}: {locData.data.current.waterTemperature?.toFixed(1) || 'N/A'} °C</p>
+                          <p>{t('popup.currentSpeed')}: {locData.data.current.currentSpeed?.toFixed(2) || 'N/A'} m/s</p>
                         </div>
                       )}
                     </div>
@@ -190,6 +193,8 @@ export default function StormglassMaritimePage() {
               locationData={locData}
               isSelected={selectedLocation?.location.name === locData.location.name}
               onClick={() => handleLocationSelect(locData)}
+              t={t}
+              locale={locale}
             />
           ))}
         </div>
@@ -202,36 +207,36 @@ export default function StormglassMaritimePage() {
             className="bg-white rounded-xl shadow-lg p-8"
           >
             <h2 className="text-3xl font-bold text-gray-800 mb-6">
-              {selectedLocation.location.name} - Detailed Forecast
+              {t('detail.title', { location: selectedLocation.location.name })}
             </h2>
 
             {/* Current Conditions */}
             {selectedLocation.data?.current && (
               <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">Current Conditions</h3>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">{t('detail.currentConditions')}</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   <StatCard
-                    label="Wave Height"
+                    label={t('detail.cards.waveHeight')}
                     value={selectedLocation.data.current.waveHeight?.toFixed(2) || 'N/A'}
-                    unit="meters"
+                    unit={t('detail.units.meters')}
                     icon="🌊"
                   />
                   <StatCard
-                    label="Water Temperature"
+                    label={t('detail.cards.waterTemperature')}
                     value={selectedLocation.data.current.waterTemperature?.toFixed(1) || 'N/A'}
                     unit="°C"
                     icon="🌡️"
                   />
                   <StatCard
-                    label="Current Speed"
+                    label={t('detail.cards.currentSpeed')}
                     value={selectedLocation.data.current.currentSpeed?.toFixed(2) || 'N/A'}
                     unit="m/s"
                     icon="💨"
                   />
                   <StatCard
-                    label="Sea Level"
+                    label={t('detail.cards.seaLevel')}
                     value={selectedLocation.data.current.seaLevel?.toFixed(2) || 'N/A'}
-                    unit="meters"
+                    unit={t('detail.units.meters')}
                     icon="📊"
                   />
                 </div>
@@ -241,9 +246,9 @@ export default function StormglassMaritimePage() {
             {/* 24-Hour Forecast */}
             {selectedLocation.data?.forecast && (
               <div className="mb-8">
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">24-Hour Forecast</h3>
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">{t('detail.forecast24h')}</h3>
                 <div className="overflow-x-auto">
-                  <ForecastTable forecast={selectedLocation.data.forecast.slice(0, 24)} />
+                  <ForecastTable forecast={selectedLocation.data.forecast.slice(0, 24)} t={t} locale={locale} />
                 </div>
               </div>
             )}
@@ -251,8 +256,8 @@ export default function StormglassMaritimePage() {
             {/* Tide Information */}
             {tideData && (
               <div>
-                <h3 className="text-xl font-semibold text-gray-700 mb-4">Tide Schedule</h3>
-                <TideSchedule tides={tideData.slice(0, 10)} />
+                <h3 className="text-xl font-semibold text-gray-700 mb-4">{t('detail.tideSchedule')}</h3>
+                <TideSchedule tides={tideData.slice(0, 10)} t={t} locale={locale} />
               </div>
             )}
           </motion.div>
@@ -262,7 +267,7 @@ export default function StormglassMaritimePage() {
   );
 }
 
-function LocationCard({ locationData, isSelected, onClick }) {
+function LocationCard({ locationData, isSelected, onClick, t, locale }) {
   const { location, success, data, error } = locationData;
 
   return (
@@ -279,30 +284,30 @@ function LocationCard({ locationData, isSelected, onClick }) {
       {success && data?.current ? (
         <div className="space-y-3">
           <div className="flex justify-between items-center">
-            <span className="text-gray-600 text-sm">Wave Height</span>
+            <span className="text-gray-600 text-sm">{t('locationCard.waveHeight')}</span>
             <span className="font-semibold text-blue-600">
               {data.current.waveHeight?.toFixed(2) || 'N/A'} m
             </span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-gray-600 text-sm">Water Temp</span>
+            <span className="text-gray-600 text-sm">{t('locationCard.waterTemp')}</span>
             <span className="font-semibold text-orange-600">
               {data.current.waterTemperature?.toFixed(1) || 'N/A'} °C
             </span>
           </div>
           <div className="flex justify-between items-center">
-            <span className="text-gray-600 text-sm">Current Speed</span>
+            <span className="text-gray-600 text-sm">{t('locationCard.currentSpeed')}</span>
             <span className="font-semibold text-cyan-600">
               {data.current.currentSpeed?.toFixed(2) || 'N/A'} m/s
             </span>
           </div>
           <div className="text-xs text-gray-500 mt-4">
-            Last updated: {new Date(data.current.time).toLocaleTimeString()}
+            {t('locationCard.lastUpdated')}: {new Date(data.current.time).toLocaleTimeString(locale)}
           </div>
         </div>
       ) : (
         <div className="text-red-500 text-sm">
-          {error || 'No data available'}
+          {error || t('errors.noData')}
         </div>
       )}
     </motion.div>
@@ -321,22 +326,22 @@ function StatCard({ label, value, unit, icon }) {
   );
 }
 
-function ForecastTable({ forecast }) {
+function ForecastTable({ forecast, t, locale }) {
   return (
     <table className="w-full text-sm">
       <thead className="bg-gray-50">
         <tr>
-          <th className="px-4 py-3 text-left text-gray-700 font-semibold">Time</th>
-          <th className="px-4 py-3 text-left text-gray-700 font-semibold">Wave (m)</th>
-          <th className="px-4 py-3 text-left text-gray-700 font-semibold">Temp (°C)</th>
-          <th className="px-4 py-3 text-left text-gray-700 font-semibold">Current (m/s)</th>
-          <th className="px-4 py-3 text-left text-gray-700 font-semibold">Wind (m/s)</th>
+          <th className="px-4 py-3 text-left text-gray-700 font-semibold">{t('forecastTable.time')}</th>
+          <th className="px-4 py-3 text-left text-gray-700 font-semibold">{t('forecastTable.wave')}</th>
+          <th className="px-4 py-3 text-left text-gray-700 font-semibold">{t('forecastTable.temp')}</th>
+          <th className="px-4 py-3 text-left text-gray-700 font-semibold">{t('forecastTable.current')}</th>
+          <th className="px-4 py-3 text-left text-gray-700 font-semibold">{t('forecastTable.wind')}</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-200">
         {forecast.map((item, idx) => (
           <tr key={idx} className="hover:bg-gray-50">
-            <td className="px-4 py-3 text-gray-800">{new Date(item.time).toLocaleString()}</td>
+            <td className="px-4 py-3 text-gray-800">{new Date(item.time).toLocaleString(locale)}</td>
             <td className="px-4 py-3 text-gray-800">{item.waveHeight?.toFixed(2) || 'N/A'}</td>
             <td className="px-4 py-3 text-gray-800">{item.waterTemperature?.toFixed(1) || 'N/A'}</td>
             <td className="px-4 py-3 text-gray-800">{item.currentSpeed?.toFixed(2) || 'N/A'}</td>
@@ -348,7 +353,7 @@ function ForecastTable({ forecast }) {
   );
 }
 
-function TideSchedule({ tides }) {
+function TideSchedule({ tides, t, locale }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {tides.map((tide, idx) => (
@@ -361,17 +366,17 @@ function TideSchedule({ tides }) {
           <div className="flex justify-between items-center">
             <div>
               <span className="font-semibold text-gray-800">
-                {tide.type === 'high' ? '⬆️ High Tide' : '⬇️ Low Tide'}
+                {tide.type === 'high' ? t('tide.high') : t('tide.low')}
               </span>
               <p className="text-sm text-gray-600 mt-1">
-                {new Date(tide.time).toLocaleString()}
+                {new Date(tide.time).toLocaleString(locale)}
               </p>
             </div>
             <div className="text-right">
               <span className="text-2xl font-bold text-gray-800">
                 {tide.height?.toFixed(2) || 'N/A'}
               </span>
-              <p className="text-xs text-gray-600">meters</p>
+              <p className="text-xs text-gray-600">{t('detail.units.meters')}</p>
             </div>
           </div>
         </div>

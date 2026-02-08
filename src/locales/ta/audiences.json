@@ -14,32 +14,174 @@
       "title": "பொது மக்கள் மற்றும் கடற்கரை சமுதாயங்களுக்கான சேவைகள்",
       "description": "மீன் பாதுகாப்பு அறிவுறுத்தல்கள், பருவ மாற்ற தகவல்கள், பயிற்சி வாய்ப்புகள் மற்றும் NARA தகவல்களை ஒரே இடத்தில் பெறுங்கள்.",
       "ctas": [
-        { "label": "மீன் பாதுகாப்பு அறிவுறுத்தல்கள்", "href": "/fish-advisory-system" },
-        { "label": "ஆய்வக சேவைகள்", "href": "/lab-results" },
-        { "label": "பருவ நிலை புல்லெட்டின்கள்", "href": "/knowledge-discovery-center" }
+        {
+          "label": "மீன் பாதுகாப்பு அறிவுறுத்தல்கள்",
+          "href": "/fish-advisory-system"
+        },
+        {
+          "label": "ஆய்வக சேவைகள்",
+          "href": "/lab-results"
+        },
+        {
+          "label": "பருவ நிலை புல்லெட்டின்கள்",
+          "href": "/knowledge-discovery-center"
+        }
       ]
     },
     "sections": {
       "advisories": {
         "title": "அறிவுறுத்தல்கள் & எச்சரிக்கைகள்",
         "items": [
-          { "label": "நேரடி உணவுப் பாதுகாப்பு வழிகாட்டிகள்", "href": "/fish-advisory-system" },
-          { "label": "அவசர & சம்பவத் தகவல்", "href": "/emergency-response-network" },
-          { "label": "மழைக்கால & பருவ அறிக்கைகள்", "href": "/knowledge-discovery-center" }
+          {
+            "label": "நேரடி உணவுப் பாதுகாப்பு வழிகாட்டிகள்",
+            "href": "/fish-advisory-system"
+          },
+          {
+            "label": "அவசர & சம்பவத் தகவல்",
+            "href": "/emergency-response-network"
+          },
+          {
+            "label": "மழைக்கால & பருவ அறிக்கைகள்",
+            "href": "/knowledge-discovery-center"
+          }
         ]
       },
       "services": {
         "title": "சமூக சேவைகள்",
         "items": [
-          { "label": "ஆய்வக பரிசோதனை & சான்றிதழ்", "href": "/lab-results" },
-          { "label": "பயிற்சி & திறன் மேம்பாடு", "href": "/learning-development-academy" },
-          { "label": "டெண்டர்கள் & வேலை வாய்ப்புகள்", "href": "/procurement-recruitment-portal" }
+          {
+            "label": "ஆய்வக பரிசோதனை & சான்றிதழ்",
+            "href": "/lab-results"
+          },
+          {
+            "label": "பயிற்சி & திறன் மேம்பாடு",
+            "href": "/learning-development-academy"
+          },
+          {
+            "label": "டெண்டர்கள் & வேலை வாய்ப்புகள்",
+            "href": "/procurement-recruitment-portal"
+          }
         ]
       },
       "stories": {
         "title": "செயல்முறை & கதைகள்",
         "description": "கடற்கரை சமூகங்களை மேம்படுத்தும் திட்டங்களையும் வெற்றிக் கதைகளையும் பார்வையிடுங்கள்.",
         "href": "/media-gallery"
+      }
+    },
+    "compact": {
+      "hero": {
+        "badge": "பொது மக்கள் சேவைகள்",
+        "title": "கடற்கரை சமூகங்களுக்கு பொது கடல் சேவைகள்",
+        "description": "மீன் பாதுகாப்பு, முன்னறிவிப்பு புதுப்பிப்புகள், ஆய்வக ஆதரம் மற்றும் அவசர அறிக்கைகளை ஒரே சுருக்கமான அரச சேவைப் பக்கத்தில் பெறுங்கள்.",
+        "chips": {
+          "fishSafetyLabel": "மீன் பாதுகாப்பு நிலை",
+          "fishSafetyValue": "உணவிற்கு பாதுகாப்பானது",
+          "seaConditionLabel": "கடல் நிலை",
+          "seaConditionValue": "மிதமானது",
+          "lastUpdatedLabel": "கடைசி புதுப்பிப்பு"
+        }
+      },
+      "essentialServices": {
+        "title": "அத்தியாவசிய சேவைகள்",
+        "openService": "சேவையைத் திறக்க",
+        "items": {
+          "fishAdvisory": {
+            "title": "மீன் அறிவுறுத்தல் சேவை",
+            "description": "தினசரி பாதுகாப்பான மீன்பிடி மண்டலங்கள் மற்றும் உணவு பாதுகாப்பு புதுப்பிப்புகள்.",
+            "badge": "நேரடி"
+          },
+          "laboratoryTesting": {
+            "title": "ஆய்வக பரிசோதனை",
+            "description": "மீன் மற்றும் நீர் தர பரிசோதனைகளை சமர்ப்பித்து கண்காணிக்கவும்.",
+            "badge": "சேவை மையம்"
+          },
+          "marineForecast": {
+            "title": "கடல் முன்னறிவிப்பு",
+            "description": "திட்டமிடலுக்கான கடல் நிலை மற்றும் வானிலை அபாய முன்னோக்கு.",
+            "badge": "புதுப்பிப்பு"
+          },
+          "emergencyReporting": {
+            "title": "அவசர அறிக்கையிடல்",
+            "description": "அர்ப்பணிக்கப்பட்ட பதில் வலையமைப்பின் மூலம் கடல் அவசரநிலைகளை அறிவிக்கவும்.",
+            "badge": "24/7"
+          }
+        }
+      },
+      "advisories": {
+        "title": "செயலில் உள்ள பொது அறிவுறுத்தல்கள்",
+        "viewAll": "அனைத்து அறிவுறுத்தல்களையும் காண்க",
+        "items": {
+          "monsoonConditions": {
+            "title": "மழைக்கால நிலை அறிவுறுத்தல்",
+            "message": "தெற்கு கடற்பரப்புகளில் பலமான காற்று எதிர்பார்க்கப்படுகிறது. புறப்பாடுகளை கவனமாக திட்டமிடுங்கள்.",
+            "updated": "2 மணி நேரத்திற்கு முன்"
+          },
+          "fishSafetyBulletin": {
+            "title": "மீன் பாதுகாப்பு அறிவிப்பு",
+            "message": "நெகோம்போ முதல் கொழும்பு வரை கடற்கரைப் பகுதியில் கிடைக்கும் மீன்கள் தற்போது உணவுக்கு பாதுகாப்பானவை.",
+            "updated": "5 மணி நேரத்திற்கு முன்"
+          },
+          "laboratoryIntakeNotice": {
+            "title": "ஆய்வக ஏற்றுக்கொள்ளும் அறிவிப்பு",
+            "message": "இன்றைய விரைவு பரிசோதனை ஏற்றுக்கொள்ளல் மாலை 4:00 மணி வரை திறந்திருக்கும்.",
+            "updated": "இன்று"
+          }
+        }
+      },
+      "communitySupport": {
+        "title": "சமூக ஆதரவு திட்டங்கள்",
+        "items": {
+          "fisherTraining": {
+            "title": "மீனவர் பயிற்சி திட்டங்கள்",
+            "description": "பாதுகாப்பான செயற்பாடுகள் மற்றும் நிலைத்த மீன்பிடி முறைகள் குறித்த நடைமுறை பயிற்சி."
+          },
+          "publicRecruitment": {
+            "title": "அரசு ஆட்சேர்ப்பு அறிவிப்புகள்",
+            "description": "தற்போதைய அரசு காலியிடங்கள், டெண்டர்கள் மற்றும் ஆட்சேர்ப்பு புதுப்பிப்புகள்."
+          },
+          "knowledgeGuidance": {
+            "title": "அறிவு & வழிகாட்டல்",
+            "description": "கடல் உயிரியல், பருவங்கள் மற்றும் பாதுகாப்பு குறித்த பொது கல்வி வளங்கள்."
+          }
+        }
+      },
+      "dataTools": {
+        "title": "நடைமுறை தரவு கருவிகள்",
+        "items": {
+          "fishingZoneMap": {
+            "title": "மீன்பிடி மண்டல வரைபடம்",
+            "value": "24 மண்டலங்கள்"
+          },
+          "marketPriceInsights": {
+            "title": "சந்தை விலை தரவுகள்",
+            "value": "மணித்தோறும்"
+          },
+          "seasonalFishingCalendar": {
+            "title": "பருவ மீன்பிடி காலண்டர்",
+            "value": "மாதாந்திரம்"
+          }
+        }
+      },
+      "emergency": {
+        "title": "அவசர & தொடர்பு ஆதரம்",
+        "description": "அவசர கடல் சம்பவங்களுக்கு அர்ப்பணிக்கப்பட்ட அவசர பதில் பக்கத்தை பயன்படுத்துங்கள்.",
+        "button": "கடல் அவசரநிலையை அறிவிக்கவும்",
+        "hotlineNote": "உயிர் ஆபத்தான நிலைகளில் உடனே கடலோர பாதுகாப்பை அழைத்து இருப்பிடக் குறிப்புகளை வழங்கவும்.",
+        "contacts": {
+          "hotline": {
+            "label": "அவசர உதவி எண்",
+            "value": "1919"
+          },
+          "coastGuard": {
+            "label": "கடலோர பாதுகாப்பு",
+            "value": "+94 11 244 0635"
+          },
+          "marineDesk": {
+            "label": "கடல் சம்பவ மேசை",
+            "value": "+94 11 252 2000"
+          }
+        }
       }
     }
   },
@@ -49,25 +191,53 @@
       "title": "ஆராய்ச்சியாளர்கள் மற்றும் மாணவர்கள்",
       "description": "தரவு, ஆய்வக வசதிகள், ஆய்வு கப்பல்கள் மற்றும் ஒத்துழைப்பிற்கான அழைப்புகளைப் பெறுங்கள்.",
       "ctas": [
-        { "label": "தரவு கையேடு", "href": "/knowledge-discovery-center" },
-        { "label": "கப்பல் / கருவிகள் முன்பதிவு", "href": "/research-vessel-booking" },
-        { "label": "பயிற்சி & இணைப்பு", "href": "/learning-development-academy" }
+        {
+          "label": "தரவு கையேடு",
+          "href": "/knowledge-discovery-center"
+        },
+        {
+          "label": "கப்பல் / கருவிகள் முன்பதிவு",
+          "href": "/research-vessel-booking"
+        },
+        {
+          "label": "பயிற்சி & இணைப்பு",
+          "href": "/learning-development-academy"
+        }
       ]
     },
     "sections": {
       "datasets": {
         "title": "தரவு & முறைகள்",
         "items": [
-          { "label": "திறந்த தரவுகள் & API", "href": "/knowledge-discovery-center" },
-          { "label": "ஆய்வக செயல்முறைகள்", "href": "/lab-results" },
-          { "label": "வெளியீடுகள் & சுருக்கங்கள்", "href": "/digital-product-library" }
+          {
+            "label": "திறந்த தரவுகள் & API",
+            "href": "/knowledge-discovery-center"
+          },
+          {
+            "label": "ஆய்வக செயல்முறைகள்",
+            "href": "/lab-results"
+          },
+          {
+            "label": "வெளியீடுகள் & சுருக்கங்கள்",
+            "href": "/digital-product-library"
+          }
         ]
       },
       "collaboration": {
-        "title": "ஒத்துழைக்க", "items": [
-          { "label": "ஆராய்ச்சி ஒத்துழைப்பு அழைப்புகள்", "href": "/research-collaboration-platform" },
-          { "label": "சர்வதேச கூட்டாண்மைகள்", "href": "/partnership-innovation-gateway" },
-          { "label": "நிதி & மானியங்கள்", "href": "/knowledge-discovery-center" }
+        "title": "ஒத்துழைக்க",
+        "items": [
+          {
+            "label": "ஆராய்ச்சி ஒத்துழைப்பு அழைப்புகள்",
+            "href": "/research-collaboration-platform"
+          },
+          {
+            "label": "சர்வதேச கூட்டாண்மைகள்",
+            "href": "/partnership-innovation-gateway"
+          },
+          {
+            "label": "நிதி & மானியங்கள்",
+            "href": "/knowledge-discovery-center"
+          }
         ]
       },
       "support": {
@@ -83,26 +253,53 @@
       "title": "கொள்கை & ஒழுங்குமுறை",
       "description": "அறிக்கைகள், டாஷ்போர்டுகள், ஹைட்ரோகிராஃபிக் தயாரிப்புகள் மற்றும் சட்ட ஆதாரங்களை விரைவில் அணுகுங்கள்.",
       "ctas": [
-        { "label": "ஆதார சுருக்கங்கள்", "href": "/scientific-evidence-repository" },
-        { "label": "டாஷ்போர்டுகள் & பகுப்பாய்வு", "href": "/integration-systems-platform" },
-        { "label": "RTI & சட்டங்கள்", "href": "/legal" }
+        {
+          "label": "ஆதார சுருக்கங்கள்",
+          "href": "/scientific-evidence-repository"
+        },
+        {
+          "label": "டாஷ்போர்டுகள் & பகுப்பாய்வு",
+          "href": "/integration-systems-platform"
+        },
+        {
+          "label": "RTI & சட்டங்கள்",
+          "href": "/legal"
+        }
       ]
     },
     "sections": {
       "evidence": {
         "title": "கொள்கைக்கான அறிவியல்",
         "items": [
-          { "label": "மூற்கடல் நுண்ணறிவு டாஷ்போர்ட்", "href": "/ocean-intelligence-dashboard-homepage" },
-          { "label": "Hydrographic தயாரிப்புகள்", "href": "/digital-product-library" },
-          { "label": "சாதனை & நிதி", "href": "/government-services-portal" }
+          {
+            "label": "மூற்கடல் நுண்ணறிவு டாஷ்போர்ட்",
+            "href": "/ocean-intelligence-dashboard-homepage"
+          },
+          {
+            "label": "Hydrographic தயாரிப்புகள்",
+            "href": "/digital-product-library"
+          },
+          {
+            "label": "சாதனை & நிதி",
+            "href": "/government-services-portal"
+          }
         ]
       },
       "compliance": {
         "title": "சட்ட இணக்கம்",
         "items": [
-          { "label": "RTI மற்றும் சட்டங்கள்", "href": "/legal" },
-          { "label": "பாதுகாப்பு & அணுகல்", "href": "/security-policy" },
-          { "label": "டெண்டர் வெளிப்படைமை", "href": "/procurement-recruitment-portal" }
+          {
+            "label": "RTI மற்றும் சட்டங்கள்",
+            "href": "/legal"
+          },
+          {
+            "label": "பாதுகாப்பு & அணுகல்",
+            "href": "/security-policy"
+          },
+          {
+            "label": "டெண்டர் வெளிப்படைமை",
+            "href": "/procurement-recruitment-portal"
+          }
         ]
       },
       "contact": {
@@ -118,26 +315,53 @@
       "title": "தொழில் & ஏற்றுமதியாளர்கள்",
       "description": "அங்கீகரிக்கப்பட்ட பரிசோதனைகளை முன்பதிவு செய்யுங்கள், தரநிலைகள் மற்றும் டெண்டர் வாய்ப்புகளைப் பின்பற்றுங்கள்.",
       "ctas": [
-        { "label": "ஆய்வக சேவைகளை முன்பதிவு செய்யுங்கள்", "href": "/lab-results" },
-        { "label": "டெண்டர் & கொள்முதல்", "href": "/procurement-recruitment-portal" },
-        { "label": "தரநிலைகள் & சான்றிதழ்கள்", "href": "/nara-digital-marketplace" }
+        {
+          "label": "ஆய்வக சேவைகளை முன்பதிவு செய்யுங்கள்",
+          "href": "/lab-results"
+        },
+        {
+          "label": "டெண்டர் & கொள்முதல்",
+          "href": "/procurement-recruitment-portal"
+        },
+        {
+          "label": "தரநிலைகள் & சான்றிதழ்கள்",
+          "href": "/nara-digital-marketplace"
+        }
       ]
     },
     "sections": {
       "services": {
         "title": "வணிக சேவைகள்",
         "items": [
-          { "label": "பரிசோதனை & சான்றிதழ்", "href": "/lab-results" },
-          { "label": "ஆலோசனை & நுட்ப உதவி", "href": "/maritime-services-hub" },
-          { "label": "சாதன புதுமை", "href": "/integration-systems-platform" }
+          {
+            "label": "பரிசோதனை & சான்றிதழ்",
+            "href": "/lab-results"
+          },
+          {
+            "label": "ஆலோசனை & நுட்ப உதவி",
+            "href": "/maritime-services-hub"
+          },
+          {
+            "label": "சாதன புதுமை",
+            "href": "/integration-systems-platform"
+          }
         ]
       },
       "opportunities": {
         "title": "வாய்ப்புகள்",
         "items": [
-          { "label": "திறந்த டெண்டர்கள்", "href": "/procurement-recruitment-portal" },
-          { "label": "ஏற்றுமதி சந்தை நுண்ணறிவு", "href": "/export-market-intelligence" },
-          { "label": "பயிற்சி & திறன் மேம்பாடு", "href": "/learning-development-academy" }
+          {
+            "label": "திறந்த டெண்டர்கள்",
+            "href": "/procurement-recruitment-portal"
+          },
+          {
+            "label": "ஏற்றுமதி சந்தை நுண்ணறிவு",
+            "href": "/export-market-intelligence"
+          },
+          {
+            "label": "பயிற்சி & திறன் மேம்பாடு",
+            "href": "/learning-development-academy"
+          }
         ]
       },
       "support": {
@@ -153,9 +377,18 @@
       "title": "ஊடகம், கூட்டாளர்கள் & நிதியாளர்கள்",
       "description": "வெற்றிக் கதைகள், தாக்கம் கணக்குகள், சர்வதேச திட்டங்கள் மற்றும் தொடர்புகளை ஆராயுங்கள்.",
       "ctas": [
-        { "label": "கதைகள் & ஊடக நூலகம்", "href": "/media-gallery" },
-        { "label": "தாக்கம் டாஷ்போர்டுகள்", "href": "/integration-systems-platform" },
-        { "label": "கூட்டாண்மை desk", "href": "/contact-us" }
+        {
+          "label": "கதைகள் & ஊடக நூலகம்",
+          "href": "/media-gallery"
+        },
+        {
+          "label": "தாக்கம் டாஷ்போர்டுகள்",
+          "href": "/integration-systems-platform"
+        },
+        {
+          "label": "கூட்டாண்மை desk",
+          "href": "/contact-us"
+        }
       ]
     },
     "sections": {
@@ -167,18 +400,210 @@
       "projects": {
         "title": "சர்வதேச திட்டங்கள்",
         "items": [
-          { "label": "பிராந்திய தாக்கச் சங்கிலி", "href": "/regional-impact-network" },
-          { "label": "கூட்டாண்மை & புதுமை வாயில்", "href": "/partnership-innovation-gateway" },
-          { "label": "நிதியாளர் தொடர்புகள்", "href": "/contact-us" }
+          {
+            "label": "பிராந்திய தாக்கச் சங்கிலி",
+            "href": "/regional-impact-network"
+          },
+          {
+            "label": "கூட்டாண்மை & புதுமை வாயில்",
+            "href": "/partnership-innovation-gateway"
+          },
+          {
+            "label": "நிதியாளர் தொடர்புகள்",
+            "href": "/contact-us"
+          }
         ]
       },
       "resources": {
         "title": "பத்திரிகை வளங்கள்",
         "items": [
-          { "label": "ஊடக தொகுப்பு & தொடர்புகள்", "href": "/media-press-kit" },
-          { "label": "சமீபத்திய செய்திகள்", "href": "/nara-news-updates-center" },
-          { "label": "முடிவு & நிதி அறிக்கைகள்", "href": "/government-services-portal" }
+          {
+            "label": "ஊடக தொகுப்பு & தொடர்புகள்",
+            "href": "/media-press-kit"
+          },
+          {
+            "label": "சமீபத்திய செய்திகள்",
+            "href": "/nara-news-updates-center"
+          },
+          {
+            "label": "முடிவு & நிதி அறிக்கைகள்",
+            "href": "/government-services-portal"
+          }
         ]
+      }
+    }
+  },
+  "researchersHub": {
+    "hero": {
+      "badge": "கல்வி மையம்",
+      "title": "ஆராய்ச்சியாளர் & மாணவர் தளம்",
+      "description": "ஆராய்ச்சி வசதிகளை அணுகி, நிபுணர்களுடன் இணைந்து, கடல் அறிவியலை முன்னேற்றுங்கள்.",
+      "loggedInAs": "{{email}} ஆக உள்நுழைந்துள்ளீர்கள்",
+      "researcherLogin": "ஆராய்ச்சியாளர் உள்நுழைவு",
+      "studentLogin": "மாணவர் உள்நுழைவு"
+    },
+    "tabs": {
+      "overview": "மேற்பார்வை",
+      "research": "ஆராய்ச்சி",
+      "students": "மாணவர்கள்",
+      "grants": "நிதியுதவிகள்",
+      "facilities": "வசதிகள்"
+    },
+    "overview": {
+      "research": {
+        "title": "ஆராய்ச்சியாளர்களுக்கு",
+        "features": [
+          "ஆராய்ச்சி கட்டுரைகளை சமர்ப்பிக்கவும்",
+          "ஆய்வகங்களை முன்பதிவு செய்யவும்",
+          "தரவுத்தொகுப்புகளை அணுகவும்",
+          "LKR 5M வரை நிதியுதவிக்கு விண்ணப்பிக்கவும்",
+          "உலகளாவிய ஒத்துழைப்பில் ஈடுபடுங்கள்"
+        ],
+        "cta": "சேவைகளைப் பாருங்கள்"
+      },
+      "students": {
+        "title": "மாணவர்களுக்கு",
+        "features": [
+          "பாடநெறிகளில் சேருங்கள்",
+          "இளநிலைப் பயிற்சிக்கு விண்ணப்பிக்கவும்",
+          "வழிகாட்டலைப் பெறுங்கள்",
+          "திட்டங்களை காட்சிப்படுத்துங்கள்",
+          "LKR 500K வரை மாணவர் நிதி"
+        ],
+        "cta": "சேவைகளைப் பாருங்கள்"
+      }
+    },
+    "services": {
+      "access": "அணுகவும்",
+      "research": {
+        "papers": {
+          "title": "ஆராய்ச்சி தளம்",
+          "features": [
+            "கட்டுரை சமர்ப்பிப்பு",
+            "மேற்கோள் கண்காணிப்பு",
+            "சக ஆய்வு"
+          ]
+        },
+        "lab": {
+          "title": "ஆய்வக முன்பதிவு",
+          "features": [
+            "ஆய்வக முன்பதிவு",
+            "உபகரணங்கள்",
+            "பகுப்பாய்வு"
+          ]
+        },
+        "vessel": {
+          "title": "கப்பல் முன்பதிவு",
+          "features": [
+            "கப்பல் முன்பதிவு",
+            "கள ஆய்வுகள்"
+          ]
+        },
+        "data": {
+          "title": "தரவு தளம்",
+          "features": [
+            "தரவுத்தொகுப்புகள்",
+            "API அணுகல்"
+          ]
+        },
+        "library": {
+          "title": "நூலகம்",
+          "features": [
+            "மின்னூல்கள்",
+            "இதழ்கள்",
+            "ஆய்வுக் கட்டுரைகள்"
+          ]
+        },
+        "collab": {
+          "title": "ஒத்துழைப்பு",
+          "features": [
+            "திட்டங்கள்",
+            "நிபுணர்கள்"
+          ]
+        }
+      },
+      "students": {
+        "courses": {
+          "title": "LDA பாடநெறிகள்",
+          "features": [
+            "ஆன்லைன் பாடநெறிகள்",
+            "சான்றிதழ்கள்"
+          ]
+        },
+        "intern": {
+          "title": "இளநிலைப் பயிற்சி",
+          "features": [
+            "விண்ணப்பம்",
+            "வழிகாட்டல்"
+          ]
+        },
+        "projects": {
+          "title": "திட்டங்கள்",
+          "features": [
+            "காட்சி",
+            "விருதுகள்"
+          ]
+        },
+        "mentor": {
+          "title": "வழிகாட்டல் திட்டம்",
+          "features": [
+            "1-on-1",
+            "ஆலோசனை"
+          ]
+        },
+        "shop": {
+          "title": "சந்தை",
+          "features": [
+            "உபகரணங்கள்",
+            "தள்ளுபடி"
+          ]
+        }
+      }
+    },
+    "grants": {
+      "deadline": "கடைசி தேதி",
+      "applyNow": "இப்போது விண்ணப்பிக்கவும்",
+      "items": {
+        "earlyCareer": {
+          "title": "ஆரம்ப கட்ட தொழில் நிதி",
+          "amount": "LKR 2M",
+          "deadline": "2025-12-31"
+        },
+        "studentGrant": {
+          "title": "மாணவர் நிதியுதவி",
+          "amount": "LKR 500K",
+          "deadline": "2025-11-30"
+        },
+        "collaborativeFund": {
+          "title": "ஒத்துழைப்பு நிதி",
+          "amount": "LKR 5M",
+          "deadline": "2026-01-15"
+        }
+      }
+    },
+    "facilities": {
+      "bookNow": "இப்போது முன்பதிவு செய்க",
+      "items": {
+        "marineBiologyLab": {
+          "name": "கடல் உயிரியல் ஆய்வகம்",
+          "location": "கொழும்பு",
+          "equipment": "நுண்ணோக்கிகள், DNA வரிசைப்படுத்தல்"
+        },
+        "oceanographyLab": {
+          "name": "கடலியல் ஆய்வகம்",
+          "location": "காலி",
+          "equipment": "CTD சென்சார்கள், செயற்கைக்கோள் அமைப்புகள்"
+        },
+        "fishTechnology": {
+          "name": "மீன் தொழில்நுட்ப ஆய்வகம்",
+          "location": "நெகோம்போ",
+          "equipment": "செயலாக்கம், பரிசோதனை"
+        },
+        "researchVessels": {
+          "name": "ஆராய்ச்சி கப்பல்கள்",
+          "location": "பல துறைமுகங்கள்",
+          "equipment": "சோனர், GPS"
+        }
       }
     }
   }

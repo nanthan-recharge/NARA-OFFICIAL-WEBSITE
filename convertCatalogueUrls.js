@@ -45,7 +45,8 @@ function convertToPublicUrl(signedUrl) {
  */
 async function main() {
   const cataloguePath = path.join(__dirname, 'public', 'library_catalogue.json');
-  const backupPath = path.join(__dirname, 'public', 'library_catalogue.backup.json');
+  const backupDir = path.join(__dirname, 'archive', 'catalogue-backups');
+  const backupPath = path.join(backupDir, 'library_catalogue.backup.json');
 
   console.log('📚 Library Catalogue URL Converter');
   console.log('=====================================\n');
@@ -57,6 +58,7 @@ async function main() {
 
   // Create backup
   console.log('💾 Creating backup...');
+  fs.mkdirSync(backupDir, { recursive: true });
   fs.writeFileSync(backupPath, JSON.stringify(catalogueData, null, 2));
   console.log(`✅ Backup saved to: ${backupPath}\n`);
 

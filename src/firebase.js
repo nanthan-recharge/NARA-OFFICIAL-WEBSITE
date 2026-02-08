@@ -1,6 +1,5 @@
 // Firebase Configuration for NARA Digital Ocean
 import { initializeApp } from "firebase/app";
-import { getAnalytics, isSupported } from "firebase/analytics";
 import { getAuth, connectAuthEmulator } from "firebase/auth";
 import { getFirestore, connectFirestoreEmulator } from "firebase/firestore";
 import { getStorage, connectStorageEmulator } from "firebase/storage";
@@ -26,16 +25,25 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 export const functions = getFunctions(app);
 
-// Initialize Analytics (with browser support check)
+// Initialize Analytics lazily — defer GTM script to avoid blocking LCP
 let analytics = null;
 if (typeof window !== 'undefined') {
-  isSupported()?.then((supported) => {
-    if (supported) {
-      analytics = getAnalytics(app);
-    }
-  })?.catch((error) => {
-    console.log('Analytics not supported:', error);
-  });
+  // Delay analytics initialization until after first paint
+  const initAnalytics = () => {
+    import("firebase/analytics").then(({ getAnalytics, isSupported }) => {
+      isSupported()?.then((supported) => {
+        if (supported) {
+          analytics = getAnalytics(app);
+        }
+      })?.catch(() => {});
+    }).catch(() => {});
+  };
+  // Use requestIdleCallback to avoid blocking main thread
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initAnalytics);
+  } else {
+    setTimeout(initAnalytics, 3000);
+  }
 }
 
 export { analytics };

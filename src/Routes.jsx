@@ -1,14 +1,13 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useMemo, memo } from "react";
 import { BrowserRouter, Routes as RouterRoutes, Route, useLocation, Navigate } from "react-router-dom";
 import ScrollToTop from "components/ScrollToTop";
 import ErrorBoundary from "components/ErrorBoundary";
-import NotFound from "./pages/NotFound";
+const NotFound = lazy(() => import("./pages/NotFound"));
 import { ProtectedRoute } from './components/library';
-import GovFooter from './components/compliance/GovFooter';
 // import ThemeNavbar from './components/ui/ThemeNavbar';
 import GovernmentNavbar from './components/ui/GovernmentNavbar'; // Government Standard Navbar - Tech Spec v1.0
 import SkipLink from './components/compliance/SkipLink';
-import PWAInstallPrompt from './components/shared/PWAInstallPrompt';
+const PWAInstallPrompt = lazy(() => import('./components/shared/PWAInstallPrompt'));
 import FirebaseAuthProvider from './contexts/FirebaseAuthContext';
 import { LibraryUserProvider } from './contexts/LibraryUserContext';
 import { CartProvider } from './contexts/CartContext';
@@ -228,51 +227,59 @@ const LibrarianDesk = lazy(() => import('./pages/library-librarian-desk'));
 // Checkout & Payment
 const CheckoutPage = lazy(() => import('./pages/checkout'));
 const PaymentReturn = lazy(() => import('./pages/payment-return'));
+const GovFooter = lazy(() => import('./components/compliance/GovFooter'));
 
-// Layout component with header and footer
-function Layout({ children }) {
+// Static arrays — defined once outside the component to avoid re-creation on every render
+const HIDE_LAYOUT_PATHS = [
+  '/firebase-admin-authentication-portal',
+  '/firebase-admin-dashboard-control-center',
+  '/admin/login',
+  '/admin/dashboard',
+  '/admin/content',
+  '/admin/research-login',
+  '/admin/research-data',
+  '/admin/research-upload',
+  '/admin/research-bulk-upload',
+  '/admin/media',
+  '/admin/media-press-kit',
+  '/admin/lda',
+  '/admin/government-services',
+  '/admin/maritime',
+  '/admin/fish-advisory',
+  '/admin/lab-results',
+  '/admin/research-vessel',
+  '/admin/marine-incident',
+  '/admin/project-pipeline',
+  '/admin/recruitment-ats',
+  '/admin/bathymetry',
+  '/admin/data-center-integration',
+  '/admin/water-quality-monitoring',
+  '/admin/public-consultation',
+  '/admin/phase4-seeder',
+  '/admin/analytics',
+  '/admin/library',
+  '/admin/division-images',
+  '/admin/division-content',
+  '/admin/users',
+  '/admin'
+];
+
+const LAYOUT_STYLE = { paddingTop: '50px' };
+const NO_STYLE = {};
+
+// Memoized layout component — prevents re-renders of Navbar/Footer on route changes
+const Layout = memo(function Layout({ children }) {
   const location = useLocation();
 
-  // Pages where header/footer should be hidden (admin pages)
-  const hideLayoutPaths = [
-    '/firebase-admin-authentication-portal',
-    '/firebase-admin-dashboard-control-center',
-    '/admin/login',
-    '/admin/dashboard',
-    '/admin/content',
-    '/admin/research-login',
-    '/admin/research-data',
-    '/admin/research-upload',
-    '/admin/research-bulk-upload',
-    '/admin/media',
-    '/admin/media-press-kit',
-    '/admin/lda',
-    '/admin/government-services',
-    '/admin/maritime',
-    '/admin/fish-advisory',
-    '/admin/lab-results',
-    '/admin/research-vessel',
-    '/admin/marine-incident',
-    '/admin/project-pipeline',
-    '/admin/recruitment-ats',
-    '/admin/bathymetry',
-    '/admin/data-center-integration',
-    '/admin/water-quality-monitoring',
-    '/admin/public-consultation',
-    '/admin/phase4-seeder',
-    '/admin/analytics',
-    '/admin/library',
-    '/admin/division-images',
-    '/admin/division-content',
-    '/admin/users',
-    '/admin'
-  ];
+  const shouldShowLayout = useMemo(
+    () => !HIDE_LAYOUT_PATHS.some(path => location.pathname.startsWith(path)),
+    [location.pathname]
+  );
 
-  const shouldShowLayout = !hideLayoutPaths.some(path => location.pathname.startsWith(path));
-
-  // Homepage has its own custom footer, so we exclude GovFooter from it
-  const hideFooterPaths = ['/'];
-  const shouldShowFooter = shouldShowLayout && !hideFooterPaths.includes(location.pathname);
+  const shouldShowFooter = useMemo(
+    () => shouldShowLayout && location.pathname !== '/',
+    [shouldShowLayout, location.pathname]
+  );
 
   return (
     <>
@@ -283,15 +290,19 @@ function Layout({ children }) {
         tabIndex={-1}
         role="main"
         aria-label="Main content"
-        style={shouldShowLayout ? { paddingTop: '50px' } : {}}
+        style={shouldShowLayout ? LAYOUT_STYLE : NO_STYLE}
       >
         {children}
       </main>
-      {shouldShowFooter && <GovFooter />}
-      {shouldShowLayout && <PWAInstallPrompt />}
+      {shouldShowFooter && (
+        <Suspense fallback={null}>
+          <GovFooter />
+        </Suspense>
+      )}
+      {shouldShowLayout && <Suspense fallback={null}><PWAInstallPrompt /></Suspense>}
     </>
   );
-}
+});
 
 function Routes() {
   return (

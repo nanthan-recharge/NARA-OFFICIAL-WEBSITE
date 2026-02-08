@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../components/AppIcon';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
@@ -10,7 +11,83 @@ import { cn } from '../../utils/cn';
 import StitchWrapper from '../../components/shared/StitchWrapper';
 import SEOHead from '../../components/shared/SEOHead';
 
+const PAYMENT_METHODS = [
+  {
+    id: 'govpay',
+    type: 'government',
+    processingTimeKey: 'methods.govpay.processingTime',
+    feesKey: 'methods.govpay.fees',
+    isAvailable: true,
+    maxAmount: 1000000,
+    minAmount: 100
+  },
+  {
+    id: 'lankapay',
+    type: 'bank',
+    processingTimeKey: 'methods.lankapay.processingTime',
+    feesKey: 'methods.lankapay.fees',
+    isAvailable: true,
+    maxAmount: 500000,
+    minAmount: 50
+  },
+  {
+    id: 'sampath-bank',
+    type: 'bank',
+    processingTimeKey: 'methods.sampath-bank.processingTime',
+    feesKey: 'methods.sampath-bank.fees',
+    isAvailable: true,
+    maxAmount: 300000,
+    minAmount: 100
+  },
+  {
+    id: 'commercial-bank',
+    type: 'bank',
+    processingTimeKey: 'methods.commercial-bank.processingTime',
+    feesKey: 'methods.commercial-bank.fees',
+    isAvailable: true,
+    maxAmount: 250000,
+    minAmount: 100
+  },
+  {
+    id: 'hnb',
+    type: 'bank',
+    processingTimeKey: 'methods.hnb.processingTime',
+    feesKey: 'methods.hnb.fees',
+    isAvailable: true,
+    maxAmount: 200000,
+    minAmount: 100
+  },
+  {
+    id: 'dfcc',
+    type: 'bank',
+    processingTimeKey: 'methods.dfcc.processingTime',
+    feesKey: 'methods.dfcc.fees',
+    isAvailable: true,
+    maxAmount: 150000,
+    minAmount: 100
+  },
+  {
+    id: 'ezcash',
+    type: 'mobile',
+    processingTimeKey: 'methods.ezcash.processingTime',
+    feesKey: 'methods.ezcash.fees',
+    isAvailable: true,
+    maxAmount: 100000,
+    minAmount: 10
+  },
+  {
+    id: 'mcash',
+    type: 'mobile',
+    processingTimeKey: 'methods.mcash.processingTime',
+    feesKey: 'methods.mcash.fees',
+    isAvailable: true,
+    maxAmount: 75000,
+    minAmount: 10
+  }
+];
+
 const PaymentGatewayHub = () => {
+  const { t, i18n } = useTranslation('paymentGateway');
   const [selectedPaymentMethod, setSelectedPaymentMethod] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
   const [currentStep, setCurrentStep] = useState('method'); // method, details, confirmation
@@ -22,24 +99,23 @@ const PaymentGatewayHub = () => {
     taxId: ''
   });
 
-  // Mock order data (would come from marketplace)
-  const [orderData] = useState({
-    orderNumber: 'NARA-' + Date.now()?.toString()?.slice(-6),
+  const orderData = useMemo(() => ({
+    orderNumber: 'NARA-240001',
     items: [
       {
         id: '1',
-        title: 'Marine Ecosystem Analysis Report',
-        type: 'Digital Product',
-        division: 'Marine Research',
+        title: t('order.items.1.title'),
+        type: t('order.items.1.type'),
+        division: t('order.items.1.division'),
         price: 3500,
         quantity: 1,
         image: '/public/assets/images/no_image.png'
       },
       {
         id: '2',
-        title: 'Oceanographic Dataset 2024',
-        type: 'Digital Dataset',
-        division: 'Oceanography',
+        title: t('order.items.2.title'),
+        type: t('order.items.2.type'),
+        division: t('order.items.2.division'),
         price: 5500,
         quantity: 1,
         image: '/public/assets/images/no_image.png'
@@ -52,114 +128,30 @@ const PaymentGatewayHub = () => {
     total: 10465,
     currency: 'LKR',
     customerType: 'individual'
-  });
+  }), [t]);
 
-  // Sri Lankan Payment Methods
-  const paymentMethods = [
-    {
-      id: 'govpay',
-      name: 'GovPay',
-      type: 'government',
-      description: 'Official government payment platform for secure institutional transactions',
-      processingTime: 'Instant',
-      fees: 'Free for gov agencies',
-      isAvailable: true,
-      supportedFeatures: ['Instant Settlement', 'Tax Integration', 'Audit Trail', 'Bulk Payments'],
-      maxAmount: 1000000,
-      minAmount: 100
-    },
-    {
-      id: 'lankapay',
-      name: 'LankaPay',
-      type: 'bank',
-      description: 'National payment network connecting all major Sri Lankan banks',
-      processingTime: '2-5 minutes',
-      fees: 'LKR 25 + 0.5%',
-      isAvailable: true,
-      supportedFeatures: ['Real-time Transfer', 'Mobile Banking', 'ATM Network', 'Multi-bank Support'],
-      maxAmount: 500000,
-      minAmount: 50
-    },
-    {
-      id: 'sampath-bank',
-      name: 'Sampath Bank',
-      type: 'bank',
-      description: 'Direct integration with Sampath Bank online banking platform',
-      processingTime: '1-3 minutes',
-      fees: 'LKR 30 per transaction',
-      isAvailable: true,
-      supportedFeatures: ['Online Banking', 'Mobile App', 'SMS Alerts', 'Transaction History'],
-      maxAmount: 300000,
-      minAmount: 100
-    },
-    {
-      id: 'commercial-bank',
-      name: 'Commercial Bank',
-      type: 'bank',
-      description: 'Secure payment gateway through Commercial Bank of Ceylon',
-      processingTime: '1-3 minutes',
-      fees: 'LKR 35 per transaction',
-      isAvailable: true,
-      supportedFeatures: ['Internet Banking', 'CardNet', 'ComBank Mobile', 'Auto Debit'],
-      maxAmount: 250000,
-      minAmount: 100
-    },
-    {
-      id: 'hnb',
-      name: 'Hatton National Bank',
-      type: 'bank',
-      description: 'HNB PayGate for secure online transactions',
-      processingTime: '1-3 minutes',
-      fees: 'LKR 28 per transaction',
-      isAvailable: true,
-      supportedFeatures: ['HNB Mobile', 'Internet Banking', 'SMS Banking', 'Card Payments'],
-      maxAmount: 200000,
-      minAmount: 100
-    },
-    {
-      id: 'dfcc',
-      name: 'DFCC Bank',
-      type: 'bank',
-      description: 'DFCC online payment gateway with enhanced security features',
-      processingTime: '1-3 minutes',
-      fees: 'LKR 32 per transaction',
-      isAvailable: true,
-      supportedFeatures: ['Online Banking', 'Mobile Banking', 'Card Payments', 'Standing Orders'],
-      maxAmount: 150000,
-      minAmount: 100
-    },
-    {
-      id: 'ezcash',
-      name: 'eZ Cash',
-      type: 'mobile',
-      description: 'Leading mobile wallet service in Sri Lanka',
-      processingTime: 'Instant',
-      fees: 'LKR 15 + 1%',
-      isAvailable: true,
-      supportedFeatures: ['QR Payments', 'Mobile Top-up', 'Bill Payments', 'P2P Transfers'],
-      maxAmount: 100000,
-      minAmount: 10
-    },
-    {
-      id: 'mcash',
-      name: 'mCash',
-      type: 'mobile',
-      description: 'Dialog mCash mobile payment platform',
-      processingTime: 'Instant',
-      fees: 'LKR 12 + 0.75%',
-      isAvailable: true,
-      supportedFeatures: ['QR Code', 'NFC Payments', 'Merchant Payments', 'Utility Bills'],
-      maxAmount: 75000,
-      minAmount: 10
-    }
-  ];
+  const paymentMethods = useMemo(
+    () =>
+      PAYMENT_METHODS.map((method) => ({
+        ...method,
+        name: t(`methods.${method.id}.name`),
+        description: t(`methods.${method.id}.description`),
+        processingTime: t(method.processingTimeKey),
+        fees: t(method.feesKey),
+        supportedFeatures: t(`methods.${method.id}.supportedFeatures`, { returnObjects: true })
+      })),
+    [t]
+  );
 
-  const customerTypes = [
-    { value: 'individual', label: 'Individual Researcher' },
-    { value: 'institutional', label: 'Educational Institution' },
-    { value: 'government', label: 'Government Agency' },
-    { value: 'commercial', label: 'Commercial Entity' }
-  ];
+  const customerTypes = useMemo(
+    () => [
+      { value: 'individual', label: t('customerTypes.individual') },
+      { value: 'institutional', label: t('customerTypes.institutional') },
+      { value: 'government', label: t('customerTypes.government') },
+      { value: 'commercial', label: t('customerTypes.commercial') }
+    ],
+    [t]
+  );
 
   const handlePaymentMethodSelect = (method) => {
     setSelectedPaymentMethod(method);
@@ -217,11 +209,13 @@ const PaymentGatewayHub = () => {
     return currentStep === step;
   };
 
+  const locale = i18n.language === 'si' ? 'si-LK' : i18n.language === 'ta' ? 'ta-LK' : 'en-US';
+
   return (
     <StitchWrapper>
       <SEOHead
-        title="Payment Gateway"
-        description="Secure payment processing for NARA services and products."
+        title={t('meta.title')}
+        description={t('meta.description')}
         path="/payment-gateway-hub"
         noindex
       />
@@ -245,8 +239,8 @@ const PaymentGatewayHub = () => {
                       <Icon name="ShieldCheck" className="text-white" size={24} />
                     </div>
                     <div>
-                      <h1 className="text-2xl font-bold text-white tracking-tight">Payment Gateway Hub</h1>
-                      <p className="text-sm text-cyan-300 font-medium tracking-wide uppercase">Secure Sri Lankan Transaction Portal</p>
+                      <h1 className="text-2xl font-bold text-white tracking-tight">{t('hero.title')}</h1>
+                      <p className="text-sm text-cyan-300 font-medium tracking-wide uppercase">{t('hero.subtitle')}</p>
                     </div>
                   </div>
                 </div>
@@ -257,19 +251,19 @@ const PaymentGatewayHub = () => {
                     <Icon name="Image" size={20} className="text-white/30" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-1">Upload Portal Banner</p>
+                    <p className="text-xs font-bold text-white/50 uppercase tracking-wider mb-1">{t('hero.bannerUpload')}</p>
                     <div className="h-1.5 w-full bg-white/10 rounded-full overflow-hidden">
                       <div className="h-full w-0 bg-cyan-500" />
                     </div>
                   </div>
-                  <Button variant="ghost" size="sm" className="text-xs h-8">Upload</Button>
+                  <Button variant="ghost" size="sm" className="text-xs h-8">{t('hero.uploadButton')}</Button>
                 </div>
               </div>
 
               {/* Right - Order Total */}
               <div className="flex items-center gap-6 bg-white/5 rounded-2xl p-4 border border-white/10 backdrop-blur-md">
                 <div className="text-right">
-                  <div className="text-xs text-slate-400 uppercase tracking-widest font-semibold">Total Payable</div>
+                  <div className="text-xs text-slate-400 uppercase tracking-widest font-semibold">{t('hero.totalPayable')}</div>
                   <div className="text-2xl font-bold text-emerald-400 font-mono">
                     {orderData?.currency} {orderData?.total?.toLocaleString()}
                   </div>
@@ -307,7 +301,7 @@ const PaymentGatewayHub = () => {
                         isStepActive(step) ? "text-cyan-400" :
                           isStepComplete(step) ? "text-emerald-400" : "text-slate-500"
                       )}>
-                        {step?.charAt(0)?.toUpperCase() + step?.slice(1)}
+                        {t(`steps.${step}`)}
                       </div>
                     </div>
 
@@ -335,10 +329,10 @@ const PaymentGatewayHub = () => {
                   <section>
                     <div className="mb-6">
                       <h2 className="text-2xl font-bold text-white mb-2">
-                        Choose Payment Method
+                        {t('methodStep.title')}
                       </h2>
                       <p className="text-slate-400">
-                        Select your preferred Sri Lankan payment gateway for secure transaction processing
+                        {t('methodStep.description')}
                       </p>
                     </div>
 
@@ -346,7 +340,7 @@ const PaymentGatewayHub = () => {
                     <div className="mb-8 bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-6">
                       <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
                         <Icon name="User" size={18} className="text-cyan-400" />
-                        Customer Type
+                        {t('methodStep.customerTypeTitle')}
                       </h3>
 
                       <Select
@@ -357,7 +351,7 @@ const PaymentGatewayHub = () => {
                       />
 
                       <p className="text-sm text-slate-400 mt-2">
-                        Different pricing and features available based on customer type
+                        {t('methodStep.customerTypeHint')}
                       </p>
                     </div>
 
@@ -385,7 +379,7 @@ const PaymentGatewayHub = () => {
                           iconPosition="right"
                           className="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white border-0 min-w-[200px] shadow-lg shadow-cyan-900/20"
                         >
-                          {isProcessing ? "Loading..." : "Continue to Payment"}
+                          {isProcessing ? t('common.loading') : t('methodStep.continue')}
                         </Button>
                       </div>
                     )}
@@ -399,10 +393,10 @@ const PaymentGatewayHub = () => {
                   <section className="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-8">
                     <div className="mb-6">
                       <h2 className="text-2xl font-bold text-white mb-2">
-                        Payment Details
+                        {t('detailsStep.title')}
                       </h2>
                       <p className="text-slate-400">
-                        Complete your payment using <span className="text-cyan-400 font-semibold">{selectedPaymentMethod?.name}</span>
+                        {t('detailsStep.descriptionPrefix')} <span className="text-cyan-400 font-semibold">{selectedPaymentMethod?.name}</span>
                       </p>
                     </div>
 
@@ -418,8 +412,8 @@ const PaymentGatewayHub = () => {
                             {selectedPaymentMethod?.name}
                           </div>
                           <div className="text-sm text-cyan-200/80 mt-1">
-                            Processing Time: {selectedPaymentMethod?.processingTime} •
-                            Fee: {selectedPaymentMethod?.fees}
+                            {t('detailsStep.processingTime')}: {selectedPaymentMethod?.processingTime} •
+                            {t('detailsStep.fee')}: {selectedPaymentMethod?.fees}
                           </div>
                         </div>
                       </div>
@@ -429,22 +423,22 @@ const PaymentGatewayHub = () => {
                     <div className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <Input
-                          label="Email Address"
+                          label={t('detailsStep.form.email')}
                           type="email"
                           required
                           value={paymentDetails?.email}
                           onChange={(e) => setPaymentDetails(prev => ({ ...prev, email: e?.target?.value }))}
-                          placeholder="your.email@example.com"
+                          placeholder={t('detailsStep.form.emailPlaceholder')}
                           className="bg-black/20 border-white/10 text-white placeholder-white/30"
                         />
 
                         <Input
-                          label="Mobile Number"
+                          label={t('detailsStep.form.mobile')}
                           type="tel"
                           required
                           value={paymentDetails?.phone}
                           onChange={(e) => setPaymentDetails(prev => ({ ...prev, phone: e?.target?.value }))}
-                          placeholder="+94 77 123 4567"
+                          placeholder={t('detailsStep.form.mobilePlaceholder')}
                           className="bg-black/20 border-white/10 text-white placeholder-white/30"
                         />
                       </div>
@@ -452,19 +446,19 @@ const PaymentGatewayHub = () => {
                       {paymentDetails?.customerType !== 'individual' && (
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <Input
-                            label="Organization Name"
+                            label={t('detailsStep.form.organization')}
                             required
                             value={paymentDetails?.organizationName}
                             onChange={(e) => setPaymentDetails(prev => ({ ...prev, organizationName: e?.target?.value }))}
-                            placeholder="University of Colombo"
+                            placeholder={t('detailsStep.form.organizationPlaceholder')}
                             className="bg-black/20 border-white/10 text-white placeholder-white/30"
                           />
 
                           <Input
-                            label="Tax ID / VAT Number"
+                            label={t('detailsStep.form.taxId')}
                             value={paymentDetails?.taxId}
                             onChange={(e) => setPaymentDetails(prev => ({ ...prev, taxId: e?.target?.value }))}
-                            placeholder="134-556-789"
+                            placeholder={t('detailsStep.form.taxIdPlaceholder')}
                             className="bg-black/20 border-white/10 text-white placeholder-white/30"
                           />
                         </div>
@@ -480,15 +474,15 @@ const PaymentGatewayHub = () => {
                           className="mt-1 h-4 w-4 bg-white/10 border-white/20 text-cyan-500 rounded focus:ring-cyan-500 focus:ring-offset-0"
                         />
                         <label htmlFor="terms" className="text-sm text-slate-300">
-                          I agree to the{' '}
+                          {t('detailsStep.terms.prefix')}{' '}
                           <a href="#" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2">
-                            Terms of Service
+                            {t('detailsStep.terms.termsOfService')}
                           </a>{' '}
-                          and{' '}
+                          {t('detailsStep.terms.and')}{' '}
                           <a href="#" className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2">
-                            Privacy Policy
+                            {t('detailsStep.terms.privacyPolicy')}
                           </a>
-                          . I understand that digital products are non-refundable after download.
+                          {t('detailsStep.terms.suffix')}
                         </label>
                       </div>
                     </div>
@@ -502,7 +496,7 @@ const PaymentGatewayHub = () => {
                         iconName="ArrowLeft"
                         className="border-white/10 text-white hover:bg-white/10"
                       >
-                        Back
+                        {t('detailsStep.back')}
                       </Button>
 
                       <Button
@@ -512,7 +506,7 @@ const PaymentGatewayHub = () => {
                         className="flex-1 bg-gradient-to-r from-emerald-600 to-green-600 hover:from-emerald-500 hover:to-green-500 text-white border-0 shadow-lg shadow-emerald-900/20"
                         iconName={isProcessing ? "Loader" : "Lock"}
                       >
-                        {isProcessing ? "Processing Payment..." : `Pay ${orderData?.currency} ${orderData?.total?.toLocaleString()}`}
+                        {isProcessing ? t('detailsStep.processing') : t('detailsStep.payNow', { currency: orderData?.currency, amount: orderData?.total?.toLocaleString() })}
                       </Button>
                     </div>
                   </section>
@@ -532,10 +526,10 @@ const PaymentGatewayHub = () => {
 
                     <div>
                       <h2 className="text-4xl font-bold text-white mb-3">
-                        Payment Successful!
+                        {t('confirmationStep.title')}
                       </h2>
                       <p className="text-lg text-slate-300">
-                        Your order has been confirmed and is being processed
+                        {t('confirmationStep.subtitle')}
                       </p>
                     </div>
 
@@ -543,28 +537,28 @@ const PaymentGatewayHub = () => {
                       <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 blur-3xl rounded-full"></div>
                       <h3 className="font-semibold text-white mb-6 flex items-center gap-2">
                         <Icon name="Receipt" size={18} className="text-emerald-400" />
-                        Transaction Details
+                        {t('confirmationStep.transactionDetails')}
                       </h3>
 
                       <div className="space-y-4 text-sm">
                         <div className="flex justify-between pb-3 border-b border-white/5">
-                          <span className="text-slate-400">Order Number</span>
+                          <span className="text-slate-400">{t('confirmationStep.orderNumber')}</span>
                           <span className="font-mono text-white">{orderData?.orderNumber}</span>
                         </div>
                         <div className="flex justify-between pb-3 border-b border-white/5">
-                          <span className="text-slate-400">Payment Method</span>
+                          <span className="text-slate-400">{t('confirmationStep.paymentMethod')}</span>
                           <span className="font-medium text-white">{selectedPaymentMethod?.name}</span>
                         </div>
                         <div className="flex justify-between pb-3 border-b border-white/5">
-                          <span className="text-slate-400">Amount Paid</span>
+                          <span className="text-slate-400">{t('confirmationStep.amountPaid')}</span>
                           <span className="font-bold text-emerald-400 text-lg">
                             {orderData?.currency} {orderData?.total?.toLocaleString()}
                           </span>
                         </div>
                         <div className="flex justify-between">
-                          <span className="text-slate-400">Transaction Date</span>
+                          <span className="text-slate-400">{t('confirmationStep.transactionDate')}</span>
                           <span className="font-medium text-white">
-                            {new Date()?.toLocaleDateString()}
+                            {new Date()?.toLocaleDateString(locale)}
                           </span>
                         </div>
                       </div>
@@ -576,7 +570,7 @@ const PaymentGatewayHub = () => {
                         iconName="Download"
                         className="border-white/10 text-white hover:bg-white/10"
                       >
-                        Download Receipt
+                        {t('confirmationStep.downloadReceipt')}
                       </Button>
 
                       <Button
@@ -584,13 +578,12 @@ const PaymentGatewayHub = () => {
                         iconName="ArrowLeft"
                         className="bg-white/10 hover:bg-white/20 text-white border-0"
                       >
-                        Back to Marketplace
+                        {t('confirmationStep.backToMarketplace')}
                       </Button>
                     </div>
 
                     <div className="text-sm text-slate-500 max-w-sm mx-auto">
-                      Digital products will be available in your account within 5 minutes.
-                      Check your email for download instructions.
+                      {t('confirmationStep.deliveryNote')}
                     </div>
                   </section>
                 </>

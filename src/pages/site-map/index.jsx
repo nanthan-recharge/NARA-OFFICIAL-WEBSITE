@@ -2,85 +2,88 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Compass, FileText, Globe2, GraduationCap, Newspaper, Users } from 'lucide-react';
 import SEOHead from '../../components/shared/SEOHead';
+import { useTranslation } from 'react-i18next';
 
 const sections = [
   {
-    title: 'About NARA',
+    key: 'aboutNara',
     icon: Globe2,
     links: [
-      { label: 'About NARA', path: '/about-nara-our-story' },
-      { label: 'Media Gallery', path: '/media-gallery' },
-      { label: 'Media Press Kit', path: '/media-press-kit' },
-      { label: 'Contact Us', path: '/contact-us' }
+      { key: 'aboutNara', path: '/about-nara-our-story' },
+      { key: 'mediaGallery', path: '/media-gallery' },
+      { key: 'mediaPressKit', path: '/media-press-kit' },
+      { key: 'contactUs', path: '/contact-us' }
     ]
   },
   {
-    title: 'Research & Services',
+    key: 'researchServices',
     icon: Compass,
     links: [
-      { label: 'Research Excellence Portal', path: '/research-excellence-portal' },
-      { label: 'Government Services Portal', path: '/government-services-portal' },
-      { label: 'Scientific Evidence Repository', path: '/scientific-evidence-repository' },
-      { label: 'Open Data Portal', path: '/open-data-portal' }
+      { key: 'researchExcellencePortal', path: '/research-excellence-portal' },
+      { key: 'governmentServicesPortal', path: '/government-services-portal' },
+      { key: 'scientificEvidenceRepository', path: '/scientific-evidence-repository' },
+      { key: 'openDataPortal', path: '/open-data-portal' }
     ]
   },
   {
-    title: 'Divisions & Centers',
+    key: 'divisionsCenters',
     icon: Users,
     links: [
-      { label: 'All Divisions', path: '/divisions' },
-      { label: 'Supporting Divisions', path: '/divisions/supporting' },
-      { label: 'Regional Centers', path: '/divisions/regional-centers' },
-      { label: 'Regional Impact Network', path: '/regional-impact-network' }
+      { key: 'allDivisions', path: '/divisions' },
+      { key: 'supportingDivisions', path: '/divisions/supporting' },
+      { key: 'regionalCenters', path: '/divisions/regional-centers' },
+      { key: 'regionalImpactNetwork', path: '/regional-impact-network' }
     ]
   },
   {
-    title: 'Learning & Publications',
+    key: 'learningPublications',
     icon: GraduationCap,
     links: [
-      { label: 'Learning Development Academy', path: '/learning-development-academy' },
-      { label: 'Digital Library', path: '/library' },
-      { label: 'Annual Reports', path: '/annual-reports' },
-      { label: 'News & Updates', path: '/nara-news-updates-center' }
+      { key: 'learningDevelopmentAcademy', path: '/learning-development-academy' },
+      { key: 'digitalLibrary', path: '/library' },
+      { key: 'annualReports', path: '/annual-reports' },
+      { key: 'newsUpdates', path: '/nara-news-updates-center' }
     ]
   },
   {
-    title: 'Public Information',
+    key: 'publicInformation',
     icon: FileText,
     links: [
-      { label: 'Vacancies', path: '/vacancies' },
-      { label: 'Procurement & Recruitment', path: '/procurement-recruitment-portal' },
-      { label: 'Public Consultation', path: '/public-consultation-portal' },
-      { label: 'Right to Information (RTI)', path: '/rti' }
+      { key: 'vacancies', path: '/vacancies' },
+      { key: 'procurementRecruitment', path: '/procurement-recruitment-portal' },
+      { key: 'publicConsultation', path: '/public-consultation-portal' },
+      { key: 'rightToInformation', path: '/rti' }
     ]
   },
   {
-    title: 'Legal & Compliance',
+    key: 'legalCompliance',
     icon: Newspaper,
     links: [
-      { label: 'Privacy Policy', path: '/privacy-policy' },
-      { label: 'Terms of Use', path: '/terms-of-use' },
-      { label: 'Accessibility Statement', path: '/accessibility-statement' },
-      { label: 'NARA Act', path: '/nara-act' }
+      { key: 'privacyPolicy', path: '/privacy-policy' },
+      { key: 'termsOfUse', path: '/terms-of-use' },
+      { key: 'accessibilityStatement', path: '/accessibility-statement' },
+      { key: 'naraAct', path: '/nara-act' }
     ]
   }
 ];
 
 const SiteMapPage = () => {
+  const { t } = useTranslation('siteMap');
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-slate-50 px-4 py-12 sm:px-6 lg:px-8">
       <SEOHead
-        title="Site Map"
-        description="Complete site map of NARA website — find all pages, services, and resources."
+        title={t('meta.title')}
+        description={t('meta.description')}
         path="/site-map"
-        keywords="site map, navigation, NARA pages"
+        keywords={t('meta.keywords')}
       />
       <div className="mx-auto max-w-7xl">
         <header className="mb-10 rounded-2xl border border-sky-100 bg-white p-8 shadow-sm">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">NARA Navigation</p>
-          <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">Site Map</h1>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-sky-700">{t('hero.eyebrow')}</p>
+          <h1 className="text-3xl font-bold text-slate-900 md:text-4xl">{t('hero.title')}</h1>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Quick access to all major NARA portals, services, divisions, and legal information.
+            {t('hero.description')}
           </p>
         </header>
 
@@ -96,7 +99,7 @@ const SiteMapPage = () => {
                   <div className="rounded-lg bg-sky-100 p-2 text-sky-700">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h2 className="text-lg font-semibold text-slate-900">{section.title}</h2>
+                  <h2 className="text-lg font-semibold text-slate-900">{t(`sections.${section.key}.title`)}</h2>
                 </div>
                 <ul className="space-y-2">
                   {section.links.map((link) => (
@@ -106,7 +109,7 @@ const SiteMapPage = () => {
                         className="inline-flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-sky-700"
                       >
                         <span className="h-1.5 w-1.5 rounded-full bg-sky-500" />
-                        {link.label}
+                        {t(`sections.${section.key}.links.${link.key}`)}
                       </Link>
                     </li>
                   ))}

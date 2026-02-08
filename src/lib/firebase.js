@@ -3,7 +3,6 @@ import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 import { getFunctions } from 'firebase/functions';
-import { getAnalytics } from 'firebase/analytics';
 import { getStorage } from 'firebase/storage';
 
 // Firebase configuration
@@ -26,10 +25,23 @@ export const db = getFirestore(app);
 export const functions = getFunctions(app);
 export const storage = getStorage(app);
 
-// Initialize Analytics (only in browser environment)
+// Initialize Analytics lazily — defer GTM script to avoid blocking LCP
 let analytics = null;
 if (typeof window !== 'undefined') {
-  analytics = getAnalytics(app);
+  const initAnalytics = () => {
+    import("firebase/analytics").then(({ getAnalytics, isSupported }) => {
+      isSupported()?.then((supported) => {
+        if (supported) {
+          analytics = getAnalytics(app);
+        }
+      })?.catch(() => {});
+    }).catch(() => {});
+  };
+  if ('requestIdleCallback' in window) {
+    requestIdleCallback(initAnalytics);
+  } else {
+    setTimeout(initAnalytics, 3000);
+  }
 }
 
 export { analytics };

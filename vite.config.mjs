@@ -15,15 +15,24 @@ export default defineConfig({
   },
   build: {
     outDir: "build",
-    chunkSizeWarningLimit: 2000,
+    chunkSizeWarningLimit: 600,
     sourcemap: false,
+    // Only modulepreload essential chunks; skip heavy ones not needed on first paint
+    modulePreload: {
+      resolveDependencies: (filename, deps, { hostId, hostType }) => {
+        // Skip preloading heavy vendor chunks that aren't needed on initial paint
+        const skip = ['charts-vendor', '3d-vendor', 'maps-vendor', 'firebase-storage', 'xlsx', 'jspdf', 'html2canvas'];
+        return deps.filter(dep => !skip.some(s => dep.includes(s)));
+      }
+    },
     minify: 'terser',
     target: 'es2020',
     terserOptions: {
       compress: {
         drop_console: true,
         drop_debugger: true,
-        passes: 2
+        passes: 2,
+        pure_getters: true,
       },
       format: {
         comments: false
@@ -34,8 +43,9 @@ export default defineConfig({
         manualChunks: {
           // Core React — cached long-term
           'react-vendor': ['react', 'react-dom', 'react-router-dom'],
-          // Firebase — only loaded when auth/firestore needed
+          // Firebase — split: auth/firestore always needed, storage deferred
           'firebase-vendor': ['firebase/app', 'firebase/auth', 'firebase/firestore', 'firebase/functions'],
+          'firebase-storage': ['firebase/storage'],
           // 3D — only loaded on pages that need it
           '3d-vendor': ['three', '@react-three/fiber', '@react-three/drei'],
           // Charts — only loaded on data pages
@@ -44,7 +54,7 @@ export default defineConfig({
           'maps-vendor': ['leaflet', 'react-leaflet'],
           // Animation lib — separate from icons
           'motion-vendor': ['framer-motion'],
-          // Icons — tree-shaken, separate chunk
+          // Icons — separate cacheable chunk (tree-shaken via named imports)
           'icons-vendor': ['lucide-react'],
           // i18n — needed on every page but cacheable
           'i18n-vendor': ['i18next', 'react-i18next'],

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 
 const InnovationShowcase = () => {
+  const { t } = useTranslation('partnershipGateway');
   const [activeCategory, setActiveCategory] = useState('all');
 
   const categories = [
-    { id: 'all', name: 'All Innovations', icon: 'Lightbulb' },
-    { id: 'autonomous', name: 'Autonomous Systems', icon: 'Bot' },
-    { id: 'sensors', name: 'Sensor Networks', icon: 'Radar' },
-    { id: 'ai', name: 'AI & Analytics', icon: 'Brain' },
-    { id: 'sustainability', name: 'Sustainability', icon: 'Leaf' }
+    { id: 'all', name: t('innovationShowcase.categories.all'), icon: 'Lightbulb' },
+    { id: 'autonomous', name: t('innovationShowcase.categories.autonomous'), icon: 'Bot' },
+    { id: 'sensors', name: t('innovationShowcase.categories.sensors'), icon: 'Radar' },
+    { id: 'ai', name: t('innovationShowcase.categories.ai'), icon: 'Brain' },
+    { id: 'sustainability', name: t('innovationShowcase.categories.sustainability'), icon: 'Leaf' }
   ];
 
   const innovations = [
@@ -111,6 +113,18 @@ const InnovationShowcase = () => {
     ? innovations 
     : innovations?.filter(innovation => innovation?.category === activeCategory);
 
+  const getStatusLabel = (status) => {
+    switch (status) {
+      case 'Production Ready': return t('innovationShowcase.status.productionReady');
+      case 'In Development': return t('innovationShowcase.status.inDevelopment');
+      case 'Pilot Phase': return t('innovationShowcase.status.pilotPhase');
+      case 'Testing Phase': return t('innovationShowcase.status.testingPhase');
+      case 'Field Testing': return t('innovationShowcase.status.fieldTesting');
+      case 'Beta Testing': return t('innovationShowcase.status.betaTesting');
+      default: return status;
+    }
+  };
+
   const getStatusColor = (status) => {
     switch (status) {
       case 'Production Ready': return 'text-success bg-success/10';
@@ -132,10 +146,10 @@ const InnovationShowcase = () => {
             <Icon name="Rocket" size={32} className="text-accent" />
           </div>
           <h2 className="font-headline text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Innovation Showcase
+            {t('innovationShowcase.title')}
           </h2>
           <p className="font-body text-lg text-text-secondary max-w-3xl mx-auto">
-            Discover cutting-edge technologies and research innovations being developed at NARA to advance ocean science and marine conservation.
+            {t('innovationShowcase.description')}
           </p>
         </div>
 
@@ -168,12 +182,12 @@ const InnovationShowcase = () => {
                 />
                 <div className="absolute top-4 left-4">
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-cta-medium ${getStatusColor(innovation?.status)}`}>
-                    {innovation?.status}
+                    {getStatusLabel(innovation?.status)}
                   </span>
                 </div>
                 <div className="absolute top-4 right-4 bg-card/90 backdrop-blur-sm rounded-full px-3 py-1">
                   <span className="text-xs font-cta-medium text-text-primary">
-                    {innovation?.readiness}% Ready
+                    {t('innovationShowcase.labels.ready', { value: innovation?.readiness })}
                   </span>
                 </div>
               </div>
@@ -190,7 +204,7 @@ const InnovationShowcase = () => {
 
                 {/* Key Features */}
                 <div className="mb-4">
-                  <h4 className="font-cta text-sm font-medium text-text-primary mb-2">Key Features:</h4>
+                  <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('innovationShowcase.labels.keyFeatures')}</h4>
                   <div className="flex flex-wrap gap-2">
                     {innovation?.features?.slice(0, 3)?.map((feature, index) => (
                       <span key={index} className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs font-cta rounded">
@@ -199,7 +213,7 @@ const InnovationShowcase = () => {
                     ))}
                     {innovation?.features?.length > 3 && (
                       <span className="inline-block px-2 py-1 bg-muted text-text-secondary text-xs font-cta rounded">
-                        +{innovation?.features?.length - 3} more
+                        +{innovation?.features?.length - 3} {t('innovationShowcase.labels.more')}
                       </span>
                     )}
                   </div>
@@ -207,7 +221,7 @@ const InnovationShowcase = () => {
 
                 {/* Impact Statement */}
                 <div className="mb-4 p-3 bg-muted/50 rounded-lg">
-                  <h4 className="font-cta text-sm font-medium text-text-primary mb-1">Impact:</h4>
+                  <h4 className="font-cta text-sm font-medium text-text-primary mb-1">{t('innovationShowcase.labels.impact')}</h4>
                   <p className="font-body text-sm text-text-secondary">
                     {innovation?.impact}
                   </p>
@@ -216,18 +230,18 @@ const InnovationShowcase = () => {
                 {/* Project Details */}
                 <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                   <div>
-                    <span className="font-cta text-text-secondary">Timeline:</span>
+                    <span className="font-cta text-text-secondary">{t('innovationShowcase.labels.timeline')}</span>
                     <p className="font-body text-text-primary">{innovation?.timeline}</p>
                   </div>
                   <div>
-                    <span className="font-cta text-text-secondary">Funding:</span>
+                    <span className="font-cta text-text-secondary">{t('innovationShowcase.labels.funding')}</span>
                     <p className="font-body text-text-primary">{innovation?.funding}</p>
                   </div>
                 </div>
 
                 {/* Partners */}
                 <div className="mb-4">
-                  <span className="font-cta text-sm text-text-secondary">Partners: </span>
+                  <span className="font-cta text-sm text-text-secondary">{t('innovationShowcase.labels.partners')}</span>
                   <span className="font-body text-sm text-text-primary">
                     {innovation?.partners?.join(', ')}
                   </span>
@@ -236,7 +250,7 @@ const InnovationShowcase = () => {
                 {/* Progress Bar */}
                 <div className="mb-4">
                   <div className="flex justify-between items-center mb-2">
-                    <span className="font-cta text-sm text-text-secondary">Development Progress</span>
+                    <span className="font-cta text-sm text-text-secondary">{t('innovationShowcase.labels.developmentProgress')}</span>
                     <span className="font-cta text-sm text-text-primary">{innovation?.readiness}%</span>
                   </div>
                   <div className="w-full bg-muted rounded-full h-2">
@@ -258,7 +272,7 @@ const InnovationShowcase = () => {
                   </div>
                   <Button variant="ghost" size="sm">
                     <Icon name="ArrowRight" size={16} className="mr-2" />
-                    Learn More
+                    {t('innovationShowcase.actions.learnMore')}
                   </Button>
                 </div>
               </div>
@@ -270,29 +284,29 @@ const InnovationShowcase = () => {
         <div className="mt-16 bg-card rounded-lg p-8 ocean-depth-shadow">
           <div className="text-center mb-8">
             <h3 className="font-headline text-2xl font-bold text-text-primary mb-4">
-              Innovation Impact
+              {t('innovationShowcase.impactStats.title')}
             </h3>
             <p className="font-body text-text-secondary">
-              Our innovations are driving real change in ocean science and marine conservation.
+              {t('innovationShowcase.impactStats.description')}
             </p>
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="font-headline text-3xl font-bold text-primary mb-2">24</div>
-              <div className="font-body text-sm text-text-secondary">Active Projects</div>
+              <div className="font-body text-sm text-text-secondary">{t('innovationShowcase.impactStats.activeProjects')}</div>
             </div>
             <div className="text-center">
               <div className="font-headline text-3xl font-bold text-accent mb-2">$12.5M</div>
-              <div className="font-body text-sm text-text-secondary">Total Investment</div>
+              <div className="font-body text-sm text-text-secondary">{t('innovationShowcase.impactStats.totalInvestment')}</div>
             </div>
             <div className="text-center">
               <div className="font-headline text-3xl font-bold text-success mb-2">8</div>
-              <div className="font-body text-sm text-text-secondary">Patents Filed</div>
+              <div className="font-body text-sm text-text-secondary">{t('innovationShowcase.impactStats.patentsFiled')}</div>
             </div>
             <div className="text-center">
               <div className="font-headline text-3xl font-bold text-secondary mb-2">15</div>
-              <div className="font-body text-sm text-text-secondary">Industry Partners</div>
+              <div className="font-body text-sm text-text-secondary">{t('innovationShowcase.impactStats.industryPartners')}</div>
             </div>
           </div>
         </div>
@@ -301,11 +315,11 @@ const InnovationShowcase = () => {
         <div className="text-center mt-12">
           <Button variant="default" size="lg" className="mr-4">
             <Icon name="Lightbulb" size={20} className="mr-2" />
-            Propose Innovation
+            {t('innovationShowcase.actions.proposeInnovation')}
           </Button>
           <Button variant="outline" size="lg">
             <Icon name="Calendar" size={20} className="mr-2" />
-            Schedule Demo
+            {t('innovationShowcase.actions.scheduleDemo')}
           </Button>
         </div>
       </div>

@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "title": "හවුල්කාරිත්ව සහ නවෝත්පාදන ද්වාරය",
+    "description": "NARA ශ්‍රී ලංකාව සමඟ හවුල්කාරිත්ව අවස්ථා සහ නවෝත්පාදන වැඩසටහන් ගවේෂණය කරන්න.",
+    "keywords": "හවුල්කාරිත්ව, නවෝත්පාදන, සමුද්‍රීය තාක්ෂණය, NARA සහයෝගිතාව"
+  },
+  "hero": {
+    "badge": "ගෝලීය නවෝත්පාදන මධ්‍යස්ථානය",
+    "titlePrefix": "හවුල්කාරිත්ව &",
+    "titleHighlight": "නවෝත්පාදන",
+    "titleSuffix": "ද්වාරය",
+    "description": "උපායමාර්ගික හවුල්කාරිත්ව, අලුත්ම නවෝත්පාදන සහ සහයෝගී පර්යේෂණ හරහා NARA ආයතනය ගෝලීය සාගර විද්‍යා සමාජය සමඟ සම්බන්ධ කරයි.",
+    "cta": {
+      "explore": "හවුල්කාරිත්ව ගවේෂණය කරන්න",
+      "innovations": "නවෝත්පාදන බලන්න"
+    },
+    "upload": {
+      "title": "Hero රූපය උඩුගත කරන්න",
+      "description": "ඔබගේ උසස් විභේදන රූපය මෙතැනට ඇද දමන්න හෝ ගොනු තෝරාගන්න.",
+      "recommended": "නිර්දේශිත: 1600 x 1200px"
+    },
+    "stats": {
+      "globalPartners": "ගෝලීය හවුල්කරුවන්",
+      "activeProjects": "සක්‍රීය ව්‍යාපෘති",
+      "technologiesLicensed": "බලපත්‍ර ලත් තාක්ෂණ",
+      "countriesReached": "ළඟා වූ රටවල්"
+    }
+  },
+  "globalNetwork": {
+    "title": "ගෝලීය පර්යේෂණ ජාලය",
+    "description": "NARA ආයතනය ලෝක ප්‍රමුඛ ආයතන සමඟ සහයෝගයෙන් සාගර විද්‍යාව ප්‍රවර්ධනය කරමින් සමුද්‍රීය සංරක්ෂණය සහ තිරසාර සංවර්ධනය සඳහා දැනුම බෙදාහරියි.",
+    "more": "තවත්",
+    "stats": {
+      "activePartnerships": "සක්‍රීය හවුල්කාරිත්ව",
+      "countries": "රටවල්",
+      "jointPublications": "සහයෝගී ප්‍රකාශන",
+      "sharedDatasets": "බෙදාගත් දත්ත සමුදා"
+    },
+    "labels": {
+      "projects": "ව්‍යාපෘති",
+      "publications": "ප්‍රකාශන",
+      "since": "සිට",
+      "activePartnership": "සක්‍රීය හවුල්කාරිත්වය"
+    },
+    "actions": {
+      "viewDetails": "විස්තර බලන්න",
+      "exploreOpportunities": "හවුල්කාරිත්ව අවස්ථා ගවේෂණය කරන්න",
+      "downloadGuide": "හවුල්කාරිත්ව මාර්ගෝපදේශය බාගත කරන්න"
+    },
+    "map": {
+      "title": "ගෝලීය හවුල්කාරිත්ව ජාලය",
+      "description": "අපගේ සහයෝගිතා මහද්වීප හරහා විහිදී ඇති අතර සත්‍ය ගෝලීය සාගර විද්‍යා ජාලයක් ගොඩනඟයි.",
+      "interactiveTitle": "අන්තර්ක්‍රියාකාරී හවුල්කාරිත්ව සිතියම",
+      "interactiveHint": "ප්‍රදේශ අනුව හවුල්කාරිත්ව බැලීමට සලකුණු මත ක්ලික් කරන්න"
+    }
+  },
+  "innovationShowcase": {
+    "title": "නවෝත්පාදන ප්‍රදර්ශනය",
+    "description": "NARA තුළ සංවර්ධනය වන අලුත්ම තාක්ෂණ හා පර්යේෂණ නවෝත්පාදන හඳුනාගන්න.",
+    "categories": {
+      "all": "සියලු නවෝත්පාදන",
+      "autonomous": "ස්වයංක්‍රීය පද්ධති",
+      "sensors": "සෙන්සර් ජාල",
+      "ai": "AI සහ විශ්ලේෂණ",
+      "sustainability": "තිරසාරභාවය"
+    },
+    "status": {
+      "productionReady": "නිෂ්පාදනයට සූදානම්",
+      "inDevelopment": "සංවර්ධනය වෙමින්",
+      "pilotPhase": "පරීක්ෂණ අදියර",
+      "testingPhase": "පරීක්ෂා කිරීමේ අදියර",
+      "fieldTesting": "ක්ෂේත්‍ර පරීක්ෂණ",
+      "betaTesting": "බීටා පරීක්ෂණ"
+    },
+    "labels": {
+      "ready": "{{value}}% සූදානම්",
+      "keyFeatures": "ප්‍රධාන විශේෂාංග:",
+      "more": "තවත්",
+      "impact": "බලපෑම:",
+      "timeline": "කාලසටහන:",
+      "funding": "අරමුදල්:",
+      "partners": "හවුල්කරුවන්:",
+      "developmentProgress": "සංවර්ධන ප්‍රගතිය"
+    },
+    "actions": {
+      "learnMore": "වැඩිදුර දැනගන්න",
+      "proposeInnovation": "නවෝත්පාදනයක් යෝජනා කරන්න",
+      "scheduleDemo": "ඩෙමෝවක් සකස් කරන්න"
+    },
+    "impactStats": {
+      "title": "නවෝත්පාදන බලපෑම",
+      "description": "අපගේ නවෝත්පාදන සාගර විද්‍යා හා සංරක්ෂණ ක්ෂේත්‍රයේ සැබෑ වෙනසක් ඇති කරයි.",
+      "activeProjects": "සක්‍රීය ව්‍යාපෘති",
+      "totalInvestment": "මුළු ආයෝජනය",
+      "patentsFiled": "ගොනු කළ පේටන්ට්",
+      "industryPartners": "කර්මාන්ත හවුල්කරුවන්"
+    }
+  },
+  "partnershipOpportunities": {
+    "title": "හවුල්කාරිත්ව අවස්ථා",
+    "description": "NARA ගෝලීය හවුල්කරුවන්ගේ ජාලයට එක්වී සාගර විද්‍යාව, සංරක්ෂණය සහ තිරසාර සංවර්ධනයට දායක වන්න.",
+    "filters": {
+      "opportunityType": {
+        "research": "පර්යේෂණ සහයෝගිතාව",
+        "funding": "අරමුදල් හවුල්කාරිත්වය",
+        "technology": "තාක්ෂණ මාරු කිරීම",
+        "exchange": "පර්යේෂක හුවමාරුව",
+        "data": "දත්ත බෙදාගැනීම",
+        "capacity": "ධාරිතා සංවර්ධනය"
+      },
+      "researchArea": {
+        "climate": "දේශගුණ වෙනස්වීම් පර්යේෂණ",
+        "biodiversity": "සමුද්‍රීය ජෛව විවිධත්වය",
+        "pollution": "සාගර දූෂණය",
+        "fisheries": "ධීවර විද්‍යාව",
+        "technology": "සමුද්‍රීය තාක්ෂණය",
+        "conservation": "සංරක්ෂණ ජීව විද්‍යාව",
+        "oceanography": "භෞතික සාගර විද්‍යාව",
+        "policy": "සමුද්‍රීය ප්‍රතිපත්ති"
+      }
+    },
+    "labels": {
+      "deadline": "අවසාන දිනය:",
+      "funding": "අරමුදල්:",
+      "duration": "කාලය:",
+      "keyRequirements": "ප්‍රධාන අවශ්‍යතා:",
+      "moreRequirements": "තවත් අවශ්‍යතා"
+    },
+    "form": {
+      "title": "ඔබගේ උනන්දුව ප්‍රකාශ කරන්න",
+      "description": "ඔබගේ හවුල්කාරිත්ව විමසීම ඉදිරිපත් කරන්න. අපේ කණ්ඩායම ඔබට සුදුසු අවස්ථා සමඟ සම්බන්ධ වේ.",
+      "organizationName": "ආයතනයේ නම",
+      "organizationPlaceholder": "ඔබගේ ආයතනය",
+      "contactPerson": "සම්බන්ධතා පුද්ගලයා",
+      "contactPlaceholder": "ඔබගේ සම්පූර්ණ නම",
+      "email": "විද්‍යුත් තැපෑල",
+      "emailPlaceholder": "your.email@organization.com",
+      "partnershipType": "හවුල්කාරිත්ව වර්ගය",
+      "partnershipTypePlaceholder": "හවුල්කාරිත්ව වර්ගය තෝරන්න",
+      "researchArea": "පර්යේෂණ ක්ෂේත්‍රය",
+      "researchAreaPlaceholder": "පර්යේෂණ ක්ෂේත්‍රය තෝරන්න",
+      "message": "පණිවිඩය",
+      "messagePlaceholder": "ඔබගේ ආයතනය සහ හවුල්කාරිත්ව උනන්දුව පිළිබඳ සටහන් කරන්න..."
+    },
+    "actions": {
+      "viewDetails": "විස්තර බලන්න",
+      "submitInquiry": "විමසීම ඉදිරිපත් කරන්න",
+      "applyNow": "දැන් අයදුම් කරන්න",
+      "downloadGuidelines": "මාර්ගෝපදේශ බාගත කරන්න"
+    },
+    "benefits": {
+      "globalNetwork": {
+        "title": "ගෝලීය ජාලය",
+        "description": "අපගේ විශාල හවුල්කාරිත්ව ජාලය හරහා ලොව පුරා ප්‍රමුඛ පර්යේෂකයන් සමඟ සම්බන්ධ වන්න."
+      },
+      "innovationAccess": {
+        "title": "නවෝත්පාදන ප්‍රවේශය",
+        "description": "අලුත්ම තාක්ෂණ, පර්යේෂණ පහසුකම් සහ සහයෝගී වේදිකා වෙත ප්‍රවේශය ලබාගන්න."
+      },
+      "impactAmplification": {
+        "title": "බලපෑම වැඩි කිරීම",
+        "description": "සහයෝගී ව්‍යාපෘති සහ බෙදාගත් සම්පත් මඟින් ඔබේ පර්යේෂණ බලපෑම වර්ධනය කරන්න."
+      }
+    },
+    "modal": {
+      "description": "විස්තරය",
+      "requirements": "අවශ්‍යතා",
+      "benefits": "ප්‍රතිලාභ",
+      "keyDetails": "ප්‍රධාන විස්තර",
+      "eligibility": "සුදුසුකම්",
+      "applicationProcess": "අයදුම් ක්‍රියාවලිය"
+    }
+  },
+  "technologyTransfer": {
+    "title": "තාක්ෂණ මාරු කිරීමේ මධ්‍යස්ථානය",
+    "description": "NARA නව තාක්ෂණ කර්මාන්ත සහ සමාජ අවශ්‍යතා සඳහා යොදාගන්නා ආකාරය හඳුනාගන්න.",
+    "tabs": {
+      "available": "ලබාගත හැකි තාක්ෂණ",
+      "success": "සාර්ථක කථා",
+      "process": "මාරු කිරීමේ ක්‍රියාවලිය"
+    },
+    "maturity": {
+      "commercialReady": "වාණිජ භාවිතයට සූදානම්",
+      "fieldTested": "ක්ෂේත්‍ර පරීක්ෂිත",
+      "pilotTested": "ප්‍රායෝගික පරීක්ෂිත"
+    },
+    "labels": {
+      "keyFeatures": "ප්‍රධාන විශේෂාංග:",
+      "more": "තවත්",
+      "marketPotential": "වෙළඳපොළ හැකියාව:",
+      "patentStatus": "පේටන්ට් තත්ත්වය:",
+      "keyBenefits": "ප්‍රධාන ප්‍රතිලාභ:",
+      "contact": "සම්බන්ධ වන්න:",
+      "partner": "හවුල්කරු",
+      "technology": "තාක්ෂණය",
+      "year": "වසර",
+      "impactAchieved": "ලැබූ බලපෑම:",
+      "partnershipDetails": "හවුල්කාරිත්ව විස්තර",
+      "partnerType": "හවුල්කරු වර්ගය:",
+      "licenseType": "බලපත්‍ර වර්ගය:",
+      "annualRoyalty": "වාර්ෂික රොයල්ටි:",
+      "keyActivities": "ප්‍රධාන ක්‍රියාකාරකම්:",
+      "duration": "කාලය"
+    },
+    "actions": {
+      "details": "විස්තර",
+      "inquire": "විමසන්න",
+      "viewCaseStudy": "Case Study බලන්න"
+    },
+    "process": {
+      "title": "තාක්ෂණ මාරු කිරීමේ ක්‍රියාවලිය",
+      "description": "අපගේ ව්‍යුහගත ක්‍රමවේදය පර්යේෂණයෙන් වාණිජ යොදාගැනීම දක්වා සාර්ථක මාරු කිරීම සහතික කරයි."
+    },
+    "benefits": {
+      "title": "තාක්ෂණ මාරු කිරීම සඳහා NARA තෝරාගත යුත්තේ ඇයි?",
+      "proven": {
+        "title": "සනාථිත වාර්තාව",
+        "description": "මැනිය හැකි වාණිජ ප්‍රතිඵල සහිත සාර්ථක තාක්ෂණ මාරු කිරීම් 50කට අධික සංඛ්‍යාවක්."
+      },
+      "ipProtection": {
+        "title": "බුද්ධිමය දේපල ආරක්ෂාව",
+        "description": "ජාත්‍යන්තර පේටන්ට් සහ වෙළඳ රහස් කළමනාකරණය සමඟ සම්පූර්ණ ආරක්ෂාව."
+      },
+      "support": {
+        "title": "අඛණ්ඩ සහාය",
+        "description": "වාණිජකරණ ගමන පුරාම අඛණ්ඩ තාක්ෂණික සහාය, පුහුණුව සහ හවුල්කාරිත්ව සංවර්ධනය."
+      }
+    },
+    "cta": {
+      "title": "තාක්ෂණ මාරු කිරීමේ අවස්ථා සෙවීමට සූදානම්ද?",
+      "description": "බලපත්‍ර, හවුල්කාරිත්ව ආකෘති සහ වාණිජකරණ උපායමාර්ග පිළිබඳ අපේ කණ්ඩායම සමඟ සම්බන්ධ වන්න.",
+      "actions": {
+        "schedule": "උපදේශනයක් සැලසුම් කරන්න",
+        "downloadPortfolio": "තාක්ෂණ පෝට්ෆෝලියෝව බාගත කරන්න",
+        "contactOffice": "තාක්ෂණ මාරු කාර්යාලය අමතන්න"
+      }
+    }
+  },
+  "eventsCalendar": {
+    "title": "උත්සව සහ සම්මන්ත්‍රණ",
+    "description": "ජාත්‍යන්තර උත්සව, වැඩමුළු සහ හවුල්කාරිත්ව ක්‍රියාකාරකම් සඳහා NARA පර්යේෂකයන් සමඟ එක්වන්න.",
+    "months": {
+      "2024-10": "ඔක්තෝබර් 2024",
+      "2024-11": "නොවැම්බර් 2024",
+      "2024-12": "දෙසැම්බර් 2024",
+      "2025-01": "ජනවාරි 2025",
+      "2025-02": "පෙබරවාරි 2025",
+      "2025-03": "මාර්තු 2025"
+    },
+    "types": {
+      "conference": "සම්මන්ත්‍රණය",
+      "summit": "සමුළුව",
+      "forum": "සංවාද මණ්ඩපය",
+      "workshop": "වැඩමුළුව",
+      "symposium": "සම්පෝසියම"
+    },
+    "labels": {
+      "more": "තවත්",
+      "cost": "පිරිවැය:",
+      "attendees": "සහභාගිවන්නන්:",
+      "naraSpeakers": "NARA කථිකයන්: ",
+      "naraSpeakersNoColon": "NARA කථිකයන්",
+      "deadline": "අවසාන දිනය:"
+    },
+    "upcoming": {
+      "title": "ඉදිරි ලියාපදිංචි අවසාන දින",
+      "description": "ඉදිරි උත්සව සඳහා වැදගත් ලියාපදිංචි අවසාන දින මග හැර නොගන්න."
+    },
+    "actions": {
+      "viewDetails": "විස්තර බලන්න",
+      "register": "ලියාපදිංචි වන්න",
+      "submitProposal": "උත්සව යෝජනාව ඉදිරිපත් කරන්න",
+      "subscribe": "යාවත්කාලීන සඳහා දායක වන්න",
+      "visitWebsite": "උත්සව වෙබ් අඩවියට යන්න",
+      "registerNow": "දැන් ලියාපදිංචි වන්න",
+      "shareEvent": "උත්සවය බෙදාගන්න"
+    },
+    "modal": {
+      "aboutEvent": "මෙම උත්සවය ගැන",
+      "keyTopics": "ප්‍රධාන මාතෘකා",
+      "partnershipOpportunities": "හවුල්කාරිත්ව අවස්ථා",
+      "eventDetails": "උත්සව විස්තර",
+      "venue": "ස්ථානය:",
+      "expectedAttendees": "අපේක්ෂිත සහභාගිවන්නන්:",
+      "targetAudience": "ඉලක්ක ප්‍රේක්ෂකයින්:",
+      "registrationDeadline": "ලියාපදිංචි අවසාන දිනය:"
+    }
+  },
+  "impactSection": {
+    "title": "හවුල්කාරිත්ව බලපෑම් දර්ශක",
+    "description": "අපගේ හවුල්කාරිත්ව සහ නවෝත්පාදන සාගර විද්‍යාව, ආර්ථික සංවර්ධනය සහ සංරක්ෂණයට ගෙනෙන සැබෑ බලපෑම මැනීම."
+  },
+  "impactMetrics": {
+    "researchImpact": {
+      "title": "පර්යේෂණ බලපෑම",
+      "jointPublications": "සහයෝගී ප්‍රකාශන",
+      "citationIndex": "Citation දර්ශකය",
+      "hIndexGrowth": "H-Index වර්ධනය"
+    },
+    "economicImpact": {
+      "title": "ආර්ථික බලපෑම",
+      "technologyRevenue": "තාක්ෂණ ආදායම",
+      "jobsCreated": "නිර්මාණය කළ රැකියා",
+      "industryPartnerships": "කර්මාන්ත හවුල්කාරිත්ව"
+    },
+    "innovationPipeline": {
+      "title": "නවෝත්පාදන පයිප්ලයින්",
+      "patentsFiled": "ගොනු කළ පේටන්ට්",
+      "technologiesInDevelopment": "සංවර්ධනය වන තාක්ෂණ",
+      "pilotProjects": "නියමු ව්‍යාපෘති"
+    }
+  },
+  "ctaSection": {
+    "title": "NARA සමඟ හවුල් වීමට සූදානම්ද?",
+    "description": "අපගේ ගෝලීය ජාලයට එක්ව සාගර විද්‍යාව, සංරක්ෂණය සහ තිරසාර සංවර්ධනය ප්‍රවර්ධනය කිරීමට දායක වන්න.",
+    "actions": {
+      "startConversation": "සංවාදය ආරම්භ කරන්න",
+      "proposal": "හවුල්කාරිත්ව යෝජනාව",
+      "schedule": "උපදේශනය සැලසුම් කරන්න"
+    }
+  },
+  "footer": {
+    "brand": {
+      "title": "NARA ඩිජිටල් සාගරය",
+      "subtitle": "හවුල්කාරිත්ව සහ නවෝත්පාදන ද්වාරය"
+    },
+    "description": "තිරසාර සමුද්‍රීය සංවර්ධනය සහ සංරක්ෂණය සඳහා ගෝලීය හවුල්කාරිත්ව සහ නවෝත්පාදන උත්සාහයන් පහසු කරයි.",
+    "quickLinks": {
+      "title": "ඉක්මන් සබැඳි",
+      "globalNetwork": "ගෝලීය ජාලය",
+      "innovationShowcase": "නවෝත්පාදන ප්‍රදර්ශනය",
+      "partnershipOpportunities": "හවුල්කාරිත්ව අවස්ථා",
+      "technologyTransfer": "තාක්ෂණ මාරු කිරීම"
+    },
+    "contact": {
+      "title": "සම්බන්ධතා",
+      "office": "හවුල්කාරිත්ව කාර්යාලය",
+      "email": "partnerships@nara.ac.lk",
+      "phone": "+94 11 2 694 138"
+    },
+    "copyright": "© {{year}} ජාතික ජලජ සම්පත් පර්යේෂණ හා සංවර්ධන ඒජන්සිය. සියලු හිමිකම් ඇවිරිණි."
+  }
+}

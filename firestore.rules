@@ -129,7 +129,7 @@ service cloud.firestore {
     // Admin Profiles Collection
     match /adminProfiles/{userId} {
       allow read: if isAdmin() || isOwner(userId);
-      allow create: if isAdmin();
+      allow create: if isOwner(userId);
       allow update: if isAdmin() || isOwner(userId);
       allow delete: if isAdmin();
     }

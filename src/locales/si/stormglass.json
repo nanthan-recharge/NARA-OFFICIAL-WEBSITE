@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "මුහුදු කාලගුණ දත්ත",
+    "description": "Stormglass ඒකාබද්ධතාවයෙන් සජීවී මුහුදු කාලගුණ දත්ත, රැලි උස සහ සාගර තත්ත්වයන්.",
+    "keywords": "මුහුදු කාලගුණය, රැලි දත්ත, සාගර තත්ත්වයන්, Stormglass"
+  },
+  "hero": {
+    "title": "මුහුදු කාලගුණ තත්ත්වයන්",
+    "subtitle": "Stormglass API මඟින් සපයන සජීවී රැලි උස, ජල උෂ්ණත්වය සහ මුහුදු අනාවැකි"
+  },
+  "controls": {
+    "title": "දත්ත පාලක",
+    "subtitle": "ස්ථානය තෝරා ස්වයං-යාවත්කාලීන කිරීම සකසන්න",
+    "autoRefresh": "ස්වයං-යාවත්කාලීන කිරීම (මිනිත්තු 5)",
+    "loading": "පූරණය වෙමින්...",
+    "refresh": "දත්ත යාවත්කාලීන කරන්න"
+  },
+  "errors": {
+    "loadTitle": "දත්ත පූරණයේ දෝෂයක්",
+    "noData": "දත්ත නොමැත"
+  },
+  "map": {
+    "title": "ශ්‍රී ලංකා මුහුදු ස්ථාන"
+  },
+  "popup": {
+    "waveHeight": "රැලි උස",
+    "waterTemp": "ජල උෂ්ණත්වය",
+    "currentSpeed": "ධාරා වේගය"
+  },
+  "detail": {
+    "title": "{{location}} - සවිස්තර අනාවැකිය",
+    "currentConditions": "වත්මන් තත්ත්වයන්",
+    "forecast24h": "පැය 24 අනාවැකිය",
+    "tideSchedule": "ජල ගැලීම් කාලසටහන",
+    "cards": {
+      "waveHeight": "රැලි උස",
+      "waterTemperature": "ජල උෂ්ණත්වය",
+      "currentSpeed": "ධාරා වේගය",
+      "seaLevel": "මුහුදු මට්ටම"
+    },
+    "units": {
+      "meters": "මීටර්"
+    }
+  },
+  "locationCard": {
+    "waveHeight": "රැලි උස",
+    "waterTemp": "ජල උෂ්ණත්වය",
+    "currentSpeed": "ධාරා වේගය",
+    "lastUpdated": "අවසන් යාවත්කාලීනය"
+  },
+  "forecastTable": {
+    "time": "වේලාව",
+    "wave": "රැලිය (m)",
+    "temp": "උෂ්ණත්වය (°C)",
+    "current": "ධාරාව (m/s)",
+    "wind": "සුළඟ (m/s)"
+  },
+  "tide": {
+    "high": "⬆️ ඉහළ ජල ගැලීම",
+    "low": "⬇️ පහළ ජල ගැලීම"
+  }
+}

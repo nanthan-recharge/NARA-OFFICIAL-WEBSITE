@@ -134,6 +134,8 @@ export const FirebaseAuthProvider = ({ children }) => {
       setProfile({ ...base });
     } catch (error) {
       console.error('Error ensuring admin profile:', error);
+      setProfile(null);
+      throw error;
     }
   };
 
@@ -152,6 +154,7 @@ export const FirebaseAuthProvider = ({ children }) => {
       await updateDoc(ref, { lastLoginAt: new Date() });
     } catch (error) {
       console.error('Error loading user profile:', error);
+      setProfile(null);
     }
   };
 

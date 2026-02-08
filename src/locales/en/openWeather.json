@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "title": "Weather Dashboard",
+    "description": "Comprehensive weather dashboard with current conditions, forecasts, and marine weather alerts.",
+    "keywords": "weather dashboard, marine weather, forecasts, weather alerts"
+  },
+  "hero": {
+    "title": "Weather Dashboard",
+    "subtitle": "Real-time weather conditions and 5-day forecasts for Sri Lankan coastal regions"
+  },
+  "controls": {
+    "title": "Data Controls",
+    "monitoring": "Monitoring {{count}} coastal locations",
+    "autoRefresh": "Auto-refresh (10 min)",
+    "loading": "Loading...",
+    "refresh": "Refresh Data"
+  },
+  "errors": {
+    "loadTitle": "Error Loading Data",
+    "noData": "No data available"
+  },
+  "map": {
+    "title": "Weather Map"
+  },
+  "popup": {
+    "temperature": "Temperature",
+    "feelsLike": "Feels Like",
+    "humidity": "Humidity",
+    "wind": "Wind"
+  },
+  "currentConditions": {
+    "title": "Current Conditions"
+  },
+  "detail": {
+    "title": "{{location}} - Detailed View",
+    "cards": {
+      "temperature": "Temperature",
+      "feelsLike": "Feels like {{value}}°C",
+      "humidity": "Humidity",
+      "pressure": "Pressure",
+      "windSpeed": "Wind Speed",
+      "cloudCover": "Cloud Cover",
+      "windDirection": "Wind Direction",
+      "conditions": "Conditions",
+      "location": "Location"
+    }
+  },
+  "forecast": {
+    "title": "5-Day Forecast",
+    "table": {
+      "time": "Time",
+      "conditions": "Conditions",
+      "temperature": "Temp (°C)",
+      "humidity": "Humidity (%)",
+      "wind": "Wind (m/s)"
+    }
+  },
+  "weatherCard": {
+    "feelsLike": "Feels like:",
+    "humidity": "Humidity:",
+    "wind": "Wind:",
+    "pressure": "Pressure:"
+  }
+}

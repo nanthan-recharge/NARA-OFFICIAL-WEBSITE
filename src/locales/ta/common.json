@@ -8,10 +8,10 @@
     "languageLabel": "மொழி",
     "back": "பின் செல்ல",
     "register": "பதிவு செய்க",
-    "profile": "சுயவிவரம்",
+    "profile": "என் கணக்கு",
     "brand": {
       "title": "NARA",
-      "subtitle": "கடல் ஆராய்ச்சி"
+      "subtitle": "நீரியல் ஆராய்ச்சி"
     },
     "themes": {
       "ocean": "கடல்",
@@ -68,18 +68,18 @@
         }
       },
       "about": {
-        "title": "எங்களை பற்றி",
+        "title": "நிறுவனம் பற்றி",
         "links": {
-          "ourStory": "எங்கள் கதை",
-          "regionalCenters": "பிராந்திய ஆராய்ச்சி மையங்கள்",
-          "supportingDivisions": "துணை பிரிவுகள்",
-          "mediaGallery": "ஊடக காட்சியகம்",
-          "newsUpdates": "செய்திகள் மற்றும் புதுப்பிப்புகள்",
-          "podcasts": "பாட்காஸ்ட்கள்",
+          "ourStory": "எங்கள் வரலாறு",
+          "regionalCenters": "பிராந்திய ஆராய்ச்சி நிலையங்கள்",
+          "supportingDivisions": "நிர்வாகப் பிரிவுகள்",
+          "mediaGallery": "ஊடக தொகுப்பகம்",
+          "newsUpdates": "செய்திகள் மற்றும் அறிவிப்புகள்",
+          "podcasts": "ஒலிப்பதிவுகள்",
           "procurement": "கொள்முதல்",
           "naraAct": "NARA சட்டம்",
           "rti": "தகவல் அறியும் உரிமை",
-          "annualReports": "ஆண்டு அறிக்கைகள்"
+          "annualReports": "ஆண்டறிக்கைகள்"
         }
       },
       "divisions": {
@@ -133,16 +133,16 @@
     },
     "gov": {
       "home": "முகப்பு",
-      "about": "எங்களைப் பற்றி",
+      "about": "நிறுவனம் பற்றி",
       "division": "பிரிவுகள்",
       "research": "ஆராய்ச்சி",
       "services": "சேவைகள்",
       "library": "நூலகம்",
-      "vacancies": "காலிப்பணியிடங்கள்",
+      "vacancies": "வேலை வாய்ப்புகள்",
       "procurement": "கொள்முதல்",
       "scientistSession": "விஞ்ஞானிகள் அமர்வு",
-      "contact": "தொடர்பு",
-      "naraMail": "NARA அஞ்சல்"
+      "contact": "தொடர்பு கொள்ள",
+      "naraMail": "NARA மின்னஞ்சல்"
     },
     "mainNavigation": "முதன்மை வழிசெலுத்தல்",
     "mobileNavigation": "கைபேசி வழிசெலுத்தல்",

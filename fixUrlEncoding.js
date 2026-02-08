@@ -6,7 +6,8 @@ const fs = require('fs');
 const path = require('path');
 
 const cataloguePath = path.join(__dirname, 'public', 'library_catalogue.json');
-const backupPath = path.join(__dirname, 'public', 'library_catalogue.backup3.json');
+const backupDir = path.join(__dirname, 'archive', 'catalogue-backups');
+const backupPath = path.join(backupDir, 'library_catalogue.backup3.json');
 
 console.log('🔧 Fixing PDF URL Encoding...\n');
 
@@ -15,6 +16,7 @@ const catalogueData = JSON.parse(fs.readFileSync(cataloguePath, 'utf8'));
 console.log(`📚 Found ${catalogueData.length} books\n`);
 
 // Create backup
+fs.mkdirSync(backupDir, { recursive: true });
 fs.writeFileSync(backupPath, JSON.stringify(catalogueData, null, 2));
 console.log(`💾 Backup saved to: ${backupPath}\n`);
 

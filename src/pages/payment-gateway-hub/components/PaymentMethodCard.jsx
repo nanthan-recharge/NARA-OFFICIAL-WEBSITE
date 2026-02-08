@@ -1,11 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import { cn } from '../../../utils/cn';
 
 const PaymentMethodCard = ({ method, onSelect, isSelected = false, isLoading = false }) => {
+  const { t } = useTranslation('paymentGateway');
   const {
-    id,
     name,
     type, // 'bank', 'mobile', 'government', 'card'
     description,
@@ -73,7 +74,7 @@ const PaymentMethodCard = ({ method, onSelect, isSelected = false, isLoading = f
               {isSelected && <Icon name="CheckCircle" size={16} className="text-blue-600" />}
             </h3>
             <span className={cn("text-xs px-2 py-1 rounded-full font-medium", getTypeColor(type))}>
-              {type?.charAt(0)?.toUpperCase() + type?.slice(1)} Payment
+              {t(`methodCard.type.${type}`)}
             </span>
           </div>
         </div>
@@ -99,7 +100,7 @@ const PaymentMethodCard = ({ method, onSelect, isSelected = false, isLoading = f
         <div className="flex items-center justify-between text-sm">
           <span className="text-gray-600 flex items-center gap-1">
             <Icon name="Clock" size={14} />
-            Processing Time
+            {t('methodCard.processingTime')}
           </span>
           <span className="font-medium text-gray-900">{processingTime}</span>
         </div>
@@ -108,7 +109,7 @@ const PaymentMethodCard = ({ method, onSelect, isSelected = false, isLoading = f
         <div className="flex items-center justify-between text-sm">
           <span className="text-gray-600 flex items-center gap-1">
             <Icon name="DollarSign" size={14} />
-            Transaction Fee
+            {t('methodCard.transactionFee')}
           </span>
           <span className="font-medium text-gray-900">{fees}</span>
         </div>
@@ -118,7 +119,7 @@ const PaymentMethodCard = ({ method, onSelect, isSelected = false, isLoading = f
           <div className="flex items-center justify-between text-sm">
             <span className="text-gray-600 flex items-center gap-1">
               <Icon name="TrendingUp" size={14} />
-              Limits
+              {t('methodCard.limits')}
             </span>
             <span className="font-medium text-gray-900 text-right">
               {minAmount && formatAmount(minAmount)}
@@ -142,7 +143,7 @@ const PaymentMethodCard = ({ method, onSelect, isSelected = false, isLoading = f
             ))}
             {supportedFeatures?.length > 3 && (
               <span className="text-xs text-gray-500 px-2 py-1">
-                +{supportedFeatures?.length - 3} more
+                +{supportedFeatures?.length - 3} {t('methodCard.more')}
               </span>
             )}
           </div>
@@ -162,17 +163,17 @@ const PaymentMethodCard = ({ method, onSelect, isSelected = false, isLoading = f
         iconPosition={isSelected ? "left" : "right"}
       >
         {isLoading 
-          ? "Loading..." 
+          ? t('common.loading')
           : isSelected 
-            ? "Selected" 
+            ? t('methodCard.selected')
             : !isAvailable 
-              ? "Unavailable" :"Select Payment"
+              ? t('methodCard.unavailable') : t('methodCard.selectPayment')
         }
       </Button>
       {/* Security Badge */}
       <div className="mt-3 flex items-center justify-center gap-1 text-xs text-gray-500">
         <Icon name="Shield" size={12} />
-        <span>Secured by SSL encryption</span>
+        <span>{t('methodCard.securedBySsl')}</span>
       </div>
     </div>
   );

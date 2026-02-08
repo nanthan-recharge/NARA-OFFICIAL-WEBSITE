@@ -12,8 +12,9 @@ const CookieConsent = () => {
     setLanguage(lang);
     
     if (!consent) {
-      // Show banner after 1 second
-      setTimeout(() => setIsVisible(true), 1000);
+      // Show banner after 3.5 seconds — delayed past LCP window
+      // to avoid cookie banner being measured as Largest Contentful Paint
+      setTimeout(() => setIsVisible(true), 3500);
     }
 
     // Listen for language changes

@@ -1,0 +1,182 @@
+[
+  {
+    "id": 903,
+    "title": "Advances in Marine Biology Research",
+    "author": "Marine Biologists",
+    "language": "English",
+    "publication_year": 2023,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:02:11.599Z"
+  },
+  {
+    "id": 904,
+    "title": "Sustainable Fisheries Management",
+    "author": "Fisheries Experts",
+    "language": "English",
+    "publication_year": 2022,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:02:11.599Z"
+  },
+  {
+    "id": 905,
+    "title": "Climate Change and Marine Ecosystems",
+    "author": "Climate Scientists",
+    "language": "English",
+    "publication_year": 2023,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:02:11.599Z"
+  },
+  {
+    "id": 901,
+    "title": "Marine Biodiversity: Patterns and Processes",
+    "author": "Various Authors",
+    "language": "English",
+    "publication_year": 2023,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:02:11.598Z"
+  },
+  {
+    "id": 902,
+    "title": "Ocean Remote Sensing: Methods and Applications",
+    "author": "Research Scientists",
+    "language": "English",
+    "publication_year": 2022,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:02:11.598Z"
+  },
+  {
+    "id": 898,
+    "title": "Antimicrobial activities of endophytic fungi of the Sri Lankan aquatic plant<i>Nymphaea nouchali</i>and chaetoglobosin A and C, produced by the endophytic fungus<i>Chaetomium globosum</i>",
+    "author": "Ranga Dissanayake",
+    "language": "English",
+    "publication_year": 2016,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:56.812Z"
+  },
+  {
+    "id": 899,
+    "title": "Knowledge and prospects of Sri Lankan aquatic science research: A bibliometric analyses",
+    "author": "Tharindu Bandara",
+    "language": "English",
+    "publication_year": 2022,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:56.812Z"
+  },
+  {
+    "id": 900,
+    "title": "Occurrence of nontuberculous mycobacteria in aquatic sources of Sri Lanka",
+    "author": "E.A.R. Edirisinghe",
+    "language": "English",
+    "publication_year": 2014,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:56.812Z"
+  },
+  {
+    "id": 895,
+    "title": "Bycatch in the tuna purse-seine fisheries of the western Indian Ocean",
+    "author": "Evgeny V. Romanov",
+    "language": "English",
+    "publication_year": 2002,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:55.969Z"
+  },
+  {
+    "id": 896,
+    "title": "Spatial management of Indian Ocean tropical tuna fisheries: potential and perspectives",
+    "author": "David M. Kaplan",
+    "language": "English",
+    "publication_year": 2014,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:55.969Z"
+  },
+  {
+    "id": 897,
+    "title": "Local solutions to challenges of West Indian Ocean fisheries development",
+    "author": "Rudy van der Elst",
+    "language": "English",
+    "publication_year": 2003,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:55.969Z"
+  },
+  {
+    "id": 891,
+    "title": "Plastic Pollution in the World's Oceans: More than 5 Trillion Plastic Pieces Weighing over 250,000 Tons Afloat at Sea",
+    "author": "Marcus Eriksen",
+    "language": "English",
+    "publication_year": 2014,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:55.150Z"
+  },
+  {
+    "id": 893,
+    "title": "Interactions Between a Marine Heatwave and Tropical Cyclone Amphan in the Bay of Bengal in 2020",
+    "author": "Saurabh Rathore",
+    "language": "English",
+    "publication_year": 2022,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:55.150Z"
+  },
+  {
+    "id": 894,
+    "title": "TRACE METAL CONCENTRATIONS IN MARINE ZOOPLANKTON FROM THE WESTERN BAY OF BENGAL",
+    "author": "G. Rejomon",
+    "language": "English",
+    "publication_year": 2007,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:55.150Z"
+  },
+  {
+    "id": 890,
+    "title": "Human Health and Ocean Pollution",
+    "author": "Philip J. Landrigan",
+    "language": "English",
+    "publication_year": 2020,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:01:54.540Z"
+  },
+  {
+    "id": 892,
+    "title": "Plastic pollution of the world’s seas and oceans as a contemporary challenge in ocean governance",
+    "author": "Marcus Haward",
+    "language": "English",
+    "publication_year": 2018,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:54.540Z"
+  },
+  {
+    "id": 887,
+    "title": "Marine Ecology Progress Series",
+    "author": "Laura Airoldi",
+    "language": "English",
+    "publication_year": 2008,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:01:53.442Z"
+  },
+  {
+    "id": 888,
+    "title": "Temperature control of larval dispersal and the implications for marine ecology, evolution, and conservation",
+    "author": "Mary I. O’Connor",
+    "language": "English",
+    "publication_year": 2007,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:53.442Z"
+  },
+  {
+    "id": 889,
+    "title": "Treatise on Marine Ecology and Paleoecology",
+    "author": "Unknown Author",
+    "language": "English",
+    "publication_year": 1957,
+    "material_type_code": "EBOOK",
+    "acquisition_date": "2026-02-06T02:01:53.442Z"
+  },
+  {
+    "id": 886,
+    "title": "Emerging Technologies and Coral Reef Conservation: Opportunities, Challenges, and Moving Forward",
+    "author": "Elizabeth M. P. Madin",
+    "language": "English",
+    "publication_year": 2019,
+    "material_type_code": "JR",
+    "acquisition_date": "2026-02-06T02:01:51.864Z"
+  }
+]

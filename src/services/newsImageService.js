@@ -17,8 +17,8 @@ import { convertToWebP } from '../utils/imageConverter';
  * @returns {Promise<{url: string, storagePath: string, width: number, height: number, order: number}>}
  */
 export async function uploadNewsImage(articleId, file, order = 0) {
-  // Convert to WebP
-  const converted = await convertToWebP(file, 1600, 0.82);
+  // Convert to WebP — HD quality (2400px max, 92% quality)
+  const converted = await convertToWebP(file, 2400, 0.92);
 
   // Generate unique filename
   const timestamp = Date.now();

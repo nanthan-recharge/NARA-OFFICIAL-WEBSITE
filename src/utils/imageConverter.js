@@ -40,10 +40,10 @@ function supportsWebP() {
  * Convert an image file to WebP format with optional resizing
  * @param {File} file - The input image file
  * @param {number} maxWidth - Maximum width (maintains aspect ratio)
- * @param {number} quality - WebP quality (0-1)
+ * @param {number} quality - WebP quality (0-1), default 0.92 for HD quality
  * @returns {Promise<{blob: Blob, width: number, height: number, originalSize: number, convertedSize: number, format: string}>}
  */
-export async function convertToWebP(file, maxWidth = 1600, quality = 0.82) {
+export async function convertToWebP(file, maxWidth = 2400, quality = 0.92) {
   const img = await loadImage(file);
   const originalSize = file.size;
 

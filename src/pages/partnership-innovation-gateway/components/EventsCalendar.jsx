@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
 const EventsCalendar = () => {
+  const { t, i18n } = useTranslation('partnershipGateway');
   const [selectedMonth, setSelectedMonth] = useState('2024-12');
   const [selectedEvent, setSelectedEvent] = useState(null);
 
   const months = [
-    { value: '2024-10', label: 'October 2024' },
-    { value: '2024-11', label: 'November 2024' },
-    { value: '2024-12', label: 'December 2024' },
-    { value: '2025-01', label: 'January 2025' },
-    { value: '2025-02', label: 'February 2025' },
-    { value: '2025-03', label: 'March 2025' }
+    { value: '2024-10', label: t('eventsCalendar.months.2024-10') },
+    { value: '2024-11', label: t('eventsCalendar.months.2024-11') },
+    { value: '2024-12', label: t('eventsCalendar.months.2024-12') },
+    { value: '2025-01', label: t('eventsCalendar.months.2025-01') },
+    { value: '2025-02', label: t('eventsCalendar.months.2025-02') },
+    { value: '2025-03', label: t('eventsCalendar.months.2025-03') }
   ];
 
   const events = [
@@ -171,9 +173,21 @@ const EventsCalendar = () => {
     }
   };
 
+  const getEventTypeLabel = (type) => {
+    switch (type) {
+      case 'Conference': return t('eventsCalendar.types.conference');
+      case 'Summit': return t('eventsCalendar.types.summit');
+      case 'Forum': return t('eventsCalendar.types.forum');
+      case 'Workshop': return t('eventsCalendar.types.workshop');
+      case 'Symposium': return t('eventsCalendar.types.symposium');
+      default: return type;
+    }
+  };
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-    return date?.toLocaleDateString('en-US', { 
+    const locale = i18n.language === 'si' ? 'si-LK' : i18n.language === 'ta' ? 'ta-LK' : 'en-US';
+    return date?.toLocaleDateString(locale, {
       month: 'short', 
       day: 'numeric',
       year: 'numeric'
@@ -200,10 +214,10 @@ const EventsCalendar = () => {
             <Icon name="Calendar" size={32} className="text-warning" />
           </div>
           <h2 className="font-headline text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Events & Conferences
+            {t('eventsCalendar.title')}
           </h2>
           <p className="font-body text-lg text-text-secondary max-w-3xl mx-auto">
-            Join NARA researchers at international conferences, workshops, and partnership events. Discover opportunities for collaboration and knowledge exchange.
+            {t('eventsCalendar.description')}
           </p>
         </div>
 
@@ -230,7 +244,7 @@ const EventsCalendar = () => {
                 <div className="flex-1">
                   <div className="flex items-center space-x-2 mb-2">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-cta-medium ${getEventTypeColor(event?.type)}`}>
-                      {event?.type}
+                      {getEventTypeLabel(event?.type)}
                     </span>
                     <span className="text-sm font-cta text-text-secondary">
                       {event?.naraParticipation}
@@ -270,7 +284,7 @@ const EventsCalendar = () => {
                   ))}
                   {event?.topics?.length > 3 && (
                     <span className="inline-block px-2 py-1 bg-muted text-text-secondary text-xs font-cta rounded">
-                      +{event?.topics?.length - 3} more
+                      +{event?.topics?.length - 3} {t('eventsCalendar.labels.more')}
                     </span>
                   )}
                 </div>
@@ -279,18 +293,18 @@ const EventsCalendar = () => {
               {/* Event Details */}
               <div className="grid grid-cols-2 gap-4 mb-4 text-sm">
                 <div>
-                  <span className="font-cta text-text-secondary">Cost:</span>
+                  <span className="font-cta text-text-secondary">{t('eventsCalendar.labels.cost')}</span>
                   <p className="font-body text-text-primary">{event?.cost}</p>
                 </div>
                 <div>
-                  <span className="font-cta text-text-secondary">Attendees:</span>
+                  <span className="font-cta text-text-secondary">{t('eventsCalendar.labels.attendees')}</span>
                   <p className="font-body text-text-primary">{event?.expectedAttendees}</p>
                 </div>
               </div>
 
               {/* NARA Speakers */}
               <div className="mb-4">
-                <span className="font-cta text-sm text-text-secondary">NARA Speakers: </span>
+                <span className="font-cta text-sm text-text-secondary">{t('eventsCalendar.labels.naraSpeakers')}</span>
                 <span className="font-body text-sm text-text-primary">
                   {event?.speakers?.join(', ')}
                 </span>
@@ -304,7 +318,7 @@ const EventsCalendar = () => {
                   onClick={() => setSelectedEvent(event)}
                 >
                   <Icon name="Info" size={16} className="mr-2" />
-                  View Details
+                  {t('eventsCalendar.actions.viewDetails')}
                 </Button>
                 <div className="flex space-x-2">
                   <Button variant="ghost" size="sm">
@@ -312,7 +326,7 @@ const EventsCalendar = () => {
                   </Button>
                   <Button variant="default" size="sm">
                     <Icon name="Calendar" size={16} className="mr-2" />
-                    Register
+                    {t('eventsCalendar.actions.register')}
                   </Button>
                 </div>
               </div>
@@ -324,10 +338,10 @@ const EventsCalendar = () => {
         <div className="bg-card rounded-lg p-8 ocean-depth-shadow">
           <div className="text-center mb-8">
             <h3 className="font-headline text-2xl font-bold text-text-primary mb-4">
-              Upcoming Registration Deadlines
+              {t('eventsCalendar.upcoming.title')}
             </h3>
             <p className="font-body text-text-secondary">
-              Don't miss these important registration deadlines for upcoming events.
+              {t('eventsCalendar.upcoming.description')}
             </p>
           </div>
           
@@ -337,7 +351,7 @@ const EventsCalendar = () => {
                 <div className="flex items-center space-x-2 mb-2">
                   <Icon name="Clock" size={16} className="text-warning" />
                   <span className="font-cta text-sm font-medium text-warning">
-                    Deadline: {formatDate(event?.registrationDeadline)}
+                    {t('eventsCalendar.labels.deadline')} {formatDate(event?.registrationDeadline)}
                   </span>
                 </div>
                 <h4 className="font-cta text-sm font-semibold text-text-primary mb-1">
@@ -355,11 +369,11 @@ const EventsCalendar = () => {
         <div className="text-center mt-12">
           <Button variant="default" size="lg" className="mr-4">
             <Icon name="Plus" size={20} className="mr-2" />
-            Submit Event Proposal
+            {t('eventsCalendar.actions.submitProposal')}
           </Button>
           <Button variant="outline" size="lg">
             <Icon name="Bell" size={20} className="mr-2" />
-            Subscribe to Updates
+            {t('eventsCalendar.actions.subscribe')}
           </Button>
         </div>
       </div>
@@ -372,7 +386,7 @@ const EventsCalendar = () => {
                 <div>
                   <div className="flex items-center space-x-2 mb-2">
                     <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-cta-medium ${getEventTypeColor(selectedEvent?.type)}`}>
-                      {selectedEvent?.type}
+                      {getEventTypeLabel(selectedEvent?.type)}
                     </span>
                     <span className="text-sm font-cta text-text-secondary">
                       {selectedEvent?.naraParticipation}
@@ -404,12 +418,12 @@ const EventsCalendar = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
                   <div className="mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">About This Event</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">{t('eventsCalendar.modal.aboutEvent')}</h3>
                     <p className="font-body text-text-secondary">{selectedEvent?.description}</p>
                   </div>
 
                   <div className="mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">Key Topics</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">{t('eventsCalendar.modal.keyTopics')}</h3>
                     <div className="flex flex-wrap gap-2">
                       {selectedEvent?.topics?.map((topic, index) => (
                         <span key={index} className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-cta rounded-full">
@@ -420,7 +434,7 @@ const EventsCalendar = () => {
                   </div>
 
                   <div className="mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">Partnership Opportunities</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">{t('eventsCalendar.modal.partnershipOpportunities')}</h3>
                     <ul className="space-y-2">
                       {selectedEvent?.partnershipOpportunities?.map((opportunity, index) => (
                         <li key={index} className="flex items-start space-x-2">
@@ -434,33 +448,33 @@ const EventsCalendar = () => {
 
                 <div>
                   <div className="bg-muted/50 rounded-lg p-4 mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-4">Event Details</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-4">{t('eventsCalendar.modal.eventDetails')}</h3>
                     <div className="space-y-3 text-sm">
                       <div>
-                        <span className="font-cta text-text-secondary">Venue:</span>
+                        <span className="font-cta text-text-secondary">{t('eventsCalendar.modal.venue')}</span>
                         <p className="font-body text-text-primary">{selectedEvent?.venue}</p>
                       </div>
                       <div>
-                        <span className="font-cta text-text-secondary">Cost:</span>
+                        <span className="font-cta text-text-secondary">{t('eventsCalendar.labels.cost')}</span>
                         <p className="font-body text-text-primary">{selectedEvent?.cost}</p>
                       </div>
                       <div>
-                        <span className="font-cta text-text-secondary">Expected Attendees:</span>
+                        <span className="font-cta text-text-secondary">{t('eventsCalendar.modal.expectedAttendees')}</span>
                         <p className="font-body text-text-primary">{selectedEvent?.expectedAttendees}</p>
                       </div>
                       <div>
-                        <span className="font-cta text-text-secondary">Target Audience:</span>
+                        <span className="font-cta text-text-secondary">{t('eventsCalendar.modal.targetAudience')}</span>
                         <p className="font-body text-text-primary">{selectedEvent?.audience}</p>
                       </div>
                       <div>
-                        <span className="font-cta text-text-secondary">Registration Deadline:</span>
+                        <span className="font-cta text-text-secondary">{t('eventsCalendar.modal.registrationDeadline')}</span>
                         <p className="font-body text-text-primary">{formatDate(selectedEvent?.registrationDeadline)}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="font-cta text-sm font-medium text-text-primary mb-2">NARA Speakers</h4>
+                    <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('eventsCalendar.labels.naraSpeakersNoColon')}</h4>
                     <ul className="space-y-1">
                       {selectedEvent?.speakers?.map((speaker, index) => (
                         <li key={index} className="font-body text-sm text-text-secondary">
@@ -473,15 +487,15 @@ const EventsCalendar = () => {
                   <div className="space-y-3">
                     <Button variant="default" fullWidth>
                       <Icon name="ExternalLink" size={16} className="mr-2" />
-                      Visit Event Website
+                      {t('eventsCalendar.actions.visitWebsite')}
                     </Button>
                     <Button variant="outline" fullWidth>
                       <Icon name="Calendar" size={16} className="mr-2" />
-                      Register Now
+                      {t('eventsCalendar.actions.registerNow')}
                     </Button>
                     <Button variant="ghost" fullWidth>
                       <Icon name="Share" size={16} className="mr-2" />
-                      Share Event
+                      {t('eventsCalendar.actions.shareEvent')}
                     </Button>
                   </div>
                 </div>

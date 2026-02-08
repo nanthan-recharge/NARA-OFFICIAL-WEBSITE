@@ -13,7 +13,13 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import * as Icons from 'lucide-react';
+import {
+  Anchor, ArrowRight, Award, BarChart3, BookOpen, Briefcase, Building2,
+  Camera, Check, ChevronDown, Compass, DollarSign, Droplets, ExternalLink,
+  FileText, GraduationCap, Home, Image, Info, Leaf, Library, LifeBuoy,
+  Mail, Map, MapPin, Menu, Microscope, Phone, Radio, Search, Settings,
+  Share2, ShoppingCart, TrendingUp, Users, Waves, X
+} from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { AVAILABLE_LANGUAGES } from '../../i18n';
 
@@ -46,46 +52,46 @@ const GovernmentNavbar = () => {
   const divisionCategories = [
     {
       id: 'research',
-      label: 'Research Divisions',
-      icon: Icons.Microscope,
+      label: t('navbar.menu.divisions.submenu.research', 'Research Divisions'),
+      icon: Microscope,
       color: 'cyan',
       divisions: [
-        { name: 'Environmental Studies', path: '/divisions/environmental-studies-division', icon: Icons.Leaf },
-        { name: 'Fishing Technology', path: '/divisions/fishing-technology-division', icon: Icons.Anchor },
-        { name: 'Inland Aquatic & Aquaculture', path: '/divisions/inland-aquatic-aquaculture-division', icon: Icons.Droplets },
-        { name: 'Post-Harvest Technology', path: '/divisions/post-harvest-technology-division', icon: Icons.Award },
-        { name: 'Marine Biological Resources', path: '/divisions/marine-biological-division', icon: Icons.Waves },
-        { name: 'Oceanography & Marine Sciences', path: '/divisions/oceanography-marine-sciences-division', icon: Icons.Compass },
-        { name: 'Hydrographic Division', path: '/divisions/hydrographic-division', icon: Icons.Map },
-        { name: 'Socio-Economic & Marketing', path: '/divisions/socio-economic-marketing-division', icon: Icons.TrendingUp },
-        { name: 'Monitoring & Evaluation', path: '/divisions/monitoring-evaluation-division', icon: Icons.BarChart3 },
-        { name: 'Aquaculture Research Center', path: '/divisions/aquaculture-research-center', icon: Icons.Building2 },
-        { name: 'Technology Transfer', path: '/divisions/technology-transfer-division', icon: Icons.Share2 },
+        { name: t('navbar.menu.divisions.links.environmental', 'Environmental Studies'), path: '/divisions/environmental-studies-division', icon: Leaf },
+        { name: t('navbar.menu.divisions.links.fishingTechnology', 'Fishing Technology'), path: '/divisions/fishing-technology-division', icon: Anchor },
+        { name: t('navbar.menu.divisions.links.aquaculture', 'Inland Aquatic & Aquaculture'), path: '/divisions/inland-aquatic-aquaculture-division', icon: Droplets },
+        { name: t('navbar.menu.divisions.links.qualityAssurance', 'Post-Harvest Technology'), path: '/divisions/post-harvest-technology-division', icon: Award },
+        { name: t('navbar.menu.divisions.links.marineBiology', 'Marine Biological Resources'), path: '/divisions/marine-biological-division', icon: Waves },
+        { name: t('navbar.menu.divisions.links.oceanography', 'Oceanography & Marine Sciences'), path: '/divisions/oceanography-marine-sciences-division', icon: Compass },
+        { name: t('navbar.menu.divisions.links.hydrography', 'Hydrographic Division'), path: '/divisions/hydrographic-division', icon: Map },
+        { name: t('navbar.menu.divisions.links.socioEconomics', 'Socio-Economic & Marketing'), path: '/divisions/socio-economic-marketing-division', icon: TrendingUp },
+        { name: t('navbar.menu.monitoring', 'Monitoring & Evaluation'), path: '/divisions/monitoring-evaluation-division', icon: BarChart3 },
+        { name: t('navbar.menu.aquacultureCenter', 'Aquaculture Research Center'), path: '/divisions/aquaculture-research-center', icon: Building2 },
+        { name: t('navbar.menu.techTransfer', 'Technology Transfer'), path: '/divisions/technology-transfer-division', icon: Share2 },
       ]
     },
     {
       id: 'regional',
-      label: 'Regional Centers',
-      icon: Icons.MapPin,
+      label: t('navbar.menu.divisions.submenu.regional', 'Regional Centers'),
+      icon: MapPin,
       color: 'emerald',
       divisions: [
-        { name: 'Kadolkele (Negombo)', path: '/divisions/regional-research-center-kadolkele', icon: Icons.MapPin },
-        { name: 'Kalpitiya', path: '/divisions/regional-research-center-kalpitiya', icon: Icons.MapPin },
-        { name: 'Kapparathota (Weligama)', path: '/divisions/regional-research-center-kapparathota', icon: Icons.MapPin },
-        { name: 'Panapitiya', path: '/divisions/regional-research-center-panapitiya', icon: Icons.MapPin },
-        { name: 'Rekawa', path: '/divisions/regional-research-center-rekawa', icon: Icons.MapPin },
+        { name: 'Kadolkele (Negombo)', path: '/divisions/regional-research-center-kadolkele', icon: MapPin },
+        { name: 'Kalpitiya', path: '/divisions/regional-research-center-kalpitiya', icon: MapPin },
+        { name: 'Kapparathota (Weligama)', path: '/divisions/regional-research-center-kapparathota', icon: MapPin },
+        { name: 'Panapitiya', path: '/divisions/regional-research-center-panapitiya', icon: MapPin },
+        { name: 'Rekawa', path: '/divisions/regional-research-center-rekawa', icon: MapPin },
       ]
     },
     {
       id: 'supporting',
-      label: 'Supporting Divisions',
-      icon: Icons.Briefcase,
+      label: t('navbar.menu.divisions.submenu.supporting', 'Supporting Divisions'),
+      icon: Briefcase,
       color: 'purple',
       divisions: [
-        { name: 'Administration', path: '/divisions/administration-division', icon: Icons.Briefcase },
-        { name: 'Finance', path: '/divisions/finance-division', icon: Icons.DollarSign },
-        { name: 'Service & Operations', path: '/divisions/service-operations-division', icon: Icons.Settings },
-        { name: 'Internal Audit', path: '/divisions/internal-audit-division', icon: Icons.Search },
+        { name: t('navbar.menu.administration', 'Administration'), path: '/divisions/administration-division', icon: Briefcase },
+        { name: t('navbar.menu.finance', 'Finance'), path: '/divisions/finance-division', icon: DollarSign },
+        { name: t('navbar.menu.serviceOps', 'Service & Operations'), path: '/divisions/service-operations-division', icon: Settings },
+        { name: t('navbar.menu.internalAudit', 'Internal Audit'), path: '/divisions/internal-audit-division', icon: Search },
       ]
     }
   ];
@@ -95,57 +101,57 @@ const GovernmentNavbar = () => {
 
   // Grouped Menu items for better organization
   const menuItems = [
-    { id: 'home', label: t('navbar.gov.home', 'Home'), path: '/', icon: Icons.Home },
+    { id: 'home', label: t('navbar.gov.home', 'Home'), path: '/', icon: Home },
     {
       id: 'about',
       label: t('navbar.gov.about', 'About'),
-      icon: Icons.Info,
+      icon: Info,
       hasDropdown: true,
       dropdown: [
-        { name: 'Our Story', path: '/about-nara-our-story', icon: Icons.Info },
-        { name: t('navbar.menu.about.links.mediaGallery', 'Media Gallery'), path: '/media-gallery', icon: Icons.Image },
-        { name: t('navbar.menu.news.links.mediaPressKit', 'Media Press Kit'), path: '/media-press-kit', icon: Icons.Camera },
-        { name: 'Podcasts', path: '/podcasts', icon: Icons.Radio }
+        { name: t('navbar.menu.about.links.ourStory', 'Our Story'), path: '/about-nara-our-story', icon: Info },
+        { name: t('navbar.menu.about.links.mediaGallery', 'Media Gallery'), path: '/media-gallery', icon: Image },
+        { name: t('navbar.menu.news.links.mediaPressKit', 'Media Press Kit'), path: '/media-press-kit', icon: Camera },
+        { name: t('navbar.menu.about.links.podcasts', 'Podcasts'), path: '/podcasts', icon: Radio }
       ]
     },
-    { id: 'division', label: t('navbar.gov.division', 'Divisions'), icon: Icons.Building2, megaMenu: true, dropdown: allDivisions, categories: divisionCategories },
+    { id: 'division', label: t('navbar.gov.division', 'Divisions'), icon: Building2, megaMenu: true, dropdown: allDivisions, categories: divisionCategories },
     {
       id: 'research-knowledge',
-      label: 'Research & Knowledge',
-      icon: Icons.BookOpen,
+      label: t('navbar.menu.research.title', 'Research & Knowledge'),
+      icon: BookOpen,
       hasDropdown: true,
       dropdown: [
-        { name: 'Research Portal', path: '/research-excellence-portal', icon: Icons.Microscope },
-        { name: 'Digital Library', path: '/library', icon: Icons.Library },
-        { name: 'Scientist Session', path: '/scientist-session', icon: Icons.GraduationCap },
-        { name: 'Analytics Hub', path: '/analytics', icon: Icons.BarChart3 },
-        { name: 'Digital Marketplace', path: '/nara-digital-marketplace', icon: Icons.ShoppingCart },
-        { name: 'Learning Academy', path: '/learning-development-academy', icon: Icons.BookOpen }
+        { name: t('navbar.menu.research.links.researchExcellencePortal', 'Research Portal'), path: '/research-excellence-portal', icon: Microscope },
+        { name: t('navbar.menu.resources.links.libraryCatalogue', 'Digital Library'), path: '/library', icon: Library },
+        { name: t('navbar.gov.scientistSession', 'Scientist Session'), path: '/scientist-session', icon: GraduationCap },
+        { name: t('navbar.menu.data.links.analyticsHub', 'Analytics Hub'), path: '/analytics', icon: BarChart3 },
+        { name: t('navbar.menu.services.links.digitalMarketplace', 'Digital Marketplace'), path: '/nara-digital-marketplace', icon: ShoppingCart },
+        { name: t('navbar.menu.resources.links.learningAcademy', 'Learning Academy'), path: '/learning-development-academy', icon: BookOpen }
       ]
     },
     {
       id: 'services-resources',
-      label: 'Services',
-      icon: Icons.Briefcase,
+      label: t('navbar.menu.services.title', 'Services'),
+      icon: Briefcase,
       hasDropdown: true,
       dropdown: [
-        { name: 'Government Services', path: '/government-services-portal', icon: Icons.Briefcase },
-        { name: 'General Public Services', path: '/public-consultation-portal', icon: Icons.Users },
-        { name: 'Procurement', path: '/procurement-recruitment-portal', icon: Icons.FileText },
-        { name: 'Vacancies', path: '/vacancies', icon: Icons.Users }
+        { name: t('navbar.menu.services.links.governmentServices', 'Government Services'), path: '/government-services-portal', icon: Briefcase },
+        { name: t('navbar.menu.resources.links.publicConsultation', 'General Public Services'), path: '/public-consultation-portal', icon: Users },
+        { name: t('navbar.menu.about.links.procurement', 'Procurement'), path: '/procurement-recruitment-portal', icon: FileText },
+        { name: t('navbar.gov.vacancies', 'Vacancies'), path: '/vacancies', icon: Users }
       ]
     },
     {
       id: 'contact',
-      label: t('navbar.gov.contact', 'Contact'),
-      icon: Icons.Phone,
+      label: t('navbar.menu.contact.title', 'Contact'),
+      icon: Phone,
       hasDropdown: true,
       dropdown: [
-        { name: 'Contact Us', path: '/contact-us', icon: Icons.Phone },
-        { name: 'Emergency Response Network', path: '/emergency-response-network', icon: Icons.LifeBuoy }
+        { name: t('navbar.menu.contact.links.getInTouch', 'Contact Us'), path: '/contact-us', icon: Phone },
+        { name: t('navbar.menu.services.links.emergencyResponse', 'Emergency Response Network'), path: '/emergency-response-network', icon: LifeBuoy }
       ]
     },
-    { id: 'nara-mail', label: 'NARA Mail', path: 'http://kalu.nara.ac.lk/', icon: Icons.Mail, external: true }
+    { id: 'nara-mail', label: t('navbar.gov.naraMail', 'NARA Mail'), path: 'http://kalu.nara.ac.lk/', icon: Mail, external: true }
   ];
 
   // Handle responsive breakpoint for desktop menu
@@ -314,7 +320,7 @@ const GovernmentNavbar = () => {
                     >
                       {item.label}
                       {(item.megaMenu || item.hasDropdown) && (
-                        <Icons.ChevronDown
+                        <ChevronDown
                           size={14}
                           className={`transition-transform duration-300 ${activeDropdown === item.id ? 'rotate-180' : ''}`}
                         />
@@ -336,11 +342,11 @@ const GovernmentNavbar = () => {
                           {/* Header */}
                           <div className="relative z-10 flex items-center justify-between mb-4 border-b border-white/10 pb-3">
                             <h3 className="text-white font-bold text-base flex items-center gap-2">
-                              <Icons.Building2 className="text-cyan-400" size={18} />
+                              <Building2 className="text-cyan-400" size={18} />
                               NARA Divisions
                             </h3>
                             <Link to="/divisions" onClick={closeAllDropdowns} className="text-cyan-400 text-xs hover:text-white transition-colors flex items-center gap-1 group">
-                              View All <Icons.ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
+                              View All <ArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
                           </div>
 
@@ -421,7 +427,7 @@ const GovernmentNavbar = () => {
               >
                 <span className="text-lg">{langBadgeMap[activeLanguage.code]?.flag}</span>
                 <span className="text-sm font-medium text-white hidden sm:block">{activeLanguage.code.toUpperCase()}</span>
-                <Icons.ChevronDown size={14} className={`text-gray-400 transition-transform ${languageMenuOpen ? 'rotate-180' : ''}`} />
+                <ChevronDown size={14} className={`text-gray-400 transition-transform ${languageMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
               <AnimatePresence>
@@ -445,7 +451,7 @@ const GovernmentNavbar = () => {
                           <span>{langBadgeMap[lang.code]?.flag}</span>
                           <span>{langBadgeMap[lang.code]?.label}</span>
                         </div>
-                        {lang.code === activeLanguage.code && <Icons.Check size={14} />}
+                        {lang.code === activeLanguage.code && <Check size={14} />}
                       </button>
                     ))}
                   </motion.div>
@@ -470,7 +476,7 @@ const GovernmentNavbar = () => {
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
             >
-              {mobileMenuOpen ? <Icons.X size={24} /> : <Icons.Menu size={24} />}
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
@@ -500,7 +506,7 @@ const GovernmentNavbar = () => {
                           <item.icon size={20} className="text-cyan-400" />
                           {item.label}
                         </span>
-                        <Icons.ChevronDown size={18} className={`transition-transform duration-300 ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
+                        <ChevronDown size={18} className={`transition-transform duration-300 ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
                       </button>
 
                       <AnimatePresence>
@@ -525,7 +531,7 @@ const GovernmentNavbar = () => {
                                       {cat.label}
                                       <span className="text-[10px] text-gray-500 font-normal normal-case">({cat.divisions.length})</span>
                                     </span>
-                                    <Icons.ChevronDown size={14} className={`text-gray-500 transition-transform duration-200 ${activeDropdown === mobileActiveId ? 'rotate-180' : ''}`} />
+                                    <ChevronDown size={14} className={`text-gray-500 transition-transform duration-200 ${activeDropdown === mobileActiveId ? 'rotate-180' : ''}`} />
                                   </button>
                                   <AnimatePresence>
                                     {activeDropdown === mobileActiveId && (
@@ -553,7 +559,7 @@ const GovernmentNavbar = () => {
                               );
                             })}
                             <Link to="/divisions" onClick={() => setMobileMenuOpen(false)} className="flex items-center gap-2 text-cyan-400 text-sm font-medium p-3">
-                              View All Divisions <Icons.ArrowRight size={14} />
+                              View All Divisions <ArrowRight size={14} />
                             </Link>
                           </motion.div>
                         )}
@@ -570,7 +576,7 @@ const GovernmentNavbar = () => {
                           <item.icon size={20} className="text-cyan-400" />
                           {item.label}
                         </span>
-                        <Icons.ChevronDown size={18} className={`transition-transform duration-300 ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
+                        <ChevronDown size={18} className={`transition-transform duration-300 ${activeDropdown === item.id ? 'rotate-180' : ''}`} />
                       </button>
 
                       <AnimatePresence>
@@ -606,7 +612,7 @@ const GovernmentNavbar = () => {
                       >
                         <item.icon size={20} className="text-gray-500" />
                         {item.label}
-                        <Icons.ExternalLink size={14} className="ml-auto" />
+                        <ExternalLink size={14} className="ml-auto" />
                       </a>
                     ) : (
                       <Link

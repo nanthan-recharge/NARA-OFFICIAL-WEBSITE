@@ -24,7 +24,7 @@
   <meta property="og:description"
     content="Sri Lanka's premier ocean research institute advancing marine science and sustainable blue economy" />
   <meta property="og:url" content="https://nara-web-73384.web.app/" />
-  <meta property="og:image" content="https://nara-web-73384.web.app/og-default.png" />
+  <meta property="og:image" content="https://nara-web-73384.web.app/assets/nara-logo.png" />
   <meta property="og:locale" content="en_US" />
 
   <!-- Twitter Card (fallback) -->
@@ -32,7 +32,7 @@
   <meta name="twitter:title" content="NARA - National Aquatic Resources Research & Development Agency" />
   <meta name="twitter:description"
     content="Sri Lanka's premier ocean research institute advancing marine science and sustainable blue economy" />
-  <meta name="twitter:image" content="https://nara-web-73384.web.app/og-default.png" />
+  <meta name="twitter:image" content="https://nara-web-73384.web.app/assets/nara-logo.png" />
 
   <!-- JSON-LD Organization Schema (crawlable without JS) -->
   <script type="application/ld+json">
@@ -82,8 +82,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="NARA">
 
-  <!-- PWA Icons -->
-  <link rel="icon" href="/favicon.ico" />
+  <!-- Favicon & Icons -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/nara-logo.png" />
   <link rel="apple-touch-icon" href="/icons/icon-192x192.png">
   <link rel="apple-touch-icon" sizes="152x152" href="/icons/icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png">
@@ -120,27 +122,35 @@
   <link rel="preconnect" href="https://firebasestorage.googleapis.com">
   <link rel="dns-prefetch" href="https://firestore.googleapis.com">
   <link rel="dns-prefetch" href="https://identitytoolkit.googleapis.com">
-  <link rel="dns-prefetch" href="https://api.stormglass.io">
-  <link rel="dns-prefetch" href="https://api.openweathermap.org">
+  <link rel="dns-prefetch" href="https://www.google.com">
+  <link rel="dns-prefetch" href="https://maps.googleapis.com">
 
   <!-- Preload hero image for fast LCP -->
   <link rel="preload" as="image" type="image/webp" href="/hero_images/hero.webp" fetchpriority="high">
 
-  <!-- Fonts: swap display + preload subset for fastest paint -->
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@600;700&display=swap">
+  <!-- PRIMARY FONTS: Non-blocking load via media="print" trick + swap.
+       Single request bundles Inter + Space Grotesk (critical for hero paint).
+       Noto Sans Tamil/Sinhala/JetBrains Mono/Source Serif deferred to JS below. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
     rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&family=Playfair+Display:wght@600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap"
       rel="stylesheet">
   </noscript>
 
-  <!-- Material Symbols for library cards -->
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-    rel="stylesheet" />
+  <!-- DEFERRED FONTS: Material Symbols, Noto Sans Tamil/Sinhala, JetBrains Mono, Source Serif.
+       Loaded after first paint via requestIdleCallback to avoid render-blocking. -->
+  <script>
+    function loadDeferredFonts() {
+      var l = document.createElement('link'); l.rel = 'stylesheet';
+      l.href = 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Noto+Sans+Sinhala:wght@400;600;700&family=Noto+Sans+Tamil:wght@400;600;700&family=Source+Serif+4:wght@400;500&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap';
+      document.head.appendChild(l);
+    }
+    if ('requestIdleCallback' in window) { requestIdleCallback(loadDeferredFonts); }
+    else { setTimeout(loadDeferredFonts, 200); }
+  </script>
 
   <!-- Critical inline styles — prevent FOUC while fonts load -->
   <style>
@@ -156,6 +166,13 @@
 
     .dhiwise-code {
       min-height: 100vh
+    }
+
+    /* Mobile: GPU acceleration for rendering */
+    @media (max-width: 640px) {
+      section {
+        transform: translateZ(0);
+      }
     }
   </style>
 </head>

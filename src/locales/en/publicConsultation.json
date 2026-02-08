@@ -1,11 +1,14 @@
 {
   "seo": {
     "title": "Public Consultation Portal - NARA",
-    "description": "Share your feedback on ocean and fisheries policies, programmes, and digital services led by NARA."
+    "description": "Share your feedback on ocean and fisheries policies, programmes, and digital services led by NARA.",
+    "keywords": "public consultation, marine policy, fisheries regulations, NARA, citizen feedback"
   },
   "nav": {
     "title": "Public Consultation",
-    "browse": "Browse Consultations"
+    "browse": "Browse Consultations",
+    "map": "Map View",
+    "status": "Status"
   },
   "loading": {
     "list": "Loading Public Consultations...",
@@ -13,7 +16,14 @@
   },
   "hero": {
     "title": "Public Consultation Portal",
-    "description": "Your voice matters. Share your feedback on marine policies and national initiatives."
+    "description": "Your voice matters. Share your feedback on marine policies and national initiatives.",
+    "badge": "Citizen Participation",
+    "stats": {
+      "totalIncidents": "Total Cases",
+      "activeCases": "Active Cases",
+      "observations": "Observations",
+      "resolved": "Resolved"
+    }
   },
   "filters": {
     "searchLabel": "Search",
@@ -31,7 +41,8 @@
       "environmental": "Environmental",
       "fisheries": "Fisheries",
       "conservation": "Conservation"
-    }
+    },
+    "results": "{{count}} consultations found"
   },
   "cards": {
     "participants": "Participants",
@@ -42,7 +53,7 @@
     "closes": "Closes: {{date}}"
   },
   "details": {
-    "back": "\u2190 Back to Consultations",
+    "back": "← Back to Consultations",
     "submitTitle": "Submit Your Feedback",
     "feedbackLabel": "Your Feedback *",
     "feedbackPlaceholder": "Share your thoughts, concerns, or suggestions...",
@@ -97,5 +108,69 @@
     "postedAt": "Posted at {{timestamp}}",
     "likes": "{{count}}",
     "joinPlaceholder": "Join the discussion..."
+  },
+  "sections": {
+    "mapLegend": "Category Overview",
+    "mapItems": {
+      "fishKill": "Fish Kill",
+      "stranding": "Marine Animal Stranding",
+      "algalBloom": "Algal Bloom",
+      "pollution": "Pollution Incident",
+      "unusualBehavior": "Unusual Marine Behavior"
+    }
+  },
+  "statusView": {
+    "empty": "Select a consultation to view status details.",
+    "back": "Back to Consultations",
+    "reportedOn": "Published On",
+    "incidentType": "Category",
+    "status": "Status"
+  },
+  "publicServices": {
+    "badge": "General Public Services",
+    "title": "Essential Citizen Service Access",
+    "description": "Integrated quick access for advisories, testing, forecasts, and emergency response.",
+    "emergencyCta": "Report Marine Emergency",
+    "openAction": "Open Service",
+    "emergencySupportLine": "Emergency hotline support: Coast Guard +94 11 244 0635 | Marine Desk +94 11 252 2000",
+    "callNow": "Call {{number}}",
+    "actions": {
+      "fishAdvisory": {
+        "title": "Fish Advisory Service",
+        "description": "Daily safe fishing zones and fish safety updates.",
+        "badge": "Live"
+      },
+      "laboratoryTesting": {
+        "title": "Laboratory Testing",
+        "description": "Submit and track fish and water quality tests.",
+        "badge": "Service Desk"
+      },
+      "marineForecast": {
+        "title": "Marine Forecast",
+        "description": "Sea condition and weather risk outlook.",
+        "badge": "Updated"
+      },
+      "emergencyResponse": {
+        "title": "Emergency Response",
+        "description": "Use the dedicated network for urgent incidents.",
+        "badge": "24/7"
+      }
+    },
+    "advisories": {
+      "items": {
+        "monsoonConditions": {
+          "title": "Monsoon Conditions Advisory",
+          "message": "Strong winds expected in southern waters. Plan departures carefully."
+        },
+        "fishSafetyBulletin": {
+          "title": "Fish Safety Bulletin",
+          "message": "Current coastal catches from Negombo to Colombo are safe for consumption."
+        },
+        "laboratoryIntakeNotice": {
+          "title": "Laboratory Intake Notice",
+          "message": "Express testing intake remains open today until 4:00 PM."
+        }
+      }
+    }
   }
 }

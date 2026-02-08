@@ -1,0 +1,62 @@
+{
+  "meta": {
+    "title": "Maritime Weather Data",
+    "description": "Real-time maritime weather data, wave heights, and ocean conditions from Stormglass integration.",
+    "keywords": "maritime weather, wave data, ocean conditions, Stormglass"
+  },
+  "hero": {
+    "title": "Maritime Weather Conditions",
+    "subtitle": "Real-time wave heights, water temperature, and maritime forecasts powered by Stormglass API"
+  },
+  "controls": {
+    "title": "Data Controls",
+    "subtitle": "Select location and configure auto-refresh",
+    "autoRefresh": "Auto-refresh (5 min)",
+    "loading": "Loading...",
+    "refresh": "Refresh Data"
+  },
+  "errors": {
+    "loadTitle": "Error Loading Data",
+    "noData": "No data available"
+  },
+  "map": {
+    "title": "Sri Lankan Maritime Locations"
+  },
+  "popup": {
+    "waveHeight": "Wave Height",
+    "waterTemp": "Water Temp",
+    "currentSpeed": "Current Speed"
+  },
+  "detail": {
+    "title": "{{location}} - Detailed Forecast",
+    "currentConditions": "Current Conditions",
+    "forecast24h": "24-Hour Forecast",
+    "tideSchedule": "Tide Schedule",
+    "cards": {
+      "waveHeight": "Wave Height",
+      "waterTemperature": "Water Temperature",
+      "currentSpeed": "Current Speed",
+      "seaLevel": "Sea Level"
+    },
+    "units": {
+      "meters": "meters"
+    }
+  },
+  "locationCard": {
+    "waveHeight": "Wave Height",
+    "waterTemp": "Water Temp",
+    "currentSpeed": "Current Speed",
+    "lastUpdated": "Last updated"
+  },
+  "forecastTable": {
+    "time": "Time",
+    "wave": "Wave (m)",
+    "temp": "Temp (°C)",
+    "current": "Current (m/s)",
+    "wind": "Wind (m/s)"
+  },
+  "tide": {
+    "high": "⬆️ High Tide",
+    "low": "⬇️ Low Tide"
+  }
+}

@@ -14,32 +14,174 @@
       "title": "Services for general public & coastal communities",
       "description": "Check the latest fish advisories, seasonal ocean updates, training opportunities, and agency news that matter to coastal livelihoods.",
       "ctas": [
-        { "label": "Fish safety advisories", "href": "/fish-advisory-system" },
-        { "label": "Lab testing & bookings", "href": "/lab-results" },
-        { "label": "Seasonal bulletins", "href": "/knowledge-discovery-center" }
+        {
+          "label": "Fish safety advisories",
+          "href": "/fish-advisory-system"
+        },
+        {
+          "label": "Lab testing & bookings",
+          "href": "/lab-results"
+        },
+        {
+          "label": "Seasonal bulletins",
+          "href": "/knowledge-discovery-center"
+        }
       ]
     },
     "sections": {
       "advisories": {
         "title": "Advisories & alerts",
         "items": [
-          { "label": "Real-time fish consumption guidance", "href": "/fish-advisory-system" },
-          { "label": "Emergency response & incident reporting", "href": "/emergency-response-network" },
-          { "label": "Monsoon & seasonal outlooks", "href": "/knowledge-discovery-center" }
+          {
+            "label": "Real-time fish consumption guidance",
+            "href": "/fish-advisory-system"
+          },
+          {
+            "label": "Emergency response & incident reporting",
+            "href": "/emergency-response-network"
+          },
+          {
+            "label": "Monsoon & seasonal outlooks",
+            "href": "/knowledge-discovery-center"
+          }
         ]
       },
       "services": {
         "title": "Community services",
         "items": [
-          { "label": "Laboratory testing & certification", "href": "/lab-results" },
-          { "label": "Training & capacity building", "href": "/learning-development-academy" },
-          { "label": "Procurement & job opportunities", "href": "/procurement-recruitment-portal" }
+          {
+            "label": "Laboratory testing & certification",
+            "href": "/lab-results"
+          },
+          {
+            "label": "Training & capacity building",
+            "href": "/learning-development-academy"
+          },
+          {
+            "label": "Procurement & job opportunities",
+            "href": "/procurement-recruitment-portal"
+          }
         ]
       },
       "stories": {
         "title": "Programmes & stories",
         "description": "Explore field projects, livelihoods support, and technology pilots improving Sri Lanka’s coastal communities.",
         "href": "/media-gallery"
+      }
+    },
+    "compact": {
+      "hero": {
+        "badge": "General Public Services",
+        "title": "Public Marine Services for Coastal Communities",
+        "description": "Access fish safety, forecast updates, laboratory support, and emergency reporting through one compact government service page.",
+        "chips": {
+          "fishSafetyLabel": "Fish Safety Status",
+          "fishSafetyValue": "Safe to Consume",
+          "seaConditionLabel": "Sea Condition",
+          "seaConditionValue": "Moderate",
+          "lastUpdatedLabel": "Last Updated"
+        }
+      },
+      "essentialServices": {
+        "title": "Essential Services",
+        "openService": "Open Service",
+        "items": {
+          "fishAdvisory": {
+            "title": "Fish Advisory Service",
+            "description": "Daily safe fishing zones and fish safety updates.",
+            "badge": "Live"
+          },
+          "laboratoryTesting": {
+            "title": "Laboratory Testing",
+            "description": "Submit and track fish and water quality tests.",
+            "badge": "Service Desk"
+          },
+          "marineForecast": {
+            "title": "Marine Forecast",
+            "description": "Sea state and weather risk outlook for planning.",
+            "badge": "Updated"
+          },
+          "emergencyReporting": {
+            "title": "Emergency Reporting",
+            "description": "Report marine emergencies through the dedicated response network.",
+            "badge": "24/7"
+          }
+        }
+      },
+      "advisories": {
+        "title": "Active Public Advisories",
+        "viewAll": "View all advisories",
+        "items": {
+          "monsoonConditions": {
+            "title": "Monsoon Conditions Advisory",
+            "message": "Strong winds expected in southern waters. Plan departures carefully.",
+            "updated": "2 hours ago"
+          },
+          "fishSafetyBulletin": {
+            "title": "Fish Safety Bulletin",
+            "message": "Current coastal catches from Negombo to Colombo are safe for consumption.",
+            "updated": "5 hours ago"
+          },
+          "laboratoryIntakeNotice": {
+            "title": "Laboratory Intake Notice",
+            "message": "Express testing intake remains open today until 4:00 PM.",
+            "updated": "Today"
+          }
+        }
+      },
+      "communitySupport": {
+        "title": "Community Support Programs",
+        "items": {
+          "fisherTraining": {
+            "title": "Fisher Training Programs",
+            "description": "Practical training on safe operations and sustainable fishing methods."
+          },
+          "publicRecruitment": {
+            "title": "Public Recruitment Notices",
+            "description": "Current public vacancies, tenders, and recruitment updates."
+          },
+          "knowledgeGuidance": {
+            "title": "Knowledge & Guidance",
+            "description": "Public educational resources on marine life, seasons, and conservation."
+          }
+        }
+      },
+      "dataTools": {
+        "title": "Practical Data Tools",
+        "items": {
+          "fishingZoneMap": {
+            "title": "Fishing Zone Map",
+            "value": "24 zones"
+          },
+          "marketPriceInsights": {
+            "title": "Market Price Insights",
+            "value": "Hourly"
+          },
+          "seasonalFishingCalendar": {
+            "title": "Seasonal Fishing Calendar",
+            "value": "Monthly"
+          }
+        }
+      },
+      "emergency": {
+        "title": "Emergency & Contact Support",
+        "description": "For urgent marine incidents, use the dedicated emergency response page.",
+        "button": "Report Marine Emergency",
+        "hotlineNote": "For life-threatening situations, call the Coast Guard immediately and provide location coordinates when possible.",
+        "contacts": {
+          "hotline": {
+            "label": "Emergency Hotline",
+            "value": "1919"
+          },
+          "coastGuard": {
+            "label": "Coast Guard",
+            "value": "+94 11 244 0635"
+          },
+          "marineDesk": {
+            "label": "Marine Incident Desk",
+            "value": "+94 11 252 2000"
+          }
+        }
       }
     }
   },
@@ -49,26 +191,53 @@
       "title": "Researchers & students",
       "description": "Access datasets, laboratory infrastructure, research vessels, and calls for collaborators to accelerate marine science.",
       "ctas": [
-        { "label": "Dataset catalogue", "href": "/knowledge-discovery-center" },
-        { "label": "Book a vessel or instrument", "href": "/research-vessel-booking" },
-        { "label": "Internships & attachments", "href": "/learning-development-academy" }
+        {
+          "label": "Dataset catalogue",
+          "href": "/knowledge-discovery-center"
+        },
+        {
+          "label": "Book a vessel or instrument",
+          "href": "/research-vessel-booking"
+        },
+        {
+          "label": "Internships & attachments",
+          "href": "/learning-development-academy"
+        }
       ]
     },
     "sections": {
       "datasets": {
         "title": "Data & methods",
         "items": [
-          { "label": "Open datasets & APIs", "href": "/knowledge-discovery-center" },
-          { "label": "Laboratory methodologies", "href": "/lab-results" },
-          { "label": "Publications & briefs", "href": "/digital-product-library" }
+          {
+            "label": "Open datasets & APIs",
+            "href": "/knowledge-discovery-center"
+          },
+          {
+            "label": "Laboratory methodologies",
+            "href": "/lab-results"
+          },
+          {
+            "label": "Publications & briefs",
+            "href": "/digital-product-library"
+          }
         ]
       },
       "collaboration": {
         "title": "Collaborate with NARA",
         "items": [
-          { "label": "Research collaboration calls", "href": "/research-collaboration-platform" },
-          { "label": "International partnerships", "href": "/partnership-innovation-gateway" },
-          { "label": "Funding & grants", "href": "/knowledge-discovery-center" }
+          {
+            "label": "Research collaboration calls",
+            "href": "/research-collaboration-platform"
+          },
+          {
+            "label": "International partnerships",
+            "href": "/partnership-innovation-gateway"
+          },
+          {
+            "label": "Funding & grants",
+            "href": "/knowledge-discovery-center"
+          }
         ]
       },
       "support": {
@@ -84,26 +253,53 @@
       "title": "Policy & regulators",
       "description": "Quickly access briefs, dashboards, hydrographic products, and legal resources that support national ocean governance.",
       "ctas": [
-        { "label": "Evidence briefs", "href": "/scientific-evidence-repository" },
-        { "label": "Dashboards & analytics", "href": "/integration-systems-platform" },
-        { "label": "Acts, RTI & compliance", "href": "/legal" }
+        {
+          "label": "Evidence briefs",
+          "href": "/scientific-evidence-repository"
+        },
+        {
+          "label": "Dashboards & analytics",
+          "href": "/integration-systems-platform"
+        },
+        {
+          "label": "Acts, RTI & compliance",
+          "href": "/legal"
+        }
       ]
     },
     "sections": {
       "evidence": {
         "title": "Science for policy",
         "items": [
-          { "label": "Ocean intelligence dashboard", "href": "/ocean-intelligence-dashboard-homepage" },
-          { "label": "Hydrographic products", "href": "/digital-product-library" },
-          { "label": "Performance & budget", "href": "/government-services-portal" }
+          {
+            "label": "Ocean intelligence dashboard",
+            "href": "/ocean-intelligence-dashboard-homepage"
+          },
+          {
+            "label": "Hydrographic products",
+            "href": "/digital-product-library"
+          },
+          {
+            "label": "Performance & budget",
+            "href": "/government-services-portal"
+          }
         ]
       },
       "compliance": {
         "title": "Acts & compliance",
         "items": [
-          { "label": "RTI, acts & regulations", "href": "/legal" },
-          { "label": "Security & accessibility", "href": "/security-policy" },
-          { "label": "Procurement & recruitment transparency", "href": "/procurement-recruitment-portal" }
+          {
+            "label": "RTI, acts & regulations",
+            "href": "/legal"
+          },
+          {
+            "label": "Security & accessibility",
+            "href": "/security-policy"
+          },
+          {
+            "label": "Procurement & recruitment transparency",
+            "href": "/procurement-recruitment-portal"
+          }
         ]
       },
       "contact": {
@@ -119,26 +315,53 @@
       "title": "Industry & exporters",
       "description": "Book accredited testing, access standards and certifications, and keep track of procurement and innovation opportunities.",
       "ctas": [
-        { "label": "Book lab services", "href": "/lab-results" },
-        { "label": "Procurement & tenders", "href": "/procurement-recruitment-portal" },
-        { "label": "Quality standards & certifications", "href": "/nara-digital-marketplace" }
+        {
+          "label": "Book lab services",
+          "href": "/lab-results"
+        },
+        {
+          "label": "Procurement & tenders",
+          "href": "/procurement-recruitment-portal"
+        },
+        {
+          "label": "Quality standards & certifications",
+          "href": "/nara-digital-marketplace"
+        }
       ]
     },
     "sections": {
       "services": {
         "title": "Commercial services",
         "items": [
-          { "label": "Lab testing & certification", "href": "/lab-results" },
-          { "label": "Consultancy & advisory", "href": "/maritime-services-hub" },
-          { "label": "Innovation & gear testing", "href": "/integration-systems-platform" }
+          {
+            "label": "Lab testing & certification",
+            "href": "/lab-results"
+          },
+          {
+            "label": "Consultancy & advisory",
+            "href": "/maritime-services-hub"
+          },
+          {
+            "label": "Innovation & gear testing",
+            "href": "/integration-systems-platform"
+          }
         ]
       },
       "opportunities": {
         "title": "Opportunities",
         "items": [
-          { "label": "Open tenders", "href": "/procurement-recruitment-portal" },
-          { "label": "Export market intelligence", "href": "/export-market-intelligence" },
-          { "label": "Training & workforce development", "href": "/learning-development-academy" }
+          {
+            "label": "Open tenders",
+            "href": "/procurement-recruitment-portal"
+          },
+          {
+            "label": "Export market intelligence",
+            "href": "/export-market-intelligence"
+          },
+          {
+            "label": "Training & workforce development",
+            "href": "/learning-development-academy"
+          }
         ]
       },
       "support": {
@@ -154,9 +377,18 @@
       "title": "Media, partners & donors",
       "description": "Explore stories, metrics, and international collaborations to understand NARA’s impact and engage with our teams.",
       "ctas": [
-        { "label": "Story & media library", "href": "/media-gallery" },
-        { "label": "Impact dashboards", "href": "/integration-systems-platform" },
-        { "label": "Partnership desk", "href": "/contact-us" }
+        {
+          "label": "Story & media library",
+          "href": "/media-gallery"
+        },
+        {
+          "label": "Impact dashboards",
+          "href": "/integration-systems-platform"
+        },
+        {
+          "label": "Partnership desk",
+          "href": "/contact-us"
+        }
       ]
     },
     "sections": {
@@ -168,18 +400,210 @@
       "projects": {
         "title": "International programmes",
         "items": [
-          { "label": "Regional impact network", "href": "/regional-impact-network" },
-          { "label": "Partnership & innovation gateway", "href": "/partnership-innovation-gateway" },
-          { "label": "Donor resources & contacts", "href": "/contact-us" }
+          {
+            "label": "Regional impact network",
+            "href": "/regional-impact-network"
+          },
+          {
+            "label": "Partnership & innovation gateway",
+            "href": "/partnership-innovation-gateway"
+          },
+          {
+            "label": "Donor resources & contacts",
+            "href": "/contact-us"
+          }
         ]
       },
       "resources": {
         "title": "Press resources",
         "items": [
-          { "label": "Press kit & media contacts", "href": "/media-press-kit" },
-          { "label": "Latest news", "href": "/nara-news-updates-center" },
-          { "label": "Budget & performance reports", "href": "/government-services-portal" }
+          {
+            "label": "Press kit & media contacts",
+            "href": "/media-press-kit"
+          },
+          {
+            "label": "Latest news",
+            "href": "/nara-news-updates-center"
+          },
+          {
+            "label": "Budget & performance reports",
+            "href": "/government-services-portal"
+          }
         ]
+      }
+    }
+  },
+  "researchersHub": {
+    "hero": {
+      "badge": "Academic Hub",
+      "title": "Researchers & Students Portal",
+      "description": "Access research facilities, collaborate with experts, and advance marine science.",
+      "loggedInAs": "Logged in as {{email}}",
+      "researcherLogin": "Researcher Login",
+      "studentLogin": "Student Login"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "research": "Research",
+      "students": "Students",
+      "grants": "Grants",
+      "facilities": "Facilities"
+    },
+    "overview": {
+      "research": {
+        "title": "For Researchers",
+        "features": [
+          "Submit research papers",
+          "Book lab facilities",
+          "Access datasets",
+          "Apply for grants up to LKR 5M",
+          "Collaborate globally"
+        ],
+        "cta": "Explore Services"
+      },
+      "students": {
+        "title": "For Students",
+        "features": [
+          "Enroll in courses",
+          "Apply for internships",
+          "Get mentorship",
+          "Showcase projects",
+          "Student grants up to LKR 500K"
+        ],
+        "cta": "Explore Services"
+      }
+    },
+    "services": {
+      "access": "Access",
+      "research": {
+        "papers": {
+          "title": "Research Portal",
+          "features": [
+            "Submit Papers",
+            "Track Citations",
+            "Peer Review"
+          ]
+        },
+        "lab": {
+          "title": "Lab Booking",
+          "features": [
+            "Reserve Labs",
+            "Equipment",
+            "Analysis"
+          ]
+        },
+        "vessel": {
+          "title": "Vessel Booking",
+          "features": [
+            "Book Vessels",
+            "Field Studies"
+          ]
+        },
+        "data": {
+          "title": "Data Portal",
+          "features": [
+            "Datasets",
+            "API Access"
+          ]
+        },
+        "library": {
+          "title": "Library",
+          "features": [
+            "E-Books",
+            "Journals",
+            "Thesis"
+          ]
+        },
+        "collab": {
+          "title": "Collaboration",
+          "features": [
+            "Projects",
+            "Experts"
+          ]
+        }
+      },
+      "students": {
+        "courses": {
+          "title": "LDA Courses",
+          "features": [
+            "Online Courses",
+            "Certifications"
+          ]
+        },
+        "intern": {
+          "title": "Internships",
+          "features": [
+            "Apply",
+            "Mentorship"
+          ]
+        },
+        "projects": {
+          "title": "Projects",
+          "features": [
+            "Showcase",
+            "Awards"
+          ]
+        },
+        "mentor": {
+          "title": "Mentorship",
+          "features": [
+            "1-on-1",
+            "Guidance"
+          ]
+        },
+        "shop": {
+          "title": "Marketplace",
+          "features": [
+            "Equipment",
+            "Discounts"
+          ]
+        }
+      }
+    },
+    "grants": {
+      "deadline": "Deadline",
+      "applyNow": "Apply Now",
+      "items": {
+        "earlyCareer": {
+          "title": "Early Career Grant",
+          "amount": "LKR 2M",
+          "deadline": "2025-12-31"
+        },
+        "studentGrant": {
+          "title": "Student Grant",
+          "amount": "LKR 500K",
+          "deadline": "2025-11-30"
+        },
+        "collaborativeFund": {
+          "title": "Collaborative Fund",
+          "amount": "LKR 5M",
+          "deadline": "2026-01-15"
+        }
+      }
+    },
+    "facilities": {
+      "bookNow": "Book Now",
+      "items": {
+        "marineBiologyLab": {
+          "name": "Marine Biology Lab",
+          "location": "Colombo",
+          "equipment": "Microscopes, DNA Sequencing"
+        },
+        "oceanographyLab": {
+          "name": "Oceanography Lab",
+          "location": "Galle",
+          "equipment": "CTD Sensors, Satellites"
+        },
+        "fishTechnology": {
+          "name": "Fish Technology",
+          "location": "Negombo",
+          "equipment": "Processing, Testing"
+        },
+        "researchVessels": {
+          "name": "Research Vessels",
+          "location": "Multiple Ports",
+          "equipment": "Sonar, GPS"
+        }
       }
     }
   }

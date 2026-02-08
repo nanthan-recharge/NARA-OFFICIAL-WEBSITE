@@ -96,10 +96,13 @@ const DivisionsHub = () => {
   const totalFiltered = filteredResearch.length + filteredRegional.length + filteredSupporting.length;
   const totalAll = DIVISIONS_CONFIG.length;
 
-  // ─── Translation data ──────────────────────────────────────────────────────
-  const heroStats = t('hero.stats', { returnObjects: true }) || [];
-  const sections = t('sections', { returnObjects: true }) || {};
-  const categories = t('categories', { returnObjects: true }) || {};
+  // ─── Translation data (guard against i18n returning key strings before load)
+  const rawStats = t('hero.stats', { returnObjects: true });
+  const heroStats = Array.isArray(rawStats) ? rawStats : [];
+  const rawSections = t('sections', { returnObjects: true });
+  const sections = rawSections && typeof rawSections === 'object' && !Array.isArray(rawSections) ? rawSections : {};
+  const rawCategories = t('categories', { returnObjects: true });
+  const categories = rawCategories && typeof rawCategories === 'object' && !Array.isArray(rawCategories) ? rawCategories : {};
 
   // ─── Scroll-spy: track active section ──────────────────────────────────────
   useEffect(() => {

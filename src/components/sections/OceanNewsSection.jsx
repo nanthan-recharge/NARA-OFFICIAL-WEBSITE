@@ -48,25 +48,28 @@ const OceanNewsSection = () => {
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
-  const [isPaused, setIsPaused] = useState(false);
   const [imgError, setImgError] = useState(false);
-  const timerRef = useRef(null);
-  const sectionRef = useRef(null);
-  const [isInView, setIsInView] = useState(false);
+  const isHoveredRef = useRef(false);
+  const isInViewRef = useRef(false);
+  const observerRef = useRef(null);
 
-  // Pause auto-rotate when section is not visible
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
+  // Callback ref — attaches IntersectionObserver when the real section mounts
+  const sectionRef = useCallback((node) => {
+    // Disconnect previous observer
+    if (observerRef.current) { observerRef.current.disconnect(); observerRef.current = null; }
+    if (!node) return;
     const obs = new IntersectionObserver(
-      ([entry]) => setIsInView(entry.isIntersecting),
+      ([entry]) => { isInViewRef.current = entry.isIntersecting; },
       { threshold: 0.1 }
     );
-    obs.observe(el);
-    return () => obs.disconnect();
+    obs.observe(node);
+    observerRef.current = obs;
   }, []);
 
-  /* ── fetch latest 12 published articles ── */
+  // Cleanup observer on unmount
+  useEffect(() => () => { if (observerRef.current) observerRef.current.disconnect(); }, []);
+
+  /* ── fetch latest published articles (over-fetch to include featured) ── */
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -74,7 +77,7 @@ const OceanNewsSection = () => {
           collection(db, 'news'),
           where('status', '==', 'published'),
           orderBy('publishDate', 'desc'),
-          limit(6),
+          limit(18),
         );
         const snap = await getDocs(q);
         const lang = i18n.language || 'en';
@@ -95,8 +98,9 @@ const OceanNewsSection = () => {
           };
         });
 
-        /* prioritize featured articles first */
+        /* prioritize featured articles first, then trim to 6 for carousel */
         items.sort((a, b) => (b.isFeatured ? 1 : 0) - (a.isFeatured ? 1 : 0));
+        items.splice(6);
 
         if (items.length > 0) {
           setArticles(items);
@@ -139,22 +143,19 @@ const OceanNewsSection = () => {
     fetchNews();
   }, [i18n.language]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  /* ── auto-rotate every 6s ── */
-  const startTimer = useCallback(() => {
-    clearInterval(timerRef.current);
-    if (articles.length <= 1) return;
-    timerRef.current = setInterval(() => {
-      if (!isPaused && isInView) {
-        setDirection(1);
-        setCurrentIndex((prev) => (prev + 1) % articles.length);
-      }
-    }, 6000);
-  }, [articles.length, isPaused, isInView]);
+  /* ── auto-rotate every 5s (refs avoid stale closures) ── */
+  const articleCount = articles.length;
 
   useEffect(() => {
-    startTimer();
-    return () => clearInterval(timerRef.current);
-  }, [startTimer]);
+    if (articleCount <= 1) return;
+    const id = setInterval(() => {
+      if (!isHoveredRef.current && isInViewRef.current) {
+        setDirection(1);
+        setCurrentIndex((prev) => (prev + 1) % articleCount);
+      }
+    }, 5000);
+    return () => clearInterval(id);
+  }, [articleCount]);
 
   /* reset image error on slide change */
   useEffect(() => { setImgError(false); }, [currentIndex]);
@@ -163,19 +164,16 @@ const OceanNewsSection = () => {
   const goTo = (idx) => {
     setDirection(idx > currentIndex ? 1 : -1);
     setCurrentIndex(idx);
-    startTimer();
   };
 
   const goPrev = () => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + articles.length) % articles.length);
-    startTimer();
   };
 
   const goNext = () => {
     setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % articles.length);
-    startTimer();
   };
 
   /* ── loading / empty ── */
@@ -247,8 +245,8 @@ const OceanNewsSection = () => {
       {/* ── Full-width carousel ── */}
       <div
         className="relative w-full"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
+        onMouseEnter={() => { isHoveredRef.current = true; }}
+        onMouseLeave={() => { isHoveredRef.current = false; }}
       >
         {/* Main slide area */}
         <div className="relative w-full h-[380px] sm:h-[420px] md:h-[470px] lg:h-[520px] overflow-hidden">

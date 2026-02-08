@@ -110,6 +110,15 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Large catalogue payloads — cache-first to avoid repeated multi-MB downloads
+  if (
+    url.pathname === '/library_catalogue.json' ||
+    url.pathname === '/library_latest.json'
+  ) {
+    event.respondWith(cacheFirstStrategy(request, RUNTIME_CACHE));
+    return;
+  }
+
   // JSON data files (catalogue etc.) — stale-while-revalidate
   if (url.pathname.endsWith('.json') && url.pathname !== '/manifest.json') {
     event.respondWith(staleWhileRevalidate(request, RUNTIME_CACHE));

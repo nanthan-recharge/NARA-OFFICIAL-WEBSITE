@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import {
-  fetchWeatherData,
   fetchForecast,
   fetchMultipleLocations,
   LOCATIONS
@@ -20,6 +20,7 @@ L.Icon.Default.mergeOptions({
 });
 
 export default function OpenWeatherDashboard() {
+  const { t, i18n } = useTranslation('openWeather');
   const [allLocationsData, setAllLocationsData] = useState([]);
   const [selectedLocation, setSelectedLocation] = useState(null);
   const [forecast, setForecast] = useState(null);
@@ -27,16 +28,24 @@ export default function OpenWeatherDashboard() {
   const [error, setError] = useState(null);
   const [autoRefresh, setAutoRefresh] = useState(false);
 
-  useEffect(() => {
-    fetchAllData();
+  const selectLocation = useCallback(async (locationData) => {
+    setSelectedLocation(locationData);
 
-    if (autoRefresh) {
-      const interval = setInterval(fetchAllData, 10 * 60 * 1000); // 10 minutes
-      return () => clearInterval(interval);
+    // Fetch 5-day forecast for selected location
+    try {
+      const forecastData = await fetchForecast(
+        locationData.location.lat,
+        locationData.location.lon
+      );
+      if (forecastData.success) {
+        setForecast(forecastData.data);
+      }
+    } catch (err) {
+      console.error('Forecast fetch error:', err);
     }
-  }, [autoRefresh]);
+  }, []);
 
-  const fetchAllData = async () => {
+  const fetchAllData = useCallback(async () => {
     setLoading(true);
     setError(null);
 
@@ -53,24 +62,17 @@ export default function OpenWeatherDashboard() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectLocation]);
 
-  const selectLocation = async (locationData) => {
-    setSelectedLocation(locationData);
+  useEffect(() => {
+    fetchAllData();
 
-    // Fetch 5-day forecast for selected location
-    try {
-      const forecastData = await fetchForecast(
-        locationData.location.lat,
-        locationData.location.lon
-      );
-      if (forecastData.success) {
-        setForecast(forecastData.data);
-      }
-    } catch (err) {
-      console.error('Forecast fetch error:', err);
+    if (autoRefresh) {
+      const interval = setInterval(fetchAllData, 10 * 60 * 1000); // 10 minutes
+      return () => clearInterval(interval);
     }
-  };
+    return undefined;
+  }, [autoRefresh, fetchAllData]);
 
   const getWeatherIcon = (description) => {
     const desc = description?.toLowerCase() || '';
@@ -89,13 +91,15 @@ export default function OpenWeatherDashboard() {
     return directions[index];
   };
 
+  const locale = i18n.language === 'si' ? 'si-LK' : i18n.language === 'ta' ? 'ta-LK' : 'en-US';
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-sky-50 via-white to-blue-50">
       <SEOHead
-        title="Weather Dashboard"
-        description="Comprehensive weather dashboard with current conditions, forecasts, and marine weather alerts."
+        title={t('meta.title')}
+        description={t('meta.description')}
         path="/weather-dashboard"
-        keywords="weather dashboard, marine weather, forecasts, weather alerts"
+        keywords={t('meta.keywords')}
       />
       {/* Header */}
       <div className="bg-gradient-to-r from-sky-600 to-blue-600 text-white py-12">
@@ -108,9 +112,9 @@ export default function OpenWeatherDashboard() {
             <div className="flex items-center space-x-4 mb-4">
               <div className="text-6xl">🌤️</div>
               <div>
-                <h1 className="text-4xl font-bold">Weather Dashboard</h1>
+                <h1 className="text-4xl font-bold">{t('hero.title')}</h1>
                 <p className="text-xl text-sky-100 mt-2">
-                  Real-time weather conditions and 5-day forecasts for Sri Lankan coastal regions
+                  {t('hero.subtitle')}
                 </p>
               </div>
             </div>
@@ -128,8 +132,8 @@ export default function OpenWeatherDashboard() {
         >
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-lg font-semibold text-gray-800 mb-2">Data Controls</h3>
-              <p className="text-sm text-gray-600">Monitoring {Object.keys(LOCATIONS).length} coastal locations</p>
+              <h3 className="text-lg font-semibold text-gray-800 mb-2">{t('controls.title')}</h3>
+              <p className="text-sm text-gray-600">{t('controls.monitoring', { count: Object.keys(LOCATIONS).length })}</p>
             </div>
 
             <div className="flex items-center space-x-4">
@@ -140,7 +144,7 @@ export default function OpenWeatherDashboard() {
                   onChange={(e) => setAutoRefresh(e.target.checked)}
                   className="w-4 h-4 text-blue-600 rounded focus:ring-2 focus:ring-blue-500"
                 />
-                <span className="text-sm text-gray-700">Auto-refresh (10 min)</span>
+                <span className="text-sm text-gray-700">{t('controls.autoRefresh')}</span>
               </label>
 
               <button
@@ -148,7 +152,7 @@ export default function OpenWeatherDashboard() {
                 disabled={loading}
                 className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 transition-colors"
               >
-                {loading ? 'Loading...' : 'Refresh Data'}
+                {loading ? t('controls.loading') : t('controls.refresh')}
               </button>
             </div>
           </div>
@@ -156,7 +160,7 @@ export default function OpenWeatherDashboard() {
 
         {error && (
           <div className="bg-red-50 border border-red-200 text-red-700 px-6 py-4 rounded-lg mb-8">
-            <p className="font-semibold">Error Loading Data</p>
+            <p className="font-semibold">{t('errors.loadTitle')}</p>
             <p className="text-sm">{error}</p>
           </div>
         )}
@@ -168,7 +172,7 @@ export default function OpenWeatherDashboard() {
           transition={{ delay: 0.3 }}
           className="bg-white rounded-xl shadow-lg p-6 mb-8"
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Weather Map</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('map.title')}</h2>
 
           <div className="h-96 rounded-lg overflow-hidden">
             <MapContainer
@@ -198,10 +202,10 @@ export default function OpenWeatherDashboard() {
                       {locData.success && locData.data && (
                         <div className="mt-2 space-y-1 text-sm">
                           <p className="capitalize">{locData.data.description}</p>
-                          <p>Temperature: {locData.data.temp}°C</p>
-                          <p>Feels Like: {locData.data.feelsLike}°C</p>
-                          <p>Humidity: {locData.data.humidity}%</p>
-                          <p>Wind: {locData.data.windSpeed} m/s {getWindDirection(locData.data.windDirection)}</p>
+                          <p>{t('popup.temperature')}: {locData.data.temp}°C</p>
+                          <p>{t('popup.feelsLike')}: {locData.data.feelsLike}°C</p>
+                          <p>{t('popup.humidity')}: {locData.data.humidity}%</p>
+                          <p>{t('popup.wind')}: {locData.data.windSpeed} m/s {getWindDirection(locData.data.windDirection)}</p>
                         </div>
                       )}
                     </div>
@@ -219,7 +223,7 @@ export default function OpenWeatherDashboard() {
           transition={{ delay: 0.4 }}
           className="mb-8"
         >
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Current Conditions</h2>
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('currentConditions.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {allLocationsData.map((locData, idx) => (
               <WeatherCard
@@ -229,6 +233,7 @@ export default function OpenWeatherDashboard() {
                 onClick={() => selectLocation(locData)}
                 getWeatherIcon={getWeatherIcon}
                 getWindDirection={getWindDirection}
+                t={t}
               />
             ))}
           </div>
@@ -243,53 +248,53 @@ export default function OpenWeatherDashboard() {
           >
             <h2 className="text-3xl font-bold text-gray-800 mb-6 flex items-center space-x-3">
               <span className="text-5xl">{getWeatherIcon(selectedLocation.data.description)}</span>
-              <span>{selectedLocation.location.name} - Detailed View</span>
+              <span>{t('detail.title', { location: selectedLocation.location.name })}</span>
             </h2>
 
             {/* Current Conditions Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
               <DetailCard
                 icon="🌡️"
-                label="Temperature"
+                label={t('detail.cards.temperature')}
                 value={`${selectedLocation.data.temp}°C`}
-                sublabel={`Feels like ${selectedLocation.data.feelsLike}°C`}
+                sublabel={t('detail.cards.feelsLike', { value: selectedLocation.data.feelsLike })}
               />
               <DetailCard
                 icon="💧"
-                label="Humidity"
+                label={t('detail.cards.humidity')}
                 value={`${selectedLocation.data.humidity}%`}
               />
               <DetailCard
                 icon="🌪️"
-                label="Pressure"
+                label={t('detail.cards.pressure')}
                 value={`${selectedLocation.data.pressure} hPa`}
               />
               <DetailCard
                 icon="💨"
-                label="Wind Speed"
+                label={t('detail.cards.windSpeed')}
                 value={`${selectedLocation.data.windSpeed} m/s`}
                 sublabel={getWindDirection(selectedLocation.data.windDirection)}
               />
               <DetailCard
                 icon="☁️"
-                label="Cloud Cover"
+                label={t('detail.cards.cloudCover')}
                 value={`${selectedLocation.data.clouds}%`}
               />
               <DetailCard
                 icon="🧭"
-                label="Wind Direction"
+                label={t('detail.cards.windDirection')}
                 value={`${selectedLocation.data.windDirection}°`}
                 sublabel={getWindDirection(selectedLocation.data.windDirection)}
               />
               <DetailCard
                 icon="🌤️"
-                label="Conditions"
+                label={t('detail.cards.conditions')}
                 value={selectedLocation.data.description}
                 capitalize
               />
               <DetailCard
                 icon="📍"
-                label="Location"
+                label={t('detail.cards.location')}
                 value={`${selectedLocation.location.lat.toFixed(2)}°N, ${selectedLocation.location.lon.toFixed(2)}°E`}
               />
             </div>
@@ -297,9 +302,9 @@ export default function OpenWeatherDashboard() {
             {/* 5-Day Forecast */}
             {forecast && forecast.length > 0 && (
               <div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">5-Day Forecast</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">{t('forecast.title')}</h3>
                 <div className="overflow-x-auto">
-                  <ForecastTable forecast={forecast} getWeatherIcon={getWeatherIcon} />
+                  <ForecastTable forecast={forecast} getWeatherIcon={getWeatherIcon} t={t} locale={locale} />
                 </div>
               </div>
             )}
@@ -310,7 +315,7 @@ export default function OpenWeatherDashboard() {
   );
 }
 
-function WeatherCard({ locationData, isSelected, onClick, getWeatherIcon, getWindDirection }) {
+function WeatherCard({ locationData, isSelected, onClick, getWeatherIcon, getWindDirection, t }) {
   const { location, success, data, error } = locationData;
 
   return (
@@ -338,21 +343,21 @@ function WeatherCard({ locationData, isSelected, onClick, getWeatherIcon, getWin
             </div>
             <div className="grid grid-cols-2 gap-2 text-sm">
               <div>
-                <span className="text-gray-500">Feels like:</span>
+                <span className="text-gray-500">{t('weatherCard.feelsLike')}</span>
                 <div className="font-semibold">{data.feelsLike}°C</div>
               </div>
               <div>
-                <span className="text-gray-500">Humidity:</span>
+                <span className="text-gray-500">{t('weatherCard.humidity')}</span>
                 <div className="font-semibold">{data.humidity}%</div>
               </div>
               <div>
-                <span className="text-gray-500">Wind:</span>
+                <span className="text-gray-500">{t('weatherCard.wind')}</span>
                 <div className="font-semibold">
                   {data.windSpeed} m/s {getWindDirection(data.windDirection)}
                 </div>
               </div>
               <div>
-                <span className="text-gray-500">Pressure:</span>
+                <span className="text-gray-500">{t('weatherCard.pressure')}</span>
                 <div className="font-semibold">{data.pressure} hPa</div>
               </div>
             </div>
@@ -360,7 +365,7 @@ function WeatherCard({ locationData, isSelected, onClick, getWeatherIcon, getWin
         </>
       ) : (
         <div className="text-red-500 text-sm">
-          {error || 'No data available'}
+          {error || t('errors.noData')}
         </div>
       )}
     </motion.div>
@@ -382,7 +387,7 @@ function DetailCard({ icon, label, value, sublabel, capitalize }) {
   );
 }
 
-function ForecastTable({ forecast, getWeatherIcon }) {
+function ForecastTable({ forecast, getWeatherIcon, t, locale }) {
   // Group forecast by day
   const groupedByDay = forecast.reduce((acc, item) => {
     const date = new Date(item.time).toLocaleDateString();
@@ -395,10 +400,10 @@ function ForecastTable({ forecast, getWeatherIcon }) {
 
   return (
     <div className="space-y-4">
-      {Object.entries(groupedByDay).map(([date, items], idx) => (
+      {Object.entries(groupedByDay).map(([, items], idx) => (
         <div key={idx} className="border rounded-lg overflow-hidden">
           <div className="bg-blue-100 px-4 py-2 font-semibold text-gray-800">
-            {new Date(items[0].time).toLocaleDateString('en-US', {
+            {new Date(items[0].time).toLocaleDateString(locale, {
               weekday: 'long',
               year: 'numeric',
               month: 'long',
@@ -409,18 +414,18 @@ function ForecastTable({ forecast, getWeatherIcon }) {
             <table className="w-full text-sm">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-4 py-3 text-left text-gray-700">Time</th>
-                  <th className="px-4 py-3 text-left text-gray-700">Conditions</th>
-                  <th className="px-4 py-3 text-left text-gray-700">Temp (°C)</th>
-                  <th className="px-4 py-3 text-left text-gray-700">Humidity (%)</th>
-                  <th className="px-4 py-3 text-left text-gray-700">Wind (m/s)</th>
+                  <th className="px-4 py-3 text-left text-gray-700">{t('forecast.table.time')}</th>
+                  <th className="px-4 py-3 text-left text-gray-700">{t('forecast.table.conditions')}</th>
+                  <th className="px-4 py-3 text-left text-gray-700">{t('forecast.table.temperature')}</th>
+                  <th className="px-4 py-3 text-left text-gray-700">{t('forecast.table.humidity')}</th>
+                  <th className="px-4 py-3 text-left text-gray-700">{t('forecast.table.wind')}</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {items.map((item, itemIdx) => (
                   <tr key={itemIdx} className="hover:bg-gray-50">
                     <td className="px-4 py-3 text-gray-800">
-                      {new Date(item.time).toLocaleTimeString('en-US', {
+                      {new Date(item.time).toLocaleTimeString(locale, {
                         hour: '2-digit',
                         minute: '2-digit'
                       })}

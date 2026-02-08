@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "අඩවි සිතියම",
+    "description": "ප්‍රධාන ද්වාර සහ සේවාවන් වෙත සෘජු ප්‍රවේශයක් සමඟ NARA වෙබ් අඩවියේ සම්පූර්ණ අඩවි සිතියම.",
+    "keywords": "අඩවි සිතියම, NARA නාවිකරණය, NARA පිටු"
+  },
+  "hero": {
+    "eyebrow": "NARA නාවිකරණය",
+    "title": "අඩවි සිතියම",
+    "description": "NARA හි ප්‍රධාන ද්වාර, සේවාවන්, අංශ සහ නීතිමය තොරතුරු වෙත වේගවත් ප්‍රවේශය."
+  },
+  "sections": {
+    "aboutNara": {
+      "title": "NARA පිළිබඳ",
+      "links": {
+        "aboutNara": "NARA පිළිබඳ",
+        "mediaGallery": "මාධ්‍ය ගැලරිය",
+        "mediaPressKit": "මාධ්‍ය ප්‍රෙස් කට්ටලය",
+        "contactUs": "අප අමතන්න"
+      }
+    },
+    "researchServices": {
+      "title": "පර්යේෂණ සහ සේවාවන්",
+      "links": {
+        "researchExcellencePortal": "පර්යේෂණ විශිෂ්ටතා ද්වාරය",
+        "governmentServicesPortal": "රජයේ සේවා ද්වාරය",
+        "scientificEvidenceRepository": "විද්‍යාත්මක සාක්ෂි ගබඩාව",
+        "openDataPortal": "විවෘත දත්ත ද්වාරය"
+      }
+    },
+    "divisionsCenters": {
+      "title": "අංශ සහ මධ්‍යස්ථාන",
+      "links": {
+        "allDivisions": "සියලුම අංශ",
+        "supportingDivisions": "සහය අංශ",
+        "regionalCenters": "ප්‍රාදේශීය මධ්‍යස්ථාන",
+        "regionalImpactNetwork": "ප්‍රාදේශීය බලපෑම් ජාලය"
+      }
+    },
+    "learningPublications": {
+      "title": "ඉගෙනීම සහ ප්‍රකාශන",
+      "links": {
+        "learningDevelopmentAcademy": "ඉගෙනුම් සංවර්ධන අකැඩමිය",
+        "digitalLibrary": "ඩිජිටල් පුස්තකාලය",
+        "annualReports": "වාර්ෂික වාර්තා",
+        "newsUpdates": "පුවත් සහ යාවත්කාලීන"
+      }
+    },
+    "publicInformation": {
+      "title": "මහජන තොරතුරු",
+      "links": {
+        "vacancies": "පුරප්පාඩු",
+        "procurementRecruitment": "ප්‍රසම්පාදන සහ බඳවාගැනීම්",
+        "publicConsultation": "මහජන උපදේශන",
+        "rightToInformation": "තොරතුරු දැනගැනීමේ අයිතිය (RTI)"
+      }
+    },
+    "legalCompliance": {
+      "title": "නීතිමය සහ අනුකූලතාව",
+      "links": {
+        "privacyPolicy": "රහස්‍යතා ප්‍රතිපත්තිය",
+        "termsOfUse": "භාවිත නියම",
+        "accessibilityStatement": "ප්‍රවේශතා ප්‍රකාශය",
+        "naraAct": "NARA පනත"
+      }
+    }
+  }
+}

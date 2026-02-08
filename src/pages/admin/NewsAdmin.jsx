@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  Newspaper, Plus, Edit, Trash2, Search, Calendar, Globe,
+  Newspaper, Plus, Edit, Trash2, Search, Calendar,
   Save, X, Upload, Image as ImageIcon, ArrowLeft, RefreshCw,
-  Star, GripVertical, ChevronDown, Eye, Clock, CheckCircle
+  Star, Eye, Clock, CheckCircle
 } from 'lucide-react';
 import {
   collection, getDocs, addDoc, updateDoc, deleteDoc,
@@ -61,10 +61,23 @@ const NewsAdmin = () => {
   const [saving, setSaving] = useState(false);
   const [tagInput, setTagInput] = useState('');
 
+  // Language tab state
+  const [langTab, setLangTab] = useState('en');
+
   // Image upload state
   const [pendingFiles, setPendingFiles] = useState([]); // Files not yet uploaded
   const [uploadProgress, setUploadProgress] = useState(null); // { current, total }
   const [dragOver, setDragOver] = useState(false);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (showForm) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [showForm]);
 
   // ─── Load News ──────────────────────────────────────────────────
   const loadNews = useCallback(async () => {
@@ -98,9 +111,10 @@ const NewsAdmin = () => {
     setPendingFiles([]);
     setEditingNews(null);
     setTagInput('');
+    setLangTab('en');
   };
 
-  const openCreateForm = () => { resetForm(); setShowForm(true); };
+  const openCreateForm = () => { resetForm(); setLangTab('en'); setShowForm(true); };
 
   const openEditForm = (item) => {
     setEditingNews(item);
@@ -394,14 +408,14 @@ const NewsAdmin = () => {
       <AnimatePresence>
         {showForm && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-start justify-center p-4"
             onClick={() => !saving && setShowForm(false)}>
             <motion.div initial={{ scale: 0.95, y: 20 }} animate={{ scale: 1, y: 0 }} exit={{ scale: 0.95 }}
-              className="bg-white rounded-2xl w-full max-w-5xl my-8 shadow-2xl"
+              className="bg-white rounded-2xl w-full max-w-5xl my-8 shadow-2xl flex flex-col max-h-[90vh]"
               onClick={e => e.stopPropagation()}>
 
               {/* Modal Header */}
-              <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between rounded-t-2xl z-10">
+              <div className="bg-white border-b border-slate-200 px-6 py-4 flex items-center justify-between rounded-t-2xl shrink-0">
                 <h2 className="text-lg font-bold text-slate-900">
                   {editingNews ? 'Edit Article' : 'Create New Article'}
                 </h2>
@@ -410,7 +424,7 @@ const NewsAdmin = () => {
                 </button>
               </div>
 
-              <form onSubmit={handleSubmit} className="p-6 space-y-8">
+              <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto p-6 space-y-8">
 
                 {/* ── Image Gallery ── */}
                 <div>
@@ -496,63 +510,56 @@ const NewsAdmin = () => {
                   )}
                 </div>
 
-                {/* ── Title (Multilingual) ── */}
-                <div>
-                  <h3 className="font-semibold text-slate-800 flex items-center gap-2 mb-3">
-                    <Globe size={18} className="text-nara-blue" /> Title
-                  </h3>
-                  <div className="grid gap-3">
-                    {[
-                      { key: 'en', label: 'English', required: true },
-                      { key: 'si', label: 'සිංහල (Sinhala)' },
-                      { key: 'ta', label: 'தமிழ் (Tamil)' },
-                    ].map(lang => (
-                      <div key={lang.key}>
-                        <label className="block text-xs font-medium text-slate-500 mb-1">{lang.label}</label>
-                        <input type="text" value={formData.title[lang.key]} required={lang.required}
-                          onChange={e => updateField(`title.${lang.key}`, e.target.value)}
-                          className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-nara-blue/30 focus:border-nara-blue text-sm" />
-                      </div>
-                    ))}
-                  </div>
+                {/* ── Language Tabs ── */}
+                <div className="flex gap-1 border-b border-slate-200">
+                  {[
+                    { id: 'en', label: 'English' },
+                    { id: 'si', label: 'සිංහල (Sinhala)' },
+                    { id: 'ta', label: 'தமிழ் (Tamil)' },
+                  ].map(lang => (
+                    <button key={lang.id} type="button" onClick={() => setLangTab(lang.id)}
+                      className={`px-4 py-2.5 text-sm font-medium border-b-2 transition flex items-center gap-1.5 ${
+                        langTab === lang.id
+                          ? 'border-nara-blue text-nara-blue'
+                          : 'border-transparent text-slate-400 hover:text-slate-600'
+                      }`}>
+                      {lang.label}
+                      {formData.title[lang.id] && formData.content[lang.id] && (
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 inline-block" />
+                      )}
+                    </button>
+                  ))}
                 </div>
 
-                {/* ── Excerpt (Multilingual) ── */}
+                {/* ── Title ── */}
                 <div>
-                  <h3 className="font-semibold text-slate-800 mb-3">Excerpt / Summary</h3>
-                  <div className="grid gap-3">
-                    {[
-                      { key: 'en', label: 'English' },
-                      { key: 'si', label: 'සිංහල' },
-                      { key: 'ta', label: 'தமிழ்' },
-                    ].map(lang => (
-                      <div key={lang.key}>
-                        <label className="block text-xs font-medium text-slate-500 mb-1">{lang.label}</label>
-                        <textarea value={formData.excerpt[lang.key]} rows={2}
-                          onChange={e => updateField(`excerpt.${lang.key}`, e.target.value)}
-                          className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-nara-blue/30 focus:border-nara-blue text-sm resize-none" />
-                      </div>
-                    ))}
-                  </div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Title {langTab === 'en' && <span className="text-red-400">*</span>}
+                  </label>
+                  <input type="text" value={formData.title[langTab]} required={langTab === 'en'}
+                    onChange={e => updateField(`title.${langTab}`, e.target.value)}
+                    placeholder={`Enter title in ${langTab === 'en' ? 'English' : langTab === 'si' ? 'Sinhala' : 'Tamil'}`}
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-nara-blue/30 focus:border-nara-blue text-sm text-slate-900" />
                 </div>
 
-                {/* ── Content (Multilingual) ── */}
+                {/* ── Excerpt / Summary ── */}
                 <div>
-                  <h3 className="font-semibold text-slate-800 mb-3">Full Content</h3>
-                  <div className="grid gap-3">
-                    {[
-                      { key: 'en', label: 'English', required: true },
-                      { key: 'si', label: 'සිංහල' },
-                      { key: 'ta', label: 'தமிழ்' },
-                    ].map(lang => (
-                      <div key={lang.key}>
-                        <label className="block text-xs font-medium text-slate-500 mb-1">{lang.label}</label>
-                        <textarea value={formData.content[lang.key]} rows={6} required={lang.required}
-                          onChange={e => updateField(`content.${lang.key}`, e.target.value)}
-                          className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-nara-blue/30 focus:border-nara-blue text-sm resize-y" />
-                      </div>
-                    ))}
-                  </div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">Excerpt / Summary</label>
+                  <textarea value={formData.excerpt[langTab]} rows={3}
+                    onChange={e => updateField(`excerpt.${langTab}`, e.target.value)}
+                    placeholder={`Enter excerpt in ${langTab === 'en' ? 'English' : langTab === 'si' ? 'Sinhala' : 'Tamil'}`}
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-nara-blue/30 focus:border-nara-blue text-sm text-slate-900 resize-none" />
+                </div>
+
+                {/* ── Full Content ── */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-1.5">
+                    Full Content {langTab === 'en' && <span className="text-red-400">*</span>}
+                  </label>
+                  <textarea value={formData.content[langTab]} rows={8} required={langTab === 'en'}
+                    onChange={e => updateField(`content.${langTab}`, e.target.value)}
+                    placeholder={`Enter full content in ${langTab === 'en' ? 'English' : langTab === 'si' ? 'Sinhala' : 'Tamil'}`}
+                    className="w-full px-4 py-2.5 border border-slate-200 rounded-lg focus:ring-2 focus:ring-nara-blue/30 focus:border-nara-blue text-sm text-slate-900 resize-y" />
                 </div>
 
                 {/* ── Meta Fields ── */}
@@ -560,21 +567,21 @@ const NewsAdmin = () => {
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">Category</label>
                     <select value={formData.category} onChange={e => updateField('category', e.target.value)}
-                      className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-nara-blue/30">
+                      className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-nara-blue/30">
                       {CATEGORIES.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
                     </select>
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">Status</label>
                     <select value={formData.status} onChange={e => updateField('status', e.target.value)}
-                      className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-nara-blue/30">
+                      className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-nara-blue/30">
                       {STATUS_OPTIONS.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
                     </select>
                   </div>
                   <div>
                     <label className="block text-xs font-medium text-slate-500 mb-1">Publish Date</label>
                     <input type="date" value={formData.publishDate} onChange={e => handleDateChange(e.target.value)}
-                      className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-nara-blue/30" />
+                      className="w-full px-3 py-2.5 border border-slate-200 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-nara-blue/30" />
                   </div>
                   <div className="flex items-end">
                     <label className="flex items-center gap-2 cursor-pointer py-2.5">
@@ -599,15 +606,15 @@ const NewsAdmin = () => {
                   <div className="flex gap-2">
                     <input type="text" value={tagInput} onChange={e => setTagInput(e.target.value)} placeholder="Add tag..."
                       onKeyDown={e => { if (e.key === 'Enter') { e.preventDefault(); addTag(); } }}
-                      className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm focus:ring-2 focus:ring-nara-blue/30" />
-                    <button type="button" onClick={addTag} className="px-4 py-2 bg-slate-100 rounded-lg text-sm hover:bg-slate-200 transition">Add</button>
+                      className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm text-slate-900 focus:ring-2 focus:ring-nara-blue/30" />
+                    <button type="button" onClick={addTag} className="px-4 py-2 bg-slate-100 rounded-lg text-sm text-slate-700 font-medium hover:bg-slate-200 transition">Add</button>
                   </div>
                 </div>
 
-                {/* ── Submit ── */}
-                <div className="flex justify-end gap-3 pt-6 border-t border-slate-200">
+                {/* ── Submit (sticky footer) ── */}
+                <div className="sticky bottom-0 bg-white border-t border-slate-200 px-6 py-4 -mx-6 -mb-6 mt-8 flex justify-end gap-3 rounded-b-2xl">
                   <button type="button" onClick={() => !saving && setShowForm(false)}
-                    className="px-6 py-2.5 border border-slate-200 rounded-xl hover:bg-slate-50 transition text-sm">
+                    className="px-6 py-2.5 border border-slate-300 rounded-xl hover:bg-slate-50 transition text-sm text-slate-700 font-medium">
                     Cancel
                   </button>
                   <button type="submit" disabled={saving}

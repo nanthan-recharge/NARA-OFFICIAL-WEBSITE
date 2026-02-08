@@ -1,0 +1,343 @@
+{
+  "meta": {
+    "title": "Partnership & Innovation Gateway",
+    "description": "Explore partnership opportunities and innovation initiatives with NARA Sri Lanka.",
+    "keywords": "partnerships, innovation, marine technology, NARA collaboration"
+  },
+  "hero": {
+    "badge": "Global Innovation Hub",
+    "titlePrefix": "Partnership &",
+    "titleHighlight": "Innovation",
+    "titleSuffix": "Gateway",
+    "description": "Connecting NARA with the global ocean science community through strategic partnerships, cutting-edge innovations, and collaborative research initiatives.",
+    "cta": {
+      "explore": "Explore Partnerships",
+      "innovations": "View Innovations"
+    },
+    "upload": {
+      "title": "Upload Hero Visual",
+      "description": "Drag and drop your high-resolution image here, or click to browse files.",
+      "recommended": "Recommended: 1600 x 1200px"
+    },
+    "stats": {
+      "globalPartners": "Global Partners",
+      "activeProjects": "Active Projects",
+      "technologiesLicensed": "Technologies Licensed",
+      "countriesReached": "Countries Reached"
+    }
+  },
+  "globalNetwork": {
+    "title": "Global Research Network",
+    "description": "NARA collaborates with leading international institutions to advance ocean science and share knowledge for global marine conservation and sustainable development.",
+    "more": "more",
+    "stats": {
+      "activePartnerships": "Active Partnerships",
+      "countries": "Countries",
+      "jointPublications": "Joint Publications",
+      "sharedDatasets": "Shared Datasets"
+    },
+    "labels": {
+      "projects": "Projects",
+      "publications": "Publications",
+      "since": "Since",
+      "activePartnership": "Active Partnership"
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "exploreOpportunities": "Explore Partnership Opportunities",
+      "downloadGuide": "Download Partnership Guide"
+    },
+    "map": {
+      "title": "Global Partnership Network",
+      "description": "Our collaborations span across continents, creating a truly global network of ocean science excellence.",
+      "interactiveTitle": "Interactive Partnership Map",
+      "interactiveHint": "Click on markers to explore partnerships by region"
+    }
+  },
+  "innovationShowcase": {
+    "title": "Innovation Showcase",
+    "description": "Discover cutting-edge technologies and research innovations being developed at NARA to advance ocean science and marine conservation.",
+    "categories": {
+      "all": "All Innovations",
+      "autonomous": "Autonomous Systems",
+      "sensors": "Sensor Networks",
+      "ai": "AI & Analytics",
+      "sustainability": "Sustainability"
+    },
+    "status": {
+      "productionReady": "Production Ready",
+      "inDevelopment": "In Development",
+      "pilotPhase": "Pilot Phase",
+      "testingPhase": "Testing Phase",
+      "fieldTesting": "Field Testing",
+      "betaTesting": "Beta Testing"
+    },
+    "labels": {
+      "ready": "{{value}}% Ready",
+      "keyFeatures": "Key Features:",
+      "more": "more",
+      "impact": "Impact:",
+      "timeline": "Timeline:",
+      "funding": "Funding:",
+      "partners": "Partners:",
+      "developmentProgress": "Development Progress"
+    },
+    "actions": {
+      "learnMore": "Learn More",
+      "proposeInnovation": "Propose Innovation",
+      "scheduleDemo": "Schedule Demo"
+    },
+    "impactStats": {
+      "title": "Innovation Impact",
+      "description": "Our innovations are driving real change in ocean science and marine conservation.",
+      "activeProjects": "Active Projects",
+      "totalInvestment": "Total Investment",
+      "patentsFiled": "Patents Filed",
+      "industryPartners": "Industry Partners"
+    }
+  },
+  "partnershipOpportunities": {
+    "title": "Partnership Opportunities",
+    "description": "Join NARA's global network of partners and contribute to advancing ocean science, conservation, and sustainable development through collaborative initiatives.",
+    "filters": {
+      "opportunityType": {
+        "research": "Research Collaboration",
+        "funding": "Funding Partnership",
+        "technology": "Technology Transfer",
+        "exchange": "Researcher Exchange",
+        "data": "Data Sharing",
+        "capacity": "Capacity Building"
+      },
+      "researchArea": {
+        "climate": "Climate Change Research",
+        "biodiversity": "Marine Biodiversity",
+        "pollution": "Ocean Pollution",
+        "fisheries": "Fisheries Science",
+        "technology": "Marine Technology",
+        "conservation": "Conservation Biology",
+        "oceanography": "Physical Oceanography",
+        "policy": "Marine Policy"
+      }
+    },
+    "labels": {
+      "deadline": "Deadline:",
+      "funding": "Funding:",
+      "duration": "Duration:",
+      "keyRequirements": "Key Requirements:",
+      "moreRequirements": "more requirements"
+    },
+    "form": {
+      "title": "Express Your Interest",
+      "description": "Submit your partnership inquiry and our team will connect you with the most relevant opportunities.",
+      "organizationName": "Organization Name",
+      "organizationPlaceholder": "Your organization",
+      "contactPerson": "Contact Person",
+      "contactPlaceholder": "Your full name",
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@organization.com",
+      "partnershipType": "Partnership Type",
+      "partnershipTypePlaceholder": "Select partnership type",
+      "researchArea": "Research Area",
+      "researchAreaPlaceholder": "Select research area",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your organization and partnership interests..."
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "submitInquiry": "Submit Inquiry",
+      "applyNow": "Apply Now",
+      "downloadGuidelines": "Download Guidelines"
+    },
+    "benefits": {
+      "globalNetwork": {
+        "title": "Global Network",
+        "description": "Connect with leading researchers and institutions worldwide through our extensive partnership network."
+      },
+      "innovationAccess": {
+        "title": "Innovation Access",
+        "description": "Gain access to cutting-edge technologies, research facilities, and collaborative platforms."
+      },
+      "impactAmplification": {
+        "title": "Impact Amplification",
+        "description": "Amplify your research impact through collaborative projects and shared resources."
+      }
+    },
+    "modal": {
+      "description": "Description",
+      "requirements": "Requirements",
+      "benefits": "Benefits",
+      "keyDetails": "Key Details",
+      "eligibility": "Eligibility",
+      "applicationProcess": "Application Process"
+    }
+  },
+  "technologyTransfer": {
+    "title": "Technology Transfer Hub",
+    "description": "Discover how NARA's innovative marine technologies are transforming industries and creating sustainable solutions for ocean challenges worldwide.",
+    "tabs": {
+      "available": "Available Technologies",
+      "success": "Success Stories",
+      "process": "Transfer Process"
+    },
+    "maturity": {
+      "commercialReady": "Commercial Ready",
+      "fieldTested": "Field Tested",
+      "pilotTested": "Pilot Tested"
+    },
+    "labels": {
+      "keyFeatures": "Key Features:",
+      "more": "more",
+      "marketPotential": "Market Potential:",
+      "patentStatus": "Patent Status:",
+      "keyBenefits": "Key Benefits:",
+      "contact": "Contact:",
+      "partner": "Partner",
+      "technology": "Technology",
+      "year": "Year",
+      "impactAchieved": "Impact Achieved:",
+      "partnershipDetails": "Partnership Details",
+      "partnerType": "Partner Type:",
+      "licenseType": "License Type:",
+      "annualRoyalty": "Annual Royalty:",
+      "keyActivities": "Key Activities:",
+      "duration": "Duration"
+    },
+    "actions": {
+      "details": "Details",
+      "inquire": "Inquire",
+      "viewCaseStudy": "View Case Study"
+    },
+    "process": {
+      "title": "Technology Transfer Process",
+      "description": "Our structured approach ensures successful technology transfer from research to commercial application."
+    },
+    "benefits": {
+      "title": "Why Choose NARA for Technology Transfer?",
+      "proven": {
+        "title": "Proven Track Record",
+        "description": "Over 50 successful technology transfers with measurable commercial impact and industry adoption."
+      },
+      "ipProtection": {
+        "title": "IP Protection",
+        "description": "Comprehensive intellectual property protection with international patents and trade secret management."
+      },
+      "support": {
+        "title": "Ongoing Support",
+        "description": "Continuous technical support, training, and partnership development throughout the commercialization journey."
+      }
+    },
+    "cta": {
+      "title": "Ready to Explore Technology Transfer Opportunities?",
+      "description": "Connect with our technology transfer team to discuss licensing opportunities, partnership models, and commercialization strategies.",
+      "actions": {
+        "schedule": "Schedule Consultation",
+        "downloadPortfolio": "Download Technology Portfolio",
+        "contactOffice": "Contact Technology Transfer Office"
+      }
+    }
+  },
+  "eventsCalendar": {
+    "title": "Events & Conferences",
+    "description": "Join NARA researchers at international conferences, workshops, and partnership events. Discover opportunities for collaboration and knowledge exchange.",
+    "months": {
+      "2024-10": "October 2024",
+      "2024-11": "November 2024",
+      "2024-12": "December 2024",
+      "2025-01": "January 2025",
+      "2025-02": "February 2025",
+      "2025-03": "March 2025"
+    },
+    "types": {
+      "conference": "Conference",
+      "summit": "Summit",
+      "forum": "Forum",
+      "workshop": "Workshop",
+      "symposium": "Symposium"
+    },
+    "labels": {
+      "more": "more",
+      "cost": "Cost:",
+      "attendees": "Attendees:",
+      "naraSpeakers": "NARA Speakers: ",
+      "naraSpeakersNoColon": "NARA Speakers",
+      "deadline": "Deadline:"
+    },
+    "upcoming": {
+      "title": "Upcoming Registration Deadlines",
+      "description": "Don't miss these important registration deadlines for upcoming events."
+    },
+    "actions": {
+      "viewDetails": "View Details",
+      "register": "Register",
+      "submitProposal": "Submit Event Proposal",
+      "subscribe": "Subscribe to Updates",
+      "visitWebsite": "Visit Event Website",
+      "registerNow": "Register Now",
+      "shareEvent": "Share Event"
+    },
+    "modal": {
+      "aboutEvent": "About This Event",
+      "keyTopics": "Key Topics",
+      "partnershipOpportunities": "Partnership Opportunities",
+      "eventDetails": "Event Details",
+      "venue": "Venue:",
+      "expectedAttendees": "Expected Attendees:",
+      "targetAudience": "Target Audience:",
+      "registrationDeadline": "Registration Deadline:"
+    }
+  },
+  "impactSection": {
+    "title": "Partnership Impact Metrics",
+    "description": "Measuring the real-world impact of our partnerships and innovations on ocean science, economic development, and global marine conservation efforts."
+  },
+  "impactMetrics": {
+    "researchImpact": {
+      "title": "Research Impact",
+      "jointPublications": "Joint Publications",
+      "citationIndex": "Citation Index",
+      "hIndexGrowth": "H-Index Growth"
+    },
+    "economicImpact": {
+      "title": "Economic Impact",
+      "technologyRevenue": "Technology Revenue",
+      "jobsCreated": "Jobs Created",
+      "industryPartnerships": "Industry Partnerships"
+    },
+    "innovationPipeline": {
+      "title": "Innovation Pipeline",
+      "patentsFiled": "Patents Filed",
+      "technologiesInDevelopment": "Technologies in Development",
+      "pilotProjects": "Pilot Projects"
+    }
+  },
+  "ctaSection": {
+    "title": "Ready to Partner with NARA?",
+    "description": "Join our global network of partners and contribute to advancing ocean science, marine conservation, and sustainable development. Together, we can create lasting impact for our oceans and communities.",
+    "actions": {
+      "startConversation": "Start a Conversation",
+      "proposal": "Partnership Proposal",
+      "schedule": "Schedule Consultation"
+    }
+  },
+  "footer": {
+    "brand": {
+      "title": "NARA Digital Ocean",
+      "subtitle": "Partnership & Innovation Gateway"
+    },
+    "description": "Facilitating global partnerships and driving innovation in ocean science for sustainable marine development and conservation.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "globalNetwork": "Global Network",
+      "innovationShowcase": "Innovation Showcase",
+      "partnershipOpportunities": "Partnership Opportunities",
+      "technologyTransfer": "Technology Transfer"
+    },
+    "contact": {
+      "title": "Contact",
+      "office": "Partnership Office",
+      "email": "partnerships@nara.ac.lk",
+      "phone": "+94 11 2 694 138"
+    },
+    "copyright": "© {{year}} National Aquatic Resources Research and Development Agency. All rights reserved."
+  }
+}

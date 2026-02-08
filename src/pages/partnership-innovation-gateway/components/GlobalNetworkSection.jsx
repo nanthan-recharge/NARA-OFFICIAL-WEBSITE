@@ -1,9 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 
 const GlobalNetworkSection = () => {
+  const { t } = useTranslation('partnershipGateway');
+
   const partnerships = [
     {
       id: 1,
@@ -86,10 +89,10 @@ const GlobalNetworkSection = () => {
   ];
 
   const partnershipStats = [
-    { label: "Active Partnerships", value: "24", icon: "Handshake" },
-    { label: "Countries", value: "18", icon: "Globe" },
-    { label: "Joint Publications", value: "156", icon: "FileText" },
-    { label: "Shared Datasets", value: "89", icon: "Database" }
+    { label: t('globalNetwork.stats.activePartnerships'), value: '24', icon: 'Handshake' },
+    { label: t('globalNetwork.stats.countries'), value: '18', icon: 'Globe' },
+    { label: t('globalNetwork.stats.jointPublications'), value: '156', icon: 'FileText' },
+    { label: t('globalNetwork.stats.sharedDatasets'), value: '89', icon: 'Database' }
   ];
 
   return (
@@ -101,10 +104,10 @@ const GlobalNetworkSection = () => {
             <Icon name="Globe" size={32} className="text-primary" />
           </div>
           <h2 className="font-headline text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Global Research Network
+            {t('globalNetwork.title')}
           </h2>
           <p className="font-body text-lg text-text-secondary max-w-3xl mx-auto">
-            NARA collaborates with leading international institutions to advance ocean science and share knowledge for global marine conservation and sustainable development.
+            {t('globalNetwork.description')}
           </p>
         </div>
 
@@ -167,37 +170,37 @@ const GlobalNetworkSection = () => {
                   ))}
                   {partner?.focus?.length > 2 && (
                     <span className="inline-block px-2 py-1 bg-muted text-text-secondary text-xs font-cta rounded">
-                      +{partner?.focus?.length - 2} more
+                      +{partner?.focus?.length - 2} {t('globalNetwork.more')}
                     </span>
                   )}
                 </div>
               </div>
 
               {/* Partnership Metrics */}
-              <div className="grid grid-cols-3 gap-4 mb-4 py-3 border-t border-border">
-                <div className="text-center">
-                  <div className="font-cta text-lg font-semibold text-text-primary">{partner?.projects}</div>
-                  <div className="font-body text-xs text-text-secondary">Projects</div>
+                <div className="grid grid-cols-3 gap-4 mb-4 py-3 border-t border-border">
+                  <div className="text-center">
+                    <div className="font-cta text-lg font-semibold text-text-primary">{partner?.projects}</div>
+                    <div className="font-body text-xs text-text-secondary">{t('globalNetwork.labels.projects')}</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-cta text-lg font-semibold text-text-primary">{partner?.publications}</div>
+                    <div className="font-body text-xs text-text-secondary">{t('globalNetwork.labels.publications')}</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="font-cta text-lg font-semibold text-text-primary">{partner?.established}</div>
+                    <div className="font-body text-xs text-text-secondary">{t('globalNetwork.labels.since')}</div>
+                  </div>
                 </div>
-                <div className="text-center">
-                  <div className="font-cta text-lg font-semibold text-text-primary">{partner?.publications}</div>
-                  <div className="font-body text-xs text-text-secondary">Publications</div>
-                </div>
-                <div className="text-center">
-                  <div className="font-cta text-lg font-semibold text-text-primary">{partner?.established}</div>
-                  <div className="font-body text-xs text-text-secondary">Since</div>
-                </div>
-              </div>
 
               {/* Status and Actions */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <div className="w-2 h-2 bg-success rounded-full"></div>
-                  <span className="font-body text-sm text-success">Active Partnership</span>
+                  <span className="font-body text-sm text-success">{t('globalNetwork.labels.activePartnership')}</span>
                 </div>
                 <Button variant="ghost" size="sm">
                   <Icon name="ExternalLink" size={16} className="mr-2" />
-                  View Details
+                  {t('globalNetwork.actions.viewDetails')}
                 </Button>
               </div>
             </div>
@@ -209,10 +212,10 @@ const GlobalNetworkSection = () => {
           <div className="bg-card rounded-lg p-8 ocean-depth-shadow">
             <div className="text-center mb-8">
               <h3 className="font-headline text-2xl font-bold text-text-primary mb-4">
-                Global Partnership Network
+                {t('globalNetwork.map.title')}
               </h3>
               <p className="font-body text-text-secondary">
-                Our collaborations span across continents, creating a truly global network of ocean science excellence.
+                {t('globalNetwork.map.description')}
               </p>
             </div>
             
@@ -220,9 +223,9 @@ const GlobalNetworkSection = () => {
             <div className="relative bg-muted rounded-lg h-96 flex items-center justify-center">
               <div className="text-center">
                 <Icon name="Map" size={64} className="text-text-secondary mb-4 mx-auto" />
-                <p className="font-body text-text-secondary">Interactive Partnership Map</p>
+                <p className="font-body text-text-secondary">{t('globalNetwork.map.interactiveTitle')}</p>
                 <p className="font-body text-sm text-text-secondary mt-2">
-                  Click on markers to explore partnerships by region
+                  {t('globalNetwork.map.interactiveHint')}
                 </p>
               </div>
               
@@ -239,11 +242,11 @@ const GlobalNetworkSection = () => {
         <div className="text-center mt-12">
           <Button variant="default" size="lg" className="mr-4">
             <Icon name="Plus" size={20} className="mr-2" />
-            Explore Partnership Opportunities
+            {t('globalNetwork.actions.exploreOpportunities')}
           </Button>
           <Button variant="outline" size="lg">
             <Icon name="Download" size={20} className="mr-2" />
-            Download Partnership Guide
+            {t('globalNetwork.actions.downloadGuide')}
           </Button>
         </div>
       </div>

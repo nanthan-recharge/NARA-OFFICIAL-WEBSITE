@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../../components/AppIcon';
 import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 
 const TechnologyTransfer = () => {
+  const { t } = useTranslation('partnershipGateway');
   const [activeTab, setActiveTab] = useState('available');
 
   const tabs = [
-    { id: 'available', name: 'Available Technologies', icon: 'Package' },
-    { id: 'success', name: 'Success Stories', icon: 'Trophy' },
-    { id: 'process', name: 'Transfer Process', icon: 'ArrowRight' }
+    { id: 'available', name: t('technologyTransfer.tabs.available'), icon: 'Package' },
+    { id: 'success', name: t('technologyTransfer.tabs.success'), icon: 'Trophy' },
+    { id: 'process', name: t('technologyTransfer.tabs.process'), icon: 'ArrowRight' }
   ];
 
   const availableTechnologies = [
@@ -151,7 +153,7 @@ const TechnologyTransfer = () => {
         "Reduced shipping delays by 25%",
         "Expanded to 15 countries"
       ],
-      testimonial: "The prediction accuracy of NARA\'s system is unmatched. It has become an essential tool for our global shipping operations.",
+      testimonial: "The prediction accuracy of NARA's system is unmatched. It has become an essential tool for our global shipping operations.",
       partnerType: "Multinational Corporation",
       licenseType: "Non-exclusive Global License",
       royaltyGenerated: "$450K annually"
@@ -169,7 +171,7 @@ const TechnologyTransfer = () => {
         "Trained 50+ marine biologists",
         "Attracted $5M in conservation funding"
       ],
-      testimonial: "NARA\'s biotechnology has revolutionized our coral restoration efforts. The results exceed all our expectations.",
+      testimonial: "NARA's biotechnology has revolutionized our coral restoration efforts. The results exceed all our expectations.",
       partnerType: "NGO Partnership",
       licenseType: "Non-profit License",
       royaltyGenerated: "Impact-based returns"
@@ -248,6 +250,15 @@ const TechnologyTransfer = () => {
     }
   };
 
+  const getMaturityLabel = (maturity) => {
+    switch (maturity) {
+      case 'Commercial Ready': return t('technologyTransfer.maturity.commercialReady');
+      case 'Field Tested': return t('technologyTransfer.maturity.fieldTested');
+      case 'Pilot Tested': return t('technologyTransfer.maturity.pilotTested');
+      default: return maturity;
+    }
+  };
+
   return (
     <section className="py-16 bg-muted/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -257,10 +268,10 @@ const TechnologyTransfer = () => {
             <Icon name="ArrowRightLeft" size={32} className="text-secondary" />
           </div>
           <h2 className="font-headline text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Technology Transfer Hub
+            {t('technologyTransfer.title')}
           </h2>
           <p className="font-body text-lg text-text-secondary max-w-3xl mx-auto">
-            Discover how NARA's innovative marine technologies are transforming industries and creating sustainable solutions for ocean challenges worldwide.
+            {t('technologyTransfer.description')}
           </p>
         </div>
 
@@ -295,7 +306,7 @@ const TechnologyTransfer = () => {
                     />
                     <div className="absolute top-4 left-4">
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-cta-medium ${getMaturityColor(tech?.maturity)}`}>
-                        {tech?.maturity}
+                        {getMaturityLabel(tech?.maturity)}
                       </span>
                     </div>
                     <div className="absolute top-4 right-4 bg-card/90 backdrop-blur-sm rounded-full px-3 py-1">
@@ -317,7 +328,7 @@ const TechnologyTransfer = () => {
 
                     {/* Key Features */}
                     <div className="mb-4">
-                      <h4 className="font-cta text-sm font-medium text-text-primary mb-2">Key Features:</h4>
+                      <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('technologyTransfer.labels.keyFeatures')}</h4>
                       <div className="flex flex-wrap gap-2">
                         {tech?.keyFeatures?.slice(0, 3)?.map((feature, index) => (
                           <span key={index} className="inline-block px-2 py-1 bg-primary/10 text-primary text-xs font-cta rounded">
@@ -326,7 +337,7 @@ const TechnologyTransfer = () => {
                         ))}
                         {tech?.keyFeatures?.length > 3 && (
                           <span className="inline-block px-2 py-1 bg-muted text-text-secondary text-xs font-cta rounded">
-                            +{tech?.keyFeatures?.length - 3} more
+                            +{tech?.keyFeatures?.length - 3} {t('technologyTransfer.labels.more')}
                           </span>
                         )}
                       </div>
@@ -335,18 +346,18 @@ const TechnologyTransfer = () => {
                     {/* Market Information */}
                     <div className="grid grid-cols-1 gap-3 mb-4 text-sm">
                       <div>
-                        <span className="font-cta text-text-secondary">Market Potential:</span>
+                        <span className="font-cta text-text-secondary">{t('technologyTransfer.labels.marketPotential')}</span>
                         <p className="font-body text-text-primary">{tech?.marketPotential}</p>
                       </div>
                       <div>
-                        <span className="font-cta text-text-secondary">Patent Status:</span>
+                        <span className="font-cta text-text-secondary">{t('technologyTransfer.labels.patentStatus')}</span>
                         <p className="font-body text-text-primary">{tech?.patentStatus}</p>
                       </div>
                     </div>
 
                     {/* Benefits */}
                     <div className="mb-4">
-                      <h4 className="font-cta text-sm font-medium text-text-primary mb-2">Key Benefits:</h4>
+                      <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('technologyTransfer.labels.keyBenefits')}</h4>
                       <ul className="space-y-1">
                         {tech?.benefits?.slice(0, 2)?.map((benefit, index) => (
                           <li key={index} className="flex items-start space-x-2 text-sm">
@@ -360,17 +371,17 @@ const TechnologyTransfer = () => {
                     {/* Contact and Actions */}
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <div>
-                        <p className="font-cta text-sm text-text-secondary">Contact:</p>
+                        <p className="font-cta text-sm text-text-secondary">{t('technologyTransfer.labels.contact')}</p>
                         <p className="font-body text-sm text-text-primary">{tech?.contactPerson}</p>
                       </div>
                       <div className="flex space-x-2">
                         <Button variant="outline" size="sm">
                           <Icon name="Info" size={16} className="mr-2" />
-                          Details
+                          {t('technologyTransfer.actions.details')}
                         </Button>
                         <Button variant="default" size="sm">
                           <Icon name="Mail" size={16} className="mr-2" />
-                          Inquire
+                          {t('technologyTransfer.actions.inquire')}
                         </Button>
                       </div>
                     </div>
@@ -401,17 +412,17 @@ const TechnologyTransfer = () => {
                           {story?.title}
                         </h3>
                         <p className="font-body text-text-secondary mb-2">
-                          Partner: {story?.partner}
+                          {t('technologyTransfer.labels.partner')}: {story?.partner}
                         </p>
                         <div className="flex items-center space-x-4 text-sm">
-                          <span className="font-cta text-text-secondary">Technology: {story?.technology}</span>
-                          <span className="font-cta text-text-secondary">Year: {story?.year}</span>
+                          <span className="font-cta text-text-secondary">{t('technologyTransfer.labels.technology')}: {story?.technology}</span>
+                          <span className="font-cta text-text-secondary">{t('technologyTransfer.labels.year')}: {story?.year}</span>
                         </div>
                       </div>
                     </div>
 
                     <div className="mb-6">
-                      <h4 className="font-cta text-lg font-medium text-text-primary mb-3">Impact Achieved:</h4>
+                      <h4 className="font-cta text-lg font-medium text-text-primary mb-3">{t('technologyTransfer.labels.impactAchieved')}</h4>
                       <ul className="space-y-2">
                         {story?.impact?.map((item, index) => (
                           <li key={index} className="flex items-start space-x-2">
@@ -425,25 +436,25 @@ const TechnologyTransfer = () => {
                     <div className="bg-muted/50 rounded-lg p-4">
                       <Icon name="Quote" size={20} className="text-primary mb-2" />
                       <p className="font-body text-text-secondary italic">
-                        "{story?.testimonial}"
+                        &ldquo;{story?.testimonial}&rdquo;
                       </p>
                     </div>
                   </div>
 
                   <div className="space-y-4">
                     <div className="bg-primary/5 rounded-lg p-4">
-                      <h4 className="font-cta text-sm font-medium text-text-primary mb-3">Partnership Details</h4>
+                      <h4 className="font-cta text-sm font-medium text-text-primary mb-3">{t('technologyTransfer.labels.partnershipDetails')}</h4>
                       <div className="space-y-2 text-sm">
                         <div>
-                          <span className="font-cta text-text-secondary">Partner Type:</span>
+                          <span className="font-cta text-text-secondary">{t('technologyTransfer.labels.partnerType')}</span>
                           <p className="font-body text-text-primary">{story?.partnerType}</p>
                         </div>
                         <div>
-                          <span className="font-cta text-text-secondary">License Type:</span>
+                          <span className="font-cta text-text-secondary">{t('technologyTransfer.labels.licenseType')}</span>
                           <p className="font-body text-text-primary">{story?.licenseType}</p>
                         </div>
                         <div>
-                          <span className="font-cta text-text-secondary">Annual Royalty:</span>
+                          <span className="font-cta text-text-secondary">{t('technologyTransfer.labels.annualRoyalty')}</span>
                           <p className="font-body text-text-primary">{story?.royaltyGenerated}</p>
                         </div>
                       </div>
@@ -451,7 +462,7 @@ const TechnologyTransfer = () => {
 
                     <Button variant="outline" fullWidth>
                       <Icon name="ExternalLink" size={16} className="mr-2" />
-                      View Case Study
+                      {t('technologyTransfer.actions.viewCaseStudy')}
                     </Button>
                   </div>
                 </div>
@@ -465,10 +476,10 @@ const TechnologyTransfer = () => {
           <div className="space-y-8">
             <div className="text-center mb-12">
               <h3 className="font-headline text-2xl font-bold text-text-primary mb-4">
-                Technology Transfer Process
+                {t('technologyTransfer.process.title')}
               </h3>
               <p className="font-body text-text-secondary max-w-2xl mx-auto">
-                Our structured approach ensures successful technology transfer from research to commercial application.
+                {t('technologyTransfer.process.description')}
               </p>
             </div>
 
@@ -500,7 +511,7 @@ const TechnologyTransfer = () => {
                           </p>
                           
                           <div>
-                            <h4 className="font-cta text-sm font-medium text-text-primary mb-2">Key Activities:</h4>
+                            <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('technologyTransfer.labels.keyActivities')}</h4>
                             <ul className="space-y-1">
                               {step?.activities?.map((activity, actIndex) => (
                                 <li key={actIndex} className="flex items-start space-x-2 text-sm">
@@ -517,7 +528,7 @@ const TechnologyTransfer = () => {
                             <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mb-3">
                               <Icon name="Clock" size={32} className="text-accent" />
                             </div>
-                            <p className="font-cta text-sm font-medium text-text-primary">Duration</p>
+                            <p className="font-cta text-sm font-medium text-text-primary">{t('technologyTransfer.labels.duration')}</p>
                             <p className="font-body text-sm text-text-secondary">{step?.duration}</p>
                           </div>
                         </div>
@@ -531,7 +542,7 @@ const TechnologyTransfer = () => {
             {/* Process Benefits */}
             <div className="bg-card rounded-lg p-8 ocean-depth-shadow mt-12">
               <h3 className="font-headline text-2xl font-bold text-text-primary text-center mb-8">
-                Why Choose NARA for Technology Transfer?
+                {t('technologyTransfer.benefits.title')}
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -540,10 +551,10 @@ const TechnologyTransfer = () => {
                     <Icon name="Award" size={32} className="text-success" />
                   </div>
                   <h4 className="font-cta text-lg font-semibold text-text-primary mb-2">
-                    Proven Track Record
+                    {t('technologyTransfer.benefits.proven.title')}
                   </h4>
                   <p className="font-body text-sm text-text-secondary">
-                    Over 50 successful technology transfers with measurable commercial impact and industry adoption.
+                    {t('technologyTransfer.benefits.proven.description')}
                   </p>
                 </div>
                 
@@ -552,10 +563,10 @@ const TechnologyTransfer = () => {
                     <Icon name="Shield" size={32} className="text-primary" />
                   </div>
                   <h4 className="font-cta text-lg font-semibold text-text-primary mb-2">
-                    IP Protection
+                    {t('technologyTransfer.benefits.ipProtection.title')}
                   </h4>
                   <p className="font-body text-sm text-text-secondary">
-                    Comprehensive intellectual property protection with international patents and trade secret management.
+                    {t('technologyTransfer.benefits.ipProtection.description')}
                   </p>
                 </div>
                 
@@ -564,10 +575,10 @@ const TechnologyTransfer = () => {
                     <Icon name="Users" size={32} className="text-accent" />
                   </div>
                   <h4 className="font-cta text-lg font-semibold text-text-primary mb-2">
-                    Ongoing Support
+                    {t('technologyTransfer.benefits.support.title')}
                   </h4>
                   <p className="font-body text-sm text-text-secondary">
-                    Continuous technical support, training, and partnership development throughout the commercialization journey.
+                    {t('technologyTransfer.benefits.support.description')}
                   </p>
                 </div>
               </div>
@@ -579,23 +590,23 @@ const TechnologyTransfer = () => {
         <div className="text-center mt-16">
           <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-lg p-8">
             <h3 className="font-headline text-2xl font-bold text-text-primary mb-4">
-              Ready to Explore Technology Transfer Opportunities?
+              {t('technologyTransfer.cta.title')}
             </h3>
             <p className="font-body text-text-secondary mb-6 max-w-2xl mx-auto">
-              Connect with our technology transfer team to discuss licensing opportunities, partnership models, and commercialization strategies.
+              {t('technologyTransfer.cta.description')}
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="default" size="lg">
                 <Icon name="Calendar" size={20} className="mr-2" />
-                Schedule Consultation
+                {t('technologyTransfer.cta.actions.schedule')}
               </Button>
               <Button variant="outline" size="lg">
                 <Icon name="Download" size={20} className="mr-2" />
-                Download Technology Portfolio
+                {t('technologyTransfer.cta.actions.downloadPortfolio')}
               </Button>
               <Button variant="ghost" size="lg">
                 <Icon name="Mail" size={20} className="mr-2" />
-                Contact Technology Transfer Office
+                {t('technologyTransfer.cta.actions.contactOffice')}
               </Button>
             </div>
           </div>

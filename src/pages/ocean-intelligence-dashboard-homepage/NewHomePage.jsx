@@ -19,7 +19,8 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import AppImage from "../../components/AppImage";
-// useOceanData removed — LiveOceanDataShowcase handles its own fetching
+
+// Detect mobile for reduced animations (particles disabled on mobile via CSS)
 
 // Lazy load heavy / below-fold components
 const HeroImageCarousel = lazy(
@@ -77,6 +78,7 @@ const NewHomePage = () => {
 
   const missionContent = t("mission", { ns: "home", returnObjects: true });
 
+  // Particles (CSS handles mobile performance via reduced animations)
   const heroParticles = useMemo(
     () =>
       Array.from({ length: 6 }, (_, index) => ({
@@ -135,7 +137,7 @@ const NewHomePage = () => {
         {/* HERO SECTION - Cinematic 16:9 Carousel Theme */}
         <section
           ref={heroRef}
-          className="relative h-screen w-full overflow-hidden flex items-center justify-center"
+          className="relative min-h-[55vh] md:min-h-[70vh] lg:h-screen w-full overflow-hidden flex items-center justify-center"
         >
           {/* Background Carousel & Overlay */}
           <div className="absolute inset-0 z-0">
@@ -169,9 +171,9 @@ const NewHomePage = () => {
 
           {/* Top Center Welcome — Static */}
           <div className="absolute top-0 left-0 right-0 z-20 pointer-events-none">
-            <div className="max-w-7xl mx-auto px-4 pt-11 sm:pt-14 md:pt-16">
-              <div className="mx-auto mt-2 w-fit max-w-full min-h-[4.5rem] sm:min-h-[5.5rem] md:min-h-[6.5rem] rounded-2xl border border-sky-200/60 bg-gradient-to-b from-sky-300/70 to-sky-500/35 px-4 py-2 sm:px-6 sm:py-3 backdrop-blur-[2px] flex items-center justify-center">
-                <p className="m-0 font-space font-bold text-white text-center text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.75)]">
+            <div className="max-w-7xl mx-auto px-2 sm:px-4 pt-16 sm:pt-14 md:pt-16">
+              <div className="mx-auto mt-1 sm:mt-2 w-fit max-w-full min-h-[2.5rem] sm:min-h-[4rem] md:min-h-[5.5rem] rounded-xl sm:rounded-2xl border border-sky-200/60 bg-gradient-to-b from-sky-300/70 to-sky-500/35 px-2 py-1 sm:px-5 sm:py-2 md:px-6 md:py-3 backdrop-blur-[2px] flex items-center justify-center">
+                <p className="m-0 font-space font-bold text-white text-center text-sm sm:text-lg md:text-3xl lg:text-4xl xl:text-5xl leading-snug drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)]">
                   {t("hero.welcomeText", { ns: "home" })}
                 </p>
               </div>
@@ -179,29 +181,29 @@ const NewHomePage = () => {
           </div>
 
           {/* Main Content Overlay - BOTTOM LEFT ALIGNED */}
-          <div className="absolute bottom-10 sm:bottom-14 md:bottom-20 left-0 z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
+          <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 left-0 z-20 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="space-y-3 max-w-3xl text-left"
+              className="space-y-2 max-w-3xl text-left"
             >
-              {/* Main Agency Title - Reduced Size from 7xl to 5xl */}
-              <h1 className="text-xl sm:text-2xl md:text-4xl lg:text-5xl font-bold font-space leading-tight text-white drop-shadow-lg">
+              {/* Main Agency Title - Compact on mobile */}
+              <h1 className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-bold font-space leading-tight text-white drop-shadow-lg break-words">
                 {t("hero.agencyName", { ns: "home" })}
               </h1>
             </motion.div>
           </div>
 
-          {/* Scroll Indicator */}
+          {/* Scroll Indicator - Hidden on mobile for compact view */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce"
+            className="hidden sm:block absolute bottom-8 md:bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce"
           >
-            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
-              <div className="w-1 h-2 bg-white rounded-full animate-scroll" />
+            <div className="w-5 h-8 md:w-6 md:h-10 border-2 border-white/30 rounded-full flex justify-center pt-1.5 md:pt-2">
+              <div className="w-1 h-1.5 md:h-2 bg-white rounded-full animate-scroll" />
             </div>
           </motion.div>
 

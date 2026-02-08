@@ -229,7 +229,7 @@ const MasterAdminPanel = () => {
     try {
       await signOut(auth);
       localStorage.removeItem('adminAuth');
-      navigate('/admin/research-login');
+      navigate('/admin/login');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -523,7 +523,7 @@ const MasterAdminPanel = () => {
                   <QuickActionButton
                     icon={Database}
                     label="Import Data"
-                    onClick={() => navigate('/admin/data-center')}
+                    onClick={() => navigate('/admin/data-center-integration')}
                     color="green"
                   />
                 </div>

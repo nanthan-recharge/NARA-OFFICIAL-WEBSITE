@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import GlobalNetworkSection from './components/GlobalNetworkSection';
 import InnovationShowcase from './components/InnovationShowcase';
 import PartnershipOpportunities from './components/PartnershipOpportunities';
@@ -10,47 +11,55 @@ import StitchWrapper from '../../components/shared/StitchWrapper';
 import SEOHead from '../../components/shared/SEOHead';
 
 const PartnershipInnovationGateway = () => {
-  const heroStats = [
-    { label: "Global Partners", value: "24", icon: "Globe" },
-    { label: "Active Projects", value: "156", icon: "Zap" },
-    { label: "Technologies Licensed", value: "18", icon: "Award" },
-    { label: "Countries Reached", value: "35", icon: "Map" }
-  ];
+  const { t } = useTranslation('partnershipGateway');
 
-  const impactMetrics = [
-    {
-      title: "Research Impact",
-      metrics: [
-        { label: "Joint Publications", value: "342" },
-        { label: "Citation Index", value: "2,847" },
-        { label: "H-Index Growth", value: "+45%" }
-      ]
-    },
-    {
-      title: "Economic Impact",
-      metrics: [
-        { label: "Technology Revenue", value: "$12.5M" },
-        { label: "Jobs Created", value: "1,250" },
-        { label: "Industry Partnerships", value: "89" }
-      ]
-    },
-    {
-      title: "Innovation Pipeline",
-      metrics: [
-        { label: "Patents Filed", value: "28" },
-        { label: "Technologies in Development", value: "15" },
-        { label: "Pilot Projects", value: "42" }
-      ]
-    }
-  ];
+  const heroStats = useMemo(
+    () => [
+      { label: t('hero.stats.globalPartners'), value: '24', icon: 'Globe' },
+      { label: t('hero.stats.activeProjects'), value: '156', icon: 'Zap' },
+      { label: t('hero.stats.technologiesLicensed'), value: '18', icon: 'Award' },
+      { label: t('hero.stats.countriesReached'), value: '35', icon: 'Map' }
+    ],
+    [t]
+  );
+
+  const impactMetrics = useMemo(
+    () => [
+      {
+        title: t('impactMetrics.researchImpact.title'),
+        metrics: [
+          { label: t('impactMetrics.researchImpact.jointPublications'), value: '342' },
+          { label: t('impactMetrics.researchImpact.citationIndex'), value: '2,847' },
+          { label: t('impactMetrics.researchImpact.hIndexGrowth'), value: '+45%' }
+        ]
+      },
+      {
+        title: t('impactMetrics.economicImpact.title'),
+        metrics: [
+          { label: t('impactMetrics.economicImpact.technologyRevenue'), value: '$12.5M' },
+          { label: t('impactMetrics.economicImpact.jobsCreated'), value: '1,250' },
+          { label: t('impactMetrics.economicImpact.industryPartnerships'), value: '89' }
+        ]
+      },
+      {
+        title: t('impactMetrics.innovationPipeline.title'),
+        metrics: [
+          { label: t('impactMetrics.innovationPipeline.patentsFiled'), value: '28' },
+          { label: t('impactMetrics.innovationPipeline.technologiesInDevelopment'), value: '15' },
+          { label: t('impactMetrics.innovationPipeline.pilotProjects'), value: '42' }
+        ]
+      }
+    ],
+    [t]
+  );
 
   return (
     <StitchWrapper>
       <SEOHead
-        title="Partnership & Innovation Gateway"
-        description="Explore partnership opportunities and innovation initiatives with NARA Sri Lanka."
+        title={t('meta.title')}
+        description={t('meta.description')}
         path="/partnership-innovation-gateway"
-        keywords="partnerships, innovation, marine technology, NARA collaboration"
+        keywords={t('meta.keywords')}
       />
       <div className="relative z-10 w-full min-h-screen">
         {/* Hero Section */}
@@ -64,27 +73,26 @@ const PartnershipInnovationGateway = () => {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                   </span>
-                  <span className="text-cyan-300 text-xs font-bold tracking-widest uppercase">Global Innovation Hub</span>
+                  <span className="text-cyan-300 text-xs font-bold tracking-widest uppercase">{t('hero.badge')}</span>
                 </div>
 
                 <h1 className="font-headline text-5xl lg:text-7xl font-bold text-white leading-[1.1]">
-                  Partnership &<br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">Innovation</span> Gateway
+                  {t('hero.titlePrefix')}<br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">{t('hero.titleHighlight')}</span> {t('hero.titleSuffix')}
                 </h1>
 
                 <p className="font-body text-xl text-slate-300 max-w-xl leading-relaxed">
-                  Connecting NARA with the global ocean science community through strategic partnerships,
-                  cutting-edge innovations, and collaborative research initiatives.
+                  {t('hero.description')}
                 </p>
 
                 <div className="flex flex-wrap gap-4 pt-4">
                   <Button variant="default" size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white border-0 shadow-lg shadow-cyan-900/20">
                     <Icon name="Handshake" size={20} className="mr-2" />
-                    Explore Partnerships
+                    {t('hero.cta.explore')}
                   </Button>
                   <Button variant="outline" size="lg" className="border-cyan-500/30 text-cyan-100 hover:bg-cyan-500/10">
                     <Icon name="Rocket" size={20} className="mr-2" />
-                    View Innovations
+                    {t('hero.cta.innovations')}
                   </Button>
                 </div>
               </div>
@@ -98,14 +106,14 @@ const PartnershipInnovationGateway = () => {
                 </div>
 
                 <h3 className="text-lg font-bold text-white/60 group-hover:text-cyan-100 transition-colors mb-2">
-                  Upload Hero Visual
+                  {t('hero.upload.title')}
                 </h3>
                 <p className="text-sm text-slate-400 max-w-xs mx-auto group-hover:text-cyan-200/70 transition-colors">
-                  Drag and drop your high-resolution image here, or click to browse files.
+                  {t('hero.upload.description')}
                 </p>
 
                 <div className="mt-6 px-4 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-wider text-slate-500 group-hover:border-cyan-500/30 group-hover:text-cyan-400/80 transition-all">
-                  Recommended: 1600 x 1200px
+                  {t('hero.upload.recommended')}
                 </div>
               </div>
             </div>
@@ -143,11 +151,10 @@ const PartnershipInnovationGateway = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
               <h2 className="font-headline text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-                Partnership Impact Metrics
+                {t('impactSection.title')}
               </h2>
               <p className="font-body text-lg text-text-secondary max-w-3xl mx-auto">
-                Measuring the real-world impact of our partnerships and innovations on ocean science,
-                economic development, and global marine conservation efforts.
+                {t('impactSection.description')}
               </p>
             </div>
 
@@ -178,25 +185,23 @@ const PartnershipInnovationGateway = () => {
                 <Icon name="Users" size={32} className="text-primary" />
               </div>
               <h2 className="font-headline text-3xl font-bold text-text-primary mb-4">
-                Ready to Partner with NARA?
+                {t('ctaSection.title')}
               </h2>
               <p className="font-body text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
-                Join our global network of partners and contribute to advancing ocean science,
-                marine conservation, and sustainable development. Together, we can create lasting
-                impact for our oceans and communities.
+                {t('ctaSection.description')}
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button variant="default" size="lg">
                   <Icon name="MessageSquare" size={20} className="mr-2" />
-                  Start a Conversation
+                  {t('ctaSection.actions.startConversation')}
                 </Button>
                 <Button variant="outline" size="lg">
                   <Icon name="FileText" size={20} className="mr-2" />
-                  Partnership Proposal
+                  {t('ctaSection.actions.proposal')}
                 </Button>
                 <Button variant="ghost" size="lg">
                   <Icon name="Phone" size={20} className="mr-2" />
-                  Schedule Consultation
+                  {t('ctaSection.actions.schedule')}
                 </Button>
               </div>
             </div>
@@ -213,16 +218,15 @@ const PartnershipInnovationGateway = () => {
                   </div>
                   <div>
                     <div className="font-headline text-lg font-bold text-text-primary">
-                      NARA Digital Ocean
+                      {t('footer.brand.title')}
                     </div>
                     <div className="font-body text-sm text-text-secondary">
-                      Partnership & Innovation Gateway
+                      {t('footer.brand.subtitle')}
                     </div>
                   </div>
                 </div>
                 <p className="font-body text-sm text-text-secondary mb-4 max-w-md">
-                  Facilitating global partnerships and driving innovation in ocean science
-                  for sustainable marine development and conservation.
+                  {t('footer.description')}
                 </p>
                 <div className="flex space-x-4">
                   <Button variant="ghost" size="sm">
@@ -238,28 +242,28 @@ const PartnershipInnovationGateway = () => {
               </div>
 
               <div>
-                <h3 className="font-cta text-sm font-semibold text-text-primary mb-4">Quick Links</h3>
+                <h3 className="font-cta text-sm font-semibold text-text-primary mb-4">{t('footer.quickLinks.title')}</h3>
                 <ul className="space-y-2">
-                  <li><a href="#partnerships" className="font-body text-sm text-text-secondary hover:text-primary">Global Network</a></li>
-                  <li><a href="#innovations" className="font-body text-sm text-text-secondary hover:text-primary">Innovation Showcase</a></li>
-                  <li><a href="#opportunities" className="font-body text-sm text-text-secondary hover:text-primary">Partnership Opportunities</a></li>
-                  <li><a href="#technology" className="font-body text-sm text-text-secondary hover:text-primary">Technology Transfer</a></li>
+                  <li><a href="#partnerships" className="font-body text-sm text-text-secondary hover:text-primary">{t('footer.quickLinks.globalNetwork')}</a></li>
+                  <li><a href="#innovations" className="font-body text-sm text-text-secondary hover:text-primary">{t('footer.quickLinks.innovationShowcase')}</a></li>
+                  <li><a href="#opportunities" className="font-body text-sm text-text-secondary hover:text-primary">{t('footer.quickLinks.partnershipOpportunities')}</a></li>
+                  <li><a href="#technology" className="font-body text-sm text-text-secondary hover:text-primary">{t('footer.quickLinks.technologyTransfer')}</a></li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="font-cta text-sm font-semibold text-text-primary mb-4">Contact</h3>
+                <h3 className="font-cta text-sm font-semibold text-text-primary mb-4">{t('footer.contact.title')}</h3>
                 <div className="space-y-2 text-sm">
-                  <p className="font-body text-text-secondary">Partnership Office</p>
-                  <p className="font-body text-text-secondary">partnerships@nara.ac.lk</p>
-                  <p className="font-body text-text-secondary">+94 11 2 694 138</p>
+                  <p className="font-body text-text-secondary">{t('footer.contact.office')}</p>
+                  <p className="font-body text-text-secondary">{t('footer.contact.email')}</p>
+                  <p className="font-body text-text-secondary">{t('footer.contact.phone')}</p>
                 </div>
               </div>
             </div>
 
             <div className="border-t border-border mt-8 pt-8 text-center">
               <p className="font-body text-sm text-text-secondary">
-                © {new Date()?.getFullYear()} National Aquatic Resources Research and Development Agency. All rights reserved.
+                {t('footer.copyright', { year: new Date()?.getFullYear() })}
               </p>
             </div>
           </div>

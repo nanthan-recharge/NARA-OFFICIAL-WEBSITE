@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "title": "NARA Digital Marketplace",
+    "description": "Purchase NARA publications, maps, laboratory services, and research products online.",
+    "keywords": "marketplace, publications, lab services, NARA products"
+  },
+  "hero": {
+    "title": "NARA Digital Marketplace",
+    "subtitle": "Research data, software tools, online courses and digital resources.",
+    "highlight": "Empowering marine research through digital innovation.",
+    "stats": {
+      "products": "Products",
+      "verified": "Verified",
+      "access": "Access",
+      "secureValue": "Secure",
+      "payment": "Payment"
+    }
+  },
+  "categories": {
+    "all": "All Products",
+    "datasets": "Digital Datasets",
+    "reports": "Research Reports",
+    "software": "Software & Tools",
+    "courses": "Online Courses",
+    "subscriptions": "API & Subscriptions"
+  },
+  "notifications": {
+    "addedToCart": "Added to cart successfully"
+  },
+  "cart": {
+    "button": "Cart ({{count}})"
+  },
+  "results": {
+    "showing": "Showing {{count}} results"
+  },
+  "productActions": {
+    "add": "Add",
+    "details": "Details"
+  },
+  "features": {
+    "title": "Why Choose NARA Marketplace?",
+    "quality": {
+      "title": "Quality Guaranteed",
+      "description": "All products certified and approved by NARA experts"
+    },
+    "sustainable": {
+      "title": "Sustainable",
+      "description": "Environmentally responsible data sourcing"
+    },
+    "support": {
+      "title": "Expert Support",
+      "description": "Direct access to specialists"
+    }
+  },
+  "products": {
+    "bathymetry-dataset": {
+      "name": "Sri Lanka EEZ Bathymetry Dataset",
+      "description": "High-resolution bathymetric data for Sri Lankan waters, GeoTIFF format, 10m resolution",
+      "unit": "one-time purchase",
+      "stock": "Instant Download",
+      "certification": "ISO 19115 Metadata Standard",
+      "badge": "Best Seller"
+    },
+    "ocean-temp-data": {
+      "name": "Historical Ocean Temperature Data",
+      "description": "20-year SST dataset (2005-2025), CSV/NetCDF formats, daily measurements",
+      "unit": "one-time purchase",
+      "stock": "Instant Download",
+      "certification": "Quality Controlled Data"
+    },
+    "marine-biodiversity-report": {
+      "name": "Sri Lankan Marine Biodiversity Report 2025",
+      "description": "Comprehensive 200-page PDF report on marine species, habitats, and conservation status",
+      "unit": "digital PDF",
+      "stock": "Instant Download",
+      "badge": "New"
+    },
+    "fisheries-statistics": {
+      "name": "Annual Fisheries Statistical Yearbook",
+      "description": "Complete fisheries data: catch statistics, vessel registrations, export data (PDF + Excel)",
+      "unit": "digital download",
+      "stock": "Instant Download",
+      "certification": "Government Approved"
+    },
+    "gis-marine-mapping": {
+      "name": "NARA Marine GIS Toolkit",
+      "description": "Desktop GIS software for marine spatial planning, includes 50+ map layers",
+      "unit": "annual license",
+      "stock": "Available",
+      "certification": "Windows & Mac Compatible",
+      "badge": "Premium"
+    },
+    "fish-id-app": {
+      "name": "Fish Species Identification App",
+      "description": "Mobile app with AI-powered fish identification, 500+ Sri Lankan species database",
+      "unit": "lifetime license",
+      "stock": "Instant Download",
+      "badge": "Popular"
+    },
+    "oceanography-course": {
+      "name": "Introduction to Oceanography (Online)",
+      "description": "12-week self-paced course, video lectures, quizzes, certificate upon completion",
+      "unit": "per enrollment",
+      "stock": "Enrollments Open",
+      "certification": "NARA Certificate Included"
+    },
+    "marine-gis-course": {
+      "name": "Marine GIS & Spatial Analysis Course",
+      "description": "8-week hands-on course, live webinars, project-based learning",
+      "unit": "per enrollment",
+      "stock": "Next Batch: Jan 2026",
+      "certification": "Certificate Provided"
+    },
+    "ocean-data-api": {
+      "name": "Real-Time Ocean Data API Access",
+      "description": "RESTful API for SST, salinity, currents, wave height - 10,000 requests/month",
+      "unit": "per month",
+      "stock": "Available",
+      "badge": "New"
+    },
+    "satellite-imagery-sub": {
+      "name": "Satellite Imagery Subscription",
+      "description": "Weekly updated satellite images: ocean color, chlorophyll-a, sea surface height",
+      "unit": "per month",
+      "stock": "Available",
+      "certification": "Sentinel-3 & MODIS Data"
+    },
+    "marine-weather-api": {
+      "name": "Marine Weather Forecast API",
+      "description": "7-day marine forecasts, wave predictions, wind data - 5,000 API calls/month",
+      "unit": "per month",
+      "stock": "Available"
+    },
+    "research-database-access": {
+      "name": "NARA Research Database Premium Access",
+      "description": "Unlimited access to 10,000+ research papers, datasets, and technical reports",
+      "unit": "per year",
+      "stock": "Available",
+      "badge": "Premium"
+    }
+  }
+}

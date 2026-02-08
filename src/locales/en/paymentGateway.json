@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "title": "Payment Gateway Hub",
+    "description": "Secure payment processing for NARA services and products."
+  },
+  "common": {
+    "loading": "Loading..."
+  },
+  "hero": {
+    "title": "Payment Gateway Hub",
+    "subtitle": "Secure Sri Lankan Transaction Portal",
+    "bannerUpload": "Upload Portal Banner",
+    "uploadButton": "Upload",
+    "totalPayable": "Total Payable"
+  },
+  "steps": {
+    "method": "Method",
+    "details": "Details",
+    "confirmation": "Confirmation"
+  },
+  "customerTypes": {
+    "individual": "Individual Researcher",
+    "institutional": "Educational Institution",
+    "government": "Government Agency",
+    "commercial": "Commercial Entity"
+  },
+  "order": {
+    "items": {
+      "1": {
+        "title": "Marine Ecosystem Analysis Report",
+        "type": "Digital Product",
+        "division": "Marine Research"
+      },
+      "2": {
+        "title": "Oceanographic Dataset 2024",
+        "type": "Digital Dataset",
+        "division": "Oceanography"
+      }
+    }
+  },
+  "methods": {
+    "govpay": {
+      "name": "GovPay",
+      "description": "Official government payment platform for secure institutional transactions",
+      "processingTime": "Instant",
+      "fees": "Free for government agencies",
+      "supportedFeatures": ["Instant Settlement", "Tax Integration", "Audit Trail", "Bulk Payments"]
+    },
+    "lankapay": {
+      "name": "LankaPay",
+      "description": "National payment network connecting all major Sri Lankan banks",
+      "processingTime": "2-5 minutes",
+      "fees": "LKR 25 + 0.5%",
+      "supportedFeatures": ["Real-time Transfer", "Mobile Banking", "ATM Network", "Multi-bank Support"]
+    },
+    "sampath-bank": {
+      "name": "Sampath Bank",
+      "description": "Direct integration with Sampath Bank online banking platform",
+      "processingTime": "1-3 minutes",
+      "fees": "LKR 30 per transaction",
+      "supportedFeatures": ["Online Banking", "Mobile App", "SMS Alerts", "Transaction History"]
+    },
+    "commercial-bank": {
+      "name": "Commercial Bank",
+      "description": "Secure payment gateway through Commercial Bank of Ceylon",
+      "processingTime": "1-3 minutes",
+      "fees": "LKR 35 per transaction",
+      "supportedFeatures": ["Internet Banking", "CardNet", "ComBank Mobile", "Auto Debit"]
+    },
+    "hnb": {
+      "name": "Hatton National Bank",
+      "description": "HNB PayGate for secure online transactions",
+      "processingTime": "1-3 minutes",
+      "fees": "LKR 28 per transaction",
+      "supportedFeatures": ["HNB Mobile", "Internet Banking", "SMS Banking", "Card Payments"]
+    },
+    "dfcc": {
+      "name": "DFCC Bank",
+      "description": "DFCC online payment gateway with enhanced security features",
+      "processingTime": "1-3 minutes",
+      "fees": "LKR 32 per transaction",
+      "supportedFeatures": ["Online Banking", "Mobile Banking", "Card Payments", "Standing Orders"]
+    },
+    "ezcash": {
+      "name": "eZ Cash",
+      "description": "Leading mobile wallet service in Sri Lanka",
+      "processingTime": "Instant",
+      "fees": "LKR 15 + 1%",
+      "supportedFeatures": ["QR Payments", "Mobile Top-up", "Bill Payments", "P2P Transfers"]
+    },
+    "mcash": {
+      "name": "mCash",
+      "description": "Dialog mCash mobile payment platform",
+      "processingTime": "Instant",
+      "fees": "LKR 12 + 0.75%",
+      "supportedFeatures": ["QR Code", "NFC Payments", "Merchant Payments", "Utility Bills"]
+    }
+  },
+  "methodStep": {
+    "title": "Choose Payment Method",
+    "description": "Select your preferred Sri Lankan payment gateway for secure transaction processing",
+    "customerTypeTitle": "Customer Type",
+    "customerTypeHint": "Different pricing and features available based on customer type",
+    "continue": "Continue to Payment"
+  },
+  "detailsStep": {
+    "title": "Payment Details",
+    "descriptionPrefix": "Complete your payment using",
+    "processingTime": "Processing Time",
+    "fee": "Fee",
+    "form": {
+      "email": "Email Address",
+      "emailPlaceholder": "your.email@example.com",
+      "mobile": "Mobile Number",
+      "mobilePlaceholder": "+94 77 123 4567",
+      "organization": "Organization Name",
+      "organizationPlaceholder": "University of Colombo",
+      "taxId": "Tax ID / VAT Number",
+      "taxIdPlaceholder": "134-556-789"
+    },
+    "terms": {
+      "prefix": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "and": "and",
+      "privacyPolicy": "Privacy Policy",
+      "suffix": ". I understand that digital products are non-refundable after download."
+    },
+    "back": "Back",
+    "processing": "Processing Payment...",
+    "payNow": "Pay {{currency}} {{amount}}"
+  },
+  "confirmationStep": {
+    "title": "Payment Successful!",
+    "subtitle": "Your order has been confirmed and is being processed",
+    "transactionDetails": "Transaction Details",
+    "orderNumber": "Order Number",
+    "paymentMethod": "Payment Method",
+    "amountPaid": "Amount Paid",
+    "transactionDate": "Transaction Date",
+    "downloadReceipt": "Download Receipt",
+    "backToMarketplace": "Back to Marketplace",
+    "deliveryNote": "Digital products will be available in your account within 5 minutes. Check your email for download instructions."
+  },
+  "methodCard": {
+    "type": {
+      "government": "Government Payment",
+      "bank": "Bank Payment",
+      "mobile": "Mobile Payment",
+      "card": "Card Payment"
+    },
+    "processingTime": "Processing Time",
+    "transactionFee": "Transaction Fee",
+    "limits": "Limits",
+    "more": "more",
+    "selected": "Selected",
+    "unavailable": "Unavailable",
+    "selectPayment": "Select Payment",
+    "securedBySsl": "Secured by SSL encryption"
+  },
+  "orderSummary": {
+    "title": "Order Summary",
+    "orderNumber": "Order #{{orderNumber}}",
+    "edit": "Edit",
+    "customerType": "Customer Type",
+    "items": "Items ({{count}})",
+    "quantity": "Qty: {{quantity}}",
+    "lineTotal": "Total: {{amount}}",
+    "subtotal": "Subtotal",
+    "processingFee": "Processing Fee",
+    "processingFeeInfo": "Standard processing fee for digital transactions",
+    "vat": "VAT (15%)",
+    "discount": "Discount",
+    "total": "Total",
+    "securePaymentGuarantee": "Secure Payment Guarantee",
+    "securePaymentText": "Your payment is protected by government-grade encryption and Sri Lankan banking security standards. Full refund available within 30 days for digital products.",
+    "deliveryNotice": "Digital products will be available immediately after payment confirmation",
+    "notices": {
+      "government": {
+        "title": "Government Discount Applied",
+        "description": "Special pricing for government agencies includes expedited processing and priority support."
+      },
+      "institutional": {
+        "title": "Educational Institution Benefits",
+        "description": "Includes multi-user licensing and educational resource access."
+      }
+    }
+  },
+  "security": {
+    "sectionTitle": "Security Features",
+    "certificationsTitle": "Certifications",
+    "supportHelp": "Need help? Our payment support team is available 24/7",
+    "features": {
+      "ssl": { "title": "SSL Encrypted", "description": "256-bit encryption" },
+      "pci": { "title": "PCI Compliant", "description": "Industry standard" },
+      "cbsl": { "title": "CBSL Approved", "description": "Central Bank certified" },
+      "twoFactor": { "title": "2FA Security", "description": "Two-factor authentication" }
+    },
+    "certifications": {
+      "cbsl": "Central Bank of Sri Lanka",
+      "pci": "Payment Card Industry",
+      "iso": "ISO 27001"
+    },
+    "guarantee": {
+      "title": "100% Secure Payment Guarantee",
+      "items": {
+        "bankGrade": "Bank-grade security protocols",
+        "fraud": "Fraud detection and prevention",
+        "monitoring": "24/7 transaction monitoring",
+        "refund": "Full refund protection policy"
+      }
+    },
+    "compliance": {
+      "licensed": "Licensed Payment Service Provider under the Payment and Settlement Systems Act",
+      "regulated": "Regulated by the Central Bank of Sri Lanka"
+    }
+  }
+}

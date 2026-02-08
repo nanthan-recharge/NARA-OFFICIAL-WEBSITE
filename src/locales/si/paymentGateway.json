@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "title": "ගෙවීම් ද්වාර මධ්‍යස්ථානය",
+    "description": "NARA සේවාවන් සහ නිෂ්පාදන සඳහා ආරක්ෂිත ගෙවීම් සැකසුම."
+  },
+  "common": {
+    "loading": "පූරණය වෙමින්..."
+  },
+  "hero": {
+    "title": "ගෙවීම් ද්වාර මධ්‍යස්ථානය",
+    "subtitle": "ශ්‍රී ලංකාවට ආරක්ෂිත ගනුදෙනු ද්වාරය",
+    "bannerUpload": "ද්වාර බැනරය උඩුගත කරන්න",
+    "uploadButton": "උඩුගත කරන්න",
+    "totalPayable": "ගෙවිය යුතු මුළු මුදල"
+  },
+  "steps": {
+    "method": "ක්‍රමය",
+    "details": "විස්තර",
+    "confirmation": "තහවුරු කිරීම"
+  },
+  "customerTypes": {
+    "individual": "තනි පර්යේෂක",
+    "institutional": "අධ්‍යාපන ආයතනය",
+    "government": "රජයේ ආයතනය",
+    "commercial": "වාණිජ ආයතනය"
+  },
+  "order": {
+    "items": {
+      "1": {
+        "title": "සමුද්‍රීය පරිසර පද්ධති විශ්ලේෂණ වාර්තාව",
+        "type": "ඩිජිටල් නිෂ්පාදනය",
+        "division": "සමුද්‍රීය පර්යේෂණ"
+      },
+      "2": {
+        "title": "සාගර විද්‍යා දත්ත සමුදාය 2024",
+        "type": "ඩිජිටල් දත්ත සමුදාය",
+        "division": "සාගර විද්‍යාව"
+      }
+    }
+  },
+  "methods": {
+    "govpay": {
+      "name": "GovPay",
+      "description": "රජයේ ආයතන ගනුදෙනු සඳහා නිල ආරක්ෂිත ගෙවීම් වේදිකාව",
+      "processingTime": "ක්ෂණික",
+      "fees": "රජයේ ආයතන සඳහා නොමිලේ",
+      "supportedFeatures": ["ක්ෂණික පියවීම", "බදු ඒකාබද්ධ කිරීම", "Audit Trail", "Bulk ගෙවීම්"]
+    },
+    "lankapay": {
+      "name": "LankaPay",
+      "description": "ශ්‍රී ලංකාවේ ප්‍රධාන බැංකු සම්බන්ධ කරන ජාතික ගෙවීම් ජාලය",
+      "processingTime": "මිනිත්තු 2-5",
+      "fees": "LKR 25 + 0.5%",
+      "supportedFeatures": ["සජීවී මාරු කිරීම", "ජංගම බැංකු සේවා", "ATM ජාලය", "බහු බැංකු සහාය"]
+    },
+    "sampath-bank": {
+      "name": "Sampath Bank",
+      "description": "Sampath Bank මාර්ගගත බැංකුකරණ වේදිකාව සමඟ සෘජු ඒකාබද්ධ කිරීම",
+      "processingTime": "මිනිත්තු 1-3",
+      "fees": "ගනුදෙනුවකට LKR 30",
+      "supportedFeatures": ["මාර්ගගත බැංකුකරණය", "ජංගම යෙදුම", "SMS ඇඟවීම්", "ගනුදෙනු ඉතිහාසය"]
+    },
+    "commercial-bank": {
+      "name": "Commercial Bank",
+      "description": "Commercial Bank of Ceylon හරහා ආරක්ෂිත ගෙවීම් ද්වාරය",
+      "processingTime": "මිනිත්තු 1-3",
+      "fees": "ගනුදෙනුවකට LKR 35",
+      "supportedFeatures": ["Internet Banking", "CardNet", "ComBank Mobile", "Auto Debit"]
+    },
+    "hnb": {
+      "name": "Hatton National Bank",
+      "description": "HNB PayGate මගින් ආරක්ෂිත මාර්ගගත ගනුදෙනු",
+      "processingTime": "මිනිත්තු 1-3",
+      "fees": "ගනුදෙනුවකට LKR 28",
+      "supportedFeatures": ["HNB Mobile", "Internet Banking", "SMS Banking", "Card Payments"]
+    },
+    "dfcc": {
+      "name": "DFCC Bank",
+      "description": "උසස් ආරක්ෂක විශේෂාංග සහිත DFCC මාර්ගගත ගෙවීම් ද්වාරය",
+      "processingTime": "මිනිත්තු 1-3",
+      "fees": "ගනුදෙනුවකට LKR 32",
+      "supportedFeatures": ["මාර්ගගත බැංකුකරණය", "ජංගම බැංකුකරණය", "කාඩ්පත් ගෙවීම්", "Standing Orders"]
+    },
+    "ezcash": {
+      "name": "eZ Cash",
+      "description": "ශ්‍රී ලංකාවේ ප්‍රමුඛ ජංගම මුදල් පසුම්බි සේවාව",
+      "processingTime": "ක්ෂණික",
+      "fees": "LKR 15 + 1%",
+      "supportedFeatures": ["QR ගෙවීම්", "ජංගම Top-up", "බිල් ගෙවීම්", "P2P මාරු"]
+    },
+    "mcash": {
+      "name": "mCash",
+      "description": "Dialog mCash ජංගම ගෙවීම් වේදිකාව",
+      "processingTime": "ක්ෂණික",
+      "fees": "LKR 12 + 0.75%",
+      "supportedFeatures": ["QR කේත", "NFC ගෙවීම්", "වෙළඳ ගෙවීම්", "Utility බිල්"]
+    }
+  },
+  "methodStep": {
+    "title": "ගෙවීම් ක්‍රමය තෝරන්න",
+    "description": "ආරක්ෂිත ගනුදෙනු සඳහා ඔබගේ ප්‍රියතම ශ්‍රී ලංකා ගෙවීම් ද්වාරය තෝරන්න",
+    "customerTypeTitle": "පාරිභෝගික වර්ගය",
+    "customerTypeHint": "පාරිභෝගික වර්ගය අනුව මිල සහ විශේෂාංග වෙනස් විය හැක",
+    "continue": "ගෙවීම වෙත ඉදිරියට"
+  },
+  "detailsStep": {
+    "title": "ගෙවීම් විස්තර",
+    "descriptionPrefix": "පහත ක්‍රමය භාවිතා කර ගෙවීම සම්පූර්ණ කරන්න",
+    "processingTime": "සැකසුම් කාලය",
+    "fee": "ගාස්තුව",
+    "form": {
+      "email": "විද්‍යුත් තැපැල් ලිපිනය",
+      "emailPlaceholder": "your.email@example.com",
+      "mobile": "ජංගම දුරකථන අංකය",
+      "mobilePlaceholder": "+94 77 123 4567",
+      "organization": "ආයතනයේ නම",
+      "organizationPlaceholder": "University of Colombo",
+      "taxId": "බදු හැඳුනුම්පත / VAT අංකය",
+      "taxIdPlaceholder": "134-556-789"
+    },
+    "terms": {
+      "prefix": "මම",
+      "termsOfService": "සේවා නියමයන්",
+      "and": "සහ",
+      "privacyPolicy": "රහස්‍යතා ප්‍රතිපත්තිය",
+      "suffix": "ට එකඟ වෙමි. බාගත කිරීමෙන් පසු ඩිජිටල් නිෂ්පාදන ආපසු නොගන්නා බව මට අවබෝධයි."
+    },
+    "back": "ආපසු",
+    "processing": "ගෙවීම සැකසෙමින්...",
+    "payNow": "{{currency}} {{amount}} ගෙවන්න"
+  },
+  "confirmationStep": {
+    "title": "ගෙවීම සාර්ථකයි!",
+    "subtitle": "ඔබගේ ඇණවුම තහවුරු කර ඇති අතර දැන් සැකසෙමින් පවතී",
+    "transactionDetails": "ගනුදෙනු විස්තර",
+    "orderNumber": "ඇණවුම් අංකය",
+    "paymentMethod": "ගෙවීම් ක්‍රමය",
+    "amountPaid": "ගෙවූ මුදල",
+    "transactionDate": "ගනුදෙනු දිනය",
+    "downloadReceipt": "රිසිට්පත බාගත කරන්න",
+    "backToMarketplace": "වෙළඳපොළ වෙත ආපසු",
+    "deliveryNote": "මිනිත්තු 5ක් ඇතුළත ඩිජිටල් නිෂ්පාදන ඔබගේ ගිණුමේ ලබා ගත හැක. බාගත කිරීමේ උපදෙස් සඳහා ඊමේල් පරීක්ෂා කරන්න."
+  },
+  "methodCard": {
+    "type": {
+      "government": "රජයේ ගෙවීම",
+      "bank": "බැංකු ගෙවීම",
+      "mobile": "ජංගම ගෙවීම",
+      "card": "කාඩ් ගෙවීම"
+    },
+    "processingTime": "සැකසුම් කාලය",
+    "transactionFee": "ගනුදෙනු ගාස්තුව",
+    "limits": "සීමාවන්",
+    "more": "තවත්",
+    "selected": "තෝරාගෙන ඇත",
+    "unavailable": "ලබාගත නොහැක",
+    "selectPayment": "ගෙවීම තෝරන්න",
+    "securedBySsl": "SSL සංකේතාංකනය මඟින් ආරක්ෂිතයි"
+  },
+  "orderSummary": {
+    "title": "ඇණවුම් සාරාංශය",
+    "orderNumber": "ඇණවුම #{{orderNumber}}",
+    "edit": "සංස්කරණය",
+    "customerType": "පාරිභෝගික වර්ගය",
+    "items": "භාණ්ඩ ({{count}})",
+    "quantity": "ප්‍රමාණය: {{quantity}}",
+    "lineTotal": "එකතුව: {{amount}}",
+    "subtotal": "උප එකතුව",
+    "processingFee": "සැකසුම් ගාස්තුව",
+    "processingFeeInfo": "ඩිජිටල් ගනුදෙනු සඳහා සම්මත සැකසුම් ගාස්තුව",
+    "vat": "VAT (15%)",
+    "discount": "වට්ටම",
+    "total": "මුළු එකතුව",
+    "securePaymentGuarantee": "ආරක්ෂිත ගෙවීම් සහතිකය",
+    "securePaymentText": "ඔබගේ ගෙවීම රජයේ මට්ටමේ සංකේතාංකනය සහ ශ්‍රී ලංකා බැංකු ආරක්ෂක ප්‍රමිතීන් මඟින් ආරක්ෂා කර ඇත. ඩිජිටල් නිෂ්පාදන සඳහා දින 30ක් ඇතුළත සම්පූර්ණ ආපසු ගෙවීමක් ඇත.",
+    "deliveryNotice": "ගෙවීම් තහවුරු කිරීමෙන් පසු ඩිජිටල් නිෂ්පාදන වහාම ලබාගත හැක",
+    "notices": {
+      "government": {
+        "title": "රජයේ වට්ටම යොදන ලදි",
+        "description": "රජයේ ආයතන සඳහා විශේෂ මිල සමඟ වේගවත් සැකසුම සහ ප්‍රමුඛ සහාය ඇතුළත්ය."
+      },
+      "institutional": {
+        "title": "අධ්‍යාපන ආයතන ප්‍රතිලාභ",
+        "description": "බහු-පරිශීලක බලපත්‍ර සහ අධ්‍යාපනික සම්පත් ප්‍රවේශය ඇතුළත්ය."
+      }
+    }
+  },
+  "security": {
+    "sectionTitle": "ආරක්ෂක විශේෂාංග",
+    "certificationsTitle": "සහතික",
+    "supportHelp": "උදව් අවශ්‍යද? අපගේ ගෙවීම් සහාය කණ්ඩායම 24/7 සූදානමින්",
+    "features": {
+      "ssl": { "title": "SSL සංකේතාංකනය", "description": "256-bit සංකේතාංකනය" },
+      "pci": { "title": "PCI අනුකූල", "description": "කර්මාන්ත ප්‍රමිතිය" },
+      "cbsl": { "title": "CBSL අනුමත", "description": "මහ බැංකුව සහතික කළ" },
+      "twoFactor": { "title": "2FA ආරක්ෂාව", "description": "දෙකේ සාධක සත්‍යාපනය" }
+    },
+    "certifications": {
+      "cbsl": "ශ්‍රී ලංකා මහ බැංකුව",
+      "pci": "Payment Card Industry",
+      "iso": "ISO 27001"
+    },
+    "guarantee": {
+      "title": "100% ආරක්ෂිත ගෙවීම් සහතිකය",
+      "items": {
+        "bankGrade": "බැංකු මට්ටමේ ආරක්ෂක ප්‍රොටෝකෝල",
+        "fraud": "වංචා හඳුනාගැනීම සහ වැළැක්වීම",
+        "monitoring": "24/7 ගනුදෙනු නිරීක්ෂණය",
+        "refund": "සම්පූර්ණ ආපසු ගෙවීම් ආරක්ෂණ ප්‍රතිපත්තිය"
+      }
+    },
+    "compliance": {
+      "licensed": "Payment and Settlement Systems පනත යටතේ බලපත්‍ර ලත් ගෙවීම් සේවා සපයන්නා",
+      "regulated": "ශ්‍රී ලංකා මහ බැංකුව මඟින් නියාමනය කරයි"
+    }
+  }
+}

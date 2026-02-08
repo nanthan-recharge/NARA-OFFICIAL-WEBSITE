@@ -365,12 +365,6 @@ const BookCoverPlaceholder = ({ materialType, size = "md" }) => {
     <div
       className={`${sizeClasses[size]} bg-gradient-to-br ${gradient} rounded-lg flex flex-col items-center justify-center text-white/80 p-2`}
     >
-      <SEOHead
-        title="Library Catalogue"
-        description="Browse the NARA library catalogue of marine science publications and references."
-        path="/library-catalogue"
-        keywords="library catalogue, marine publications, NARA library"
-      />
       <IconComp
         className={size === "sm" ? "w-6 h-6" : "w-10 h-10"}
         strokeWidth={1.5}
@@ -932,11 +926,10 @@ const LibraryCatalogue = () => {
                   setShowCategories(true);
                   setSearchQuery("");
                 }}
-                className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-sm ${
-                  libraryType === "physical"
+                className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-sm ${libraryType === "physical"
                     ? "bg-white text-[#003366] shadow-lg"
                     : "text-white/80 hover:bg-white/10 hover:text-white"
-                }`}
+                  }`}
               >
                 <Building className="w-4 h-4" />
                 {t("catalogue.libraryType.physical")}
@@ -950,11 +943,10 @@ const LibraryCatalogue = () => {
                   setShowCategories(true);
                   setSearchQuery("");
                 }}
-                className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-sm ${
-                  libraryType === "digital"
+                className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-200 flex items-center gap-2 text-sm ${libraryType === "digital"
                     ? "bg-white text-[#003366] shadow-lg"
                     : "text-white/80 hover:bg-white/10 hover:text-white"
-                }`}
+                  }`}
               >
                 <Globe className="w-4 h-4" />
                 {t("catalogue.libraryType.digital")}
@@ -1983,11 +1975,10 @@ const LibraryCatalogue = () => {
                                   pageNum,
                                 );
                             }}
-                            className={`w-9 h-9 rounded-lg text-sm font-medium transition ${
-                              pageNum === pagination.page
+                            className={`w-9 h-9 rounded-lg text-sm font-medium transition ${pageNum === pagination.page
                                 ? "bg-[#003366] text-white"
                                 : "text-gray-600 hover:bg-gray-100"
-                            }`}
+                              }`}
                           >
                             {pageNum}
                           </button>

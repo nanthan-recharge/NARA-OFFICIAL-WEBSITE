@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 import Routes from "./Routes";
-import {
-  InstallPrompt,
-  UpdateBanner,
-  OfflineIndicator,
-  IOSInstallInstructions
-} from './components/pwa/PWAComponents';
-import { SkipLink } from './components/compliance/SkipLink';
-import CookieConsent from './components/compliance/CookieConsent';
-import AccessibilityToolbar from './components/compliance/AccessibilityToolbar';
 import './styles/variables.css';
 import './styles/theme-global.css';
 import './styles/academy-themes.css';
+
+// Lazy-load non-critical components — these don't need to block initial render
+const InstallPrompt = lazy(() => import('./components/pwa/PWAComponents').then(m => ({ default: m.InstallPrompt })));
+const UpdateBanner = lazy(() => import('./components/pwa/PWAComponents').then(m => ({ default: m.UpdateBanner })));
+const OfflineIndicator = lazy(() => import('./components/pwa/PWAComponents').then(m => ({ default: m.OfflineIndicator })));
+const CookieConsent = lazy(() => import('./components/compliance/CookieConsent'));
+const AccessibilityToolbar = lazy(() => import('./components/compliance/AccessibilityToolbar'));
 
 function App() {
   // Use local state instead of zustand to avoid React 19 compatibility issues
@@ -22,19 +20,17 @@ function App() {
       document.documentElement.setAttribute('data-theme', theme);
     }
   }, [theme]);
-  
+
   return (
     <>
-      <SkipLink />
-      <InstallPrompt />
-      <UpdateBanner />
-      <OfflineIndicator />
-      <IOSInstallInstructions />
-      <main id="main-content" role="main">
-        <Routes />
-      </main>
-      <CookieConsent />
-      <AccessibilityToolbar />
+      <Routes />
+      <Suspense fallback={null}>
+        <InstallPrompt />
+        <UpdateBanner />
+        <OfflineIndicator />
+        <CookieConsent />
+        <AccessibilityToolbar />
+      </Suspense>
     </>
   );
 }

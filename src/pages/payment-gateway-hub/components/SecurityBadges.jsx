@@ -1,48 +1,50 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../../components/AppIcon';
 import { cn } from '../../../utils/cn';
 
 const SecurityBadges = ({ className }) => {
+  const { t } = useTranslation('paymentGateway');
   const securityFeatures = [
     {
       icon: 'Shield',
-      title: 'SSL Encrypted',
-      description: '256-bit encryption',
+      title: t('security.features.ssl.title'),
+      description: t('security.features.ssl.description'),
       color: 'text-green-600'
     },
     {
       icon: 'Lock',
-      title: 'PCI Compliant',
-      description: 'Industry standard',
+      title: t('security.features.pci.title'),
+      description: t('security.features.pci.description'),
       color: 'text-blue-600'
     },
     {
       icon: 'CheckCircle',
-      title: 'CBSL Approved',
-      description: 'Central Bank certified',
+      title: t('security.features.cbsl.title'),
+      description: t('security.features.cbsl.description'),
       color: 'text-purple-600'
     },
     {
       icon: 'Zap',
-      title: '2FA Security',
-      description: 'Two-factor authentication',
+      title: t('security.features.twoFactor.title'),
+      description: t('security.features.twoFactor.description'),
       color: 'text-orange-600'
     }
   ];
 
   const certifications = [
     {
-      name: 'Central Bank of Sri Lanka',
+      name: t('security.certifications.cbsl'),
       logo: null,
       certified: true
     },
     {
-      name: 'Payment Card Industry',
+      name: t('security.certifications.pci'),
       logo: null,
       certified: true
     },
     {
-      name: 'ISO 27001',
+      name: t('security.certifications.iso'),
       logo: null,
       certified: true
     }
@@ -54,7 +56,7 @@ const SecurityBadges = ({ className }) => {
       <div>
         <h3 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
           <Icon name="Shield" size={16} className="text-blue-600" />
-          Security Features
+          {t('security.sectionTitle')}
         </h3>
         
         <div className="grid grid-cols-2 gap-4">
@@ -77,7 +79,7 @@ const SecurityBadges = ({ className }) => {
       <div>
         <h3 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
           <Icon name="Award" size={16} className="text-blue-600" />
-          Certifications
+          {t('security.certificationsTitle')}
         </h3>
         
         <div className="space-y-2">
@@ -107,24 +109,24 @@ const SecurityBadges = ({ className }) => {
           <Icon name="ShieldCheck" size={20} className="text-blue-600 flex-shrink-0" />
           <div className="text-sm">
             <div className="font-semibold text-gray-900 mb-2">
-              100% Secure Payment Guarantee
+              {t('security.guarantee.title')}
             </div>
             <ul className="space-y-1 text-gray-700">
               <li className="flex items-center gap-2">
                 <Icon name="Check" size={12} className="text-green-600" />
-                Bank-grade security protocols
+                {t('security.guarantee.items.bankGrade')}
               </li>
               <li className="flex items-center gap-2">
                 <Icon name="Check" size={12} className="text-green-600" />
-                Fraud detection and prevention
+                {t('security.guarantee.items.fraud')}
               </li>
               <li className="flex items-center gap-2">
                 <Icon name="Check" size={12} className="text-green-600" />
-                24/7 transaction monitoring
+                {t('security.guarantee.items.monitoring')}
               </li>
               <li className="flex items-center gap-2">
                 <Icon name="Check" size={12} className="text-green-600" />
-                Full refund protection policy
+                {t('security.guarantee.items.refund')}
               </li>
             </ul>
           </div>
@@ -133,7 +135,7 @@ const SecurityBadges = ({ className }) => {
       {/* Support Information */}
       <div className="text-center space-y-2">
         <div className="text-xs text-gray-500">
-          Need help? Our payment support team is available 24/7
+          {t('security.supportHelp')}
         </div>
         
         <div className="flex items-center justify-center gap-4 text-xs">
@@ -157,10 +159,10 @@ const SecurityBadges = ({ className }) => {
       {/* Compliance Footer */}
       <div className="text-center pt-4 border-t border-gray-200">
         <div className="text-xs text-gray-500">
-          Licensed Payment Service Provider under the Payment and Settlement Systems Act
+          {t('security.compliance.licensed')}
         </div>
         <div className="text-xs text-gray-400 mt-1">
-          Regulated by the Central Bank of Sri Lanka
+          {t('security.compliance.regulated')}
         </div>
       </div>
     </div>

@@ -3,6 +3,11 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const LATEST_CACHE_KEY = 'nara-library-latest-8';
+const LATEST_CACHE_TTL = 30 * 60 * 1000; // 30 minutes
+const LATEST_ITEMS_URL = '/library_latest.json';
+const FULL_CATALOGUE_URL = '/library_catalogue.json';
+
 // ─── Author Parser ───────────────────────────────────────────────────────────
 const parseAuthor = (author) => {
   if (!author) return '';
@@ -44,6 +49,27 @@ const BADGE_CONFIG = {
 
 const getBadge = (code) => BADGE_CONFIG[code] || { label: 'Document', color: 'bg-gray-50 text-gray-600 border-gray-200', gradient: 'from-gray-400 to-gray-600' };
 
+const getPublicationDateValue = (item) => {
+  const acquisitionValue = Date.parse(item?.acquisition_date || '');
+  if (!Number.isNaN(acquisitionValue)) return acquisitionValue;
+  return Number(item?.publication_year) || 0;
+};
+
+const toLatestCards = (collection) =>
+  (Array.isArray(collection) ? collection : [])
+    .filter((item) => item && item.id && item.title)
+    .sort((a, b) => getPublicationDateValue(b) - getPublicationDateValue(a))
+    .slice(0, 8)
+    .map((item) => ({
+      id: item.id,
+      title: item.title,
+      author: item.author || '',
+      language: item.language || '',
+      publication_year: item.publication_year || null,
+      material_type_code: item.material_type_code || '',
+      acquisition_date: item.acquisition_date || null
+    }));
+
 // ─── Skeleton Loader ─────────────────────────────────────────────────────────
 const CardSkeleton = () => (
   <div className="rounded-lg border border-slate-200 bg-white overflow-hidden animate-pulse">
@@ -78,39 +104,46 @@ const LatestFromLibrary = () => {
       try {
         setLoading(true);
 
-        // Check sessionStorage cache first (10-min TTL)
-        const cached = sessionStorage.getItem('nara-library-latest-8');
+        // Check sessionStorage cache first
+        const cached = sessionStorage.getItem(LATEST_CACHE_KEY);
         if (cached) {
           const parsed = JSON.parse(cached);
-          if (parsed.timestamp && Date.now() - parsed.timestamp < 10 * 60 * 1000) {
+          if (parsed.timestamp && Date.now() - parsed.timestamp < LATEST_CACHE_TTL) {
             setItems(parsed.items);
             setLoading(false);
             return;
           }
         }
 
-        const response = await fetch('/library_catalogue.json');
-        if (!response.ok) throw new Error('Failed to fetch catalogue');
-        const catalogue = await response.json();
+        const endpoints = [LATEST_ITEMS_URL, FULL_CATALOGUE_URL];
+        let latestItems = [];
 
-        const sorted = catalogue
-          .filter(item => item.acquisition_date && item.title)
-          .sort((a, b) => {
-            const dateA = new Date(a.acquisition_date);
-            const dateB = new Date(b.acquisition_date);
-            if (dateB - dateA !== 0) return dateB - dateA;
-            return (b.publication_year || 0) - (a.publication_year || 0);
-          })
-          .slice(0, 8);
+        for (const endpoint of endpoints) {
+          try {
+            const response = await fetch(endpoint, { cache: 'force-cache' });
+            if (!response.ok) continue;
+            const payload = await response.json();
+            latestItems = toLatestCards(payload);
+            if (latestItems.length) break;
+          } catch {
+            // try the next endpoint
+          }
+        }
 
-        setItems(sorted);
+        if (!latestItems.length) {
+          throw new Error('No latest library data available');
+        }
 
-        // Cache the 8 items to avoid re-fetching 1.8MB JSON
+        setItems(latestItems);
+
         try {
-          sessionStorage.setItem('nara-library-latest-8', JSON.stringify({
-            items: sorted, timestamp: Date.now()
+          sessionStorage.setItem(LATEST_CACHE_KEY, JSON.stringify({
+            items: latestItems,
+            timestamp: Date.now()
           }));
-        } catch (e) { /* sessionStorage full — ignore */ }
+        } catch {
+          // sessionStorage full — ignore
+        }
       } catch (err) {
         console.error('[LatestFromLibrary] Failed to load:', err);
         setError(true);

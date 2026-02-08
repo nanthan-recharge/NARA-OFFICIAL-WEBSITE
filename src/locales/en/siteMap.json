@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "Site Map",
+    "description": "Complete site map of the NARA website with direct access to key portals and services.",
+    "keywords": "site map, NARA navigation, NARA pages"
+  },
+  "hero": {
+    "eyebrow": "NARA Navigation",
+    "title": "Site Map",
+    "description": "Quick access to all major NARA portals, services, divisions, and legal information."
+  },
+  "sections": {
+    "aboutNara": {
+      "title": "About NARA",
+      "links": {
+        "aboutNara": "About NARA",
+        "mediaGallery": "Media Gallery",
+        "mediaPressKit": "Media Press Kit",
+        "contactUs": "Contact Us"
+      }
+    },
+    "researchServices": {
+      "title": "Research & Services",
+      "links": {
+        "researchExcellencePortal": "Research Excellence Portal",
+        "governmentServicesPortal": "Government Services Portal",
+        "scientificEvidenceRepository": "Scientific Evidence Repository",
+        "openDataPortal": "Open Data Portal"
+      }
+    },
+    "divisionsCenters": {
+      "title": "Divisions & Centers",
+      "links": {
+        "allDivisions": "All Divisions",
+        "supportingDivisions": "Supporting Divisions",
+        "regionalCenters": "Regional Centers",
+        "regionalImpactNetwork": "Regional Impact Network"
+      }
+    },
+    "learningPublications": {
+      "title": "Learning & Publications",
+      "links": {
+        "learningDevelopmentAcademy": "Learning Development Academy",
+        "digitalLibrary": "Digital Library",
+        "annualReports": "Annual Reports",
+        "newsUpdates": "News & Updates"
+      }
+    },
+    "publicInformation": {
+      "title": "Public Information",
+      "links": {
+        "vacancies": "Vacancies",
+        "procurementRecruitment": "Procurement & Recruitment",
+        "publicConsultation": "Public Consultation",
+        "rightToInformation": "Right to Information (RTI)"
+      }
+    },
+    "legalCompliance": {
+      "title": "Legal & Compliance",
+      "links": {
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use",
+        "accessibilityStatement": "Accessibility Statement",
+        "naraAct": "NARA Act"
+      }
+    }
+  }
+}

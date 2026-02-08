@@ -16,7 +16,6 @@ import {
   Phone,
   Search,
   Sun,
-  Eye,
   Waves,
   Youtube
 } from 'lucide-react';
@@ -487,24 +486,16 @@ const GovFooter = () => {
           </section>
         </div>
 
-        <div className="fixed bottom-4 right-4 z-50 flex flex-col items-center gap-3">
-          <Link
-            to="/accessibility-statement"
-            aria-label="Accessibility settings"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white/90 text-slate-700 shadow-lg transition-all hover:scale-105 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-400 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
-          >
-            <Eye className="h-4 w-4" />
-          </Link>
-
-          <button
-            type="button"
-            aria-label="Back to top"
-            onClick={handleBackToTop}
-            className="gov-footer-pulse flex h-12 w-12 items-center justify-center rounded-full bg-sky-500 text-white shadow-2xl transition-all hover:-translate-y-1 hover:bg-sky-600 focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-300/60"
-          >
-            <ArrowUp className="h-5 w-5" />
-          </button>
-        </div>
+        {/* Back to Top Button — positioned ABOVE the Accessibility Toolbar button */}
+        <button
+          type="button"
+          aria-label="Back to top"
+          onClick={handleBackToTop}
+          className="fixed bottom-20 right-4 sm:bottom-24 sm:right-6 z-[9997] flex h-11 w-11 items-center justify-center rounded-full bg-nara-navy text-white shadow-2xl transition-all hover:-translate-y-1 hover:bg-nara-blue focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky-300/60"
+          title="Back to top"
+        >
+          <ArrowUp className="h-5 w-5" />
+        </button>
       </footer>
     </>
   );

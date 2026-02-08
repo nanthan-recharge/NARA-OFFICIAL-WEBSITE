@@ -151,6 +151,8 @@ const HeroImageCarousel = ({
             src={currentImage?.src}
             alt={currentImage?.alt || `Hero image ${currentIndex + 1}`}
             className="w-full h-full object-contain bg-black"
+            width={1920}
+            height={1080}
             onError={() => handleImageError(currentImage?.id)}
             loading={currentIndex === 0 ? 'eager' : 'lazy'}
             fetchPriority={currentIndex === 0 ? 'high' : 'auto'}

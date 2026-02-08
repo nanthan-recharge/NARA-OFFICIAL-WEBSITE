@@ -14,32 +14,174 @@
       "title": "සාමාන්‍ය ජනතාව හා වෙරළ සමූහ සඳහා සේවාවන්",
       "description": "මත්ස්‍ය ආහාර උපදෙස්, වාරික මුහුදු යාවත්කාලීන, පුහුණු අවස්ථා සහ නාරා පුවත් එකाचේ තොරතුරු ලබාගන්න.",
       "ctas": [
-        { "label": "මත්ස්‍ය ආරක්ෂා උපදෙස්", "href": "/fish-advisory-system" },
-        { "label": "ප්‍රායෝගික පරීක්ෂණ සේවාවන්", "href": "/lab-results" },
-        { "label": "කාලගුණ & වාරික බුලටින්", "href": "/knowledge-discovery-center" }
+        {
+          "label": "මත්ස්‍ය ආරක්ෂා උපදෙස්",
+          "href": "/fish-advisory-system"
+        },
+        {
+          "label": "ප්‍රායෝගික පරීක්ෂණ සේවාවන්",
+          "href": "/lab-results"
+        },
+        {
+          "label": "කාලගුණ & වාරික බුලටින්",
+          "href": "/knowledge-discovery-center"
+        }
       ]
     },
     "sections": {
       "advisories": {
         "title": "උපදෙස් හා අනතුරු ඇඟවීම්",
         "items": [
-          { "label": "ජීවමාන ආහාර උපදෙස්", "href": "/fish-advisory-system" },
-          { "label": "හදිසි ප්‍රතිචාර & සිදුවීම්", "href": "/emergency-response-network" },
-          { "label": "මෝසමික අනාවැකි", "href": "/knowledge-discovery-center" }
+          {
+            "label": "ජීවමාන ආහාර උපදෙස්",
+            "href": "/fish-advisory-system"
+          },
+          {
+            "label": "හදිසි ප්‍රතිචාර & සිදුවීම්",
+            "href": "/emergency-response-network"
+          },
+          {
+            "label": "මෝසමික අනාවැකි",
+            "href": "/knowledge-discovery-center"
+          }
         ]
       },
       "services": {
         "title": "සමූහ සේවා",
         "items": [
-          { "label": "රසායනික පරීක්ෂණ & සහතික", "href": "/lab-results" },
-          { "label": "පුහුණු හා ශක්තිමත් කිරීම", "href": "/learning-development-academy" },
-          { "label": "ටෙන්ඩර් හා රැකියා අවස්ථා", "href": "/procurement-recruitment-portal" }
+          {
+            "label": "රසායනික පරීක්ෂණ & සහතික",
+            "href": "/lab-results"
+          },
+          {
+            "label": "පුහුණු හා ශක්තිමත් කිරීම",
+            "href": "/learning-development-academy"
+          },
+          {
+            "label": "ටෙන්ඩර් හා රැකියා අවස්ථා",
+            "href": "/procurement-recruitment-portal"
+          }
         ]
       },
       "stories": {
         "title": "වැඩසටහන් හා කථා",
         "description": "වෙරළ ජීවිත්වය සඳහා ක්ෂේත්‍ර වැඩසටහන් සහ තාක්ෂණික අවවෘති පෙන්වන්න.",
         "href": "/media-gallery"
+      }
+    },
+    "compact": {
+      "hero": {
+        "badge": "සාමාන්‍ය ජනතා සේවා",
+        "title": "වෙරළ ප්‍රජාව සඳහා ජනතා මුහුදු සේවාවන්",
+        "description": "මසුන් ආරක්ෂණය, අනාවැකි යාවත්කාලීන, රසායනාගාර සහාය සහ හදිසි වාර්තාකරණය එකම සංක්ෂිප්ත රජයේ පිටුවකින් ලබාගන්න.",
+        "chips": {
+          "fishSafetyLabel": "මාළු ආරක්ෂණ තත්ත්වය",
+          "fishSafetyValue": "පරිභෝජනයට ආරක්ෂිතයි",
+          "seaConditionLabel": "මුහුදු තත්ත්වය",
+          "seaConditionValue": "මධ්‍යම",
+          "lastUpdatedLabel": "අවසන් යාවත්කාලීනය"
+        }
+      },
+      "essentialServices": {
+        "title": "අත්‍යවශ්‍ය සේවා",
+        "openService": "සේවාව විවෘත කරන්න",
+        "items": {
+          "fishAdvisory": {
+            "title": "මත්ස්‍ය උපදෙස් සේවාව",
+            "description": "දෛනික ආරක්ෂිත මසුන් අල්ලන කලාප සහ මසුන් ආහාර ආරක්ෂණ යාවත්කාලීන.",
+            "badge": "සජීවී"
+          },
+          "laboratoryTesting": {
+            "title": "රසායනාගාර පරීක්ෂණ",
+            "description": "මසුන් සහ ජල ගුණාත්මක පරීක්ෂණ ඉදිරිපත් කර ප්‍රගතිය සොයාබලන්න.",
+            "badge": "සේවා කවුළුව"
+          },
+          "marineForecast": {
+            "title": "සාගර අනාවැකිය",
+            "description": "සැලසුම් සඳහා මුහුදු තත්ත්වය සහ කාලගුණ අවදානම් අනාවැකිය.",
+            "badge": "යාවත්කාලීන"
+          },
+          "emergencyReporting": {
+            "title": "හදිසි වාර්තාකරණය",
+            "description": "කැපවූ ප්‍රතිචාර ජාලය හරහා සාගර හදිසි අවස්ථා වාර්තා කරන්න.",
+            "badge": "24/7"
+          }
+        }
+      },
+      "advisories": {
+        "title": "සක්‍රීය මහජන උපදෙස්",
+        "viewAll": "සියලු උපදෙස් බලන්න",
+        "items": {
+          "monsoonConditions": {
+            "title": "මෝසම් තත්ත්ව උපදෙස්",
+            "message": "දකුණු මුහුදු ප්‍රදේශවල දැඩි සුළං බලාපොරොත්තු වේ. පිටත්වීම් සැලසුම් කරගන්න.",
+            "updated": "පැය 2කට පෙර"
+          },
+          "fishSafetyBulletin": {
+            "title": "මාළු ආරක්ෂණ බුලටින්",
+            "message": "නෙගොම්බෝ සිට කොළඹ දක්වා වෙරළ මාළු දැනට පරිභෝජනයට ආරක්ෂිතයි.",
+            "updated": "පැය 5කට පෙර"
+          },
+          "laboratoryIntakeNotice": {
+            "title": "රසායනාගාර භාරගැනීමේ නිවේදනය",
+            "message": "අද දින ඉක්මන් පරීක්ෂණ භාරගැනීම සවස 4:00 දක්වා විවෘතයි.",
+            "updated": "අද"
+          }
+        }
+      },
+      "communitySupport": {
+        "title": "සමාජ සහාය වැඩසටහන්",
+        "items": {
+          "fisherTraining": {
+            "title": "ධීවර පුහුණු වැඩසටහන්",
+            "description": "ආරක්ෂිත ක්‍රියාකාරකම් සහ තිරසාර මසුන් අල්ලන ක්‍රම පිළිබඳ ප්‍රායෝගික පුහුණුව."
+          },
+          "publicRecruitment": {
+            "title": "රාජ්‍ය බඳවාගැනීමේ නිවේදන",
+            "description": "දැනට පවතින රාජ්‍ය පුරප්පාඩු, ටෙන්ඩර් සහ බඳවාගැනීමේ යාවත්කාලීන."
+          },
+          "knowledgeGuidance": {
+            "title": "දැනුම හා මගපෙන්වීම",
+            "description": "සාගර ජීවය, වාරික තත්ත්ව සහ සංරක්ෂණය පිළිබඳ ජනතා අධ්‍යාපන සම්පත්."
+          }
+        }
+      },
+      "dataTools": {
+        "title": "ප්‍රායෝගික දත්ත මෙවලම්",
+        "items": {
+          "fishingZoneMap": {
+            "title": "මසුන් අල්ලන කලාප සිතියම",
+            "value": "කලාප 24"
+          },
+          "marketPriceInsights": {
+            "title": "වෙළඳපොළ මිල දත්ත",
+            "value": "පැයකට වරක්"
+          },
+          "seasonalFishingCalendar": {
+            "title": "වාරික මසුන් අල්ලන දින දර්ශනය",
+            "value": "මාසික"
+          }
+        }
+      },
+      "emergency": {
+        "title": "හදිසි සහ සම්බන්ධතා සහාය",
+        "description": "තාක්ෂණික සාගර හදිසි සිදුවීම් සඳහා කැපවූ හදිසි ප්‍රතිචාර පිටුව භාවිතා කරන්න.",
+        "button": "සාගර හදිසි අවස්ථාව වාර්තා කරන්න",
+        "hotlineNote": "ජීවිත අවදානම් තත්ත්වවලදී වහාම වෙරළාරක්ෂක අමතා ස්ථානයේ ඛණ්ඩාංක ලබාදෙන්න.",
+        "contacts": {
+          "hotline": {
+            "label": "හදිසි දුරකථන අංකය",
+            "value": "1919"
+          },
+          "coastGuard": {
+            "label": "වෙරළාරක්ෂක",
+            "value": "+94 11 244 0635"
+          },
+          "marineDesk": {
+            "label": "සාගර සිද්ධි ඒකකය",
+            "value": "+94 11 252 2000"
+          }
+        }
       }
     }
   },
@@ -49,25 +191,53 @@
       "title": "පර්යේෂකයන් සහ ශිෂ්‍යයන්",
       "description": "දත්ත කට්ටල, රසායනාගාර යටිතල පහසුකම්, පර්යේෂණ නෞකා සහ හවුල්කරුවන් සඳහා කැඳවීම් ලබාගන්න.",
       "ctas": [
-        { "label": "දත්ත කට්ටල කතලොගය", "href": "/knowledge-discovery-center" },
-        { "label": "නෞකා/ උපාංග වෙන්කරවා ගැනීම", "href": "/research-vessel-booking" },
-        { "label": "අධ්‍යයන ශිෂ්‍යත්ව හා පුහුණු", "href": "/learning-development-academy" }
+        {
+          "label": "දත්ත කට්ටල කතලොගය",
+          "href": "/knowledge-discovery-center"
+        },
+        {
+          "label": "නෞකා/ උපාංග වෙන්කරවා ගැනීම",
+          "href": "/research-vessel-booking"
+        },
+        {
+          "label": "අධ්‍යයන ශිෂ්‍යත්ව හා පුහුණු",
+          "href": "/learning-development-academy"
+        }
       ]
     },
     "sections": {
       "datasets": {
         "title": "දත්ත හා ක්‍රමවේද",
         "items": [
-          { "label": "විවෘත දත්ත හා API", "href": "/knowledge-discovery-center" },
-          { "label": "රසායනාගාර ක්‍රමවේද", "href": "/lab-results" },
-          { "label": "ප්‍රකාශන", "href": "/digital-product-library" }
+          {
+            "label": "විවෘත දත්ත හා API",
+            "href": "/knowledge-discovery-center"
+          },
+          {
+            "label": "රසායනාගාර ක්‍රමවේද",
+            "href": "/lab-results"
+          },
+          {
+            "label": "ප්‍රකාශන",
+            "href": "/digital-product-library"
+          }
         ]
       },
       "collaboration": {
-        "title": "හවුල් වැඩ", "items": [
-          { "label": "පර්යේෂණ හවුල් කැඳවීම්", "href": "/research-collaboration-platform" },
-          { "label": "ජාත්‍යන්තර හවුල්", "href": "/partnership-innovation-gateway" },
-          { "label": "අරමුදල් අවස්ථා", "href": "/knowledge-discovery-center" }
+        "title": "හවුල් වැඩ",
+        "items": [
+          {
+            "label": "පර්යේෂණ හවුල් කැඳවීම්",
+            "href": "/research-collaboration-platform"
+          },
+          {
+            "label": "ජාත්‍යන්තර හවුල්",
+            "href": "/partnership-innovation-gateway"
+          },
+          {
+            "label": "අරමුදල් අවස්ථා",
+            "href": "/knowledge-discovery-center"
+          }
         ]
       },
       "support": {
@@ -83,26 +253,53 @@
       "title": "නීති, නියාමන හා ආයතන",
       "description": "ඉක්මනින් භූගෝලීය නිෂ්පාදන, විද්‍යාත්මක සාරාංශ, ඩෑෂ්බෝඩ් සහ නීතිමය ලේඛන වෙත ප්‍රවේශ වන්න.",
       "ctas": [
-        { "label": "විද්‍යාත්මක සාරාංශ", "href": "/scientific-evidence-repository" },
-        { "label": "ඩෑෂ්බෝඩ්", "href": "/integration-systems-platform" },
-        { "label": "RTI & නීති", "href": "/legal" }
+        {
+          "label": "විද්‍යාත්මක සාරාංශ",
+          "href": "/scientific-evidence-repository"
+        },
+        {
+          "label": "ඩෑෂ්බෝඩ්",
+          "href": "/integration-systems-platform"
+        },
+        {
+          "label": "RTI & නීති",
+          "href": "/legal"
+        }
       ]
     },
     "sections": {
       "evidence": {
         "title": "නියෝජිත විද්‍යා",
         "items": [
-          { "label": "මුහුදු බුද්ධි ඩෑෂ්බෝඩ්", "href": "/ocean-intelligence-dashboard-homepage" },
-          { "label": "Hydrographic නිෂ්පාදන", "href": "/digital-product-library" },
-          { "label": "කාර්ය සාධන & අයවැය", "href": "/government-services-portal" }
+          {
+            "label": "මුහුදු බුද්ධි ඩෑෂ්බෝඩ්",
+            "href": "/ocean-intelligence-dashboard-homepage"
+          },
+          {
+            "label": "Hydrographic නිෂ්පාදන",
+            "href": "/digital-product-library"
+          },
+          {
+            "label": "කාර්ය සාධන & අයවැය",
+            "href": "/government-services-portal"
+          }
         ]
       },
       "compliance": {
         "title": "නීතිමය සම්මත",
         "items": [
-          { "label": "RTI/Acts", "href": "/legal" },
-          { "label": "ආරක්ෂාව & ප්‍රවේශය", "href": "/security-policy" },
-          { "label": "දත්ත හා ප්‍රවාහන", "href": "/procurement-recruitment-portal" }
+          {
+            "label": "RTI/Acts",
+            "href": "/legal"
+          },
+          {
+            "label": "ආරක්ෂාව & ප්‍රවේශය",
+            "href": "/security-policy"
+          },
+          {
+            "label": "දත්ත හා ප්‍රවාහන",
+            "href": "/procurement-recruitment-portal"
+          }
         ]
       },
       "contact": {
@@ -118,26 +315,53 @@
       "title": "කර්මාන්ත හා අපනයන",
       "description": "අක්‍රියිත පරීක්ෂණ, සම්මත හා ප්‍රමණීකරණ, ටෙන්ඩර් අවස්ථා වෙනස් නොවී ක්‍රියාත්මක කරයි.",
       "ctas": [
-        { "label": "රසායනාගාර සේවා", "href": "/lab-results" },
-        { "label": "ටෙන්ඩර් & මිලදී ගැනීම්", "href": "/procurement-recruitment-portal" },
-        { "label": "සම්මත හා ප්‍රමණීකරණ", "href": "/nara-digital-marketplace" }
+        {
+          "label": "රසායනාගාර සේවා",
+          "href": "/lab-results"
+        },
+        {
+          "label": "ටෙන්ඩර් & මිලදී ගැනීම්",
+          "href": "/procurement-recruitment-portal"
+        },
+        {
+          "label": "සම්මත හා ප්‍රමණීකරණ",
+          "href": "/nara-digital-marketplace"
+        }
       ]
     },
     "sections": {
       "services": {
         "title": "බාහිර සේවා",
         "items": [
-          { "label": "පරීක්ෂණ & සහතික", "href": "/lab-results" },
-          { "label": "දේශීය/ජාත්‍යන්තර උපදේශන", "href": "/maritime-services-hub" },
-          { "label": "නව්‍යතා සහ උපකරණ", "href": "/integration-systems-platform" }
+          {
+            "label": "පරීක්ෂණ & සහතික",
+            "href": "/lab-results"
+          },
+          {
+            "label": "දේශීය/ජාත්‍යන්තර උපදේශන",
+            "href": "/maritime-services-hub"
+          },
+          {
+            "label": "නව්‍යතා සහ උපකරණ",
+            "href": "/integration-systems-platform"
+          }
         ]
       },
       "opportunities": {
         "title": "වණිජ අවස්ථා",
         "items": [
-          { "label": "විවෘත ටෙන්ඩර්", "href": "/procurement-recruitment-portal" },
-          { "label": "අපනයන බුද්ධිය", "href": "/export-market-intelligence" },
-          { "label": "කාර්ය බලකා පුහුණු", "href": "/learning-development-academy" }
+          {
+            "label": "විවෘත ටෙන්ඩර්",
+            "href": "/procurement-recruitment-portal"
+          },
+          {
+            "label": "අපනයන බුද්ධිය",
+            "href": "/export-market-intelligence"
+          },
+          {
+            "label": "කාර්ය බලකා පුහුණු",
+            "href": "/learning-development-academy"
+          }
         ]
       },
       "support": {
@@ -153,9 +377,18 @@
       "title": "මාධ්‍ය, හවුල්කරුවන් & දායකයන්",
       "description": "පුවත්, ප්‍රතිඵල දත්ත, ජාත්‍යන්තර කටයුතු සහ සම්බන්ධතා සොයාගන්න.",
       "ctas": [
-        { "label": "කථා & මාධ්‍ය ലൈබ්‍රරිය", "href": "/media-gallery" },
-        { "label": "ඵලදායීත්ව දත්ත", "href": "/integration-systems-platform" },
-        { "label": "හවුල්කරුවන් සම්බන්ධතා", "href": "/contact-us" }
+        {
+          "label": "කථා & මාධ්‍ය ലൈබ්‍රරිය",
+          "href": "/media-gallery"
+        },
+        {
+          "label": "ඵලදායීත්ව දත්ත",
+          "href": "/integration-systems-platform"
+        },
+        {
+          "label": "හවුල්කරුවන් සම්බන්ධතා",
+          "href": "/contact-us"
+        }
       ]
     },
     "sections": {
@@ -167,18 +400,210 @@
       "projects": {
         "title": "ජාත්‍යන්තර වැඩසටහන්",
         "items": [
-          { "label": "ප්‍රාදේශීය බලපෑම් ජාලය", "href": "/regional-impact-network" },
-          { "label": "හවුල් & නව්‍යතා ගේටවේ", "href": "/partnership-innovation-gateway" },
-          { "label": "දායක සහාය", "href": "/contact-us" }
+          {
+            "label": "ප්‍රාදේශීය බලපෑම් ජාලය",
+            "href": "/regional-impact-network"
+          },
+          {
+            "label": "හවුල් & නව්‍යතා ගේටවේ",
+            "href": "/partnership-innovation-gateway"
+          },
+          {
+            "label": "දායක සහාය",
+            "href": "/contact-us"
+          }
         ]
       },
       "resources": {
         "title": "මාධ්‍ය සම්පත්",
         "items": [
-          { "label": "මාධ්‍ය කට්ටල & සම්බන්ධතා", "href": "/media-press-kit" },
-          { "label": "අවසාන පුවත්", "href": "/nara-news-updates-center" },
-          { "label": "අයවැය & කාර්ය සාධන", "href": "/government-services-portal" }
+          {
+            "label": "මාධ්‍ය කට්ටල & සම්බන්ධතා",
+            "href": "/media-press-kit"
+          },
+          {
+            "label": "අවසාන පුවත්",
+            "href": "/nara-news-updates-center"
+          },
+          {
+            "label": "අයවැය & කාර්ය සාධන",
+            "href": "/government-services-portal"
+          }
         ]
+      }
+    }
+  },
+  "researchersHub": {
+    "hero": {
+      "badge": "අධ්‍යාපන මධ්‍යස්ථානය",
+      "title": "පර්යේෂක හා ශිෂ්‍ය ද්වාරය",
+      "description": "පර්යේෂණ පහසුකම් භාවිතා කරමින් විශේෂඥයන් සමඟ හවුල්වී සාගර විද්‍යාව ඉදිරියට ගෙනයන්න.",
+      "loggedInAs": "{{email}} ලෙස පිවිසී ඇත",
+      "researcherLogin": "පර්යේෂක පිවිසුම",
+      "studentLogin": "ශිෂ්‍ය පිවිසුම"
+    },
+    "tabs": {
+      "overview": "සාරාංශය",
+      "research": "පර්යේෂණ",
+      "students": "ශිෂ්‍යයන්",
+      "grants": "ප්‍රදාන",
+      "facilities": "පහසුකම්"
+    },
+    "overview": {
+      "research": {
+        "title": "පර්යේෂකයන් සඳහා",
+        "features": [
+          "පර්යේෂණ ලිපි ඉදිරිපත් කරන්න",
+          "රසායනාගාර වෙන්කරවා ගන්න",
+          "දත්ත කට්ටල භාවිතා කරන්න",
+          "LKR මිලියන 5 දක්වා ප්‍රදාන සඳහා ඉල්ලුම් කරන්න",
+          "ජාත්‍යන්තරව හවුල් වන්න"
+        ],
+        "cta": "සේවා බලන්න"
+      },
+      "students": {
+        "title": "ශිෂ්‍යයන් සඳහා",
+        "features": [
+          "පාඨමාලා සඳහා ලියාපදිංචි වන්න",
+          "අභ්‍යාස සඳහා ඉල්ලුම් කරන්න",
+          "මාර්ගදර්ශනය ලබාගන්න",
+          "ව්‍යාපෘති ප්‍රදර්ශනය කරන්න",
+          "LKR 500K දක්වා ශිෂ්‍ය ප්‍රදාන"
+        ],
+        "cta": "සේවා බලන්න"
+      }
+    },
+    "services": {
+      "access": "ප්‍රවේශ වන්න",
+      "research": {
+        "papers": {
+          "title": "පර්යේෂණ ද්වාරය",
+          "features": [
+            "ලිපි ඉදිරිපත් කිරීම",
+            "උපුටා දැක්වීම් නිරීක්ෂණය",
+            "සම-peer සමාලෝචනය"
+          ]
+        },
+        "lab": {
+          "title": "රසායනාගාර වෙන්කිරීම්",
+          "features": [
+            "රසායනාගාර වෙන්කිරීම",
+            "උපාංග",
+            "විශ්ලේෂණ"
+          ]
+        },
+        "vessel": {
+          "title": "නෞකා වෙන්කිරීම්",
+          "features": [
+            "නෞකා වෙන්කිරීම",
+            "ක්ෂේත්‍ර අධ්‍යයන"
+          ]
+        },
+        "data": {
+          "title": "දත්ත ද්වාරය",
+          "features": [
+            "දත්ත කට්ටල",
+            "API ප්‍රවේශය"
+          ]
+        },
+        "library": {
+          "title": "පුස්තකාලය",
+          "features": [
+            "ඊ-පොත්",
+            "ජර්නල්",
+            "නිබන්ධන"
+          ]
+        },
+        "collab": {
+          "title": "හවුල්කාරීත්වය",
+          "features": [
+            "ව්‍යාපෘති",
+            "විශේෂඥයන්"
+          ]
+        }
+      },
+      "students": {
+        "courses": {
+          "title": "LDA පාඨමාලා",
+          "features": [
+            "මාර්ගගත පාඨමාලා",
+            "සහතික"
+          ]
+        },
+        "intern": {
+          "title": "අභ්‍යාස අවස්ථා",
+          "features": [
+            "ඉල්ලුම්",
+            "මාර්ගදර්ශනය"
+          ]
+        },
+        "projects": {
+          "title": "ව්‍යාපෘති",
+          "features": [
+            "ප්‍රදර්ශන",
+            "සම්මාන"
+          ]
+        },
+        "mentor": {
+          "title": "මාර්ගදර්ශක වැඩසටහන",
+          "features": [
+            "1-on-1",
+            "මගපෙන්වීම"
+          ]
+        },
+        "shop": {
+          "title": "වෙළඳපොළ",
+          "features": [
+            "උපාංග",
+            "වට්ටම්"
+          ]
+        }
+      }
+    },
+    "grants": {
+      "deadline": "අවසන් දිනය",
+      "applyNow": "දැන් ඉල්ලුම් කරන්න",
+      "items": {
+        "earlyCareer": {
+          "title": "නව පර්යේෂක ප්‍රදානය",
+          "amount": "LKR 2M",
+          "deadline": "2025-12-31"
+        },
+        "studentGrant": {
+          "title": "ශිෂ්‍ය ප්‍රදානය",
+          "amount": "LKR 500K",
+          "deadline": "2025-11-30"
+        },
+        "collaborativeFund": {
+          "title": "හවුල් ප්‍රතිපාදන අරමුදල",
+          "amount": "LKR 5M",
+          "deadline": "2026-01-15"
+        }
+      }
+    },
+    "facilities": {
+      "bookNow": "දැන් වෙන්කරන්න",
+      "items": {
+        "marineBiologyLab": {
+          "name": "සමුද්‍ර ජීව විද්‍යා රසායනාගාරය",
+          "location": "කොළඹ",
+          "equipment": "මයික්‍රොස්කෝප්, DNA සීකුවෙන්සිං"
+        },
+        "oceanographyLab": {
+          "name": "සාගර විද්‍යා රසායනාගාරය",
+          "location": "ගාල්ල",
+          "equipment": "CTD සංවේදක, උපග්‍රහ පද්ධති"
+        },
+        "fishTechnology": {
+          "name": "මාළු තාක්ෂණික ඒකකය",
+          "location": "නෙගොම්බෝ",
+          "equipment": "සැකසුම්, පරීක්ෂණ"
+        },
+        "researchVessels": {
+          "name": "පර්යේෂණ නෞකා",
+          "location": "බහු වරාය",
+          "equipment": "සෝනාර්, GPS"
+        }
       }
     }
   }

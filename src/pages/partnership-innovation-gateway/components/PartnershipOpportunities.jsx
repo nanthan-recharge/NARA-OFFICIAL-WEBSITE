@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Select from '../../../components/ui/Select';
 
 const PartnershipOpportunities = () => {
+  const { t } = useTranslation('partnershipGateway');
   const [selectedOpportunity, setSelectedOpportunity] = useState(null);
   const [formData, setFormData] = useState({
     organization: '',
@@ -16,23 +18,23 @@ const PartnershipOpportunities = () => {
   });
 
   const opportunityTypes = [
-    { value: 'research', label: 'Research Collaboration' },
-    { value: 'funding', label: 'Funding Partnership' },
-    { value: 'technology', label: 'Technology Transfer' },
-    { value: 'exchange', label: 'Researcher Exchange' },
-    { value: 'data', label: 'Data Sharing' },
-    { value: 'capacity', label: 'Capacity Building' }
+    { value: 'research', label: t('partnershipOpportunities.filters.opportunityType.research') },
+    { value: 'funding', label: t('partnershipOpportunities.filters.opportunityType.funding') },
+    { value: 'technology', label: t('partnershipOpportunities.filters.opportunityType.technology') },
+    { value: 'exchange', label: t('partnershipOpportunities.filters.opportunityType.exchange') },
+    { value: 'data', label: t('partnershipOpportunities.filters.opportunityType.data') },
+    { value: 'capacity', label: t('partnershipOpportunities.filters.opportunityType.capacity') }
   ];
 
   const researchAreas = [
-    { value: 'climate', label: 'Climate Change Research' },
-    { value: 'biodiversity', label: 'Marine Biodiversity' },
-    { value: 'pollution', label: 'Ocean Pollution' },
-    { value: 'fisheries', label: 'Fisheries Science' },
-    { value: 'technology', label: 'Marine Technology' },
-    { value: 'conservation', label: 'Conservation Biology' },
-    { value: 'oceanography', label: 'Physical Oceanography' },
-    { value: 'policy', label: 'Marine Policy' }
+    { value: 'climate', label: t('partnershipOpportunities.filters.researchArea.climate') },
+    { value: 'biodiversity', label: t('partnershipOpportunities.filters.researchArea.biodiversity') },
+    { value: 'pollution', label: t('partnershipOpportunities.filters.researchArea.pollution') },
+    { value: 'fisheries', label: t('partnershipOpportunities.filters.researchArea.fisheries') },
+    { value: 'technology', label: t('partnershipOpportunities.filters.researchArea.technology') },
+    { value: 'conservation', label: t('partnershipOpportunities.filters.researchArea.conservation') },
+    { value: 'oceanography', label: t('partnershipOpportunities.filters.researchArea.oceanography') },
+    { value: 'policy', label: t('partnershipOpportunities.filters.researchArea.policy') }
   ];
 
   const opportunities = [
@@ -183,7 +185,7 @@ const PartnershipOpportunities = () => {
   ];
 
   const handleInputChange = (e) => {
-    const { name, value } = e?.target;
+    const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
@@ -198,7 +200,7 @@ const PartnershipOpportunities = () => {
   };
 
   const handleSubmit = (e) => {
-    e?.preventDefault();
+    e.preventDefault();
     console.log('Partnership inquiry submitted:', formData);
     // Handle form submission
   };
@@ -212,10 +214,10 @@ const PartnershipOpportunities = () => {
             <Icon name="Handshake" size={32} className="text-success" />
           </div>
           <h2 className="font-headline text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Partnership Opportunities
+            {t('partnershipOpportunities.title')}
           </h2>
           <p className="font-body text-lg text-text-secondary max-w-3xl mx-auto">
-            Join NARA's global network of partners and contribute to advancing ocean science, conservation, and sustainable development through collaborative initiatives.
+            {t('partnershipOpportunities.description')}
           </p>
         </div>
 
@@ -244,24 +246,24 @@ const PartnershipOpportunities = () => {
               </p>
 
               {/* Key Details */}
-              <div className="space-y-3 mb-4">
+                <div className="space-y-3 mb-4">
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-cta text-text-secondary">Deadline:</span>
+                  <span className="font-cta text-text-secondary">{t('partnershipOpportunities.labels.deadline')}</span>
                   <span className="font-body text-text-primary">{opportunity?.deadline}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-cta text-text-secondary">Funding:</span>
+                  <span className="font-cta text-text-secondary">{t('partnershipOpportunities.labels.funding')}</span>
                   <span className="font-body text-text-primary">{opportunity?.funding}</span>
                 </div>
                 <div className="flex items-center justify-between text-sm">
-                  <span className="font-cta text-text-secondary">Duration:</span>
+                  <span className="font-cta text-text-secondary">{t('partnershipOpportunities.labels.duration')}</span>
                   <span className="font-body text-text-primary">{opportunity?.duration}</span>
                 </div>
               </div>
 
               {/* Requirements Preview */}
               <div className="mb-4">
-                <h4 className="font-cta text-sm font-medium text-text-primary mb-2">Key Requirements:</h4>
+                <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('partnershipOpportunities.labels.keyRequirements')}</h4>
                 <ul className="space-y-1">
                   {opportunity?.requirements?.slice(0, 2)?.map((req, index) => (
                     <li key={index} className="flex items-start space-x-2 text-sm">
@@ -272,7 +274,7 @@ const PartnershipOpportunities = () => {
                   {opportunity?.requirements?.length > 2 && (
                     <li className="text-sm">
                       <span className="font-body text-text-secondary">
-                        +{opportunity?.requirements?.length - 2} more requirements
+                        +{opportunity?.requirements?.length - 2} {t('partnershipOpportunities.labels.moreRequirements')}
                       </span>
                     </li>
                   )}
@@ -288,7 +290,7 @@ const PartnershipOpportunities = () => {
                   onClick={() => setSelectedOpportunity(opportunity)}
                 >
                   <Icon name="Info" size={16} className="mr-2" />
-                  View Details
+                  {t('partnershipOpportunities.actions.viewDetails')}
                 </Button>
                 <Button variant="outline" size="sm">
                   <Icon name="Download" size={16} />
@@ -302,69 +304,69 @@ const PartnershipOpportunities = () => {
         <div className="bg-card rounded-lg p-8 ocean-depth-shadow">
           <div className="text-center mb-8">
             <h3 className="font-headline text-2xl font-bold text-text-primary mb-4">
-              Express Your Interest
+              {t('partnershipOpportunities.form.title')}
             </h3>
             <p className="font-body text-text-secondary">
-              Submit your partnership inquiry and our team will connect you with the most relevant opportunities.
+              {t('partnershipOpportunities.form.description')}
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <Input
-                label="Organization Name"
+                label={t('partnershipOpportunities.form.organizationName')}
                 type="text"
                 name="organization"
                 value={formData?.organization}
                 onChange={handleInputChange}
-                placeholder="Your organization"
+                placeholder={t('partnershipOpportunities.form.organizationPlaceholder')}
                 required
               />
               <Input
-                label="Contact Person"
+                label={t('partnershipOpportunities.form.contactPerson')}
                 type="text"
                 name="contactPerson"
                 value={formData?.contactPerson}
                 onChange={handleInputChange}
-                placeholder="Your full name"
+                placeholder={t('partnershipOpportunities.form.contactPlaceholder')}
                 required
               />
             </div>
 
             <div className="mb-6">
               <Input
-                label="Email Address"
+                label={t('partnershipOpportunities.form.email')}
                 type="email"
                 name="email"
                 value={formData?.email}
                 onChange={handleInputChange}
-                placeholder="your.email@organization.com"
+                placeholder={t('partnershipOpportunities.form.emailPlaceholder')}
                 required
               />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <Select
-                label="Partnership Type"
+                label={t('partnershipOpportunities.form.partnershipType')}
                 options={opportunityTypes}
                 value={formData?.opportunityType}
                 onChange={(value) => handleSelectChange('opportunityType', value)}
-                placeholder="Select partnership type"
+                placeholder={t('partnershipOpportunities.form.partnershipTypePlaceholder')}
                 required
               />
               <Select
-                label="Research Area"
+                label={t('partnershipOpportunities.form.researchArea')}
                 options={researchAreas}
                 value={formData?.researchArea}
                 onChange={(value) => handleSelectChange('researchArea', value)}
-                placeholder="Select research area"
+                placeholder={t('partnershipOpportunities.form.researchAreaPlaceholder')}
                 required
               />
             </div>
 
             <div className="mb-6">
               <label className="block font-cta text-sm font-medium text-text-primary mb-2">
-                Message
+                {t('partnershipOpportunities.form.message')}
               </label>
               <textarea
                 name="message"
@@ -372,7 +374,7 @@ const PartnershipOpportunities = () => {
                 onChange={handleInputChange}
                 rows={4}
                 className="w-full px-3 py-2 border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
-                placeholder="Tell us about your organization and partnership interests..."
+                placeholder={t('partnershipOpportunities.form.messagePlaceholder')}
                 required
               />
             </div>
@@ -380,7 +382,7 @@ const PartnershipOpportunities = () => {
             <div className="text-center">
               <Button type="submit" variant="default" size="lg">
                 <Icon name="Send" size={20} className="mr-2" />
-                Submit Inquiry
+                {t('partnershipOpportunities.actions.submitInquiry')}
               </Button>
             </div>
           </form>
@@ -393,10 +395,10 @@ const PartnershipOpportunities = () => {
               <Icon name="Users" size={32} className="text-primary" />
             </div>
             <h3 className="font-cta text-lg font-semibold text-text-primary mb-2">
-              Global Network
+              {t('partnershipOpportunities.benefits.globalNetwork.title')}
             </h3>
             <p className="font-body text-sm text-text-secondary">
-              Connect with leading researchers and institutions worldwide through our extensive partnership network.
+              {t('partnershipOpportunities.benefits.globalNetwork.description')}
             </p>
           </div>
           <div className="text-center">
@@ -404,10 +406,10 @@ const PartnershipOpportunities = () => {
               <Icon name="Zap" size={32} className="text-accent" />
             </div>
             <h3 className="font-cta text-lg font-semibold text-text-primary mb-2">
-              Innovation Access
+              {t('partnershipOpportunities.benefits.innovationAccess.title')}
             </h3>
             <p className="font-body text-sm text-text-secondary">
-              Gain access to cutting-edge technologies, research facilities, and collaborative platforms.
+              {t('partnershipOpportunities.benefits.innovationAccess.description')}
             </p>
           </div>
           <div className="text-center">
@@ -415,10 +417,10 @@ const PartnershipOpportunities = () => {
               <Icon name="TrendingUp" size={32} className="text-success" />
             </div>
             <h3 className="font-cta text-lg font-semibold text-text-primary mb-2">
-              Impact Amplification
+              {t('partnershipOpportunities.benefits.impactAmplification.title')}
             </h3>
             <p className="font-body text-sm text-text-secondary">
-              Amplify your research impact through collaborative projects and shared resources.
+              {t('partnershipOpportunities.benefits.impactAmplification.description')}
             </p>
           </div>
         </div>
@@ -454,12 +456,12 @@ const PartnershipOpportunities = () => {
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2">
                   <div className="mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">Description</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">{t('partnershipOpportunities.modal.description')}</h3>
                     <p className="font-body text-text-secondary">{selectedOpportunity?.description}</p>
                   </div>
 
                   <div className="mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">Requirements</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">{t('partnershipOpportunities.modal.requirements')}</h3>
                     <ul className="space-y-2">
                       {selectedOpportunity?.requirements?.map((req, index) => (
                         <li key={index} className="flex items-start space-x-2">
@@ -471,7 +473,7 @@ const PartnershipOpportunities = () => {
                   </div>
 
                   <div className="mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">Benefits</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-3">{t('partnershipOpportunities.modal.benefits')}</h3>
                     <ul className="space-y-2">
                       {selectedOpportunity?.benefits?.map((benefit, index) => (
                         <li key={index} className="flex items-start space-x-2">
@@ -485,41 +487,41 @@ const PartnershipOpportunities = () => {
 
                 <div>
                   <div className="bg-muted/50 rounded-lg p-4 mb-6">
-                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-4">Key Details</h3>
+                    <h3 className="font-cta text-lg font-semibold text-text-primary mb-4">{t('partnershipOpportunities.modal.keyDetails')}</h3>
                     <div className="space-y-3">
                       <div>
-                        <span className="font-cta text-sm text-text-secondary">Deadline:</span>
+                        <span className="font-cta text-sm text-text-secondary">{t('partnershipOpportunities.labels.deadline')}</span>
                         <p className="font-body text-text-primary">{selectedOpportunity?.deadline}</p>
                       </div>
                       <div>
-                        <span className="font-cta text-sm text-text-secondary">Funding:</span>
+                        <span className="font-cta text-sm text-text-secondary">{t('partnershipOpportunities.labels.funding')}</span>
                         <p className="font-body text-text-primary">{selectedOpportunity?.funding}</p>
                       </div>
                       <div>
-                        <span className="font-cta text-sm text-text-secondary">Duration:</span>
+                        <span className="font-cta text-sm text-text-secondary">{t('partnershipOpportunities.labels.duration')}</span>
                         <p className="font-body text-text-primary">{selectedOpportunity?.duration}</p>
                       </div>
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="font-cta text-sm font-medium text-text-primary mb-2">Eligibility</h4>
+                    <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('partnershipOpportunities.modal.eligibility')}</h4>
                     <p className="font-body text-sm text-text-secondary">{selectedOpportunity?.eligibility}</p>
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="font-cta text-sm font-medium text-text-primary mb-2">Application Process</h4>
+                    <h4 className="font-cta text-sm font-medium text-text-primary mb-2">{t('partnershipOpportunities.modal.applicationProcess')}</h4>
                     <p className="font-body text-sm text-text-secondary">{selectedOpportunity?.applicationProcess}</p>
                   </div>
 
                   <div className="space-y-3">
                     <Button variant="default" fullWidth>
                       <Icon name="FileText" size={16} className="mr-2" />
-                      Apply Now
+                      {t('partnershipOpportunities.actions.applyNow')}
                     </Button>
                     <Button variant="outline" fullWidth>
                       <Icon name="Download" size={16} className="mr-2" />
-                      Download Guidelines
+                      {t('partnershipOpportunities.actions.downloadGuidelines')}
                     </Button>
                   </div>
                 </div>

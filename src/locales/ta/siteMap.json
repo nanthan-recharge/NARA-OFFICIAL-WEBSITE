@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "தள வரைபடம்",
+    "description": "முக்கிய தளங்கள் மற்றும் சேவைகளுக்கான நேரடி அணுகலுடன் NARA இணையதளத்தின் முழுமையான தள வரைபடம்.",
+    "keywords": "தள வரைபடம், NARA வழிசெலுத்தல், NARA பக்கங்கள்"
+  },
+  "hero": {
+    "eyebrow": "NARA வழிசெலுத்தல்",
+    "title": "தள வரைபடம்",
+    "description": "NARA இன் முக்கிய தளங்கள், சேவைகள், பிரிவுகள் மற்றும் சட்டத் தகவல்களுக்கு விரைவு அணுகல்."
+  },
+  "sections": {
+    "aboutNara": {
+      "title": "NARA பற்றி",
+      "links": {
+        "aboutNara": "NARA பற்றி",
+        "mediaGallery": "ஊடகக் காட்சியகம்",
+        "mediaPressKit": "ஊடக பத்திரிகைக் கிட்",
+        "contactUs": "எங்களை தொடர்புகொள்ள"
+      }
+    },
+    "researchServices": {
+      "title": "ஆராய்ச்சி & சேவைகள்",
+      "links": {
+        "researchExcellencePortal": "ஆராய்ச்சி சிறப்புத் தளம்",
+        "governmentServicesPortal": "அரசு சேவைகள் தளம்",
+        "scientificEvidenceRepository": "அறிவியல் ஆதாரக் களஞ்சியம்",
+        "openDataPortal": "திறந்த தரவு தளம்"
+      }
+    },
+    "divisionsCenters": {
+      "title": "பிரிவுகள் & மையங்கள்",
+      "links": {
+        "allDivisions": "அனைத்து பிரிவுகளும்",
+        "supportingDivisions": "ஆதரவு பிரிவுகள்",
+        "regionalCenters": "பிராந்திய மையங்கள்",
+        "regionalImpactNetwork": "பிராந்திய தாக்க வலைப்பின்னல்"
+      }
+    },
+    "learningPublications": {
+      "title": "கற்றல் & வெளியீடுகள்",
+      "links": {
+        "learningDevelopmentAcademy": "கற்றல் மேம்பாட்டு அகாடமி",
+        "digitalLibrary": "மின்னணு நூலகம்",
+        "annualReports": "ஆண்டறிக்கைகள்",
+        "newsUpdates": "செய்திகள் & புதுப்பிப்புகள்"
+      }
+    },
+    "publicInformation": {
+      "title": "பொது தகவல்",
+      "links": {
+        "vacancies": "வெற்றிடங்கள்",
+        "procurementRecruitment": "கொள்முதல் & ஆட்சேர்ப்பு",
+        "publicConsultation": "பொது ஆலோசனை",
+        "rightToInformation": "தகவல் அறியும் உரிமை (RTI)"
+      }
+    },
+    "legalCompliance": {
+      "title": "சட்டம் & இணக்கம்",
+      "links": {
+        "privacyPolicy": "தனியுரிமைக் கொள்கை",
+        "termsOfUse": "பயன்பாட்டு விதிமுறைகள்",
+        "accessibilityStatement": "அணுகல்திறன் அறிக்கை",
+        "naraAct": "NARA சட்டம்"
+      }
+    }
+  }
+}
