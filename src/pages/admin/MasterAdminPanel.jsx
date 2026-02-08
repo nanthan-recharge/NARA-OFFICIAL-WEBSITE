@@ -13,8 +13,46 @@ import {
   FileCheck, Briefcase, GraduationCap, Building2, Award, Target,
   Zap, Activity, PieChart, TrendingDown, DollarSign, Package,
   CheckCircle, XCircle, Clock, Archive, ExternalLink, Filter,
-  Grid3x3, List, SlidersHorizontal, Heart, Share2, MessageSquare, Radio, Languages
+  Grid3x3, List, SlidersHorizontal, Heart, Share2, MessageSquare, Radio, Languages,
+  Newspaper, Lock
 } from 'lucide-react';
+
+// Static color map — prevents Tailwind purge issues with dynamic class names
+const COLOR_MAP = {
+  cyan:    { bg: 'bg-cyan-500',    bgGrad: 'from-cyan-500 to-cyan-600',    text: 'text-cyan-600',    textLight: 'text-cyan-400', bgLight: 'bg-cyan-50',    bgAlpha: 'bg-cyan-500/20',    ring: 'ring-cyan-500/20', border: 'border-cyan-500/30', hoverBg: 'hover:bg-cyan-500/30' },
+  purple:  { bg: 'bg-purple-500',  bgGrad: 'from-purple-500 to-purple-600',  text: 'text-purple-600',  textLight: 'text-purple-400', bgLight: 'bg-purple-50',  bgAlpha: 'bg-purple-500/20',  ring: 'ring-purple-500/20', border: 'border-purple-500/30', hoverBg: 'hover:bg-purple-500/30' },
+  blue:    { bg: 'bg-blue-500',    bgGrad: 'from-blue-500 to-blue-600',    text: 'text-blue-600',    textLight: 'text-blue-400', bgLight: 'bg-blue-50',    bgAlpha: 'bg-blue-500/20',    ring: 'ring-blue-500/20', border: 'border-blue-500/30', hoverBg: 'hover:bg-blue-500/30' },
+  teal:    { bg: 'bg-teal-500',    bgGrad: 'from-teal-500 to-teal-600',    text: 'text-teal-600',    textLight: 'text-teal-400', bgLight: 'bg-teal-50',    bgAlpha: 'bg-teal-500/20',    ring: 'ring-teal-500/20', border: 'border-teal-500/30', hoverBg: 'hover:bg-teal-500/30' },
+  amber:   { bg: 'bg-amber-500',   bgGrad: 'from-amber-500 to-amber-600',   text: 'text-amber-600',   textLight: 'text-amber-400', bgLight: 'bg-amber-50',   bgAlpha: 'bg-amber-500/20',   ring: 'ring-amber-500/20', border: 'border-amber-500/30', hoverBg: 'hover:bg-amber-500/30' },
+  emerald: { bg: 'bg-emerald-500', bgGrad: 'from-emerald-500 to-emerald-600', text: 'text-emerald-600', textLight: 'text-emerald-400', bgLight: 'bg-emerald-50', bgAlpha: 'bg-emerald-500/20', ring: 'ring-emerald-500/20', border: 'border-emerald-500/30', hoverBg: 'hover:bg-emerald-500/30' },
+  rose:    { bg: 'bg-rose-500',    bgGrad: 'from-rose-500 to-rose-600',    text: 'text-rose-600',    textLight: 'text-rose-400', bgLight: 'bg-rose-50',    bgAlpha: 'bg-rose-500/20',    ring: 'ring-rose-500/20', border: 'border-rose-500/30', hoverBg: 'hover:bg-rose-500/30' },
+  indigo:  { bg: 'bg-indigo-500',  bgGrad: 'from-indigo-500 to-indigo-600',  text: 'text-indigo-600',  textLight: 'text-indigo-400', bgLight: 'bg-indigo-50',  bgAlpha: 'bg-indigo-500/20',  ring: 'ring-indigo-500/20', border: 'border-indigo-500/30', hoverBg: 'hover:bg-indigo-500/30' },
+  orange:  { bg: 'bg-orange-500',  bgGrad: 'from-orange-500 to-orange-600',  text: 'text-orange-600',  textLight: 'text-orange-400', bgLight: 'bg-orange-50',  bgAlpha: 'bg-orange-500/20',  ring: 'ring-orange-500/20', border: 'border-orange-500/30', hoverBg: 'hover:bg-orange-500/30' },
+  slate:   { bg: 'bg-slate-500',   bgGrad: 'from-slate-500 to-slate-600',   text: 'text-slate-600',   textLight: 'text-slate-400', bgLight: 'bg-slate-50',   bgAlpha: 'bg-slate-500/20',   ring: 'ring-slate-500/20', border: 'border-slate-500/30', hoverBg: 'hover:bg-slate-500/30' },
+  pink:    { bg: 'bg-pink-500',    bgGrad: 'from-pink-500 to-pink-600',    text: 'text-pink-600',    textLight: 'text-pink-400', bgLight: 'bg-pink-50',    bgAlpha: 'bg-pink-500/20',    ring: 'ring-pink-500/20', border: 'border-pink-500/30', hoverBg: 'hover:bg-pink-500/30' },
+  red:     { bg: 'bg-red-500',     bgGrad: 'from-red-500 to-red-600',     text: 'text-red-600',     textLight: 'text-red-400', bgLight: 'bg-red-50',     bgAlpha: 'bg-red-500/20',     ring: 'ring-red-500/20', border: 'border-red-500/30', hoverBg: 'hover:bg-red-500/30' },
+  green:   { bg: 'bg-green-500',   bgGrad: 'from-green-500 to-green-600',   text: 'text-green-600',   textLight: 'text-green-400', bgLight: 'bg-green-50',   bgAlpha: 'bg-green-500/20',   ring: 'ring-green-500/20', border: 'border-green-500/30', hoverBg: 'hover:bg-green-500/30' },
+  violet:  { bg: 'bg-violet-500',  bgGrad: 'from-violet-500 to-violet-600',  text: 'text-violet-600',  textLight: 'text-violet-400', bgLight: 'bg-violet-50',  bgAlpha: 'bg-violet-500/20',  ring: 'ring-violet-500/20', border: 'border-violet-500/30', hoverBg: 'hover:bg-violet-500/30' },
+  yellow:  { bg: 'bg-yellow-500',  bgGrad: 'from-yellow-500 to-yellow-600',  text: 'text-yellow-600',  textLight: 'text-yellow-400', bgLight: 'bg-yellow-50',  bgAlpha: 'bg-yellow-500/20',  ring: 'ring-yellow-500/20', border: 'border-yellow-500/30', hoverBg: 'hover:bg-yellow-500/30' },
+  gray:    { bg: 'bg-gray-500',    bgGrad: 'from-gray-500 to-gray-600',    text: 'text-gray-600',    textLight: 'text-gray-400', bgLight: 'bg-gray-50',    bgAlpha: 'bg-gray-500/20',    ring: 'ring-gray-500/20', border: 'border-gray-500/30', hoverBg: 'hover:bg-gray-500/30' },
+};
+
+const getColor = (color, prop) => COLOR_MAP[color]?.[prop] || COLOR_MAP.slate[prop];
+
+// Content coverage data — static list of what's editable vs not
+const EDITABLE_SECTIONS = [
+  'News', 'Events', 'Publications', 'Media', 'Research Papers',
+  'Maritime Safety', 'Fish Advisory', 'Library', 'Marketplace',
+  'Podcasts', 'HR / Recruitment', 'User Management', 'LDA',
+  'Divisions', 'Hero Images'
+];
+
+const NOT_EDITABLE_SECTIONS = [
+  'About NARA', 'Contact Us', 'Partnership Gateway', 'Government Services Portal',
+  'Privacy Policy', 'Terms of Use', 'Cookie Policy', 'Accessibility Statement',
+  'RTI Disclosure', 'Security Policy', 'Data Subject Rights',
+  'Footer Content', 'Audience Pages (3)'
+];
 
 const MasterAdminPanel = () => {
   const navigate = useNavigate();
@@ -130,7 +168,7 @@ const MasterAdminPanel = () => {
         { id: 'products', label: 'Products', icon: Package, path: '/admin/marketplace/products' },
         { id: 'orders', label: 'Orders', icon: CheckCircle, path: '/admin/marketplace/orders' },
         { id: 'payments', label: 'Payments', icon: DollarSign, path: '/admin/marketplace/payments' },
-        { id: 'categories', label: 'Categories', icon: Tag, path: '/admin/marketplace/categories' }
+        { id: 'categories', label: 'Categories', icon: Tag, disabled: true }
       ]
     },
     {
@@ -141,7 +179,7 @@ const MasterAdminPanel = () => {
       subsections: [
         { id: 'recruitment', label: 'Recruitment ATS', icon: Users, path: '/admin/recruitment-ats' },
         { id: 'pipeline', label: 'Project Pipeline', icon: Package, path: '/admin/project-pipeline' },
-        { id: 'teams', label: 'Teams', icon: Users, path: '/admin/dashboard', collection: 'teams' }
+        { id: 'teams', label: 'Teams', icon: Users, disabled: true }
       ]
     },
     {
@@ -173,9 +211,9 @@ const MasterAdminPanel = () => {
       color: 'gray',
       subsections: [
         { id: 'users', label: 'User Management', icon: Users, path: '/admin/users' },
-        { id: 'email', label: 'Email System', icon: Mail, path: '/admin/dashboard' },
-        { id: 'seo', label: 'SEO Manager', icon: Globe, path: '/admin/dashboard' },
-        { id: 'security', label: 'Security', icon: Shield, path: '/admin/dashboard' }
+        { id: 'email', label: 'Email System', icon: Mail, disabled: true },
+        { id: 'seo', label: 'SEO Manager', icon: Globe, disabled: true },
+        { id: 'security', label: 'Security', icon: Shield, disabled: true }
       ]
     }
   ];
@@ -188,35 +226,29 @@ const MasterAdminPanel = () => {
     setLoading(true);
     try {
       // Load statistics from all collections
-      const collections = [
+      const collectionNames = [
         'media_images',
         'media_videos',
         'publications',
         'projects',
         'maritime_vessels',
-        'teams'
+        'teams',
+        'news',
+        'events',
+        'podcasts',
       ];
 
       const statsData = {};
-      for (const collectionName of collections) {
+      const promises = collectionNames.map(async (collectionName) => {
         try {
           const snapshot = await getDocs(collection(db, collectionName));
           statsData[collectionName] = snapshot.size;
         } catch (error) {
-          console.error(`Error loading ${collectionName}:`, error);
           statsData[collectionName] = 0;
         }
-      }
+      });
 
-      // Load podcasts count
-      try {
-        const podcastsSnapshot = await getDocs(collection(db, 'podcasts'));
-        statsData.podcasts = podcastsSnapshot.size;
-      } catch (error) {
-        console.error('Error loading podcasts:', error);
-        statsData.podcasts = 0;
-      }
-
+      await Promise.all(promises);
       setStats(statsData);
     } catch (error) {
       console.error('Error loading dashboard:', error);
@@ -246,6 +278,7 @@ const MasterAdminPanel = () => {
   };
 
   const handleSubSectionClick = (subsection) => {
+    if (subsection.disabled) return;
     setActiveSubSection(subsection.id);
     if (subsection.path) {
       navigate(subsection.path);
@@ -253,14 +286,6 @@ const MasterAdminPanel = () => {
       window.open(subsection.external, '_blank');
     }
   };
-
-  const getColorClasses = (color) => ({
-    bg: `bg-${color}-500`,
-    hover: `hover:bg-${color}-600`,
-    text: `text-${color}-400`,
-    border: `border-${color}-500`,
-    shadow: `shadow-sm`
-  });
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-800">
@@ -289,56 +314,67 @@ const MasterAdminPanel = () => {
 
         {/* Navigation */}
         <nav className="p-4 space-y-2">
-          {adminSections.map((section) => (
-            <div key={section.id}>
-              <button
-                onClick={() => handleSectionClick(section)}
-                className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${
-                  activeSection === section.id
-                    ? `bg-gradient-to-r from-${section.color}-500 to-${section.color}-600 text-white shadow-lg`
-                    : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
-                }`}
-              >
-                <section.icon className="w-5 h-5 flex-shrink-0" />
-                {sidebarOpen && (
-                  <>
-                    <span className="font-medium flex-1 text-left">{section.label}</span>
-                    {section.subsections && (
-                      <ChevronDown className={`w-4 h-4 transition-transform ${
-                        activeSection === section.id ? 'rotate-180' : ''
-                      }`} />
-                    )}
-                  </>
-                )}
-              </button>
-
-              {/* Subsections */}
-              {sidebarOpen && section.subsections && activeSection === section.id && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  className="ml-4 mt-2 space-y-1"
+          {adminSections.map((section) => {
+            const colors = COLOR_MAP[section.color] || COLOR_MAP.slate;
+            return (
+              <div key={section.id}>
+                <button
+                  onClick={() => handleSectionClick(section)}
+                  className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${
+                    activeSection === section.id
+                      ? `bg-gradient-to-r ${colors.bgGrad} text-white shadow-lg`
+                      : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
+                  }`}
                 >
-                  {section.subsections.map((subsection) => (
-                    <button
-                      key={subsection.id}
-                      onClick={() => handleSubSectionClick(subsection)}
-                      className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${
-                        activeSubSection === subsection.id
-                          ? 'bg-slate-100 text-slate-800'
-                          : 'text-slate-500 hover:bg-slate-100/50 hover:text-slate-900'
-                      }`}
-                    >
-                      <subsection.icon className="w-4 h-4" />
-                      <span>{subsection.label}</span>
-                      {subsection.external && <ExternalLink className="w-3 h-3 ml-auto" />}
-                    </button>
-                  ))}
-                </motion.div>
-              )}
-            </div>
-          ))}
+                  <section.icon className="w-5 h-5 flex-shrink-0" />
+                  {sidebarOpen && (
+                    <>
+                      <span className="font-medium flex-1 text-left">{section.label}</span>
+                      {section.subsections && (
+                        <ChevronDown className={`w-4 h-4 transition-transform ${
+                          activeSection === section.id ? 'rotate-180' : ''
+                        }`} />
+                      )}
+                    </>
+                  )}
+                </button>
+
+                {/* Subsections */}
+                {sidebarOpen && section.subsections && activeSection === section.id && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    exit={{ opacity: 0, height: 0 }}
+                    className="ml-4 mt-2 space-y-1"
+                  >
+                    {section.subsections.map((subsection) => (
+                      <button
+                        key={subsection.id}
+                        onClick={() => handleSubSectionClick(subsection)}
+                        disabled={subsection.disabled}
+                        className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all ${
+                          subsection.disabled
+                            ? 'opacity-50 cursor-not-allowed text-slate-400'
+                            : activeSubSection === subsection.id
+                              ? 'bg-slate-100 text-slate-800'
+                              : 'text-slate-500 hover:bg-slate-100/50 hover:text-slate-900'
+                        }`}
+                      >
+                        <subsection.icon className="w-4 h-4" />
+                        <span className="flex-1 text-left">{subsection.label}</span>
+                        {subsection.disabled && (
+                          <span className="text-[10px] px-1.5 py-0.5 bg-slate-200 text-slate-500 rounded-full font-medium">
+                            Soon
+                          </span>
+                        )}
+                        {subsection.external && !subsection.disabled && <ExternalLink className="w-3 h-3 ml-auto" />}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </div>
+            );
+          })}
         </nav>
 
         {/* Logout Button */}
@@ -413,72 +449,68 @@ const MasterAdminPanel = () => {
                 <p className="text-cyan-100">Manage all aspects of your website from one unified dashboard</p>
               </div>
 
-              {/* Quick Stats Grid */}
+              {/* Quick Stats Grid — Real Data */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <StatCard
-                  icon={Image}
-                  label="Total Images"
-                  value={stats.media_images || 0}
-                  color="purple"
-                  trend="+12%"
+                  icon={Newspaper}
+                  label="News Articles"
+                  value={stats.news ?? '...'}
+                  color="cyan"
+                  loading={loading}
                 />
                 <StatCard
-                  icon={Video}
-                  label="Total Videos"
-                  value={stats.media_videos || 0}
-                  color="pink"
-                  trend="+8%"
+                  icon={Image}
+                  label="Media Images"
+                  value={stats.media_images ?? '...'}
+                  color="purple"
+                  loading={loading}
                 />
                 <StatCard
                   icon={FileText}
                   label="Publications"
-                  value={stats.publications || 0}
+                  value={stats.publications ?? '...'}
                   color="blue"
-                  trend="+15%"
+                  loading={loading}
                 />
                 <StatCard
                   icon={Briefcase}
                   label="Active Projects"
-                  value={stats.projects || 0}
+                  value={stats.projects ?? '...'}
                   color="green"
-                  trend="+5%"
+                  loading={loading}
                 />
                 <StatCard
                   icon={Ship}
                   label="Maritime Vessels"
-                  value={stats.maritime_vessels || 0}
+                  value={stats.maritime_vessels ?? '...'}
                   color="indigo"
-                  trend="+3%"
+                  loading={loading}
                 />
                 <StatCard
-                  icon={Users}
-                  label="Team Members"
-                  value={stats.teams || 0}
-                  color="orange"
-                  trend="+10%"
+                  icon={Calendar}
+                  label="Events"
+                  value={stats.events ?? '...'}
+                  color="amber"
+                  loading={loading}
                 />
                 <StatCard
                   icon={Radio}
                   label="Podcast Episodes"
-                  value={stats.podcasts || 0}
+                  value={stats.podcasts ?? '...'}
                   color="violet"
-                  trend="+20%"
+                  loading={loading}
                 />
                 <StatCard
-                  icon={TrendingUp}
-                  label="Total Views"
-                  value="125.4K"
-                  color="cyan"
-                  trend="+25%"
-                />
-                <StatCard
-                  icon={CheckCircle}
-                  label="System Status"
-                  value="Healthy"
-                  color="green"
-                  trend="100%"
+                  icon={Video}
+                  label="Videos"
+                  value={stats.media_videos ?? '...'}
+                  color="pink"
+                  loading={loading}
                 />
               </div>
+
+              {/* Content Coverage Panel */}
+              <ContentCoveragePanel />
 
               {/* Quick Actions */}
               <div className="bg-white/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-200">
@@ -509,10 +541,10 @@ const MasterAdminPanel = () => {
                     color="purple"
                   />
                   <QuickActionButton
-                    icon={FileText}
-                    label="Publications"
-                    onClick={() => navigate('/admin/research-data')}
-                    color="indigo"
+                    icon={Newspaper}
+                    label="Manage News"
+                    onClick={() => navigate('/admin/news')}
+                    color="cyan"
                   />
                   <QuickActionButton
                     icon={Ship}
@@ -520,77 +552,6 @@ const MasterAdminPanel = () => {
                     onClick={() => navigate('/admin/maritime')}
                     color="teal"
                   />
-                  <QuickActionButton
-                    icon={Database}
-                    label="Import Data"
-                    onClick={() => navigate('/admin/data-center-integration')}
-                    color="green"
-                  />
-                </div>
-              </div>
-
-              {/* Recent Activity */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="bg-white/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-200">
-                  <h3 className="text-xl font-bold mb-4 text-slate-800 flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-cyan-400" />
-                    Recent Activity
-                  </h3>
-                  <div className="space-y-3">
-                    <ActivityItem
-                      icon={Image}
-                      text="New image added to Media Gallery"
-                      time="2 minutes ago"
-                      color="purple"
-                    />
-                    <ActivityItem
-                      icon={FileText}
-                      text="Publication 'Marine Research 2024' updated"
-                      time="15 minutes ago"
-                      color="blue"
-                    />
-                    <ActivityItem
-                      icon={Ship}
-                      text="Vessel booking request approved"
-                      time="1 hour ago"
-                      color="indigo"
-                    />
-                    <ActivityItem
-                      icon={Users}
-                      text="New team member added"
-                      time="3 hours ago"
-                      color="green"
-                    />
-                  </div>
-                </div>
-
-                <div className="bg-white/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-200">
-                  <h3 className="text-xl font-bold mb-4 text-slate-800 flex items-center gap-2">
-                    <AlertCircle className="w-5 h-5 text-yellow-400" />
-                    Pending Actions
-                  </h3>
-                  <div className="space-y-3">
-                    <PendingItem
-                      text="5 media items awaiting approval"
-                      action="Review"
-                      onClick={() => navigate('/admin/media')}
-                    />
-                    <PendingItem
-                      text="3 public consultation submissions"
-                      action="Review"
-                      onClick={() => navigate('/admin/public-consultation')}
-                    />
-                    <PendingItem
-                      text="2 vessel booking requests"
-                      action="Approve"
-                      onClick={() => navigate('/admin/research-vessel')}
-                    />
-                    <PendingItem
-                      text="System backup required"
-                      action="Backup"
-                      onClick={() => {}}
-                    />
-                  </div>
                 </div>
               </div>
 
@@ -647,10 +608,18 @@ const MasterAdminPanel = () => {
                       <button
                         key={sub.id}
                         onClick={() => handleSubSectionClick(sub)}
-                        className="p-4 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all text-left"
+                        disabled={sub.disabled}
+                        className={`p-4 rounded-xl transition-all text-left ${
+                          sub.disabled
+                            ? 'bg-slate-50 opacity-60 cursor-not-allowed'
+                            : 'bg-slate-100 hover:bg-slate-200'
+                        }`}
                       >
                         <sub.icon className="w-6 h-6 text-cyan-400 mb-2" />
                         <p className="text-sm font-medium text-slate-800">{sub.label}</p>
+                        {sub.disabled && (
+                          <span className="text-[10px] text-slate-400 font-medium">Coming Soon</span>
+                        )}
                       </button>
                     ))}
                   </div>
@@ -664,68 +633,125 @@ const MasterAdminPanel = () => {
   );
 };
 
-// Helper Components
-const StatCard = ({ icon: Icon, label, value, color, trend }) => (
-  <div className="bg-white/50 backdrop-blur-xl rounded-xl p-6 border border-slate-200 hover:border-slate-300 transition-all">
-    <div className="flex items-center justify-between mb-4">
-      <div className={`w-12 h-12 bg-${color}-500/20 rounded-lg flex items-center justify-center`}>
-        <Icon className={`w-6 h-6 text-${color}-400`} />
+// Helper Components — using static COLOR_MAP classes
+
+const StatCard = ({ icon: Icon, label, value, color, loading: isLoading }) => {
+  const colors = COLOR_MAP[color] || COLOR_MAP.slate;
+  return (
+    <div className="bg-white/50 backdrop-blur-xl rounded-xl p-6 border border-slate-200 hover:border-slate-300 transition-all">
+      <div className="flex items-center justify-between mb-4">
+        <div className={`w-12 h-12 ${colors.bgAlpha} rounded-lg flex items-center justify-center`}>
+          <Icon className={`w-6 h-6 ${colors.textLight}`} />
+        </div>
+        {isLoading && (
+          <div className="w-4 h-4 border-2 border-slate-200 border-t-slate-500 rounded-full animate-spin" />
+        )}
       </div>
-      <span className="text-green-400 text-sm font-semibold">{trend}</span>
+      <h3 className="text-2xl font-bold text-slate-800 mb-1">
+        {isLoading ? (
+          <span className="inline-block w-12 h-6 bg-slate-200 rounded animate-pulse" />
+        ) : (
+          value
+        )}
+      </h3>
+      <p className="text-slate-500 text-sm">{label}</p>
     </div>
-    <h3 className="text-2xl font-bold text-slate-800 mb-1">{value}</h3>
-    <p className="text-slate-500 text-sm">{label}</p>
-  </div>
-);
+  );
+};
 
-const QuickActionButton = ({ icon: Icon, label, onClick, color }) => (
-  <button
-    onClick={onClick}
-    className={`p-4 bg-${color}-500/20 hover:bg-${color}-500/30 border border-${color}-500/30 rounded-xl transition-all text-left`}
-  >
-    <Icon className={`w-6 h-6 text-${color}-400 mb-2`} />
-    <p className="text-sm font-medium text-slate-800">{label}</p>
-  </button>
-);
-
-const ActivityItem = ({ icon: Icon, text, time, color }) => (
-  <div className="flex items-center gap-3 p-3 bg-slate-100/50 rounded-lg">
-    <div className={`w-8 h-8 bg-${color}-500/20 rounded-lg flex items-center justify-center flex-shrink-0`}>
-      <Icon className={`w-4 h-4 text-${color}-400`} />
-    </div>
-    <div className="flex-1 min-w-0">
-      <p className="text-sm text-slate-800">{text}</p>
-      <p className="text-xs text-slate-500">{time}</p>
-    </div>
-  </div>
-);
-
-const PendingItem = ({ text, action, onClick }) => (
-  <div className="flex items-center justify-between p-3 bg-slate-100/50 rounded-lg hover:bg-slate-100 transition-all">
-    <p className="text-sm text-slate-800">{text}</p>
+const QuickActionButton = ({ icon: Icon, label, onClick, color }) => {
+  const colors = COLOR_MAP[color] || COLOR_MAP.slate;
+  return (
     <button
       onClick={onClick}
-      className="px-3 py-1 bg-[#0066CC] hover:bg-[#003366] rounded-lg text-xs font-semibold text-white transition-all"
+      className={`p-4 ${colors.bgAlpha} ${colors.hoverBg} border ${colors.border} rounded-xl transition-all text-left`}
     >
-      {action}
+      <Icon className={`w-6 h-6 ${colors.textLight} mb-2`} />
+      <p className="text-sm font-medium text-slate-800">{label}</p>
     </button>
-  </div>
-);
+  );
+};
 
-const HealthMetric = ({ label, value, percentage, color }) => (
-  <div className="p-4 bg-slate-100/50 rounded-lg">
-    <div className="flex items-center justify-between mb-2">
-      <p className="text-sm text-slate-500">{label}</p>
-      <CheckCircle className={`w-4 h-4 text-${color}-400`} />
+const HealthMetric = ({ label, value, percentage, color }) => {
+  const colors = COLOR_MAP[color] || COLOR_MAP.slate;
+  return (
+    <div className="p-4 bg-slate-100/50 rounded-lg">
+      <div className="flex items-center justify-between mb-2">
+        <p className="text-sm text-slate-500">{label}</p>
+        <CheckCircle className={`w-4 h-4 ${colors.textLight}`} />
+      </div>
+      <p className="text-lg font-bold text-slate-800 mb-2">{value}</p>
+      <div className="w-full bg-slate-300 rounded-full h-2">
+        <div
+          className={`${colors.bg} h-2 rounded-full transition-all`}
+          style={{ width: `${percentage}%` }}
+        />
+      </div>
     </div>
-    <p className="text-lg font-bold text-slate-800 mb-2">{value}</p>
-    <div className="w-full bg-slate-300 rounded-full h-2">
-      <div
-        className={`bg-${color}-500 h-2 rounded-full transition-all`}
-        style={{ width: `${percentage}%` }}
-      />
+  );
+};
+
+const ContentCoveragePanel = () => {
+  const totalSections = EDITABLE_SECTIONS.length + NOT_EDITABLE_SECTIONS.length;
+  const editableCount = EDITABLE_SECTIONS.length;
+  const percentage = Math.round((editableCount / totalSections) * 100);
+
+  return (
+    <div className="bg-white/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-200">
+      <h3 className="text-xl font-bold mb-4 text-slate-800 flex items-center gap-2">
+        <PieChart className="w-5 h-5 text-blue-400" />
+        Content Coverage
+      </h3>
+
+      {/* Progress Bar */}
+      <div className="mb-4">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-sm text-slate-600 font-medium">
+            {editableCount} of {totalSections} sections editable from admin
+          </span>
+          <span className="text-sm font-bold text-slate-800">{percentage}%</span>
+        </div>
+        <div className="w-full bg-slate-200 rounded-full h-3">
+          <div
+            className="bg-gradient-to-r from-emerald-500 to-emerald-400 h-3 rounded-full transition-all"
+            style={{ width: `${percentage}%` }}
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* Editable */}
+        <div className="bg-emerald-50 rounded-xl p-4 border border-emerald-200">
+          <h4 className="text-sm font-semibold text-emerald-800 mb-2 flex items-center gap-1.5">
+            <CheckCircle className="w-4 h-4" />
+            Editable via Admin Panel
+          </h4>
+          <div className="flex flex-wrap gap-1.5">
+            {EDITABLE_SECTIONS.map((section) => (
+              <span key={section} className="text-xs px-2 py-1 bg-emerald-100 text-emerald-700 rounded-full">
+                {section}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Not Yet Editable */}
+        <div className="bg-amber-50 rounded-xl p-4 border border-amber-200">
+          <h4 className="text-sm font-semibold text-amber-800 mb-2 flex items-center gap-1.5">
+            <Clock className="w-4 h-4" />
+            Not Yet Editable (Hardcoded)
+          </h4>
+          <div className="flex flex-wrap gap-1.5">
+            {NOT_EDITABLE_SECTIONS.map((section) => (
+              <span key={section} className="text-xs px-2 py-1 bg-amber-100 text-amber-700 rounded-full">
+                {section}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default MasterAdminPanel;

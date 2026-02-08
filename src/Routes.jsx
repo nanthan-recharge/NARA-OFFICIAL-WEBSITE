@@ -371,18 +371,18 @@ function Routes() {
                     {/* Divisions Routes */}
                     <Route path="/divisions" element={<DivisionsHub />} />
                     <Route path="/divisions/:slug" element={<DivisionPage />} />
-                    <Route path="/admin/division-images" element={<DivisionImagesAdmin />} />
-                    <Route path="/admin/division-content" element={<DivisionContentAdmin />} />
+                    <Route path="/admin/division-images" element={<AdminProtectedRoute><DivisionImagesAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/division-content" element={<AdminProtectedRoute><DivisionContentAdmin /></AdminProtectedRoute>} />
 
                     {/* New Public Pages - Phase 10 Tech Spec v1.0 */}
                     <Route path="/scientist-session" element={<ScientistSessionPage />} />
                     <Route path="/vacancies" element={<VacanciesPage />} />
 
                     {/* New Admin Routes - Phase 9 Tech Spec v1.0 */}
-                    <Route path="/admin/news" element={<NewsAdmin />} />
-                    <Route path="/admin/vacancies" element={<VacanciesAdmin />} />
-                    <Route path="/admin/scientist-sessions" element={<ScientistSessionAdmin />} />
-                    <Route path="/admin/hero-images" element={<HeroImagesAdmin />} />
+                    <Route path="/admin/news" element={<AdminProtectedRoute><NewsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/vacancies" element={<AdminProtectedRoute><VacanciesAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/scientist-sessions" element={<AdminProtectedRoute><ScientistSessionAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/hero-images" element={<AdminProtectedRoute><HeroImagesAdmin /></AdminProtectedRoute>} />
 
                     {/* Library System Routes */}
                     <Route path="/library" element={<LibraryCatalogue />} />
@@ -437,13 +437,13 @@ function Routes() {
                     />
 
                     {/* Library Admin Routes */}
-                    <Route path="/admin/library" element={<LibraryAdminDashboard />} />
-                    <Route path="/admin/library/research-review" element={<ResearchReviewDashboard />} />
-                    <Route path="/admin/library/cataloguing" element={<EnhancedCataloguingManager />} />
-                    <Route path="/admin/library/cataloguing/basic" element={<CataloguingManager />} />
-                    <Route path="/admin/library/circulation" element={<CirculationManager />} />
-                    <Route path="/admin/library/patrons" element={<PatronManager />} />
-                    <Route path="/admin/library/acquisitions" element={<AcquisitionsManager />} />
+                    <Route path="/admin/library" element={<AdminProtectedRoute><LibraryAdminDashboard /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/research-review" element={<AdminProtectedRoute><ResearchReviewDashboard /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/cataloguing" element={<AdminProtectedRoute><EnhancedCataloguingManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/cataloguing/basic" element={<AdminProtectedRoute><CataloguingManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/circulation" element={<AdminProtectedRoute><CirculationManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/patrons" element={<AdminProtectedRoute><PatronManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/acquisitions" element={<AdminProtectedRoute><AcquisitionsManager /></AdminProtectedRoute>} />
 
                     {/* Legal & Compliance Routes */}
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -471,7 +471,7 @@ function Routes() {
 
                     {/* Master Admin Panel - Unified Admin Dashboard (Main Entry Point) */}
                     <Route path="/admin" element={<Navigate to="/admin/master" replace />} />
-                    <Route path="/admin/master" element={<MasterAdminPanel />} />
+                    <Route path="/admin/master" element={<AdminProtectedRoute><MasterAdminPanel /></AdminProtectedRoute>} />
 
                     {/* User Management Routes */}
                     <Route path="/admin/users" element={
@@ -486,55 +486,55 @@ function Routes() {
                     } />
 
                     {/* Legacy Admin Routes */}
-                    <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                    <Route path="/admin/content" element={<ContentManager />} />
+                    <Route path="/admin/dashboard" element={<AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>} />
+                    <Route path="/admin/content" element={<AdminProtectedRoute><ContentManager /></AdminProtectedRoute>} />
 
                     {/* Research Data Admin Routes */}
                     <Route path="/admin/research-login" element={<ResearchAdminLogin />} />
-                    <Route path="/admin/research-data" element={<ResearchDataAdmin />} />
-                    <Route path="/admin/research-upload" element={<ResearchUploadAdmin />} />
-                    <Route path="/admin/research-bulk-upload" element={<BulkResearchUpload />} />
-                    <Route path="/admin/manage-papers" element={<ManagePapers />} />
+                    <Route path="/admin/research-data" element={<AdminProtectedRoute><ResearchDataAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/research-upload" element={<AdminProtectedRoute><ResearchUploadAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/research-bulk-upload" element={<AdminProtectedRoute><BulkResearchUpload /></AdminProtectedRoute>} />
+                    <Route path="/admin/manage-papers" element={<AdminProtectedRoute><ManagePapers /></AdminProtectedRoute>} />
 
                     {/* Media Admin Route */}
-                    <Route path="/admin/media" element={<MediaAdmin />} />
-                    <Route path="/admin/media-press-kit" element={<MediaPressKitAdmin />} />
+                    <Route path="/admin/media" element={<AdminProtectedRoute><MediaAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/media-press-kit" element={<AdminProtectedRoute><MediaPressKitAdmin /></AdminProtectedRoute>} />
 
                     {/* LDA Admin Route */}
-                    <Route path="/admin/lda" element={<LDAAdmin />} />
+                    <Route path="/admin/lda" element={<AdminProtectedRoute><LDAAdmin /></AdminProtectedRoute>} />
 
                     {/* Government Services Admin Route */}
-                    <Route path="/admin/government-services" element={<GovernmentServicesAdmin />} />
+                    <Route path="/admin/government-services" element={<AdminProtectedRoute><GovernmentServicesAdmin /></AdminProtectedRoute>} />
 
                     {/* Maritime Admin Route */}
-                    <Route path="/admin/maritime" element={<MaritimeAdmin />} />
-                    <Route path="/admin/maritime-data" element={<MaritimeDataAdmin />} />
+                    <Route path="/admin/maritime" element={<AdminProtectedRoute><MaritimeAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/maritime-data" element={<AdminProtectedRoute><MaritimeDataAdmin /></AdminProtectedRoute>} />
 
                     {/* Analytics Admin Routes - Phase 5 */}
-                    <Route path="/admin/analytics" element={<AnalyticsAdmin />} />
-                    <Route path="/admin/analytics/predictions" element={<PredictionsAdmin />} />
-                    <Route path="/admin/analytics/simulations" element={<SimulationsEconomicAdmin />} />
-                    <Route path="/admin/analytics/assessments" element={<SimulationsEconomicAdmin />} />
-                    <Route path="/admin/analytics/economic" element={<SimulationsEconomicAdmin />} />
+                    <Route path="/admin/analytics" element={<AdminProtectedRoute><AnalyticsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/predictions" element={<AdminProtectedRoute><PredictionsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/simulations" element={<AdminProtectedRoute><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/assessments" element={<AdminProtectedRoute><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/economic" element={<AdminProtectedRoute><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
 
                     {/* Fish Advisory System Routes */}
                     <Route path="/fish-advisory-system" element={<FishAdvisorySystem />} />
-                    <Route path="/admin/fish-advisory" element={<FishAdvisoryAdmin />} />
+                    <Route path="/admin/fish-advisory" element={<AdminProtectedRoute><FishAdvisoryAdmin /></AdminProtectedRoute>} />
 
                     {/* Podcast System Routes */}
                     <Route path="/podcasts" element={<PodcastsPage />} />
-                    <Route path="/admin/podcasts" element={<PodcastAdmin />} />
+                    <Route path="/admin/podcasts" element={<AdminProtectedRoute><PodcastAdmin /></AdminProtectedRoute>} />
 
                     {/* AI API Configuration Route */}
-                    <Route path="/admin/ai-api-config" element={<AIAPIConfiguration />} />
+                    <Route path="/admin/ai-api-config" element={<AdminProtectedRoute><AIAPIConfiguration /></AdminProtectedRoute>} />
 
                     {/* Lab Results Portal Routes */}
                     <Route path="/lab-results" element={<LabResultsPortal />} />
-                    <Route path="/admin/lab-results" element={<LabResultsAdmin />} />
+                    <Route path="/admin/lab-results" element={<AdminProtectedRoute><LabResultsAdmin /></AdminProtectedRoute>} />
 
                     {/* Research Vessel Booking Routes */}
                     <Route path="/research-vessel-booking" element={<ResearchVesselBooking />} />
-                    <Route path="/admin/research-vessel" element={<ResearchVesselAdmin />} />
+                    <Route path="/admin/research-vessel" element={<AdminProtectedRoute><ResearchVesselAdmin /></AdminProtectedRoute>} />
 
                     {/* Scientific Evidence Repository Route */}
                     <Route path="/scientific-evidence-repository" element={<ScientificEvidenceRepository />} />
@@ -550,38 +550,38 @@ function Routes() {
 
                     {/* Marine Incident Portal Routes */}
                     <Route path="/marine-incident-portal" element={<MarineIncidentPortal />} />
-                    <Route path="/admin/marine-incident" element={<MarineIncidentAdmin />} />
+                    <Route path="/admin/marine-incident" element={<AdminProtectedRoute><MarineIncidentAdmin /></AdminProtectedRoute>} />
 
                     {/* Project Pipeline Tracker Routes */}
                     <Route path="/project-pipeline-tracker" element={<ProjectPipelineTracker />} />
-                    <Route path="/admin/project-pipeline" element={<ProjectPipelineAdmin />} />
+                    <Route path="/admin/project-pipeline" element={<AdminProtectedRoute><ProjectPipelineAdmin /></AdminProtectedRoute>} />
 
                     {/* Recruitment ATS Admin Route */}
-                    <Route path="/admin/recruitment-ats" element={<RecruitmentATSAdmin />} />
+                    <Route path="/admin/recruitment-ats" element={<AdminProtectedRoute><RecruitmentATSAdmin /></AdminProtectedRoute>} />
 
                     {/* Bathymetry Data Admin Route */}
-                    <Route path="/admin/bathymetry" element={<BathymetryAdmin />} />
+                    <Route path="/admin/bathymetry" element={<AdminProtectedRoute><BathymetryAdmin /></AdminProtectedRoute>} />
 
                     {/* Marine Spatial Planning Viewer Route */}
                     <Route path="/marine-spatial-planning-viewer" element={<MarineSpatialPlanningViewer />} />
 
                     {/* Data Center Integration Hub Admin Route */}
-                    <Route path="/admin/data-center-integration" element={<DataCenterIntegrationAdmin />} />
+                    <Route path="/admin/data-center-integration" element={<AdminProtectedRoute><DataCenterIntegrationAdmin /></AdminProtectedRoute>} />
 
                     {/* Water Quality Monitoring Admin Route */}
-                    <Route path="/admin/water-quality-monitoring" element={<WaterQualityMonitoringAdmin />} />
+                    <Route path="/admin/water-quality-monitoring" element={<AdminProtectedRoute><WaterQualityMonitoringAdmin /></AdminProtectedRoute>} />
 
                     {/* Public Consultation Portal Routes */}
                     <Route path="/public-consultation-portal" element={<PublicConsultationPortal />} />
-                    <Route path="/admin/public-consultation" element={<PublicConsultationAdmin />} />
+                    <Route path="/admin/public-consultation" element={<AdminProtectedRoute><PublicConsultationAdmin /></AdminProtectedRoute>} />
 
                     {/* Phase 4 Data Seeder */}
-                    <Route path="/admin/phase4-seeder" element={<Phase4DataSeeder />} />
+                    <Route path="/admin/phase4-seeder" element={<AdminProtectedRoute><Phase4DataSeeder /></AdminProtectedRoute>} />
 
                     {/* Marketplace Admin Routes */}
-                    <Route path="/admin/marketplace/products" element={<MarketplaceProductsAdmin />} />
-                    <Route path="/admin/marketplace/orders" element={<MarketplaceOrdersAdmin />} />
-                    <Route path="/admin/marketplace/payments" element={<MarketplacePaymentsAdmin />} />
+                    <Route path="/admin/marketplace/products" element={<AdminProtectedRoute><MarketplaceProductsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/marketplace/orders" element={<AdminProtectedRoute><MarketplaceOrdersAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/marketplace/payments" element={<AdminProtectedRoute><MarketplacePaymentsAdmin /></AdminProtectedRoute>} />
 
                     {/* Analytics Hub - Phase 5 */}
                     <Route path="/analytics" element={<AnalyticsHub />} />

@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 const SITE_NAME = 'NARA - National Aquatic Resources Research & Development Agency';
 const SITE_URL = 'https://nara-web-73384.web.app';
-const DEFAULT_OG_IMAGE = '/assets/nara-logo.png';
+const DEFAULT_OG_IMAGE = '/og-nara-logo.png';
 const DEFAULT_DESCRIPTION = "Sri Lanka's premier ocean research institute advancing marine science, sustainable fishing, and blue economy development.";
 const TWITTER_HANDLE = '@NABOREASLK';
 

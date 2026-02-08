@@ -137,7 +137,7 @@ const NewHomePage = () => {
         {/* HERO SECTION - Cinematic 16:9 Carousel Theme */}
         <section
           ref={heroRef}
-          className="relative min-h-[55vh] md:min-h-[70vh] lg:h-screen w-full overflow-hidden flex items-center justify-center"
+          className="relative min-h-[60vh] md:min-h-[70vh] lg:h-screen w-full overflow-hidden flex items-center justify-center"
         >
           {/* Background Carousel & Overlay */}
           <div className="absolute inset-0 z-0">
@@ -181,7 +181,7 @@ const NewHomePage = () => {
           </div>
 
           {/* Main Content Overlay - BOTTOM LEFT ALIGNED */}
-          <div className="absolute bottom-6 sm:bottom-10 md:bottom-16 left-0 z-20 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pointer-events-none">
+          <div className="absolute bottom-12 sm:bottom-10 md:bottom-16 left-0 z-20 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 pointer-events-none">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
@@ -224,8 +224,8 @@ const NewHomePage = () => {
             <div className="grid gap-4 sm:gap-6 lg:gap-8 lg:grid-cols-2">
               {/* Left Tile - Mission Info */}
               <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 className="glass-card-enhanced rounded-2xl border border-gray-200/50 bg-white/80 p-6 sm:p-8 md:p-10 h-full flex flex-col"
@@ -289,13 +289,13 @@ const NewHomePage = () => {
 
               {/* Right Tile - Stats */}
               <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="glass-card-enhanced rounded-2xl border border-gray-200/50 bg-white/80 p-6 sm:p-8 md:p-10 h-full flex flex-col justify-center"
               >
-                <div className="space-y-6">
+                <div className="space-y-3 sm:space-y-4 md:space-y-6">
                   {(missionContent?.stats || []).map((stat, index) => {
                     const StatIcon = missionStatsIcons[index] || Award;
                     return (
@@ -305,8 +305,8 @@ const NewHomePage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 * index }}
-                        whileHover={{ scale: 1.02, x: 5 }}
-                        className="flex items-center gap-6 rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-white p-3 sm:p-4 md:p-5 stat-card-glow cursor-pointer transition-all duration-300 hover:border-nara-blue/30 hover:shadow-lg"
+                        whileHover={{ scale: 1.02 }}
+                        className="flex items-center gap-3 sm:gap-4 md:gap-6 rounded-xl border border-gray-200/50 bg-gradient-to-r from-gray-50 to-white p-3 sm:p-4 md:p-5 stat-card-glow cursor-pointer transition-all duration-300 hover:border-nara-blue/30 hover:shadow-lg"
                       >
                         <div className="flex h-12 w-12 sm:h-14 sm:w-14 md:h-16 md:w-16 flex-shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-nara-navy to-nara-blue shadow-lg">
                           <StatIcon className="w-8 h-8 text-white" />

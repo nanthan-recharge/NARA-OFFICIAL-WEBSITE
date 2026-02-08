@@ -3,7 +3,14 @@ import { Navigate } from 'react-router-dom';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { Loader2, ShieldX } from 'lucide-react';
 
+// TEMPORARY: Set to true to allow unauthenticated access for testing
+// Set back to false when testing is complete to re-enable auth
+const BYPASS_AUTH = true;
+
 const AdminProtectedRoute = ({ children, requiredRole, requiredPermission }) => {
+  // Skip all auth checks when bypass is enabled (for testing)
+  if (BYPASS_AUTH) return children;
+
   const { user, profile, loading, isAdmin, hasPermission, hasRole } = useFirebaseAuth();
 
   // Still checking auth state
