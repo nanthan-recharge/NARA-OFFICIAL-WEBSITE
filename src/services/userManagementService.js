@@ -3,7 +3,6 @@ import {
   doc,
   addDoc,
   updateDoc,
-  deleteDoc,
   getDoc,
   getDocs,
   query,
@@ -11,16 +10,31 @@ import {
   where,
   limit as firestoreLimit,
   serverTimestamp,
-  writeBatch,
-  getCountFromServer
 } from 'firebase/firestore';
+import { httpsCallable } from 'firebase/functions';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
-import { db, storage } from '../config/firebase';
-import { ROLE_HIERARCHY, DEPARTMENTS, getRolePermissions, ACTIVITY_ACTIONS } from '../constants/roles';
+import { db, functions, storage } from '../config/firebase';
+import { DEPARTMENTS, getRolePermissions, ACTIVITY_ACTIONS } from '../constants/roles';
 
 const USERS_COLLECTION = 'adminUsers';
 const DEPARTMENTS_COLLECTION = 'departments';
 const ACTIVITY_LOGS_COLLECTION = 'userActivityLogs';
+
+const upsertAdminStaffCallable = () => httpsCallable(functions, 'upsertAdminStaffUser');
+
+const provisionAdminStaffUser = async (userId, userData) => {
+  const payload = {
+    userId: userId || null,
+    user: {
+      ...userData,
+      permissions: getRolePermissions(userData.role || 'support_staff'),
+      customPermissions: Array.isArray(userData.customPermissions) ? userData.customPermissions : [],
+      status: userData.status || 'active',
+    },
+  };
+  const result = await upsertAdminStaffCallable()(payload);
+  return result.data;
+};
 
 // ============================================
 // Helper: Generate search terms for a user
@@ -139,7 +153,6 @@ export const userManagementService = {
    */
   createUser: async (userData, createdByUid) => {
     try {
-      const now = new Date();
       const searchTerms = generateSearchTerms(userData);
       const rolePerms = getRolePermissions(userData.role);
 
@@ -149,22 +162,21 @@ export const userManagementService = {
         customPermissions: userData.customPermissions || [],
         searchTerms,
         status: userData.status || 'active',
-        createdAt: serverTimestamp(),
-        updatedAt: serverTimestamp(),
         createdBy: createdByUid,
         updatedBy: createdByUid,
       };
 
-      const docRef = await addDoc(collection(db, USERS_COLLECTION), newUser);
+      const provisionedUser = await provisionAdminStaffUser(null, newUser);
 
-      await logActivity(
-        docRef.id,
-        ACTIVITY_ACTIONS.USER_CREATED,
-        `User ${userData.displayName} created`,
-        createdByUid
-      );
-
-      return { data: { id: docRef.id, ...newUser }, error: null };
+      return {
+        data: {
+          id: provisionedUser.uid,
+          uid: provisionedUser.uid,
+          inviteRequired: provisionedUser.inviteRequired,
+          ...newUser,
+        },
+        error: null
+      };
     } catch (error) {
       console.error('Error creating user:', error);
       return { data: null, error };
@@ -177,30 +189,32 @@ export const userManagementService = {
   updateUser: async (userId, updates, updatedByUid) => {
     try {
       const docRef = doc(db, USERS_COLLECTION, userId);
-
-      // Regenerate search terms if relevant fields changed
-      if (updates.displayName || updates.email || updates.firstName || updates.lastName || updates.employeeId) {
-        const snap = await getDoc(docRef);
-        const existing = snap.data();
-        const merged = { ...existing, ...updates };
-        updates.searchTerms = generateSearchTerms(merged);
-      }
-
-      await updateDoc(docRef, {
+      const snap = await getDoc(docRef);
+      const existing = snap.exists() ? snap.data() : {};
+      const merged = {
+        ...existing,
         ...updates,
-        updatedAt: serverTimestamp(),
         updatedBy: updatedByUid,
+      };
+      const searchTerms = generateSearchTerms(merged);
+      const rolePerms = getRolePermissions(merged.role || 'support_staff');
+
+      const provisionedUser = await provisionAdminStaffUser(userId, {
+        ...merged,
+        permissions: rolePerms,
+        searchTerms,
       });
 
-      await logActivity(
-        userId,
-        ACTIVITY_ACTIONS.USER_UPDATED,
-        `User profile updated`,
-        updatedByUid,
-        { fields: Object.keys(updates) }
-      );
-
-      return { data: { id: userId, ...updates }, error: null };
+      return {
+        data: {
+          id: provisionedUser.uid,
+          uid: provisionedUser.uid,
+          ...merged,
+          permissions: rolePerms,
+          searchTerms,
+        },
+        error: null
+      };
     } catch (error) {
       console.error('Error updating user:', error);
       return { data: null, error };
@@ -212,23 +226,12 @@ export const userManagementService = {
    */
   deactivateUser: async (userId, reason, performedByUid) => {
     try {
-      const docRef = doc(db, USERS_COLLECTION, userId);
-      await updateDoc(docRef, {
+      const result = await userManagementService.updateUser(userId, {
         status: 'suspended',
         statusReason: reason,
-        statusChangedAt: serverTimestamp(),
         statusChangedBy: performedByUid,
-        updatedAt: serverTimestamp(),
-        updatedBy: performedByUid,
-      });
-
-      await logActivity(
-        userId,
-        ACTIVITY_ACTIONS.STATUS_CHANGED,
-        `User suspended: ${reason}`,
-        performedByUid,
-        { newStatus: 'suspended', reason }
-      );
+      }, performedByUid);
+      if (result.error) throw result.error;
 
       return { data: { id: userId, status: 'suspended' }, error: null };
     } catch (error) {
@@ -242,23 +245,12 @@ export const userManagementService = {
    */
   reactivateUser: async (userId, performedByUid) => {
     try {
-      const docRef = doc(db, USERS_COLLECTION, userId);
-      await updateDoc(docRef, {
+      const result = await userManagementService.updateUser(userId, {
         status: 'active',
         statusReason: null,
-        statusChangedAt: serverTimestamp(),
         statusChangedBy: performedByUid,
-        updatedAt: serverTimestamp(),
-        updatedBy: performedByUid,
-      });
-
-      await logActivity(
-        userId,
-        ACTIVITY_ACTIONS.STATUS_CHANGED,
-        `User reactivated`,
-        performedByUid,
-        { newStatus: 'active' }
-      );
+      }, performedByUid);
+      if (result.error) throw result.error;
 
       return { data: { id: userId, status: 'active' }, error: null };
     } catch (error) {
@@ -272,21 +264,11 @@ export const userManagementService = {
    */
   deleteUser: async (userId, performedByUid) => {
     try {
-      const docRef = doc(db, USERS_COLLECTION, userId);
-      await updateDoc(docRef, {
+      const result = await userManagementService.updateUser(userId, {
         status: 'terminated',
-        statusChangedAt: serverTimestamp(),
         statusChangedBy: performedByUid,
-        updatedAt: serverTimestamp(),
-        updatedBy: performedByUid,
-      });
-
-      await logActivity(
-        userId,
-        ACTIVITY_ACTIONS.USER_DELETED,
-        `User terminated`,
-        performedByUid
-      );
+      }, performedByUid);
+      if (result.error) throw result.error;
 
       return { data: { id: userId, status: 'terminated' }, error: null };
     } catch (error) {
@@ -300,25 +282,14 @@ export const userManagementService = {
    */
   updateUserRole: async (userId, newRole, performedByUid) => {
     try {
-      const docRef = doc(db, USERS_COLLECTION, userId);
-      const snap = await getDoc(docRef);
-      const oldRole = snap.data()?.role;
       const newPerms = getRolePermissions(newRole);
 
-      await updateDoc(docRef, {
+      const result = await userManagementService.updateUser(userId, {
         role: newRole,
         permissions: newPerms,
-        updatedAt: serverTimestamp(),
         updatedBy: performedByUid,
-      });
-
-      await logActivity(
-        userId,
-        ACTIVITY_ACTIONS.ROLE_CHANGED,
-        `Role changed from ${oldRole} to ${newRole}`,
-        performedByUid,
-        { oldRole, newRole }
-      );
+      }, performedByUid);
+      if (result.error) throw result.error;
 
       return { data: { id: userId, role: newRole, permissions: newPerms }, error: null };
     } catch (error) {
@@ -332,20 +303,11 @@ export const userManagementService = {
    */
   updateUserPermissions: async (userId, customPermissions, performedByUid) => {
     try {
-      const docRef = doc(db, USERS_COLLECTION, userId);
-      await updateDoc(docRef, {
+      const result = await userManagementService.updateUser(userId, {
         customPermissions,
-        updatedAt: serverTimestamp(),
         updatedBy: performedByUid,
-      });
-
-      await logActivity(
-        userId,
-        ACTIVITY_ACTIONS.PERMISSION_CHANGED,
-        `Custom permissions updated`,
-        performedByUid,
-        { customPermissions }
-      );
+      }, performedByUid);
+      if (result.error) throw result.error;
 
       return { data: { id: userId, customPermissions }, error: null };
     } catch (error) {

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
+import { PERMISSIONS } from '../../constants/roles';
 import {
   LayoutDashboard, Image, Video, FileText, Users, Ship, Fish,
   TrendingUp, AlertCircle, Map, Database, BookOpen, Settings, LogOut,
@@ -57,6 +58,7 @@ const GOVERNANCE_AREAS = [
     label: 'Website & public notices',
     owner: 'Communications / Administration',
     route: '/admin/news',
+    permission: PERMISSIONS.MANAGE_NEWS,
     status: 'Controlled publishing',
     icon: Newspaper,
     color: 'cyan',
@@ -65,6 +67,7 @@ const GOVERNANCE_AREAS = [
     label: 'Media library',
     owner: 'Media & Press Unit',
     route: '/admin/media',
+    permission: PERMISSIONS.MANAGE_MEDIA,
     status: 'Separate image/video workflow',
     icon: Image,
     color: 'purple',
@@ -73,6 +76,7 @@ const GOVERNANCE_AREAS = [
     label: 'Research & publications',
     owner: 'Research divisions',
     route: '/admin/research-data',
+    permission: PERMISSIONS.MANAGE_RESEARCH_DATA,
     status: 'Metadata and document governance',
     icon: Microscope,
     color: 'blue',
@@ -81,6 +85,7 @@ const GOVERNANCE_AREAS = [
     label: 'Citizen services',
     owner: 'Service operations',
     route: '/admin/government-services',
+    permission: PERMISSIONS.MANAGE_GOVERNMENT_SERVICES,
     status: 'Applications and requests',
     icon: Building2,
     color: 'green',
@@ -89,6 +94,7 @@ const GOVERNANCE_AREAS = [
     label: 'Library administration',
     owner: 'Library & Documentation',
     route: '/admin/library',
+    permission: PERMISSIONS.MANAGE_LIBRARY,
     status: 'Cataloguing and circulation',
     icon: BookOpen,
     color: 'indigo',
@@ -97,11 +103,56 @@ const GOVERNANCE_AREAS = [
     label: 'Users and permissions',
     owner: 'IT / System administration',
     route: '/admin/users',
+    permission: PERMISSIONS.MANAGE_USERS,
     status: 'Role based access',
     icon: Shield,
     color: 'red',
   },
 ];
+
+const ADMIN_SECTION_PERMISSIONS = {
+  dashboard: PERMISSIONS.VIEW_DASHBOARD,
+  media: PERMISSIONS.MANAGE_MEDIA,
+  research: PERMISSIONS.MANAGE_RESEARCH_DATA,
+  library: PERMISSIONS.MANAGE_LIBRARY,
+  maritime: PERMISSIONS.MANAGE_MARITIME,
+  services: PERMISSIONS.MANAGE_GOVERNMENT_SERVICES,
+  analytics: PERMISSIONS.VIEW_ANALYTICS,
+  website: PERMISSIONS.MANAGE_CONTENT,
+  content: PERMISSIONS.MANAGE_CONTENT,
+  marketplace: PERMISSIONS.MANAGE_MARKETPLACE,
+  hr: PERMISSIONS.MANAGE_RECRUITMENT,
+  podcasts: PERMISSIONS.MANAGE_PODCASTS,
+  integration: PERMISSIONS.MANAGE_DATA_INTEGRATION,
+  settings: PERMISSIONS.MANAGE_USERS,
+};
+
+const ADMIN_SUBSECTION_PERMISSIONS = {
+  'research.lab-results': PERMISSIONS.MANAGE_LAB_DATA,
+  'library.library-dashboard': PERMISSIONS.MANAGE_LIBRARY,
+  'library.cataloguing': PERMISSIONS.MANAGE_CATALOGUE,
+  'library.circulation': PERMISSIONS.MANAGE_CIRCULATION,
+  'library.patrons': PERMISSIONS.MANAGE_LIBRARY_PATRONS,
+  'library.acquisitions': PERMISSIONS.MANAGE_LIBRARY_ACQUISITIONS,
+  'library.research-review': PERMISSIONS.REVIEW_RESEARCH,
+  'maritime.bathymetry': PERMISSIONS.MANAGE_BATHYMETRY,
+  'maritime.incidents': PERMISSIONS.MANAGE_INCIDENTS,
+  'services.fish-advisory': PERMISSIONS.MANAGE_FISH_ADVISORY,
+  'services.vessel-booking': PERMISSIONS.MANAGE_RESEARCH_VESSELS,
+  'services.lda': PERMISSIONS.MANAGE_LDA,
+  'analytics.simulations': PERMISSIONS.MANAGE_ANALYTICS,
+  'analytics.economics': PERMISSIONS.MANAGE_ANALYTICS,
+  'website.news': PERMISSIONS.MANAGE_NEWS,
+  'website.hero-images': PERMISSIONS.MANAGE_HERO_IMAGES,
+  'website.vacancies': PERMISSIONS.MANAGE_VACANCIES,
+  'website.scientist-sessions': PERMISSIONS.MANAGE_SCIENTIST_SESSIONS,
+  'content.divisions': PERMISSIONS.MANAGE_DIVISIONS,
+  'content.division-images': PERMISSIONS.MANAGE_DIVISIONS,
+  'content.consultations': PERMISSIONS.MANAGE_PUBLIC_CONSULTATION,
+  'hr.pipeline': PERMISSIONS.MANAGE_PROJECT_PIPELINE,
+  'integration.water-quality': PERMISSIONS.MANAGE_WATER_QUALITY,
+  'integration.seeder': PERMISSIONS.MANAGE_SYSTEM,
+};
 
 const MasterAdminPanel = () => {
   const navigate = useNavigate();
@@ -146,6 +197,20 @@ const MasterAdminPanel = () => {
         { id: 'publications', label: 'Publications', icon: FileText, path: '/admin/research-data', collection: 'publications' },
         { id: 'projects', label: 'Projects', icon: Briefcase, path: '/admin/research-data', collection: 'projects' },
         { id: 'lab-results', label: 'Lab Results', icon: FlaskConical, path: '/admin/lab-results' }
+      ]
+    },
+    {
+      id: 'library',
+      label: 'Library Management',
+      icon: BookOpen,
+      color: 'indigo',
+      subsections: [
+        { id: 'library-dashboard', label: 'Library Dashboard', icon: LayoutDashboard, path: '/admin/library' },
+        { id: 'cataloguing', label: 'Cataloguing', icon: BookOpen, path: '/admin/library/cataloguing' },
+        { id: 'circulation', label: 'Circulation', icon: RefreshCw, path: '/admin/library/circulation' },
+        { id: 'patrons', label: 'Patron Records', icon: Users, path: '/admin/library/patrons' },
+        { id: 'acquisitions', label: 'Acquisitions', icon: Package, path: '/admin/library/acquisitions' },
+        { id: 'research-review', label: 'Research Review', icon: FileCheck, path: '/admin/library/research-review' }
       ]
     },
     {
@@ -204,8 +269,7 @@ const MasterAdminPanel = () => {
       subsections: [
         { id: 'divisions', label: 'Divisions', icon: Building2, path: '/admin/division-content' },
         { id: 'division-images', label: 'Division Images', icon: Image, path: '/admin/division-images' },
-        { id: 'consultations', label: 'Public Consultations', icon: MessageSquare, path: '/admin/public-consultation' },
-        { id: 'library', label: 'Library System', icon: BookOpen, path: '/admin/library' }
+        { id: 'consultations', label: 'Public Consultations', icon: MessageSquare, path: '/admin/public-consultation' }
       ]
     },
     {
@@ -272,11 +336,51 @@ const MasterAdminPanel = () => {
   }, []);
 
   const permissions = getAdminPermissions();
+  const canAccessPermission = (permission) => !permission || permissions.includes(permission);
+  const applySectionAccess = (section) => {
+    const sectionPermission = section.permission || ADMIN_SECTION_PERMISSIONS[section.id];
+    const subsections = section.subsections?.map((subsection) => ({
+      ...subsection,
+      permission:
+        subsection.permission ||
+        ADMIN_SUBSECTION_PERMISSIONS[`${section.id}.${subsection.id}`] ||
+        sectionPermission,
+    }));
+
+    return { ...section, permission: sectionPermission, subsections };
+  };
+  const adminSectionsWithAccess = adminSections.map(applySectionAccess);
+  const accessibleAdminSections = adminSectionsWithAccess
+    .map((section) => {
+      const sectionAllowed = canAccessPermission(section.permission);
+      const visibleSubsections = section.subsections?.filter((subsection) =>
+        sectionAllowed
+          ? subsection.disabled || canAccessPermission(subsection.permission)
+          : canAccessPermission(subsection.permission)
+      );
+
+      if (sectionAllowed || visibleSubsections?.length) {
+        return { ...section, subsections: visibleSubsections };
+      }
+
+      return null;
+    })
+    .filter(Boolean);
+  const accessibleGovernanceAreas = GOVERNANCE_AREAS.filter((area) => canAccessPermission(area.permission));
+  const quickActions = [
+    { icon: Upload, label: 'Upload Research', path: '/admin/research-upload', color: 'cyan', permission: PERMISSIONS.MANAGE_RESEARCH_DATA },
+    { icon: Package, label: 'Bulk Upload', path: '/admin/research-bulk-upload', color: 'blue', permission: PERMISSIONS.MANAGE_RESEARCH_DATA },
+    { icon: Languages, label: 'Manage Papers', path: '/admin/manage-papers', color: 'green', permission: PERMISSIONS.MANAGE_RESEARCH_DATA },
+    { icon: Plus, label: 'Add Media', path: '/admin/media', color: 'purple', permission: PERMISSIONS.MANAGE_MEDIA },
+    { icon: Newspaper, label: 'Manage News', path: '/admin/news', color: 'cyan', permission: PERMISSIONS.MANAGE_NEWS },
+    { icon: BookOpen, label: 'Library', path: '/admin/library', color: 'indigo', permission: PERMISSIONS.MANAGE_LIBRARY },
+    { icon: Ship, label: 'Maritime', path: '/admin/maritime', color: 'teal', permission: PERMISSIONS.MANAGE_MARITIME },
+  ].filter((action) => canAccessPermission(action.permission));
   const displayName = profile?.displayName || profile?.email || 'Authorized admin';
   const roleLabel = (profile?.role || 'admin').replace(/_/g, ' ');
   const normalizedSearch = searchQuery.trim().toLowerCase();
   const filteredAdminSections = normalizedSearch
-    ? adminSections
+    ? accessibleAdminSections
       .map((section) => {
         const sectionMatches = section.label.toLowerCase().includes(normalizedSearch);
         const subsections = section.subsections?.filter((subsection) => (
@@ -291,7 +395,7 @@ const MasterAdminPanel = () => {
         return null;
       })
       .filter(Boolean)
-    : adminSections;
+    : accessibleAdminSections;
 
   const loadDashboardData = async () => {
     setLoading(true);
@@ -530,7 +634,7 @@ const MasterAdminPanel = () => {
 
               <OperationalSecurityPanel permissions={permissions} profile={profile} />
 
-              <AdminGovernanceGrid areas={GOVERNANCE_AREAS} onOpen={navigate} />
+              <AdminGovernanceGrid areas={accessibleGovernanceAreas} onOpen={navigate} />
 
               {/* Quick Stats Grid — Real Data */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -599,42 +703,15 @@ const MasterAdminPanel = () => {
               <div className="bg-white/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-200">
                 <h3 className="text-xl font-bold mb-4 text-slate-800">Quick Actions</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                  <QuickActionButton
-                    icon={Upload}
-                    label="Upload Research"
-                    onClick={() => navigate('/admin/research-upload')}
-                    color="cyan"
-                  />
-                  <QuickActionButton
-                    icon={Package}
-                    label="Bulk Upload"
-                    onClick={() => navigate('/admin/research-bulk-upload')}
-                    color="blue"
-                  />
-                  <QuickActionButton
-                    icon={Languages}
-                    label="Manage Papers"
-                    onClick={() => navigate('/admin/manage-papers')}
-                    color="green"
-                  />
-                  <QuickActionButton
-                    icon={Plus}
-                    label="Add Media"
-                    onClick={() => navigate('/admin/media')}
-                    color="purple"
-                  />
-                  <QuickActionButton
-                    icon={Newspaper}
-                    label="Manage News"
-                    onClick={() => navigate('/admin/news')}
-                    color="cyan"
-                  />
-                  <QuickActionButton
-                    icon={Ship}
-                    label="Maritime"
-                    onClick={() => navigate('/admin/maritime')}
-                    color="teal"
-                  />
+                  {quickActions.map((action) => (
+                    <QuickActionButton
+                      key={action.path}
+                      icon={action.icon}
+                      label={action.label}
+                      onClick={() => navigate(action.path)}
+                      color={action.color}
+                    />
+                  ))}
                 </div>
               </div>
 
@@ -674,20 +751,20 @@ const MasterAdminPanel = () => {
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-br from-[#003366] to-[#0066CC] rounded-full flex items-center justify-center mx-auto mb-4">
                   {(() => {
-                    const section = adminSections.find(s => s.id === activeSection);
+                    const section = accessibleAdminSections.find(s => s.id === activeSection);
                     const Icon = section?.icon || LayoutDashboard;
                     return <Icon className="w-8 h-8 text-white" />;
                   })()}
                 </div>
                 <h3 className="text-2xl font-bold text-slate-800 mb-2">
-                  {adminSections.find(s => s.id === activeSection)?.label}
+                  {accessibleAdminSections.find(s => s.id === activeSection)?.label}
                 </h3>
                 <p className="text-slate-500 mb-6">
                   Navigate using the sidebar or click a subsection to access specific management tools
                 </p>
-                {adminSections.find(s => s.id === activeSection)?.subsections && (
+                {accessibleAdminSections.find(s => s.id === activeSection)?.subsections && (
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
-                    {adminSections.find(s => s.id === activeSection).subsections.map((sub) => (
+                    {accessibleAdminSections.find(s => s.id === activeSection).subsections.map((sub) => (
                       <button
                         key={sub.id}
                         onClick={() => handleSubSectionClick(sub)}

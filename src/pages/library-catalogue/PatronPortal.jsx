@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import libraryService from '../../services/libraryService';
-import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
-import { Book, Clock, AlertCircle, DollarSign, Heart, RotateCcw, Calendar, CheckCircle } from 'lucide-react';
+import { useLibraryUser } from '../../contexts/LibraryUserContext';
+import { Book, Clock, AlertCircle, DollarSign, RotateCcw, Calendar, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PatronPortal = () => {
-  const { user } = useFirebaseAuth();
+  const { user } = useLibraryUser();
   const [activeTab, setActiveTab] = useState('loans'); // loans, history, holds, fines, lists
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,16 +16,9 @@ const PatronPortal = () => {
   const [borrowingHistory, setBorrowingHistory] = useState([]);
   const [activeHolds, setActiveHolds] = useState([]);
   const [fines, setFines] = useState([]);
-  const [readingLists, setReadingLists] = useState([]);
   const [statistics, setStatistics] = useState(null);
 
-  useEffect(() => {
-    if (user) {
-      fetchPatronData();
-    }
-  }, [user, activeTab]);
-
-  const fetchPatronData = async () => {
+  const fetchPatronData = useCallback(async () => {
     try {
       setLoading(true);
       const token = await user?.getIdToken();
@@ -60,7 +53,13 @@ const PatronPortal = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [activeTab, user]);
+
+  useEffect(() => {
+    if (user) {
+      fetchPatronData();
+    }
+  }, [fetchPatronData, user]);
 
   const handleRenewItem = async (transactionId) => {
     try {
@@ -112,7 +111,7 @@ const PatronPortal = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Login Required</h2>
           <p className="text-gray-600 mb-6">Please log in to access your patron portal.</p>
           <Link
-            to="/firebase-admin-authentication-portal"
+            to="/library-login"
             className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors inline-block"
           >
             Go to Login
@@ -282,7 +281,7 @@ const PatronPortal = () => {
                 ) : currentLoans.length === 0 ? (
                   <div className="text-center py-8 text-gray-500">
                     <Book size={48} className="mx-auto mb-4 text-gray-400" />
-                    <p>You don't have any items checked out.</p>
+                    <p>You don&apos;t have any items checked out.</p>
                     <Link
                       to="/library"
                       className="text-blue-600 hover:text-blue-800 mt-2 inline-block"
@@ -404,7 +403,7 @@ const PatronPortal = () => {
                 ) : activeHolds.length === 0 ? (
                   <div className="text-center py-8 text-gray-500">
                     <Clock size={48} className="mx-auto mb-4 text-gray-400" />
-                    <p>You don't have any active holds.</p>
+                    <p>You don&apos;t have any active holds.</p>
                   </div>
                 ) : (
                   <div className="space-y-4">
@@ -461,7 +460,7 @@ const PatronPortal = () => {
                 ) : fines.length === 0 ? (
                   <div className="text-center py-8 text-gray-500">
                     <CheckCircle size={48} className="mx-auto mb-4 text-green-400" />
-                    <p>You don't have any fines. Great job!</p>
+                    <p>You don&apos;t have any fines. Great job!</p>
                   </div>
                 ) : (
                   <div className="overflow-x-auto">
@@ -512,4 +511,3 @@ const PatronPortal = () => {
 };
 
 export default PatronPortal;
-

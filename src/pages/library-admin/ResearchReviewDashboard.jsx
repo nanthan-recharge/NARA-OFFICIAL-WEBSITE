@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { collection, query, where, getDocs, doc, updateDoc, serverTimestamp, orderBy } from 'firebase/firestore';
 import { db } from '../../lib/firebase';
-import { useLibraryUser } from '../../contexts/LibraryUserContext';
+import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 
 const ResearchReviewDashboard = () => {
-  const { user, userProfile, hasPermission } = useLibraryUser();
+  const { user, profile } = useFirebaseAuth();
   const [submissions, setSubmissions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedSubmission, setSelectedSubmission] = useState(null);
@@ -14,13 +14,7 @@ const ResearchReviewDashboard = () => {
   const [reviewData, setReviewData] = useState({ status: '', comments: '' });
   const [filterStatus, setFilterStatus] = useState('pending');
 
-  useEffect(() => {
-    if (user) {
-      fetchSubmissions();
-    }
-  }, [filterStatus, user]);
-
-  const fetchSubmissions = async () => {
+  const fetchSubmissions = useCallback(async () => {
     try {
       setLoading(true);
       const q = filterStatus === 'all' 
@@ -39,7 +33,13 @@ const ResearchReviewDashboard = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filterStatus]);
+
+  useEffect(() => {
+    if (user) {
+      fetchSubmissions();
+    }
+  }, [fetchSubmissions, user]);
 
   const openReviewModal = (submission) => {
     setSelectedSubmission(submission);
@@ -59,6 +59,7 @@ const ResearchReviewDashboard = () => {
         'submission.status': reviewData.status,
         'submission.reviewComments': reviewData.comments,
         'submission.reviewedBy': user.uid,
+        'submission.reviewedByEmail': profile?.email || user.email || null,
         'submission.reviewedAt': serverTimestamp()
       });
 
@@ -87,11 +88,6 @@ const ResearchReviewDashboard = () => {
     return submissions.filter(s => s.submission?.status === status).length;
   };
 
-  // Check if user is admin or has review permissions
-  const canReview = userProfile?.role === 'admin' || 
-                    userProfile?.role === 'librarian' || 
-                    hasPermission?.('review_research');
-
   if (!user) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
@@ -99,26 +95,6 @@ const ResearchReviewDashboard = () => {
           <Icons.Lock className="w-16 h-16 text-slate-400 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-slate-900 mb-2">Authentication Required</h2>
           <p className="text-slate-600">Please sign in to access this page.</p>
-        </div>
-      </div>
-    );
-  }
-
-  if (!canReview) {
-    return (
-      <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
-        <div className="bg-white rounded-xl shadow-lg p-8 max-w-md text-center">
-          <Icons.ShieldAlert className="w-16 h-16 text-red-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-slate-900 mb-2">Access Denied</h2>
-          <p className="text-slate-600 mb-4">
-            Only administrators and librarians can access this page.
-          </p>
-          <button
-            onClick={() => window.history.back()}
-            className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors"
-          >
-            Go Back
-          </button>
         </div>
       </div>
     );

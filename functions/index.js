@@ -9,6 +9,66 @@ const db = admin.firestore();
 
 const ADMIN_BOOTSTRAP_ALLOWED_DOMAINS = ['nara.gov.lk', 'gov.lk'];
 const ADMIN_BOOTSTRAP_ROLES = ['system_admin', 'director_general'];
+const ADMIN_STAFF_ROLES = [
+  'system_admin',
+  'director_general',
+  'deputy_director',
+  'division_head',
+  'senior_researcher',
+  'research_officer',
+  'technical_officer',
+  'admin_staff',
+  'support_staff'
+];
+const ADMIN_PERMISSION_VALUES = [
+  'view_dashboard',
+  'view_analytics',
+  'manage_users',
+  'manage_division_users',
+  'manage_content',
+  'create_content',
+  'manage_divisions',
+  'manage_hero_images',
+  'manage_news',
+  'manage_media',
+  'manage_vacancies',
+  'manage_scientist_sessions',
+  'manage_applications',
+  'view_applications',
+  'approve_requests',
+  'approve_division_requests',
+  'manage_government_services',
+  'manage_lda',
+  'manage_public_consultation',
+  'manage_research_data',
+  'manage_own_research',
+  'review_research',
+  'manage_project_pipeline',
+  'manage_research_vessels',
+  'manage_library',
+  'manage_catalogue',
+  'manage_circulation',
+  'manage_library_patrons',
+  'manage_library_acquisitions',
+  'manage_lab_data',
+  'manage_maritime',
+  'manage_bathymetry',
+  'manage_fish_advisory',
+  'manage_incidents',
+  'manage_data_integration',
+  'manage_water_quality',
+  'manage_podcasts',
+  'manage_records',
+  'manage_departments',
+  'manage_system',
+  'manage_cloud_functions',
+  'manage_ai_config',
+  'manage_recruitment',
+  'manage_marketplace',
+  'manage_analytics',
+  'view_logs'
+];
+const ADMIN_ACCOUNT_STATUSES = ['active', 'suspended', 'on_leave', 'retired', 'terminated'];
 
 function getBootstrapSecret() {
   return process.env.ADMIN_BOOTSTRAP_TOKEN || functions.config()?.admin?.bootstrap_token;
@@ -27,6 +87,102 @@ function isAllowedAdminEmail(email) {
   return ADMIN_BOOTSTRAP_ALLOWED_DOMAINS.some((allowed) =>
     domain === allowed || domain?.endsWith(`.${allowed}`)
   );
+}
+
+function cleanString(value, maxLength = 500) {
+  if (value === undefined || value === null) return '';
+  return String(value).trim().slice(0, maxLength);
+}
+
+function cleanMultilingual(value) {
+  const source = value && typeof value === 'object' ? value : {};
+  return {
+    en: cleanString(source.en, 160),
+    si: cleanString(source.si, 160),
+    ta: cleanString(source.ta, 160)
+  };
+}
+
+function buildSearchTerms(userData) {
+  const terms = new Set();
+  const addTerms = (value) => {
+    const normalized = cleanString(value, 250).toLowerCase();
+    if (!normalized) return;
+    terms.add(normalized);
+    normalized.split(/\s+/).forEach((word) => {
+      if (word.length > 1) terms.add(word);
+    });
+  };
+
+  addTerms(userData.displayName);
+  addTerms(userData.email);
+  addTerms(userData.employeeId);
+  addTerms(userData.department);
+  addTerms(userData.role.replace(/_/g, ' '));
+  addTerms(userData.firstName?.en);
+  addTerms(userData.lastName?.en);
+  return Array.from(terms);
+}
+
+function createRandomPassword() {
+  return crypto.randomBytes(32).toString('base64').replace(/[+/=]/g, 'A');
+}
+
+function normalizeCustomPermissions(value) {
+  if (!Array.isArray(value)) return [];
+  return Array.from(new Set(
+    value
+      .map((permission) => cleanString(permission, 120))
+      .filter((permission) => ADMIN_PERMISSION_VALUES.includes(permission))
+  ));
+}
+
+function normalizeStaffUserPayload(data) {
+  const source = data && typeof data === 'object' ? data : {};
+  const email = cleanString(source.email, 254).toLowerCase();
+  const role = ADMIN_STAFF_ROLES.includes(source.role) ? source.role : 'support_staff';
+  const status = ADMIN_ACCOUNT_STATUSES.includes(source.status) ? source.status : 'active';
+  const firstName = cleanMultilingual(source.firstName);
+  const lastName = cleanMultilingual(source.lastName);
+  const fallbackDisplayName = `${firstName.en} ${lastName.en}`.trim() || email.split('@')[0];
+
+  return {
+    employeeId: cleanString(source.employeeId, 80),
+    firstName,
+    lastName,
+    displayName: cleanString(source.displayName, 180) || fallbackDisplayName,
+    email,
+    phone: cleanString(source.phone, 40),
+    mobile: cleanString(source.mobile, 40),
+    designation: cleanMultilingual(source.designation),
+    role,
+    department: cleanString(source.department, 40),
+    departmentCode: cleanString(source.department || source.departmentCode, 40),
+    reportingTo: cleanString(source.reportingTo, 180),
+    grade: cleanString(source.grade, 80),
+    status,
+    customPermissions: normalizeCustomPermissions(source.customPermissions),
+    notes: cleanString(source.notes, 1000)
+  };
+}
+
+async function requireSystemAdminContext(context) {
+  if (!context.auth?.uid) {
+    throw new functions.https.HttpsError('unauthenticated', 'Admin authentication is required.');
+  }
+
+  const profileSnap = await db.collection('adminProfiles').doc(context.auth.uid).get();
+  const profile = profileSnap.exists ? profileSnap.data() : null;
+  const isActive = profile &&
+    profile.email === context.auth.token.email &&
+    profile.is_active !== false &&
+    !['suspended', 'terminated', 'retired'].includes(profile.status);
+
+  if (!isActive || !ADMIN_BOOTSTRAP_ROLES.includes(profile.role)) {
+    throw new functions.https.HttpsError('permission-denied', 'System administrator access is required.');
+  }
+
+  return profile;
 }
 
 /**
@@ -113,6 +269,135 @@ exports.makeFirstAdmin = functions.https.onRequest(async (req, res) => {
 
     return res.status(500).json({ error: 'Admin bootstrap failed.' });
   }
+});
+
+/**
+ * Secure staff account provisioning for the unified admin panel.
+ * Callable JSON: { userId?: string, user: { email, role, department, status, customPermissions, ... } }
+ */
+exports.upsertAdminStaffUser = functions.https.onCall(async (data, context) => {
+  const actorProfile = await requireSystemAdminContext(context);
+  const staff = normalizeStaffUserPayload(data?.user || data);
+
+  if (!staff.email) {
+    throw new functions.https.HttpsError('invalid-argument', 'Staff email is required.');
+  }
+
+  if (!isAllowedAdminEmail(staff.email)) {
+    throw new functions.https.HttpsError('invalid-argument', 'Staff email must use an approved government domain.');
+  }
+
+  if (!staff.employeeId) {
+    throw new functions.https.HttpsError('invalid-argument', 'Employee ID is required.');
+  }
+
+  if (!staff.department) {
+    throw new functions.https.HttpsError('invalid-argument', 'Department is required.');
+  }
+
+  const requestedUserId = cleanString(data?.userId || staff.uid, 160);
+  const disabled = ['suspended', 'terminated', 'retired'].includes(staff.status);
+  const now = admin.firestore.FieldValue.serverTimestamp();
+
+  let authUser = null;
+  let createdAuthUser = false;
+
+  if (requestedUserId) {
+    try {
+      authUser = await admin.auth().getUser(requestedUserId);
+    } catch (error) {
+      if (error.code !== 'auth/user-not-found') throw error;
+    }
+  }
+
+  if (!authUser) {
+    try {
+      authUser = await admin.auth().getUserByEmail(staff.email);
+    } catch (error) {
+      if (error.code !== 'auth/user-not-found') throw error;
+    }
+  }
+
+  if (!authUser) {
+    authUser = await admin.auth().createUser({
+      email: staff.email,
+      displayName: staff.displayName,
+      disabled,
+      emailVerified: false,
+      password: createRandomPassword()
+    });
+    createdAuthUser = true;
+  } else {
+    await admin.auth().updateUser(authUser.uid, {
+      email: staff.email,
+      displayName: staff.displayName,
+      disabled
+    });
+  }
+
+  const claims = { ...(authUser.customClaims || {}), admin: true, role: staff.role };
+  await admin.auth().setCustomUserClaims(authUser.uid, claims);
+
+  const uid = authUser.uid;
+  const profileRecord = {
+    uid,
+    email: staff.email,
+    displayName: staff.displayName,
+    role: staff.role,
+    department: staff.department,
+    departmentCode: staff.departmentCode,
+    status: staff.status,
+    is_active: !disabled,
+    customPermissions: staff.customPermissions,
+    updatedAt: now,
+    updatedBy: context.auth.uid
+  };
+
+  const directoryRecord = {
+    ...staff,
+    uid,
+    permissions: [],
+    searchTerms: buildSearchTerms(staff),
+    is_active: !disabled,
+    updatedAt: now,
+    updatedBy: context.auth.uid
+  };
+
+  if (createdAuthUser) {
+    profileRecord.createdAt = now;
+    profileRecord.createdBy = context.auth.uid;
+    directoryRecord.createdAt = now;
+    directoryRecord.createdBy = context.auth.uid;
+  }
+
+  await Promise.all([
+    db.collection('adminProfiles').doc(uid).set(profileRecord, { merge: true }),
+    db.collection('adminUsers').doc(uid).set(directoryRecord, { merge: true }),
+    db.collection('userActivityLogs').add({
+      userId: uid,
+      action: createdAuthUser ? 'user_created' : 'user_updated',
+      details: createdAuthUser ? 'Admin staff account created' : 'Admin staff account updated',
+      performedBy: context.auth.uid,
+      performedByEmail: actorProfile.email,
+      metadata: {
+        role: staff.role,
+        department: staff.department,
+        status: staff.status,
+        customPermissions: staff.customPermissions
+      },
+      timestamp: now
+    })
+  ]);
+
+  return {
+    success: true,
+    uid,
+    createdAuthUser,
+    inviteRequired: createdAuthUser,
+    email: staff.email,
+    role: staff.role,
+    status: staff.status
+  };
 });
 
 /**

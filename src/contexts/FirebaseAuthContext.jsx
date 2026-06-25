@@ -47,6 +47,7 @@ const isActiveAdminProfile = (profileData) => (
   profileData.is_active !== false &&
   profileData.status !== 'suspended' &&
   profileData.status !== 'terminated' &&
+  profileData.status !== 'retired' &&
   !!ROLE_HIERARCHY[profileData.role]
 );
 

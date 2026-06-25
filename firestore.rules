@@ -30,7 +30,7 @@ service cloud.firestore {
              exists(/databases/$(database)/documents/adminProfiles/$(uid)) &&
              get(/databases/$(database)/documents/adminProfiles/$(uid)).data.email == request.auth.token.email &&
              get(/databases/$(database)/documents/adminProfiles/$(uid)).data.is_active != false &&
-             !(get(/databases/$(database)/documents/adminProfiles/$(uid)).data.status in ['suspended', 'terminated']) &&
+             !(get(/databases/$(database)/documents/adminProfiles/$(uid)).data.status in ['suspended', 'terminated', 'retired']) &&
              isKnownAdminRole(get(/databases/$(database)/documents/adminProfiles/$(uid)).data.role);
     }
 
@@ -47,11 +47,149 @@ service cloud.firestore {
       return request.auth != null && 
              request.auth.uid == uid;
     }
+
+    function hasAdminCustomPermission(permission) {
+      return hasActiveAdminProfile(request.auth.uid) &&
+             (get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.customPermissions is list) &&
+             permission in get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.customPermissions;
+    }
+
+    function hasAdminRole(roles) {
+      return hasActiveAdminProfile(request.auth.uid) &&
+             get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.role in roles;
+    }
+
+    function hasAdminSectionAccess(permission, defaultRoles) {
+      return isSystemAdmin() || hasAdminRole(defaultRoles) || hasAdminCustomPermission(permission);
+    }
+
+    function canManageDivisions() {
+      return hasAdminSectionAccess('manage_divisions', ['deputy_director', 'division_head']);
+    }
+
+    function canManageNews() {
+      return hasAdminSectionAccess('manage_news', ['deputy_director', 'division_head', 'admin_staff']);
+    }
+
+    function canManageContent() {
+      return hasAdminSectionAccess('manage_content', ['deputy_director', 'division_head', 'senior_researcher']);
+    }
+
+    function canManageHeroImages() {
+      return hasAdminSectionAccess('manage_hero_images', ['deputy_director', 'admin_staff']);
+    }
+
+    function canManageVacancies() {
+      return hasAdminSectionAccess('manage_vacancies', ['deputy_director', 'admin_staff']);
+    }
+
+    function canManageScientistSessions() {
+      return hasAdminSectionAccess('manage_scientist_sessions', ['deputy_director', 'admin_staff']);
+    }
+
+    function canManageMedia() {
+      return hasAdminSectionAccess('manage_media', ['deputy_director', 'division_head', 'admin_staff']);
+    }
+
+    function canManageResearchData() {
+      return hasAdminSectionAccess('manage_research_data', ['deputy_director', 'division_head', 'senior_researcher']);
+    }
+
+    function canManageProjectPipeline() {
+      return hasAdminSectionAccess('manage_project_pipeline', ['deputy_director', 'division_head', 'senior_researcher']);
+    }
+
+    function canManageGovernmentServices() {
+      return hasAdminSectionAccess('manage_government_services', ['deputy_director', 'division_head', 'admin_staff']);
+    }
+
+    function canManageLDA() {
+      return hasAdminSectionAccess('manage_lda', ['deputy_director', 'admin_staff']);
+    }
+
+    function canManageMaritime() {
+      return hasAdminSectionAccess('manage_maritime', ['deputy_director', 'division_head']);
+    }
+
+    function canManageBathymetry() {
+      return hasAdminSectionAccess('manage_bathymetry', ['deputy_director', 'division_head', 'technical_officer']);
+    }
+
+    function canManageIncidents() {
+      return hasAdminSectionAccess('manage_incidents', ['deputy_director', 'division_head']);
+    }
+
+    function canManageFishAdvisory() {
+      return hasAdminSectionAccess('manage_fish_advisory', ['deputy_director', 'division_head']);
+    }
+
+    function canManagePodcasts() {
+      return hasAdminSectionAccess('manage_podcasts', ['deputy_director', 'admin_staff']);
+    }
+
+    function canManageLabData() {
+      return hasAdminSectionAccess('manage_lab_data', ['deputy_director', 'division_head', 'senior_researcher', 'technical_officer']);
+    }
+
+    function canManageResearchVessels() {
+      return hasAdminSectionAccess('manage_research_vessels', ['deputy_director', 'division_head', 'senior_researcher']);
+    }
+
+    function canManageAnalytics() {
+      return hasAdminSectionAccess('manage_analytics', ['deputy_director']);
+    }
+
+    function canManageDataIntegration() {
+      return hasAdminSectionAccess('manage_data_integration', ['deputy_director', 'technical_officer']);
+    }
+
+    function canManageWaterQuality() {
+      return hasAdminSectionAccess('manage_water_quality', ['deputy_director', 'division_head', 'technical_officer']);
+    }
+
+    function canManageRecruitment() {
+      return hasAdminSectionAccess('manage_recruitment', ['deputy_director', 'admin_staff']);
+    }
+
+    function canManageMarketplace() {
+      return hasAdminSectionAccess('manage_marketplace', ['deputy_director']);
+    }
+
+    function canManagePublicConsultation() {
+      return hasAdminSectionAccess('manage_public_consultation', ['deputy_director', 'division_head', 'admin_staff']);
+    }
+
+    function canManageUsers() {
+      return hasAdminSectionAccess('manage_users', ['deputy_director']);
+    }
+
+    function canViewLogs() {
+      return isSystemAdmin() ||
+             hasAdminRole(['deputy_director', 'division_head', 'admin_staff']) ||
+             hasAdminCustomPermission('view_logs');
+    }
     
     function isLibrarian() {
-      return request.auth != null && 
-             exists(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)) &&
-             get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.role in ['admin', 'librarian'];
+      return hasActiveAdminProfile(request.auth.uid) &&
+             (
+               get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.role in [
+                 'system_admin',
+                 'director_general',
+                 'deputy_director',
+                 'division_head',
+                 'admin_staff'
+               ] ||
+               get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.department == 'LIB' ||
+               get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.departmentCode == 'LIB' ||
+               get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.division == 'LIB' ||
+               get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.divisionCode == 'LIB' ||
+               hasAdminCustomPermission('manage_library') ||
+               hasAdminCustomPermission('manage_catalogue') ||
+               hasAdminCustomPermission('manage_circulation') ||
+               hasAdminCustomPermission('manage_library_patrons') ||
+               hasAdminCustomPermission('manage_library_acquisitions') ||
+               hasAdminCustomPermission('review_research')
+             );
     }
 
     function isSelfAdminProfileMaintenance(userId) {
@@ -81,94 +219,146 @@ service cloud.firestore {
     // Division Collections (Public Read Access)
     match /divisions/{divisionId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageDivisions();
     }
     
     match /divisionContent/{contentId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageDivisions();
     }
     
     match /divisionImages/{imageId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageDivisions();
     }
 
     // News Collection
     match /news/{newsId} {
       // Anyone can read published news articles (public access)
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageNews();
     }
 
     // Publications Collection
     match /publications/{publicationId} {
       allow read: if true;
-      allow create: if isAdmin();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow create: if canManageResearchData();
+      allow update: if canManageResearchData();
+      allow delete: if canManageResearchData();
     }
     
     // Division-related subcollections
     match /divisions/{divisionId}/projects/{projectId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageDivisions() || canManageResearchData();
     }
     
     match /divisions/{divisionId}/teamMembers/{memberId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageDivisions();
     }
     
     // Projects Collection
     match /projects/{projectId} {
       allow read: if true;
-      allow create: if isAdmin();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow create: if canManageResearchData();
+      allow update: if canManageResearchData();
+      allow delete: if canManageResearchData();
+    }
+
+    // Project pipeline tracker
+    match /research_projects/{projectId} {
+      allow read: if true;
+      allow create, update, delete: if canManageProjectPipeline() || canManageResearchData();
     }
     
     // Team Members Collection
     match /teamMembers/{memberId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageDivisions();
     }
     
     // Partners Collection
     match /partners/{partnerId} {
       allow read: if true;
-      allow create: if isAdmin();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow create: if canManageDivisions() || canManageResearchData();
+      allow update: if canManageDivisions() || canManageResearchData();
+      allow delete: if canManageDivisions() || canManageResearchData();
     }
     
     // Teams Collection
     match /teams/{teamId} {
       allow read: if true;
-      allow create: if isAdmin();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow create: if canManageDivisions();
+      allow update: if canManageDivisions();
+      allow delete: if canManageDivisions();
     }
     
     // Media Images Collection
     match /media_images/{imageId} {
       allow read: if true;
-      allow create: if isAdmin();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow create: if canManageMedia();
+      allow update: if canManageMedia();
+      allow delete: if canManageMedia();
     }
 
     // Media Videos Collection
     match /media_videos/{videoId} {
       allow read: if true;
-      allow create: if isAdmin();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow create: if canManageMedia();
+      allow update: if canManageMedia();
+      allow delete: if canManageMedia();
+    }
+
+    // Website publishing collections
+    match /hero_images/{imageId} {
+      allow read: if true;
+      allow create, update, delete: if canManageHeroImages();
+    }
+
+    match /vacancies/{vacancyId} {
+      allow read: if true;
+      allow create, update, delete: if canManageVacancies() || canManageRecruitment();
+    }
+
+    match /scientist_sessions/{sessionId} {
+      allow read: if true;
+      allow create, update, delete: if canManageScientistSessions();
+    }
+
+    match /press_releases/{releaseId} {
+      allow read: if true;
+      allow create, update, delete: if canManageMedia() || canManageNews();
+    }
+
+    match /media_assets/{assetId} {
+      allow read: if true;
+      allow create, update, delete: if canManageMedia();
+    }
+
+    match /media_contacts/{contactId} {
+      allow read: if true;
+      allow create, update, delete: if canManageMedia();
+    }
+
+    match /media_stories/{storyId} {
+      allow read: if true;
+      allow create, update, delete: if canManageMedia();
+    }
+
+    match /content/{contentId} {
+      allow read: if true;
+      allow create, update, delete: if canManageContent();
+    }
+
+    match /pageContent/{pageId} {
+      allow read: if true;
+      allow create, update, delete: if canManageContent();
     }
     
     // Admin Profiles Collection
     match /adminProfiles/{userId} {
-      allow read: if isAdmin() || isOwner(userId);
+      allow read: if isOwner(userId) || canManageUsers();
       allow create: if isSystemAdmin();
       allow update: if isSystemAdmin() || isSelfAdminProfileMaintenance(userId);
       allow delete: if isSystemAdmin();
@@ -176,13 +366,13 @@ service cloud.firestore {
 
     // Staff administration records managed by the secure admin panel
     match /adminUsers/{userId} {
-      allow read: if isAdmin();
+      allow read: if isOwner(userId) || canManageUsers();
       allow create, update, delete: if isSystemAdmin();
     }
 
     match /userActivityLogs/{logId} {
-      allow read: if isAdmin();
-      allow create: if isAdmin();
+      allow read: if canViewLogs();
+      allow create: if isSystemAdmin();
       allow update, delete: if false;
     }
     
@@ -190,27 +380,157 @@ service cloud.firestore {
     match /researcherProfiles/{userId} {
       allow read: if isAuthenticated();
       allow create: if isAuthenticated() && isOwner(userId);
-      allow update: if isOwner(userId) || isAdmin();
-      allow delete: if isAdmin();
+      allow update: if isOwner(userId) || canManageResearchData();
+      allow delete: if canManageResearchData();
     }
     
     // Government EIA Applications
     match /government_eia_applications/{applicationId} {
       allow read: if isAuthenticated() && 
-                     (isOwner(resource.data.userId) || isAdmin());
+                     (isOwner(resource.data.userId) || canManageGovernmentServices());
       allow create: if isAuthenticated();
       allow update: if isAuthenticated() && 
-                      (isOwner(resource.data.userId) || isAdmin());
-      allow delete: if isAdmin();
+                      (isOwner(resource.data.userId) || canManageGovernmentServices());
+      allow delete: if canManageGovernmentServices();
     }
 
     // Government Licenses
     match /government_licenses/{licenseId} {
       allow read: if isAuthenticated() && 
-                     (isOwner(resource.data.userId) || isAdmin());
+                     (isOwner(resource.data.userId) || canManageGovernmentServices());
       allow create: if isAuthenticated();
-      allow update: if isAdmin();
-      allow delete: if isAdmin();
+      allow update: if canManageGovernmentServices();
+      allow delete: if canManageGovernmentServices();
+    }
+
+    // Government services and operational records
+    match /applications/{applicationId} {
+      allow read: if canManageGovernmentServices() || isOwner(resource.data.userId);
+      allow create: if isAuthenticated();
+      allow update, delete: if canManageGovernmentServices();
+    }
+
+    match /government_documents/{documentId} {
+      allow read: if true;
+      allow create, update, delete: if canManageGovernmentServices();
+    }
+
+    match /government_compliance_records/{recordId} {
+      allow read, write: if canManageGovernmentServices();
+    }
+
+    match /government_collaboration_workspaces/{workspaceId} {
+      allow read, write: if canManageGovernmentServices();
+    }
+
+    match /lda_courses/{courseId} {
+      allow read: if true;
+      allow create, update, delete: if canManageLDA();
+    }
+
+    match /lda_categories/{categoryId} {
+      allow read: if true;
+      allow create, update, delete: if canManageLDA();
+    }
+
+    match /lda_training_events/{eventId} {
+      allow read: if true;
+      allow create, update, delete: if canManageLDA();
+    }
+
+    match /lda_training_materials/{materialId} {
+      allow read: if true;
+      allow create, update, delete: if canManageLDA();
+    }
+
+    match /lda_projects/{projectId} {
+      allow read: if true;
+      allow create, update, delete: if canManageLDA();
+    }
+
+    match /lda_papers/{paperId} {
+      allow read: if true;
+      allow create, update, delete: if canManageLDA();
+    }
+
+    match /lda_enrollments/{enrollmentId} {
+      allow read: if canManageLDA() || isOwner(resource.data.userId);
+      allow create: if isAuthenticated();
+      allow update, delete: if canManageLDA();
+    }
+
+    match /lda_users/{userId} {
+      allow read: if canManageLDA() || isOwner(userId);
+      allow create: if isAuthenticated() && isOwner(userId);
+      allow update: if canManageLDA() || isOwner(userId);
+      allow delete: if canManageLDA();
+    }
+
+    match /lda_user_progress/{progressId} {
+      allow read: if canManageLDA() || isOwner(resource.data.userId);
+      allow create, update: if isAuthenticated();
+      allow delete: if canManageLDA();
+    }
+
+    match /lda_analytics/{analyticsId} {
+      allow read, write: if canManageLDA();
+    }
+
+    match /lab_results/{resultId} {
+      allow read: if canManageLabData() || isOwner(resource.data.userId);
+      allow create, update, delete: if canManageLabData();
+    }
+
+    match /lab_service_requests/{requestId} {
+      allow read: if canManageLabData() || isOwner(resource.data.userId);
+      allow create: if isAuthenticated();
+      allow update, delete: if canManageLabData();
+    }
+
+    match /lab_customers/{customerId} {
+      allow read, write: if canManageLabData();
+    }
+
+    match /lab_certificates/{certificateId} {
+      allow read: if canManageLabData() || isOwner(resource.data.userId);
+      allow create, update, delete: if canManageLabData();
+    }
+
+    match /sample_tracking/{sampleId} {
+      allow read, write: if canManageLabData();
+    }
+
+    match /test_methodologies/{methodId} {
+      allow read: if true;
+      allow create, update, delete: if canManageLabData();
+    }
+
+    match /research_vessels/{vesselId} {
+      allow read: if true;
+      allow create, update, delete: if canManageResearchVessels();
+    }
+
+    match /vessel_bookings/{bookingId} {
+      allow read: if canManageResearchVessels() || isOwner(resource.data.userId);
+      allow create: if isAuthenticated();
+      allow update, delete: if canManageResearchVessels();
+    }
+
+    match /survey_missions/{missionId} {
+      allow read: if true;
+      allow create, update, delete: if canManageResearchVessels();
+    }
+
+    match /marine_incidents/{incidentId} {
+      allow read: if canManageIncidents();
+      allow create: if true;
+      allow update, delete: if canManageIncidents();
+    }
+
+    match /government_emergency_incidents/{incidentId} {
+      allow read: if canManageIncidents();
+      allow create: if true;
+      allow update, delete: if canManageIncidents();
     }
 
     // User Analytics
@@ -221,8 +541,9 @@ service cloud.firestore {
     
     // Admin Logs
     match /admin_logs/{logId} {
-      allow read: if isAdmin();
-      allow write: if isAdmin();
+      allow read: if canViewLogs();
+      allow create: if isSystemAdmin();
+      allow update, delete: if isSystemAdmin();
     }
     
     // ============================================
@@ -233,7 +554,7 @@ service cloud.firestore {
     match /libraryUsers/{userId} {
       // Users can read their own profile
       // Admins and librarians can read all profiles
-      allow read: if isOwner(userId) || isAdmin() || isLibrarian();
+      allow read: if isOwner(userId) || isLibrarian();
       
       // Users can create their own profile during registration
       allow create: if isAuthenticated() && 
@@ -250,11 +571,10 @@ service cloud.firestore {
                         request.resource.data.email == resource.data.email &&
                         request.resource.data.permissions == resource.data.permissions &&
                         request.resource.data.libraryCard == resource.data.libraryCard) ||
-                       isAdmin() || 
                        isLibrarian();
       
       // Only admins can delete user profiles
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
     
     // Research Submissions Collection
@@ -265,7 +585,7 @@ service cloud.firestore {
       allow read: if (resource.data.submission.status in ['approved', 'published'] &&
                       resource.data.visibility in ['public', 'institutional']) ||
                      isOwner(resource.data.authorId) ||
-                     isAdmin() ||
+                     canManageResearchData() ||
                      isLibrarian();
       
       // Only researchers can create submissions
@@ -280,11 +600,10 @@ service cloud.firestore {
       allow update: if (isOwner(resource.data.authorId) && 
                         resource.data.submission.status in ['pending', 'revision_requested'] &&
                         request.resource.data.submission.status == resource.data.submission.status) ||
-                       isAdmin() ||
                        isLibrarian();
       
       // Only admins can delete submissions
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
     
     // Patron Borrowing Records (for library system integration)
@@ -293,11 +612,10 @@ service cloud.firestore {
       // Admins and librarians can read all records
       allow read: if isAuthenticated() && 
                      (isOwner(resource.data.userId) || 
-                      isAdmin() || 
                       isLibrarian());
       
       // Only admins and librarians can create/update borrowing records
-      allow write: if isAdmin() || isLibrarian();
+      allow write: if isLibrarian();
     }
     
     // User Favorites/Reading Lists
@@ -312,11 +630,10 @@ service cloud.firestore {
       // Admins and librarians can read all fines
       allow read: if isAuthenticated() &&
                      (isOwner(resource.data.userId) ||
-                      isAdmin() ||
                       isLibrarian());
       
       // Only admins and librarians can create/update fines
-      allow write: if isAdmin() || isLibrarian();
+      allow write: if isLibrarian();
     }
     
     // Library Holds/Reservations
@@ -325,7 +642,6 @@ service cloud.firestore {
       // Admins and librarians can read all holds
       allow read: if isAuthenticated() &&
                      (isOwner(resource.data.userId) ||
-                      isAdmin() ||
                       isLibrarian());
       
       // Users can create holds for themselves
@@ -335,13 +651,11 @@ service cloud.firestore {
       // Users can cancel their own holds
       // Admins and librarians can update any hold
       allow update: if isOwner(resource.data.userId) ||
-                       isAdmin() ||
                        isLibrarian();
       
       // Users can delete their own holds
       // Admins can delete any hold
       allow delete: if isOwner(resource.data.userId) ||
-                       isAdmin() ||
                        isLibrarian();
     }
     
@@ -362,17 +676,17 @@ service cloud.firestore {
       
       // Users can update/delete their own comments
       // Admins can moderate any comment
-      allow update, delete: if isOwner(resource.data.userId) || isAdmin();
+      allow update, delete: if isOwner(resource.data.userId) || canManageResearchData();
     }
     
     // User Activity Log (optional)
     match /userActivityLog/{userId}/activities/{activityId} {
       // Users can read their own activity log
       // Admins can read all activity logs
-      allow read: if isOwner(userId) || isAdmin();
+      allow read: if isOwner(userId) || isSystemAdmin();
       
       // Only the system (via Cloud Functions) or admins should write to activity logs
-      allow write: if isAdmin();
+      allow write: if isSystemAdmin();
     }
     
     // ============================================
@@ -383,7 +697,7 @@ service cloud.firestore {
     match /researchContent/{contentId} {
       // Anyone can read published research content (public access)
       allow read: if true;
-      allow create, update, delete: if isAdmin();
+      allow create, update, delete: if canManageResearchData();
     }
     
     // User Bookmarks for Research Content
@@ -399,31 +713,31 @@ service cloud.firestore {
     // Impact Assessments - Public read, admin write
     match /impactAssessments/{assessmentId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageAnalytics();
     }
     
     // Policy Impacts - Public read, admin write
     match /policyImpacts/{impactId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageAnalytics();
     }
     
     // Stakeholder Feedback - Public read, admin write
     match /stakeholderFeedback/{feedbackId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageAnalytics();
     }
     
     // Project Outcomes - Public read, admin write
     match /projectOutcomes/{outcomeId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageAnalytics();
     }
     
     // ROI Calculations - Public read, admin write
     match /roiCalculations/{calculationId} {
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageAnalytics();
     }
 
     // ============================================
@@ -435,7 +749,6 @@ service cloud.firestore {
       // Members can read their own profile, librarians and admins can read all
       allow read: if isAuthenticated() &&
                      (request.auth.uid == resource.data.uid ||
-                      isAdmin() ||
                       isLibrarian());
 
       // Anyone authenticated can create a membership (registration)
@@ -451,11 +764,10 @@ service cloud.firestore {
                         request.resource.data.member_id == resource.data.member_id &&
                         request.resource.data.status == resource.data.status &&
                         request.resource.data.max_books_allowed == resource.data.max_books_allowed) ||
-                       isAdmin() ||
                        isLibrarian();
 
       // Only admins can delete members
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
 
     // Book Reservations Collection
@@ -463,7 +775,6 @@ service cloud.firestore {
       // Members can read their own reservations, librarians can read all
       allow read: if isAuthenticated() &&
                      (request.auth.uid == resource.data.uid ||
-                      isAdmin() ||
                       isLibrarian());
 
       // Members can create reservations for themselves
@@ -477,11 +788,10 @@ service cloud.firestore {
                         request.auth.uid == resource.data.uid &&
                         resource.data.status == 'pending' &&
                         request.resource.data.status == 'cancelled') ||
-                       isAdmin() ||
                        isLibrarian();
 
       // Only admins can delete reservations
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
 
     // Book Loans Collection
@@ -489,14 +799,13 @@ service cloud.firestore {
       // Members can read their own loans, librarians can read all
       allow read: if isAuthenticated() &&
                      (request.auth.uid == resource.data.uid ||
-                      isAdmin() ||
                       isLibrarian());
 
       // Only librarians and admins can create/update loans
-      allow create, update: if isAdmin() || isLibrarian();
+      allow create, update: if isLibrarian();
 
       // Only admins can delete loans
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
 
     // Borrowing History Collection
@@ -504,21 +813,19 @@ service cloud.firestore {
       // Members can read their own history, librarians can read all
       allow read: if isAuthenticated() &&
                      (request.auth.uid == resource.data.uid ||
-                      isAdmin() ||
                       isLibrarian());
 
       // Only librarians and admins can create history records
-      allow create: if isAdmin() || isLibrarian();
+      allow create: if isLibrarian();
 
       // Members can add ratings/reviews to their own history
       // Librarians can update any history
       allow update: if (isAuthenticated() &&
                         request.auth.uid == resource.data.uid) ||
-                       isAdmin() ||
                        isLibrarian();
 
       // Only admins can delete history
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
 
     // Library Fines Collection (Physical Library)
@@ -526,14 +833,13 @@ service cloud.firestore {
       // Members can read their own fines, librarians can read all
       allow read: if isAuthenticated() &&
                      (request.auth.uid == resource.data.uid ||
-                      isAdmin() ||
                       isLibrarian());
 
       // Only librarians and admins can create/update fines
-      allow create, update: if isAdmin() || isLibrarian();
+      allow create, update: if isLibrarian();
 
       // Only admins can delete fines
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
 
     // Library Inventory Collection
@@ -542,10 +848,10 @@ service cloud.firestore {
       allow read: if true;
 
       // Only librarians and admins can update inventory
-      allow create, update: if isAdmin() || isLibrarian();
+      allow create, update: if isLibrarian();
 
       // Only admins can delete inventory records
-      allow delete: if isAdmin();
+      allow delete: if isLibrarian() || isSystemAdmin();
     }
 
     // Library Transactions Collection
@@ -553,11 +859,10 @@ service cloud.firestore {
       // Members can read their own transactions, librarians can read all
       allow read: if isAuthenticated() &&
                      (request.auth.uid == resource.data.uid ||
-                      isAdmin() ||
                       isLibrarian());
 
       // Only librarians and admins can create transactions
-      allow create: if isAdmin() || isLibrarian();
+      allow create: if isLibrarian();
 
       // No updates or deletes (audit trail)
       allow update, delete: if false;
@@ -569,7 +874,7 @@ service cloud.firestore {
       allow read: if true;
 
       // Only admins can update settings
-      allow write: if isAdmin();
+      allow write: if isLibrarian() || isSystemAdmin();
     }
 
     // ============================================
@@ -579,80 +884,80 @@ service cloud.firestore {
     // Maritime Vessels Collection
     match /maritime_vessels/{vesselId} {
       allow read: if true;
-      allow create, update, delete: if isAdmin();
+      allow create, update, delete: if canManageMaritime();
     }
 
     // Maritime Ports Collection
     match /maritime_ports/{portId} {
       allow read: if true;
-      allow create, update, delete: if isAdmin();
+      allow create, update, delete: if canManageMaritime();
     }
 
     // Maritime Services Collection
     match /maritime_services/{serviceId} {
       allow read: if true;
-      allow create, update, delete: if isAdmin();
+      allow create, update, delete: if canManageMaritime();
     }
 
     // Hydrographic Charts Collection
     match /hydro_charts/{chartId} {
       allow read: if true;
-      allow create, update, delete: if isAdmin();
+      allow create, update, delete: if canManageMaritime() || canManageBathymetry();
     }
 
     // Hydrographic Chart Requests Collection
     match /hydro_chart_requests/{requestId} {
-      allow read: if isAdmin();
+      allow read: if canManageMaritime() || canManageBathymetry();
       allow create: if true;
-      allow update, delete: if isAdmin();
+      allow update, delete: if canManageMaritime() || canManageBathymetry();
     }
 
     // Hydrographic Survey Requests Collection
     match /hydro_survey_requests/{requestId} {
-      allow read: if isAdmin();
+      allow read: if canManageMaritime() || canManageBathymetry();
       allow create: if true;
-      allow update, delete: if isAdmin();
+      allow update, delete: if canManageMaritime() || canManageBathymetry();
     }
 
     // Hydrographic Data Requests Collection
     match /hydro_data_requests/{requestId} {
-      allow read: if isAdmin();
+      allow read: if canManageMaritime() || canManageBathymetry();
       allow create: if true;
-      allow update, delete: if isAdmin();
+      allow update, delete: if canManageMaritime() || canManageBathymetry();
     }
 
     // Crowd Bathymetry Collection
     match /hydro_crowd_bathymetry/{dataId} {
       allow read: if true;
       allow create: if true;
-      allow update, delete: if isAdmin();
+      allow update, delete: if canManageBathymetry();
     }
 
     // Maritime Permits Collection
     match /maritime_permits/{permitId} {
-      allow read: if isAdmin();
+      allow read: if canManageMaritime();
       allow create: if true;
-      allow update, delete: if isAdmin();
+      allow update, delete: if canManageMaritime();
     }
 
     // Maritime Alerts Collection
     match /maritime_alerts/{alertId} {
       allow read: if true;
-      allow create, update, delete: if isAdmin();
+      allow create, update, delete: if canManageMaritime() || canManageIncidents();
     }
 
     // Maritime Safety Reports Collection
     match /maritime_safety_reports/{reportId} {
-      allow read: if isAdmin();
+      allow read: if canManageMaritime() || canManageIncidents();
       allow create: if true;
-      allow update, delete: if isAdmin();
+      allow update, delete: if canManageMaritime() || canManageIncidents();
     }
 
     // Maritime Bookings Collection
     match /maritime_bookings/{bookingId} {
-      allow read: if isAdmin();
+      allow read: if canManageMaritime();
       allow create: if true;
-      allow update, delete: if isAdmin();
+      allow update, delete: if canManageMaritime();
     }
 
     // ============================================
@@ -663,28 +968,28 @@ service cloud.firestore {
     match /fish_advisories/{advisoryId} {
       // Anyone can read fish advisories (public safety information)
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageFishAdvisory();
     }
 
     // Fishing Zones Collection
     match /fishing_zones/{zoneId} {
       // Anyone can read fishing zones (public information)
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageFishAdvisory();
     }
 
     // Fish Market Prices Collection
     match /fish_market_prices/{priceId} {
       // Anyone can read fish market prices (public data)
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageFishAdvisory();
     }
 
     // Seasonal Restrictions Collection
     match /seasonal_restrictions/{restrictionId} {
       // Anyone can read seasonal restrictions (public information)
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManageFishAdvisory();
     }
 
     // ============================================
@@ -695,7 +1000,7 @@ service cloud.firestore {
     match /podcasts/{podcastId} {
       // Anyone can read published podcasts
       allow read: if true;
-      allow write: if isAdmin();
+      allow write: if canManagePodcasts();
     }
 
     // Podcast Analytics Collections
@@ -703,14 +1008,14 @@ service cloud.firestore {
       // Anyone can create view records (for tracking)
       allow create: if true;
       // Only admins can read/update/delete view records
-      allow read, update, delete: if isAdmin();
+      allow read, update, delete: if canManagePodcasts();
     }
 
     match /podcastEngagements/{engagementId} {
       // Anyone can create engagement records (likes, shares, etc.)
       allow create: if true;
       // Only admins can read/update/delete engagement records
-      allow read, update, delete: if isAdmin();
+      allow read, update, delete: if canManagePodcasts();
     }
 
     // ============================================
@@ -722,7 +1027,163 @@ service cloud.firestore {
       // Anyone can read scraper metadata (last run time, etc.)
       allow read: if true;
       // Only admins and scrapers can write
-      allow write: if isAdmin();
+      allow write: if canManageDataIntegration();
+    }
+
+    // Recruitment ATS
+    match /recruitment_vacancies/{vacancyId} {
+      allow read: if true;
+      allow create, update, delete: if canManageRecruitment();
+    }
+
+    match /recruitment_applications/{applicationId} {
+      allow read: if canManageRecruitment() || isOwner(resource.data.userId);
+      allow create: if true;
+      allow update, delete: if canManageRecruitment();
+    }
+
+    match /recruitment_interviews/{interviewId} {
+      allow read, write: if canManageRecruitment();
+    }
+
+    // Digital marketplace
+    match /marketplace_products/{productId} {
+      allow read: if true;
+      allow create, update, delete: if canManageMarketplace();
+    }
+
+    match /marketplace_categories/{categoryId} {
+      allow read: if true;
+      allow create, update, delete: if canManageMarketplace();
+    }
+
+    match /marketplace_orders/{orderId} {
+      allow read: if canManageMarketplace() || isOwner(resource.data.userId);
+      allow create: if true;
+      allow update, delete: if canManageMarketplace();
+    }
+
+    match /marketplace_payments/{paymentId} {
+      allow read, update, delete: if canManageMarketplace();
+      allow create: if true;
+    }
+
+    match /marketplace_reviews/{reviewId} {
+      allow read: if true;
+      allow create: if isAuthenticated();
+      allow update, delete: if canManageMarketplace() || isOwner(resource.data.userId);
+    }
+
+    // Public consultation portal
+    match /consultations/{consultationId} {
+      allow read: if true;
+      allow create, update, delete: if canManagePublicConsultation();
+    }
+
+    match /consultation_surveys/{surveyId} {
+      allow read: if true;
+      allow create, update, delete: if canManagePublicConsultation();
+    }
+
+    match /consultation_polls/{pollId} {
+      allow read: if true;
+      allow create, update, delete: if canManagePublicConsultation();
+    }
+
+    match /consultation_reports/{reportId} {
+      allow read: if true;
+      allow create, update, delete: if canManagePublicConsultation();
+    }
+
+    match /consultation_comments/{commentId} {
+      allow read: if true;
+      allow create: if true;
+      allow update, delete: if canManagePublicConsultation();
+    }
+
+    match /consultation_feedback/{feedbackId} {
+      allow read: if canManagePublicConsultation();
+      allow create: if true;
+      allow update, delete: if canManagePublicConsultation();
+    }
+
+    match /consultation_votes/{voteId} {
+      allow read: if canManagePublicConsultation();
+      allow create: if true;
+      allow update, delete: if canManagePublicConsultation();
+    }
+
+    // Data center integration and data quality
+    match /api_integrations/{integrationId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /data_sources/{sourceId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /sync_jobs/{jobId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /sync_schedules/{scheduleId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /webhooks/{webhookId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /webhook_calls/{callId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /transformation_rules/{ruleId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /data_quality_rules/{ruleId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /data_quality_checks/{checkId} {
+      allow read, write: if canManageDataIntegration();
+    }
+
+    match /data_visualizations/{visualizationId} {
+      allow read: if true;
+      allow create, update, delete: if canManageDataIntegration();
+    }
+
+    // Water quality and bathymetry
+    match /wq_sensors/{sensorId} {
+      allow read: if true;
+      allow create, update, delete: if canManageWaterQuality();
+    }
+
+    match /wq_readings/{readingId} {
+      allow read: if true;
+      allow create, update, delete: if canManageWaterQuality();
+    }
+
+    match /wq_alerts/{alertId} {
+      allow read: if true;
+      allow create, update, delete: if canManageWaterQuality();
+    }
+
+    match /wq_thresholds/{thresholdId} {
+      allow read: if true;
+      allow create, update, delete: if canManageWaterQuality();
+    }
+
+    match /bathymetry_datasets/{datasetId} {
+      allow read: if true;
+      allow create, update, delete: if canManageBathymetry();
+    }
+
+    match /bathymetry_visualizations/{visualizationId} {
+      allow read: if true;
+      allow create, update, delete: if canManageBathymetry();
     }
 
     // ============================================

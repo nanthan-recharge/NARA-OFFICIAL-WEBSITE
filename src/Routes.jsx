@@ -39,8 +39,6 @@ const AnnualReportsPage = lazy(() => import("./pages/annual-reports"));
 // const ProcurementRecruitmentPortal = lazy(() => import("./pages/procurement-recruitment-portal"));
 const ProcurementRecruitmentPortal = lazy(() => import("./pages/procurement-recruitment-portal/SimplePortal"));
 const ContactUs = lazy(() => import("./pages/contact-us"));
-const FirebaseAdminAuthenticationPortal = lazy(() => import('./pages/firebase-admin-authentication-portal'));
-const FirebaseAdminDashboardControlCenter = lazy(() => import('./pages/firebase-admin-dashboard-control-center'));
 const MediaGallery = lazy(() => import('./pages/media-gallery'));
 const AudiencePage = lazy(() => import('./pages/audiences'));
 const GeneralPublicPage = lazy(() => import('./pages/audiences/GeneralPublicPage'));
@@ -69,9 +67,9 @@ const UserDetail = lazy(() => import('./pages/admin/UserDetail'));
 
 // Admin Route Protection
 import AdminProtectedRoute from './components/admin/AdminProtectedRoute';
+import { PERMISSIONS } from './constants/roles';
 
 // Research Data Admin
-const ResearchAdminLogin = lazy(() => import('./pages/admin/ResearchAdminLogin'));
 const ResearchDataAdmin = lazy(() => import('./pages/admin/ResearchDataAdmin'));
 const ResearchUploadAdmin = lazy(() => import('./pages/admin/ResearchUploadAdmin'));
 const BulkResearchUpload = lazy(() => import('./pages/admin/BulkResearchUpload'));
@@ -371,18 +369,18 @@ function Routes() {
                     {/* Divisions Routes */}
                     <Route path="/divisions" element={<DivisionsHub />} />
                     <Route path="/divisions/:slug" element={<DivisionPage />} />
-                    <Route path="/admin/division-images" element={<AdminProtectedRoute><DivisionImagesAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/division-content" element={<AdminProtectedRoute><DivisionContentAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/division-images" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_DIVISIONS}><DivisionImagesAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/division-content" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_DIVISIONS}><DivisionContentAdmin /></AdminProtectedRoute>} />
 
                     {/* New Public Pages - Phase 10 Tech Spec v1.0 */}
                     <Route path="/scientist-session" element={<ScientistSessionPage />} />
                     <Route path="/vacancies" element={<VacanciesPage />} />
 
                     {/* New Admin Routes - Phase 9 Tech Spec v1.0 */}
-                    <Route path="/admin/news" element={<AdminProtectedRoute><NewsAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/vacancies" element={<AdminProtectedRoute><VacanciesAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/scientist-sessions" element={<AdminProtectedRoute><ScientistSessionAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/hero-images" element={<AdminProtectedRoute><HeroImagesAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/news" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_NEWS}><NewsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/vacancies" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_VACANCIES}><VacanciesAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/scientist-sessions" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_SCIENTIST_SESSIONS}><ScientistSessionAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/hero-images" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_HERO_IMAGES}><HeroImagesAdmin /></AdminProtectedRoute>} />
 
                     {/* Library System Routes */}
                     <Route path="/library" element={<LibraryCatalogue />} />
@@ -437,13 +435,13 @@ function Routes() {
                     />
 
                     {/* Library Admin Routes */}
-                    <Route path="/admin/library" element={<AdminProtectedRoute><LibraryAdminDashboard /></AdminProtectedRoute>} />
-                    <Route path="/admin/library/research-review" element={<AdminProtectedRoute><ResearchReviewDashboard /></AdminProtectedRoute>} />
-                    <Route path="/admin/library/cataloguing" element={<AdminProtectedRoute><EnhancedCataloguingManager /></AdminProtectedRoute>} />
-                    <Route path="/admin/library/cataloguing/basic" element={<AdminProtectedRoute><CataloguingManager /></AdminProtectedRoute>} />
-                    <Route path="/admin/library/circulation" element={<AdminProtectedRoute><CirculationManager /></AdminProtectedRoute>} />
-                    <Route path="/admin/library/patrons" element={<AdminProtectedRoute><PatronManager /></AdminProtectedRoute>} />
-                    <Route path="/admin/library/acquisitions" element={<AdminProtectedRoute><AcquisitionsManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library" element={<AdminProtectedRoute requiredPermission="manage_library"><LibraryAdminDashboard /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/research-review" element={<AdminProtectedRoute requiredPermission="review_research"><ResearchReviewDashboard /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/cataloguing" element={<AdminProtectedRoute requiredPermission="manage_catalogue"><EnhancedCataloguingManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/cataloguing/basic" element={<AdminProtectedRoute requiredPermission="manage_catalogue"><CataloguingManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/circulation" element={<AdminProtectedRoute requiredPermission="manage_circulation"><CirculationManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/patrons" element={<AdminProtectedRoute requiredPermission="manage_library_patrons"><PatronManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/library/acquisitions" element={<AdminProtectedRoute requiredPermission="manage_library_acquisitions"><AcquisitionsManager /></AdminProtectedRoute>} />
 
                     {/* Legal & Compliance Routes */}
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
@@ -457,14 +455,9 @@ function Routes() {
 
                     <Route path="*" element={<NotFound />} />
 
-                    <Route
-                      path="/firebase-admin-authentication-portal"
-                      element={<FirebaseAdminAuthenticationPortal />}
-                    />
-                    <Route
-                      path="/firebase-admin-dashboard-control-center"
-                      element={<FirebaseAdminDashboardControlCenter />}
-                    />
+                    {/* Legacy staff admin URLs now route into the unified admin portal */}
+                    <Route path="/firebase-admin-authentication-portal" element={<Navigate to="/admin/login" replace />} />
+                    <Route path="/firebase-admin-dashboard-control-center" element={<Navigate to="/admin/master" replace />} />
 
                     {/* New Admin Panel Routes */}
                     <Route path="/admin/login" element={<AdminLogin />} />
@@ -486,55 +479,55 @@ function Routes() {
                     } />
 
                     {/* Legacy Admin Routes */}
-                    <Route path="/admin/dashboard" element={<AdminProtectedRoute><AdminDashboard /></AdminProtectedRoute>} />
-                    <Route path="/admin/content" element={<AdminProtectedRoute><ContentManager /></AdminProtectedRoute>} />
+                    <Route path="/admin/dashboard" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.VIEW_DASHBOARD}><AdminDashboard /></AdminProtectedRoute>} />
+                    <Route path="/admin/content" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_CONTENT}><ContentManager /></AdminProtectedRoute>} />
 
                     {/* Research Data Admin Routes */}
-                    <Route path="/admin/research-login" element={<ResearchAdminLogin />} />
-                    <Route path="/admin/research-data" element={<AdminProtectedRoute><ResearchDataAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/research-upload" element={<AdminProtectedRoute><ResearchUploadAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/research-bulk-upload" element={<AdminProtectedRoute><BulkResearchUpload /></AdminProtectedRoute>} />
-                    <Route path="/admin/manage-papers" element={<AdminProtectedRoute><ManagePapers /></AdminProtectedRoute>} />
+                    <Route path="/admin/research-login" element={<Navigate to="/admin/login" replace />} />
+                    <Route path="/admin/research-data" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_RESEARCH_DATA}><ResearchDataAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/research-upload" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_RESEARCH_DATA}><ResearchUploadAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/research-bulk-upload" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_RESEARCH_DATA}><BulkResearchUpload /></AdminProtectedRoute>} />
+                    <Route path="/admin/manage-papers" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_RESEARCH_DATA}><ManagePapers /></AdminProtectedRoute>} />
 
                     {/* Media Admin Route */}
-                    <Route path="/admin/media" element={<AdminProtectedRoute><MediaAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/media-press-kit" element={<AdminProtectedRoute><MediaPressKitAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/media" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_MEDIA}><MediaAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/media-press-kit" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_MEDIA}><MediaPressKitAdmin /></AdminProtectedRoute>} />
 
                     {/* LDA Admin Route */}
-                    <Route path="/admin/lda" element={<AdminProtectedRoute><LDAAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/lda" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_LDA}><LDAAdmin /></AdminProtectedRoute>} />
 
                     {/* Government Services Admin Route */}
-                    <Route path="/admin/government-services" element={<AdminProtectedRoute><GovernmentServicesAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/government-services" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_GOVERNMENT_SERVICES}><GovernmentServicesAdmin /></AdminProtectedRoute>} />
 
                     {/* Maritime Admin Route */}
-                    <Route path="/admin/maritime" element={<AdminProtectedRoute><MaritimeAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/maritime-data" element={<AdminProtectedRoute><MaritimeDataAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/maritime" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_MARITIME}><MaritimeAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/maritime-data" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_MARITIME}><MaritimeDataAdmin /></AdminProtectedRoute>} />
 
                     {/* Analytics Admin Routes - Phase 5 */}
-                    <Route path="/admin/analytics" element={<AdminProtectedRoute><AnalyticsAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/analytics/predictions" element={<AdminProtectedRoute><PredictionsAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/analytics/simulations" element={<AdminProtectedRoute><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/analytics/assessments" element={<AdminProtectedRoute><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/analytics/economic" element={<AdminProtectedRoute><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.VIEW_ANALYTICS}><AnalyticsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/predictions" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.VIEW_ANALYTICS}><PredictionsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/simulations" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_ANALYTICS}><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/assessments" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_ANALYTICS}><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/analytics/economic" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_ANALYTICS}><SimulationsEconomicAdmin /></AdminProtectedRoute>} />
 
                     {/* Fish Advisory System Routes */}
                     <Route path="/fish-advisory-system" element={<FishAdvisorySystem />} />
-                    <Route path="/admin/fish-advisory" element={<AdminProtectedRoute><FishAdvisoryAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/fish-advisory" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_FISH_ADVISORY}><FishAdvisoryAdmin /></AdminProtectedRoute>} />
 
                     {/* Podcast System Routes */}
                     <Route path="/podcasts" element={<PodcastsPage />} />
-                    <Route path="/admin/podcasts" element={<AdminProtectedRoute><PodcastAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/podcasts" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_PODCASTS}><PodcastAdmin /></AdminProtectedRoute>} />
 
                     {/* AI API Configuration Route */}
-                    <Route path="/admin/ai-api-config" element={<AdminProtectedRoute><AIAPIConfiguration /></AdminProtectedRoute>} />
+                    <Route path="/admin/ai-api-config" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_AI_CONFIG}><AIAPIConfiguration /></AdminProtectedRoute>} />
 
                     {/* Lab Results Portal Routes */}
                     <Route path="/lab-results" element={<LabResultsPortal />} />
-                    <Route path="/admin/lab-results" element={<AdminProtectedRoute><LabResultsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/lab-results" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_LAB_DATA}><LabResultsAdmin /></AdminProtectedRoute>} />
 
                     {/* Research Vessel Booking Routes */}
                     <Route path="/research-vessel-booking" element={<ResearchVesselBooking />} />
-                    <Route path="/admin/research-vessel" element={<AdminProtectedRoute><ResearchVesselAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/research-vessel" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_RESEARCH_VESSELS}><ResearchVesselAdmin /></AdminProtectedRoute>} />
 
                     {/* Scientific Evidence Repository Route */}
                     <Route path="/scientific-evidence-repository" element={<ScientificEvidenceRepository />} />
@@ -550,38 +543,38 @@ function Routes() {
 
                     {/* Marine Incident Portal Routes */}
                     <Route path="/marine-incident-portal" element={<MarineIncidentPortal />} />
-                    <Route path="/admin/marine-incident" element={<AdminProtectedRoute><MarineIncidentAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/marine-incident" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_INCIDENTS}><MarineIncidentAdmin /></AdminProtectedRoute>} />
 
                     {/* Project Pipeline Tracker Routes */}
                     <Route path="/project-pipeline-tracker" element={<ProjectPipelineTracker />} />
-                    <Route path="/admin/project-pipeline" element={<AdminProtectedRoute><ProjectPipelineAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/project-pipeline" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_PROJECT_PIPELINE}><ProjectPipelineAdmin /></AdminProtectedRoute>} />
 
                     {/* Recruitment ATS Admin Route */}
-                    <Route path="/admin/recruitment-ats" element={<AdminProtectedRoute><RecruitmentATSAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/recruitment-ats" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_RECRUITMENT}><RecruitmentATSAdmin /></AdminProtectedRoute>} />
 
                     {/* Bathymetry Data Admin Route */}
-                    <Route path="/admin/bathymetry" element={<AdminProtectedRoute><BathymetryAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/bathymetry" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_BATHYMETRY}><BathymetryAdmin /></AdminProtectedRoute>} />
 
                     {/* Marine Spatial Planning Viewer Route */}
                     <Route path="/marine-spatial-planning-viewer" element={<MarineSpatialPlanningViewer />} />
 
                     {/* Data Center Integration Hub Admin Route */}
-                    <Route path="/admin/data-center-integration" element={<AdminProtectedRoute><DataCenterIntegrationAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/data-center-integration" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_DATA_INTEGRATION}><DataCenterIntegrationAdmin /></AdminProtectedRoute>} />
 
                     {/* Water Quality Monitoring Admin Route */}
-                    <Route path="/admin/water-quality-monitoring" element={<AdminProtectedRoute><WaterQualityMonitoringAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/water-quality-monitoring" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_WATER_QUALITY}><WaterQualityMonitoringAdmin /></AdminProtectedRoute>} />
 
                     {/* Public Consultation Portal Routes */}
                     <Route path="/public-consultation-portal" element={<PublicConsultationPortal />} />
-                    <Route path="/admin/public-consultation" element={<AdminProtectedRoute><PublicConsultationAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/public-consultation" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_PUBLIC_CONSULTATION}><PublicConsultationAdmin /></AdminProtectedRoute>} />
 
                     {/* Phase 4 Data Seeder */}
-                    <Route path="/admin/phase4-seeder" element={<AdminProtectedRoute><Phase4DataSeeder /></AdminProtectedRoute>} />
+                    <Route path="/admin/phase4-seeder" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_SYSTEM}><Phase4DataSeeder /></AdminProtectedRoute>} />
 
                     {/* Marketplace Admin Routes */}
-                    <Route path="/admin/marketplace/products" element={<AdminProtectedRoute><MarketplaceProductsAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/marketplace/orders" element={<AdminProtectedRoute><MarketplaceOrdersAdmin /></AdminProtectedRoute>} />
-                    <Route path="/admin/marketplace/payments" element={<AdminProtectedRoute><MarketplacePaymentsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/marketplace/products" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_MARKETPLACE}><MarketplaceProductsAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/marketplace/orders" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_MARKETPLACE}><MarketplaceOrdersAdmin /></AdminProtectedRoute>} />
+                    <Route path="/admin/marketplace/payments" element={<AdminProtectedRoute requiredPermission={PERMISSIONS.MANAGE_MARKETPLACE}><MarketplacePaymentsAdmin /></AdminProtectedRoute>} />
 
                     {/* Analytics Hub - Phase 5 */}
                     <Route path="/analytics" element={<AnalyticsHub />} />

@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { ROLE_HIERARCHY, DEPARTMENTS, PAY_GRADES, USER_STATUSES, getRolesSortedByLevel } from '../../constants/roles';
-import { Upload, X, Loader2 } from 'lucide-react';
+import {
+  ROLE_HIERARCHY,
+  DEPARTMENTS,
+  PAY_GRADES,
+  USER_STATUSES,
+  SECTION_PERMISSION_GROUPS,
+  getRolePermissions,
+  getRolesSortedByLevel,
+} from '../../constants/roles';
+import { Upload, X, Loader2, ShieldCheck } from 'lucide-react';
 
 const emptyMultilingual = () => ({ en: '', si: '', ta: '' });
 
@@ -18,6 +26,7 @@ const createEmptyForm = () => ({
   reportingTo: '',
   grade: '',
   status: 'active',
+  customPermissions: [],
   notes: '',
 });
 
@@ -43,6 +52,7 @@ const buildInitialForm = (user) => {
     reportingTo: user.reportingTo || '',
     grade: user.grade || '',
     status: user.status || 'active',
+    customPermissions: Array.isArray(user.customPermissions) ? user.customPermissions : [],
     notes: user.notes || '',
   };
 };
@@ -64,6 +74,22 @@ const UserForm = ({ user, onSave, onCancel, loading: externalLoading }) => {
   const [errors, setErrors] = useState({});
 
   const roles = getRolesSortedByLevel();
+  const rolePermissions = getRolePermissions(form.role);
+  const customPermissions = Array.isArray(form.customPermissions) ? form.customPermissions : [];
+  const totalPermissionCount = SECTION_PERMISSION_GROUPS.reduce(
+    (count, group) => count + group.permissions.length,
+    0
+  );
+
+  const toggleCustomPermission = (permission) => {
+    if (rolePermissions.includes(permission)) return;
+    updateField(
+      'customPermissions',
+      customPermissions.includes(permission)
+        ? customPermissions.filter((item) => item !== permission)
+        : [...customPermissions, permission]
+    );
+  };
 
   const updateField = (field, value) => {
     setForm(prev => ({ ...prev, [field]: value }));
@@ -329,6 +355,69 @@ const UserForm = ({ user, onSave, onCancel, loading: externalLoading }) => {
                 <option key={s.value} value={s.value}>{s.label.en}</option>
               ))}
             </select>
+          </div>
+        </div>
+
+        <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50/80 p-4">
+          <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <h5 className="flex items-center gap-2 text-sm font-semibold text-slate-800">
+                <ShieldCheck className="h-4 w-4 text-[#0066CC]" />
+                Section permissions
+              </h5>
+              <p className="text-xs leading-5 text-slate-500">
+                Role defaults are locked. Use custom permissions for strict section access across NARA divisions.
+              </p>
+            </div>
+            <span className="rounded-full border border-slate-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-slate-500">
+              {customPermissions.length} custom / {totalPermissionCount} controls
+            </span>
+          </div>
+
+          <div className="space-y-3">
+            {SECTION_PERMISSION_GROUPS.map((group) => (
+              <div key={group.id} className="rounded-lg border border-slate-200 bg-white p-3">
+                <div className="mb-2">
+                  <p className="text-xs font-bold uppercase tracking-wide text-slate-500">{group.label}</p>
+                  <p className="text-xs leading-5 text-slate-500">{group.description}</p>
+                </div>
+                <div className="grid gap-2 sm:grid-cols-2">
+                  {group.permissions.map((permission) => {
+                    const isRoleDefault = rolePermissions.includes(permission.value);
+                    const isChecked = isRoleDefault || customPermissions.includes(permission.value);
+                    return (
+                      <label
+                        key={permission.value}
+                        className={`flex items-start gap-2 rounded-lg border px-3 py-2 text-xs transition ${
+                          isChecked
+                            ? 'border-[#0066CC]/30 bg-blue-50 text-slate-800'
+                            : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'
+                        } ${isRoleDefault ? 'cursor-default' : 'cursor-pointer'}`}
+                      >
+                        <input
+                          type="checkbox"
+                          checked={isChecked}
+                          disabled={isRoleDefault}
+                          onChange={() => toggleCustomPermission(permission.value)}
+                          className="mt-0.5 h-3.5 w-3.5 rounded border-slate-300 text-[#0066CC] focus:ring-[#0066CC]"
+                        />
+                        <span className="min-w-0 flex-1">
+                          <span className="block font-medium">{permission.label}</span>
+                          <span className="mt-0.5 block font-mono text-[10px] text-slate-400">
+                            {permission.value}
+                          </span>
+                        </span>
+                        {isRoleDefault && (
+                          <span className="shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-[10px] font-semibold text-slate-500">
+                            Role
+                          </span>
+                        )}
+                      </label>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

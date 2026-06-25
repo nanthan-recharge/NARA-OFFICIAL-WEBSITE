@@ -432,7 +432,7 @@ const ProfessionalHeader = ({ className = '' }) => {
               </Button>
 
               {/* Admin Portal */}
-              <Link to="/firebase-admin-authentication-portal">
+              <Link to="/admin/login">
                 <Button
                   variant="outline"
                   size="sm"
@@ -588,7 +588,7 @@ const ProfessionalHeader = ({ className = '' }) => {
                     <option value="ta" className="font-tamil">தමிழ்</option>
                   </select>
 
-                  <Link to="/firebase-admin-authentication-portal">
+                  <Link to="/admin/login">
                     <Button
                       variant="outline"
                       fullWidth
