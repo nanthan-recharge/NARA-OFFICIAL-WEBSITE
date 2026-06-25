@@ -97,16 +97,7 @@ const WaterQualityMonitoringAdmin = () => {
     conductivity: ''
   });
 
-  useEffect(() => {
-    fetchAllData();
-    // Set up real-time updates every 30 seconds
-    const interval = setInterval(fetchAllData, 30000);
-    return () => clearInterval(interval);
-  }, []);
-
   const fetchAllData = async () => {
-    setLoading(true);
-
     const [statsRes, sensorsRes, readingsRes, alertsRes] = await Promise.all([
       dashboardService.getStats(),
       sensorRegistryService.getAll(),
@@ -121,6 +112,16 @@ const WaterQualityMonitoringAdmin = () => {
 
     setLoading(false);
   };
+
+  useEffect(() => {
+    const timeout = window.setTimeout(fetchAllData, 0);
+    // Set up real-time updates every 30 seconds
+    const interval = window.setInterval(fetchAllData, 30000);
+    return () => {
+      window.clearTimeout(timeout);
+      window.clearInterval(interval);
+    };
+  }, []);
 
   const fetchSensorReadings = async (sensorId) => {
     const { data } = await realTimeDataService.getReadingsBySensor(sensorId, 50);

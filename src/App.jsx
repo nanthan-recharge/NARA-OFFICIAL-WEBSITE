@@ -8,6 +8,7 @@ import './styles/academy-themes.css';
 const InstallPrompt = lazy(() => import('./components/pwa/PWAComponents').then(m => ({ default: m.InstallPrompt })));
 const UpdateBanner = lazy(() => import('./components/pwa/PWAComponents').then(m => ({ default: m.UpdateBanner })));
 const OfflineIndicator = lazy(() => import('./components/pwa/PWAComponents').then(m => ({ default: m.OfflineIndicator })));
+const IOSInstallInstructions = lazy(() => import('./components/pwa/PWAComponents').then(m => ({ default: m.IOSInstallInstructions })));
 const CookieConsent = lazy(() => import('./components/compliance/CookieConsent'));
 const AccessibilityToolbar = lazy(() => import('./components/compliance/AccessibilityToolbar'));
 
@@ -26,6 +27,7 @@ function App() {
       <Routes />
       <Suspense fallback={null}>
         <InstallPrompt />
+        <IOSInstallInstructions />
         <UpdateBanner />
         <OfflineIndicator />
         <CookieConsent />

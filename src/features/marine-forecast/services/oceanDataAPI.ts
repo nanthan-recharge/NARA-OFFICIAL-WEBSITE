@@ -15,13 +15,11 @@ const API_CONFIG = {
   },
   STORMGLASS: {
     baseURL: 'https://api.stormglass.io/v2',
-    // Stormglass API Key - Active and verified
-    apiKey: '7d8ff776-b0d7-11f0-b4de-0242ac130003-7d8ff7da-b0d7-11f0-b4de-0242ac130003'
+    apiKey: import.meta.env.VITE_STORMGLASS_API_KEY || ''
   },
   OPENWEATHER: {
     baseURL: 'https://api.openweathermap.org/data/2.5',
-    // OpenWeather API Key - Active and verified - 1,000 free calls/day
-    apiKey: '024c7bc4260d03aea27b961257d7f588'
+    apiKey: import.meta.env.VITE_OPENWEATHER_API_KEY || ''
   },
   NOAA: {
     baseURL: 'https://api.tidesandcurrents.noaa.gov/api/prod',
@@ -189,6 +187,11 @@ export async function getOpenWeatherData(lat: number, lon: number) {
   const cacheKey = `openweather-${lat}-${lon}`;
   const cached = getCachedData(cacheKey);
   if (cached) return cached;
+
+  if (!API_CONFIG.OPENWEATHER.apiKey) {
+    console.warn('OpenWeather API key not configured');
+    return null;
+  }
 
   try {
     const response = await axios.get(`${API_CONFIG.OPENWEATHER.baseURL}/weather`, {

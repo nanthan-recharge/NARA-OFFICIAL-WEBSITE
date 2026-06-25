@@ -1,33 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Save, X } from 'lucide-react';
 
-const PublicationForm = ({ initialData, onSave, onCancel, loading }) => {
-  const [formData, setFormData] = useState({
-    title: '',
-    authors: '',
-    journal: '',
-    year: new Date().getFullYear(),
-    doi: '',
-    abstract: '',
-    citations: 0,
-    downloads: 0,
-    impactFactor: 0,
-    researchArea: 'Marine Biology',
-    publicationType: 'Journal Article',
-    tags: '',
-    openAccess: true,
-    pdfUrl: ''
-  });
+const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    if (initialData) {
-      setFormData({
-        ...initialData,
-        authors: Array.isArray(initialData.authors) ? initialData.authors.join(', ') : initialData.authors || '',
-        tags: Array.isArray(initialData.tags) ? initialData.tags.join(', ') : initialData.tags || ''
-      });
-    }
-  }, [initialData]);
+const createEmptyPublicationForm = () => ({
+  title: '',
+  authors: '',
+  journal: '',
+  year: currentYear,
+  doi: '',
+  abstract: '',
+  citations: 0,
+  downloads: 0,
+  impactFactor: 0,
+  researchArea: 'Marine Biology',
+  publicationType: 'Journal Article',
+  tags: '',
+  openAccess: true,
+  pdfUrl: ''
+});
+
+const normalizePublicationForm = (initialData) => {
+  if (!initialData) return createEmptyPublicationForm();
+
+  return {
+    ...initialData,
+    authors: Array.isArray(initialData.authors) ? initialData.authors.join(', ') : initialData.authors || '',
+    tags: Array.isArray(initialData.tags) ? initialData.tags.join(', ') : initialData.tags || ''
+  };
+};
+
+const PublicationForm = ({ initialData, onSave, onCancel, loading }) => {
+  const [formData, setFormData] = useState(() => normalizePublicationForm(initialData));
 
   const researchAreas = [
     'Marine Biology', 'Climate Change', 'Fisheries Management',

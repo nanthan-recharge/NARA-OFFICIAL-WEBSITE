@@ -6,6 +6,11 @@
   },
   "navbar": {
     "languageLabel": "Language",
+    "search": {
+      "label": "Search NARA website",
+      "placeholder": "Search news, services, reports",
+      "button": "Search"
+    },
     "back": "Back",
     "register": "Register",
     "profile": "Profile",

@@ -1,68 +1,95 @@
 import React, { useState, useEffect } from 'react';
-import { X, Cookie, Shield, Eye } from 'lucide-react';
+import { Check, ChevronDown, Cookie, Shield, X } from 'lucide-react';
+
+const getInitialLanguage = () => {
+  if (typeof window === 'undefined') {
+    return 'en';
+  }
+  try {
+    return localStorage.getItem('nara-lang') || 'en';
+  } catch {
+    return 'en';
+  }
+};
 
 const CookieConsent = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
-  const [language, setLanguage] = useState('en');
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(true);
+  const [language, setLanguage] = useState(getInitialLanguage);
 
   useEffect(() => {
-    const consent = localStorage.getItem('nara-cookie-consent');
-    const lang = localStorage.getItem('nara-lang') || 'en';
-    setLanguage(lang);
-    
+    let consent = null;
+    try {
+      consent = localStorage.getItem('nara-cookie-consent');
+    } catch {
+      consent = null;
+    }
+
+    let timer;
     if (!consent) {
-      // Show banner after 3.5 seconds — delayed past LCP window
+      // Show banner after first paint — delayed past LCP window
       // to avoid cookie banner being measured as Largest Contentful Paint
-      setTimeout(() => setIsVisible(true), 3500);
+      timer = setTimeout(() => setIsVisible(true), 2500);
     }
 
     // Listen for language changes
-    const handleLanguageChange = (e) => setLanguage(e.detail);
+    const handleLanguageChange = (e) => setLanguage(e.detail || 'en');
     window.addEventListener('languageChange', handleLanguageChange);
-    return () => window.removeEventListener('languageChange', handleLanguageChange);
+    return () => {
+      window.removeEventListener('languageChange', handleLanguageChange);
+      if (timer) {
+        clearTimeout(timer);
+      }
+    };
   }, []);
 
   const content = {
     en: {
-      title: 'Cookie & Privacy Notice',
-      description: 'This is an official Sri Lankan Government website. We use essential cookies to ensure proper functioning and analytics cookies to improve our services.',
-      pdpaNotice: 'Your data is protected under the Personal Data Protection Act, No. 9 of 2022 (PDPA).',
+      badge: 'Official Government Website',
+      title: 'Cookie notice',
+      description: 'We use essential cookies for security, language, and site operation. Analytics cookies help improve public services.',
+      pdpaNotice: 'Handled under Sri Lanka’s Personal Data Protection Act, No. 9 of 2022.',
       essential: 'Essential Cookies',
-      essentialDesc: 'Required for site functionality, security, and language preferences.',
+      essentialDesc: 'Always on for security, session continuity, and language preferences.',
       analytics: 'Analytics Cookies',
-      analyticsDesc: 'Help us understand usage patterns to improve our services.',
-      acceptAll: 'Accept All',
+      analyticsDesc: 'Optional, anonymous usage insights for improving the website.',
+      acceptAll: 'Accept all',
       acceptEssential: 'Essential Only',
-      customize: 'Customize',
+      saveChoices: 'Save choices',
+      customize: 'Manage',
       privacyPolicy: 'Privacy Policy',
       close: 'Close'
     },
     si: {
-      title: 'කුකී සහ පෞද්ගලිකත්ව දැන්වීම',
-      description: 'මෙය නිල ශ්‍රී ලංකා රජයේ වෙබ් අඩවියකි. අපි අත්‍යවශ්‍ය කුකීස් භාවිතා කරන්නේ නිසි ක්‍රියාකාරිත්වය සහතික කිරීමට සහ විශ්ලේෂණ කුකීස් අපගේ සේවා වැඩිදියුණු කිරීමට ය.',
-      pdpaNotice: 'ඔබගේ දත්ත පුද්ගලික දත්ත ආරක්ෂණ පනත, අංක 9, 2022 (PDPA) යටතේ ආරක්ෂා වේ.',
+      badge: 'නිල රජයේ වෙබ් අඩවිය',
+      title: 'කුකී දැන්වීම',
+      description: 'ආරක්ෂාව, භාෂාව සහ වෙබ් අඩවි ක්‍රියාකාරීත්වය සඳහා අත්‍යවශ්‍ය කුකීස් භාවිතා කරයි. සේවා වැඩිදියුණු කිරීමට විශ්ලේෂණ කුකීස් උපකාරී වේ.',
+      pdpaNotice: '2022 අංක 9 දරන පුද්ගලික දත්ත ආරක්ෂණ පනත යටතේ දත්ත සලකනු ලැබේ.',
       essential: 'අත්‍යවශ්‍ය කුකීස්',
-      essentialDesc: 'වෙබ් අඩවියේ ක්‍රියාකාරිත්වය, ආරක්ෂාව සහ භාෂා මනාපයන් සඳහා අවශ්‍ය වේ.',
+      essentialDesc: 'ආරක්ෂාව, සැසි සහ භාෂා මනාපයන් සඳහා සැමවිටම ක්‍රියාත්මක වේ.',
       analytics: 'විශ්ලේෂණ කුකීස්',
-      analyticsDesc: 'අපගේ සේවා වැඩිදියුණු කිරීම සඳහා භාවිත රටා තේරුම් ගැනීමට උපකාරී වේ.',
+      analyticsDesc: 'වෙබ් අඩවිය වැඩිදියුණු කිරීමට භාවිත වන විකල්ප නිර්නාමික දත්ත.',
       acceptAll: 'සියල්ල පිළිගන්න',
       acceptEssential: 'අත්‍යවශ්‍ය පමණක්',
-      customize: 'අභිරුචිකරණය',
+      saveChoices: 'තේරීම් සුරකින්න',
+      customize: 'කළමනාකරණය',
       privacyPolicy: 'පෞද්ගලිකත්ව ප්‍රතිපත්තිය',
       close: 'වසන්න'
     },
     ta: {
-      title: 'குக்கீ & தனியுரிமை அறிவிப்பு',
-      description: 'இது இலங்கை அரசாங்கத்தின் அதிகாரப்பூர்வ வலைத்தளம். சரியான செயல்பாட்டை உறுதிப்படுத்த அத்தியாவசிய குக்கீகளையும், எங்கள் சேவைகளை மேம்படுத்த பகுப்பாய்வு குக்கீகளையும் பயன்படுத்துகிறோம்.',
-      pdpaNotice: 'உங்கள் தரவு தனிப்பட்ட தரவு பாதுகாப்புச் சட்டம், எண். 9, 2022 (PDPA) இன் கீழ் பாதுகாக்கப்படுகிறது.',
+      badge: 'அதிகாரப்பூர்வ அரச வலைத்தளம்',
+      title: 'குக்கீ அறிவிப்பு',
+      description: 'பாதுகாப்பு, மொழி மற்றும் தள செயல்பாட்டிற்கு அத்தியாவசிய குக்கீகளைப் பயன்படுத்துகிறோம். சேவைகளை மேம்படுத்த பகுப்பாய்வு குக்கீகள் உதவும்.',
+      pdpaNotice: '2022 ஆம் ஆண்டின் எண் 9 தனிப்பட்ட தரவு பாதுகாப்புச் சட்டத்தின் கீழ் தரவு கையாளப்படுகிறது.',
       essential: 'அத்தியாவசிய குக்கீகள்',
-      essentialDesc: 'தள செயல்பாடு, பாதுகாப்பு மற்றும் மொழி விருப்பங்களுக்குத் தேவை.',
+      essentialDesc: 'பாதுகாப்பு, அமர்வு மற்றும் மொழி விருப்பங்களுக்கு எப்போதும் இயங்கும்.',
       analytics: 'பகுப்பாய்வு குக்கீகள்',
-      analyticsDesc: 'எங்கள் சேவைகளை மேம்படுத்த பயன்பாட்டு முறைகளைப் புரிந்துகொள்ள உதவுகிறது.',
+      analyticsDesc: 'தளத்தை மேம்படுத்த உதவும் விருப்பமான, பெயரற்ற பயன்பாட்டு தகவல்.',
       acceptAll: 'அனைத்தையும் ஏற்கவும்',
       acceptEssential: 'அத்தியாவசியம் மட்டும்',
-      customize: 'தனிப்பயனாக்கு',
+      saveChoices: 'தேர்வுகளை சேமி',
+      customize: 'நிர்வகி',
       privacyPolicy: 'தனியுரிமைக் கொள்கை',
       close: 'மூடு'
     }
@@ -70,119 +97,142 @@ const CookieConsent = () => {
 
   const t = content[language] || content.en;
 
-  const handleAccept = (type) => {
+  const saveConsent = (analytics) => {
     const consent = {
       essential: true,
-      analytics: type === 'all',
+      analytics,
       timestamp: new Date().toISOString(),
-      version: '1.0'
+      version: '1.1'
     };
-    localStorage.setItem('nara-cookie-consent', JSON.stringify(consent));
+
+    try {
+      localStorage.setItem('nara-cookie-consent', JSON.stringify(consent));
+    } catch {
+      // If storage is unavailable, still hide the banner for this session.
+    }
     setIsVisible(false);
   };
 
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-end justify-center pointer-events-none">
-      {/* Backdrop */}
-      <div 
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
-        onClick={() => setIsVisible(false)}
-      />
-      
-      {/* Cookie Banner */}
-      <div className="relative w-full max-w-6xl mb-6 mx-4 pointer-events-auto animate-slideUp">
-        <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border-2 border-amber-500/30 rounded-2xl shadow-2xl overflow-hidden">
-          {/* Government Badge */}
-          <div className="bg-gradient-to-r from-amber-600 to-amber-500 px-6 py-3 flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <Shield className="w-5 h-5 text-white" />
-              <span className="text-white font-semibold text-sm uppercase tracking-wider">
-                Sri Lanka Government Official Website
+    <div className="fixed inset-x-0 bottom-0 z-[10001] pointer-events-none px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] sm:inset-x-auto sm:right-4 sm:w-[min(26rem,calc(100vw-2rem))] sm:px-0 sm:pb-4">
+      <div
+        role="region"
+        aria-labelledby="nara-cookie-title"
+        className="relative mx-auto w-full pointer-events-auto animate-slideUp"
+      >
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/20 dark:border-white/10 dark:bg-slate-950">
+          <div className="flex items-center justify-between gap-3 border-b border-slate-200 bg-slate-50 px-3 py-2 dark:border-white/10 dark:bg-white/5">
+            <div className="flex min-w-0 items-center gap-2 text-slate-700 dark:text-slate-200">
+              <Shield className="h-3.5 w-3.5 shrink-0 text-sky-700 dark:text-sky-300" aria-hidden="true" />
+              <span className="truncate text-[11px] font-bold uppercase tracking-[0.14em]">
+                {t.badge}
               </span>
             </div>
             <button 
+              type="button"
               onClick={() => setIsVisible(false)}
-              className="text-white hover:bg-white/20 rounded-lg p-1 transition-colors"
+              className="inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full p-0 text-slate-500 transition-colors hover:bg-slate-200 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+              aria-label={t.close}
             >
-              <X className="w-5 h-5" />
+              <X className="h-4 w-4" aria-hidden="true" />
             </button>
           </div>
 
-          <div className="p-6 md:p-8">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center">
-                <Cookie className="w-6 h-6 text-cyan-400" />
+          <div className="p-3 sm:p-4" lang={language}>
+            <div className="flex items-start gap-3">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300">
+                <Cookie className="h-5 w-5" aria-hidden="true" />
               </div>
-              <div className="flex-1" lang={language}>
-                <h3 className="text-xl font-bold text-white mb-2">{t.title}</h3>
-                <p className="text-slate-300 text-sm leading-relaxed mb-3">
+              <div className="min-w-0 flex-1">
+                <h3 id="nara-cookie-title" className="text-sm font-bold text-slate-950 dark:text-white">
+                  {t.title}
+                </h3>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-300">
                   {t.description}
                 </p>
-                <div className="flex items-center gap-2 text-xs text-amber-300 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
-                  <Eye className="w-4 h-4" />
-                  <span className="font-medium">{t.pdpaNotice}</span>
-                </div>
               </div>
             </div>
 
-            {/* Cookie Details (Expandable) */}
-            {showDetails && (
-              <div className="mb-6 space-y-4 bg-slate-800/50 rounded-xl p-4 border border-slate-700" lang={language}>
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <input type="checkbox" checked disabled className="w-4 h-4" />
-                    <span className="text-white font-semibold text-sm">{t.essential}</span>
-                  </div>
-                  <p className="text-slate-400 text-xs ml-6">{t.essentialDesc}</p>
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <input type="checkbox" defaultChecked className="w-4 h-4" />
-                    <span className="text-white font-semibold text-sm">{t.analytics}</span>
-                  </div>
-                  <p className="text-slate-400 text-xs ml-6">{t.analyticsDesc}</p>
-                </div>
-              </div>
-            )}
-
-            {/* Actions */}
-            <div className="flex flex-wrap items-center gap-3" lang={language}>
+            <div className="mt-3 grid grid-cols-2 gap-2">
               <button
-                onClick={() => handleAccept('all')}
-                className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
+                type="button"
+                onClick={() => saveConsent(true)}
+                className="inline-flex min-h-10 items-center justify-center rounded-lg bg-sky-700 px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
                 aria-label={t.acceptAll}
               >
+                <Check className="mr-1.5 h-4 w-4" aria-hidden="true" />
                 {t.acceptAll}
               </button>
               <button
-                onClick={() => handleAccept('essential')}
-                className="px-6 py-3 bg-slate-700 text-white font-semibold rounded-lg hover:bg-slate-600 transition-colors"
+                type="button"
+                onClick={() => saveConsent(false)}
+                className="inline-flex min-h-10 items-center justify-center rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-bold text-slate-800 transition-colors hover:border-sky-300 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
                 aria-label={t.acceptEssential}
               >
                 {t.acceptEssential}
               </button>
+            </div>
+
+            <div className="mt-2 flex items-center justify-between gap-2 text-xs">
               <button
+                type="button"
                 onClick={() => setShowDetails(!showDetails)}
-                className="px-6 py-3 text-cyan-400 font-semibold hover:text-cyan-300 transition-colors"
+                className="inline-flex min-h-8 items-center gap-1 rounded-md px-1 font-semibold text-sky-700 transition-colors hover:text-sky-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:text-sky-300 dark:hover:text-sky-100"
                 aria-label={t.customize}
+                aria-expanded={showDetails}
               >
                 {t.customize}
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform ${showDetails ? 'rotate-180' : ''}`} aria-hidden="true" />
               </button>
               <a
                 href="/privacy-policy"
-                className="px-6 py-3 text-slate-400 hover:text-white text-sm underline transition-colors"
+                className="inline-flex min-h-8 items-center rounded-md px-1 font-medium text-slate-500 underline-offset-2 transition-colors hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:text-slate-300 dark:hover:text-white"
                 aria-label={t.privacyPolicy}
               >
                 {t.privacyPolicy}
               </a>
             </div>
+
+            {showDetails && (
+              <div className="mt-3 max-h-[42vh] space-y-3 overflow-auto rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs dark:border-white/10 dark:bg-white/5" lang={language}>
+                <div className="flex items-start gap-2">
+                  <input type="checkbox" checked disabled className="mt-0.5 h-4 w-4 shrink-0 accent-sky-700" />
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white">{t.essential}</span>
+                    <p className="mt-0.5 leading-relaxed text-slate-600 dark:text-slate-300">{t.essentialDesc}</p>
+                  </div>
+                </div>
+                <label className="flex cursor-pointer items-start gap-2">
+                  <input
+                    type="checkbox"
+                    checked={analyticsEnabled}
+                    onChange={(event) => setAnalyticsEnabled(event.target.checked)}
+                    className="mt-0.5 h-4 w-4 shrink-0 accent-sky-700"
+                  />
+                  <div>
+                    <span className="font-bold text-slate-900 dark:text-white">{t.analytics}</span>
+                    <p className="mt-0.5 leading-relaxed text-slate-600 dark:text-slate-300">{t.analyticsDesc}</p>
+                  </div>
+                </label>
+                <p className="rounded-lg bg-white px-2.5 py-2 font-medium leading-relaxed text-slate-600 dark:bg-slate-900/70 dark:text-slate-300">
+                  {t.pdpaNotice}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => saveConsent(analyticsEnabled)}
+                  className="inline-flex min-h-9 w-full items-center justify-center rounded-lg bg-slate-900 px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:bg-sky-600 dark:hover:bg-sky-500"
+                >
+                  {t.saveChoices}
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes slideUp {
           from {
             transform: translateY(100%);

@@ -3,15 +3,13 @@ import { Navigate } from 'react-router-dom';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { Loader2, ShieldX } from 'lucide-react';
 
-// TEMPORARY: Set to true to allow unauthenticated access for testing
-// Set back to false when testing is complete to re-enable auth
-const BYPASS_AUTH = true;
+const ADMIN_AUTH_BYPASS =
+  import.meta.env?.DEV === true && import.meta.env?.VITE_ADMIN_BYPASS_AUTH === 'true';
 
 const AdminProtectedRoute = ({ children, requiredRole, requiredPermission }) => {
-  // Skip all auth checks when bypass is enabled (for testing)
-  if (BYPASS_AUTH) return children;
-
   const { user, profile, loading, isAdmin, hasPermission, hasRole } = useFirebaseAuth();
+
+  if (ADMIN_AUTH_BYPASS) return children;
 
   // Still checking auth state
   if (loading) {
@@ -31,7 +29,7 @@ const AdminProtectedRoute = ({ children, requiredRole, requiredPermission }) => 
   }
 
   // No admin profile or not active
-  if (!profile || profile.is_active === false) {
+  if (!profile || profile.is_active === false || !isAdmin()) {
     return (
       <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
         <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-8 max-w-md text-center">
@@ -86,7 +84,7 @@ const AdminProtectedRoute = ({ children, requiredRole, requiredPermission }) => 
           <ShieldX className="w-12 h-12 text-amber-500 mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-slate-800 mb-2">Permission Required</h2>
           <p className="text-slate-500 mb-6">
-            You do not have the "{requiredPermission}" permission required for this page.
+            You do not have the {requiredPermission} permission required for this page.
           </p>
           <a
             href="/admin/master"

@@ -6,6 +6,11 @@
   },
   "navbar": {
     "languageLabel": "භාෂාව",
+    "search": {
+      "label": "NARA වෙබ් අඩවිය සොයන්න",
+      "placeholder": "පුවත්, සේවාවන්, වාර්තා සොයන්න",
+      "button": "සොයන්න"
+    },
     "back": "ආපසු යන්න",
     "register": "ලියාපදිංචිය",
     "profile": "මාගේ ගිණුම",

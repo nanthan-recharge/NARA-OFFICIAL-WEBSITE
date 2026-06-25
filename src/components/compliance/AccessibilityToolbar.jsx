@@ -1,6 +1,51 @@
 import React, { useState, useEffect } from 'react';
 import { Eye, Type, Contrast, MousePointer, Moon, Sun, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 
+const applyAccessibilitySettings = (settings) => {
+  const root = document.documentElement;
+
+  // Font size
+  root.style.fontSize = `${settings.fontSize}%`;
+
+  // Contrast
+  if (settings.contrast === 'high') {
+    root.classList.add('high-contrast');
+  } else {
+    root.classList.remove('high-contrast');
+  }
+
+  // Cursor size
+  if (settings.cursorSize === 'large') {
+    root.classList.add('large-cursor');
+  } else {
+    root.classList.remove('large-cursor');
+  }
+
+  // Line height
+  root.style.setProperty('--line-height',
+    settings.lineHeight === 'increased' ? '1.8' : '1.5'
+  );
+
+  // Letter spacing
+  root.style.setProperty('--letter-spacing',
+    settings.letterSpacing === 'increased' ? '0.1em' : 'normal'
+  );
+
+  // Highlight links
+  if (settings.highlightLinks) {
+    root.classList.add('highlight-links');
+  } else {
+    root.classList.remove('highlight-links');
+  }
+
+  // Dark mode
+  if (settings.darkMode) {
+    root.classList.add('dark-mode');
+  } else {
+    root.classList.remove('dark-mode');
+  }
+};
+
 const AccessibilityToolbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [settings, setSettings] = useState(() => {
@@ -17,54 +62,9 @@ const AccessibilityToolbar = () => {
   });
 
   useEffect(() => {
-    applySettings(settings);
+    applyAccessibilitySettings(settings);
     localStorage.setItem('nara-accessibility', JSON.stringify(settings));
   }, [settings]);
-
-  const applySettings = (settings) => {
-    const root = document.documentElement;
-
-    // Font size
-    root.style.fontSize = `${settings.fontSize}%`;
-
-    // Contrast
-    if (settings.contrast === 'high') {
-      root.classList.add('high-contrast');
-    } else {
-      root.classList.remove('high-contrast');
-    }
-
-    // Cursor size
-    if (settings.cursorSize === 'large') {
-      root.classList.add('large-cursor');
-    } else {
-      root.classList.remove('large-cursor');
-    }
-
-    // Line height
-    root.style.setProperty('--line-height',
-      settings.lineHeight === 'increased' ? '1.8' : '1.5'
-    );
-
-    // Letter spacing
-    root.style.setProperty('--letter-spacing',
-      settings.letterSpacing === 'increased' ? '0.1em' : 'normal'
-    );
-
-    // Highlight links
-    if (settings.highlightLinks) {
-      root.classList.add('highlight-links');
-    } else {
-      root.classList.remove('highlight-links');
-    }
-
-    // Dark mode
-    if (settings.darkMode) {
-      root.classList.add('dark-mode');
-    } else {
-      root.classList.remove('dark-mode');
-    }
-  };
 
   const updateSetting = (key, value) => {
     setSettings(prev => ({ ...prev, [key]: value }));
@@ -100,18 +100,18 @@ const AccessibilityToolbar = () => {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9998] w-14 h-14 bg-gradient-to-br from-cyan-500 to-blue-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center group"
+        className="nara-accessibility-trigger fixed bottom-6 right-6 z-[9998] h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 text-white shadow-lg transition-all hover:shadow-xl group"
         aria-label="Accessibility Settings"
         title="Accessibility Settings"
         style={{ fontSize: '16px' }}
       >
-        <Eye className="w-6 h-6 group-hover:scale-110 transition-transform" />
+        <Eye className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-6 sm:w-6" />
       </button>
 
       {/* Toolbar Panel */}
       {isOpen && (
         <div
-          className="fixed bottom-20 left-3 right-3 sm:bottom-24 sm:left-auto sm:right-6 z-[9998] w-auto sm:w-80 bg-slate-900 border-2 border-cyan-500/30 rounded-2xl shadow-2xl overflow-hidden animate-slideUp"
+          className="nara-accessibility-panel fixed bottom-24 right-6 z-[9998] w-80 overflow-hidden rounded-2xl border-2 border-cyan-500/30 bg-slate-900 shadow-2xl animate-slideUp"
           style={{ fontSize: '16px', fontFamily: 'system-ui, -apple-system, sans-serif' }}
         >
           {/* Header */}
@@ -350,6 +350,18 @@ const AccessibilityToolbar = () => {
 
       {/* CSS Styles */}
       <style>{`
+        .nara-accessibility-trigger,
+        .nara-accessibility-panel {
+          display: none;
+        }
+        @media (min-width: 640px) {
+          .nara-accessibility-trigger {
+            display: flex;
+          }
+          .nara-accessibility-panel {
+            display: block;
+          }
+        }
         .high-contrast {
           filter: contrast(1.5);
         }

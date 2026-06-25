@@ -194,7 +194,7 @@ const MaritimeDataAdmin = () => {
           });
           break;
 
-        case 'copernicus':
+        case 'copernicus': {
           if (!apiConfig.copernicusUsername || !apiConfig.copernicusPassword) {
             throw new Error('Copernicus credentials not configured');
           }
@@ -207,6 +207,7 @@ const MaritimeDataAdmin = () => {
             }
           });
           break;
+        }
       }
 
       if (response.ok) {
@@ -435,7 +436,7 @@ const MaritimeDataAdmin = () => {
                             Stormglass API Key
                           </label>
                           <p className="text-xs text-gray-600 mb-3">
-                            Get your key from: <a href="https://stormglass.io" target="_blank" className="text-blue-600 hover:underline">stormglass.io</a>
+                            Get your key from: <a href="https://stormglass.io" target="_blank" className="text-blue-600 hover:underline" rel="noreferrer">stormglass.io</a>
                           </p>
                           <input
                             type="password"
@@ -452,7 +453,7 @@ const MaritimeDataAdmin = () => {
                             WeatherAPI Key
                           </label>
                           <p className="text-xs text-gray-600 mb-3">
-                            Get your key from: <a href="https://www.weatherapi.com" target="_blank" className="text-blue-600 hover:underline">weatherapi.com</a>
+                            Get your key from: <a href="https://www.weatherapi.com" target="_blank" className="text-blue-600 hover:underline" rel="noreferrer">weatherapi.com</a>
                           </p>
                           <input
                             type="password"
@@ -469,7 +470,7 @@ const MaritimeDataAdmin = () => {
                             OpenWeather API Key
                           </label>
                           <p className="text-xs text-gray-600 mb-3">
-                            Get your key from: <a href="https://openweathermap.org/api" target="_blank" className="text-blue-600 hover:underline">openweathermap.org</a>
+                            Get your key from: <a href="https://openweathermap.org/api" target="_blank" className="text-blue-600 hover:underline" rel="noreferrer">openweathermap.org</a>
                           </p>
                           <input
                             type="password"
@@ -489,7 +490,7 @@ const MaritimeDataAdmin = () => {
                             Copernicus Marine Credentials
                           </label>
                           <p className="text-xs text-gray-600 mb-3">
-                            Register at: <a href="https://marine.copernicus.eu" target="_blank" className="text-blue-600 hover:underline">marine.copernicus.eu</a>
+                            Register at: <a href="https://marine.copernicus.eu" target="_blank" className="text-blue-600 hover:underline" rel="noreferrer">marine.copernicus.eu</a>
                           </p>
                           <div className="grid grid-cols-2 gap-4">
                             <input
@@ -515,7 +516,7 @@ const MaritimeDataAdmin = () => {
                             NASA EarthData Token
                           </label>
                           <p className="text-xs text-gray-600 mb-3">
-                            Register at: <a href="https://urs.earthdata.nasa.gov" target="_blank" className="text-blue-600 hover:underline">urs.earthdata.nasa.gov</a>
+                            Register at: <a href="https://urs.earthdata.nasa.gov" target="_blank" className="text-blue-600 hover:underline" rel="noreferrer">urs.earthdata.nasa.gov</a>
                           </p>
                           <input
                             type="password"
@@ -532,7 +533,7 @@ const MaritimeDataAdmin = () => {
                             Marine Traffic API Key
                           </label>
                           <p className="text-xs text-gray-600 mb-3">
-                            Enterprise subscription: <a href="https://www.marinetraffic.com" target="_blank" className="text-blue-600 hover:underline">marinetraffic.com</a>
+                            Enterprise subscription: <a href="https://www.marinetraffic.com" target="_blank" className="text-blue-600 hover:underline" rel="noreferrer">marinetraffic.com</a>
                           </p>
                           <input
                             type="password"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import SEOHead from '../../components/shared/SEOHead';
 import { Link } from 'react-router-dom';
 import {
@@ -24,22 +24,12 @@ import { db } from '../../firebase';
 const PredictionsAdmin = () => {
   const [loading, setLoading] = useState(true);
   const [predictions, setPredictions] = useState([]);
-  const [filteredPredictions, setFilteredPredictions] = useState([]);
   const [filterType, setFilterType] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedPrediction, setSelectedPrediction] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
 
-  useEffect(() => {
-    loadPredictions();
-  }, []);
-
-  useEffect(() => {
-    filterPredictions();
-  }, [predictions, filterType, searchTerm]);
-
   const loadPredictions = async () => {
-    setLoading(true);
     try {
       const predictionsSnap = await getDocs(
         query(collection(db, 'predictions'), orderBy('createdAt', 'desc'))
@@ -58,7 +48,7 @@ const PredictionsAdmin = () => {
     setLoading(false);
   };
 
-  const filterPredictions = () => {
+  const filteredPredictions = useMemo(() => {
     let filtered = [...predictions];
 
     // Filter by type
@@ -75,8 +65,13 @@ const PredictionsAdmin = () => {
       );
     }
 
-    setFilteredPredictions(filtered);
-  };
+    return filtered;
+  }, [predictions, filterType, searchTerm]);
+
+  useEffect(() => {
+    const timeout = window.setTimeout(loadPredictions, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const deletePrediction = async (id) => {
     if (!window.confirm('Are you sure you want to delete this prediction?')) return;

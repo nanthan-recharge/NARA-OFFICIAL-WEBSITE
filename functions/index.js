@@ -1,180 +1,117 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
+const crypto = require('crypto');
 const researchDataPool = require('./researchDataPool');
 
 admin.initializeApp();
 
 const db = admin.firestore();
 
+const ADMIN_BOOTSTRAP_ALLOWED_DOMAINS = ['nara.gov.lk', 'gov.lk'];
+const ADMIN_BOOTSTRAP_ROLES = ['system_admin', 'director_general'];
+
+function getBootstrapSecret() {
+  return process.env.ADMIN_BOOTSTRAP_TOKEN || functions.config()?.admin?.bootstrap_token;
+}
+
+function safeTokenEqual(provided, expected) {
+  if (!provided || !expected) return false;
+  const providedBuffer = Buffer.from(String(provided));
+  const expectedBuffer = Buffer.from(String(expected));
+  return providedBuffer.length === expectedBuffer.length &&
+    crypto.timingSafeEqual(providedBuffer, expectedBuffer);
+}
+
+function isAllowedAdminEmail(email) {
+  const domain = String(email || '').split('@')[1]?.toLowerCase();
+  return ADMIN_BOOTSTRAP_ALLOWED_DOMAINS.some((allowed) =>
+    domain === allowed || domain?.endsWith(`.${allowed}`)
+  );
+}
+
 /**
- * Cloud Function to grant admin privileges to a user
- * Call via: https://us-central1-nara-web-73384.cloudfunctions.net/makeFirstAdmin?email=user@example.com
+ * Token-gated first-admin bootstrap.
+ * POST JSON: { "email": "user@nara.gov.lk", "token": "...", "role": "system_admin" }
  */
 exports.makeFirstAdmin = functions.https.onRequest(async (req, res) => {
-  // Enable CORS
-  res.set('Access-Control-Allow-Origin', '*');
-  
+  res.set('Access-Control-Allow-Origin', 'https://nara-web-73384.web.app');
+
   if (req.method === 'OPTIONS') {
-    res.set('Access-Control-Allow-Methods', 'GET');
-    res.set('Access-Control-Allow-Headers', 'Content-Type');
-    res.status(204).send('');
-    return;
+    res.set('Access-Control-Allow-Methods', 'POST');
+    res.set('Access-Control-Allow-Headers', 'Content-Type, X-Admin-Bootstrap-Token');
+    return res.status(204).send('');
   }
 
-  const email = req.query.email;
-  
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method not allowed. Use POST.' });
+  }
+
+  const requiredToken = getBootstrapSecret();
+  const providedToken = req.get('X-Admin-Bootstrap-Token') || req.body?.token || req.query?.token;
+
+  if (!requiredToken || !safeTokenEqual(providedToken, requiredToken)) {
+    return res.status(403).json({ error: 'Admin bootstrap is not authorized.' });
+  }
+
+  const email = String(req.body?.email || req.query?.email || '').trim().toLowerCase();
+  const role = ADMIN_BOOTSTRAP_ROLES.includes(req.body?.role) ? req.body.role : 'system_admin';
+
   if (!email) {
-    return res.status(400).send('❌ Error: Email parameter required. Usage: ?email=user@example.com');
+    return res.status(400).json({ error: 'Email is required.' });
+  }
+
+  if (!isAllowedAdminEmail(email)) {
+    return res.status(400).json({ error: 'Email must use an approved government domain.' });
   }
 
   try {
-    // Get user by email
     const user = await admin.auth().getUserByEmail(email);
-    
-    // Set custom admin claim
-    await admin.auth().setCustomUserClaims(user.uid, { admin: true });
-    
-    // Return success
-    res.status(200).send(`
-      <html>
-        <head>
-          <title>Admin Created</title>
-          <style>
-            body {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              min-height: 100vh;
-              margin: 0;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            }
-            .card {
-              background: white;
-              padding: 2rem;
-              border-radius: 1rem;
-              box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-              max-width: 500px;
-              text-align: center;
-            }
-            .success {
-              font-size: 4rem;
-              margin-bottom: 1rem;
-            }
-            h1 {
-              color: #10b981;
-              margin: 0 0 1rem 0;
-            }
-            p {
-              color: #666;
-              margin: 0.5rem 0;
-            }
-            .email {
-              background: #f3f4f6;
-              padding: 0.5rem 1rem;
-              border-radius: 0.5rem;
-              font-family: monospace;
-              color: #1f2937;
-              margin: 1rem 0;
-            }
-            .link {
-              display: inline-block;
-              margin-top: 1.5rem;
-              padding: 0.75rem 1.5rem;
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-              color: white;
-              text-decoration: none;
-              border-radius: 0.5rem;
-              font-weight: 600;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="card">
-            <div class="success">✅</div>
-            <h1>Admin Privileges Granted!</h1>
-            <p>User has been granted admin access:</p>
-            <div class="email">${email}</div>
-            <p><strong>UID:</strong> ${user.uid}</p>
-            <p style="margin-top: 1.5rem; color: #059669;">
-              <strong>✨ User can now login to the admin panel!</strong>
-            </p>
-            <a href="https://nara-web-73384.web.app/admin/login" class="link">
-              Go to Admin Login →
-            </a>
-          </div>
-        </body>
-      </html>
-    `);
-    
-    console.log(`✅ Admin privileges granted to: ${email} (UID: ${user.uid})`);
-    
+    const claims = { ...(user.customClaims || {}), admin: true, role };
+
+    await admin.auth().setCustomUserClaims(user.uid, claims);
+
+    const now = admin.firestore.FieldValue.serverTimestamp();
+    const displayName = user.displayName || email.split('@')[0];
+    const profile = {
+      uid: user.uid,
+      email,
+      displayName,
+      role,
+      status: 'active',
+      is_active: true,
+      permissions: role === 'system_admin' ? ['*'] : [],
+      updatedAt: now,
+      bootstrappedAt: now,
+      bootstrappedBy: 'makeFirstAdmin'
+    };
+
+    await Promise.all([
+      db.collection('adminProfiles').doc(user.uid).set(profile, { merge: true }),
+      db.collection('adminUsers').doc(user.uid).set({
+        uid: user.uid,
+        email,
+        displayName,
+        role,
+        status: 'active',
+        updatedAt: now,
+        createdAt: now
+      }, { merge: true })
+    ]);
+
+    console.log(`Admin bootstrap completed for ${email} (${user.uid})`);
+    return res.status(200).json({ success: true, uid: user.uid, email, role });
   } catch (error) {
-    console.error('Error granting admin privileges:', error);
-    
-    let errorMessage = 'Unknown error';
+    console.error('Error bootstrapping admin:', error);
+
     if (error.code === 'auth/user-not-found') {
-      errorMessage = 'User not found. Please create the user in Firebase Authentication first.';
-    } else if (error.code === 'auth/invalid-email') {
-      errorMessage = 'Invalid email format.';
-    } else {
-      errorMessage = error.message;
+      return res.status(404).json({ error: 'User not found. Create the Firebase Auth user first.' });
     }
-    
-    res.status(500).send(`
-      <html>
-        <head>
-          <title>Error</title>
-          <style>
-            body {
-              font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-              min-height: 100vh;
-              margin: 0;
-              background: linear-gradient(135deg, #f87171 0%, #dc2626 100%);
-            }
-            .card {
-              background: white;
-              padding: 2rem;
-              border-radius: 1rem;
-              box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-              max-width: 500px;
-              text-align: center;
-            }
-            .error {
-              font-size: 4rem;
-              margin-bottom: 1rem;
-            }
-            h1 {
-              color: #dc2626;
-              margin: 0 0 1rem 0;
-            }
-            p {
-              color: #666;
-              margin: 0.5rem 0;
-            }
-            .message {
-              background: #fef2f2;
-              padding: 1rem;
-              border-radius: 0.5rem;
-              color: #991b1b;
-              margin: 1rem 0;
-              border: 1px solid #fecaca;
-            }
-          </style>
-        </head>
-        <body>
-          <div class="card">
-            <div class="error">❌</div>
-            <h1>Error</h1>
-            <div class="message">${errorMessage}</div>
-            <p><strong>Email:</strong> ${email}</p>
-          </div>
-        </body>
-      </html>
-    `);
+
+    if (error.code === 'auth/invalid-email') {
+      return res.status(400).json({ error: 'Invalid email format.' });
+    }
+
+    return res.status(500).json({ error: 'Admin bootstrap failed.' });
   }
 });
 

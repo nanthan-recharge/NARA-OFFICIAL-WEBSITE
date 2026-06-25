@@ -10,10 +10,37 @@ service cloud.firestore {
     function isAuthenticated() {
       return request.auth != null;
     }
-    
+
+    function isKnownAdminRole(role) {
+      return role in [
+        'system_admin',
+        'director_general',
+        'deputy_director',
+        'division_head',
+        'senior_researcher',
+        'research_officer',
+        'technical_officer',
+        'admin_staff',
+        'support_staff'
+      ];
+    }
+
+    function hasActiveAdminProfile(uid) {
+      return request.auth != null &&
+             exists(/databases/$(database)/documents/adminProfiles/$(uid)) &&
+             get(/databases/$(database)/documents/adminProfiles/$(uid)).data.email == request.auth.token.email &&
+             get(/databases/$(database)/documents/adminProfiles/$(uid)).data.is_active != false &&
+             !(get(/databases/$(database)/documents/adminProfiles/$(uid)).data.status in ['suspended', 'terminated']) &&
+             isKnownAdminRole(get(/databases/$(database)/documents/adminProfiles/$(uid)).data.role);
+    }
+
     function isAdmin() {
-      return request.auth != null && 
-             request.auth.token.admin == true;
+      return hasActiveAdminProfile(request.auth.uid);
+    }
+
+    function isSystemAdmin() {
+      return hasActiveAdminProfile(request.auth.uid) &&
+             get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.role in ['system_admin', 'director_general'];
     }
     
     function isOwner(uid) {
@@ -25,6 +52,20 @@ service cloud.firestore {
       return request.auth != null && 
              exists(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)) &&
              get(/databases/$(database)/documents/adminProfiles/$(request.auth.uid)).data.role in ['admin', 'librarian'];
+    }
+
+    function isSelfAdminProfileMaintenance(userId) {
+      return isOwner(userId) &&
+             request.resource.data.uid == resource.data.uid &&
+             request.resource.data.email == resource.data.email &&
+             request.resource.data.role == resource.data.role &&
+             request.resource.data.is_active == resource.data.is_active &&
+             request.resource.data.diff(resource.data).affectedKeys().hasOnly([
+               'displayName',
+               'photoURL',
+               'lastLoginAt',
+               'updatedAt'
+             ]);
     }
     
     function isResearcher() {
@@ -50,15 +91,14 @@ service cloud.firestore {
     
     match /divisionImages/{imageId} {
       allow read: if true;
-      allow write: if true; // DEVELOPMENT MODE: Open for public uploads
+      allow write: if isAdmin();
     }
 
     // News Collection
     match /news/{newsId} {
       // Anyone can read published news articles (public access)
       allow read: if true;
-      // DEVELOPMENT MODE: Open for public write (seed scripts + admin)
-      allow write: if true;
+      allow write: if isAdmin();
     }
 
     // Publications Collection
@@ -129,9 +169,21 @@ service cloud.firestore {
     // Admin Profiles Collection
     match /adminProfiles/{userId} {
       allow read: if isAdmin() || isOwner(userId);
-      allow create: if isOwner(userId);
-      allow update: if isAdmin() || isOwner(userId);
-      allow delete: if isAdmin();
+      allow create: if isSystemAdmin();
+      allow update: if isSystemAdmin() || isSelfAdminProfileMaintenance(userId);
+      allow delete: if isSystemAdmin();
+    }
+
+    // Staff administration records managed by the secure admin panel
+    match /adminUsers/{userId} {
+      allow read: if isAdmin();
+      allow create, update, delete: if isSystemAdmin();
+    }
+
+    match /userActivityLogs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin();
+      allow update, delete: if false;
     }
     
     // Researcher Profiles Collection
@@ -331,11 +383,7 @@ service cloud.firestore {
     match /researchContent/{contentId} {
       // Anyone can read published research content (public access)
       allow read: if true;
-
-      // DEVELOPMENT MODE: Open for public uploads
-      allow create: if true;
-      allow update: if true;
-      allow delete: if true;
+      allow create, update, delete: if isAdmin();
     }
     
     // User Bookmarks for Research Content
@@ -554,21 +602,21 @@ service cloud.firestore {
 
     // Hydrographic Chart Requests Collection
     match /hydro_chart_requests/{requestId} {
-      allow read: if true;
+      allow read: if isAdmin();
       allow create: if true;
       allow update, delete: if isAdmin();
     }
 
     // Hydrographic Survey Requests Collection
     match /hydro_survey_requests/{requestId} {
-      allow read: if true;
+      allow read: if isAdmin();
       allow create: if true;
       allow update, delete: if isAdmin();
     }
 
     // Hydrographic Data Requests Collection
     match /hydro_data_requests/{requestId} {
-      allow read: if true;
+      allow read: if isAdmin();
       allow create: if true;
       allow update, delete: if isAdmin();
     }
@@ -582,7 +630,7 @@ service cloud.firestore {
 
     // Maritime Permits Collection
     match /maritime_permits/{permitId} {
-      allow read: if true;
+      allow read: if isAdmin();
       allow create: if true;
       allow update, delete: if isAdmin();
     }
@@ -595,14 +643,14 @@ service cloud.firestore {
 
     // Maritime Safety Reports Collection
     match /maritime_safety_reports/{reportId} {
-      allow read: if true;
+      allow read: if isAdmin();
       allow create: if true;
       allow update, delete: if isAdmin();
     }
 
     // Maritime Bookings Collection
     match /maritime_bookings/{bookingId} {
-      allow read: if true;
+      allow read: if isAdmin();
       allow create: if true;
       allow update, delete: if isAdmin();
     }
@@ -615,32 +663,28 @@ service cloud.firestore {
     match /fish_advisories/{advisoryId} {
       // Anyone can read fish advisories (public safety information)
       allow read: if true;
-      // DEVELOPMENT MODE: Open for public write
-      allow write: if true;
+      allow write: if isAdmin();
     }
 
     // Fishing Zones Collection
     match /fishing_zones/{zoneId} {
       // Anyone can read fishing zones (public information)
       allow read: if true;
-      // DEVELOPMENT MODE: Open for public write
-      allow write: if true;
+      allow write: if isAdmin();
     }
 
     // Fish Market Prices Collection
     match /fish_market_prices/{priceId} {
       // Anyone can read fish market prices (public data)
       allow read: if true;
-      // DEVELOPMENT MODE: Open for public write
-      allow write: if true;
+      allow write: if isAdmin();
     }
 
     // Seasonal Restrictions Collection
     match /seasonal_restrictions/{restrictionId} {
       // Anyone can read seasonal restrictions (public information)
       allow read: if true;
-      // DEVELOPMENT MODE: Open for public write
-      allow write: if true;
+      allow write: if isAdmin();
     }
 
     // ============================================
@@ -651,8 +695,7 @@ service cloud.firestore {
     match /podcasts/{podcastId} {
       // Anyone can read published podcasts
       allow read: if true;
-      // DEVELOPMENT MODE: Open for public write
-      allow write: if true;
+      allow write: if isAdmin();
     }
 
     // Podcast Analytics Collections
@@ -759,9 +802,7 @@ service cloud.firestore {
     // AI API Configuration (Admin Only)
     // ============================================
     match /admin_config/{docId} {
-      // Only allow reads/writes when authenticated (for now)
-      // TODO: Add proper admin check when admin system is ready
-      allow read, write: if true; // Temporarily allow all for initial setup
+      allow read, write: if isSystemAdmin();
     }
   }
 }

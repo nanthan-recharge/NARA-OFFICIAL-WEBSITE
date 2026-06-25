@@ -18,7 +18,7 @@ const RecruitmentATSAdmin = () => {
   const [selectedVacancy, setSelectedVacancy] = useState(null);
   const [applications, setApplications] = useState([]);
   const [selectedApplication, setSelectedApplication] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState(null);
 
@@ -37,22 +37,24 @@ const RecruitmentATSAdmin = () => {
     requiredApprovalLevels: 2
   });
 
-  useEffect(() => {
-    loadDashboardStats();
-    loadVacancies();
-  }, []);
-
   const loadDashboardStats = async () => {
     const { data } = await recruitmentDashboardService.getStatistics();
     if (data) setDashboardStats(data);
   };
 
   const loadVacancies = async () => {
-    setLoading(true);
     const { data } = await vacancyService.getAll();
     if (data) setVacancies(data);
     setLoading(false);
   };
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      loadDashboardStats();
+      loadVacancies();
+    }, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const loadApplicationsForVacancy = async (vacancyId) => {
     const { data } = await applicationService.getByVacancy(vacancyId);

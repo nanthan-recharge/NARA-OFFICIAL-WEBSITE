@@ -1,35 +1,39 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Save, X } from 'lucide-react';
 
-const PartnerForm = ({ initialData, onSave, onCancel, loading }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    country: '',
-    type: 'University',
-    region: 'Asia-Pacific',
-    joinedYear: new Date().getFullYear(),
-    status: 'Active',
-    collaborationType: '',
-    jointPublications: 0,
-    activeProjects: 0,
-    mou: false,
-    contactName: '',
-    contactEmail: '',
-    contactPhone: '',
-    focusAreas: '',
-    achievements: ''
-  });
+const currentYear = new Date().getFullYear();
 
-  useEffect(() => {
-    if (initialData) {
-      setFormData({
-        ...initialData,
-        collaborationType: Array.isArray(initialData.collaborationType) ? initialData.collaborationType.join(', ') : initialData.collaborationType || '',
-        focusAreas: Array.isArray(initialData.focusAreas) ? initialData.focusAreas.join(', ') : initialData.focusAreas || '',
-        achievements: Array.isArray(initialData.achievements) ? initialData.achievements.join('\n') : initialData.achievements || ''
-      });
-    }
-  }, [initialData]);
+const createEmptyPartnerForm = () => ({
+  name: '',
+  country: '',
+  type: 'University',
+  region: 'Asia-Pacific',
+  joinedYear: currentYear,
+  status: 'Active',
+  collaborationType: '',
+  jointPublications: 0,
+  activeProjects: 0,
+  mou: false,
+  contactName: '',
+  contactEmail: '',
+  contactPhone: '',
+  focusAreas: '',
+  achievements: ''
+});
+
+const normalizePartnerForm = (initialData) => {
+  if (!initialData) return createEmptyPartnerForm();
+
+  return {
+    ...initialData,
+    collaborationType: Array.isArray(initialData.collaborationType) ? initialData.collaborationType.join(', ') : initialData.collaborationType || '',
+    focusAreas: Array.isArray(initialData.focusAreas) ? initialData.focusAreas.join(', ') : initialData.focusAreas || '',
+    achievements: Array.isArray(initialData.achievements) ? initialData.achievements.join('\n') : initialData.achievements || ''
+  };
+};
+
+const PartnerForm = ({ initialData, onSave, onCancel, loading }) => {
+  const [formData, setFormData] = useState(() => normalizePartnerForm(initialData));
 
   const types = ['University', 'Research Institute', 'Government Agency', 'NGO', 'Private Sector'];
   const regions = ['Asia-Pacific', 'Europe', 'North America', 'Africa', 'Latin America', 'Middle East'];

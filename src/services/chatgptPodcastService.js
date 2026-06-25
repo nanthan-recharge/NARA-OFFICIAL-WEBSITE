@@ -1,5 +1,8 @@
 import OpenAI from 'openai';
 
+const BROWSER_OPENAI_BLOCK_MESSAGE =
+  'OpenAI podcast script generation is disabled in the browser. Configure a trusted backend function with Secret Manager before enabling this workflow.';
+
 /**
  * ChatGPT-Powered Podcast Script Generator
  * Creates natural, engaging conversations using GPT-4
@@ -14,8 +17,7 @@ function getOpenAIClient(apiKey) {
   }
 
   return new OpenAI({
-    apiKey: apiKey,
-    dangerouslyAllowBrowser: true // For client-side use (consider moving to backend for production)
+    apiKey: apiKey
   });
 }
 
@@ -27,6 +29,10 @@ function getOpenAIClient(apiKey) {
  * @returns {Promise<string>} - Generated script
  */
 export async function generateIntelligentScript(title, content, options = {}) {
+  if (typeof window !== 'undefined') {
+    throw new Error(BROWSER_OPENAI_BLOCK_MESSAGE);
+  }
+
   const {
     apiKey,
     style = 'conversational', // conversational, interview, storytelling, debate
@@ -38,7 +44,7 @@ export async function generateIntelligentScript(title, content, options = {}) {
   } = options;
 
   console.log('🤖 Generating intelligent script with ChatGPT...');
-  console.log('🔑 API Key present:', apiKey ? `Yes (${apiKey.substring(0, 7)}...)` : 'NO!');
+  console.log('🔑 API key configured:', Boolean(apiKey));
   console.log('📊 Settings:', { style, length, casualness, technicalDepth });
   
   try {

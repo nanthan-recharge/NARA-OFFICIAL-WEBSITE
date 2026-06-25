@@ -169,13 +169,13 @@ const ResearchDataAdmin = () => {
 
     switch(activeTab) {
       case 'publications':
-        return <PublicationForm {...formProps} />;
+        return <PublicationForm key={editingItem?.id || 'new-publication'} {...formProps} />;
       case 'projects':
-        return <ProjectForm {...formProps} />;
+        return <ProjectForm key={editingItem?.id || 'new-project'} {...formProps} />;
       case 'partners':
-        return <PartnerForm {...formProps} />;
+        return <PartnerForm key={editingItem?.id || 'new-partner'} {...formProps} />;
       case 'teams':
-        return <TeamForm {...formProps} />;
+        return <TeamForm key={editingItem?.id || 'new-team'} {...formProps} />;
       default:
         return null;
     }
@@ -302,7 +302,7 @@ const ResearchDataAdmin = () => {
               </div>
             ) : getCurrentData().length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-slate-500">No {activeTab} found. Click "Add New" to create one.</p>
+                <p className="text-slate-500">No {activeTab} found. Click &quot;Add New&quot; to create one.</p>
               </div>
             ) : (
               getCurrentData().map((item, index) => (

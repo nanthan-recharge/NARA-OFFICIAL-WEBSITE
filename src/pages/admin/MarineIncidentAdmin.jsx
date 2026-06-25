@@ -28,12 +28,7 @@ const MarineIncidentAdmin = () => {
     severity: 'all'
   });
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
   const fetchData = async () => {
-    setLoading(true);
     const [incidentsRes, observationsRes, dashboardRes] = await Promise.all([
       marineIncidentsService.getAll(),
       citizenScienceService.getAll(),
@@ -46,6 +41,11 @@ const MarineIncidentAdmin = () => {
 
     setLoading(false);
   };
+
+  useEffect(() => {
+    const timeout = window.setTimeout(fetchData, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const handleTriage = async (e) => {
     e.preventDefault();

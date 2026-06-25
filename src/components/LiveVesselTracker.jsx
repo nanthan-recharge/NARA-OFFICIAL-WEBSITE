@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle, ImageOverlay } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, Circle } from 'react-leaflet';
 import { Ship, Anchor, Navigation, Clock, Flag } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import 'leaflet/dist/leaflet.css';
@@ -33,7 +33,6 @@ const LiveVesselTracker = () => {
   const { t } = useTranslation('vesselTracking');
   const [vessels, setVessels] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedVessel, setSelectedVessel] = useState(null);
   const [filter, setFilter] = useState('all');
   const [lastUpdate, setLastUpdate] = useState(null);
 
@@ -245,13 +244,22 @@ const LiveVesselTracker = () => {
 
   // Fetch data on mount and every 3 minutes (faster updates)
   useEffect(() => {
-    setLoading(true);
-    fetchVesselData();
-    setLoading(false);
+    let isMounted = true;
+
+    fetchVesselData().finally(() => {
+      if (isMounted) {
+        setLoading(false);
+      }
+    });
 
     // Refresh every 3 minutes for live data
     const interval = setInterval(fetchVesselData, 3 * 60 * 1000);
-    return () => clearInterval(interval);
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+    // Keep the existing one-time subscription semantics for this live map.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Filter vessels by type
@@ -452,9 +460,6 @@ const LiveVesselTracker = () => {
               key={vessel.mmsi}
               position={[vessel.latitude, vessel.longitude]}
               icon={createShipIcon(vessel.type, vessel.course)}
-              eventHandlers={{
-                click: () => setSelectedVessel(vessel)
-              }}
             >
               <Popup className="vessel-popup">
                 <div className="p-4 min-w-[300px]">
@@ -550,7 +555,7 @@ const LiveVesselTracker = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .ship-marker {
           background: transparent;
           border: none;

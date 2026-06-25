@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -6,7 +6,7 @@ import * as Icons from 'lucide-react';
 import { useLoadScript } from '@react-google-maps/api';
 import SEOHead from '../../components/shared/SEOHead';
 
-const GOOGLE_MAPS_API_KEY = 'AIzaSyBjDI-36r6TA4UAimHENGrK8NP8jh5d7Sg';
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_KEY || '';
 const GOOGLE_MAPS_LIBRARIES = ['places', 'geometry', 'marker'];
 
 const RegionalCentersPage = () => {
@@ -17,13 +17,12 @@ const RegionalCentersPage = () => {
   const [showDirections, setShowDirections] = useState(false);
   const mapRef = useRef(null);
   const mapInstanceRef = useRef(null);
+  const hasGoogleMapsApiKey = Boolean(GOOGLE_MAPS_API_KEY);
 
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: GOOGLE_MAPS_API_KEY || 'missing-google-maps-key',
     libraries: GOOGLE_MAPS_LIBRARIES
   });
-
-  console.log('Google Maps Load Status:', { isLoaded, loadError });
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -75,17 +74,7 @@ const RegionalCentersPage = () => {
     }
   };
 
-  useEffect(() => {
-    if (isLoaded && mapRef.current && currentCenter?.coordinates && activeTab === 'map') {
-      // Small delay to ensure DOM is ready
-      const timer = setTimeout(() => {
-        initializeMap();
-      }, 100);
-      return () => clearTimeout(timer);
-    }
-  }, [isLoaded, selectedCenter, activeTab, showDirections, userLocation, currentCenter]);
-
-  const initializeMap = () => {
+  const initializeMap = useCallback(() => {
     console.log('Initializing map...', {
       hasGoogle: !!window.google,
       hasMapRef: !!mapRef.current,
@@ -257,7 +246,17 @@ const RegionalCentersPage = () => {
         title: 'Your Location'
       });
     }
-  };
+  }, [currentCenter, isLoaded, showDirections, userLocation]);
+
+  useEffect(() => {
+    if (isLoaded && mapRef.current && currentCenter?.coordinates && activeTab === 'map') {
+      // Small delay to ensure DOM is ready
+      const timer = setTimeout(() => {
+        initializeMap();
+      }, 100);
+      return () => clearTimeout(timer);
+    }
+  }, [isLoaded, selectedCenter, activeTab, currentCenter, initializeMap]);
 
   const getGoogleMapsLink = (lat, lng) => {
     if (userLocation) {
@@ -345,7 +344,15 @@ const RegionalCentersPage = () => {
 
             {/* All Centers Map */}
             <div className="w-full h-[600px] rounded-2xl overflow-hidden shadow-lg border-4 border-emerald-200 bg-white relative">
-              {loadError ? (
+              {!hasGoogleMapsApiKey ? (
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-50 to-orange-50">
+                  <div className="text-center p-8">
+                    <Icons.MapPinOff className="w-12 h-12 mx-auto mb-4 text-amber-600" />
+                    <p className="text-lg font-semibold text-slate-900 mb-2">Map Not Configured</p>
+                    <p className="text-sm text-slate-600">Google Maps API key is required for this view.</p>
+                  </div>
+                </div>
+              ) : loadError ? (
                 <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-red-50 to-orange-50">
                   <div className="text-center p-8">
                     <Icons.AlertCircle className="w-12 h-12 mx-auto mb-4 text-red-600" />
@@ -907,7 +914,15 @@ const RegionalCentersPage = () => {
 
                         {/* Advanced Google Maps with Custom Marker */}
                         <div className="w-full h-[500px] rounded-xl overflow-hidden shadow-lg border border-emerald-200 bg-white relative">
-                          {loadError ? (
+                          {!hasGoogleMapsApiKey ? (
+                            <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-amber-50 to-orange-50">
+                              <div className="text-center p-8">
+                                <Icons.MapPinOff className="w-12 h-12 mx-auto mb-4 text-amber-600" />
+                                <p className="text-lg font-semibold text-slate-900 mb-2">Map Not Configured</p>
+                                <p className="text-sm text-slate-600">Google Maps API key is required for this view.</p>
+                              </div>
+                            </div>
+                          ) : loadError ? (
                             <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-red-50 to-orange-50">
                               <div className="text-center p-8">
                                 <Icons.AlertCircle className="w-12 h-12 mx-auto mb-4 text-red-600" />

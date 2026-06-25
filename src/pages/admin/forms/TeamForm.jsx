@@ -1,22 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Save, X } from 'lucide-react';
 
-const TeamForm = ({ initialData, onSave, onCancel, loading }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    lead: '',
-    members: 0,
-    projects: 0,
-    publications: 0,
-    funding: '',
-    focus: ''
-  });
+const createEmptyTeamForm = () => ({
+  name: '',
+  lead: '',
+  members: 0,
+  projects: 0,
+  publications: 0,
+  funding: '',
+  focus: ''
+});
 
-  useEffect(() => {
-    if (initialData) {
-      setFormData(initialData);
-    }
-  }, [initialData]);
+const TeamForm = ({ initialData, onSave, onCancel, loading }) => {
+  const [formData, setFormData] = useState(() => initialData || createEmptyTeamForm());
 
   const handleSubmit = (e) => {
     e.preventDefault();

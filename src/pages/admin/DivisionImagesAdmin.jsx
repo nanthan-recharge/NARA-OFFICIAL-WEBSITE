@@ -946,7 +946,7 @@ const DivisionImagesAdmin = () => {
               <a
                 href={`/divisions/${selectedDivision.slug}`}
                 target="_blank"
-                className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-all flex items-center gap-2"
+                className="bg-green-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-green-700 transition-all flex items-center gap-2" rel="noreferrer"
               >
                 <LucideIcons.ExternalLink size={18} />
                 View in Hero Section

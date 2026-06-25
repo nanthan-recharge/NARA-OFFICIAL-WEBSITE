@@ -1,36 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Save, X } from 'lucide-react';
 
-const ProjectForm = ({ initialData, onSave, onCancel, loading }) => {
-  const [formData, setFormData] = useState({
-    title: '',
-    pi: '',
-    category: 'Marine Biology',
-    status: 'Active',
-    duration: '',
-    progress: 0,
-    budget: '',
-    spent: '',
-    team: 0,
-    partners: '',
-    description: '',
-    objectives: '',
-    outcomes: '',
-    fundingSource: '',
-    publications: 0,
-    datasets: 0
-  });
+const createEmptyProjectForm = () => ({
+  title: '',
+  pi: '',
+  category: 'Marine Biology',
+  status: 'Active',
+  duration: '',
+  progress: 0,
+  budget: '',
+  spent: '',
+  team: 0,
+  partners: '',
+  description: '',
+  objectives: '',
+  outcomes: '',
+  fundingSource: '',
+  publications: 0,
+  datasets: 0
+});
 
-  useEffect(() => {
-    if (initialData) {
-      setFormData({
-        ...initialData,
-        partners: Array.isArray(initialData.partners) ? initialData.partners.join(', ') : initialData.partners || '',
-        objectives: Array.isArray(initialData.objectives) ? initialData.objectives.join('\n') : initialData.objectives || '',
-        outcomes: Array.isArray(initialData.outcomes) ? initialData.outcomes.join('\n') : initialData.outcomes || ''
-      });
-    }
-  }, [initialData]);
+const normalizeProjectForm = (initialData) => {
+  if (!initialData) return createEmptyProjectForm();
+
+  return {
+    ...initialData,
+    partners: Array.isArray(initialData.partners) ? initialData.partners.join(', ') : initialData.partners || '',
+    objectives: Array.isArray(initialData.objectives) ? initialData.objectives.join('\n') : initialData.objectives || '',
+    outcomes: Array.isArray(initialData.outcomes) ? initialData.outcomes.join('\n') : initialData.outcomes || ''
+  };
+};
+
+const ProjectForm = ({ initialData, onSave, onCancel, loading }) => {
+  const [formData, setFormData] = useState(() => normalizeProjectForm(initialData));
 
   const categories = [
     'Marine Biology', 'Climate Change', 'Fisheries Management',

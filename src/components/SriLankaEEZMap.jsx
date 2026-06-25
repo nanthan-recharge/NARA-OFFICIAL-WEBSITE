@@ -11,24 +11,13 @@ const SriLankaEEZMap = ({ className = '', showMarkers = true }) => {
 
     const initMap = async () => {
       try {
-        // Try to get API key from environment, fallback to hardcoded for production
-        const apiKey =
-          import.meta.env.VITE_GOOGLE_MAPS_KEY || 'AIzaSyBuK3N924LRtseewgj_PNjdEOarlkax2pI';
-        
-        console.log('🔍 DEBUG: Checking API key...');
-        console.log('🔍 DEBUG: API key exists?', !!apiKey);
-        console.log('🔍 DEBUG: API key length:', apiKey?.length || 0);
-        console.log('🔍 DEBUG: API key first 20 chars:', apiKey?.substring(0, 20) || 'NONE');
+        const apiKey = import.meta.env.VITE_GOOGLE_MAPS_KEY;
         
         if (!apiKey) {
-          console.error('❌ FATAL: Google Maps API key not found!');
-          setError('Map visualization unavailable. API key not configured.');
+          setError('Map visualization unavailable. Google Maps API key is not configured.');
           setMapLoaded(true);
           return;
         }
-        
-        console.log('🗺️ Initializing Google Maps...');
-        console.log('📍 API Key configured - Length:', apiKey.length);
         
         // Check if Google Maps is already loaded
         const mapId = import.meta.env.VITE_GOOGLE_MAP_ID;

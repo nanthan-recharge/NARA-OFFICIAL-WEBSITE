@@ -313,7 +313,7 @@ const FishAdvisoryAdmin = () => {
         ))}
         {advisories.length === 0 && (
           <div className="text-center py-12 text-slate-500">
-            No advisories found. Click "Add Advisory" to create one.
+            No advisories found. Click &quot;Add Advisory&quot; to create one.
           </div>
         )}
       </div>
@@ -372,7 +372,7 @@ const FishAdvisoryAdmin = () => {
         ))}
         {zones.length === 0 && (
           <div className="col-span-2 text-center py-12 text-slate-500">
-            No zones found. Click "Add Zone" to create one.
+            No zones found. Click &quot;Add Zone&quot; to create one.
           </div>
         )}
       </div>
@@ -434,7 +434,7 @@ const FishAdvisoryAdmin = () => {
         ))}
         {prices.length === 0 && (
           <div className="col-span-2 text-center py-12 text-slate-500">
-            No prices found. Click "Add Price" to create one.
+            No prices found. Click &quot;Add Price&quot; to create one.
           </div>
         )}
       </div>
@@ -493,7 +493,7 @@ const FishAdvisoryAdmin = () => {
         ))}
         {restrictions.length === 0 && (
           <div className="text-center py-12 text-slate-500">
-            No restrictions found. Click "Add Restriction" to create one.
+            No restrictions found. Click &quot;Add Restriction&quot; to create one.
           </div>
         )}
       </div>

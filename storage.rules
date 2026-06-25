@@ -1,54 +1,97 @@
 rules_version = '2';
 
-// NARA Firebase Storage Security Rules - SIMPLIFIED FOR PUBLIC ACCESS
+// NARA Firebase Storage Security Rules
 service firebase.storage {
   match /b/{bucket}/o {
+
+    function hasActiveAdminProfile() {
+      return request.auth != null &&
+             firestore.exists(/databases/(default)/documents/adminProfiles/$(request.auth.uid)) &&
+             firestore.get(/databases/(default)/documents/adminProfiles/$(request.auth.uid)).data.email == request.auth.token.email &&
+             firestore.get(/databases/(default)/documents/adminProfiles/$(request.auth.uid)).data.is_active != false &&
+             !(firestore.get(/databases/(default)/documents/adminProfiles/$(request.auth.uid)).data.status in ['suspended', 'terminated']) &&
+             firestore.get(/databases/(default)/documents/adminProfiles/$(request.auth.uid)).data.role in [
+               'system_admin',
+               'director_general',
+               'deputy_director',
+               'division_head',
+               'senior_researcher',
+               'research_officer',
+               'technical_officer',
+               'admin_staff',
+               'support_staff'
+             ];
+    }
+
+    function isAdmin() {
+      return hasActiveAdminProfile();
+    }
+
+    function isSafeImageUpload() {
+      return request.resource.size < 8 * 1024 * 1024 &&
+             request.resource.contentType.matches('image/.*');
+    }
+
+    function isSafePublicAttachment() {
+      return request.resource.size < 10 * 1024 * 1024 &&
+             request.resource.contentType.matches('image/.*|application/pdf');
+    }
+
+    function isSafeResearchUpload() {
+      return request.resource.size < 50 * 1024 * 1024 &&
+             request.resource.contentType.matches('application/pdf|application/msword|application/vnd.openxmlformats-officedocument.wordprocessingml.document|text/.*');
+    }
+
+    function isSafePodcastUpload() {
+      return request.resource.size < 250 * 1024 * 1024 &&
+             request.resource.contentType.matches('video/.*|audio/.*|image/.*');
+    }
 
     // Public assets (logos, images, documents)
     match /public/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin();
     }
 
     // Library PDFs and QR codes (FULL PUBLIC READ ACCESS - NO AUTH REQUIRED)
     match /pdfs/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin() && isSafeResearchUpload();
     }
 
     // Tamil translations (FULL PUBLIC READ ACCESS)
     match /pdfs_tamil/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin() && isSafeResearchUpload();
     }
 
     // Sinhala translations (FULL PUBLIC READ ACCESS)
     match /pdfs_sinhala/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin() && isSafeResearchUpload();
     }
 
     match /qr-codes/{allPaths=**} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin();
     }
     
-    // Division images (DEVELOPMENT MODE: PUBLIC WRITE)
+    // Division images
     match /divisions/{divisionId}/{allPaths=**} {
       allow read: if true;
-      allow write: if true; // DEVELOPMENT MODE: Open for public uploads
+      allow write: if isAdmin() && isSafeImageUpload();
     }
 
-    // Podcast videos (DEVELOPMENT MODE: PUBLIC WRITE)
+    // Podcast videos
     match /podcasts/{allPaths=**} {
       allow read: if true; // Anyone can view podcasts
-      allow write: if true; // DEVELOPMENT MODE: Open for public uploads
+      allow write: if isAdmin() && isSafePodcastUpload();
     }
 
     // News and article images
     match /news/{newsId}/{fileName} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin() && isSafeImageUpload();
     }
 
     // Library research submissions
@@ -66,13 +109,13 @@ service firebase.storage {
     // Research project files
     match /research_projects/{projectId}/{fileName} {
       allow read: if true; // Simplified - all research is public
-      allow write: if request.auth != null;
+      allow write: if isAdmin() && isSafeResearchUpload();
     }
 
     // Publication files
     match /publications/{publicationId}/{fileName} {
       allow read: if true; // Public access
-      allow write: if request.auth != null;
+      allow write: if isAdmin() && isSafeResearchUpload();
     }
 
     // User profile images and documents
@@ -84,29 +127,33 @@ service firebase.storage {
     // Application documents
     match /applications/{applicationId}/{fileName} {
       allow read: if request.auth != null;
-      allow write: if request.auth != null;
+      allow create: if request.auth != null && isSafePublicAttachment();
+      allow update, delete: if isAdmin();
     }
 
     // Emergency response report attachments
     match /emergency_incidents/{reportId}/{fileName} {
       allow read: if request.auth != null;
-      allow write: if true; // Public can submit
+      allow create: if isSafePublicAttachment();
+      allow update, delete: if isAdmin();
     }
 
     match /non_emergency_support/{reportId}/{fileName} {
       allow read: if request.auth != null;
-      allow write: if true;
+      allow create: if isSafePublicAttachment();
+      allow update, delete: if isAdmin();
     }
 
     match /environmental_incidents/{reportId}/{fileName} {
       allow read: if request.auth != null;
-      allow write: if true;
+      allow create: if isSafePublicAttachment();
+      allow update, delete: if isAdmin();
     }
 
     // Event images and documents
     match /events/{eventId}/{fileName} {
       allow read: if true;
-      allow write: if request.auth != null;
+      allow write: if isAdmin() && isSafeImageUpload();
     }
 
     // Temporary uploads
@@ -118,8 +165,7 @@ service firebase.storage {
 
     // Administrative files
     match /admin/{fileName} {
-      allow read: if request.auth != null;
-      allow write: if request.auth != null;
+      allow read, write: if isAdmin();
     }
 
     // Library member photos
@@ -128,10 +174,10 @@ service firebase.storage {
       allow write: if request.auth != null && request.auth.uid == memberId;
     }
 
-    // Research content uploads (DEVELOPMENT MODE: PUBLIC WRITE)
+    // Research content uploads
     match /research-content/{allPaths=**} {
       allow read: if true;  // Anyone can read/download research papers
-      allow write: if true; // DEVELOPMENT MODE: Open for public uploads
+      allow write: if isAdmin() && isSafeResearchUpload();
     }
 
     // ============================================

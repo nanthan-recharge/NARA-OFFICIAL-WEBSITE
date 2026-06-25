@@ -261,6 +261,7 @@ const UserDetail = () => {
         size="lg"
       >
         <UserForm
+          key={userData.id}
           user={userData}
           onSave={handleSave}
           onCancel={() => setShowEditModal(false)}

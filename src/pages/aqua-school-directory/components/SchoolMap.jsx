@@ -5,11 +5,17 @@ const SchoolMap = ({ schools = [], t }) => {
   const mapRef = useRef(null);
   const [map, setMap] = useState(null);
   const [selectedSchool, setSelectedSchool] = useState(null);
+  const [mapError, setMapError] = useState(null);
 
   useEffect(() => {
     const initMap = async () => {
       try {
-        const apiKey = import.meta.env.VITE_GOOGLE_MAPS_KEY || 'AIzaSyBjDI-36r6TA4UAimHENGrK8NP8jh5d7Sg';
+        const apiKey = import.meta.env.VITE_GOOGLE_MAPS_KEY;
+
+        if (!apiKey) {
+          setMapError('Google Maps API key is not configured.');
+          return;
+        }
 
         // Load Google Maps if not already loaded
         if (!window.google?.maps) {
@@ -79,6 +85,7 @@ const SchoolMap = ({ schools = [], t }) => {
 
       } catch (error) {
         console.error('Error loading map:', error);
+        setMapError('Map unavailable. Please check Google Maps configuration.');
       }
     };
 
@@ -89,6 +96,15 @@ const SchoolMap = ({ schools = [], t }) => {
     <div className="relative rounded-2xl overflow-hidden border border-slate-700/50 bg-slate-900/60 backdrop-blur">
       {/* Map Container */}
       <div ref={mapRef} className="w-full h-[600px]" />
+
+      {mapError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-950/90 text-center">
+          <div className="px-6">
+            <MapPin className="w-10 h-10 mx-auto mb-3 text-cyan-300" />
+            <p className="text-sm font-semibold text-white">{mapError}</p>
+          </div>
+        </div>
+      )}
 
       {/* School Info Overlay */}
       {selectedSchool && (

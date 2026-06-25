@@ -25,6 +25,14 @@ import {
   handleApiError
 } from '../../services/procurementRecruitmentService';
 
+const formatArchiveDate = (entry) => {
+  const dateValue = entry?.closed_at || entry?.updated_at || entry?.created_at || entry?.published_at;
+  if (!dateValue) return 'Date not set';
+
+  const date = dateValue?.toDate ? dateValue.toDate() : new Date(dateValue);
+  return Number.isNaN(date.getTime()) ? 'Date not set' : date.toLocaleDateString();
+};
+
 const AdminDashboard = () => {
   const [workspaceStats, setWorkspaceStats] = useState(null);
   const [vacancySummary, setVacancySummary] = useState(null);
@@ -278,7 +286,7 @@ const VacancyAutomationPanel = ({ stats, archivePreview }) => (
               <div>
                 <p className="font-semibold text-slate-900">{entry?.title}</p>
                 <p className="text-slate-500">
-                  {entry?.department || entry?.division || 'NARA'} • {new Date(entry?.closed_at || entry?.updated_at || entry?.created_at || entry?.published_at || Date.now()).toLocaleDateString()}
+                  {entry?.department || entry?.division || 'NARA'} • {formatArchiveDate(entry)}
                 </p>
               </div>
               <span className="inline-flex items-center gap-1 rounded-full border border-slate-300 px-3 py-1 text-[10px] uppercase tracking-wider text-slate-500">

@@ -3,10 +3,13 @@
  * Real AI-powered NotebookLM-style podcast generation using AWS Polly
  */
 
-import { PollyClient, SynthesizeSpeechCommand } from '@aws-sdk/client-polly';
+import { SynthesizeSpeechCommand } from '@aws-sdk/client-polly';
 import { db, storage } from '../config/firebase';
-import { collection, addDoc, serverTimestamp, doc, getDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+
+const BROWSER_SECRET_BLOCK_MESSAGE =
+  'AWS Polly generation is disabled in the browser. Configure a Cloud Function or trusted backend that reads AWS credentials from Secret Manager and returns generated audio to the admin client.';
 
 // ========== MULTILINGUAL VOICE SYSTEM =========
 // Comprehensive voice support for English, Tamil, and Sinhala
@@ -173,70 +176,7 @@ function splitTextIntoChunks(text, maxLength) {
  * Create AWS Polly client with credentials from Firebase
  */
 async function createPollyClient() {
-  try {
-    // Get AWS credentials from Firebase
-    const configRef = doc(db, 'admin_config', 'ai_api_keys');
-    const configSnap = await getDoc(configRef);
-
-    if (!configSnap.exists()) {
-      throw new Error('AWS API configuration not found. Please configure AWS credentials in Admin Panel.');
-    }
-
-    const config = configSnap.data();
-    const awsConfig = config.aws;
-
-    if (!awsConfig || !awsConfig.enabled) {
-      throw new Error('AWS Polly is not enabled. Please enable it in Admin Panel.');
-    }
-
-    if (!awsConfig.accessKeyId || !awsConfig.secretAccessKey) {
-      throw new Error('AWS credentials are missing. Please add them in Admin Panel.');
-    }
-
-    // ========== ENHANCED: Better credential validation ==========
-    console.log('🔐 AWS Config:', {
-      hasAccessKey: !!awsConfig.accessKeyId,
-      hasSecretKey: !!awsConfig.secretAccessKey,
-      region: awsConfig.region || 'us-east-1',
-      accessKeyStart: awsConfig.accessKeyId?.substring(0, 8)
-    });
-
-    // Validate credentials format
-    if (!awsConfig.accessKeyId.startsWith('AKIA')) {
-      throw new Error('Invalid AWS Access Key format. Must start with "AKIA"');
-    }
-
-    // Force us-east-1 region for better compatibility
-    const region = 'us-east-1'; // Most reliable region for Polly
-    console.log(`🌍 Using AWS region: ${region}`);
-
-    // Create Polly client
-    const client = new PollyClient({
-      region: region,
-      credentials: {
-        accessKeyId: awsConfig.accessKeyId.trim(),
-        secretAccessKey: awsConfig.secretAccessKey.trim()
-      }
-    });
-
-    console.log('✅ AWS Polly client created successfully');
-    return client;
-  } catch (error) {
-    console.error('❌ Error creating Polly client:', error);
-    
-    // Check for specific errors
-    if (error.message.includes('configuration not found')) {
-      throw new Error('AWS API not configured. Please go to Admin Panel → AI API Configuration and add your AWS credentials.');
-    } else if (error.message.includes('not enabled')) {
-      throw new Error('AWS Polly is not enabled. Please enable it in Admin Panel → AI API Configuration.');
-    } else if (error.name === 'CredentialsProviderError') {
-      throw new Error('Invalid AWS credentials. Please check your Access Key ID and Secret Access Key in Admin Panel.');
-    } else if (error.name === 'ThrottlingException') {
-      throw new Error('AWS rate limit exceeded. Please wait a moment and try again.');
-    } else {
-      throw new Error(`AWS Polly error: ${error.message}`);
-    }
-  }
+  throw new Error(BROWSER_SECRET_BLOCK_MESSAGE);
 }
 
 /**
@@ -560,7 +500,7 @@ function parseConversationalScript(script) {
 
 /**
  * Generate audio for a single segment using AWS Polly
- * @param {PollyClient} client - AWS Polly client
+ * @param {object} client - AWS Polly client
  * @param {object} segment - Segment with speaker and text
  * @param {object} voices - Voice configuration (host and guest)
  */

@@ -16,7 +16,7 @@ const ProjectPipelineAdmin = () => {
   const [projects, setProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
   const [dashboardStats, setDashboardStats] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState(null); // 'milestone' | 'output' | 'expense' | 'timeline' | 'rag'
 
@@ -81,13 +81,7 @@ const ProjectPipelineAdmin = () => {
     ragNotes: ''
   });
 
-  useEffect(() => {
-    loadProjects();
-    loadDashboardStats();
-  }, []);
-
   const loadProjects = async () => {
-    setLoading(true);
     const { data, error } = await projectsService.getAll();
     if (!error && data) {
       setProjects(data);
@@ -101,6 +95,14 @@ const ProjectPipelineAdmin = () => {
       setDashboardStats(data);
     }
   };
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      loadProjects();
+      loadDashboardStats();
+    }, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const handleCreateProject = async (e) => {
     e.preventDefault();

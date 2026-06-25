@@ -1,29 +1,124 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { X, Download, RefreshCw } from 'lucide-react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
+import { X, Download, RefreshCw, WifiOff, Share2, PlusSquare } from 'lucide-react';
 
-const PWA_TRI_LINGUAL_TEXT = [
-  {
-    key: 'si',
-    heading: 'නාරා යෙදුම ස්ථාපනය කරන්න',
-    subheading: 'ඕනෑම වේලාවක ඉක්මන් ප්‍රවේශයක්',
-    description: 'ඕනෑම අවස්ථාවක ඉක්මන් ප්‍රවේශය සහ නොබැඳි සහය සඳහා නාරා ඔබේ මුල් පිටුවට එකතු කරන්න.'
+const PWA_COPY = {
+  en: {
+    heading: 'Install NARA',
+    subheading: 'Fast access, fewer reloads, offline support.',
+    install: 'Install',
+    installing: 'Installing...',
+    later: 'Later',
+    updateTitle: 'New NARA version available',
+    updateText: 'Refresh once to use the latest public services and fixes.',
+    updateAction: 'Update',
+    updating: 'Updating...',
+    offline: 'You are offline. Cached pages remain available.',
+    iosTitle: 'Add NARA to Home Screen',
+    iosIntro: 'Install the site for quick mobile access.',
+    iosStepShare: 'Tap the Share button.',
+    iosStepAdd: 'Choose Add to Home Screen.',
+    iosDone: 'Got it'
   },
-  {
-    key: 'ta',
-    heading: 'நாரா செயலியை நிறுவுங்கள்',
-    subheading: 'எப்போதும் விரைவான அணுகல்',
-    description: 'வேகமான அணுகலும் இணையதளமற்ற ஆதரவும் பெற உங்கள் முகப்பு திரையில் நாராவைச் சேர்க்கவும்.'
+  si: {
+    heading: 'NARA ස්ථාපනය කරන්න',
+    subheading: 'වේගවත් ප්‍රවේශය, අඩු නැවත පූරණය, නොබැඳි සහාය.',
+    install: 'ස්ථාපනය',
+    installing: 'ස්ථාපනය වේ...',
+    later: 'පසුව',
+    updateTitle: 'නව NARA අනුවාදයක් ඇත',
+    updateText: 'නවතම සේවා සහ දෝෂ නිරාකරණ සඳහා එක් වරක් යාවත්කාලීන කරන්න.',
+    updateAction: 'යාවත්කාලීන',
+    updating: 'යාවත්කාලීන වේ...',
+    offline: 'ඔබ නොබැඳිව සිටී. සුරැකි පිටු භාවිත කළ හැක.',
+    iosTitle: 'NARA මුල් තිරයට එක් කරන්න',
+    iosIntro: 'වේගවත් ජංගම ප්‍රවේශය සඳහා වෙබ් අඩවිය ස්ථාපනය කරන්න.',
+    iosStepShare: 'Share බොත්තම තට්ටු කරන්න.',
+    iosStepAdd: 'Add to Home Screen තෝරන්න.',
+    iosDone: 'තේරුණා'
   },
-  {
-    key: 'en',
-    heading: 'Install NARA App',
-    subheading: 'Quick access anytime',
-    description: 'Add NARA to your home screen for quick access and offline support.'
+  ta: {
+    heading: 'NARA நிறுவவும்',
+    subheading: 'வேகமான அணுகல், குறைந்த மீளேற்றம், இணையமற்ற ஆதரவு.',
+    install: 'நிறுவு',
+    installing: 'நிறுவுகிறது...',
+    later: 'பின்னர்',
+    updateTitle: 'புதிய NARA பதிப்பு உள்ளது',
+    updateText: 'சமீபத்திய சேவைகள் மற்றும் திருத்தங்களுக்கு ஒருமுறை புதுப்பிக்கவும்.',
+    updateAction: 'புதுப்பி',
+    updating: 'புதுப்பிக்கிறது...',
+    offline: 'நீங்கள் இணையமற்ற நிலையில் உள்ளீர்கள். சேமித்த பக்கங்கள் கிடைக்கும்.',
+    iosTitle: 'NARA-வை முகப்பு திரையில் சேர்க்கவும்',
+    iosIntro: 'வேகமான மொபைல் அணுகலுக்கு தளத்தை நிறுவவும்.',
+    iosStepShare: 'Share பொத்தானைத் தட்டவும்.',
+    iosStepAdd: 'Add to Home Screen தேர்ந்தெடுக்கவும்.',
+    iosDone: 'புரிந்தது'
   }
-];
+};
 
 const PWA_INSTALL_DISMISS_KEY = 'pwa-install-dismissed';
 const PWA_INSTALL_COMPLETE_KEY = 'pwa-install-complete';
+const INSTALL_DISMISS_DAYS = 7;
+const IOS_INSTALL_DISMISS_KEY = 'ios-install-dismissed';
+
+const getCurrentLanguage = () => {
+  if (typeof window === 'undefined') {
+    return 'en';
+  }
+  try {
+    return localStorage.getItem('nara-lang') || document.documentElement.lang || 'en';
+  } catch {
+    return document.documentElement.lang || 'en';
+  }
+};
+
+const getCopy = (language) => PWA_COPY[language] || PWA_COPY.en;
+
+const getStoredValue = (key) => {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return null;
+  }
+  try {
+    return localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+};
+
+const setStoredValue = (key, value) => {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+  try {
+    localStorage.setItem(key, value);
+  } catch {
+    // PWA prompts should fail quietly if storage is blocked.
+  }
+};
+
+const removeStoredValue = (key) => {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return;
+  }
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    // Ignore blocked storage.
+  }
+};
+
+const wasDismissedRecently = (key) => {
+  if (typeof window === 'undefined' || !window.localStorage) {
+    return true;
+  }
+
+  const dismissedAt = getStoredValue(key);
+  if (!dismissedAt) {
+    return false;
+  }
+
+  const daysSinceDismiss = (Date.now() - Number(dismissedAt)) / (1000 * 60 * 60 * 24);
+  return Number.isFinite(daysSinceDismiss) && daysSinceDismiss < INSTALL_DISMISS_DAYS;
+};
 
 /**
  * PWA Install Prompt Component
@@ -32,12 +127,15 @@ const PWA_INSTALL_COMPLETE_KEY = 'pwa-install-complete';
 export const InstallPrompt = () => {
   const [showPrompt, setShowPrompt] = useState(false);
   const [isInstalling, setIsInstalling] = useState(false);
+  const [language, setLanguage] = useState(getCurrentLanguage);
+  const showTimerRef = useRef(null);
+  const t = getCopy(language);
+
   const markInstalled = useCallback(() => {
-    if (typeof window === 'undefined' || !window.localStorage) {
-      return;
+    if (typeof window !== 'undefined' && window.localStorage) {
+      setStoredValue(PWA_INSTALL_COMPLETE_KEY, 'true');
+      removeStoredValue(PWA_INSTALL_DISMISS_KEY);
     }
-    localStorage.setItem(PWA_INSTALL_COMPLETE_KEY, 'true');
-    localStorage.removeItem(PWA_INSTALL_DISMISS_KEY);
     setShowPrompt(false);
   }, []);
 
@@ -46,7 +144,7 @@ export const InstallPrompt = () => {
       return undefined;
     }
 
-    const hasCompletedInstall = localStorage.getItem(PWA_INSTALL_COMPLETE_KEY);
+    const hasCompletedInstall = getStoredValue(PWA_INSTALL_COMPLETE_KEY);
     const isStandalone =
       (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches) ||
       // iOS PWA mode
@@ -57,9 +155,16 @@ export const InstallPrompt = () => {
       return undefined;
     }
 
+    const handleLanguageChange = (event) => {
+      setLanguage(event.detail || getCurrentLanguage());
+    };
+
     const handleInstallAvailable = () => {
-      if (!localStorage.getItem(PWA_INSTALL_COMPLETE_KEY) && !localStorage.getItem(PWA_INSTALL_DISMISS_KEY)) {
-        setShowPrompt(true);
+      if (!getStoredValue(PWA_INSTALL_COMPLETE_KEY) && !wasDismissedRecently(PWA_INSTALL_DISMISS_KEY)) {
+        const hasCookieConsent = getStoredValue('nara-cookie-consent');
+        const delay = hasCookieConsent ? 1800 : 9000;
+        window.clearTimeout(showTimerRef.current);
+        showTimerRef.current = window.setTimeout(() => setShowPrompt(true), delay);
       }
     };
 
@@ -71,17 +176,19 @@ export const InstallPrompt = () => {
     window.addEventListener('pwa-install-available', handleInstallAvailable);
     window.addEventListener('pwa-installed', handleInstalled);
     window.addEventListener('appinstalled', handleInstalled);
+    window.addEventListener('languageChange', handleLanguageChange);
 
     // Check if already dismissed
-    const dismissed = localStorage.getItem(PWA_INSTALL_DISMISS_KEY);
-    if (dismissed) {
+    if (wasDismissedRecently(PWA_INSTALL_DISMISS_KEY)) {
       setShowPrompt(false);
     }
 
     return () => {
+      window.clearTimeout(showTimerRef.current);
       window.removeEventListener('pwa-install-available', handleInstallAvailable);
       window.removeEventListener('pwa-installed', handleInstalled);
       window.removeEventListener('appinstalled', handleInstalled);
+      window.removeEventListener('languageChange', handleLanguageChange);
     };
   }, [markInstalled]);
 
@@ -106,98 +213,67 @@ export const InstallPrompt = () => {
     if (typeof window === 'undefined' || !window.localStorage) {
       return;
     }
-    localStorage.setItem(PWA_INSTALL_DISMISS_KEY, Date.now().toString());
+    setStoredValue(PWA_INSTALL_DISMISS_KEY, Date.now().toString());
   };
 
   if (!showPrompt) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 animate-slide-up">
-      <div className="max-w-md mx-auto bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-2xl overflow-hidden">
-        <div className="p-6 text-white">
-          <div className="flex items-start justify-between mb-4">
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center">
-                  <img
-                    src="/assets/nara-logo.png"
-                    alt="NARA logo"
-                    className="w-10 h-10 object-contain"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                </div>
-                <div className="flex flex-col gap-1">
-                  <div className="flex flex-col leading-tight">
-                    {PWA_TRI_LINGUAL_TEXT.map(({ key, heading }, index) => (
-                      <span
-                        key={`pwa-heading-${key}`}
-                        className={
-                          index === 0
-                            ? 'font-bold text-lg'
-                            : index === 1
-                              ? 'font-semibold text-base'
-                              : 'font-semibold text-base'
-                        }
-                      >
-                        {heading}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex flex-col leading-tight">
-                    {PWA_TRI_LINGUAL_TEXT.map(({ key, subheading }, index) => (
-                      <span
-                        key={`pwa-subheading-${key}`}
-                        className={index === 0 ? 'text-sm opacity-90' : 'text-xs opacity-80'}
-                      >
-                        {subheading}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
+    <div className="fixed inset-x-0 bottom-0 z-[10000] pointer-events-none px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] sm:inset-x-auto sm:right-4 sm:w-[min(24rem,calc(100vw-2rem))] sm:px-0 sm:pb-4 animate-slide-up">
+      <div className="pointer-events-auto mx-auto overflow-hidden rounded-2xl border border-sky-200 bg-white shadow-2xl shadow-slate-900/20 dark:border-white/10 dark:bg-slate-950">
+        <div className="p-3 text-slate-900 dark:text-white sm:p-4" lang={language}>
+          <div className="flex items-start gap-3">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-sm dark:border-white/10">
+              <img
+                src="/icons/icon-192x192.png"
+                alt="NARA logo"
+                className="h-9 w-9 object-contain"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
+
+            <div className="min-w-0 flex-1">
+              <h3 className="text-sm font-bold leading-snug">{t.heading}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-slate-600 dark:text-slate-300">{t.subheading}</p>
+            </div>
+
             <button
+              type="button"
               onClick={handleDismiss}
-              className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+              className="inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full p-0 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
               aria-label="Dismiss"
             >
-              <X className="w-5 h-5" />
+              <X className="h-4 w-4" aria-hidden="true" />
             </button>
           </div>
 
-          <div className="flex flex-col gap-0.5 text-sm opacity-90 mb-4 leading-tight">
-            {PWA_TRI_LINGUAL_TEXT.map(({ key, description }, index) => (
-              <span key={`pwa-description-${key}`} className={index === 0 ? '' : 'text-xs opacity-80'}>
-                {description}
-              </span>
-            ))}
-          </div>
-
-          <div className="flex gap-3">
+          <div className="mt-3 grid grid-cols-[1fr_auto] gap-2">
             <button
+              type="button"
               onClick={handleInstall}
               disabled={isInstalling}
-              className="flex-1 bg-white text-blue-600 font-semibold py-3 px-4 rounded-xl hover:bg-opacity-90 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+              className="inline-flex min-h-10 items-center justify-center gap-2 rounded-lg bg-sky-700 px-3 py-2 text-sm font-bold text-white transition-colors hover:bg-sky-800 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
             >
               {isInstalling ? (
                 <>
-                  <RefreshCw className="w-5 h-5 animate-spin" />
-                  Installing...
+                  <RefreshCw className="h-4 w-4 animate-spin" aria-hidden="true" />
+                  {t.installing}
                 </>
               ) : (
                 <>
-                  <Download className="w-5 h-5" />
-                  Install
+                  <Download className="h-4 w-4" aria-hidden="true" />
+                  {t.install}
                 </>
               )}
             </button>
             <button
+              type="button"
               onClick={handleDismiss}
-              className="px-4 py-3 text-white font-semibold hover:bg-white/20 rounded-xl transition-colors"
+              className="min-h-10 rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:border-white/15 dark:text-slate-200 dark:hover:bg-white/10"
             >
-              Later
+              {t.later}
             </button>
           </div>
         </div>
@@ -212,16 +288,21 @@ export const InstallPrompt = () => {
 export const UpdateBanner = () => {
   const [showBanner, setShowBanner] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [language, setLanguage] = useState(getCurrentLanguage);
+  const t = getCopy(language);
 
   useEffect(() => {
     const handleUpdateAvailable = () => {
       setShowBanner(true);
     };
+    const handleLanguageChange = (event) => setLanguage(event.detail || getCurrentLanguage());
 
     window.addEventListener('pwa-update-available', handleUpdateAvailable);
+    window.addEventListener('languageChange', handleLanguageChange);
 
     return () => {
       window.removeEventListener('pwa-update-available', handleUpdateAvailable);
+      window.removeEventListener('languageChange', handleLanguageChange);
     };
   }, []);
 
@@ -240,25 +321,26 @@ export const UpdateBanner = () => {
   if (!showBanner) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 p-4 animate-slide-down">
-      <div className="max-w-md mx-auto bg-green-500 text-white rounded-xl shadow-lg p-4">
-        <div className="flex items-center justify-between">
-          <div className="flex-1">
-            <p className="font-semibold mb-1">New Version Available!</p>
-            <p className="text-sm opacity-90">Update now to get the latest features</p>
+    <div className="fixed inset-x-0 top-0 z-[10000] px-3 pt-[calc(env(safe-area-inset-top)+0.75rem)] animate-slide-down">
+      <div className="mx-auto max-w-md rounded-2xl border border-emerald-200 bg-white p-3 text-slate-900 shadow-xl shadow-slate-900/15 dark:border-white/10 dark:bg-slate-950 dark:text-white" lang={language}>
+        <div className="flex items-center gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-sm font-bold">{t.updateTitle}</p>
+            <p className="mt-0.5 text-xs text-slate-600 dark:text-slate-300">{t.updateText}</p>
           </div>
           <button
+            type="button"
             onClick={handleUpdate}
             disabled={isUpdating}
-            className="ml-4 bg-white text-green-600 font-semibold py-2 px-4 rounded-lg hover:bg-opacity-90 transition-all disabled:opacity-50 flex items-center gap-2"
+            className="inline-flex min-h-9 items-center gap-2 rounded-lg bg-emerald-600 px-3 py-2 text-xs font-bold text-white transition-colors hover:bg-emerald-700 disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
           >
             {isUpdating ? (
               <>
-                <RefreshCw className="w-4 h-4 animate-spin" />
-                Updating...
+                <RefreshCw className="h-4 w-4 animate-spin" aria-hidden="true" />
+                {t.updating}
               </>
             ) : (
-              'Update Now'
+              t.updateAction
             )}
           </button>
         </div>
@@ -272,27 +354,32 @@ export const UpdateBanner = () => {
  */
 export const OfflineIndicator = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [language, setLanguage] = useState(getCurrentLanguage);
+  const t = getCopy(language);
 
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
+    const handleLanguageChange = (event) => setLanguage(event.detail || getCurrentLanguage());
 
     window.addEventListener('online', handleOnline);
     window.addEventListener('offline', handleOffline);
+    window.addEventListener('languageChange', handleLanguageChange);
 
     return () => {
       window.removeEventListener('online', handleOnline);
       window.removeEventListener('offline', handleOffline);
+      window.removeEventListener('languageChange', handleLanguageChange);
     };
   }, []);
 
   if (isOnline) return null;
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-40 bg-yellow-500 text-white py-2 px-4 text-center text-sm font-medium">
-      <span className="inline-flex items-center gap-2">
-        <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
-        You're offline. Some features may not be available.
+    <div className="fixed inset-x-0 top-0 z-[9997] px-3 pt-[calc(env(safe-area-inset-top)+0.75rem)]">
+      <span className="mx-auto flex max-w-md items-center justify-center gap-2 rounded-full border border-amber-200 bg-amber-50 px-3 py-2 text-center text-xs font-bold text-amber-900 shadow-lg dark:border-amber-400/20 dark:bg-amber-500/15 dark:text-amber-100" lang={language}>
+        <WifiOff className="h-4 w-4" aria-hidden="true" />
+        {t.offline}
       </span>
     </div>
   );
@@ -303,6 +390,8 @@ export const OfflineIndicator = () => {
  */
 export const IOSInstallInstructions = () => {
   const [showInstructions, setShowInstructions] = useState(false);
+  const [language, setLanguage] = useState(getCurrentLanguage);
+  const t = getCopy(language);
 
   useEffect(() => {
     const checkShowInstructions = async () => {
@@ -310,76 +399,67 @@ export const IOSInstallInstructions = () => {
       
       // Show instructions for iOS users who haven't installed
       if (isIOS() && !isStandalone()) {
-        const dismissed = localStorage.getItem('ios-install-dismissed');
-        if (!dismissed) {
-          setShowInstructions(true);
+        if (!wasDismissedRecently(IOS_INSTALL_DISMISS_KEY)) {
+          const hasCookieConsent = getStoredValue('nara-cookie-consent');
+          window.setTimeout(() => setShowInstructions(true), hasCookieConsent ? 2500 : 9500);
         }
       }
     };
 
+    const handleLanguageChange = (event) => setLanguage(event.detail || getCurrentLanguage());
+    window.addEventListener('languageChange', handleLanguageChange);
     checkShowInstructions();
+
+    return () => window.removeEventListener('languageChange', handleLanguageChange);
   }, []);
 
   const handleDismiss = () => {
     setShowInstructions(false);
-    localStorage.setItem('ios-install-dismissed', Date.now().toString());
+    setStoredValue(IOS_INSTALL_DISMISS_KEY, Date.now().toString());
   };
 
   if (!showInstructions) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6 animate-slide-up">
-      <div className="max-w-md mx-auto bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
-        <div className="p-6">
-          <div className="flex items-start justify-between mb-4">
-            <h3 className="font-bold text-lg text-gray-900">Install NARA App</h3>
+    <div className="fixed inset-x-0 bottom-0 z-[10000] pointer-events-none px-3 pb-[calc(env(safe-area-inset-bottom)+0.75rem)] sm:inset-x-auto sm:right-4 sm:w-[min(24rem,calc(100vw-2rem))] sm:px-0 sm:pb-4 animate-slide-up">
+      <div className="pointer-events-auto mx-auto overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/20 dark:border-white/10 dark:bg-slate-950">
+        <div className="p-4" lang={language}>
+          <div className="mb-3 flex items-start justify-between gap-3">
+            <div>
+              <h3 className="text-sm font-bold text-slate-950 dark:text-white">{t.iosTitle}</h3>
+              <p className="mt-1 text-xs text-slate-600 dark:text-slate-300">{t.iosIntro}</p>
+            </div>
             <button
+              type="button"
               onClick={handleDismiss}
-              className="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+              className="inline-flex h-8 min-h-8 w-8 min-w-8 shrink-0 items-center justify-center rounded-full p-0 text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
               aria-label="Dismiss"
             >
-              <X className="w-5 h-5 text-gray-600" />
+              <X className="h-4 w-4" aria-hidden="true" />
             </button>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-sm text-gray-600">
-              Install this app on your iPhone:
-            </p>
-
-            <ol className="space-y-3 text-sm">
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-xs">
-                  1
+          <ol className="space-y-2 text-xs">
+              <li className="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300">
+                  <Share2 className="h-4 w-4" aria-hidden="true" />
                 </span>
-                <span className="text-gray-700 pt-0.5">
-                  Tap the Share button at the bottom
-                </span>
+                {t.iosStepShare}
               </li>
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-xs">
-                  2
+              <li className="flex items-center gap-2 text-slate-700 dark:text-slate-200">
+                <span className="inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-700 dark:bg-sky-500/10 dark:text-sky-300">
+                  <PlusSquare className="h-4 w-4" aria-hidden="true" />
                 </span>
-                <span className="text-gray-700 pt-0.5">
-                  Scroll down and tap "Add to Home Screen"
-                </span>
+                {t.iosStepAdd}
               </li>
-              <li className="flex items-start gap-3">
-                <span className="flex-shrink-0 w-6 h-6 bg-blue-600 text-white rounded-full flex items-center justify-center font-semibold text-xs">
-                  3
-                </span>
-                <span className="text-gray-700 pt-0.5">
-                  Tap "Add" to confirm
-                </span>
-              </li>
-            </ol>
-          </div>
+          </ol>
 
           <button
+            type="button"
             onClick={handleDismiss}
-            className="mt-6 w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-xl hover:bg-blue-700 transition-colors"
+            className="mt-3 inline-flex min-h-10 w-full items-center justify-center rounded-lg bg-sky-700 px-3 py-2 text-sm font-bold text-white transition-colors hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
           >
-            Got it!
+            {t.iosDone}
           </button>
         </div>
       </div>

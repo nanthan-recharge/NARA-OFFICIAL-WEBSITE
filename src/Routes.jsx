@@ -7,7 +7,6 @@ import { ProtectedRoute } from './components/library';
 // import ThemeNavbar from './components/ui/ThemeNavbar';
 import GovernmentNavbar from './components/ui/GovernmentNavbar'; // Government Standard Navbar - Tech Spec v1.0
 import SkipLink from './components/compliance/SkipLink';
-const PWAInstallPrompt = lazy(() => import('./components/shared/PWAInstallPrompt'));
 import FirebaseAuthProvider from './contexts/FirebaseAuthContext';
 import { LibraryUserProvider } from './contexts/LibraryUserContext';
 import { CartProvider } from './contexts/CartContext';
@@ -227,6 +226,7 @@ const LibrarianDesk = lazy(() => import('./pages/library-librarian-desk'));
 // Checkout & Payment
 const CheckoutPage = lazy(() => import('./pages/checkout'));
 const PaymentReturn = lazy(() => import('./pages/payment-return'));
+const PartnersCollaborators = lazy(() => import('./components/compliance/PartnersCollaborators'));
 const GovFooter = lazy(() => import('./components/compliance/GovFooter'));
 
 // Static arrays — defined once outside the component to avoid re-creation on every render
@@ -296,10 +296,10 @@ const Layout = memo(function Layout({ children }) {
       </main>
       {shouldShowFooter && (
         <Suspense fallback={null}>
+          <PartnersCollaborators />
           <GovFooter />
         </Suspense>
       )}
-      {shouldShowLayout && <Suspense fallback={null}><PWAInstallPrompt /></Suspense>}
     </>
   );
 });

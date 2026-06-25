@@ -352,6 +352,7 @@ const UserManagement = () => {
         size="lg"
       >
         <UserForm
+          key={editingUser?.id || 'new-user'}
           user={editingUser}
           onSave={handleSaveUser}
           onCancel={() => { setShowCreateModal(false); setEditingUser(null); }}

@@ -398,7 +398,7 @@ const LabResultsAdmin = () => {
                       {results.length === 0 && (
                         <tr>
                           <td colSpan="6" className="px-6 py-12 text-center text-slate-500">
-                            No results found. Click "Add Result" to create one.
+                            No results found. Click &quot;Add Result&quot; to create one.
                           </td>
                         </tr>
                       )}
@@ -478,7 +478,7 @@ const LabResultsAdmin = () => {
                       {samples.length === 0 && (
                         <tr>
                           <td colSpan="7" className="px-6 py-12 text-center text-slate-500">
-                            No samples found. Click "Add Sample" to create one.
+                            No samples found. Click &quot;Add Sample&quot; to create one.
                           </td>
                         </tr>
                       )}
@@ -566,7 +566,7 @@ const LabResultsAdmin = () => {
                 ))}
                 {methodologies.length === 0 && (
                   <div className="col-span-full text-center py-12 text-slate-500">
-                    No methodologies found. Click "Add Methodology" to create one.
+                    No methodologies found. Click &quot;Add Methodology&quot; to create one.
                   </div>
                 )}
               </div>

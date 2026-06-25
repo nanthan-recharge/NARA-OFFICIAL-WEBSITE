@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
 import { DIVISIONS_CONFIG } from '../../data/divisionsConfig';
@@ -17,24 +17,22 @@ const DivisionContentAdmin = () => {
   const [message, setMessage] = useState(null);
 
   // Data states
-  const [divisionInfo, setDivisionInfo] = useState(null);
-  const [projects, setProjects] = useState([]);
-  const [staff, setStaff] = useState([]);
-  const [impactData, setImpactData] = useState(null);
-
-  useEffect(() => {
-    if (selectedDivision) {
-      loadDivisionData();
-    }
-  }, [selectedDivision]);
-
-  const loadDivisionData = () => {
-    const division = DIVISIONS_CONFIG.find(d => d.id === selectedDivision.id);
-    setDivisionInfo(division);
-    setProjects(getDefaultProjects(selectedDivision.id));
-    setStaff(getDefaultTeamMembers(selectedDivision.id));
-    setImpactData(getDefaultImpact(selectedDivision.id));
-  };
+  const divisionInfo = useMemo(
+    () => selectedDivision ? DIVISIONS_CONFIG.find(d => d.id === selectedDivision.id) : null,
+    [selectedDivision]
+  );
+  const projects = useMemo(
+    () => selectedDivision ? getDefaultProjects(selectedDivision.id) : [],
+    [selectedDivision]
+  );
+  const staff = useMemo(
+    () => selectedDivision ? getDefaultTeamMembers(selectedDivision.id) : [],
+    [selectedDivision]
+  );
+  const impactData = useMemo(
+    () => selectedDivision ? getDefaultImpact(selectedDivision.id) : null,
+    [selectedDivision]
+  );
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: 'Info' },
@@ -419,4 +417,3 @@ const DivisionContentAdmin = () => {
 };
 
 export default DivisionContentAdmin;
-

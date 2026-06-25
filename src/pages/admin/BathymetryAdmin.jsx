@@ -20,7 +20,7 @@ const BathymetryAdmin = () => {
   const [missions, setMissions] = useState([]);
   const [selectedDataset, setSelectedDataset] = useState(null);
   const [selectedMission, setSelectedMission] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [uploadProgress, setUploadProgress] = useState(0);
 
   // Upload Form
@@ -63,19 +63,12 @@ const BathymetryAdmin = () => {
     contourInterval: 10
   });
 
-  useEffect(() => {
-    loadDashboardStats();
-    loadDatasets();
-    loadMissions();
-  }, []);
-
   const loadDashboardStats = async () => {
     const { data } = await bathymetryDashboardService.getStatistics();
     if (data) setDashboardStats(data);
   };
 
   const loadDatasets = async () => {
-    setLoading(true);
     const { data } = await bathymetryDatasetService.getAll();
     if (data) setDatasets(data);
     setLoading(false);
@@ -85,6 +78,15 @@ const BathymetryAdmin = () => {
     const { data } = await surveyMissionService.getAll();
     if (data) setMissions(data);
   };
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => {
+      loadDashboardStats();
+      loadDatasets();
+      loadMissions();
+    }, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const handleFileUpload = async (e) => {
     e.preventDefault();
@@ -155,10 +157,14 @@ const BathymetryAdmin = () => {
     const baseLon = 80.7718;
 
     for (let i = 0; i < count; i++) {
+      const latOffset = Math.sin((i + 1) * 12.9898) * 0.25;
+      const lonOffset = Math.sin((i + 1) * 78.233) * 0.25;
+      const depthValue = Math.abs(Math.sin((i + 1) * 37.719)) * 100 + 10;
+
       data.push({
-        lat: baseLat + (Math.random() - 0.5) * 0.5,
-        lon: baseLon + (Math.random() - 0.5) * 0.5,
-        depth: Math.random() * 100 + 10 // 10-110 meters
+        lat: baseLat + latOffset,
+        lon: baseLon + lonOffset,
+        depth: depthValue
       });
     }
 

@@ -29,12 +29,7 @@ const SimulationsEconomicAdmin = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
 
-  useEffect(() => {
-    loadData();
-  }, []);
-
   const loadData = async () => {
-    setLoading(true);
     try {
       // Load simulations
       const simulationsSnap = await getDocs(
@@ -62,6 +57,11 @@ const SimulationsEconomicAdmin = () => {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    const timeout = window.setTimeout(loadData, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const deleteSimulation = async (id) => {
     if (!window.confirm('Are you sure you want to delete this simulation?')) return;

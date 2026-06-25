@@ -1,5 +1,5 @@
 // Firebase Authentication Context for NARA Admin Portal
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useState } from 'react';
 import {
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -9,7 +9,7 @@ import {
   sendPasswordResetEmail,
   confirmPasswordReset
 } from 'firebase/auth';
-import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { doc, getDoc, serverTimestamp, updateDoc } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import { ROLE_HIERARCHY, getRolePermissions } from '../constants/roles';
 
@@ -23,6 +23,33 @@ export const useFirebaseAuth = () => {
   return context;
 };
 
+const DEFAULT_ADMIN_DOMAINS = ['nara.gov.lk', 'gov.lk'];
+
+const getAllowedAdminDomains = () => {
+  const envValue = import.meta.env?.VITE_ADMIN_ALLOWED_EMAIL_DOMAINS;
+  if (!envValue) return DEFAULT_ADMIN_DOMAINS;
+  return envValue
+    .split(',')
+    .map((domain) => domain.trim().toLowerCase())
+    .filter(Boolean);
+};
+
+const isAllowedAdminEmail = (email) => {
+  if (!email) return false;
+  const allowedDomains = getAllowedAdminDomains();
+  if (allowedDomains.length === 0) return true;
+  const normalizedEmail = email.toLowerCase();
+  return allowedDomains.some((domain) => normalizedEmail.endsWith(`@${domain}`));
+};
+
+const isActiveAdminProfile = (profileData) => (
+  !!profileData &&
+  profileData.is_active !== false &&
+  profileData.status !== 'suspended' &&
+  profileData.status !== 'terminated' &&
+  !!ROLE_HIERARCHY[profileData.role]
+);
+
 export const FirebaseAuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [profile, setProfile] = useState(null);
@@ -34,6 +61,59 @@ export const FirebaseAuthProvider = ({ children }) => {
   googleProvider?.setCustomParameters({
     domain_hint: 'nara.gov.lk'
   });
+
+  // Load user profile from Firestore
+  const loadUserProfile = useCallback(async (firebaseUser, options = {}) => {
+    if (!firebaseUser) {
+      setProfile(null);
+      return null;
+    }
+
+    const shouldEnforce = options.enforce === true;
+
+    if (!isAllowedAdminEmail(firebaseUser.email)) {
+      setProfile(null);
+      const message = 'This admin portal is restricted to approved government email domains.';
+      if (shouldEnforce) throw new Error(message);
+      setError(message);
+      return null;
+    }
+
+    try {
+      const ref = doc(db, 'adminProfiles', firebaseUser.uid);
+      const snap = await getDoc(ref);
+      if (!snap?.exists()) {
+        setProfile(null);
+        const message = 'No active admin profile was found for this account.';
+        if (shouldEnforce) throw new Error(message);
+        return null;
+      }
+
+      const profileData = { id: snap.id, ...snap.data() };
+      if (!isActiveAdminProfile(profileData)) {
+        setProfile(null);
+        const message = 'Your admin account is inactive or does not have a recognized role.';
+        if (shouldEnforce) throw new Error(message);
+        return null;
+      }
+
+      setProfile(profileData);
+
+      if (options.touchLogin) {
+        await updateDoc(ref, {
+          lastLoginAt: serverTimestamp(),
+          updatedAt: serverTimestamp(),
+        });
+      }
+
+      return profileData;
+    } catch (error) {
+      console.error('Error loading user profile:', error);
+      setProfile(null);
+      if (shouldEnforce) throw error;
+      return null;
+    }
+  }, []);
 
   // Persist auth state across page refreshes
   useEffect(() => {
@@ -48,16 +128,29 @@ export const FirebaseAuthProvider = ({ children }) => {
       setLoading(false);
     });
     return () => unsubscribe();
-  }, []);
+  }, [loadUserProfile]);
+
+  const requireAdminProfile = async (result) => {
+    const adminProfile = await loadUserProfile(result?.user, {
+      enforce: true,
+      touchLogin: true,
+    });
+
+    if (!adminProfile) {
+      throw new Error('No active admin profile was found for this account.');
+    }
+
+    return result;
+  };
 
   // Sign in with email and password
   const signIn = async (email, password) => {
     try {
       setError(null);
       const result = await signInWithEmailAndPassword(auth, email, password);
-      await ensureAdminProfile(result?.user);
-      return result;
+      return await requireAdminProfile(result);
     } catch (error) {
+      await signOut(auth).catch(() => {});
       setError(error?.message);
       throw error;
     }
@@ -68,9 +161,9 @@ export const FirebaseAuthProvider = ({ children }) => {
     try {
       setError(null);
       const result = await signInWithPopup(auth, googleProvider);
-      await ensureAdminProfile(result?.user);
-      return result;
+      return await requireAdminProfile(result);
     } catch (error) {
+      await signOut(auth).catch(() => {});
       setError(error?.message);
       throw error;
     }
@@ -108,53 +201,6 @@ export const FirebaseAuthProvider = ({ children }) => {
     } catch (error) {
       setError(error?.message);
       throw error;
-    }
-  };
-
-  // Ensure a Firestore admin profile exists for the authenticated user
-  const ensureAdminProfile = async (firebaseUser) => {
-    if (!firebaseUser) return;
-    try {
-      const profileRef = doc(db, 'adminProfiles', firebaseUser?.uid);
-      const snap = await getDoc(profileRef);
-      const base = {
-        uid: firebaseUser?.uid,
-        email: firebaseUser?.email,
-        displayName: firebaseUser?.displayName || 'Admin User',
-        photoURL: firebaseUser?.photoURL || null,
-        role: 'admin',
-        is_active: true,
-        lastLoginAt: new Date()
-      };
-      if (!snap?.exists()) {
-        await setDoc(profileRef, { ...base, createdAt: new Date(), updatedAt: new Date() });
-      } else {
-        await updateDoc(profileRef, { lastLoginAt: new Date(), updatedAt: new Date() });
-      }
-      setProfile({ ...base });
-    } catch (error) {
-      console.error('Error ensuring admin profile:', error);
-      setProfile(null);
-      throw error;
-    }
-  };
-
-  // Load user profile from Firestore
-  const loadUserProfile = async (user) => {
-    if (!user) return;
-    try {
-      const ref = doc(db, 'adminProfiles', user?.uid);
-      const snap = await getDoc(ref);
-      if (!snap?.exists()) {
-        await ensureAdminProfile(user);
-        return;
-      }
-      const profileData = snap?.data();
-      setProfile(profileData);
-      await updateDoc(ref, { lastLoginAt: new Date() });
-    } catch (error) {
-      console.error('Error loading user profile:', error);
-      setProfile(null);
     }
   };
 

@@ -56,6 +56,25 @@
       "secondaryCta": "Contact Us"
     }
   },
+  "quickAccess": {
+    "label": "Quick access",
+    "services": {
+      "label": "Government services",
+      "description": "Applications, charts, permits and service requests"
+    },
+    "rti": {
+      "label": "Right to Information",
+      "description": "Access RTI guidance, forms and public records"
+    },
+    "library": {
+      "label": "Digital library",
+      "description": "Find publications, datasets and learning resources"
+    },
+    "contact": {
+      "label": "Contact NARA",
+      "description": "Reach the right office or submit an inquiry"
+    }
+  },
   "research": {
     "heading": "Research Excellence",
     "description": "Leading ocean research with cutting-edge technology and scientific innovation",
@@ -128,7 +147,9 @@
       }
     ],
     "focusResearch": "Coastal, deep sea, and inland water programmes powering national policy and the blue economy.",
+    "focusResearchLabel": "Research",
     "focusCommunity": "Alliances with fishing communities, academia, and defence agencies safeguard livelihoods and maritime security.",
+    "focusCommunityLabel": "Communities",
     "ctaLearn": "About NARA",
     "ctaConsult": "Request a briefing",
     "telemetryLabel": "Mission telemetry online",
@@ -143,6 +164,9 @@
       "portals": "Flagship Portals",
       "services": "Essential Services",
       "tools": "Quick Tools"
+    },
+    "ui": {
+      "open": "Open"
     },
     "portals": [
       {

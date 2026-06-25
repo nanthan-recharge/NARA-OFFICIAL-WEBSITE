@@ -1,10 +1,10 @@
 // Service Worker for PWA
-// Version 2.0.0 - NARA Blitz Speed PWA
+// Version 2.1.0 - NARA public-service PWA
 
-const CACHE_VERSION = 'nara-pwa-v2.0.0';
-const RUNTIME_CACHE = 'nara-runtime-v2';
-const IMAGE_CACHE = 'nara-images-v2';
-const JS_CACHE = 'nara-js-v2';
+const CACHE_VERSION = 'nara-pwa-v2.1.0';
+const RUNTIME_CACHE = 'nara-runtime-v3';
+const IMAGE_CACHE = 'nara-images-v3';
+const JS_CACHE = 'nara-assets-v3';
 
 // Critical assets to cache on install
 const STATIC_ASSETS = [
@@ -13,7 +13,9 @@ const STATIC_ASSETS = [
   '/manifest.json',
   '/favicon.ico',
   '/offline.html',
-  '/assets/nara-logo.png'
+  '/assets/nara-logo.png',
+  '/icons/icon-192x192.png',
+  '/icons/icon-512x512.png'
 ];
 
 // Install event - cache static assets
@@ -61,6 +63,13 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
+  // Only cache safe GET requests. POST/PUT requests should pass through
+  // untouched so forms, future share targets, and APIs are not cached by mistake.
+  if (request.method !== 'GET') {
+    event.respondWith(fetch(request));
+    return;
+  }
+
   // Skip cross-origin requests (except images & fonts)
   if (url.origin !== location.origin) {
     if (request.destination === 'image') {
@@ -90,8 +99,7 @@ self.addEventListener('fetch', (event) => {
   }
 
   // Hashed JS/CSS chunks (contain -hash in filename) — cache forever (immutable)
-  if (url.pathname.match(/assets\/js\/.*-[a-f0-9]+\.js$/) ||
-      url.pathname.match(/assets\/.*-[a-f0-9]+\.css$/)) {
+  if (url.pathname.match(/^\/assets\/.*\.(js|css)$/)) {
     event.respondWith(cacheFirstStrategy(request, JS_CACHE));
     return;
   }
@@ -178,7 +186,7 @@ async function cacheFirstStrategy(request, cacheName) {
   try {
     const networkResponse = await fetch(request);
     
-    if (networkResponse && networkResponse.status === 200) {
+    if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'opaque')) {
       const cache = await caches.open(cacheName);
       cache.put(request, networkResponse.clone());
     }

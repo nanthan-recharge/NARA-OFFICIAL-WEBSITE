@@ -30,9 +30,13 @@ const GovernmentNavbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const [isDesktop, setIsDesktop] = useState(typeof window !== 'undefined' ? window.innerWidth >= 1024 : true);
   const { t, i18n } = useTranslation(['common', 'divisions']);
   const languageMenuRef = useRef(null);
+  const searchPanelRef = useRef(null);
+  const searchInputRef = useRef(null);
   const dropdownTimeoutRef = useRef(null);
   const navbarRef = useRef(null);
   const { scrollY } = useScroll();
@@ -41,11 +45,11 @@ const GovernmentNavbar = () => {
     setScrolled(latest > 20);
   });
 
-  // Language badge mapping
+  // Language badge mapping. Use language names, not flags, for inclusive government UX.
   const langBadgeMap = {
-    si: { label: 'සිංහල', short: 'සි', flag: '🇱🇰' },
-    ta: { label: 'தமிழ்', short: 'த', flag: '🇱🇰' },
-    en: { label: 'English', short: 'EN', flag: '🇬🇧' }
+    si: { label: 'සිංහල', short: 'සි' },
+    ta: { label: 'தமிழ்', short: 'த' },
+    en: { label: 'English', short: 'EN' }
   };
 
   // Division data for mega menu — 3 categories with correct slugs
@@ -172,15 +176,24 @@ const GovernmentNavbar = () => {
 
   // Click outside handler for language menu
   useEffect(() => {
-    if (!languageMenuOpen) return undefined;
+    if (!languageMenuOpen && !searchOpen) return undefined;
     const handleClickOutside = (event) => {
       if (languageMenuRef.current && !languageMenuRef.current.contains(event.target)) {
         setLanguageMenuOpen(false);
       }
+      if (searchPanelRef.current && !searchPanelRef.current.contains(event.target)) {
+        setSearchOpen(false);
+      }
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, [languageMenuOpen]);
+  }, [languageMenuOpen, searchOpen]);
+
+  useEffect(() => {
+    if (!searchOpen) return undefined;
+    const timer = window.setTimeout(() => searchInputRef.current?.focus(), 80);
+    return () => window.clearTimeout(timer);
+  }, [searchOpen]);
 
   // Check if current path matches
   const isActivePath = (path) => {
@@ -189,7 +202,13 @@ const GovernmentNavbar = () => {
   };
 
   const normalizedLanguage = (i18n.language || 'en').split('-')[0];
-  const activeLanguage = AVAILABLE_LANGUAGES.find((lang) => lang.code === normalizedLanguage) || AVAILABLE_LANGUAGES[0];
+  const activeLanguage = AVAILABLE_LANGUAGES.find((lang) => lang.code === normalizedLanguage)
+    || AVAILABLE_LANGUAGES.find((lang) => lang.code === 'en')
+    || AVAILABLE_LANGUAGES[0];
+  const activeLanguageMeta = langBadgeMap[activeLanguage.code] || langBadgeMap.en;
+  const searchLabel = t('navbar.search.label', 'Search NARA website');
+  const searchPlaceholder = t('navbar.search.placeholder', 'Search news, services, reports');
+  const searchButtonText = t('navbar.search.button', 'Search');
 
   const handleLanguageChange = (code) => {
     i18n.changeLanguage(code);
@@ -198,6 +217,20 @@ const GovernmentNavbar = () => {
       window.dispatchEvent(new CustomEvent('languageChange', { detail: code }));
     }
     setLanguageMenuOpen(false);
+  };
+
+  const handleSearchSubmit = (event) => {
+    event.preventDefault();
+    const query = searchQuery.trim();
+    if (!query) {
+      searchInputRef.current?.focus();
+      return;
+    }
+    navigate(`/nara-news-updates-center?q=${encodeURIComponent(query)}`);
+    setSearchQuery('');
+    setSearchOpen(false);
+    setMobileMenuOpen(false);
+    closeAllDropdowns();
   };
 
   const clearDropdownTimeout = useCallback(() => {
@@ -221,6 +254,7 @@ const GovernmentNavbar = () => {
       if (!navbarRef.current.contains(event.target)) {
         closeAllDropdowns();
         setLanguageMenuOpen(false);
+        setSearchOpen(false);
       }
     };
     document.addEventListener('pointerdown', handlePointerDown);
@@ -311,8 +345,10 @@ const GovernmentNavbar = () => {
                     onMouseLeave={(item.megaMenu || item.hasDropdown) ? handleMouseLeave : undefined}
                   >
                     <button
+                      type="button"
                       onClick={() => handleMenuClick(item)}
                       onKeyDown={(e) => handleKeyDown(e, item)}
+                      aria-expanded={(item.megaMenu || item.hasDropdown) ? activeDropdown === item.id : undefined}
                       className={`nav-link relative inline-flex h-9 items-center justify-center gap-1 whitespace-nowrap rounded-full px-2.5 xl:px-3 py-1.5 text-sm font-medium leading-none transition-all duration-300 ${isActivePath(item.path) || activeDropdown === item.id
                         ? 'text-white bg-cyan-500/20'
                         : 'text-white/80 hover:text-white hover:bg-white/10'
@@ -418,21 +454,80 @@ const GovernmentNavbar = () => {
 
           {/* RIGHT: NARA Logo & Utils */}
           <div className="flex items-center gap-4">
+            {/* Site Search */}
+            <div className="relative" ref={searchPanelRef}>
+              <button
+                type="button"
+                onClick={() => setSearchOpen((open) => !open)}
+                aria-label={searchLabel}
+                aria-expanded={searchOpen}
+                aria-controls="nara-site-search-panel"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
+              >
+                <Search size={17} aria-hidden="true" />
+                <span className="hidden 2xl:inline text-sm font-medium">{searchButtonText}</span>
+              </button>
+
+              <AnimatePresence>
+                {searchOpen && (
+                  <motion.form
+                    id="nara-site-search-panel"
+                    role="search"
+                    aria-label={searchLabel}
+                    onSubmit={handleSearchSubmit}
+                    initial={{ opacity: 0, y: 8, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                    transition={{ duration: 0.18, ease: 'easeOut' }}
+                    className="absolute right-0 top-full mt-2 w-[min(90vw,22rem)] rounded-2xl border border-white/15 bg-ocean-deep/95 p-3 shadow-2xl backdrop-blur-xl"
+                  >
+                    <label htmlFor="nara-site-search" className="sr-only">{searchLabel}</label>
+                    <div className="flex items-center gap-2">
+                      <div className="relative min-w-0 flex-1">
+                        <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-cyan-300" aria-hidden="true" />
+                        <input
+                          id="nara-site-search"
+                          ref={searchInputRef}
+                          type="search"
+                          value={searchQuery}
+                          onChange={(event) => setSearchQuery(event.target.value)}
+                          placeholder={searchPlaceholder}
+                          className="h-11 w-full rounded-xl border border-white/15 bg-white/10 pl-10 pr-3 text-sm text-white outline-none placeholder:text-slate-300 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/30"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="h-11 rounded-xl bg-cyan-400 px-4 text-sm font-bold text-ocean-deep transition-colors hover:bg-cyan-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      >
+                        {searchButtonText}
+                      </button>
+                    </div>
+                  </motion.form>
+                )}
+              </AnimatePresence>
+            </div>
 
             {/* Language Selector */}
             <div className="relative" ref={languageMenuRef}>
               <button
+                type="button"
                 onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
-                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                aria-label={t('navbar.selectLanguage', 'Select language')}
+                aria-expanded={languageMenuOpen}
+                aria-controls="nara-language-menu"
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-300"
               >
-                <span className="text-lg">{langBadgeMap[activeLanguage.code]?.flag}</span>
-                <span className="text-sm font-medium text-white hidden sm:block">{activeLanguage.code.toUpperCase()}</span>
+                <span aria-hidden="true" className="inline-flex h-7 min-w-8 items-center justify-center rounded-full bg-white/10 px-2 text-xs font-bold text-cyan-100">
+                  {activeLanguageMeta.short}
+                </span>
+                <span className="text-sm font-medium text-white hidden sm:block">{activeLanguageMeta.label}</span>
                 <ChevronDown size={14} className={`text-gray-400 transition-transform ${languageMenuOpen ? 'rotate-180' : ''}`} />
               </button>
 
               <AnimatePresence>
                 {languageMenuOpen && (
                   <motion.div
+                    id="nara-language-menu"
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -440,6 +535,7 @@ const GovernmentNavbar = () => {
                   >
                     {AVAILABLE_LANGUAGES.map((lang) => (
                       <button
+                        type="button"
                         key={lang.code}
                         onClick={() => handleLanguageChange(lang.code)}
                         className={`w-full flex items-center justify-between px-4 py-2 text-sm transition-colors ${lang.code === activeLanguage.code
@@ -448,7 +544,9 @@ const GovernmentNavbar = () => {
                           }`}
                       >
                         <div className="flex items-center gap-2">
-                          <span>{langBadgeMap[lang.code]?.flag}</span>
+                          <span className="inline-flex h-7 min-w-8 items-center justify-center rounded-full bg-white/10 px-2 text-xs font-bold">
+                            {langBadgeMap[lang.code]?.short}
+                          </span>
                           <span>{langBadgeMap[lang.code]?.label}</span>
                         </div>
                         {lang.code === activeLanguage.code && <Check size={14} />}
@@ -473,7 +571,10 @@ const GovernmentNavbar = () => {
 
             {/* Mobile Menu Toggle */}
             <button
+              type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? t('navbar.closeMenu', 'Close menu') : t('navbar.openMenu', 'Open menu')}
+              aria-expanded={mobileMenuOpen}
               className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -493,12 +594,41 @@ const GovernmentNavbar = () => {
             className="fixed inset-0 top-[70px] bg-ocean-deep/95 backdrop-blur-xl z-[990] overflow-y-auto lg:hidden border-t border-white/10"
           >
             <div className="p-6 space-y-4 pb-20">
+              <form
+                role="search"
+                aria-label={searchLabel}
+                onSubmit={handleSearchSubmit}
+                className="rounded-2xl border border-white/10 bg-white/5 p-3"
+              >
+                <label htmlFor="nara-mobile-site-search" className="sr-only">{searchLabel}</label>
+                <div className="flex gap-2">
+                  <div className="relative min-w-0 flex-1">
+                    <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-cyan-300" aria-hidden="true" />
+                    <input
+                      id="nara-mobile-site-search"
+                      type="search"
+                      value={searchQuery}
+                      onChange={(event) => setSearchQuery(event.target.value)}
+                      placeholder={searchPlaceholder}
+                      className="h-11 w-full rounded-xl border border-white/10 bg-white/10 pl-10 pr-3 text-sm text-white outline-none placeholder:text-slate-300 focus:border-cyan-300 focus:ring-2 focus:ring-cyan-300/30"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="h-11 rounded-xl bg-cyan-400 px-4 text-sm font-bold text-ocean-deep"
+                  >
+                    {searchButtonText}
+                  </button>
+                </div>
+              </form>
+
               {menuItems.map((item) => (
                 <div key={item.id} className="border-b border-white/5 pb-4 last:border-0 last:pb-0">
                   {item.megaMenu ? (
                     /* Divisions — 3 category sub-groups */
                     <div className="space-y-3">
                       <button
+                        type="button"
                         onClick={() => setActiveDropdown(activeDropdown === item.id ? null : item.id)}
                         className="w-full flex items-center justify-between text-white font-semibold text-lg"
                       >
@@ -523,6 +653,7 @@ const GovernmentNavbar = () => {
                               return (
                                 <div key={cat.id}>
                                   <button
+                                    type="button"
                                     onClick={() => setActiveDropdown(activeDropdown === mobileActiveId ? item.id : mobileActiveId)}
                                     className="w-full flex items-center justify-between py-1.5"
                                   >
@@ -569,6 +700,7 @@ const GovernmentNavbar = () => {
                     /* Regular dropdown (Research & Knowledge, Services) */
                     <div className="space-y-3">
                       <button
+                        type="button"
                         onClick={() => setActiveDropdown(activeDropdown === item.id ? null : item.id)}
                         className="w-full flex items-center justify-between text-white font-semibold text-lg"
                       >

@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import * as Icons from 'lucide-react';
 import { generateNotebookLMPodcast, generateSingleVoicePodcast, testAWSPollyConnection } from '../../services/awsPollyPodcastService';
-import { generateIntelligentScript, estimateCost } from '../../services/chatgptPodcastService';
 
 /**
  * ENHANCED AI Podcast Generator
@@ -235,29 +234,7 @@ Thank you for listening to this episode. Don't forget to subscribe for more ocea
           setGenerationStep('ai-script');
           setProgress(10);
 
-          // Get OpenAI API key from localStorage
-          const apiConfig = JSON.parse(localStorage.getItem('nara-ai-api-config') || '{}');
-          const openaiApiKey = apiConfig.openaiKey;
-
-          if (!openaiApiKey) {
-            throw new Error('OpenAI API key not configured. Please add it in Admin → AI API Configuration');
-          }
-
-          // Generate intelligent script with ChatGPT
-          finalScript = await generateIntelligentScript(title, content, {
-            apiKey: openaiApiKey,
-            style: podcastSettings.style || 'conversational',
-            length: podcastSettings.conversationLength,
-            casualness: podcastSettings.aiCasualness,
-            technicalDepth: podcastSettings.aiTechnicalDepth,
-            hostName: 'Alex',
-            guestName: 'Sam'
-          });
-
-          console.log('✅ ChatGPT script generated!');
-          console.log('📝 Script preview:', finalScript.substring(0, 200) + '...');
-          setProgress(25);
-          
+          throw new Error('OpenAI script generation is disabled in the browser. Configure a backend function with Secret Manager before enabling ChatGPT podcast scripts.');
         } catch (error) {
           console.error('❌ ChatGPT error:', error);
           alert(`⚠️ ChatGPT Error: ${error.message}\n\nFalling back to basic script generation.`);
@@ -339,10 +316,10 @@ Thank you for listening to this episode. Don't forget to subscribe for more ocea
       if (result.success) {
         alert(`✅ AWS Polly Connection Successful!\n\n${result.message}\n\nYour AI Podcast Generator is ready to use!`);
       } else {
-        alert(`❌ AWS Polly Connection Failed!\n\n${result.message}\n\nPlease check:\n1. AWS credentials in Firebase (admin_config/ai_api_keys)\n2. Access Key ID: Should start with AKIA...\n3. Secret Access Key: Check for typos\n4. Region is set to: us-east-1\n5. 'enabled' field is set to true`);
+        alert(`❌ AWS Polly Connection Failed!\n\n${result.message}\n\nAWS Polly now requires a backend function with Secret Manager. Browser-side AWS keys are blocked for security.`);
       }
     } catch (error) {
-      alert(`❌ Connection Test Error:\n\n${error.message}\n\nThis usually means:\n- AWS credentials not found in Firebase\n- Invalid credentials\n- Network connection issue`);
+      alert(`❌ Connection Test Error:\n\n${error.message}\n\nAWS Polly now requires a backend function with Secret Manager. Browser-side AWS keys are blocked for security.`);
     }
   };
 

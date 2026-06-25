@@ -30,12 +30,7 @@ const AnalyticsAdmin = () => {
     recentActivity: []
   });
 
-  useEffect(() => {
-    loadStats();
-  }, []);
-
   const loadStats = async () => {
-    setLoading(true);
     try {
       // Load counts from each collection
       const [
@@ -74,6 +69,11 @@ const AnalyticsAdmin = () => {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    const timeout = window.setTimeout(loadStats, 0);
+    return () => window.clearTimeout(timeout);
+  }, []);
 
   const adminPanels = [
     {

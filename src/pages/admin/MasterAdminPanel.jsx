@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import { auth, db } from '../../firebase';
-import { collection, getDocs, query, orderBy, limit, where } from 'firebase/firestore';
+import { db } from '../../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import {
-  LayoutDashboard, Image, Video, FileText, Users, Ship, Fish, Beaker,
+  LayoutDashboard, Image, Video, FileText, Users, Ship, Fish,
   TrendingUp, AlertCircle, Map, Database, BookOpen, Settings, LogOut,
-  Search, Bell, ChevronDown, ChevronLeft, ChevronRight, Plus, Edit,
-  Trash2, Eye, Download, Upload, RefreshCw, Calendar, Tag, Globe,
+  Search, Bell, ChevronDown, ChevronLeft, ChevronRight, Plus,
+  Upload, RefreshCw, Calendar, Tag, Globe,
   Mail, Shield, BarChart3, Waves, Anchor, Microscope, FlaskConical,
-  FileCheck, Briefcase, GraduationCap, Building2, Award, Target,
-  Zap, Activity, PieChart, TrendingDown, DollarSign, Package,
-  CheckCircle, XCircle, Clock, Archive, ExternalLink, Filter,
-  Grid3x3, List, SlidersHorizontal, Heart, Share2, MessageSquare, Radio, Languages,
-  Newspaper, Lock
+  FileCheck, Briefcase, Building2, Target,
+  Activity, PieChart, DollarSign, Package,
+  CheckCircle, Clock, ExternalLink,
+  Grid3x3, MessageSquare, Radio, Languages,
+  Newspaper
 } from 'lucide-react';
 
 // Static color map — prevents Tailwind purge issues with dynamic class names
@@ -37,8 +37,6 @@ const COLOR_MAP = {
   gray:    { bg: 'bg-gray-500',    bgGrad: 'from-gray-500 to-gray-600',    text: 'text-gray-600',    textLight: 'text-gray-400', bgLight: 'bg-gray-50',    bgAlpha: 'bg-gray-500/20',    ring: 'ring-gray-500/20', border: 'border-gray-500/30', hoverBg: 'hover:bg-gray-500/30' },
 };
 
-const getColor = (color, prop) => COLOR_MAP[color]?.[prop] || COLOR_MAP.slate[prop];
-
 // Content coverage data — static list of what's editable vs not
 const EDITABLE_SECTIONS = [
   'News', 'Events', 'Publications', 'Media', 'Research Papers',
@@ -54,15 +52,66 @@ const NOT_EDITABLE_SECTIONS = [
   'Footer Content', 'Audience Pages (3)'
 ];
 
+const GOVERNANCE_AREAS = [
+  {
+    label: 'Website & public notices',
+    owner: 'Communications / Administration',
+    route: '/admin/news',
+    status: 'Controlled publishing',
+    icon: Newspaper,
+    color: 'cyan',
+  },
+  {
+    label: 'Media library',
+    owner: 'Media & Press Unit',
+    route: '/admin/media',
+    status: 'Separate image/video workflow',
+    icon: Image,
+    color: 'purple',
+  },
+  {
+    label: 'Research & publications',
+    owner: 'Research divisions',
+    route: '/admin/research-data',
+    status: 'Metadata and document governance',
+    icon: Microscope,
+    color: 'blue',
+  },
+  {
+    label: 'Citizen services',
+    owner: 'Service operations',
+    route: '/admin/government-services',
+    status: 'Applications and requests',
+    icon: Building2,
+    color: 'green',
+  },
+  {
+    label: 'Library administration',
+    owner: 'Library & Documentation',
+    route: '/admin/library',
+    status: 'Cataloguing and circulation',
+    icon: BookOpen,
+    color: 'indigo',
+  },
+  {
+    label: 'Users and permissions',
+    owner: 'IT / System administration',
+    route: '/admin/users',
+    status: 'Role based access',
+    icon: Shield,
+    color: 'red',
+  },
+];
+
 const MasterAdminPanel = () => {
   const navigate = useNavigate();
+  const { profile, logout, getAdminPermissions } = useFirebaseAuth();
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [activeSection, setActiveSection] = useState('dashboard');
   const [activeSubSection, setActiveSubSection] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(false);
   const [stats, setStats] = useState({});
-  const [notifications, setNotifications] = useState([]);
 
   // Admin Sections Configuration
   const adminSections = [
@@ -222,6 +271,28 @@ const MasterAdminPanel = () => {
     loadDashboardData();
   }, []);
 
+  const permissions = getAdminPermissions();
+  const displayName = profile?.displayName || profile?.email || 'Authorized admin';
+  const roleLabel = (profile?.role || 'admin').replace(/_/g, ' ');
+  const normalizedSearch = searchQuery.trim().toLowerCase();
+  const filteredAdminSections = normalizedSearch
+    ? adminSections
+      .map((section) => {
+        const sectionMatches = section.label.toLowerCase().includes(normalizedSearch);
+        const subsections = section.subsections?.filter((subsection) => (
+          subsection.label.toLowerCase().includes(normalizedSearch) ||
+          subsection.id.toLowerCase().includes(normalizedSearch)
+        ));
+
+        if (sectionMatches || subsections?.length) {
+          return { ...section, subsections: subsections?.length ? subsections : section.subsections };
+        }
+
+        return null;
+      })
+      .filter(Boolean)
+    : adminSections;
+
   const loadDashboardData = async () => {
     setLoading(true);
     try {
@@ -243,7 +314,7 @@ const MasterAdminPanel = () => {
         try {
           const snapshot = await getDocs(collection(db, collectionName));
           statsData[collectionName] = snapshot.size;
-        } catch (error) {
+        } catch {
           statsData[collectionName] = 0;
         }
       });
@@ -259,7 +330,7 @@ const MasterAdminPanel = () => {
 
   const handleLogout = async () => {
     try {
-      await signOut(auth);
+      await logout();
       localStorage.removeItem('adminAuth');
       navigate('/admin/login');
     } catch (error) {
@@ -314,7 +385,7 @@ const MasterAdminPanel = () => {
 
         {/* Navigation */}
         <nav className="p-4 space-y-2">
-          {adminSections.map((section) => {
+          {filteredAdminSections.map((section) => {
             const colors = COLOR_MAP[section.color] || COLOR_MAP.slate;
             return (
               <div key={section.id}>
@@ -395,11 +466,16 @@ const MasterAdminPanel = () => {
       <div className={`${sidebarOpen ? 'ml-72' : 'ml-20'} transition-all duration-300`}>
         {/* Top Bar */}
         <header className="h-16 bg-white/50 backdrop-blur-xl border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-40">
-          <div className="flex items-center gap-4">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-[#003366] to-[#0066CC] bg-clip-text text-transparent">
-              Master Admin Panel
-            </h1>
-          </div>
+            <div className="flex items-center gap-4">
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-[#003366] to-[#0066CC] bg-clip-text text-transparent">
+                Master Admin Panel
+              </h1>
+              {normalizedSearch && (
+                <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-500">
+                  {filteredAdminSections.length} matching sections
+                </span>
+              )}
+            </div>
 
           <div className="flex items-center gap-4">
             {/* Search */}
@@ -434,7 +510,10 @@ const MasterAdminPanel = () => {
               <div className="w-8 h-8 bg-gradient-to-br from-[#003366] to-[#0066CC] rounded-full flex items-center justify-center">
                 <Shield className="w-4 h-4 text-white" />
               </div>
-              <span className="text-sm text-slate-800">Super Admin</span>
+              <div className="hidden sm:block">
+                <span className="block text-sm font-semibold text-slate-800">{displayName}</span>
+                <span className="block text-[11px] capitalize text-slate-500">{roleLabel}</span>
+              </div>
             </div>
           </div>
         </header>
@@ -446,8 +525,12 @@ const MasterAdminPanel = () => {
               {/* Welcome Banner */}
               <div className="bg-gradient-to-r from-[#003366] to-[#0066CC] rounded-2xl p-8 text-white">
                 <h2 className="text-3xl font-bold mb-2">Welcome to NARA Master Admin</h2>
-                <p className="text-cyan-100">Manage all aspects of your website from one unified dashboard</p>
+                <p className="text-cyan-100">Securely maintain public content, media, research data, citizen services, and staff access from one governed workspace.</p>
               </div>
+
+              <OperationalSecurityPanel permissions={permissions} profile={profile} />
+
+              <AdminGovernanceGrid areas={GOVERNANCE_AREAS} onOpen={navigate} />
 
               {/* Quick Stats Grid — Real Data */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -634,6 +717,101 @@ const MasterAdminPanel = () => {
 };
 
 // Helper Components — using static COLOR_MAP classes
+
+const OperationalSecurityPanel = ({ permissions, profile }) => {
+  const permissionCount = permissions?.length || 0;
+  const controls = [
+    {
+      label: 'Authentication',
+      value: 'Enforced',
+      description: 'Admin bypass is disabled unless explicitly enabled in local development.',
+      icon: Shield,
+      color: 'green',
+    },
+    {
+      label: 'Role access',
+      value: profile?.role ? profile.role.replace(/_/g, ' ') : 'Profile required',
+      description: `${permissionCount} permissions available from the active role profile.`,
+      icon: Users,
+      color: 'blue',
+    },
+    {
+      label: 'Media governance',
+      value: 'Separated',
+      description: 'Images, videos, press material, and public galleries are managed as distinct sections.',
+      icon: Image,
+      color: 'purple',
+    },
+    {
+      label: 'Data maintenance',
+      value: 'Admin write only',
+      description: 'Official content writes are routed through authenticated admin profiles.',
+      icon: Database,
+      color: 'red',
+    },
+  ];
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      {controls.map((control) => {
+        const colors = COLOR_MAP[control.color] || COLOR_MAP.slate;
+        return (
+          <div key={control.label} className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+            <div className="flex items-start gap-3">
+              <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg ${colors.bgAlpha}`}>
+                <control.icon className={`h-5 w-5 ${colors.text}`} />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-bold uppercase tracking-wide text-slate-400">{control.label}</p>
+                <p className="mt-1 text-sm font-bold capitalize text-slate-800">{control.value}</p>
+                <p className="mt-1 text-xs leading-5 text-slate-500">{control.description}</p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const AdminGovernanceGrid = ({ areas, onOpen }) => (
+  <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+    <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">Government maintenance model</p>
+        <h3 className="text-xl font-bold text-slate-800">Section-wise administration</h3>
+      </div>
+      <p className="max-w-xl text-sm leading-6 text-slate-500">
+        Each operational area has a clear owner, route, and publishing responsibility so media, research, services, and staff access do not blur together.
+      </p>
+    </div>
+
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
+      {areas.map((area) => {
+        const colors = COLOR_MAP[area.color] || COLOR_MAP.slate;
+        return (
+          <button
+            key={area.label}
+            type="button"
+            onClick={() => onOpen(area.route)}
+            className="group rounded-xl border border-slate-200 bg-slate-50 p-4 text-left transition hover:border-[#0066CC]/40 hover:bg-white hover:shadow-sm focus:outline-none focus:ring-2 focus:ring-[#0066CC]"
+          >
+            <div className="flex items-start gap-3">
+              <div className={`flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-lg ${colors.bgAlpha}`}>
+                <area.icon className={`h-5 w-5 ${colors.text}`} />
+              </div>
+              <div className="min-w-0">
+                <p className="text-sm font-bold text-slate-800 group-hover:text-[#003366]">{area.label}</p>
+                <p className="mt-1 text-xs font-semibold text-slate-500">{area.owner}</p>
+                <p className="mt-2 text-xs leading-5 text-slate-500">{area.status}</p>
+              </div>
+            </div>
+          </button>
+        );
+      })}
+    </div>
+  </div>
+);
 
 const StatCard = ({ icon: Icon, label, value, color, loading: isLoading }) => {
   const colors = COLOR_MAP[color] || COLOR_MAP.slate;

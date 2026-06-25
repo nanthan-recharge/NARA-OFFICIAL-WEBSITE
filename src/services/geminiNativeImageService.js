@@ -1,14 +1,10 @@
 /**
- * Gemini 2.5 Flash NATIVE Image Generation
- * Direct image creation using Gemini AI
+ * Gemini 2.5 Flash native image generation adapter.
+ * Browser-side API keys are not allowed; route this through a secured backend.
  */
 
-import { GoogleGenAI } from "@google/genai";
-
-// Initialize Gemini AI
-const ai = new GoogleGenAI({
-  apiKey: 'AIzaSyBuK3N924LRtseewgj_PNjdEOarlkax2pI'
-});
+const backendRequiredError =
+  'Gemini image generation must run through a secured backend endpoint. Configure a server function with secret-managed credentials before enabling this feature.';
 
 /**
  * Generate image using Gemini 2.5 Flash Image model
@@ -17,48 +13,10 @@ const ai = new GoogleGenAI({
  */
 export const generateImageWithGeminiNative = async (prompt) => {
   try {
-    console.log('🤖 Gemini Native: Generating image...');
-    console.log('📝 Prompt:', prompt.substring(0, 100) + '...');
-    
-    const response = await ai.models.generateContent({
-      model: "gemini-2.5-flash-image",
-      contents: prompt
-    });
-
-    // Extract image from response
-    for (const part of response.candidates[0].content.parts) {
-      if (part.text) {
-        console.log('📄 Gemini text response:', part.text);
-      } else if (part.inlineData) {
-        const imageData = part.inlineData.data;
-        const mimeType = part.inlineData.mimeType || 'image/png';
-        
-        // Convert base64 to Blob URL for browser display
-        const byteCharacters = atob(imageData);
-        const byteNumbers = new Array(byteCharacters.length);
-        for (let i = 0; i < byteCharacters.length; i++) {
-          byteNumbers[i] = byteCharacters.charCodeAt(i);
-        }
-        const byteArray = new Uint8Array(byteNumbers);
-        const blob = new Blob([byteArray], { type: mimeType });
-        const blobUrl = URL.createObjectURL(blob);
-        
-        console.log('✅ Gemini image generated successfully!');
-        console.log('📦 Image size:', (byteArray.length / 1024).toFixed(2), 'KB');
-        
-        return {
-          success: true,
-          imageUrl: blobUrl,
-          base64Data: imageData,
-          mimeType: mimeType,
-          sizeKB: (byteArray.length / 1024).toFixed(2)
-        };
-      }
-    }
-    
+    console.warn('Gemini Native blocked in browser:', prompt?.substring?.(0, 100) || '');
     return {
       success: false,
-      error: 'No image data in response'
+      error: backendRequiredError
     };
   } catch (error) {
     console.error('❌ Gemini Native error:', error);
@@ -140,4 +98,3 @@ export default {
   generateDivisionImagesWithGemini,
   saveGeminiImageToStorage
 };
-

@@ -1,24 +1,54 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { ROLE_HIERARCHY, DEPARTMENTS, PAY_GRADES, USER_STATUSES, getRolesSortedByLevel } from '../../constants/roles';
-import { userManagementService } from '../../services/userManagementService';
 import { Upload, X, Loader2 } from 'lucide-react';
 
-const emptyForm = {
+const emptyMultilingual = () => ({ en: '', si: '', ta: '' });
+
+const createEmptyForm = () => ({
   employeeId: '',
-  firstName: { en: '', si: '', ta: '' },
-  lastName: { en: '', si: '', ta: '' },
+  firstName: emptyMultilingual(),
+  lastName: emptyMultilingual(),
   displayName: '',
   email: '',
   phone: '',
   mobile: '',
-  designation: { en: '', si: '', ta: '' },
+  designation: emptyMultilingual(),
   role: 'support_staff',
   department: '',
   reportingTo: '',
   grade: '',
   status: 'active',
   notes: '',
+});
+
+const normalizeMultilingual = (value) => ({
+  ...emptyMultilingual(),
+  ...(value || {}),
+});
+
+const buildInitialForm = (user) => {
+  if (!user) return createEmptyForm();
+
+  return {
+    employeeId: user.employeeId || '',
+    firstName: normalizeMultilingual(user.firstName),
+    lastName: normalizeMultilingual(user.lastName),
+    displayName: user.displayName || '',
+    email: user.email || '',
+    phone: user.phone || '',
+    mobile: user.mobile || '',
+    designation: normalizeMultilingual(user.designation),
+    role: user.role || 'support_staff',
+    department: user.department || '',
+    reportingTo: user.reportingTo || '',
+    grade: user.grade || '',
+    status: user.status || 'active',
+    notes: user.notes || '',
+  };
 };
+
+const buildDisplayName = (form) =>
+  `${form.firstName?.en || ''} ${form.lastName?.en || ''}`.trim();
 
 const langTabs = [
   { key: 'en', label: 'English' },
@@ -27,45 +57,13 @@ const langTabs = [
 ];
 
 const UserForm = ({ user, onSave, onCancel, loading: externalLoading }) => {
-  const [form, setForm] = useState(emptyForm);
+  const [form, setForm] = useState(() => buildInitialForm(user));
   const [activeLang, setActiveLang] = useState('en');
   const [photoFile, setPhotoFile] = useState(null);
-  const [photoPreview, setPhotoPreview] = useState(null);
+  const [photoPreview, setPhotoPreview] = useState(() => user?.photoURL || null);
   const [errors, setErrors] = useState({});
 
   const roles = getRolesSortedByLevel();
-
-  useEffect(() => {
-    if (user) {
-      setForm({
-        employeeId: user.employeeId || '',
-        firstName: user.firstName || { en: '', si: '', ta: '' },
-        lastName: user.lastName || { en: '', si: '', ta: '' },
-        displayName: user.displayName || '',
-        email: user.email || '',
-        phone: user.phone || '',
-        mobile: user.mobile || '',
-        designation: user.designation || { en: '', si: '', ta: '' },
-        role: user.role || 'support_staff',
-        department: user.department || '',
-        reportingTo: user.reportingTo || '',
-        grade: user.grade || '',
-        status: user.status || 'active',
-        notes: user.notes || '',
-      });
-      if (user.photoURL) setPhotoPreview(user.photoURL);
-    }
-  }, [user]);
-
-  // Auto-generate display name from English first/last name
-  useEffect(() => {
-    if (form.firstName.en || form.lastName.en) {
-      setForm(prev => ({
-        ...prev,
-        displayName: `${prev.firstName.en} ${prev.lastName.en}`.trim()
-      }));
-    }
-  }, [form.firstName.en, form.lastName.en]);
 
   const updateField = (field, value) => {
     setForm(prev => ({ ...prev, [field]: value }));
@@ -73,10 +71,18 @@ const UserForm = ({ user, onSave, onCancel, loading: externalLoading }) => {
   };
 
   const updateMultilingual = (field, lang, value) => {
-    setForm(prev => ({
-      ...prev,
-      [field]: { ...prev[field], [lang]: value }
-    }));
+    setForm(prev => {
+      const updated = {
+        ...prev,
+        [field]: { ...prev[field], [lang]: value }
+      };
+
+      if (lang === 'en' && (field === 'firstName' || field === 'lastName')) {
+        updated.displayName = buildDisplayName(updated);
+      }
+
+      return updated;
+    });
   };
 
   const handlePhotoChange = (e) => {
@@ -103,7 +109,7 @@ const UserForm = ({ user, onSave, onCancel, loading: externalLoading }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
-    onSave({ ...form, photoFile });
+    onSave({ ...form, displayName: form.displayName || buildDisplayName(form), photoFile });
   };
 
   const inputClass = (field) =>

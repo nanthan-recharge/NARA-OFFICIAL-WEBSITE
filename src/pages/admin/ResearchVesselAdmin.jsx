@@ -411,7 +411,7 @@ const ResearchVesselAdmin = () => {
               {vessels.length === 0 && (
                 <div className="text-center py-16 text-slate-500">
                   <Icons.Ship className="w-16 h-16 mx-auto mb-4 opacity-30" />
-                  <p>No vessels found. Click "Add Vessel" to create one.</p>
+                  <p>No vessels found. Click &quot;Add Vessel&quot; to create one.</p>
                 </div>
               )}
             </motion.div>

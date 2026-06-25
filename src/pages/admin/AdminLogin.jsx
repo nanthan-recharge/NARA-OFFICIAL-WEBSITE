@@ -74,17 +74,19 @@ const AdminLogin = () => {
           <form onSubmit={handleLogin} className="space-y-5">
             {/* Email Field */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1.5">
+              <label htmlFor="admin-email" className="block text-sm font-medium text-slate-700 mb-1.5">
                 Email Address
               </label>
               <div className="relative">
                 <Icons.Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
+                  id="admin-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition"
                   placeholder="you@nara.gov.lk"
+                  autoComplete="username"
                   required
                 />
               </div>
@@ -93,7 +95,7 @@ const AdminLogin = () => {
             {/* Password Field */}
             <div>
               <div className="flex items-center justify-between mb-1.5">
-                <label className="block text-sm font-medium text-slate-700">
+                <label htmlFor="admin-password" className="block text-sm font-medium text-slate-700">
                   Password
                 </label>
                 <button
@@ -107,11 +109,13 @@ const AdminLogin = () => {
               <div className="relative">
                 <Icons.Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
                 <input
+                  id="admin-password"
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0066CC] focus:border-transparent transition"
                   placeholder="Enter your password"
+                  autoComplete="current-password"
                   required
                 />
               </div>
