@@ -493,7 +493,7 @@ const NewHomePage = () => {
               className="space-y-2 max-w-3xl text-left"
             >
               {/* Main Agency Title - Compact on mobile */}
-              <h1 className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-bold font-space leading-tight text-white drop-shadow-lg break-words">
+              <h1 className="text-sm sm:text-lg md:text-2xl lg:text-4xl font-bold font-space leading-tight text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)] break-words">
                 {t("hero.agencyName", { ns: "home" })}
               </h1>
             </motion.div>

@@ -116,6 +116,12 @@
     "lint": "eslint src --ext .js,.jsx",
     "validate:localization": "node scripts/localization/validate-locales.mjs",
     "test:localization": "node --test tests/localization/*.test.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:smoke": "playwright test smoke",
+    "test:a11y": "playwright test a11y",
+    "test:visual": "playwright test visual",
+    "test:visual:update": "playwright test visual --update-snapshots",
     "format:localization": "npx prettier@3.6.2 --write \"src/pages/about-nara-our-story/index.jsx\" \"src/locales/en/about.json\" \"src/locales/si/about.json\" \"src/locales/ta/about.json\" \"src/locales/si/home.json\" \"src/locales/ta/home.json\" \"docs/localization/**/*.md\" \"docs/localization/**/*.json\" \"scripts/localization/**/*.mjs\" \"tests/localization/*.mjs\"",
     "translate": "node scripts/auto-translate-daily.js",
     "translate-pdf": "node scripts/full-pdf-translator.js"
@@ -139,7 +145,9 @@
     ]
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
     "@eslint/js": "^9.39.2",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
     "@tailwindcss/line-clamp": "^0.1.0",

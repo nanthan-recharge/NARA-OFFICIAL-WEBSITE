@@ -150,7 +150,7 @@ const HeroImageCarousel = ({
           <img
             src={currentImage?.src}
             alt={currentImage?.alt || `Hero image ${currentIndex + 1}`}
-            className="w-full h-full object-contain bg-black"
+            className="w-full h-full object-cover"
             width={1920}
             height={1080}
             onError={() => handleImageError(currentImage?.id)}

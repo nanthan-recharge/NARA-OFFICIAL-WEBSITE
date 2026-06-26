@@ -204,5 +204,11 @@
     "skipToContent": "Skip to main content",
     "mainContent": "Main content",
     "navigation": "Navigation"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "goBack": "Go Back",
+    "backToHome": "Back to Home"
   }
 }

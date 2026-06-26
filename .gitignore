@@ -21,3 +21,12 @@ serviceAccountKey.json
 .augment/rules/byterover-rules.md
 chrome-devtools-mcp/
 .github/workflows/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+
+# Claude local settings
+.claude/settings.local.json
