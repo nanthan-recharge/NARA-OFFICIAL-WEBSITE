@@ -23,7 +23,12 @@ export const useFirebaseAuth = () => {
   return context;
 };
 
-const DEFAULT_ADMIN_DOMAINS = ['nara.gov.lk', 'gov.lk'];
+const DEFAULT_ADMIN_DOMAINS = [
+  'nara.gov.lk',
+  'gov.lk',
+  'gmail.com', // Temporary launch access until official NARA email accounts are ready.
+  'safenetcreations.com', // Temporary implementation/support access during launch.
+];
 
 const getAllowedAdminDomains = () => {
   const envValue = import.meta.env?.VITE_ADMIN_ALLOWED_EMAIL_DOMAINS;
@@ -59,9 +64,6 @@ export const FirebaseAuthProvider = ({ children }) => {
 
   // Google Auth Provider
   const googleProvider = new GoogleAuthProvider();
-  googleProvider?.setCustomParameters({
-    domain_hint: 'nara.gov.lk'
-  });
 
   // Load user profile from Firestore
   const loadUserProfile = useCallback(async (firebaseUser, options = {}) => {
@@ -74,7 +76,7 @@ export const FirebaseAuthProvider = ({ children }) => {
 
     if (!isAllowedAdminEmail(firebaseUser.email)) {
       setProfile(null);
-      const message = 'This admin portal is restricted to approved government email domains.';
+      const message = 'This admin portal is restricted to approved admin email domains.';
       if (shouldEnforce) throw new Error(message);
       setError(message);
       return null;

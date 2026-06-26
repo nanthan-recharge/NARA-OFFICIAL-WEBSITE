@@ -543,8 +543,8 @@ const MediaGallery = () => {
           id: '1',
           title: 'Marine Research Expedition - Southern Coast',
           description: 'NARA researchers conducting marine biodiversity assessment in southern waters',
-          url: '/media-gallery-images/marine-research-expedition.png',
-          thumbnail: '/media-gallery-images/marine-research-expedition.png',
+          url: '/media-gallery-images/marine-research-expedition.webp',
+          thumbnail: '/media-gallery-images/marine-research-expedition.webp',
           category: 'research',
           source: 'manual',
           sourceName: 'NARA Official',
@@ -578,8 +578,8 @@ const MediaGallery = () => {
           id: '2',
           title: 'Coral Reef Conservation Project',
           description: 'Underwater documentation of coral restoration efforts',
-          url: '/media-gallery-images/coral-reef-conservation.png',
-          thumbnail: '/media-gallery-images/coral-reef-conservation.png',
+          url: '/media-gallery-images/coral-reef-conservation.webp',
+          thumbnail: '/media-gallery-images/coral-reef-conservation.webp',
           category: 'conservation',
           source: 'manual',
           sourceName: 'NARA Official',
@@ -613,8 +613,8 @@ const MediaGallery = () => {
           id: '3',
           title: 'International Ocean Conference 2024',
           description: 'NARA delegation at the Indo-Pacific Marine Science Summit',
-          url: '/media-gallery-images/ocean-conference.png',
-          thumbnail: '/media-gallery-images/ocean-conference.png',
+          url: '/media-gallery-images/ocean-conference.webp',
+          thumbnail: '/media-gallery-images/ocean-conference.webp',
           category: 'events',
           source: 'news',
           sourceName: 'Daily News',
@@ -646,8 +646,8 @@ const MediaGallery = () => {
           id: '4',
           title: 'Sea Turtle Nesting Monitoring',
           description: 'Conservation team tracking sea turtle nesting patterns',
-          url: '/media-gallery-images/sea-turtle-nesting.png',
-          thumbnail: '/media-gallery-images/sea-turtle-nesting.png',
+          url: '/media-gallery-images/sea-turtle-nesting.webp',
+          thumbnail: '/media-gallery-images/sea-turtle-nesting.webp',
           category: 'marine-life',
           source: 'social',
           sourceName: 'Facebook',
@@ -679,8 +679,8 @@ const MediaGallery = () => {
           id: '5',
           title: 'Advanced Marine Laboratory Equipment',
           description: 'New state-of-the-art research equipment installation',
-          url: '/media-gallery-images/marine-laboratory.png',
-          thumbnail: '/media-gallery-images/marine-laboratory.png',
+          url: '/media-gallery-images/marine-laboratory.webp',
+          thumbnail: '/media-gallery-images/marine-laboratory.webp',
           category: 'facilities',
           source: 'manual',
           sourceName: 'NARA Official',
@@ -714,8 +714,8 @@ const MediaGallery = () => {
           id: '6',
           title: 'School Outreach Program',
           description: 'Marine biology education session with local school students',
-          url: '/media-gallery-images/school-outreach.png',
-          thumbnail: '/media-gallery-images/school-outreach.png',
+          url: '/media-gallery-images/school-outreach.webp',
+          thumbnail: '/media-gallery-images/school-outreach.webp',
           category: 'education',
           source: 'manual',
           sourceName: 'NARA Official',
@@ -752,7 +752,7 @@ const MediaGallery = () => {
           id: 'v1',
           title: 'NARA 2024 Year in Review',
           description: 'Comprehensive overview of NARA\'s major achievements and research highlights',
-          thumbnail: '/media-gallery-images/nara-year-review.png',
+          thumbnail: '/media-gallery-images/nara-year-review.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           duration: '8:45',
           category: 'research',
@@ -784,7 +784,7 @@ const MediaGallery = () => {
           id: 'v2',
           title: 'Underwater Documentary: Sri Lankan Coral Reefs',
           description: '4K underwater footage showcasing the biodiversity of Sri Lankan coral ecosystems',
-          thumbnail: '/media-gallery-images/underwater-documentary.png',
+          thumbnail: '/media-gallery-images/underwater-documentary.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           duration: '15:30',
           category: 'marine-life',
@@ -816,7 +816,7 @@ const MediaGallery = () => {
           id: 'v3',
           title: 'Marine Research Methods Training',
           description: 'Educational video on modern marine research techniques and equipment',
-          thumbnail: '/media-gallery-images/marine-training.png',
+          thumbnail: '/media-gallery-images/marine-training.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           duration: '12:20',
           category: 'education',
@@ -848,7 +848,7 @@ const MediaGallery = () => {
           id: 'v4',
           title: 'Blue Whale Sighting - Southern Coast',
           description: 'Rare footage of blue whales migrating through Sri Lankan waters',
-          thumbnail: '/media-gallery-images/blue-whale-sighting.png',
+          thumbnail: '/media-gallery-images/blue-whale-sighting.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           duration: '5:15',
           category: 'marine-life',
@@ -1588,12 +1588,12 @@ const MediaCard = ({ item, viewMode, isVideo, isFavorite, onToggleFavorite, onCl
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: index * 0.05 }}
+        transition={{ delay: Math.min(index, 8) * 0.04 }}
         className="flex gap-4 bg-slate-800/30 backdrop-blur-lg rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 transition-all group cursor-pointer"
         onClick={onClick}
       >
         <div className="relative w-48 h-32 flex-shrink-0">
-          <img src={item.thumbnail} alt={item.displayTitle} className="w-full h-full object-cover" />
+          <img src={item.thumbnail} alt={item.displayTitle} loading="lazy" decoding="async" className="w-full h-full object-cover" />
           {isVideo && (
             <div className="absolute inset-0 flex items-center justify-center bg-black/40">
               <Play className="w-12 h-12 text-white" />
@@ -1630,7 +1630,7 @@ const MediaCard = ({ item, viewMode, isVideo, isFavorite, onToggleFavorite, onCl
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: index * 0.05 }}
+      transition={{ delay: Math.min(index, 8) * 0.04 }}
       className="group relative bg-slate-800/30 backdrop-blur-lg rounded-xl overflow-hidden border border-slate-700/50 hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/20 transition-all cursor-pointer"
       onClick={onClick}
     >
@@ -1638,6 +1638,8 @@ const MediaCard = ({ item, viewMode, isVideo, isFavorite, onToggleFavorite, onCl
         <img
           src={item.thumbnail}
           alt={item.displayTitle || item.title}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
         />
         {isVideo && (

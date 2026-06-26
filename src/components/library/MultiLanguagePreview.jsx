@@ -151,6 +151,8 @@ const MultiLanguagePreview = ({ book }) => {
               <a
                 href={currentLang.url}
                 download
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-4 py-2 bg-green-600 text-white rounded-lg text-sm hover:bg-green-700 flex items-center gap-2 font-medium transition"
               >
                 <Download className="w-4 h-4" />

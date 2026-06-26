@@ -20,11 +20,11 @@ import {
 import { cn } from '../../utils/cn';
 import StitchWrapper from '../../components/shared/StitchWrapper';
 
-const DEFAULT_HERO_IMAGE = '/assets/emergency/hero-1.png';
+const DEFAULT_HERO_IMAGE = '/assets/emergency/hero-1.webp';
 const FALLBACK_IMAGES = [
-  '/assets/emergency/hero-1.png',
-  '/assets/emergency/hero-2.png',
-  '/assets/emergency/hero-3.png'
+  '/assets/emergency/hero-1.webp',
+  '/assets/emergency/hero-2.webp',
+  '/assets/emergency/hero-3.webp'
 ];
 
 const HeroCarousel = ({ images = [], title }) => {

@@ -7,7 +7,12 @@ admin.initializeApp();
 
 const db = admin.firestore();
 
-const ADMIN_BOOTSTRAP_ALLOWED_DOMAINS = ['nara.gov.lk', 'gov.lk'];
+const DEFAULT_ADMIN_ALLOWED_DOMAINS = [
+  'nara.gov.lk',
+  'gov.lk',
+  'gmail.com', // Temporary launch access until official NARA email accounts are ready.
+  'safenetcreations.com' // Temporary implementation/support access during launch.
+];
 const ADMIN_BOOTSTRAP_ROLES = ['system_admin', 'director_general'];
 const ADMIN_STAFF_ROLES = [
   'system_admin',
@@ -74,6 +79,19 @@ function getBootstrapSecret() {
   return process.env.ADMIN_BOOTSTRAP_TOKEN || functions.config()?.admin?.bootstrap_token;
 }
 
+function getAdminAllowedDomains() {
+  const configuredDomains =
+    process.env.ADMIN_ALLOWED_EMAIL_DOMAINS ||
+    functions.config()?.admin?.allowed_email_domains;
+
+  if (!configuredDomains) return DEFAULT_ADMIN_ALLOWED_DOMAINS;
+
+  return String(configuredDomains)
+    .split(',')
+    .map((domain) => domain.trim().toLowerCase())
+    .filter(Boolean);
+}
+
 function safeTokenEqual(provided, expected) {
   if (!provided || !expected) return false;
   const providedBuffer = Buffer.from(String(provided));
@@ -84,7 +102,7 @@ function safeTokenEqual(provided, expected) {
 
 function isAllowedAdminEmail(email) {
   const domain = String(email || '').split('@')[1]?.toLowerCase();
-  return ADMIN_BOOTSTRAP_ALLOWED_DOMAINS.some((allowed) =>
+  return getAdminAllowedDomains().some((allowed) =>
     domain === allowed || domain?.endsWith(`.${allowed}`)
   );
 }

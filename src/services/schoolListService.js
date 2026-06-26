@@ -1,8 +1,10 @@
-import * as XLSX from 'xlsx';
-
 /**
  * School List Service
  * Handles fetching and parsing school data from Firebase Storage or static files
+ *
+ * NOTE: `xlsx` (~700KB) is loaded lazily inside the parsing functions so it is
+ * only downloaded when an Excel file is actually fetched — keeping it out of the
+ * directory pages' initial bundle (filterSchools/getSchoolStatistics are pure).
  */
 
 const CACHE_KEY = 'nara_school_list_cache';
@@ -32,8 +34,9 @@ export const fetchSchoolListFromStorage = async (storageUrl) => {
 
     // Get the file as array buffer
     const arrayBuffer = await response.arrayBuffer();
-    
-    // Parse Excel file
+
+    // Parse Excel file (xlsx loaded on demand)
+    const XLSX = await import('xlsx');
     const workbook = XLSX.read(arrayBuffer, { type: 'array' });
     const sheetName = workbook.SheetNames[0];
     const worksheet = workbook.Sheets[sheetName];

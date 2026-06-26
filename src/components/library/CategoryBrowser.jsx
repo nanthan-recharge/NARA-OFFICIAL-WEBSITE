@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Icons from 'lucide-react';
+import { ICON_REGISTRY } from '../iconRegistry';
 import { CATEGORY_GROUPS, getCategoryGroupStats } from '../../utils/categoryGrouping';
 
 /**
@@ -12,7 +13,7 @@ const CategoryBrowser = ({ facets, onCategoryClick }) => {
   const groupStats = getCategoryGroupStats(facets);
 
   const getIconComponent = (iconName) => {
-    return Icons[iconName] || Icons.Book;
+    return ICON_REGISTRY[iconName] || Icons.Book;
   };
 
   const handleGroupClick = (groupId) => {

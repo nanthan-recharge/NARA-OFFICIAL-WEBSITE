@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import * as XLSX from 'xlsx';
+// xlsx (~700KB) is imported lazily below, only when a sheet is actually parsed.
 
 const FALLBACK_STATS = {
   totalSchools: 42,
@@ -34,6 +34,7 @@ export const useSchoolList = (fileUrl) => {
         }
 
         const arrayBuffer = await response.arrayBuffer();
+        const XLSX = await import('xlsx');
         const workbook = XLSX.read(arrayBuffer, { type: 'array' });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];

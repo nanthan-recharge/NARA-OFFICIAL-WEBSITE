@@ -555,3 +555,32 @@ body {
 .space-x-4>*+* {
   margin-left: 1rem;
 }
+/* ──────────────────────────────────────────────────────────────────────────
+   MOBILE PAINT OPTIMIZATIONS (added for performance)
+   backdrop-filter blur is GPU-expensive and forces a re-composite on every
+   scroll frame. On phones we keep the glass look but drop the blur radius so
+   low-end devices scroll smoothly. Desktop is unaffected.
+   ────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .glass-morphism,
+  .glass-card,
+  .glass-card-enhanced,
+  .glass-button,
+  .glass-effect,
+  .mobile-glass,
+  .counter-card {
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+  }
+}
+
+/* Battery/jank guard: stop infinite background animations for users who ask
+   for reduced motion (complements the named-class rules in tailwind.css). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}

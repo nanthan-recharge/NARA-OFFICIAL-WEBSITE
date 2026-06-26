@@ -3,22 +3,22 @@ import { Link } from 'react-router-dom';
 import { Anchor, Fish, Globe, GraduationCap, Waves } from 'lucide-react';
 
 const sriLankanPartners = [
-  { name: 'Ministry of Fisheries', href: 'https://www.fisheries.gov.lk', logo: '/logos/SRI LANKA LOGO .png', fallbackIcon: Anchor },
-  { name: 'Ocean University', href: '/learning-development-academy', logo: '/logos/Ocean_University_Sri_Lanka_Crest.png', fallbackIcon: GraduationCap, internal: true },
-  { name: 'Sri Lanka Coast Guard', href: 'https://coastguard.gov.lk', logo: '/logos/COST GURD BG NO LOGO .png', fallbackIcon: Waves },
+  { name: 'Ministry of Fisheries', href: 'https://www.fisheries.gov.lk', logo: '/logos/SRI LANKA LOGO .webp', fallbackIcon: Anchor },
+  { name: 'Ocean University', href: '/learning-development-academy', logo: '/logos/Ocean_University_Sri_Lanka_Crest.webp', fallbackIcon: GraduationCap, internal: true },
+  { name: 'Sri Lanka Coast Guard', href: 'https://coastguard.gov.lk', logo: '/logos/COST GURD BG NO LOGO .webp', fallbackIcon: Waves },
   { name: 'NAQDA', href: 'https://naqda.gov.lk/', logo: '/logos/NAAQDA LOGO .gif', fallbackIcon: Fish },
   { name: 'Dialog Axiata', href: 'https://www.dialog.lk/', logo: '/logos/logo.svg', fallbackIcon: Globe },
-  { name: 'KDU', href: 'https://kdu.ac.lk/', logo: '/logos/KOTHAWAY UNIVERCITY .png', fallbackIcon: GraduationCap },
+  { name: 'KDU', href: 'https://kdu.ac.lk/', logo: '/logos/KOTHAWAY UNIVERCITY .webp', fallbackIcon: GraduationCap },
 ];
 
 const internationalPartners = [
-  { name: 'FAO', href: 'https://www.fao.org', logo: '/logos/FAO_logo.svg.png', fallbackIcon: Fish },
-  { name: 'UNDP', href: 'https://www.undp.org', logo: '/logos/undo big logo.png', fallbackIcon: Globe },
+  { name: 'FAO', href: 'https://www.fao.org', logo: '/logos/FAO_logo.svg.webp', fallbackIcon: Fish },
+  { name: 'UNDP', href: 'https://www.undp.org', logo: '/logos/undo big logo.webp', fallbackIcon: Globe },
   { name: 'KIOST', href: 'https://www.kiost.ac.kr/eng.do', logo: '/logos/KIOST LOGO .svg', fallbackIcon: Globe },
-  { name: 'Norad', href: 'https://www.norad.no/en/', logo: '/logos/Norad_hovedlogo-liggende_green_RGB.png', fallbackIcon: Globe },
-  { name: 'Chinese Academy of Sciences', href: 'https://english.cas.cn/', logo: '/logos/CHINES ACADMEY OF SCINES.jpeg', fallbackIcon: Globe },
-  { name: 'SIO', href: 'https://www.sio.org.cn/en/', logo: '/logos/SIO LOGO .jpeg', fallbackIcon: Globe },
-  { name: 'SCSIO', href: 'http://english.scsio.cas.cn/', logo: '/logos/SOUTH CHINA OCEAN .jpg', fallbackIcon: Globe },
+  { name: 'Norad', href: 'https://www.norad.no/en/', logo: '/logos/Norad_hovedlogo-liggende_green_RGB.webp', fallbackIcon: Globe },
+  { name: 'Chinese Academy of Sciences', href: 'https://english.cas.cn/', logo: '/logos/CHINES ACADMEY OF SCINES.webp', fallbackIcon: Globe },
+  { name: 'SIO', href: 'https://www.sio.org.cn/en/', logo: '/logos/SIO LOGO .webp', fallbackIcon: Globe },
+  { name: 'SCSIO', href: 'http://english.scsio.cas.cn/', logo: '/logos/SOUTH CHINA OCEAN .webp', fallbackIcon: Globe },
 ];
 
 const partners = [...sriLankanPartners, ...internationalPartners];

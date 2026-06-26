@@ -52,6 +52,8 @@ const menuSections = [
   },
 ];
 
+const NARA_LOGO_SRC = '/logos/nara-logo-cropped.webp';
+
 const AdminLayout = () => {
   const navigate = useNavigate();
   const { profile, logout } = useFirebaseAuth();
@@ -89,11 +91,18 @@ const AdminLayout = () => {
         {/* Logo */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-slate-200">
           {sidebarOpen && (
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 bg-[#003366] rounded-lg flex items-center justify-center">
-                <Icons.Shield className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-10 h-10 rounded-full border border-slate-200 bg-white p-1 shadow-sm flex-shrink-0">
+                <img
+                  src={NARA_LOGO_SRC}
+                  alt="NARA logo"
+                  className="h-full w-full object-contain"
+                />
               </div>
-              <span className="font-bold text-[#003366] text-sm">NARA Admin</span>
+              <div className="min-w-0">
+                <span className="block font-bold text-[#003366] text-sm leading-tight">NARA Admin</span>
+                <span className="block text-[10px] font-medium uppercase tracking-wide text-slate-400">Control Panel</span>
+              </div>
             </div>
           )}
           <button

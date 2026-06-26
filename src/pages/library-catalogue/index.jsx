@@ -411,133 +411,132 @@ const MaterialTypeBadge = ({ code, t }) => {
 };
 
 /** Book card - Grid view */
-const BookCardGrid = ({ item, t, onClick }) => (
-  <div
-    onClick={onClick}
-    className="group bg-white rounded-xl border border-gray-200 hover:border-[#0066CC]/30 hover:shadow-lg transition-all duration-300 cursor-pointer overflow-hidden flex flex-col"
-  >
-    {/* Cover */}
-    <div className="aspect-[3/4] relative overflow-hidden bg-gray-50">
-      {item.cover_image_url ? (
-        <img
-          src={item.cover_image_url}
-          alt={item.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-      ) : (
-        <BookCoverPlaceholder materialType={item.material_type_code} />
-      )}
-      {/* Overlay actions */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-3">
-        <div className="flex gap-2 w-full">
-          <button className="flex-1 bg-white text-[#003366] text-xs font-semibold py-2 rounded-lg hover:bg-gray-50 transition flex items-center justify-center gap-1">
-            <Eye className="w-3.5 h-3.5" />
-            {t("catalogue.actions.view")}
-          </button>
-          <button
-            className="p-2 bg-white/90 rounded-lg hover:bg-white transition"
-            title={t("actions.bookmark")}
-          >
-            <Bookmark className="w-3.5 h-3.5 text-gray-600" />
-          </button>
+const BookCardGrid = ({ item, t, onClick }) => {
+  const typeInfo = MATERIAL_TYPES.find((mt) => mt.code === item.material_type_code);
+  const accentBar = typeInfo?.gradient || "from-slate-400 to-slate-500";
+  const author = parseAuthor(item.author);
+  return (
+    <article
+      onClick={onClick}
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:border-slate-300 hover:shadow-hover cursor-pointer"
+    >
+      {/* Top accent keyed to material type */}
+      <span className={`block h-1 w-full bg-gradient-to-r ${accentBar}`} aria-hidden="true" />
+
+      <div className="flex flex-1 flex-col p-5">
+        {/* Type + language */}
+        <div className="mb-4 flex items-center justify-between gap-2">
+          <MaterialTypeBadge code={item.material_type_code} t={t} />
+          {item.language && (
+            <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500">
+              <Globe className="h-3.5 w-3.5 text-slate-400" />
+              {item.language}
+            </span>
+          )}
+        </div>
+
+        {/* Title */}
+        <h3
+          className="font-display text-[1.05rem] font-semibold leading-snug text-[#003366] transition-colors group-hover:text-[#0066CC]"
+          style={{ display: "-webkit-box", WebkitLineClamp: 3, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+          title={item.title}
+        >
+          {item.title}
+        </h3>
+
+        {/* Metadata */}
+        <div className="mt-auto space-y-2 pt-4 border-t border-slate-100">
+          {author && (
+            <p className="flex items-center gap-2 text-sm text-slate-600">
+              <User className="h-4 w-4 shrink-0 text-slate-400" />
+              <span className="truncate">{author}</span>
+            </p>
+          )}
+          <div className="flex items-center justify-between">
+            {item.publication_year ? (
+              <span className="flex items-center gap-2 text-sm text-slate-500">
+                <Calendar className="h-4 w-4 text-slate-400" />
+                {item.publication_year}
+              </span>
+            ) : <span />}
+            <span className="inline-flex items-center gap-1 text-sm font-semibold text-[#0066CC] opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+              {t("catalogue.actions.view")}
+              <ArrowRight className="h-4 w-4" />
+            </span>
+          </div>
         </div>
       </div>
-      {/* New badge */}
-      {item.is_new && (
-        <div className="absolute top-2 left-2 px-2 py-0.5 bg-[#0066CC] text-white text-[10px] font-bold rounded uppercase tracking-wider">
-          {t("catalogue.badges.new")}
-        </div>
-      )}
-    </div>
-    {/* Details */}
-    <div className="p-4 flex flex-col flex-1">
-      <div className="mb-2">
-        <AvailabilityBadge item={item} t={t} />
-      </div>
-      <h3 className="font-semibold text-gray-900 text-sm leading-snug line-clamp-2 group-hover:text-[#0066CC] transition-colors mb-1">
-        {item.title}
-      </h3>
-      <p className="text-xs text-gray-500 line-clamp-1 mb-2">
-        {parseAuthor(item.author)}
-      </p>
-      <div className="mt-auto flex items-center justify-between">
-        <MaterialTypeBadge code={item.material_type_code} t={t} />
-        {item.publication_year && (
-          <span className="text-xs text-gray-400">{item.publication_year}</span>
-        )}
-      </div>
-    </div>
-  </div>
-);
+    </article>
+  );
+};
 
 /** Book card - List view */
-const BookCardList = ({ item, t, onClick }) => (
-  <div
-    onClick={onClick}
-    className="group bg-white rounded-xl border border-gray-200 hover:border-[#0066CC]/30 hover:shadow-md transition-all duration-300 cursor-pointer p-4 flex gap-4"
-  >
-    {/* Thumbnail */}
-    <div className="w-20 h-28 rounded-lg overflow-hidden flex-shrink-0">
-      {item.cover_image_url ? (
-        <img
-          src={item.cover_image_url}
-          alt={item.title}
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        <BookCoverPlaceholder
-          materialType={item.material_type_code}
-          size="sm"
-        />
-      )}
-    </div>
-    {/* Content */}
-    <div className="flex-1 min-w-0 flex flex-col">
-      <h3 className="font-semibold text-gray-900 line-clamp-1 group-hover:text-[#0066CC] transition-colors">
-        {item.title}
-      </h3>
-      <p className="text-sm text-gray-500 line-clamp-1 mt-0.5">
-        {parseAuthor(item.author)}
-      </p>
-      <div className="flex items-center gap-3 mt-2 flex-wrap">
-        <AvailabilityBadge item={item} t={t} />
-        <MaterialTypeBadge code={item.material_type_code} t={t} />
-        {item.publication_year && (
-          <span className="text-xs text-gray-400 flex items-center gap-1">
-            <Calendar className="w-3 h-3" />
-            {item.publication_year}
-          </span>
+const BookCardList = ({ item, t, onClick }) => {
+  const typeInfo = MATERIAL_TYPES.find((mt) => mt.code === item.material_type_code);
+  const accentBar = typeInfo?.gradient || "from-slate-400 to-slate-500";
+  const author = parseAuthor(item.author);
+  return (
+    <article
+      onClick={onClick}
+      className="group relative flex overflow-hidden rounded-xl border border-slate-200 bg-white shadow-soft hover:shadow-hover hover:border-slate-300 transition-all duration-300 cursor-pointer"
+    >
+      {/* Left accent keyed to material type */}
+      <span className={`w-1 shrink-0 bg-gradient-to-b ${accentBar}`} aria-hidden="true" />
+
+      <div className="flex-1 min-w-0 p-5">
+        {/* Type + meta row */}
+        <div className="mb-2 flex items-center gap-3 flex-wrap">
+          <MaterialTypeBadge code={item.material_type_code} t={t} />
+          {item.publication_year && (
+            <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500">
+              <Calendar className="h-3.5 w-3.5 text-slate-400" />
+              {item.publication_year}
+            </span>
+          )}
+          {item.language && (
+            <span className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-500">
+              <Globe className="h-3.5 w-3.5 text-slate-400" />
+              {item.language}
+            </span>
+          )}
+        </div>
+
+        {/* Title */}
+        <h3
+          className="font-display text-lg font-semibold leading-snug text-[#003366] transition-colors group-hover:text-[#0066CC]"
+          style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+          title={item.title}
+        >
+          {item.title}
+        </h3>
+
+        {/* Author */}
+        {author && (
+          <p className="mt-1 flex items-center gap-2 text-sm text-slate-600">
+            <User className="h-4 w-4 shrink-0 text-slate-400" />
+            <span className="truncate">{author}</span>
+          </p>
         )}
-        {item.language && (
-          <span className="text-xs text-gray-400 flex items-center gap-1">
-            <Languages className="w-3 h-3" />
-            {item.language}
-          </span>
+
+        {/* Abstract preview */}
+        {item.abstract && (
+          <p
+            className="mt-2 text-sm text-slate-500"
+            style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+          >
+            {item.abstract}
+          </p>
         )}
+
+        {/* View affordance */}
+        <span className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-[#0066CC] opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+          {t("catalogue.actions.view")}
+          <ArrowRight className="h-4 w-4" />
+        </span>
       </div>
-      {item.abstract && (
-        <p className="text-xs text-gray-400 line-clamp-2 mt-2">
-          {item.abstract}
-        </p>
-      )}
-    </div>
-    {/* Actions */}
-    <div className="flex flex-col gap-2 flex-shrink-0">
-      <button
-        className="p-2 rounded-lg border border-gray-200 hover:border-[#0066CC] hover:text-[#0066CC] transition text-gray-400"
-        title={t("actions.bookmark")}
-      >
-        <Bookmark className="w-4 h-4" />
-      </button>
-      <button
-        className="p-2 rounded-lg border border-gray-200 hover:border-[#0066CC] hover:text-[#0066CC] transition text-gray-400"
-        title={t("actions.viewDetails")}
-      >
-        <Eye className="w-4 h-4" />
-      </button>
-    </div>
-  </div>
-);
+    </article>
+  );
+};
 
 /** Horizontal scroll carousel */
 const HorizontalCarousel = ({ children, className = "" }) => {
@@ -748,7 +747,7 @@ const LibraryCatalogue = () => {
   // SEARCH & FILTER HANDLERS
   // ============================================
 
-  const performSearch = async (page = 1) => {
+  const performSearch = async (page = 1, sortOverride) => {
     if (!searchQuery.trim()) {
       setItems([]);
       return;
@@ -758,7 +757,7 @@ const LibraryCatalogue = () => {
     setShowCategories(false);
 
     try {
-      const params = { page, limit: 20, ...filters };
+      const params = { page, limit: 20, sort: sortOverride ?? sortBy, ...filters };
       const response = await searchService.search(searchQuery, params);
       if (response.success) {
         setItems(response.data || []);
@@ -776,12 +775,12 @@ const LibraryCatalogue = () => {
     }
   };
 
-  const performCategorySearch = async (categoryCode, page = 1) => {
+  const performCategorySearch = async (categoryCode, page = 1, sortOverride) => {
     setLoading(true);
     setError(null);
 
     try {
-      const params = { page, limit: 20, material_type: categoryCode };
+      const params = { page, limit: 20, material_type: categoryCode, sort: sortOverride ?? sortBy };
       const response = await catalogueService.getAllItems(params);
       if (response.success) {
         setItems(response.data || []);
@@ -831,6 +830,16 @@ const LibraryCatalogue = () => {
     setFilters({ material_type: "", year: "", language: "" });
     setSearchParams({ q: searchQuery });
     if (searchQuery) performSearch();
+  };
+
+  const handleSortChange = (value) => {
+    setSortBy(value);
+    const searching = searchQuery && searchQuery !== "*";
+    if (searching) {
+      performSearch(1, value);
+    } else if (filters.material_type) {
+      performCategorySearch(filters.material_type, 1, value);
+    }
   };
 
   const handleItemClick = (itemId) => {
@@ -1217,7 +1226,7 @@ const LibraryCatalogue = () => {
                 </label>
                 <select
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
+                  onChange={(e) => handleSortChange(e.target.value)}
                   className="w-full px-3 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-[#0066CC]/20 focus:border-[#0066CC] text-sm bg-gray-50 hover:bg-white transition"
                 >
                   {SORT_OPTIONS.map((opt) => (

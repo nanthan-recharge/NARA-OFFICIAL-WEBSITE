@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import * as Icons from 'lucide-react';
 import { translateBook } from '../../services/translationService';
-import bookDownloadService from '../../services/bookDownloadService';
+// jsPDF (~180KB) loads on demand, only when the reader downloads a book.
+const loadBookDownloadService = () => import('../../services/bookDownloadService').then(m => m.default);
 
 /**
  * WORLD-CLASS BOOK READER
@@ -70,11 +71,13 @@ const EnhancedBookReader = ({ book, onClose }) => {
   };
 
   // Download handlers
-  const handleDownloadPDF = () => {
+  const handleDownloadPDF = async () => {
+    const bookDownloadService = await loadBookDownloadService();
     bookDownloadService.downloadAsPDF(book);
   };
 
-  const handleDownloadOffline = () => {
+  const handleDownloadOffline = async () => {
+    const bookDownloadService = await loadBookDownloadService();
     bookDownloadService.downloadOfflinePackage(book, translatedContent);
   };
 

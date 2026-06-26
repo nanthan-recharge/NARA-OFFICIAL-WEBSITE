@@ -1,6 +1,6 @@
 import React from 'react';
-import * as LucideIcons from 'lucide-react';
 import { HelpCircle } from 'lucide-react';
+import { ICON_REGISTRY } from './iconRegistry';
 
 function Icon({
     name,
@@ -10,7 +10,9 @@ function Icon({
     strokeWidth = 2,
     ...props
 }) {
-    const IconComponent = LucideIcons?.[name];
+    // Look up from the curated registry (tree-shaken) instead of the full lucide
+    // library. Unknown names fall back to HelpCircle, same as before.
+    const IconComponent = ICON_REGISTRY?.[name];
 
     if (!IconComponent) {
         return <HelpCircle size={size} color="gray" strokeWidth={strokeWidth} className={className} {...props} />;

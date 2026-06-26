@@ -159,6 +159,35 @@ const publicApiRequest = async (endpoint, options = {}) => {
 };
 
 // ============================================
+// SHARED HELPERS (used by static fallbacks)
+// ============================================
+
+/** Parse an author value that may be a plain string, JSON string, or object. */
+const parseAuthorName = (author) => {
+  if (!author) return '';
+  if (typeof author === 'object') return author.name || '';
+  if (typeof author === 'string' && author.startsWith('{')) {
+    try { return JSON.parse(author).name || author; } catch { return author; }
+  }
+  return author;
+};
+
+/** Client-side sort for the static catalogue. Mirrors the catalogue page's SORT_OPTIONS. */
+const sortCatalogueItems = (items, sort) => {
+  if (!Array.isArray(items) || !sort || sort === 'relevance') return items;
+  const arr = [...items];
+  const year = (i) => parseInt(i.publication_year) || 0;
+  switch (sort) {
+    case 'title_asc':  return arr.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+    case 'title_desc': return arr.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
+    case 'year_desc':  return arr.sort((a, b) => year(b) - year(a));
+    case 'year_asc':   return arr.sort((a, b) => year(a) - year(b));
+    case 'author_asc': return arr.sort((a, b) => parseAuthorName(a.author).localeCompare(parseAuthorName(b.author)));
+    default:           return arr;
+  }
+};
+
+// ============================================
 // CATALOGUE SERVICES
 // ============================================
 
@@ -181,6 +210,9 @@ export const catalogueService = {
             item.material_type_code === params.material_type
           );
         }
+
+        // Sorting
+        filtered = sortCatalogueItems(filtered, params.sort);
 
         // Pagination
         const page = parseInt(params.page) || 1;
@@ -674,6 +706,9 @@ export const searchService = {
           finalFiltered = finalFiltered.filter(item => item.language === params.language);
         }
 
+        // Sorting
+        finalFiltered = sortCatalogueItems(finalFiltered, params.sort);
+
         // Pagination
         const page = parseInt(params.page) || 1;
         const limit = parseInt(params.limit) || 20;
@@ -754,10 +789,42 @@ export const searchService = {
   },
 
   /**
-   * Get related items
+   * Get related items.
+   * Falls back to the static catalogue (related by material type + shared
+   * subject headings) so the "Related" section works in production.
    */
   getRelatedItems: async (itemId, limit = 5) => {
-    return await publicApiRequest(`/search/related/${itemId}?limit=${limit}`);
+    const result = await publicApiRequest(`/search/related/${itemId}?limit=${limit}`);
+    if (result.success && Array.isArray(result.data) && result.data.length) {
+      return result;
+    }
+
+    const catalogue = await fetchStaticCatalogue();
+    if (!catalogue) return { success: true, data: [] };
+
+    const base = catalogue.find(b => String(b.id) === String(itemId));
+    if (!base) return { success: true, data: [] };
+
+    const baseSubjects = new Set(
+      (base.subject_headings || []).map(s => String(s).toLowerCase())
+    );
+
+    const scored = catalogue
+      .filter(b => String(b.id) !== String(itemId))
+      .map(b => {
+        let score = 0;
+        if (b.material_type_code && b.material_type_code === base.material_type_code) score += 1;
+        const subs = (b.subject_headings || []).map(s => String(s).toLowerCase());
+        score += subs.filter(s => baseSubjects.has(s)).length * 2;
+        if (b.publication_year && base.publication_year && b.publication_year === base.publication_year) score += 0.5;
+        return { b, score };
+      })
+      .filter(x => x.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, limit)
+      .map(x => x.b);
+
+    return { success: true, data: scored };
   },
 
   /**

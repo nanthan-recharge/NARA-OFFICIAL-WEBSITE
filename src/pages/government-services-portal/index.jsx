@@ -31,16 +31,15 @@ import {
 import EIAApplicationForm from '../../components/government-services/forms/EIAApplicationForm';
 import LicenseApplicationForm from '../../components/government-services/forms/LicenseApplicationForm';
 import EmergencyReportForm from '../../components/government-services/forms/EmergencyReportForm';
-import {
-  exportEIAToExcel,
-  exportEmergenciesToExcel,
-  exportLicensesToExcel,
-} from '../../utils/governmentServicesExcelExport';
-import {
-  exportEIAToPDF,
-  exportEmergencyToPDF,
-  exportLicenseToPDF,
-} from '../../utils/governmentServicesPDFExport';
+// Heavy export libs (xlsx ~700KB, jsPDF ~180KB) load on demand, only on export click.
+const _xlsx = () => import('../../utils/governmentServicesExcelExport');
+const _pdf = () => import('../../utils/governmentServicesPDFExport');
+const exportEIAToExcel = async (...a) => (await _xlsx()).exportEIAToExcel(...a);
+const exportEmergenciesToExcel = async (...a) => (await _xlsx()).exportEmergenciesToExcel(...a);
+const exportLicensesToExcel = async (...a) => (await _xlsx()).exportLicensesToExcel(...a);
+const exportEIAToPDF = async (...a) => (await _pdf()).exportEIAToPDF(...a);
+const exportEmergencyToPDF = async (...a) => (await _pdf()).exportEmergencyToPDF(...a);
+const exportLicenseToPDF = async (...a) => (await _pdf()).exportLicenseToPDF(...a);
 import SEOHead from '../../components/shared/SEOHead';
 
 const CATEGORY_STYLES = {
@@ -536,8 +535,8 @@ const GovernmentServicesPortal = () => {
     ].slice(0, 8));
   };
 
-  const handleExport = (runner, successLabel) => {
-    const result = runner();
+  const handleExport = async (runner, successLabel) => {
+    const result = await runner();
     if (result?.success) {
       setExportNotice(`${successLabel} ${t('reporting.exported')}: ${result.filename}`);
     } else {

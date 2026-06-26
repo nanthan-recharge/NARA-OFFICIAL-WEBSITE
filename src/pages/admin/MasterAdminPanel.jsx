@@ -2,9 +2,30 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { db } from '../../firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import {
+  collection,
+  getCountFromServer,
+  getDocs,
+  limit as firestoreLimit,
+  orderBy,
+  query,
+} from 'firebase/firestore';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { PERMISSIONS } from '../../constants/roles';
+import {
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  PieChart as RechartsPieChart,
+  Pie,
+  Cell,
+} from 'recharts';
 import {
   LayoutDashboard, Image, Video, FileText, Users, Ship, Fish,
   TrendingUp, AlertCircle, Map, Database, BookOpen, Settings, LogOut,
@@ -17,6 +38,10 @@ import {
   Grid3x3, MessageSquare, Radio, Languages,
   Newspaper
 } from 'lucide-react';
+
+const NARA_LOGO_SRC = '/logos/nara-logo-cropped.webp';
+const DAY_MS = 24 * 60 * 60 * 1000;
+const CHART_COLORS = ['#0066CC', '#0f766e', '#f59e0b', '#7c3aed', '#dc2626', '#0891b2', '#16a34a'];
 
 // Static color map — prevents Tailwind purge issues with dynamic class names
 const COLOR_MAP = {
@@ -37,6 +62,223 @@ const COLOR_MAP = {
   yellow:  { bg: 'bg-yellow-500',  bgGrad: 'from-yellow-500 to-yellow-600',  text: 'text-yellow-600',  textLight: 'text-yellow-400', bgLight: 'bg-yellow-50',  bgAlpha: 'bg-yellow-500/20',  ring: 'ring-yellow-500/20', border: 'border-yellow-500/30', hoverBg: 'hover:bg-yellow-500/30' },
   gray:    { bg: 'bg-gray-500',    bgGrad: 'from-gray-500 to-gray-600',    text: 'text-gray-600',    textLight: 'text-gray-400', bgLight: 'bg-gray-50',    bgAlpha: 'bg-gray-500/20',    ring: 'ring-gray-500/20', border: 'border-gray-500/30', hoverBg: 'hover:bg-gray-500/30' },
 };
+
+const DASHBOARD_COLLECTIONS = [
+  {
+    key: 'news',
+    collectionName: 'news',
+    label: 'News Articles',
+    category: 'Publishing',
+    icon: Newspaper,
+    color: 'cyan',
+    route: '/admin/news',
+    timestampFields: ['updatedAt', 'createdAt', 'publishedAt', 'date'],
+    titleFields: ['title.en', 'title', 'headline.en', 'headline', 'slug'],
+  },
+  {
+    key: 'media_images',
+    collectionName: 'media_images',
+    label: 'Media Images',
+    category: 'Media',
+    icon: Image,
+    color: 'purple',
+    route: '/admin/media',
+    timestampFields: ['updatedAt', 'createdAt', 'uploadedAt'],
+    titleFields: ['title.en', 'title', 'caption.en', 'caption', 'filename'],
+  },
+  {
+    key: 'media_videos',
+    collectionName: 'media_videos',
+    label: 'Videos',
+    category: 'Media',
+    icon: Video,
+    color: 'pink',
+    route: '/admin/media',
+    timestampFields: ['updatedAt', 'createdAt', 'uploadedAt'],
+    titleFields: ['title.en', 'title', 'caption.en', 'caption', 'filename'],
+  },
+  {
+    key: 'publications',
+    collectionName: 'publications',
+    label: 'Publications',
+    category: 'Research',
+    icon: FileText,
+    color: 'blue',
+    route: '/admin/research-data',
+    timestampFields: ['updatedAt', 'createdAt', 'publishedAt', 'year'],
+    titleFields: ['title.en', 'title', 'name', 'documentTitle'],
+  },
+  {
+    key: 'researchContent',
+    collectionName: 'researchContent',
+    label: 'Research Papers',
+    category: 'Research',
+    icon: Microscope,
+    color: 'indigo',
+    route: '/admin/manage-papers',
+    timestampFields: ['updatedAt', 'createdAt', 'uploadedAt', 'translatedAt'],
+    titleFields: ['title.en', 'title', 'originalTitle', 'filename'],
+  },
+  {
+    key: 'projects',
+    collectionName: 'projects',
+    label: 'Projects',
+    category: 'Research',
+    icon: Briefcase,
+    color: 'green',
+    route: '/admin/research-data',
+    timestampFields: ['updatedAt', 'createdAt', 'startDate'],
+    titleFields: ['title.en', 'title', 'projectTitle', 'name'],
+  },
+  {
+    key: 'events',
+    collectionName: 'events',
+    label: 'Events',
+    category: 'Publishing',
+    icon: Calendar,
+    color: 'amber',
+    route: '/admin/news',
+    timestampFields: ['updatedAt', 'createdAt', 'date', 'eventDate'],
+    titleFields: ['title.en', 'title', 'name'],
+  },
+  {
+    key: 'hero_images',
+    collectionName: 'hero_images',
+    label: 'Hero Images',
+    category: 'Website',
+    icon: Image,
+    color: 'teal',
+    route: '/admin/hero-images',
+    timestampFields: ['updatedAt', 'createdAt'],
+    titleFields: ['title.en', 'title', 'caption.en', 'caption'],
+  },
+  {
+    key: 'vacancies',
+    collectionName: 'vacancies',
+    label: 'Vacancies',
+    category: 'People',
+    icon: Users,
+    color: 'yellow',
+    route: '/admin/vacancies',
+    timestampFields: ['updatedAt', 'createdAt', 'closingDate'],
+    titleFields: ['title.en', 'title', 'position', 'jobTitle'],
+  },
+  {
+    key: 'maritime_vessels',
+    collectionName: 'maritime_vessels',
+    label: 'Maritime Vessels',
+    category: 'Services',
+    icon: Ship,
+    color: 'orange',
+    route: '/admin/maritime',
+    timestampFields: ['updatedAt', 'createdAt'],
+    titleFields: ['name', 'vesselName', 'title'],
+  },
+  {
+    key: 'fish_advisories',
+    collectionName: 'fish_advisories',
+    label: 'Fish Advisories',
+    category: 'Services',
+    icon: Fish,
+    color: 'emerald',
+    route: '/admin/fish-advisory',
+    timestampFields: ['updatedAt', 'createdAt', 'issuedAt'],
+    titleFields: ['title.en', 'title', 'advisoryTitle', 'region'],
+  },
+  {
+    key: 'podcasts',
+    collectionName: 'podcasts',
+    label: 'Podcast Episodes',
+    category: 'Media',
+    icon: Radio,
+    color: 'violet',
+    route: '/admin/podcasts',
+    timestampFields: ['updatedAt', 'createdAt', 'publishedAt'],
+    titleFields: ['title.en', 'title', 'episodeTitle'],
+  },
+];
+
+const USER_COLLECTIONS = [
+  {
+    key: 'adminProfiles',
+    collectionName: 'adminProfiles',
+    label: 'Admin Profiles',
+    color: 'red',
+    timestampFields: ['lastLoginAt', 'updatedAt', 'createdAt'],
+    titleFields: ['displayName', 'email'],
+    sampleLimit: 250,
+  },
+  {
+    key: 'adminUsers',
+    collectionName: 'adminUsers',
+    label: 'Staff Admin Users',
+    color: 'blue',
+    timestampFields: ['lastLoginAt', 'updatedAt', 'createdAt'],
+    titleFields: ['displayName', 'email'],
+    sampleLimit: 250,
+  },
+  {
+    key: 'libraryUsers',
+    collectionName: 'libraryUsers',
+    label: 'Library Users',
+    color: 'indigo',
+    timestampFields: ['lastLoginAt', 'updatedAt', 'createdAt', 'registeredAt'],
+    titleFields: ['displayName', 'email', 'name'],
+    sampleLimit: 100,
+  },
+  {
+    key: 'userActivityLogs',
+    collectionName: 'userActivityLogs',
+    label: 'User Activity Logs',
+    color: 'green',
+    timestampFields: ['createdAt', 'timestamp', 'updatedAt'],
+    titleFields: ['action', 'message', 'description'],
+    sampleLimit: 100,
+  },
+];
+
+const USAGE_SIGNAL_COLLECTIONS = [
+  {
+    key: 'userActivityLogs',
+    collectionName: 'userActivityLogs',
+    label: 'Admin Activity Logs',
+    color: 'blue',
+    timestampFields: ['createdAt', 'timestamp', 'updatedAt'],
+    titleFields: ['action', 'message', 'description'],
+  },
+  {
+    key: 'mspActivityLog',
+    collectionName: 'mspActivityLog',
+    label: 'MSP Activity Log',
+    color: 'teal',
+    timestampFields: ['createdAt', 'timestamp', 'updatedAt'],
+    titleFields: ['action', 'message', 'description', 'module'],
+  },
+  {
+    key: 'podcastViews',
+    collectionName: 'podcastViews',
+    label: 'Podcast Views',
+    color: 'violet',
+    timestampFields: ['viewedAt', 'createdAt', 'timestamp'],
+    titleFields: ['podcastTitle', 'title', 'episodeId'],
+  },
+  {
+    key: 'podcastEngagements',
+    collectionName: 'podcastEngagements',
+    label: 'Podcast Engagements',
+    color: 'pink',
+    timestampFields: ['createdAt', 'timestamp', 'engagedAt'],
+    titleFields: ['type', 'action', 'podcastTitle'],
+  },
+  {
+    key: 'notifications',
+    collectionName: 'notifications',
+    label: 'Notifications',
+    color: 'amber',
+    timestampFields: ['createdAt', 'timestamp', 'updatedAt'],
+    titleFields: ['title', 'message', 'type'],
+  },
+];
 
 // Content coverage data — static list of what's editable vs not
 const EDITABLE_SECTIONS = [
@@ -154,6 +396,220 @@ const ADMIN_SUBSECTION_PERMISSIONS = {
   'integration.seeder': PERMISSIONS.MANAGE_SYSTEM,
 };
 
+const toMillis = (value) => {
+  if (!value) return null;
+  if (typeof value.toMillis === 'function') return value.toMillis();
+  if (typeof value.seconds === 'number') return value.seconds * 1000;
+  if (value instanceof Date) return value.getTime();
+  if (typeof value === 'number') return value;
+  if (typeof value === 'string') {
+    const parsed = Date.parse(value);
+    return Number.isNaN(parsed) ? null : parsed;
+  }
+  return null;
+};
+
+const getNestedValue = (data, path) => (
+  path.split('.').reduce((current, key) => current?.[key], data)
+);
+
+const normalizeText = (value) => {
+  if (value === null || value === undefined) return '';
+  if (typeof value === 'string' || typeof value === 'number') return String(value);
+  if (typeof value === 'boolean') return value ? 'Active' : 'Inactive';
+  if (typeof value === 'object' && typeof value.toMillis !== 'function') {
+    return value.en || value.title || value.name || value.label || '';
+  }
+  return '';
+};
+
+const getPreferredText = (data, fields = []) => {
+  for (const field of fields) {
+    const normalized = normalizeText(getNestedValue(data, field));
+    if (normalized) return normalized;
+  }
+  return '';
+};
+
+const getPreferredTimestamp = (data, fields = []) => {
+  for (const field of fields) {
+    const millis = toMillis(getNestedValue(data, field));
+    if (millis) return millis;
+  }
+  return null;
+};
+
+const getDocumentStatus = (data) => {
+  const rawStatus =
+    data.status ||
+    data.state ||
+    data.workflowStatus ||
+    data.publicationStatus ||
+    (data.published === true ? 'published' : '') ||
+    (data.active === true || data.is_active === true ? 'active' : '');
+
+  return normalizeText(rawStatus) || 'recorded';
+};
+
+const getDocumentActor = (data) => (
+  getPreferredText(data, ['updatedBy', 'createdBy', 'author.email', 'author', 'email', 'userEmail', 'owner'])
+);
+
+const normalizeDoc = (docSnap, metric) => {
+  const data = docSnap.data();
+  const timestamp = getPreferredTimestamp(data, metric.timestampFields);
+  return {
+    id: docSnap.id,
+    key: metric.key,
+    collectionName: metric.collectionName,
+    section: metric.label,
+    category: metric.category || 'Operations',
+    route: metric.route,
+    color: metric.color || 'slate',
+    title:
+      getPreferredText(data, metric.titleFields) ||
+      `${metric.label} record`,
+    status: getDocumentStatus(data),
+    actor: getDocumentActor(data),
+    timestamp,
+  };
+};
+
+const createEmptyTrend = () => {
+  const today = new Date();
+  return Array.from({ length: 7 }, (_, index) => {
+    const date = new Date(today.getTime() - (6 - index) * DAY_MS);
+    const key = date.toISOString().slice(0, 10);
+    return {
+      key,
+      day: date.toLocaleDateString('en-US', { weekday: 'short' }),
+      updates: 0,
+    };
+  });
+};
+
+const createEmptyDashboardData = () => ({
+  counts: {},
+  collectionSummaries: [],
+  categoryBreakdown: [],
+  topSections: [],
+  weeklyActivity: createEmptyTrend(),
+  recentActivity: [],
+  userSummary: {
+    adminProfiles: 0,
+    adminUsers: 0,
+    libraryUsers: 0,
+    activityLogs: 0,
+    activeAdmins: 0,
+    recentLogins: [],
+  },
+  usageSummary: {
+    totalSignals: 0,
+    signalRows: [],
+    latestSignal: null,
+    dataSourceNote: 'Usage signals are assembled from existing activity collections.',
+  },
+  errors: [],
+});
+
+const formatNumber = (value) => (
+  Number.isFinite(value) ? value.toLocaleString() : '0'
+);
+
+const formatRelativeTime = (millis) => {
+  if (!millis) return 'No timestamp';
+  const diff = Date.now() - millis;
+  if (diff < 60 * 1000) return 'Just now';
+  if (diff < 60 * 60 * 1000) return `${Math.floor(diff / (60 * 1000))} min ago`;
+  if (diff < DAY_MS) return `${Math.floor(diff / (60 * 60 * 1000))} hr ago`;
+  if (diff < DAY_MS * 30) return `${Math.floor(diff / DAY_MS)} days ago`;
+  return new Date(millis).toLocaleDateString();
+};
+
+const formatDuration = (millis) => {
+  const totalMinutes = Math.max(0, Math.floor(millis / 60000));
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+  if (hours === 0) return `${minutes} min`;
+  return `${hours} hr ${minutes} min`;
+};
+
+const groupByCategory = (summaries) => (
+  Object.values(
+    summaries.reduce((acc, summary) => {
+      const category = summary.category || 'Operations';
+      if (!acc[category]) acc[category] = { name: category, value: 0 };
+      acc[category].value += summary.count;
+      return acc;
+    }, {})
+  ).sort((a, b) => b.value - a.value)
+);
+
+const buildWeeklyActivity = (items) => {
+  const trend = createEmptyTrend();
+  const byKey = new Map(trend.map((day) => [day.key, day]));
+
+  items.forEach((item) => {
+    if (!item.timestamp) return;
+    const key = new Date(item.timestamp).toISOString().slice(0, 10);
+    const day = byKey.get(key);
+    if (day) day.updates += 1;
+  });
+
+  return trend;
+};
+
+const loadCollectionSummary = async (metric) => {
+  const collectionRef = collection(db, metric.collectionName);
+  let count = 0;
+  let access = 'ok';
+  const errors = [];
+
+  try {
+    const countSnapshot = await getCountFromServer(collectionRef);
+    count = countSnapshot.data().count || 0;
+  } catch {
+    try {
+      const fallbackSnapshot = await getDocs(query(collectionRef, firestoreLimit(metric.sampleLimit || 100)));
+      count = fallbackSnapshot.size;
+      access = 'sampled';
+    } catch (fallbackError) {
+      access = 'restricted';
+      errors.push(`${metric.label}: ${fallbackError.message}`);
+    }
+  }
+
+  let recentDocs = [];
+  for (const field of metric.timestampFields || ['updatedAt', 'createdAt']) {
+    try {
+      const recentSnapshot = await getDocs(
+        query(collectionRef, orderBy(field, 'desc'), firestoreLimit(metric.sampleLimit || 6))
+      );
+      recentDocs = recentSnapshot.docs.map((docSnap) => normalizeDoc(docSnap, metric));
+      if (recentDocs.length > 0) break;
+    } catch (error) {
+      errors.push(`${metric.label} ordered by ${field}: ${error.message}`);
+    }
+  }
+
+  if (recentDocs.length === 0 && access !== 'restricted') {
+    try {
+      const sampleSnapshot = await getDocs(query(collectionRef, firestoreLimit(metric.sampleLimit || 6)));
+      recentDocs = sampleSnapshot.docs.map((docSnap) => normalizeDoc(docSnap, metric));
+    } catch (error) {
+      errors.push(`${metric.label} sample: ${error.message}`);
+    }
+  }
+
+  return {
+    ...metric,
+    count,
+    access,
+    recentDocs,
+    errors,
+  };
+};
+
 const MasterAdminPanel = () => {
   const navigate = useNavigate();
   const { profile, logout, getAdminPermissions } = useFirebaseAuth();
@@ -162,7 +618,9 @@ const MasterAdminPanel = () => {
   const [activeSubSection, setActiveSubSection] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [stats, setStats] = useState({});
+  const [stats, setStats] = useState(createEmptyDashboardData);
+  const [sessionStartedAt] = useState(() => Date.now());
+  const [nowTick, setNowTick] = useState(() => Date.now());
 
   // Admin Sections Configuration
   const adminSections = [
@@ -335,6 +793,11 @@ const MasterAdminPanel = () => {
     loadDashboardData();
   }, []);
 
+  useEffect(() => {
+    const interval = window.setInterval(() => setNowTick(Date.now()), 60000);
+    return () => window.clearInterval(interval);
+  }, []);
+
   const permissions = getAdminPermissions();
   const canAccessPermission = (permission) => !permission || permissions.includes(permission);
   const applySectionAccess = (section) => {
@@ -396,37 +859,72 @@ const MasterAdminPanel = () => {
       })
       .filter(Boolean)
     : accessibleAdminSections;
+  const currentSessionDuration = formatDuration(nowTick - sessionStartedAt);
+  const lastLoginMillis = toMillis(profile?.lastLoginAt || profile?.updatedAt);
 
   const loadDashboardData = async () => {
     setLoading(true);
     try {
-      // Load statistics from all collections
-      const collectionNames = [
-        'media_images',
-        'media_videos',
-        'publications',
-        'projects',
-        'maritime_vessels',
-        'teams',
-        'news',
-        'events',
-        'podcasts',
-      ];
+      const [collectionSummaries, userSummaries, usageSummaries] = await Promise.all([
+        Promise.all(DASHBOARD_COLLECTIONS.map(loadCollectionSummary)),
+        Promise.all(USER_COLLECTIONS.map(loadCollectionSummary)),
+        Promise.all(USAGE_SIGNAL_COLLECTIONS.map(loadCollectionSummary)),
+      ]);
 
-      const statsData = {};
-      const promises = collectionNames.map(async (collectionName) => {
-        try {
-          const snapshot = await getDocs(collection(db, collectionName));
-          statsData[collectionName] = snapshot.size;
-        } catch {
-          statsData[collectionName] = 0;
-        }
-      });
+      const counts = Object.fromEntries(
+        [...collectionSummaries, ...userSummaries, ...usageSummaries].map((summary) => [summary.key, summary.count])
+      );
+      const allActivity = [...collectionSummaries, ...userSummaries, ...usageSummaries]
+        .flatMap((summary) => summary.recentDocs)
+        .filter((item) => item.timestamp)
+        .sort((a, b) => b.timestamp - a.timestamp);
+      const adminProfilesSummary = userSummaries.find((summary) => summary.key === 'adminProfiles');
+      const activeAdmins = adminProfilesSummary?.recentDocs?.filter((item) =>
+        !['suspended', 'terminated', 'retired', 'inactive'].includes(String(item.status).toLowerCase())
+      ).length || 0;
+      const signalRows = usageSummaries.map((summary) => ({
+        label: summary.label,
+        value: summary.count,
+        color: summary.color,
+        access: summary.access,
+      }));
+      const dashboardData = {
+        counts,
+        collectionSummaries,
+        categoryBreakdown: groupByCategory(collectionSummaries),
+        topSections: [...collectionSummaries].sort((a, b) => b.count - a.count).slice(0, 7),
+        weeklyActivity: buildWeeklyActivity(allActivity),
+        recentActivity: allActivity.slice(0, 10),
+        userSummary: {
+          adminProfiles: counts.adminProfiles || 0,
+          adminUsers: counts.adminUsers || 0,
+          libraryUsers: counts.libraryUsers || 0,
+          activityLogs: counts.userActivityLogs || 0,
+          activeAdmins,
+          recentLogins: (adminProfilesSummary?.recentDocs || []).slice(0, 5),
+        },
+        usageSummary: {
+          totalSignals: usageSummaries.reduce((total, summary) => total + summary.count, 0),
+          signalRows,
+          latestSignal: allActivity.find((item) =>
+            USAGE_SIGNAL_COLLECTIONS.some((signal) => signal.collectionName === item.collectionName)
+          ) || null,
+          dataSourceNote: usageSummaries.some((summary) => summary.count > 0)
+            ? 'Usage signals are pulled from existing admin/activity/event collections.'
+            : 'No dedicated page-view collection is populated yet; current session time is shown from the browser.',
+        },
+        errors: [...collectionSummaries, ...userSummaries, ...usageSummaries]
+          .flatMap((summary) => summary.errors || [])
+          .slice(0, 8),
+      };
 
-      await Promise.all(promises);
-      setStats(statsData);
+      setStats(dashboardData);
     } catch (error) {
       console.error('Error loading dashboard:', error);
+      setStats((current) => ({
+        ...current,
+        errors: ['Dashboard analytics could not be refreshed. Check Firestore permissions and connectivity.'],
+      }));
     } finally {
       setLoading(false);
     }
@@ -465,23 +963,28 @@ const MasterAdminPanel = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 text-slate-800">
       {/* Sidebar */}
-      <aside className={`fixed left-0 top-0 h-full ${sidebarOpen ? 'w-72' : 'w-20'} bg-white/95 backdrop-blur-xl border-r border-slate-200 transition-all duration-300 z-50 overflow-y-auto`}>
+      <aside className={`fixed left-0 top-0 h-full ${sidebarOpen ? 'w-20 lg:w-72' : 'w-20'} bg-white/95 backdrop-blur-xl border-r border-slate-200 transition-all duration-300 z-50 overflow-y-auto`}>
         {/* Logo & Toggle */}
         <div className="h-16 flex items-center justify-between px-4 border-b border-slate-200 sticky top-0 bg-white/95 backdrop-blur-xl">
-          {sidebarOpen && (
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-[#003366] to-[#0066CC] rounded-xl flex items-center justify-center">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <span className="font-bold text-slate-800 text-lg">NARA</span>
-                <p className="text-xs text-slate-500">Master Admin</p>
-              </div>
+          <div className={`flex items-center ${sidebarOpen ? 'gap-3 min-w-0' : 'justify-center'}`}>
+            <div className="h-10 w-10 flex-shrink-0 rounded-full border border-slate-200 bg-white p-1 shadow-sm">
+              <img
+                src={NARA_LOGO_SRC}
+                alt="NARA logo"
+                className="h-full w-full object-contain"
+              />
             </div>
-          )}
+            {sidebarOpen && (
+              <div className="hidden min-w-0 lg:block">
+                <span className="block truncate font-bold text-[#003366] text-lg leading-tight">NARA</span>
+                <p className="truncate text-xs font-medium text-slate-500">Master Admin</p>
+              </div>
+            )}
+          </div>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
             className="p-2 hover:bg-slate-100 rounded-lg transition text-slate-500 hover:text-slate-900"
+            aria-label={sidebarOpen ? 'Collapse admin sidebar' : 'Expand admin sidebar'}
           >
             {sidebarOpen ? <ChevronLeft className="w-5 h-5" /> : <ChevronRight className="w-5 h-5" />}
           </button>
@@ -495,7 +998,7 @@ const MasterAdminPanel = () => {
               <div key={section.id}>
                 <button
                   onClick={() => handleSectionClick(section)}
-                  className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${
+                  className={`w-full flex items-center gap-3 px-3 py-3 rounded-xl transition-all ${sidebarOpen ? 'justify-center lg:justify-start' : 'justify-center'} ${
                     activeSection === section.id
                       ? `bg-gradient-to-r ${colors.bgGrad} text-white shadow-lg`
                       : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900'
@@ -504,9 +1007,9 @@ const MasterAdminPanel = () => {
                   <section.icon className="w-5 h-5 flex-shrink-0" />
                   {sidebarOpen && (
                     <>
-                      <span className="font-medium flex-1 text-left">{section.label}</span>
+                      <span className="hidden flex-1 text-left font-medium lg:block">{section.label}</span>
                       {section.subsections && (
-                        <ChevronDown className={`w-4 h-4 transition-transform ${
+                        <ChevronDown className={`hidden w-4 h-4 transition-transform lg:block ${
                           activeSection === section.id ? 'rotate-180' : ''
                         }`} />
                       )}
@@ -520,7 +1023,7 @@ const MasterAdminPanel = () => {
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: 'auto' }}
                     exit={{ opacity: 0, height: 0 }}
-                    className="ml-4 mt-2 space-y-1"
+                    className="ml-4 mt-2 hidden space-y-1 lg:block"
                   >
                     {section.subsections.map((subsection) => (
                       <button
@@ -561,19 +1064,27 @@ const MasterAdminPanel = () => {
             }`}
           >
             <LogOut className="w-5 h-5" />
-            {sidebarOpen && <span className="font-medium">Logout</span>}
+            {sidebarOpen && <span className="hidden font-medium lg:inline">Logout</span>}
           </button>
         </div>
       </aside>
 
       {/* Main Content */}
-      <div className={`${sidebarOpen ? 'ml-72' : 'ml-20'} transition-all duration-300`}>
+      <div className={`${sidebarOpen ? 'ml-20 lg:ml-72' : 'ml-20'} min-w-0 transition-all duration-300`}>
         {/* Top Bar */}
-        <header className="h-16 bg-white/50 backdrop-blur-xl border-b border-slate-200 flex items-center justify-between px-6 sticky top-0 z-40">
-            <div className="flex items-center gap-4">
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-[#003366] to-[#0066CC] bg-clip-text text-transparent">
-                Master Admin Panel
-              </h1>
+        <header className="h-16 bg-white/50 backdrop-blur-xl border-b border-slate-200 flex items-center justify-between gap-3 px-4 sm:px-6 sticky top-0 z-40">
+            <div className="flex min-w-0 items-center gap-3 sm:gap-4">
+              <div className="hidden h-9 w-9 rounded-full border border-slate-200 bg-white p-1 shadow-sm sm:block">
+                <img src={NARA_LOGO_SRC} alt="NARA logo" className="h-full w-full object-contain" />
+              </div>
+              <div className="min-w-0">
+                <h1 className="truncate text-base font-bold text-[#003366] sm:text-2xl">
+                  Master Admin Panel
+                </h1>
+                <p className="hidden text-xs font-medium text-slate-500 md:block">
+                  NARA operational control center
+                </p>
+              </div>
               {normalizedSearch && (
                 <span className="rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-500">
                   {filteredAdminSections.length} matching sections
@@ -581,9 +1092,9 @@ const MasterAdminPanel = () => {
               )}
             </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-shrink-0 items-center gap-2 sm:gap-3 lg:gap-4">
             {/* Search */}
-            <div className="relative">
+            <div className="relative hidden xl:block">
               <input
                 type="text"
                 placeholder="Search admin functions..."
@@ -610,9 +1121,11 @@ const MasterAdminPanel = () => {
             </button>
 
             {/* User Profile */}
-            <div className="flex items-center gap-2 px-3 py-2 bg-slate-100 rounded-lg">
+            <div className="flex items-center gap-2 rounded-lg bg-slate-100 p-1.5 sm:px-3 sm:py-2">
               <div className="w-8 h-8 bg-gradient-to-br from-[#003366] to-[#0066CC] rounded-full flex items-center justify-center">
-                <Shield className="w-4 h-4 text-white" />
+                <span className="text-[11px] font-bold uppercase text-white">
+                  {displayName.split(' ').map((name) => name[0]).join('').slice(0, 2)}
+                </span>
               </div>
               <div className="hidden sm:block">
                 <span className="block text-sm font-semibold text-slate-800">{displayName}</span>
@@ -626,75 +1139,39 @@ const MasterAdminPanel = () => {
         <main className="p-6">
           {activeSection === 'dashboard' && (
             <div className="space-y-6">
-              {/* Welcome Banner */}
-              <div className="bg-gradient-to-r from-[#003366] to-[#0066CC] rounded-2xl p-8 text-white">
-                <h2 className="text-3xl font-bold mb-2">Welcome to NARA Master Admin</h2>
-                <p className="text-cyan-100">Securely maintain public content, media, research data, citizen services, and staff access from one governed workspace.</p>
+              <DashboardOverviewHeader
+                profile={profile}
+                loading={loading}
+                onRefresh={loadDashboardData}
+                currentSessionDuration={currentSessionDuration}
+                lastLoginMillis={lastLoginMillis}
+                totalRecords={stats.collectionSummaries.reduce((total, item) => total + item.count, 0)}
+              />
+
+              <ExecutiveKpiGrid
+                stats={stats}
+                loading={loading}
+                currentSessionDuration={currentSessionDuration}
+                lastLoginMillis={lastLoginMillis}
+              />
+
+              <AnalyticsChartsGrid stats={stats} />
+
+              <div className="grid grid-cols-1 gap-6 xl:grid-cols-[1.2fr_0.8fr]">
+                <RecentActivityPanel activity={stats.recentActivity} loading={loading} />
+                <UserUsagePanel
+                  userSummary={stats.userSummary}
+                  usageSummary={stats.usageSummary}
+                  currentSessionDuration={currentSessionDuration}
+                  lastLoginMillis={lastLoginMillis}
+                />
               </div>
 
               <OperationalSecurityPanel permissions={permissions} profile={profile} />
 
               <AdminGovernanceGrid areas={accessibleGovernanceAreas} onOpen={navigate} />
 
-              {/* Quick Stats Grid — Real Data */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <StatCard
-                  icon={Newspaper}
-                  label="News Articles"
-                  value={stats.news ?? '...'}
-                  color="cyan"
-                  loading={loading}
-                />
-                <StatCard
-                  icon={Image}
-                  label="Media Images"
-                  value={stats.media_images ?? '...'}
-                  color="purple"
-                  loading={loading}
-                />
-                <StatCard
-                  icon={FileText}
-                  label="Publications"
-                  value={stats.publications ?? '...'}
-                  color="blue"
-                  loading={loading}
-                />
-                <StatCard
-                  icon={Briefcase}
-                  label="Active Projects"
-                  value={stats.projects ?? '...'}
-                  color="green"
-                  loading={loading}
-                />
-                <StatCard
-                  icon={Ship}
-                  label="Maritime Vessels"
-                  value={stats.maritime_vessels ?? '...'}
-                  color="indigo"
-                  loading={loading}
-                />
-                <StatCard
-                  icon={Calendar}
-                  label="Events"
-                  value={stats.events ?? '...'}
-                  color="amber"
-                  loading={loading}
-                />
-                <StatCard
-                  icon={Radio}
-                  label="Podcast Episodes"
-                  value={stats.podcasts ?? '...'}
-                  color="violet"
-                  loading={loading}
-                />
-                <StatCard
-                  icon={Video}
-                  label="Videos"
-                  value={stats.media_videos ?? '...'}
-                  color="pink"
-                  loading={loading}
-                />
-              </div>
+              <CollectionAnalysisGrid summaries={stats.collectionSummaries} loading={loading} />
 
               {/* Content Coverage Panel */}
               <ContentCoveragePanel />
@@ -715,33 +1192,7 @@ const MasterAdminPanel = () => {
                 </div>
               </div>
 
-              {/* System Health */}
-              <div className="bg-white/50 backdrop-blur-xl rounded-2xl p-6 border border-slate-200">
-                <h3 className="text-xl font-bold mb-4 text-slate-800 flex items-center gap-2">
-                  <Activity className="w-5 h-5 text-green-400" />
-                  System Health
-                </h3>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <HealthMetric
-                    label="Server Status"
-                    value="Online"
-                    percentage={100}
-                    color="green"
-                  />
-                  <HealthMetric
-                    label="Database"
-                    value="Healthy"
-                    percentage={98}
-                    color="green"
-                  />
-                  <HealthMetric
-                    label="Storage"
-                    value="75% Used"
-                    percentage={75}
-                    color="yellow"
-                  />
-                </div>
-              </div>
+              <SystemReadinessPanel errors={stats.errors} loading={loading} />
             </div>
           )}
 
@@ -794,6 +1245,394 @@ const MasterAdminPanel = () => {
 };
 
 // Helper Components — using static COLOR_MAP classes
+
+const DashboardOverviewHeader = ({
+  profile,
+  loading,
+  onRefresh,
+  currentSessionDuration,
+  lastLoginMillis,
+  totalRecords,
+}) => (
+  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+      <div className="flex items-start gap-4">
+        <div className="h-16 w-16 flex-shrink-0 rounded-full border border-slate-200 bg-white p-1.5 shadow-sm">
+          <img src={NARA_LOGO_SRC} alt="NARA logo" className="h-full w-full object-contain" />
+        </div>
+        <div>
+          <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">NARA Master Control</p>
+          <h2 className="mt-1 text-2xl font-bold text-slate-900 sm:text-3xl">Operations and analytics dashboard</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+            Monitor publishing, media, research data, users, service activity, and admin session signals from one governed workspace.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid w-full grid-cols-1 gap-3 sm:min-w-[280px] sm:grid-cols-2 lg:w-auto">
+        <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+          <p className="text-xs font-semibold uppercase text-slate-400">Signed in as</p>
+          <p className="mt-1 truncate text-sm font-bold text-slate-800">{profile?.email || 'Admin profile'}</p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+          <p className="text-xs font-semibold uppercase text-slate-400">Current session</p>
+          <p className="mt-1 text-sm font-bold text-slate-800">{currentSessionDuration}</p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+          <p className="text-xs font-semibold uppercase text-slate-400">Managed records</p>
+          <p className="mt-1 text-sm font-bold text-slate-800">{formatNumber(totalRecords)}</p>
+        </div>
+        <button
+          type="button"
+          onClick={onRefresh}
+          disabled={loading}
+          className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#003366] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#0066CC] disabled:cursor-wait disabled:opacity-70"
+        >
+          <RefreshCw className={`h-4 w-4 ${loading ? 'animate-spin' : ''}`} />
+          Refresh
+        </button>
+      </div>
+    </div>
+    <p className="mt-4 text-xs text-slate-400">
+      Last profile touch: {formatRelativeTime(lastLoginMillis)}
+    </p>
+  </section>
+);
+
+const ExecutiveKpiGrid = ({ stats, loading, currentSessionDuration, lastLoginMillis }) => {
+  const totalRecords = stats.collectionSummaries.reduce((total, summary) => total + summary.count, 0);
+  const topSection = stats.topSections[0];
+
+  return (
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-5">
+      <StatCard
+        icon={Database}
+        label="Managed Records"
+        value={formatNumber(totalRecords)}
+        color="cyan"
+        loading={loading}
+      />
+      <StatCard
+        icon={Users}
+        label="Admin Users"
+        value={formatNumber(stats.userSummary.adminUsers)}
+        color="red"
+        loading={loading}
+      />
+      <StatCard
+        icon={BookOpen}
+        label="Library Users"
+        value={formatNumber(stats.userSummary.libraryUsers)}
+        color="indigo"
+        loading={loading}
+      />
+      <StatCard
+        icon={Activity}
+        label="Activity Signals"
+        value={formatNumber(stats.usageSummary.totalSignals)}
+        color="green"
+        loading={loading}
+      />
+      <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="flex items-center justify-between">
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-500/20">
+            <Clock className="h-6 w-6 text-amber-500" />
+          </div>
+          <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold uppercase text-slate-500">
+            Live
+          </span>
+        </div>
+        <p className="mt-4 text-2xl font-bold text-slate-800">{currentSessionDuration}</p>
+        <p className="mt-1 text-sm text-slate-500">Current admin page time</p>
+        <p className="mt-2 text-xs text-slate-400">
+          Last login/profile update: {formatRelativeTime(lastLoginMillis)}
+        </p>
+        {topSection && (
+          <p className="mt-3 truncate text-xs font-semibold text-[#0066CC]">
+            Highest volume: {topSection.label}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const AnalyticsChartsGrid = ({ stats }) => {
+  const topSectionData = stats.topSections.map((summary) => ({
+    name: summary.label,
+    count: summary.count,
+  }));
+  const categoryData = stats.categoryBreakdown.filter((item) => item.value > 0);
+
+  return (
+    <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm xl:col-span-2">
+        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">Activity Trend</p>
+            <h3 className="text-lg font-bold text-slate-900">Recent updates by day</h3>
+          </div>
+          <p className="text-xs text-slate-500">Based on timestamped records available to this admin role.</p>
+        </div>
+        <div className="h-64">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={stats.weeklyActivity}>
+              <defs>
+                <linearGradient id="updatesGradient" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="5%" stopColor="#0066CC" stopOpacity={0.35} />
+                  <stop offset="95%" stopColor="#0066CC" stopOpacity={0.02} />
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <XAxis dataKey="day" tick={{ fontSize: 12, fill: '#64748b' }} axisLine={false} tickLine={false} />
+              <YAxis allowDecimals={false} tick={{ fontSize: 12, fill: '#64748b' }} axisLine={false} tickLine={false} />
+              <Tooltip />
+              <Area type="monotone" dataKey="updates" stroke="#0066CC" strokeWidth={2} fill="url(#updatesGradient)" />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="mb-4">
+          <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">Governance Mix</p>
+          <h3 className="text-lg font-bold text-slate-900">Records by area</h3>
+        </div>
+        <div className="h-64">
+          {categoryData.length > 0 ? (
+            <ResponsiveContainer width="100%" height="100%">
+              <RechartsPieChart>
+                <Pie
+                  data={categoryData}
+                  dataKey="value"
+                  nameKey="name"
+                  innerRadius={48}
+                  outerRadius={86}
+                  paddingAngle={3}
+                >
+                  {categoryData.map((entry, index) => (
+                    <Cell key={entry.name} fill={CHART_COLORS[index % CHART_COLORS.length]} />
+                  ))}
+                </Pie>
+                <Tooltip />
+              </RechartsPieChart>
+            </ResponsiveContainer>
+          ) : (
+            <EmptyDashboardState label="No category data yet" />
+          )}
+        </div>
+      </section>
+
+      <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm xl:col-span-3">
+        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">Most Used Sections</p>
+            <h3 className="text-lg font-bold text-slate-900">Highest-volume admin areas</h3>
+          </div>
+          <p className="text-xs text-slate-500">Collection counts use Firestore aggregation when allowed.</p>
+        </div>
+        <div className="h-72">
+          {topSectionData.length > 0 ? (
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={topSectionData} margin={{ top: 10, right: 16, left: 0, bottom: 48 }}>
+                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+                <XAxis
+                  dataKey="name"
+                  tick={{ fontSize: 11, fill: '#64748b' }}
+                  interval={0}
+                  angle={-24}
+                  textAnchor="end"
+                  height={70}
+                />
+                <YAxis allowDecimals={false} tick={{ fontSize: 12, fill: '#64748b' }} />
+                <Tooltip />
+                <Bar dataKey="count" fill="#003366" radius={[6, 6, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : (
+            <EmptyDashboardState label="No section count data yet" />
+          )}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const RecentActivityPanel = ({ activity, loading }) => (
+  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="mb-4 flex items-center justify-between gap-3">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">Audit-Like Activity</p>
+        <h3 className="text-lg font-bold text-slate-900">Latest content and user updates</h3>
+      </div>
+      {loading && <RefreshCw className="h-4 w-4 animate-spin text-slate-400" />}
+    </div>
+
+    {activity.length === 0 ? (
+      <EmptyDashboardState label="No timestamped activity found yet" />
+    ) : (
+      <div className="overflow-hidden rounded-xl border border-slate-200">
+        <div className="grid grid-cols-[1fr_140px_120px] gap-3 bg-slate-50 px-4 py-3 text-xs font-bold uppercase tracking-wide text-slate-400">
+          <span>Record</span>
+          <span>Section</span>
+          <span>Updated</span>
+        </div>
+        <div className="divide-y divide-slate-100">
+          {activity.map((item) => {
+            const colors = COLOR_MAP[item.color] || COLOR_MAP.slate;
+            return (
+              <div key={`${item.collectionName}-${item.id}`} className="grid grid-cols-[1fr_140px_120px] gap-3 px-4 py-3 text-sm">
+                <div className="min-w-0">
+                  <p className="truncate font-semibold text-slate-800">{item.title}</p>
+                  <p className="mt-0.5 truncate text-xs text-slate-500">
+                    {item.actor ? `By ${item.actor}` : item.status}
+                  </p>
+                </div>
+                <span className={`self-start rounded-full px-2.5 py-1 text-xs font-semibold ${colors.bgAlpha} ${colors.text}`}>
+                  {item.section}
+                </span>
+                <span className="text-xs font-medium text-slate-500">{formatRelativeTime(item.timestamp)}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
+  </section>
+);
+
+const UserUsagePanel = ({ userSummary, usageSummary, currentSessionDuration, lastLoginMillis }) => {
+  const userRows = [
+    { label: 'Admin profiles', value: userSummary.adminProfiles, color: 'red' },
+    { label: 'Staff admin users', value: userSummary.adminUsers, color: 'blue' },
+    { label: 'Library users', value: userSummary.libraryUsers, color: 'indigo' },
+    { label: 'Activity logs', value: userSummary.activityLogs, color: 'green' },
+  ];
+
+  return (
+    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+      <div className="mb-4">
+        <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">Users And Page Time</p>
+        <h3 className="text-lg font-bold text-slate-900">User footprint and usage signals</h3>
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-semibold uppercase text-slate-400">Current page time</p>
+          <p className="mt-2 text-2xl font-bold text-slate-900">{currentSessionDuration}</p>
+        </div>
+        <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+          <p className="text-xs font-semibold uppercase text-slate-400">Last profile touch</p>
+          <p className="mt-2 text-2xl font-bold text-slate-900">{formatRelativeTime(lastLoginMillis)}</p>
+        </div>
+      </div>
+
+      <div className="mt-4 space-y-2">
+        {userRows.map((row) => {
+          const colors = COLOR_MAP[row.color] || COLOR_MAP.slate;
+          return (
+            <div key={row.label} className="flex items-center justify-between rounded-xl border border-slate-200 bg-white px-4 py-3">
+              <div className="flex items-center gap-3">
+                <span className={`h-2.5 w-2.5 rounded-full ${colors.bg}`} />
+                <span className="text-sm font-medium text-slate-600">{row.label}</span>
+              </div>
+              <span className="text-sm font-bold text-slate-900">{formatNumber(row.value)}</span>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="mt-4 rounded-xl border border-slate-200 bg-slate-50 p-4">
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-bold text-slate-800">Usage signal collections</p>
+          <span className="text-sm font-bold text-[#003366]">{formatNumber(usageSummary.totalSignals)}</span>
+        </div>
+        <p className="mt-1 text-xs leading-5 text-slate-500">{usageSummary.dataSourceNote}</p>
+        <div className="mt-3 space-y-2">
+          {usageSummary.signalRows.map((row) => {
+            const colors = COLOR_MAP[row.color] || COLOR_MAP.slate;
+            return (
+              <div key={row.label} className="flex items-center justify-between text-xs">
+                <span className="text-slate-500">{row.label}</span>
+                <span className={`rounded-full px-2 py-0.5 font-semibold ${colors.bgAlpha} ${colors.text}`}>
+                  {row.access === 'restricted' ? 'restricted' : formatNumber(row.value)}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const CollectionAnalysisGrid = ({ summaries, loading }) => (
+  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p className="text-xs font-bold uppercase tracking-wide text-[#0066CC]">Full Section Analysis</p>
+        <h3 className="text-lg font-bold text-slate-900">Collection coverage and access state</h3>
+      </div>
+      {loading && <span className="text-xs font-semibold text-slate-400">Refreshing live counts...</span>}
+    </div>
+
+    <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+      {summaries.map((summary) => {
+        const colors = COLOR_MAP[summary.color] || COLOR_MAP.slate;
+        return (
+          <div key={summary.key} className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <div className="flex items-start justify-between gap-3">
+              <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${colors.bgAlpha}`}>
+                <summary.icon className={`h-5 w-5 ${colors.text}`} />
+              </div>
+              <span className={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase ${summary.access === 'ok' ? 'bg-emerald-50 text-emerald-700' : 'bg-amber-50 text-amber-700'}`}>
+                {summary.access}
+              </span>
+            </div>
+            <p className="mt-4 text-2xl font-bold text-slate-900">{formatNumber(summary.count)}</p>
+            <p className="mt-1 text-sm font-semibold text-slate-700">{summary.label}</p>
+            <p className="mt-1 text-xs text-slate-500">{summary.category}</p>
+          </div>
+        );
+      })}
+    </div>
+  </section>
+);
+
+const SystemReadinessPanel = ({ errors, loading }) => (
+  <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="mb-4 flex items-center justify-between gap-3">
+      <h3 className="flex items-center gap-2 text-lg font-bold text-slate-900">
+        <Activity className="h-5 w-5 text-emerald-500" />
+        System readiness
+      </h3>
+      <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-bold text-emerald-700">
+        {loading ? 'Refreshing' : 'Dashboard online'}
+      </span>
+    </div>
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
+      <HealthMetric label="Hosting" value="Live" percentage={100} color="green" />
+      <HealthMetric label="Firestore Reads" value={errors.length ? 'Partial' : 'Healthy'} percentage={errors.length ? 72 : 98} color={errors.length ? 'yellow' : 'green'} />
+      <HealthMetric label="Admin Session" value="Active" percentage={100} color="green" />
+    </div>
+    {errors.length > 0 && (
+      <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
+        <p className="text-sm font-bold text-amber-800">Some analytics sources could not be read.</p>
+        <ul className="mt-2 space-y-1 text-xs leading-5 text-amber-700">
+          {errors.map((error) => (
+            <li key={error}>{error}</li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </section>
+);
+
+const EmptyDashboardState = ({ label }) => (
+  <div className="flex h-full min-h-[160px] items-center justify-center rounded-xl border border-dashed border-slate-200 bg-slate-50 text-sm font-medium text-slate-400">
+    {label}
+  </div>
+);
 
 const OperationalSecurityPanel = ({ permissions, profile }) => {
   const permissionCount = permissions?.length || 0;

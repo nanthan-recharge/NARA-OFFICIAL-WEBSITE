@@ -250,7 +250,7 @@ const GovFooter = () => {
       <section className="border-b border-slate-200 bg-white/90 py-3 dark:border-white/10 dark:bg-[#041427]/95">
         <div className="footer-top-grid mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex items-center gap-3">
-            <img src="/logos/nara-logo-cropped.png" alt="NARA Logo" className="h-10 w-10 shrink-0 rounded-full bg-white object-cover p-1 shadow-sm" />
+            <img src="/logos/nara-logo-cropped.webp" alt="NARA Logo" className="h-10 w-10 shrink-0 rounded-full bg-white object-cover p-1 shadow-sm" />
             <div>
               <h2 className="text-lg font-bold tracking-wide text-nara-navy dark:text-white">NARA</h2>
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500 dark:text-sky-300">Government of Sri Lanka</p>
@@ -340,7 +340,7 @@ const GovFooter = () => {
               National Aquatic Resources Research and Development Agency, Crow Island, Mattakkuliya, Colombo 15, Sri Lanka.
             </p>
             <div className="mt-3 flex items-center gap-2 text-xs font-semibold leading-snug text-slate-800 dark:text-slate-200">
-              <img src="/logos/SRI LANKA LOGO .png" alt="Sri Lanka Government Emblem" className="h-8 w-8 shrink-0 object-contain" />
+              <img src="/logos/SRI LANKA LOGO .webp" alt="Sri Lanka Government Emblem" className="h-8 w-8 shrink-0 object-contain" />
               <span>Official Government Website of the Democratic Socialist Republic of Sri Lanka</span>
             </div>
           </div>

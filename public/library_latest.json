@@ -1,182 +1,110 @@
 [
   {
-    "id": 903,
-    "title": "Advances in Marine Biology Research",
-    "author": "Marine Biologists",
+    "id": 457,
+    "title": "PRACTICES AND POLICIES USED IN MANAGEMENT OF CUBA AND AUSTRALIA’S CORAL REEFS CAN WE SAVE THEM?",
+    "author": "DeAnna Colglazier",
+    "language": "English",
+    "publication_year": 2025,
+    "material_type_code": "NEWS",
+    "acquisition_date": "2026-06-26T12:00:00Z"
+  },
+  {
+    "id": 82,
+    "title": "The Nature of Law Enforcement of Illegal Fishing in Indonesia After The Establishment of The Employment Law",
+    "author": "Muhammad Fauzi Ramadhan",
+    "language": "English",
+    "publication_year": 2024,
+    "material_type_code": "ACT",
+    "acquisition_date": "2026-06-25T12:00:00Z"
+  },
+  {
+    "id": 281,
+    "title": "From Early Migrations to Colonial Encounters: Archaeological Research on the Mannar-Jaffna Seaboard, Sri Lanka",
+    "author": "Siriwardana, Thilanka",
+    "language": "English",
+    "publication_year": 2024,
+    "material_type_code": "SLBOOK",
+    "acquisition_date": "2026-06-24T12:00:00Z"
+  },
+  {
+    "id": 288,
+    "title": "Pearl Fisheries in South Asia:Archaeological Evidence from Pre-Colonial and Colonial Shell Middens around the Gulf of Mannar in Sri Lanka",
+    "author": "Dissanayake, Nadeera H.",
+    "language": "English",
+    "publication_year": 2024,
+    "material_type_code": "SLBOOK",
+    "acquisition_date": "2026-06-23T12:00:00Z"
+  },
+  {
+    "id": 537,
+    "title": "Opportunities, Challenges, and Solutions in Expanding The Blue Economy in Sri Lanka: Special Reference to The Fisheries Sector",
+    "author": "Ekanayake, E. A.",
+    "language": "English",
+    "publication_year": 2024,
+    "material_type_code": "SLREP",
+    "acquisition_date": "2026-06-22T12:00:00Z"
+  },
+  {
+    "id": 550,
+    "title": "Ocean Knowledge 2030 Ireland’s Strategy for Marine Research, Knowledge and Innovation, 2025-2030 (Draft)",
+    "author": "Marine Institute",
+    "language": "English",
+    "publication_year": 2024,
+    "material_type_code": "EJART",
+    "acquisition_date": "2026-06-21T12:00:00Z"
+  },
+  {
+    "id": 202,
+    "title": "COASTAL BATHYMETRY OF THE UNITED ARAB EMIRATES USING SATELLITE-BASED REMOTE SENSING DATA",
+    "author": "Aldahmani, Naser Salem",
     "language": "English",
     "publication_year": 2023,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:02:11.599Z"
+    "material_type_code": "MAP",
+    "acquisition_date": "2026-06-20T12:00:00Z"
   },
   {
-    "id": 904,
-    "title": "Sustainable Fisheries Management",
-    "author": "Fisheries Experts",
-    "language": "English",
-    "publication_year": 2022,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:02:11.599Z"
-  },
-  {
-    "id": 905,
-    "title": "Climate Change and Marine Ecosystems",
-    "author": "Climate Scientists",
+    "id": 299,
+    "title": "Sustainability Of Small-scale Fishing Communities In Jaffna Peninsula Of Sri Lanka: A Multidimensional Analysis On Vulnerability",
+    "author": "Gunaratne, Mahinda Senevi",
     "language": "English",
     "publication_year": 2023,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:02:11.599Z"
+    "material_type_code": "SLREP",
+    "acquisition_date": "2026-06-19T12:00:00Z"
   },
   {
-    "id": 901,
-    "title": "Marine Biodiversity: Patterns and Processes",
-    "author": "Various Authors",
+    "id": 445,
+    "title": "Litigation to Protect the Marine Environment: Parallels and Synergies with Climate Litigation",
+    "author": "Abate, Randall S.",
     "language": "English",
     "publication_year": 2023,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:02:11.598Z"
+    "material_type_code": "NEWS",
+    "acquisition_date": "2026-06-18T12:00:00Z"
   },
   {
-    "id": 902,
-    "title": "Ocean Remote Sensing: Methods and Applications",
-    "author": "Research Scientists",
+    "id": 463,
+    "title": "The Ocean as a Solution to Climate Change: Five Opportunities for Action",
+    "author": "Caldeira, Ken",
     "language": "English",
-    "publication_year": 2022,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:02:11.598Z"
+    "publication_year": 2023,
+    "material_type_code": "NEWS",
+    "acquisition_date": "2026-06-17T12:00:00Z"
   },
   {
-    "id": 898,
-    "title": "Antimicrobial activities of endophytic fungi of the Sri Lankan aquatic plant<i>Nymphaea nouchali</i>and chaetoglobosin A and C, produced by the endophytic fungus<i>Chaetomium globosum</i>",
-    "author": "Ranga Dissanayake",
+    "id": 506,
+    "title": "Surviving the Anthropocene: the resilience of marine animals to climate change",
+    "author": "Ainsworth, Tracy",
     "language": "English",
-    "publication_year": 2016,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:56.812Z"
+    "publication_year": 2023,
+    "material_type_code": "RPAPER",
+    "acquisition_date": "2026-06-16T12:00:00Z"
   },
   {
-    "id": 899,
-    "title": "Knowledge and prospects of Sri Lankan aquatic science research: A bibliometric analyses",
-    "author": "Tharindu Bandara",
+    "id": 554,
+    "title": "Integrating ecosystem–based management and marine spatial planning for sustainable ocean governance in the Bay of Bengal",
+    "author": "Yousuf, Abu H.",
     "language": "English",
-    "publication_year": 2022,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:56.812Z"
-  },
-  {
-    "id": 900,
-    "title": "Occurrence of nontuberculous mycobacteria in aquatic sources of Sri Lanka",
-    "author": "E.A.R. Edirisinghe",
-    "language": "English",
-    "publication_year": 2014,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:56.812Z"
-  },
-  {
-    "id": 895,
-    "title": "Bycatch in the tuna purse-seine fisheries of the western Indian Ocean",
-    "author": "Evgeny V. Romanov",
-    "language": "English",
-    "publication_year": 2002,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:55.969Z"
-  },
-  {
-    "id": 896,
-    "title": "Spatial management of Indian Ocean tropical tuna fisheries: potential and perspectives",
-    "author": "David M. Kaplan",
-    "language": "English",
-    "publication_year": 2014,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:55.969Z"
-  },
-  {
-    "id": 897,
-    "title": "Local solutions to challenges of West Indian Ocean fisheries development",
-    "author": "Rudy van der Elst",
-    "language": "English",
-    "publication_year": 2003,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:55.969Z"
-  },
-  {
-    "id": 891,
-    "title": "Plastic Pollution in the World's Oceans: More than 5 Trillion Plastic Pieces Weighing over 250,000 Tons Afloat at Sea",
-    "author": "Marcus Eriksen",
-    "language": "English",
-    "publication_year": 2014,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:55.150Z"
-  },
-  {
-    "id": 893,
-    "title": "Interactions Between a Marine Heatwave and Tropical Cyclone Amphan in the Bay of Bengal in 2020",
-    "author": "Saurabh Rathore",
-    "language": "English",
-    "publication_year": 2022,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:55.150Z"
-  },
-  {
-    "id": 894,
-    "title": "TRACE METAL CONCENTRATIONS IN MARINE ZOOPLANKTON FROM THE WESTERN BAY OF BENGAL",
-    "author": "G. Rejomon",
-    "language": "English",
-    "publication_year": 2007,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:55.150Z"
-  },
-  {
-    "id": 890,
-    "title": "Human Health and Ocean Pollution",
-    "author": "Philip J. Landrigan",
-    "language": "English",
-    "publication_year": 2020,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:01:54.540Z"
-  },
-  {
-    "id": 892,
-    "title": "Plastic pollution of the world’s seas and oceans as a contemporary challenge in ocean governance",
-    "author": "Marcus Haward",
-    "language": "English",
-    "publication_year": 2018,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:54.540Z"
-  },
-  {
-    "id": 887,
-    "title": "Marine Ecology Progress Series",
-    "author": "Laura Airoldi",
-    "language": "English",
-    "publication_year": 2008,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:01:53.442Z"
-  },
-  {
-    "id": 888,
-    "title": "Temperature control of larval dispersal and the implications for marine ecology, evolution, and conservation",
-    "author": "Mary I. O’Connor",
-    "language": "English",
-    "publication_year": 2007,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:53.442Z"
-  },
-  {
-    "id": 889,
-    "title": "Treatise on Marine Ecology and Paleoecology",
-    "author": "Unknown Author",
-    "language": "English",
-    "publication_year": 1957,
-    "material_type_code": "EBOOK",
-    "acquisition_date": "2026-02-06T02:01:53.442Z"
-  },
-  {
-    "id": 886,
-    "title": "Emerging Technologies and Coral Reef Conservation: Opportunities, Challenges, and Moving Forward",
-    "author": "Elizabeth M. P. Madin",
-    "language": "English",
-    "publication_year": 2019,
-    "material_type_code": "JR",
-    "acquisition_date": "2026-02-06T02:01:51.864Z"
+    "publication_year": 2023,
+    "material_type_code": "EJART",
+    "acquisition_date": "2026-06-15T12:00:00Z"
   }
 ]

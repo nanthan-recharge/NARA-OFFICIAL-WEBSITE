@@ -6,8 +6,13 @@ import { labResultsService, sampleTrackingService, labResultsDashboardService } 
 import AdvancedFilters from '../../components/lab-results/AdvancedFilters';
 import BulkActionsToolbar from '../../components/lab-results/BulkActionsToolbar';
 import ResultQRCode from '../../components/lab-results/ResultQRCode';
-import { exportResultsToExcel, exportSingleResultToExcel } from '../../utils/labResultsExport';
-import { exportLabResultToPDF, exportMultipleResultsToPDF } from '../../utils/labResultsPDFExport';
+// Heavy export libs (xlsx ~700KB, jsPDF ~180KB) load on demand, only on export click.
+const _xlsx = () => import('../../utils/labResultsExport');
+const _pdf = () => import('../../utils/labResultsPDFExport');
+const exportResultsToExcel = async (...a) => (await _xlsx()).exportResultsToExcel(...a);
+const exportSingleResultToExcel = async (...a) => (await _xlsx()).exportSingleResultToExcel(...a);
+const exportLabResultToPDF = async (...a) => (await _pdf()).exportLabResultToPDF(...a);
+const exportMultipleResultsToPDF = async (...a) => (await _pdf()).exportMultipleResultsToPDF(...a);
 import MonthlyTrendsChart from '../../components/lab-results/charts/MonthlyTrendsChart';
 import TestTypeDistributionChart from '../../components/lab-results/charts/TestTypeDistributionChart';
 import ProcessingTimeChart from '../../components/lab-results/charts/ProcessingTimeChart';
@@ -138,10 +143,10 @@ const LabResultsPortal = () => {
     setSelectedResults([]);
   };
 
-  const handleBulkExport = () => {
+  const handleBulkExport = async () => {
     const selectedData = results.filter(r => selectedResults.includes(r.id));
-    const result = exportResultsToExcel(selectedData, 'NARA_Selected_Results');
-    
+    const result = await exportResultsToExcel(selectedData, 'NARA_Selected_Results');
+
     if (result.success) {
       alert(`✅ Exported ${result.recordCount} results to ${result.filename}`);
       clearSelection();

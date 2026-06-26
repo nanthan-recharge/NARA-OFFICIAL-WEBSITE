@@ -143,51 +143,20 @@ const ItemDetail = () => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  // Check if PDF URL is actually accessible before rendering iframe
+  // Resolve the PDF URL for the viewer.
+  // NOTE: We intentionally do NOT pre-fetch the URL to "test" it. Firebase
+  // Storage download URLs do not send permissive CORS headers, so any
+  // cross-origin fetch/HEAD throws — which previously flagged every valid PDF
+  // as unavailable and hid the viewer. Instead we trust the catalogue URL and
+  // let the <iframe onError> + "Open directly" link handle genuine failures.
   useEffect(() => {
-    if (item?.url) {
+    if (item?.url && !item.upload_error) {
       setCurrentPdfUrl(item.url);
       setPdfLoadError(false);
-      setPdfChecking(true);
-
-      // Check if the item has a known upload error
-      if (item.upload_error) {
-        setPdfLoadError(true);
-        setPdfChecking(false);
-        return;
-      }
-
-      // Test the URL with a HEAD request
-      fetch(item.url, { method: 'HEAD', mode: 'no-cors' })
-        .then((res) => {
-          // In no-cors mode we get opaque response; if it throws, URL is broken
-          // For Firebase Storage, a 404 will still resolve with opaque response
-          // So we also check for common error patterns
-          if (res.type === 'opaque') {
-            // Can't read status in no-cors, try fetching a small range
-            return fetch(item.url, { headers: { Range: 'bytes=0-0' } });
-          }
-          if (!res.ok) {
-            setPdfLoadError(true);
-          }
-          setPdfChecking(false);
-        })
-        .then((rangeRes) => {
-          if (rangeRes) {
-            if (!rangeRes.ok && rangeRes.status !== 206) {
-              setPdfLoadError(true);
-            }
-          }
-          setPdfChecking(false);
-        })
-        .catch(() => {
-          setPdfLoadError(true);
-          setPdfChecking(false);
-        });
-    } else if (item && !item.url) {
+    } else if (item) {
       setPdfLoadError(true);
-      setPdfChecking(false);
     }
+    setPdfChecking(false);
   }, [item]);
 
   const loadItem = async () => {

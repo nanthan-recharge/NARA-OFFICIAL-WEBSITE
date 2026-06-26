@@ -468,6 +468,8 @@ const PodcastsPage = () => {
                       loop
                       muted
                       playsInline
+                      preload="metadata"
+                      poster="/videos/podcast-hero-poster.webp"
                       className="w-full h-full object-cover"
                       onTimeUpdate={handleTimeUpdate}
                       onLoadedMetadata={handleLoadedMetadata}

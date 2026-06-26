@@ -325,7 +325,7 @@ const GovernmentNavbar = () => {
               <div className="relative">
                 <div className="absolute -inset-2 bg-white/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <img
-                  src="/logos/SRI LANKA LOGO .png"
+                  src="/logos/SRI LANKA LOGO .webp"
                   alt="Government of Sri Lanka"
                   className="h-16 w-auto object-contain relative z-10 drop-shadow-lg"
                 />
@@ -565,7 +565,7 @@ const GovernmentNavbar = () => {
               </div>
               <div className="relative">
                 <div className="absolute -inset-2 bg-cyan-400/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <img src="/logos/nara-logo-cropped.png" alt="NARA" className="h-16 w-16 object-contain relative z-10 drop-shadow-xl" />
+                <img src="/logos/nara-logo-cropped.webp" alt="NARA" className="h-16 w-16 object-contain relative z-10 drop-shadow-xl" />
               </div>
             </Link>
 

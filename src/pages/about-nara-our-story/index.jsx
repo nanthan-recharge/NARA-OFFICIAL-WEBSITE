@@ -104,9 +104,9 @@ const ACCOMPLISHMENT_ICON_MAP = {
 const DEFAULT_TIMELINE_MEDIA =
   "/nara%20acrhivements/%20Act%20No.%2054%20Establishes%20NARA.webp";
 const DIRECTOR_GENERAL_ACTING_FALLBACK_IMAGE =
-  "/images/leadership/director-general-acting.jpg";
+  "/images/leadership/director-general-acting.webp";
 const DEPUTY_DIRECTOR_GENERAL_FALLBACK_IMAGE =
-  "/images/leadership/deputy-director-general.jpg";
+  "/images/leadership/deputy-director-general.webp";
 
 const isDirectorGeneral = (executive) => {
   const titleText = `${executive?.title || ""} ${executive?.subtitle || ""}`;
@@ -293,7 +293,7 @@ const AboutNARAStoryPage = () => {
   });
   const dataPolicy = t("about.dataPolicy", { returnObjects: true });
   const chairmanImageSrc =
-    leadership?.chairman?.imageUrl || "/images/chairman/chairman-profile.jpg";
+    leadership?.chairman?.imageUrl || "/images/chairman/chairman-profile.webp";
   const chairmanImageAlt =
     leadership?.chairman?.name || labels?.chairmanAltFallback;
 

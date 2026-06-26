@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import * as Icons from 'lucide-react';
 import JSZip from 'jszip';
 import { saveAs } from 'file-saver';
-import { jsPDF } from 'jspdf';
+// jsPDF (~180KB) is imported lazily in handleDownloadRelease, only on download.
 import {
   pressReleasesService,
   mediaAssetsService,
@@ -503,6 +503,7 @@ const MediaPressKit = () => {
     }
 
     try {
+      const { jsPDF } = await import('jspdf');
       const doc = new jsPDF();
       const title = getSafeText(release.title, 'Press Release');
       const body = getSafeText(release.content, getSafeText(release.summary, ''));

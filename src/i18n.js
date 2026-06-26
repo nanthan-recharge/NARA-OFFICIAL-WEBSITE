@@ -96,6 +96,8 @@ i18n.on('languageChanged', (lng) => {
 
   if (typeof window !== 'undefined') {
     window.localStorage.setItem('nara-lang', lng);
+    // Tell index.html's deferred font loader to pull the regional font on demand.
+    window.dispatchEvent(new Event('nara:languagechange'));
   }
 });
 

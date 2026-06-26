@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
+import { ICON_REGISTRY } from '../../components/iconRegistry';
 import { DIVISIONS_CONFIG } from '../../data/divisionsConfig';
 import {
   getDivisionImages,
@@ -963,7 +964,7 @@ const DivisionImagesAdmin = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {DIVISIONS_CONFIG.map((division) => {
-              const IconComponent = LucideIcons[division.icon];
+              const IconComponent = ICON_REGISTRY[division.icon];
               return (
                 <motion.button
                   key={division.id}

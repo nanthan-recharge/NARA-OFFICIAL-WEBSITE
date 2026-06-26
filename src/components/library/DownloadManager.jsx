@@ -78,20 +78,27 @@ const DownloadManager = ({ book, className = '' }) => {
   };
 
   /**
-   * Log download activity
+   * Resolve the best downloadable URL for an item.
+   * Prefers the hosted PDF (book.url), falls back to an external source.
+   */
+  const getDownloadUrl = (b) => b?.url || b?.source_url || null;
+
+  /**
+   * Log download activity. Firestore rejects `undefined` values, so every
+   * optional field is coalesced to null.
    */
   const logDownload = async (book, downloadType = 'pdf') => {
     try {
       const downloadsRef = collection(db, 'library_downloads');
       await addDoc(downloadsRef, {
         userId: user.uid,
-        userEmail: user.email,
-        userName: userProfile.profile?.displayName || 'Anonymous',
-        userRole: userProfile.role,
-        bookId: book.id,
-        bookTitle: book.title,
-        bookBarcode: book.barcode,
-        materialType: book.material_type_code,
+        userEmail: user.email || null,
+        userName: userProfile?.profile?.displayName || 'Anonymous',
+        userRole: userProfile?.role || 'public',
+        bookId: book.id ?? null,
+        bookTitle: book.title || null,
+        bookBarcode: book.barcode || null,
+        materialType: book.material_type_code || null,
         downloadType,
         downloadedAt: serverTimestamp(),
         ipAddress: null, // Could be added via backend
@@ -133,33 +140,48 @@ const DownloadManager = ({ book, className = '' }) => {
       }
     }
 
+    // Resolve a usable file URL before doing anything else
+    const fileUrl = getDownloadUrl(book);
+    if (!fileUrl) {
+      setDownloadError('No downloadable file is available for this item yet. Try "View at Original Source" on the item page.');
+      return;
+    }
+
     // Proceed with download
     setIsDownloading(true);
     try {
-      // Log the download
+      // Log the download (best effort — never blocks the download itself)
       await logDownload(book, 'pdf');
+    } catch { /* logging is non-critical */ }
 
-      // Download the file
-      const response = await fetch(book.url);
+    try {
+      // Preferred path: fetch the bytes and save a real file.
+      const response = await fetch(fileUrl);
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const blob = await response.blob();
 
-      // Create download link
-      const url = window.URL.createObjectURL(blob);
+      const objectUrl = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = url;
-      link.download = `${book.barcode}-${book.title.substring(0, 50)}.pdf`;
+      link.href = objectUrl;
+      const safeTitle = (book.title || 'document').replace(/[^\w\-]+/g, '_').substring(0, 50);
+      link.download = `${book.barcode || book.id || 'nara'}-${safeTitle}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      window.URL.revokeObjectURL(objectUrl);
 
-      // Show success message with remaining downloads
       if (permissions.remaining !== undefined) {
-        alert(`✅ Download successful! You have ${permissions.remaining} downloads remaining this month.`);
+        setDownloadError(null);
       }
     } catch (error) {
-      console.error('Download failed:', error);
-      setDownloadError('Download failed. Please try again or contact support.');
+      // Cross-origin hosts (e.g. Firebase Storage, archive.org) block fetch()
+      // due to CORS. Fall back to opening the file directly in a new tab so the
+      // user can still read/save it.
+      console.warn('Direct download blocked, opening in new tab:', error);
+      const win = window.open(fileUrl, '_blank', 'noopener,noreferrer');
+      if (!win) {
+        setDownloadError('Your browser blocked the download. Please allow pop-ups, or use the "Open directly" link in the reader.');
+      }
     } finally {
       setIsDownloading(false);
     }
@@ -176,18 +198,24 @@ const DownloadManager = ({ book, className = '' }) => {
       return;
     }
 
-    // Log print activity
-    await logDownload(book, 'print');
+    const fileUrl = getDownloadUrl(book);
+    if (!fileUrl) {
+      setDownloadError('No printable file is available for this item yet.');
+      return;
+    }
+
+    // Log print activity (best effort)
+    try { await logDownload(book, 'print'); } catch { /* non-critical */ }
 
     // Open PDF in new window for printing
-    window.open(book.url, '_blank');
+    window.open(fileUrl, '_blank', 'noopener,noreferrer');
   };
 
   /**
-   * Redirect to registration
+   * Redirect to registration (library-scoped registration flow)
    */
   const handleRegister = () => {
-    navigate('/register', { state: { returnTo: `/library/item/${book.id}` } });
+    navigate('/library-register', { state: { returnTo: `/library/item/${book.id}` } });
   };
 
   /**

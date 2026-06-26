@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import * as LucideIcons from 'lucide-react';
+import { ICON_REGISTRY } from '../../components/iconRegistry';
 import { DIVISIONS_CONFIG } from '../../data/divisionsConfig';
 import { getDefaultProjects } from '../../data/divisionProjects';
 import { getDefaultTeamMembers } from '../../data/divisionTeams';
@@ -79,7 +80,7 @@ const DivisionContentAdmin = () => {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {DIVISIONS_CONFIG.map((division) => {
-              const IconComponent = LucideIcons[division.icon];
+              const IconComponent = ICON_REGISTRY[division.icon];
               return (
                 <motion.button
                   key={division.id}
@@ -108,7 +109,7 @@ const DivisionContentAdmin = () => {
             {/* Tabs */}
             <div className="flex gap-2 mb-6 overflow-x-auto">
               {tabs.map((tab) => {
-                const TabIcon = LucideIcons[tab.icon];
+                const TabIcon = ICON_REGISTRY[tab.icon];
                 return (
                   <button
                     key={tab.id}

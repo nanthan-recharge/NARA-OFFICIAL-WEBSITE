@@ -72,7 +72,8 @@ import {
   getUserProjects,
   getZonePhotos,
 } from "../../services/mspCloudService";
-import { generatePDFReport } from "../../services/mspPDFReportService";
+// jsPDF + html2canvas (~330KB) load on demand, only when a report is generated.
+const generatePDFReport = async (...a) => (await import("../../services/mspPDFReportService")).generatePDFReport(...a);
 import { importFile } from "../../services/mspImportService";
 
 // Fix Leaflet default marker icon

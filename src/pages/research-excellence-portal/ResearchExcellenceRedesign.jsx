@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import * as Icons from 'lucide-react';
+import { ICON_REGISTRY } from '../../components/iconRegistry';
 import { useTranslation } from 'react-i18next';
 import { useResearchData } from '../../hooks/useResearchData';
 
@@ -8,8 +9,8 @@ const resolveIconComponent = (iconRef, fallback = Icons.Activity) => {
   if (!iconRef) {
     return fallback;
   }
-  if (typeof iconRef === 'string' && Icons[iconRef]) {
-    return Icons[iconRef];
+  if (typeof iconRef === 'string' && ICON_REGISTRY[iconRef]) {
+    return ICON_REGISTRY[iconRef];
   }
   if (typeof iconRef === 'function') {
     return iconRef;
