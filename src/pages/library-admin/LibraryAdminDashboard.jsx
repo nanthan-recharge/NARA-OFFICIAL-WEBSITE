@@ -113,7 +113,7 @@ const LibraryAdminDashboard = () => {
           <div className="bg-white rounded-lg shadow-md p-6">
             <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
               <Icons.Activity className="w-5 h-5 text-cyan-600" />
-              Today's Activity
+              Today&apos;s Activity
             </h2>
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -248,12 +248,12 @@ const LibraryAdminDashboard = () => {
           </div>
 
           <div
-            onClick={() => navigate('/admin/library/reports')}
+            onClick={() => navigate('/admin/library/research-review')}
             className="bg-white rounded-lg shadow-md p-6 cursor-pointer hover:shadow-xl transition"
           >
             <Icons.BarChart3 className="w-12 h-12 text-cyan-600 mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Reports</h3>
-            <p className="text-gray-600 text-sm">View analytics and generate reports</p>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Research Review</h3>
+            <p className="text-gray-600 text-sm">Review submissions and publication workflow</p>
           </div>
         </div>
       </div>
@@ -262,4 +262,3 @@ const LibraryAdminDashboard = () => {
 };
 
 export default LibraryAdminDashboard;
-

@@ -1,4 +1,16 @@
-import { auth } from '../lib/firebase';
+import { auth, db } from '../lib/firebase';
+import {
+  addDoc,
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  limit as firestoreLimit,
+  query,
+  serverTimestamp,
+  updateDoc,
+  where
+} from 'firebase/firestore';
 
 // API Base URL - should be configured via environment variable
 const API_BASE_URL = import.meta.env.VITE_LIBRARY_API_URL || 'http://localhost:5000/api';
@@ -16,6 +28,13 @@ let translationsCatalogueCache = null;
 let translationsCatalogueCacheTime = null;
 const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
 
+const isLocalLibraryApiUnavailable = () => {
+  if (typeof window === 'undefined') return false;
+  const host = window.location.hostname;
+  const isLocalPage = host === 'localhost' || host === '127.0.0.1';
+  return API_BASE_URL.includes('localhost') && !isLocalPage;
+};
+
 /**
  * Get Firebase ID token for authenticated requests
  */
@@ -32,6 +51,10 @@ const getAuthToken = async () => {
  */
 const apiRequest = async (endpoint, options = {}) => {
   try {
+    if (isLocalLibraryApiUnavailable()) {
+      throw new Error('Library API is not configured for this deployment');
+    }
+
     const token = await getAuthToken();
 
     const response = await fetch(`${API_BASE_URL}${endpoint}`, {
@@ -51,7 +74,11 @@ const apiRequest = async (endpoint, options = {}) => {
 
     return data;
   } catch (error) {
-    console.error('API request error:', error);
+    if (error.message === 'Library API is not configured for this deployment') {
+      console.warn('[Library] API not configured; using Firebase/static fallback where available');
+    } else {
+      console.error('API request error:', error);
+    }
     throw error;
   }
 };
@@ -185,6 +212,166 @@ const sortCatalogueItems = (items, sort) => {
     case 'author_asc': return arr.sort((a, b) => parseAuthorName(a.author).localeCompare(parseAuthorName(b.author)));
     default:           return arr;
   }
+};
+
+const toDateValue = (value) => {
+  if (!value) return null;
+  if (typeof value?.toDate === 'function') return value.toDate();
+  const parsed = new Date(value);
+  return Number.isNaN(parsed.getTime()) ? null : parsed;
+};
+
+const normalizeLibraryDate = (value) => {
+  const date = toDateValue(value);
+  return date ? date.toISOString() : null;
+};
+
+const normalizeLoan = (docData) => {
+  const dueDate = normalizeLibraryDate(docData.due_date || docData.dueDate || docData.expected_return_date);
+  return {
+    id: docData.id,
+    patron_name: docData.patron_name || docData.member_name || docData.userName || docData.email || 'Unknown patron',
+    patron_number: docData.patron_number || docData.member_id || docData.uid || '',
+    item_title: docData.item_title || docData.bookTitle || docData.title || docData.barcode || 'Untitled item',
+    title: docData.title || docData.item_title || docData.bookTitle || 'Untitled item',
+    barcode: docData.barcode || docData.bookBarcode || '',
+    checkout_date: normalizeLibraryDate(docData.checkout_date || docData.checkoutDate || docData.createdAt) || new Date().toISOString(),
+    due_date: dueDate || new Date().toISOString(),
+    status: docData.status || 'active',
+    ...docData,
+  };
+};
+
+const getCollectionDocs = async (collectionName, constraints = []) => {
+  const ref = collection(db, collectionName);
+  const snapshot = await getDocs(constraints.length ? query(ref, ...constraints) : ref);
+  return snapshot.docs.map((item) => ({ id: item.id, ...item.data() }));
+};
+
+const safeGetCollectionDocs = async (collectionName, constraints = []) => {
+  try {
+    return await getCollectionDocs(collectionName, constraints);
+  } catch (error) {
+    console.warn(`[Library] Firestore fallback unavailable for ${collectionName}:`, error.message);
+    return [];
+  }
+};
+
+const getFirestoreActiveLoans = async () => {
+  const loans = await safeGetCollectionDocs('book_loans');
+  return loans
+    .map(normalizeLoan)
+    .filter((loan) => !['returned', 'cancelled', 'closed'].includes(String(loan.status || '').toLowerCase()));
+};
+
+const getFirestoreOverdueLoans = async () => {
+  const now = Date.now();
+  const loans = await getFirestoreActiveLoans();
+  return loans
+    .filter((loan) => {
+      const due = toDateValue(loan.due_date);
+      return due && due.getTime() < now;
+    })
+    .map((loan) => {
+      const due = toDateValue(loan.due_date);
+      const daysOverdue = due ? Math.max(1, Math.ceil((now - due.getTime()) / (1000 * 60 * 60 * 24))) : 0;
+      return {
+        ...loan,
+        days_overdue: daysOverdue,
+      };
+    });
+};
+
+const getFirestoreHolds = async (status) => {
+  const holds = await safeGetCollectionDocs('libraryHolds');
+  return holds
+    .filter((hold) => !status || hold.status === status)
+    .map((hold) => ({
+      id: hold.id,
+      patron_name: hold.patron_name || hold.userName || hold.userEmail || hold.userId || 'Unknown patron',
+      patron_number: hold.patron_number || hold.userId || '',
+      item_title: hold.item_title || hold.bookTitle || hold.itemId || 'Untitled item',
+      hold_date: normalizeLibraryDate(hold.hold_date || hold.createdAt) || new Date().toISOString(),
+      expiry_date: normalizeLibraryDate(hold.expiry_date || hold.expiresAt),
+      status: hold.status || 'waiting',
+      ...hold,
+    }));
+};
+
+const getFirestoreFines = async (status) => {
+  const fines = await safeGetCollectionDocs('libraryFines');
+  return fines
+    .filter((fine) => !status || fine.status === status)
+    .map((fine) => ({
+      id: fine.id,
+      patron_name: fine.patron_name || fine.userName || fine.userEmail || fine.userId || 'Unknown patron',
+      patron_number: fine.patron_number || fine.userId || '',
+      item_title: fine.item_title || fine.bookTitle || fine.itemId || 'Untitled item',
+      fine_amount: fine.fine_amount || fine.amount || 0,
+      status: fine.status || 'unpaid',
+      ...fine,
+    }));
+};
+
+const getFallbackPatronCategories = () => ({
+  success: true,
+  data: [
+    { id: 'public', name: 'Free Reader', max_loans: 3, loan_period_days: 7 },
+    { id: 'student', name: 'Student', max_loans: 5, loan_period_days: 14 },
+    { id: 'researcher', name: 'Researcher', max_loans: 10, loan_period_days: 30 },
+  ],
+});
+
+const mapLibraryUserToPatron = (libraryUser) => {
+  const firstName = libraryUser.profile?.firstName || libraryUser.first_name || '';
+  const lastName = libraryUser.profile?.lastName || libraryUser.last_name || '';
+  const role = libraryUser.role || 'public';
+  return {
+    id: libraryUser.id,
+    firebase_uid: libraryUser.uid || libraryUser.id,
+    patron_number: libraryUser.libraryCard?.cardNumber || libraryUser.patron_number || libraryUser.id,
+    first_name: firstName,
+    last_name: lastName,
+    email: libraryUser.email || '',
+    phone: libraryUser.profile?.phoneNumber || libraryUser.phone || '',
+    patron_category_id: role,
+    category_name: role === 'student' ? 'Student' : role === 'researcher' ? 'Researcher' : 'Free Reader',
+    status: libraryUser.status || libraryUser.libraryCard?.status || 'active',
+    created_at: normalizeLibraryDate(libraryUser.accountCreatedAt),
+    ...libraryUser,
+  };
+};
+
+const getFirestorePatrons = async (params = {}) => {
+  const users = await safeGetCollectionDocs('libraryUsers');
+  let patrons = users.map(mapLibraryUserToPatron);
+
+  if (params.search) {
+    const search = String(params.search).toLowerCase();
+    patrons = patrons.filter((patron) => [
+      patron.patron_number,
+      patron.first_name,
+      patron.last_name,
+      patron.email,
+      patron.phone,
+    ].some((value) => String(value || '').toLowerCase().includes(search)));
+  }
+
+  if (params.category_id) {
+    patrons = patrons.filter((patron) => patron.patron_category_id === params.category_id);
+  }
+
+  const page = parseInt(params.page, 10) || 1;
+  const limit = parseInt(params.limit, 10) || 20;
+  const total = patrons.length;
+  const start = (page - 1) * limit;
+
+  return {
+    patrons: patrons.slice(start, start + limit),
+    total,
+    totalPages: Math.max(1, Math.ceil(total / limit)),
+    page,
+  };
 };
 
 // ============================================
@@ -375,30 +562,54 @@ export const circulationService = {
    * Renew item
    */
   renewItem: async (transactionId) => {
-    return await apiRequest(`/circulation/renew/${transactionId}`, {
-      method: 'POST',
-    });
+    try {
+      return await apiRequest(`/circulation/renew/${transactionId}`, {
+        method: 'POST',
+      });
+    } catch (error) {
+      const dueDate = new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
+      await updateDoc(doc(db, 'book_loans', transactionId), {
+        due_date: dueDate,
+        updatedAt: serverTimestamp(),
+      });
+      return { success: true, data: { id: transactionId, due_date: dueDate }, source: 'firestore' };
+    }
   },
 
   /**
    * Get all active loans
    */
   getActiveLoans: async () => {
-    return await apiRequest('/circulation/active-loans');
+    try {
+      return await apiRequest('/circulation/active-loans');
+    } catch (error) {
+      const data = await getFirestoreActiveLoans();
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
    * Get patron's active loans
    */
   getPatronActiveLoans: async (patronId) => {
-    return await apiRequest(`/circulation/active-loans/patron/${patronId}`);
+    try {
+      return await apiRequest(`/circulation/active-loans/patron/${patronId}`);
+    } catch (error) {
+      const data = (await getFirestoreActiveLoans()).filter((loan) => loan.uid === patronId || loan.userId === patronId || loan.firebase_uid === patronId);
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
    * Get overdue items
    */
   getOverdueItems: async () => {
-    return await apiRequest('/circulation/overdue');
+    try {
+      return await apiRequest('/circulation/overdue');
+    } catch (error) {
+      const data = await getFirestoreOverdueLoans();
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
@@ -413,7 +624,14 @@ export const circulationService = {
    * Get patron history
    */
   getPatronHistory: async (patronId) => {
-    return await apiRequest(`/circulation/history/patron/${patronId}`);
+    try {
+      return await apiRequest(`/circulation/history/patron/${patronId}`);
+    } catch (error) {
+      const data = (await safeGetCollectionDocs('borrowing_history'))
+        .filter((record) => record.uid === patronId || record.userId === patronId || record.firebase_uid === patronId)
+        .map(normalizeLoan);
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
@@ -427,10 +645,21 @@ export const circulationService = {
    * Place hold on item
    */
   placeHold: async (patronId, itemId) => {
-    return await apiRequest('/circulation/holds', {
-      method: 'POST',
-      body: JSON.stringify({ patron_id: patronId, item_id: itemId }),
-    });
+    try {
+      return await apiRequest('/circulation/holds', {
+        method: 'POST',
+        body: JSON.stringify({ patron_id: patronId, item_id: itemId }),
+      });
+    } catch (error) {
+      const docRef = await addDoc(collection(db, 'libraryHolds'), {
+        userId: patronId,
+        itemId,
+        status: 'waiting',
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+      return { success: true, data: { id: docRef.id }, source: 'firestore' };
+    }
   },
 
   /**
@@ -438,14 +667,24 @@ export const circulationService = {
    */
   getAllHolds: async (status) => {
     const queryString = status ? `?status=${status}` : '';
-    return await apiRequest(`/circulation/holds${queryString}`);
+    try {
+      return await apiRequest(`/circulation/holds${queryString}`);
+    } catch (error) {
+      const data = await getFirestoreHolds(status);
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
    * Get patron holds
    */
   getPatronHolds: async (patronId) => {
-    return await apiRequest(`/circulation/holds/patron/${patronId}`);
+    try {
+      return await apiRequest(`/circulation/holds/patron/${patronId}`);
+    } catch (error) {
+      const data = (await getFirestoreHolds()).filter((hold) => hold.userId === patronId || hold.patron_id === patronId);
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
@@ -459,19 +698,33 @@ export const circulationService = {
    * Update hold status
    */
   updateHold: async (holdId, status, notes) => {
-    return await apiRequest(`/circulation/holds/${holdId}`, {
-      method: 'PUT',
-      body: JSON.stringify({ status, notes }),
-    });
+    try {
+      return await apiRequest(`/circulation/holds/${holdId}`, {
+        method: 'PUT',
+        body: JSON.stringify({ status, notes }),
+      });
+    } catch (error) {
+      await updateDoc(doc(db, 'libraryHolds', holdId), {
+        status,
+        notes: notes || null,
+        updatedAt: serverTimestamp(),
+      });
+      return { success: true, data: { id: holdId, status }, source: 'firestore' };
+    }
   },
 
   /**
    * Cancel hold
    */
   cancelHold: async (holdId) => {
-    return await apiRequest(`/circulation/holds/${holdId}`, {
-      method: 'DELETE',
-    });
+    try {
+      return await apiRequest(`/circulation/holds/${holdId}`, {
+        method: 'DELETE',
+      });
+    } catch (error) {
+      await deleteDoc(doc(db, 'libraryHolds', holdId));
+      return { success: true, data: { id: holdId }, source: 'firestore' };
+    }
   },
 
   /**
@@ -479,38 +732,71 @@ export const circulationService = {
    */
   getAllFines: async (status) => {
     const queryString = status ? `?status=${status}` : '';
-    return await apiRequest(`/circulation/fines${queryString}`);
+    try {
+      return await apiRequest(`/circulation/fines${queryString}`);
+    } catch (error) {
+      const data = await getFirestoreFines(status);
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
    * Get patron fines
    */
   getPatronFines: async (patronId) => {
-    return await apiRequest(`/circulation/fines/patron/${patronId}`);
+    try {
+      return await apiRequest(`/circulation/fines/patron/${patronId}`);
+    } catch (error) {
+      const data = (await getFirestoreFines()).filter((fine) => fine.userId === patronId || fine.patron_id === patronId);
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
    * Pay fine
    */
   payFine: async (fineId, amount, paymentMethod, paymentReference) => {
-    return await apiRequest(`/circulation/fines/${fineId}/pay`, {
-      method: 'POST',
-      body: JSON.stringify({
-        amount,
-        payment_method: paymentMethod,
-        payment_reference: paymentReference,
-      }),
-    });
+    try {
+      return await apiRequest(`/circulation/fines/${fineId}/pay`, {
+        method: 'POST',
+        body: JSON.stringify({
+          amount,
+          payment_method: paymentMethod,
+          payment_reference: paymentReference,
+        }),
+      });
+    } catch (error) {
+      const paymentAmount = typeof amount === 'object' ? amount.amount : amount;
+      await updateDoc(doc(db, 'libraryFines', fineId), {
+        status: 'paid',
+        paid_amount: Number(paymentAmount || 0),
+        payment_method: paymentMethod || 'manual',
+        payment_reference: paymentReference || null,
+        paidAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+      return { success: true, data: { id: fineId, status: 'paid' }, source: 'firestore' };
+    }
   },
 
   /**
    * Waive fine
    */
   waiveFine: async (fineId, reason) => {
-    return await apiRequest(`/circulation/fines/${fineId}/waive`, {
-      method: 'POST',
-      body: JSON.stringify({ reason }),
-    });
+    try {
+      return await apiRequest(`/circulation/fines/${fineId}/waive`, {
+        method: 'POST',
+        body: JSON.stringify({ reason }),
+      });
+    } catch (error) {
+      await updateDoc(doc(db, 'libraryFines', fineId), {
+        status: 'waived',
+        waived_reason: typeof reason === 'string' ? reason : 'Waived by library staff',
+        waivedAt: serverTimestamp(),
+        updatedAt: serverTimestamp(),
+      });
+      return { success: true, data: { id: fineId, status: 'waived' }, source: 'firestore' };
+    }
   },
 };
 
@@ -524,7 +810,12 @@ export const patronService = {
    */
   getAllPatrons: async (params = {}) => {
     const queryString = new URLSearchParams(params).toString();
-    return await apiRequest(`/patrons?${queryString}`);
+    try {
+      return await apiRequest(`/patrons?${queryString}`);
+    } catch (error) {
+      const data = await getFirestorePatrons(params);
+      return { success: true, data, source: 'firestore' };
+    }
   },
 
   /**
@@ -538,7 +829,13 @@ export const patronService = {
    * Get patron by Firebase UID
    */
   getPatronByFirebaseUid: async (uid) => {
-    return await apiRequest(`/patrons/firebase/${uid}`);
+    try {
+      return await apiRequest(`/patrons/firebase/${uid}`);
+    } catch (error) {
+      const patrons = await getFirestorePatrons({ limit: 1000 });
+      const patron = patrons.patrons.find((item) => item.firebase_uid === uid || item.uid === uid);
+      return { success: true, data: patron || null, source: 'firestore' };
+    }
   },
 
   /**
@@ -581,21 +878,51 @@ export const patronService = {
    * Get patron statistics
    */
   getPatronStatistics: async (id) => {
-    return await apiRequest(`/patrons/${id}/statistics`);
+    try {
+      return await apiRequest(`/patrons/${id}/statistics`);
+    } catch (error) {
+      const activeLoans = (await getFirestoreActiveLoans()).filter((loan) => loan.uid === id || loan.userId === id || loan.firebase_uid === id);
+      const holds = (await getFirestoreHolds()).filter((hold) => hold.userId === id || hold.uid === id);
+      const fines = (await getFirestoreFines()).filter((fine) => fine.userId === id || fine.uid === id);
+      return {
+        success: true,
+        data: {
+          active_loans: activeLoans.length,
+          active_holds: holds.length,
+          unpaid_fines: fines.reduce((sum, fine) => sum + Number(fine.fine_amount || fine.amount || 0), 0),
+          total_borrowed: 0,
+        },
+        source: 'firestore',
+      };
+    }
   },
 
   /**
    * Get patron categories
    */
   getPatronCategories: async () => {
-    return await apiRequest('/patrons/categories/all');
+    try {
+      return await apiRequest('/patrons/categories/all');
+    } catch (error) {
+      return getFallbackPatronCategories();
+    }
   },
 
   /**
    * Generate patron number
    */
   generatePatronNumber: async () => {
-    return await apiRequest('/patrons/generate/patron-number');
+    try {
+      return await apiRequest('/patrons/generate/patron-number');
+    } catch (error) {
+      return {
+        success: true,
+        data: {
+          patron_number: `NARA-${new Date().getFullYear()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`,
+        },
+        source: 'client',
+      };
+    }
   },
 };
 
@@ -900,7 +1227,11 @@ export const acquisitionsService = {
    */
   getAllAcquisitions: async (params = {}) => {
     const queryString = new URLSearchParams(params).toString();
-    return await apiRequest(`/acquisitions?${queryString}`);
+    try {
+      return await apiRequest(`/acquisitions?${queryString}`);
+    } catch (error) {
+      return { success: true, data: [], source: 'fallback' };
+    }
   },
 
   /**
@@ -961,7 +1292,11 @@ export const acquisitionsService = {
    */
   getAllSuppliers: async (status) => {
     const queryString = status ? `?status=${status}` : '';
-    return await apiRequest(`/acquisitions/suppliers/all${queryString}`);
+    try {
+      return await apiRequest(`/acquisitions/suppliers/all${queryString}`);
+    } catch (error) {
+      return { success: true, data: [], source: 'fallback' };
+    }
   },
 
   /**
@@ -998,7 +1333,20 @@ export const acquisitionsService = {
    */
   getBudgetReport: async (params = {}) => {
     const queryString = new URLSearchParams(params).toString();
-    return await apiRequest(`/acquisitions/reports/budget?${queryString}`);
+    try {
+      return await apiRequest(`/acquisitions/reports/budget?${queryString}`);
+    } catch (error) {
+      return {
+        success: true,
+        data: {
+          total_budget: 0,
+          total_spent: 0,
+          remaining: 0,
+          by_category: [],
+        },
+        source: 'fallback',
+      };
+    }
   },
 };
 
@@ -1092,7 +1440,35 @@ export const reportsService = {
    * Get dashboard statistics
    */
   getDashboardStats: async () => {
-    return await apiRequest('/reports/dashboard');
+    try {
+      return await apiRequest('/reports/dashboard');
+    } catch (error) {
+      const catalogue = await fetchStaticCatalogue();
+      const patrons = await safeGetCollectionDocs('libraryUsers');
+      const activeLoans = await getFirestoreActiveLoans();
+      const overdueItems = await getFirestoreOverdueLoans();
+      const holds = await getFirestoreHolds();
+      const fines = await getFirestoreFines('unpaid');
+      const downloads = await safeGetCollectionDocs('library_downloads');
+      const today = new Date().toISOString().slice(0, 10);
+      const todayDownloads = downloads.filter((item) => normalizeLibraryDate(item.downloadedAt)?.startsWith(today));
+
+      return {
+        success: true,
+        data: {
+          totalItems: Array.isArray(catalogue) ? catalogue.length : 0,
+          totalPatrons: patrons.length,
+          activeLoans: activeLoans.length,
+          overdueItems: overdueItems.length,
+          todayCheckouts: activeLoans.filter((loan) => loan.checkout_date?.startsWith(today)).length,
+          todayCheckins: 0,
+          pendingHolds: holds.filter((hold) => ['waiting', 'pending', 'ready'].includes(String(hold.status || '').toLowerCase())).length,
+          unpaidFines: fines.reduce((sum, fine) => sum + Number(fine.fine_amount || fine.amount || 0), 0),
+          todayDownloads: todayDownloads.length,
+        },
+        source: 'firestore',
+      };
+    }
   },
 
   /**
@@ -1211,6 +1587,64 @@ export const settingsService = {
   },
 };
 
+const checkoutItem = async (data) => {
+  try {
+    return await apiRequest('/circulation/checkout', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  } catch (error) {
+    const dueDate = data.due_date || new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString();
+    const docRef = await addDoc(collection(db, 'book_loans'), {
+      patron_number: data.patron_number || '',
+      patron_name: data.patron_name || data.patron_number || 'Library patron',
+      barcode: data.barcode || '',
+      item_title: data.item_title || data.barcode || 'Library item',
+      checkout_date: new Date().toISOString(),
+      due_date: dueDate,
+      status: 'active',
+      createdAt: serverTimestamp(),
+      updatedAt: serverTimestamp(),
+    });
+    return { success: true, data: { id: docRef.id, due_date: dueDate }, source: 'firestore' };
+  }
+};
+
+const checkinItem = async (data) => {
+  try {
+    return await apiRequest('/circulation/checkin', {
+      method: 'POST',
+      body: JSON.stringify(data),
+    });
+  } catch (error) {
+    const snapshot = await getDocs(query(
+      collection(db, 'book_loans'),
+      where('barcode', '==', data.barcode),
+      firestoreLimit(10)
+    ));
+    const activeLoan = snapshot.docs
+      .map((item) => ({ id: item.id, ...item.data() }))
+      .find((loan) => !['returned', 'cancelled', 'closed'].includes(String(loan.status || '').toLowerCase()));
+
+    if (activeLoan) {
+      await updateDoc(doc(db, 'book_loans', activeLoan.id), {
+        status: 'returned',
+        checkin_date: new Date().toISOString(),
+        updatedAt: serverTimestamp(),
+      });
+    }
+
+    return {
+      success: true,
+      data: {
+        id: activeLoan?.id || null,
+        fine_amount: 0,
+      },
+      source: 'firestore',
+    };
+  }
+};
+
 // Export all services
 export default {
   catalogue: catalogueService,
@@ -1221,5 +1655,26 @@ export default {
   serials: serialsService,
   reports: reportsService,
   settings: settingsService,
+  getActiveLoans: circulationService.getActiveLoans,
+  getOverdueItems: circulationService.getOverdueItems,
+  getAllHolds: circulationService.getAllHolds,
+  getAllFines: circulationService.getAllFines,
+  checkoutItem,
+  checkinItem,
+  renewItem: circulationService.renewItem,
+  payFine: circulationService.payFine,
+  waiveFine: circulationService.waiveFine,
+  cancelHold: circulationService.cancelHold,
+  getPatronActiveLoans: circulationService.getPatronActiveLoans,
+  getPatronBorrowingHistory: circulationService.getPatronHistory,
+  getPatronHolds: circulationService.getPatronHolds,
+  getPatronFines: circulationService.getPatronFines,
+  getAllPatrons: patronService.getAllPatrons,
+  getPatronByFirebaseUid: patronService.getPatronByFirebaseUid,
+  getPatronStatistics: patronService.getPatronStatistics,
+  getPatronCategories: patronService.getPatronCategories,
+  generatePatronNumber: patronService.generatePatronNumber,
+  createPatron: patronService.createPatron,
+  updatePatron: patronService.updatePatron,
+  deletePatron: patronService.deletePatron,
 };
-

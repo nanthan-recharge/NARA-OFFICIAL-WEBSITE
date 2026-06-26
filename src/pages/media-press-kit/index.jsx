@@ -71,8 +71,13 @@ const copyText = async (value) => {
   if (!value) return false;
 
   if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(value);
-    return true;
+    try {
+      await navigator.clipboard.writeText(value);
+      return true;
+    } catch {
+      // Fall through to the textarea fallback for browsers that expose clipboard
+      // but block writes without an explicit permission grant.
+    }
   }
 
   if (typeof document !== 'undefined') {
@@ -80,15 +85,68 @@ const copyText = async (value) => {
     textArea.value = value;
     textArea.style.position = 'fixed';
     textArea.style.opacity = '0';
+    textArea.setAttribute('readonly', '');
     document.body.appendChild(textArea);
-    textArea.focus();
-    textArea.select();
-    const copied = document.execCommand('copy');
-    document.body.removeChild(textArea);
-    return copied;
+
+    try {
+      textArea.focus();
+      textArea.select();
+      return document.execCommand('copy');
+    } catch {
+      return false;
+    } finally {
+      document.body.removeChild(textArea);
+    }
   }
 
   return false;
+};
+
+const getShareUrl = (value) => {
+  if (typeof window === 'undefined') return value || '';
+
+  const fallbackUrl = window.location.href;
+  if (!value) return fallbackUrl;
+
+  try {
+    return new URL(value, window.location.origin).toString();
+  } catch {
+    return fallbackUrl;
+  }
+};
+
+const canUseNativeShare = (shareData) => {
+  if (typeof navigator === 'undefined' || typeof navigator.share !== 'function') {
+    return false;
+  }
+
+  if (typeof navigator.canShare === 'function') {
+    try {
+      return navigator.canShare(shareData);
+    } catch {
+      return false;
+    }
+  }
+
+  return true;
+};
+
+const shouldUseNativeShare = (shareData) => {
+  if (!canUseNativeShare(shareData)) return false;
+  if (typeof window === 'undefined') return true;
+
+  const isCoarsePointer = typeof window.matchMedia === 'function' &&
+    window.matchMedia('(pointer: coarse)').matches;
+  const userAgent = navigator.userAgent || '';
+  const isMobileDevice = /Android|iPhone|iPad|iPod|Mobile/i.test(userAgent);
+
+  return isCoarsePointer || isMobileDevice;
+};
+
+const isShareCancelled = (error) => {
+  const name = error?.name || '';
+  const message = error?.message || '';
+  return name === 'AbortError' || /abort|cancel/i.test(message);
 };
 
 const buildCitationText = ({ item, type, currentUrl }) => {
@@ -411,35 +469,53 @@ const MediaPressKit = () => {
   }, [loadData]);
 
   const handleShare = useCallback(async (payload = {}) => {
+    const shareUrl = getShareUrl(payload.url);
     const shareData = {
       title: payload.title || t('media:hero.title', { defaultValue: 'Media Press Kit' }),
       text: payload.text || t('media:hero.description', { defaultValue: 'Media resources from NARA' }),
-      url: payload.url || (typeof window !== 'undefined' ? window.location.href : '')
+      url: shareUrl
     };
 
-    try {
-      if (typeof navigator !== 'undefined' && navigator.share) {
+    if (shouldUseNativeShare(shareData)) {
+      try {
         await navigator.share(shareData);
         showStatus('success', t('common:shared', { defaultValue: 'Shared successfully' }));
         return;
+      } catch (error) {
+        if (isShareCancelled(error)) {
+          return;
+        }
       }
+    }
 
-      if (typeof navigator !== 'undefined' && navigator.clipboard) {
-        await navigator.clipboard.writeText(shareData.url);
-        showStatus('success', t('common:linkCopied', { defaultValue: 'Link copied to clipboard' }));
+    const copied = await copyText(shareData.url);
+
+    if (copied) {
+      showStatus('success', t('common:linkCopied', { defaultValue: 'Link copied to clipboard' }));
+      return;
+    }
+
+    try {
+      if (typeof window !== 'undefined') {
+        window.prompt(
+          t('common:copyLinkPrompt', { defaultValue: 'Copy this link' }),
+          shareData.url
+        );
         return;
       }
-
-      showStatus('warning', t('common:shareUnavailable', { defaultValue: 'Sharing is not available on this device' }));
     } catch {
-      showStatus('error', t('common:shareFailed', { defaultValue: 'Unable to share right now' }));
+      showStatus('warning', t('common:shareUnavailable', { defaultValue: 'Sharing is not available on this device' }));
+      return;
     }
+
+    showStatus('warning', t('common:shareUnavailable', { defaultValue: 'Sharing is not available on this device' }));
   }, [showStatus, t]);
 
-  const handlePlatformShare = useCallback((platform) => {
+  const handlePlatformShare = useCallback(async (platform) => {
     if (typeof window === 'undefined') return;
 
-    const pageUrl = encodeURIComponent(window.location.href);
+    const shareUrl = getShareUrl(window.location.href);
+    const pageUrl = encodeURIComponent(shareUrl);
     const pageTitle = encodeURIComponent(t('media:hero.title', { defaultValue: 'NARA Media Press Kit' }));
     const platformUrls = {
       twitter: `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`,
@@ -449,9 +525,19 @@ const MediaPressKit = () => {
 
     const targetUrl = platformUrls[platform];
     if (targetUrl) {
-      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+      const popup = window.open(targetUrl, '_blank', 'noopener,noreferrer');
+
+      if (!popup) {
+        const copied = await copyText(shareUrl);
+        showStatus(
+          copied ? 'success' : 'warning',
+          copied
+            ? t('common:linkCopied', { defaultValue: 'Link copied to clipboard' })
+            : t('common:shareUnavailable', { defaultValue: 'Sharing is not available on this device' })
+        );
+      }
     }
-  }, [t]);
+  }, [showStatus, t]);
 
   const handleDownloadAsset = useCallback(async (asset) => {
     if (!asset?.fileUrl) {

@@ -11,7 +11,8 @@ const DEFAULT_ADMIN_ALLOWED_DOMAINS = [
   'nara.gov.lk',
   'gov.lk',
   'gmail.com', // Temporary launch access until official NARA email accounts are ready.
-  'safenetcreations.com' // Temporary implementation/support access during launch.
+  'safenetcreations.com', // Temporary implementation/support access during launch.
+  'test.com' // Temporary NARA IT review account. Remove before public launch.
 ];
 const ADMIN_BOOTSTRAP_ROLES = ['system_admin', 'director_general'];
 const ADMIN_STAFF_ROLES = [

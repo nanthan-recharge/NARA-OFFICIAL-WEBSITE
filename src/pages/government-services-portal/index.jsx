@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
@@ -18,10 +18,13 @@ import {
   FileText,
   Fish,
   FlaskConical,
+  Loader2,
   MapPin,
+  MessageSquare,
   PhoneCall,
   Radio,
   Search,
+  Send,
   ShieldCheck,
   Ship,
   UserCog,
@@ -41,6 +44,9 @@ const exportEIAToPDF = async (...a) => (await _pdf()).exportEIAToPDF(...a);
 const exportEmergencyToPDF = async (...a) => (await _pdf()).exportEmergencyToPDF(...a);
 const exportLicenseToPDF = async (...a) => (await _pdf()).exportLicenseToPDF(...a);
 import SEOHead from '../../components/shared/SEOHead';
+// Firestore — used by the visitor feedback form to store submissions.
+import { db } from '../../lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 
 const CATEGORY_STYLES = {
   regulatory: {
@@ -490,6 +496,18 @@ const STATUS_STYLES = {
   monitoring: 'bg-cyan-500/20 text-cyan-100 border-cyan-300/40',
 };
 
+/**
+ * GovernmentServicesPortal
+ * Public hub for NARA's marine government services. Sections, top to bottom:
+ *   1. Hero          — headline + quick actions (EIA / License / Emergency modals) + duty window + KPIs
+ *   2. Workflow      — 4-step "how services flow" explainer
+ *   3. Service directory — searchable + filterable (category / audience) cards; each opens a modal or routes to a page
+ *   4. Live operations — status feed + agency programs + recent activity
+ *   5. Reporting     — on-demand Excel/PDF exports (libs lazy-loaded)
+ *   6. Feedback      — visitor comment form, saved to Firestore `service_feedback`
+ *   7. Contacts      — desks + quick links
+ * Modals (EIA / License / Emergency) render at the bottom via <AnimatePresence>.
+ */
 const GovernmentServicesPortal = () => {
   const { t } = useTranslation('governmentServices');
   const [query, setQuery] = useState('');
@@ -498,6 +516,91 @@ const GovernmentServicesPortal = () => {
   const [activeModal, setActiveModal] = useState(null);
   const [activityFeed, setActivityFeed] = useState(INITIAL_ACTIVITY_FEED);
   const [exportNotice, setExportNotice] = useState('');
+
+  // ── Visitor feedback form ──────────────────────────────────────────────
+  // Lets any visitor leave a comment/question about NARA services. Stored in
+  // the Firestore `service_feedback` collection (public create, staff read).
+  const [feedback, setFeedback] = useState({ name: '', email: '', message: '', service: '' });
+  const [feedbackStatus, setFeedbackStatus] = useState('idle'); // idle | submitting | success | error
+  const [feedbackError, setFeedbackError] = useState('');
+  // Anti-spam: a honeypot field (bots fill it, humans never see it) plus a
+  // time-to-submit gate. App Check (reCAPTCHA v3) + Firestore rules do the
+  // hard enforcement; these are cheap client-side first lines of defence.
+  const honeypotRef = useRef(null);
+  const feedbackOpenedAt = useRef(Date.now());
+
+  const handleFeedbackChange = (field) => (event) =>
+    setFeedback((prev) => ({ ...prev, [field]: event.target.value }));
+
+  const handleFeedbackSubmit = async (event) => {
+    event.preventDefault();
+    setFeedbackError('');
+
+    // 1) Honeypot — if the hidden field has a value, treat as a bot: show
+    //    success but write nothing.
+    if (honeypotRef.current && honeypotRef.current.value) {
+      setFeedbackStatus('success');
+      setFeedback({ name: '', email: '', message: '', service: '' });
+      return;
+    }
+
+    // 2) Too-fast submit — humans take a few seconds to fill a form.
+    if (Date.now() - feedbackOpenedAt.current < 3000) {
+      setFeedbackError(t('feedback.errorTooFast', { defaultValue: 'Please take a moment, then send again.' }));
+      return;
+    }
+
+    const name = feedback.name.trim();
+    const email = feedback.email.trim();
+    const message = feedback.message.trim();
+
+    if (!name || !message) {
+      setFeedbackError(t('feedback.errorRequired', { defaultValue: 'Please add your name and a message.' }));
+      return;
+    }
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setFeedbackError(t('feedback.errorEmail', { defaultValue: 'Please enter a valid email address.' }));
+      return;
+    }
+
+    // 3) Client-side rate limit (defense-in-depth): 30s cooldown + 5/day.
+    const todayKey = `nara_feedback_count_${new Date().toISOString().slice(0, 10)}`;
+    try {
+      const last = Number(localStorage.getItem('nara_feedback_last') || 0);
+      if (Date.now() - last < 30000) {
+        setFeedbackError(t('feedback.errorRate', { defaultValue: 'You just sent feedback — please wait a minute before sending again.' }));
+        return;
+      }
+      if (Number(localStorage.getItem(todayKey) || 0) >= 5) {
+        setFeedbackError(t('feedback.errorRateDay', { defaultValue: 'You have reached the daily feedback limit. Please email us instead.' }));
+        return;
+      }
+    } catch { /* localStorage unavailable — skip rate limit */ }
+
+    setFeedbackStatus('submitting');
+    try {
+      await addDoc(collection(db, 'service_feedback'), {
+        name,
+        email,
+        message,
+        service: feedback.service || '',
+        page: 'government-services-portal',
+        status: 'new',
+        userAgent: typeof navigator !== 'undefined' ? navigator.userAgent.slice(0, 400) : '',
+        createdAt: serverTimestamp(),
+      });
+      try {
+        localStorage.setItem('nara_feedback_last', String(Date.now()));
+        localStorage.setItem(todayKey, String(Number(localStorage.getItem(todayKey) || 0) + 1));
+      } catch { /* ignore */ }
+      setFeedbackStatus('success');
+      setFeedback({ name: '', email: '', message: '', service: '' });
+    } catch (err) {
+      console.error('[ServiceFeedback] submit failed:', err);
+      setFeedbackStatus('error');
+      setFeedbackError(t('feedback.errorGeneric', { defaultValue: 'Could not send right now. Please try again in a moment.' }));
+    }
+  };
 
   const filteredServices = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -552,6 +655,7 @@ const GovernmentServicesPortal = () => {
         path="/government-services-portal"
         keywords="government services, marine permits, fisheries regulation, NARA"
       />
+      {/* ===== Hero: headline, quick actions, duty window, KPIs ===== */}
       <div className="relative overflow-hidden border-b border-white/10">
         <div className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-cyan-400/20 blur-3xl" />
         <div className="absolute -bottom-24 -left-24 h-80 w-80 rounded-full bg-blue-600/20 blur-3xl" />
@@ -644,6 +748,7 @@ const GovernmentServicesPortal = () => {
       </div>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-14">
+        {/* ===== Service workflow (4 steps) ===== */}
         <section className="space-y-5">
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <div>
@@ -677,6 +782,7 @@ const GovernmentServicesPortal = () => {
           </div>
         </section>
 
+        {/* ===== Service directory: search + filters + service cards ===== */}
         <section className="space-y-6">
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <div>
@@ -687,24 +793,29 @@ const GovernmentServicesPortal = () => {
             <div className="text-sm text-slate-200">{filteredServices.length} {t('directory.servicesAvailable')}</div>
           </div>
 
-          <div className="rounded-2xl border border-white/15 bg-white/10 p-4">
-            <div className="grid lg:grid-cols-3 gap-3">
-              <label className="relative lg:col-span-1">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300" />
-                <input
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder={t('directory.searchPlaceholder')}
-                  className="w-full rounded-xl border border-white/20 bg-[#001a31]/60 pl-10 pr-3 py-2.5 text-sm text-white placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                />
-              </label>
+          <div className="rounded-2xl border border-white/15 bg-white/10 p-4 space-y-4">
+            {/* Search — full width */}
+            <label className="relative block">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-300" />
+              <input
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder={t('directory.searchPlaceholder')}
+                className="w-full rounded-xl border border-white/20 bg-[#001a31]/60 pl-10 pr-3 py-2.5 text-sm text-white placeholder:text-slate-300 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              />
+            </label>
 
-              <div className="flex gap-2 overflow-x-auto lg:col-span-1 pb-1">
+            {/* Category filters — labelled + wrapping so all options stay readable */}
+            <div>
+              <p className="mb-1.5 text-[11px] uppercase tracking-[0.14em] text-slate-300">
+                {t('directory.filterCategory', { defaultValue: 'Category' })}
+              </p>
+              <div className="flex flex-wrap gap-2">
                 {categoryOptions.map((option) => (
                   <button
                     key={option.id}
                     onClick={() => setSelectedCategory(option.id)}
-                    className={`px-3.5 py-2 rounded-xl border text-xs whitespace-nowrap transition-colors ${selectedCategory === option.id
+                    className={`px-3.5 py-2 rounded-xl border text-xs transition-colors ${selectedCategory === option.id
                       ? 'bg-cyan-500/20 border-cyan-300/40 text-cyan-100'
                       : 'bg-white/5 border-white/15 text-slate-200 hover:bg-white/10'
                       }`}
@@ -713,13 +824,19 @@ const GovernmentServicesPortal = () => {
                   </button>
                 ))}
               </div>
+            </div>
 
-              <div className="flex gap-2 overflow-x-auto lg:col-span-1 pb-1">
+            {/* Audience filters — labelled + wrapping, separated from category row */}
+            <div className="border-t border-white/10 pt-3">
+              <p className="mb-1.5 text-[11px] uppercase tracking-[0.14em] text-slate-300">
+                {t('directory.filterAudience', { defaultValue: 'Audience' })}
+              </p>
+              <div className="flex flex-wrap gap-2">
                 {AUDIENCE_OPTIONS.map((option) => (
                   <button
                     key={option.id}
                     onClick={() => setSelectedAudience(option.id)}
-                    className={`px-3.5 py-2 rounded-xl border text-xs whitespace-nowrap transition-colors ${selectedAudience === option.id
+                    className={`px-3.5 py-2 rounded-xl border text-xs transition-colors ${selectedAudience === option.id
                       ? 'bg-cyan-500/20 border-cyan-300/40 text-cyan-100'
                       : 'bg-white/5 border-white/15 text-slate-200 hover:bg-white/10'
                       }`}
@@ -818,8 +935,9 @@ const GovernmentServicesPortal = () => {
           </div>
         </section>
 
+        {/* ===== Live operations + programs + activity ===== */}
         <section className="grid lg:grid-cols-5 gap-6">
-          <div className="lg:col-span-3 rounded-2xl border border-white/15 bg-white/10 p-5">
+          <div className="lg:col-span-3 min-w-0 rounded-2xl border border-white/15 bg-white/10 p-5">
             <div className="flex items-end justify-between gap-3 flex-wrap">
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-cyan-200 font-semibold">{t('operations.sectionLabel')}</p>
@@ -851,7 +969,7 @@ const GovernmentServicesPortal = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 min-w-0 space-y-6">
             <div className="rounded-2xl border border-white/15 bg-white/10 p-5">
               <h3 className="text-xl font-headline font-bold">{t('programs.title')}</h3>
               <div className="mt-4 space-y-4">
@@ -896,6 +1014,7 @@ const GovernmentServicesPortal = () => {
           </div>
         </section>
 
+        {/* ===== Reporting: on-demand Excel / PDF exports (libs lazy-loaded) ===== */}
         <section className="space-y-4">
           <div className="flex items-end justify-between gap-4 flex-wrap">
             <div>
@@ -912,13 +1031,13 @@ const GovernmentServicesPortal = () => {
               <div className="mt-4 flex gap-2">
                 <button
                   onClick={() => handleExport(() => exportEIAToExcel(EXPORT_EIA_DATA), 'EIA Excel')}
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm text-white"
                 >
                   <FileSpreadsheet className="h-4 w-4" /> Excel
                 </button>
                 <button
                   onClick={() => exportEIAToPDF(EXPORT_EIA_DATA[0])}
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm text-white"
                 >
                   <Download className="h-4 w-4" /> PDF
                 </button>
@@ -931,13 +1050,13 @@ const GovernmentServicesPortal = () => {
               <div className="mt-4 flex gap-2">
                 <button
                   onClick={() => handleExport(() => exportLicensesToExcel(EXPORT_LICENSE_DATA), 'License Excel')}
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm text-white"
                 >
                   <FileSpreadsheet className="h-4 w-4" /> Excel
                 </button>
                 <button
                   onClick={() => exportLicenseToPDF(EXPORT_LICENSE_DATA[0])}
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm text-white"
                 >
                   <Download className="h-4 w-4" /> PDF
                 </button>
@@ -950,13 +1069,13 @@ const GovernmentServicesPortal = () => {
               <div className="mt-4 flex gap-2">
                 <button
                   onClick={() => handleExport(() => exportEmergenciesToExcel(EXPORT_EMERGENCY_DATA), 'Emergency Excel')}
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm text-white"
                 >
                   <FileSpreadsheet className="h-4 w-4" /> Excel
                 </button>
                 <button
                   onClick={() => exportEmergencyToPDF(EXPORT_EMERGENCY_DATA[0])}
-                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm"
+                  className="inline-flex items-center gap-2 rounded-lg bg-white/10 hover:bg-white/20 border border-white/20 px-3 py-2 text-sm text-white"
                 >
                   <Download className="h-4 w-4" /> PDF
                 </button>
@@ -971,21 +1090,126 @@ const GovernmentServicesPortal = () => {
           ) : null}
         </section>
 
+        {/* ===== Visitor feedback / comments ===== */}
+        <section className="rounded-2xl border border-white/15 bg-white/10 p-6">
+          <div className="grid lg:grid-cols-5 gap-6 items-start">
+            <div className="lg:col-span-2 min-w-0">
+              <p className="text-xs uppercase tracking-[0.18em] text-cyan-200 font-semibold">
+                {t('feedback.sectionLabel', { defaultValue: 'Feedback' })}
+              </p>
+              <h2 className="mt-1 text-2xl font-headline font-bold inline-flex items-center gap-2">
+                <MessageSquare className="h-5 w-5 text-cyan-200" />
+                {t('feedback.title', { defaultValue: 'Share your feedback' })}
+              </h2>
+              <p className="mt-2 text-sm text-slate-200">
+                {t('feedback.description', { defaultValue: 'Tell us about your experience with NARA services, report an issue, or ask a question. Our service desk reviews every message.' })}
+              </p>
+            </div>
+
+            <form onSubmit={handleFeedbackSubmit} className="lg:col-span-3 min-w-0 space-y-3" noValidate>
+              {/* Honeypot — kept off-screen; real users never fill this */}
+              <input
+                ref={honeypotRef}
+                type="text"
+                name="company"
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+              />
+
+              <div className="grid sm:grid-cols-2 gap-3">
+                <label className="block">
+                  <span className="text-xs text-slate-300">{t('feedback.name', { defaultValue: 'Name' })} *</span>
+                  <input
+                    type="text"
+                    value={feedback.name}
+                    onChange={handleFeedbackChange('name')}
+                    placeholder={t('feedback.namePlaceholder', { defaultValue: 'Your name' })}
+                    maxLength={150}
+                    className="mt-1 w-full rounded-xl border border-white/20 bg-[#001a31]/60 px-3 py-2.5 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  />
+                </label>
+                <label className="block">
+                  <span className="text-xs text-slate-300">{t('feedback.email', { defaultValue: 'Email (optional)' })}</span>
+                  <input
+                    type="email"
+                    value={feedback.email}
+                    onChange={handleFeedbackChange('email')}
+                    placeholder="name@example.com"
+                    maxLength={180}
+                    className="mt-1 w-full rounded-xl border border-white/20 bg-[#001a31]/60 px-3 py-2.5 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                  />
+                </label>
+              </div>
+
+              <label className="block">
+                <span className="text-xs text-slate-300">{t('feedback.service', { defaultValue: 'Related service (optional)' })}</span>
+                <select
+                  value={feedback.service}
+                  onChange={handleFeedbackChange('service')}
+                  className="mt-1 w-full rounded-xl border border-white/20 bg-[#001a31]/60 px-3 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                >
+                  <option value="" className="bg-[#001a31]">{t('feedback.serviceAny', { defaultValue: 'General / not sure' })}</option>
+                  {SERVICE_DIRECTORY.map((s) => (
+                    <option key={s.id} value={s.title} className="bg-[#001a31]">{s.title}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="block">
+                <span className="text-xs text-slate-300">{t('feedback.message', { defaultValue: 'Message' })} *</span>
+                <textarea
+                  value={feedback.message}
+                  onChange={handleFeedbackChange('message')}
+                  rows={4}
+                  placeholder={t('feedback.messagePlaceholder', { defaultValue: 'How can we help?' })}
+                  maxLength={4000}
+                  className="mt-1 w-full rounded-xl border border-white/20 bg-[#001a31]/60 px-3 py-2.5 text-sm text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-400 resize-y"
+                />
+              </label>
+
+              {feedbackError ? (
+                <p className="text-sm text-red-100 bg-red-500/15 border border-red-300/30 rounded-lg px-3 py-2">{feedbackError}</p>
+              ) : null}
+              {feedbackStatus === 'success' ? (
+                <p className="text-sm text-emerald-100 bg-emerald-500/15 border border-emerald-300/30 rounded-lg px-3 py-2 inline-flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4" />
+                  {t('feedback.success', { defaultValue: 'Thank you — your feedback has been sent.' })}
+                </p>
+              ) : null}
+
+              <button
+                type="submit"
+                disabled={feedbackStatus === 'submitting'}
+                className="inline-flex items-center gap-2 rounded-xl bg-nara-blue hover:bg-blue-500 px-5 py-3 text-sm font-semibold text-white transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+              >
+                {feedbackStatus === 'submitting' ? (
+                  <><Loader2 className="h-4 w-4 animate-spin" /> {t('feedback.sending', { defaultValue: 'Sending…' })}</>
+                ) : (
+                  <><Send className="h-4 w-4" /> {t('feedback.submit', { defaultValue: 'Send feedback' })}</>
+                )}
+              </button>
+            </form>
+          </div>
+        </section>
+
+        {/* ===== Contact desks + quick links ===== */}
         <section className="rounded-2xl border border-white/15 bg-gradient-to-r from-[#003366]/70 to-[#00508f]/60 p-6">
           <div className="grid lg:grid-cols-3 gap-6">
-            <div>
+            <div className="min-w-0">
               <h3 className="text-xl font-headline font-bold">{t('contacts.title')}</h3>
               <p className="text-sm text-slate-200 mt-2">
                 {t('contacts.description')}
               </p>
             </div>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2 text-sm min-w-0 break-words">
               <p className="font-semibold">{t('contacts.operationsDesk')}</p>
               <p className="text-slate-100">+94 11 252 1000</p>
               <p className="text-slate-200">operations@nara.gov.lk</p>
               <p className="text-slate-300">{t('contacts.operationsNote')}</p>
             </div>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2 text-sm min-w-0 break-words">
               <p className="font-semibold">{t('contacts.policyDesk')}</p>
               <p className="text-slate-100">+94 11 252 1001</p>
               <p className="text-slate-200">evidence@nara.gov.lk</p>
@@ -996,37 +1220,37 @@ const GovernmentServicesPortal = () => {
           <div className="mt-5 flex flex-wrap gap-3">
             <Link
               to="/open-data-portal"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm text-white"
             >
               <Database className="h-4 w-4" /> {t('quickLinks.openData')}
             </Link>
             <Link
               to="/scientific-evidence-repository"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm text-white"
             >
               <FlaskConical className="h-4 w-4" /> {t('quickLinks.scientificEvidence')}
             </Link>
             <Link
               to="/fish-advisory-system"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm text-white"
             >
               <Fish className="h-4 w-4" /> {t('quickLinks.fishAdvisory')}
             </Link>
             <Link
               to="/live-ocean-data"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm text-white"
             >
               <Waves className="h-4 w-4" /> {t('quickLinks.liveOcean')}
             </Link>
             <Link
               to="/research-vessel-booking"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm text-white"
             >
               <Ship className="h-4 w-4" /> {t('quickLinks.vesselBooking')}
             </Link>
             <Link
               to="/procurement-recruitment-portal"
-              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm"
+              className="inline-flex items-center gap-2 rounded-xl bg-white/10 hover:bg-white/20 border border-white/25 px-4 py-2.5 text-sm text-white"
             >
               <UserCog className="h-4 w-4" /> {t('quickLinks.procurement')}
             </Link>

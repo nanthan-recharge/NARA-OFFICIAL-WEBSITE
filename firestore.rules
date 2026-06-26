@@ -329,6 +329,32 @@ service cloud.firestore {
       allow read, update, delete: if canManageVacancies() || canManageRecruitment();
     }
 
+    // Public feedback submitted via the Government Services Portal feedback form.
+    // Anyone may submit a well-formed message (name + message required, email
+    // optional); only admins can read or manage submissions. Immutable once sent.
+    match /service_feedback/{feedbackId} {
+      // Bounded public create: exact field set, capped sizes, fixed page/status,
+      // and a server-set timestamp. Pairs with App Check (reCAPTCHA v3) once
+      // enforcement is enabled. Only admins can read/manage.
+      allow create: if request.resource.data.keys().hasOnly(['name', 'email', 'message', 'service', 'page', 'status', 'userAgent', 'createdAt'])
+                    && request.resource.data.name is string
+                    && request.resource.data.name.size() > 0
+                    && request.resource.data.name.size() < 200
+                    && request.resource.data.message is string
+                    && request.resource.data.message.size() > 0
+                    && request.resource.data.message.size() < 5000
+                    && request.resource.data.email is string
+                    && request.resource.data.email.size() < 200
+                    && request.resource.data['service'] is string
+                    && request.resource.data['service'].size() < 300
+                    && request.resource.data.userAgent is string
+                    && request.resource.data.userAgent.size() < 500
+                    && request.resource.data.page == 'government-services-portal'
+                    && request.resource.data.status == 'new'
+                    && request.resource.data.createdAt == request.time;
+      allow read, update, delete: if isAdmin() || isSystemAdmin();
+    }
+
     match /scientist_sessions/{sessionId} {
       allow read: if true;
       allow create, update, delete: if canManageScientistSessions();

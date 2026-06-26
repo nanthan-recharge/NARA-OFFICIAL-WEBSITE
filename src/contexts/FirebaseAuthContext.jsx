@@ -28,6 +28,7 @@ const DEFAULT_ADMIN_DOMAINS = [
   'gov.lk',
   'gmail.com', // Temporary launch access until official NARA email accounts are ready.
   'safenetcreations.com', // Temporary implementation/support access during launch.
+  'test.com', // Temporary NARA IT review account. Remove before public launch.
 ];
 
 const getAllowedAdminDomains = () => {

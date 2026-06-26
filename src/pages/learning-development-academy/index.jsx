@@ -773,11 +773,11 @@ const LearningDevelopmentAcademy = () => {
     if (variant === 'primary') {
       switch (theme) {
         case 'dark':
-          return 'bg-blue-600 hover:bg-blue-700 text-white';
+          return 'bg-blue-700 hover:bg-blue-800 text-white';
         case 'glow':
           return 'bg-gradient-to-r from-navy-700 to-navy-800 hover:from-navy-600 hover:to-navy-700 text-white shadow-[0_0_20px_rgba(0,51,102,0.4)]';
         default:
-          return 'bg-blue-600 hover:bg-blue-700 text-white';
+          return 'bg-blue-700 hover:bg-blue-800 text-white';
       }
     }
     return theme === 'dark'
@@ -1087,6 +1087,7 @@ const LearningDevelopmentAcademy = () => {
 
                 {/* Level Filter */}
                 <select
+                  aria-label="Filter courses by level"
                   value={selectedLevel}
                   onChange={(e) => setSelectedLevel(e.target.value)}
                   className={`px-4 py-2 rounded-lg ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
@@ -1100,6 +1101,7 @@ const LearningDevelopmentAcademy = () => {
 
                 {/* Sort */}
                 <select
+                  aria-label="Sort courses"
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
                   className={`px-4 py-2 rounded-lg ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'
@@ -1803,6 +1805,7 @@ const LearningDevelopmentAcademy = () => {
                   <div>
                     <label className="block mb-2 font-medium">{t('common:category')} *</label>
                     <select
+                      aria-label="Project category"
                       value={projectForm.category}
                       onChange={(e) => setProjectForm({ ...projectForm, category: e.target.value })}
                       className={`w-full px-4 py-2 rounded-lg border ${theme === 'dark' ? 'bg-gray-800 text-white' : 'bg-white text-gray-900'

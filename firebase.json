@@ -6,7 +6,10 @@
       "ignore": [
         "firebase.json",
         "**/.*",
-        "**/node_modules/**"
+        "**/node_modules/**",
+        "**/*.map",
+        "**/*.gz",
+        "**/*.br"
       ],
       "rewrites": [
         {
@@ -84,7 +87,7 @@
           },
           {
             "key": "Content-Security-Policy",
-            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.googleapis.com https://maps.googleapis.com https://apis.google.com https://firebasestorage.googleapis.com https://*.firebaseio.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://mozilla.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' https://firebasestorage.googleapis.com https://*.firebasestorage.app blob: data:; connect-src 'self' https://*.googleapis.com https://firebase.googleapis.com https://*.firebaseio.com https://firestore.googleapis.com wss://*.firebaseio.com https://firebasestorage.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://maps.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://storage.googleapis.com https://images.unsplash.com https://api.openai.com https://*.amazonaws.com https://libretranslate.de; frame-src 'self' https://www.google.com https://accounts.google.com https://maps.googleapis.com https://nara-aquaschool.web.app https://nexus-nara.web.app https://mozilla.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+            "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.google.com https://www.googleapis.com https://maps.googleapis.com https://apis.google.com https://firebasestorage.googleapis.com https://*.firebaseio.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://mozilla.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' https://firebasestorage.googleapis.com https://*.firebasestorage.app blob: data:; connect-src 'self' https://*.googleapis.com https://firebase.googleapis.com https://*.firebaseio.com https://firestore.googleapis.com wss://*.firebaseio.com https://firebasestorage.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://maps.googleapis.com https://www.googletagmanager.com https://www.google.com https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://storage.googleapis.com https://images.unsplash.com https://api.openai.com https://*.amazonaws.com https://libretranslate.de; frame-src 'self' https://www.google.com https://accounts.google.com https://maps.googleapis.com https://firebasestorage.googleapis.com https://*.firebasestorage.app https://nara-aquaschool.web.app https://nexus-nara.web.app https://mozilla.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
           }
         ]
       }
@@ -98,7 +101,10 @@
       "ignore": [
         "firebase.json",
         "**/.*",
-        "**/node_modules/**"
+        "**/node_modules/**",
+        "**/*.map",
+        "**/*.gz",
+        "**/*.br"
       ],
       "redirects": [
         {
@@ -165,7 +171,7 @@
             },
             {
               "key": "Content-Security-Policy",
-              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.googleapis.com https://maps.googleapis.com https://apis.google.com https://firebasestorage.googleapis.com https://*.firebaseio.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://mozilla.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' https://firebasestorage.googleapis.com https://*.firebasestorage.app blob: data:; connect-src 'self' https://*.googleapis.com https://firebase.googleapis.com https://*.firebaseio.com https://firestore.googleapis.com wss://*.firebaseio.com https://firebasestorage.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://maps.googleapis.com https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://storage.googleapis.com https://images.unsplash.com https://api.openai.com https://*.amazonaws.com https://libretranslate.de; frame-src 'self' https://www.google.com https://accounts.google.com https://maps.googleapis.com https://nara-aquaschool.web.app https://nexus-nara.web.app https://mozilla.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+              "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.google.com https://www.googleapis.com https://maps.googleapis.com https://apis.google.com https://firebasestorage.googleapis.com https://*.firebaseio.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://mozilla.github.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' https://firebasestorage.googleapis.com https://*.firebasestorage.app blob: data:; connect-src 'self' https://*.googleapis.com https://firebase.googleapis.com https://*.firebaseio.com https://firestore.googleapis.com wss://*.firebaseio.com https://firebasestorage.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://maps.googleapis.com https://www.googletagmanager.com https://www.google.com https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://storage.googleapis.com https://images.unsplash.com https://api.openai.com https://*.amazonaws.com https://libretranslate.de; frame-src 'self' https://www.google.com https://accounts.google.com https://maps.googleapis.com https://firebasestorage.googleapis.com https://*.firebasestorage.app https://nara-aquaschool.web.app https://nexus-nara.web.app https://mozilla.github.io; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
             }
           ]
         }

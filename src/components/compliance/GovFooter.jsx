@@ -2,8 +2,16 @@ import React, { useMemo, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowUp,
+  BookOpen,
+  Briefcase,
+  Building2,
+  CreditCard,
+  ExternalLink,
   Facebook,
+  FileText,
   Languages,
+  Library,
+  LifeBuoy,
   Linkedin,
   Mail,
   MapPin,
@@ -11,9 +19,91 @@ import {
   Phone,
   Search,
   Sun,
+  Waves,
   Youtube
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
+const importantLinks = [
+  {
+    name: 'GovPay - NARA',
+    description: 'Official online payments',
+    href: 'https://govpay.lk/en/organization/nara',
+    external: true,
+    icon: CreditCard,
+  },
+  {
+    name: 'RTI Forms & Reports',
+    description: 'Information requests and reports',
+    path: '/rti',
+    icon: FileText,
+  },
+  {
+    name: 'Procurement Notices',
+    description: 'Tenders, vacancies and notices',
+    path: '/procurement-recruitment-portal',
+    icon: Briefcase,
+  },
+  {
+    name: 'NARA Mail',
+    description: 'Official staff mail portal',
+    href: 'http://kalu.nara.ac.lk/',
+    external: true,
+    icon: Mail,
+  },
+  {
+    name: 'Library & Publications',
+    description: 'Catalogue, books and papers',
+    path: '/library',
+    icon: Library,
+  },
+  {
+    name: 'Annual Reports',
+    description: 'Reports and public documents',
+    path: '/annual-reports',
+    icon: BookOpen,
+  },
+  {
+    name: 'Sea Level & Forecasts',
+    description: 'Marine forecast data access',
+    path: '/marine-forecast',
+    icon: Waves,
+  },
+  {
+    name: 'Contact & Hotline',
+    description: 'Inquiries and office contacts',
+    path: '/contact-us',
+    icon: LifeBuoy,
+  },
+  {
+    name: 'Ministry of Fisheries',
+    description: 'Parent ministry portal',
+    href: 'https://www.fisheries.gov.lk',
+    external: true,
+    icon: Building2,
+  },
+  {
+    name: 'President of Sri Lanka',
+    description: 'Official president portal',
+    href: 'https://www.president.gov.lk/',
+    external: true,
+    icon: Building2,
+  },
+  {
+    name: 'Presidential Secretariat',
+    description: 'Official secretariat portal',
+    href: 'https://www.presidentsoffice.gov.lk/',
+    external: true,
+    icon: Building2,
+  },
+  {
+    name: "Prime Minister's Office",
+    description: 'Official PM office portal',
+    href: 'https://www.pmoffice.gov.lk/',
+    external: true,
+    icon: Building2,
+  },
+];
 
 const quickLinks = [
   { name: 'Home', path: '/' },
@@ -69,6 +159,41 @@ const languageOptions = [
   { label: 'සිංහල', code: 'si' },
   { label: 'தமிழ்', code: 'ta' }
 ];
+
+const ImportantFooterLink = ({ link }) => {
+  const Icon = link.icon || FileText;
+  const className = 'footer-important-card group flex min-w-0 items-start gap-3 rounded-lg border border-slate-200 bg-white p-3 text-left shadow-sm transition-colors hover:border-sky-300 hover:bg-sky-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 dark:border-white/10 dark:bg-white/5 dark:hover:border-sky-400/60 dark:hover:bg-white/10';
+  const content = (
+    <>
+      <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-sky-100 text-sky-700 transition-colors group-hover:bg-sky-700 group-hover:text-white dark:bg-sky-400/15 dark:text-sky-200">
+        <Icon className="h-4 w-4" aria-hidden="true" />
+      </span>
+      <span className="min-w-0">
+        <span className="flex min-w-0 items-center gap-1.5 text-sm font-bold leading-tight text-slate-900 dark:text-white">
+          <span className="min-w-0 truncate">{link.name}</span>
+          {link.external ? <ExternalLink className="h-3.5 w-3.5 shrink-0 text-slate-400 group-hover:text-sky-600 dark:text-slate-500 dark:group-hover:text-sky-200" aria-hidden="true" /> : null}
+        </span>
+        <span className="mt-1 block text-xs leading-snug text-slate-600 dark:text-slate-300">
+          {link.description}
+        </span>
+      </span>
+    </>
+  );
+
+  if (link.external) {
+    return (
+      <a href={link.href} target="_blank" rel="noopener noreferrer" className={className}>
+        {content}
+      </a>
+    );
+  }
+
+  return (
+    <Link to={link.path} className={className}>
+      {content}
+    </Link>
+  );
+};
 
 const GovFooter = () => {
   const { i18n } = useTranslation();
@@ -208,6 +333,17 @@ const GovFooter = () => {
           grid-template-columns: minmax(0, 1fr);
         }
 
+        .gov-footer .footer-important-grid {
+          display: grid;
+          gap: 0.75rem;
+          grid-template-columns: minmax(0, 1fr);
+        }
+
+        .gov-footer .footer-important-card {
+          min-height: 4.25rem;
+          text-decoration: none;
+        }
+
         .gov-footer .footer-link-grid {
           gap: 0.35rem;
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -228,6 +364,10 @@ const GovFooter = () => {
             grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
           }
 
+          .gov-footer .footer-important-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+          }
+
         }
 
         @media (min-width: 1024px) {
@@ -245,8 +385,30 @@ const GovFooter = () => {
             grid-template-columns: minmax(0, 1fr);
           }
 
+          .gov-footer .footer-important-grid {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+          }
+
         }
       `}</style>
+      <section className="border-b border-slate-200 bg-gradient-to-b from-sky-50 to-white py-5 dark:border-white/10 dark:from-[#08233f] dark:to-[#061a33]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">Public Access</p>
+              <h2 className="text-xl font-bold text-nara-navy dark:text-white">Important Links</h2>
+            </div>
+            <p className="max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              Fast access to NARA services, reports, official government portals, payment links, and public information resources.
+            </p>
+          </div>
+          <div className="footer-important-grid">
+            {importantLinks.map((link) => (
+              <ImportantFooterLink key={link.name} link={link} />
+            ))}
+          </div>
+        </div>
+      </section>
       <section className="border-b border-slate-200 bg-white/90 py-3 dark:border-white/10 dark:bg-[#041427]/95">
         <div className="footer-top-grid mx-auto max-w-7xl px-4 sm:px-6">
           <div className="flex items-center gap-3">

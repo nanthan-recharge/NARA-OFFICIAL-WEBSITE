@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Icons from 'lucide-react';
 import { useLibraryUser } from '../../contexts/LibraryUserContext';
-import { db, auth } from '../../lib/firebase';
-import { collection, addDoc, serverTimestamp, query, where, getDocs, limit } from 'firebase/firestore';
+import { db } from '../../lib/firebase';
+import { collection, addDoc, serverTimestamp, query, where, getDocs } from 'firebase/firestore';
 
 /**
  * Download Manager Component
  * Handles authentication-gated downloads with role-based permissions
  */
-const DownloadManager = ({ book, className = '' }) => {
+const DownloadManager = ({ book, pdfUrl = '', language = 'english', className = '' }) => {
   const { user, userProfile } = useLibraryUser();
   const navigate = useNavigate();
   const [isDownloading, setIsDownloading] = useState(false);
@@ -81,7 +81,11 @@ const DownloadManager = ({ book, className = '' }) => {
    * Resolve the best downloadable URL for an item.
    * Prefers the hosted PDF (book.url), falls back to an external source.
    */
-  const getDownloadUrl = (b) => b?.url || b?.source_url || null;
+  const getDownloadUrl = (b) => pdfUrl || b?.url || b?.source_url || null;
+
+  const getDownloadType = () => (
+    language && language !== 'english' ? `${language}_pdf` : 'pdf'
+  );
 
   /**
    * Log download activity. Firestore rejects `undefined` values, so every
@@ -151,7 +155,7 @@ const DownloadManager = ({ book, className = '' }) => {
     setIsDownloading(true);
     try {
       // Log the download (best effort — never blocks the download itself)
-      await logDownload(book, 'pdf');
+      await logDownload(book, getDownloadType());
     } catch { /* logging is non-critical */ }
 
     try {
@@ -163,8 +167,9 @@ const DownloadManager = ({ book, className = '' }) => {
       const objectUrl = window.URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = objectUrl;
-      const safeTitle = (book.title || 'document').replace(/[^\w\-]+/g, '_').substring(0, 50);
-      link.download = `${book.barcode || book.id || 'nara'}-${safeTitle}.pdf`;
+      const safeTitle = (book.title || 'document').replace(/[^\w-]+/g, '_').substring(0, 50);
+      const langSuffix = language && language !== 'english' ? `-${language}` : '';
+      link.download = `${book.barcode || book.id || 'nara'}${langSuffix}-${safeTitle}.pdf`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -205,7 +210,7 @@ const DownloadManager = ({ book, className = '' }) => {
     }
 
     // Log print activity (best effort)
-    try { await logDownload(book, 'print'); } catch { /* non-critical */ }
+    try { await logDownload(book, language && language !== 'english' ? `${language}_print` : 'print'); } catch { /* non-critical */ }
 
     // Open PDF in new window for printing
     window.open(fileUrl, '_blank', 'noopener,noreferrer');
@@ -241,7 +246,7 @@ const DownloadManager = ({ book, className = '' }) => {
         ) : (
           <>
             <Icons.Download className="w-5 h-5" />
-            {!user ? 'Register to Download' : 'Download PDF'}
+            {!user ? 'Register to Download' : language && language !== 'english' ? `Download ${language.charAt(0).toUpperCase() + language.slice(1)} PDF` : 'Download PDF'}
             {book.page_count && ` (${book.page_count} pages)`}
           </>
         )}
