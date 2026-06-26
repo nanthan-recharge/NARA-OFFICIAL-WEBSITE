@@ -321,6 +321,14 @@ service cloud.firestore {
       allow create, update, delete: if canManageVacancies() || canManageRecruitment();
     }
 
+    // Public job applications submitted via the built-in /vacancies apply form.
+    // Anyone may submit (the public applies); only recruitment admins can read,
+    // update status, or delete. Applications cannot be edited once submitted.
+    match /jobApplications/{applicationId} {
+      allow create: if true;
+      allow read, update, delete: if canManageVacancies() || canManageRecruitment();
+    }
+
     match /scientist_sessions/{sessionId} {
       allow read: if true;
       allow create, update, delete: if canManageScientistSessions();

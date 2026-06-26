@@ -12,6 +12,7 @@ import {
 import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../../firebase';
 import SEOHead from '../../components/shared/SEOHead';
+import JobApplicationModal from './JobApplicationModal';
 
 /* ═══════════════════════════════════════════════════════════════
    STATIC CONFIGS — All Tailwind classes must be fully static
@@ -128,6 +129,7 @@ const VacanciesPage = () => {
   const [activeTab, setActiveTab] = useState('active');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedDepartment, setSelectedDepartment] = useState('all');
+  const [applyVacancy, setApplyVacancy] = useState(null);
 
   useEffect(() => { loadVacancies(); }, []);
 
@@ -572,25 +574,41 @@ const VacanciesPage = () => {
 
                       {/* Action buttons */}
                       <div className="flex gap-3">
-                        {(vacancy.status === 'active' || vacancy.status === 'open') && vacancy.applyUrl && (
-                          <motion.a
-                            href={vacancy.applyUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.03 }}
-                            whileTap={{ scale: 0.97 }}
-                            className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-500
-                              text-white rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
-                          >
-                            {t('applyNow')}
-                            <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-                              <ExternalLink className="w-4 h-4" />
-                            </motion.span>
-                          </motion.a>
+                        {(vacancy.status === 'active' || vacancy.status === 'open') && (
+                          vacancy.applyUrl ? (
+                            /* Admin set an external application link */
+                            <motion.a
+                              href={vacancy.applyUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              whileHover={{ scale: 1.03 }}
+                              whileTap={{ scale: 0.97 }}
+                              className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-500
+                                text-white rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
+                            >
+                              {t('applyNow')}
+                              <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
+                                <ExternalLink className="w-4 h-4" />
+                              </motion.span>
+                            </motion.a>
+                          ) : (
+                            /* Built-in application form */
+                            <motion.button
+                              type="button"
+                              onClick={() => setApplyVacancy(vacancy)}
+                              whileHover={{ scale: 1.03 }}
+                              whileTap={{ scale: 0.97 }}
+                              className="flex-1 flex items-center justify-center gap-2 px-5 py-3 bg-gradient-to-r from-cyan-500 to-blue-500
+                                text-white rounded-xl font-semibold text-sm hover:shadow-lg hover:shadow-cyan-500/25 transition-all"
+                            >
+                              {t('applyNow')}
+                              <ChevronRight className="w-4 h-4" />
+                            </motion.button>
+                          )
                         )}
-                        {vacancy.documentUrl && (
+                        {(vacancy.documentUrl || vacancy.jobDescriptionUrl) && (
                           <a
-                            href={vacancy.documentUrl}
+                            href={vacancy.documentUrl || vacancy.jobDescriptionUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="flex items-center gap-2 px-5 py-3 bg-white/[0.06] border border-white/10
@@ -789,6 +807,13 @@ const VacanciesPage = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Built-in job application form */}
+      <AnimatePresence>
+        {applyVacancy && (
+          <JobApplicationModal vacancy={applyVacancy} onClose={() => setApplyVacancy(null)} />
+        )}
+      </AnimatePresence>
     </div>
   );
 };
