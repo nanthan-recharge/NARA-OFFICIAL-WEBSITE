@@ -335,6 +335,14 @@ body {
   padding: 0;
 }
 
+/* Prevent horizontal scroll from decorative blur blobs, marquees and
+   off-canvas elements. These are meant to be clipped, not to widen the page. */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 *,
 *::before,
 *::after {

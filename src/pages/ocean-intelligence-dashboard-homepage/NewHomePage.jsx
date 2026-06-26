@@ -927,7 +927,7 @@ const NewHomePage = () => {
         {/* Library Section — lazy rendered */}
         <section
           ref={libraryRef}
-          aria-labelledby="library-hero-lite-heading"
+          aria-label={t("library.heading", { ns: "home" })}
           className="library-hero-lite-section relative overflow-hidden px-4 py-10 sm:py-12 md:py-16 min-h-[100px]"
         >
           {libraryVisible && (

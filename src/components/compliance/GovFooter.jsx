@@ -270,7 +270,7 @@ const GovFooter = () => {
                   className="h-9 w-full rounded-lg border border-slate-300 bg-white py-2 pl-9 pr-3 text-sm text-slate-800 outline-none placeholder:text-slate-500 focus:border-sky-400 focus:ring-2 focus:ring-sky-300 dark:border-white/15 dark:bg-white/10 dark:text-white dark:placeholder:text-slate-300"
                 />
               </div>
-              <button type="submit" className="footer-control h-9 rounded-lg bg-sky-600 text-sm font-semibold text-white transition-colors hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300">
+              <button type="submit" className="footer-control h-9 rounded-lg bg-sky-700 text-sm font-semibold text-white transition-colors hover:bg-sky-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300">
                 Subscribe
               </button>
             </form>
@@ -378,11 +378,11 @@ const GovFooter = () => {
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-sky-600 dark:text-sky-300" aria-hidden="true" />
                 <span>Crow Island, Mattakkuliya, Colombo 15</span>
               </p>
-              <a href="tel:+94112521000" className="flex gap-2 transition-colors hover:text-sky-700 dark:hover:text-white">
+              <a href="tel:+94112521000" className="flex gap-2 text-slate-700 transition-colors hover:text-sky-700 dark:text-slate-300 dark:hover:text-white">
                 <Phone className="mt-0.5 h-4 w-4 shrink-0 text-sky-600 dark:text-sky-300" aria-hidden="true" />
                 <span>+94 11 252 1000</span>
               </a>
-              <a href="mailto:info@nara.ac.lk" className="flex gap-2 transition-colors hover:text-sky-700 dark:hover:text-white">
+              <a href="mailto:info@nara.ac.lk" className="flex gap-2 text-slate-700 transition-colors hover:text-sky-700 dark:text-slate-300 dark:hover:text-white">
                 <Mail className="mt-0.5 h-4 w-4 shrink-0 text-sky-600 dark:text-sky-300" aria-hidden="true" />
                 <span>info@nara.ac.lk</span>
               </a>
@@ -448,9 +448,9 @@ const GovFooter = () => {
             <div className="hidden md:block h-4 w-px bg-slate-300 dark:bg-white/15" />
 
             <div className="flex items-center gap-3">
-              <Link to="/privacy-policy" className="font-medium transition-colors hover:text-sky-700 dark:hover:text-white">Privacy Policy</Link>
-              <Link to="/accessibility-statement" className="font-medium transition-colors hover:text-sky-700 dark:hover:text-white">Accessibility</Link>
-              <Link to="/site-map" className="font-medium transition-colors hover:text-sky-700 dark:hover:text-white">Sitemap</Link>
+              <Link to="/privacy-policy" className="font-medium text-slate-700 transition-colors hover:text-sky-700 dark:text-slate-300 dark:hover:text-white">Privacy Policy</Link>
+              <Link to="/accessibility-statement" className="font-medium text-slate-700 transition-colors hover:text-sky-700 dark:text-slate-300 dark:hover:text-white">Accessibility</Link>
+              <Link to="/site-map" className="font-medium text-slate-700 transition-colors hover:text-sky-700 dark:text-slate-300 dark:hover:text-white">Sitemap</Link>
             </div>
           </div>
         </section>
