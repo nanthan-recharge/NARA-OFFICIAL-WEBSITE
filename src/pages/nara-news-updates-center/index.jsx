@@ -974,7 +974,7 @@ const NewsPage = () => {
                                       {article?.displayCategory || article?.category}
                                     </span>
                                     {article?.is_featured && (
-                                      <span className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-3 py-1 text-amber-900 shadow-sm">
+                                      <span className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-3 py-1 text-amber-950 shadow-sm">
                                         <Star className="h-3 w-3" />
                                         {t('articles.featured')}
                                       </span>
@@ -1025,7 +1025,7 @@ const NewsPage = () => {
                                     {articleTags.map((tag) => (
                                       <span
                                         key={tag}
-                                        className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-slate-500"
+                                        className="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-slate-600"
                                       >
                                         #{tag}
                                       </span>
@@ -1121,7 +1121,7 @@ const NewsPage = () => {
 
                     <Link
                       to="/admin/login"
-                      className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-700 hover:shadow-xl"
+                      className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:bg-blue-800 hover:shadow-xl"
                     >
                       {t('layout.admin.openPanel')}
                       <ArrowRight className="h-4 w-4" />
@@ -1214,6 +1214,7 @@ const NewsPage = () => {
                 <button
                   onClick={() => handlePageChange(currentPage - 1)}
                   disabled={currentPage === 1}
+                  aria-label="Previous page"
                   className="p-3 rounded-xl border-2 border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 hover:border-gray-400 transition-all duration-300"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -1254,6 +1255,7 @@ const NewsPage = () => {
                 <button
                   onClick={() => handlePageChange(currentPage + 1)}
                   disabled={currentPage === totalPages}
+                  aria-label="Next page"
                   className="p-3 rounded-xl border-2 border-gray-300 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gray-50 hover:border-gray-400 transition-all duration-300"
                 >
                   <ChevronRight className="w-5 h-5" />

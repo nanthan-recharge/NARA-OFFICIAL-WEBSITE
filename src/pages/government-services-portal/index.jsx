@@ -775,7 +775,7 @@ const GovernmentServicesPortal = () => {
                     {service.action === 'modal:eia' ? (
                       <button
                         onClick={() => setActiveModal('eia')}
-                        className="inline-flex items-center gap-2 rounded-xl bg-nara-blue hover:bg-blue-500 px-4 py-2.5 text-sm font-semibold transition-colors"
+                        className="inline-flex items-center gap-2 rounded-xl bg-nara-blue hover:bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors"
                       >
                         {t('directory.startEia')}
                         <ChevronRight className="h-4 w-4" />
@@ -785,7 +785,7 @@ const GovernmentServicesPortal = () => {
                     {service.action === 'modal:license' ? (
                       <button
                         onClick={() => setActiveModal('license')}
-                        className="inline-flex items-center gap-2 rounded-xl bg-nara-blue hover:bg-blue-500 px-4 py-2.5 text-sm font-semibold transition-colors"
+                        className="inline-flex items-center gap-2 rounded-xl bg-nara-blue hover:bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors"
                       >
                         {t('directory.startLicense')}
                         <ChevronRight className="h-4 w-4" />
@@ -805,7 +805,7 @@ const GovernmentServicesPortal = () => {
                     {!service.action && service.route ? (
                       <Link
                         to={service.route}
-                        className="inline-flex items-center gap-2 rounded-xl bg-nara-blue hover:bg-blue-500 px-4 py-2.5 text-sm font-semibold transition-colors"
+                        className="inline-flex items-center gap-2 rounded-xl bg-nara-blue hover:bg-blue-500 px-4 py-2.5 text-sm font-semibold text-white transition-colors"
                       >
                         {t('directory.openService')}
                         <ArrowUpRight className="h-4 w-4" />

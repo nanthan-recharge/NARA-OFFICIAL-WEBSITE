@@ -29,7 +29,7 @@ const DivisionCategorySection = ({ id, title, subtitle, icon: Icon, divisions, g
         <p className="text-slate-400 text-sm sm:text-base max-w-2xl">
           {subtitle}
         </p>
-        <div className="mt-2 text-xs text-slate-500 font-medium">
+        <div className="mt-2 text-xs text-slate-400 font-medium">
           {divisions.length} {divisions.length === 1 ? 'division' : 'divisions'}
         </div>
       </div>

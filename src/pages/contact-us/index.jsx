@@ -377,7 +377,7 @@ const ContactUs = () => {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                         placeholder={formSection.fields?.name?.placeholder}
                       />
                     </div>
@@ -392,7 +392,7 @@ const ContactUs = () => {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                         placeholder={formSection.fields?.email?.placeholder}
                       />
                     </div>
@@ -406,7 +406,7 @@ const ContactUs = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                         placeholder="+94 xx xxx xxxx"
                       />
                     </div>
@@ -419,7 +419,7 @@ const ContactUs = () => {
                         name="reason"
                         value={formData.reason}
                         onChange={handleChange}
-                        className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                        className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                       >
                         {reasonOptions.map((option) => (
                           <option key={option.value} value={option.value}>
@@ -441,7 +441,7 @@ const ContactUs = () => {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                      className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                       placeholder={formSection.fields?.subject?.placeholder}
                     />
                   </div>
@@ -457,7 +457,7 @@ const ContactUs = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                      className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 outline-none transition-all focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                       placeholder={formSection.fields?.message?.placeholder}
                     />
                   </div>
@@ -467,12 +467,12 @@ const ContactUs = () => {
                       <Icon name="Info" className="mt-0.5 h-4 w-4 text-blue-500" />
                       <div>
                         <p>{formSection.responseNotice}</p>
-                        <p className="mt-2 text-xs text-slate-500">{formSection.disclaimer}</p>
+                        <p className="mt-2 text-xs text-slate-600">{formSection.disclaimer}</p>
                       </div>
                     </div>
                   </div>
 
-                  <Button type="submit" variant="primary" className="mt-6 w-full py-3 text-base font-semibold">
+                  <Button type="submit" variant="primary" className="mt-6 w-full bg-nara-navy py-3 text-base font-semibold text-white hover:bg-nara-blue">
                     {formSection.submit}
                   </Button>
                 </form>
@@ -495,7 +495,7 @@ const ContactUs = () => {
                 as="a"
                 href="mailto:visits@nara.ac.lk"
                 variant="secondary"
-                className="inline-flex items-center gap-2"
+                className="inline-flex items-center gap-2 bg-nara-navy text-white hover:bg-nara-blue"
               >
                 <Icon name="CalendarPlus" className="h-5 w-5" />
                 Arrange a site visit

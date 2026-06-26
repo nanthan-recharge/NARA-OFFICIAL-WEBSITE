@@ -14,14 +14,14 @@ for (const { path, name } of VISUAL_PAGES) {
   test(`visual: ${name}`, async ({ page }) => {
     // Reduce motion so framer-motion whileInView elements settle to a stable state.
     await page.emulateMedia({ reducedMotion: 'reduce' });
+    // Pre-dismiss the cookie banner deterministically so baselines are stable.
+    await page.addInitScript(() => {
+      try {
+        localStorage.setItem('nara-cookie-consent', JSON.stringify({ necessary: true, analytics: false, ts: 0 }));
+      } catch (e) {}
+    });
     await page.goto(path, { waitUntil: 'domcontentloaded' });
     await page.waitForFunction(() => document.body.innerText.trim().length > 150, { timeout: 15000 }).catch(() => {});
-
-    // Dismiss the cookie banner so it doesn't pollute the baseline (guarded).
-    const essential = page.getByRole('button', { name: /essential only/i });
-    if (await essential.isVisible().catch(() => false)) {
-      await essential.click({ timeout: 3000 }).catch(() => {});
-    }
 
     // Scroll through the page to trigger lazy images + whileInView reveals, then
     // return to top — so the full-page shot captures final, settled content.

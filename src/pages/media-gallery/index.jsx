@@ -1342,7 +1342,7 @@ const MediaGallery = () => {
             <button
               onClick={() => setActiveTab('images')}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${activeTab === 'images'
-                ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/50'
+                ? 'bg-cyan-700 text-white shadow-lg shadow-cyan-500/50'
                 : 'text-slate-300 hover:text-white'
                 }`}
             >
@@ -1352,7 +1352,7 @@ const MediaGallery = () => {
             <button
               onClick={() => setActiveTab('videos')}
               className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${activeTab === 'videos'
-                ? 'bg-blue-500 text-white shadow-lg shadow-blue-500/40'
+                ? 'bg-blue-700 text-white shadow-lg shadow-blue-500/40'
                 : 'text-slate-300 hover:text-white'
                 }`}
             >
@@ -1373,14 +1373,16 @@ const MediaGallery = () => {
             <div className="flex gap-1 bg-slate-800/50 p-1 rounded-lg">
               <button
                 onClick={() => setViewMode('grid')}
-                className={`p-2 rounded transition-all ${viewMode === 'grid' ? 'bg-cyan-500 text-white' : 'text-slate-200 hover:text-white'
+                aria-label={t('mediaGallery:viewMode.grid', 'Grid view')}
+                className={`p-2 rounded transition-all ${viewMode === 'grid' ? 'bg-cyan-700 text-white' : 'text-slate-200 hover:text-white'
                   }`}
               >
                 <Grid3x3 className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setViewMode('list')}
-                className={`p-2 rounded transition-all ${viewMode === 'list' ? 'bg-cyan-500 text-white' : 'text-slate-200 hover:text-white'
+                aria-label={t('mediaGallery:viewMode.list', 'List view')}
+                className={`p-2 rounded transition-all ${viewMode === 'list' ? 'bg-cyan-700 text-white' : 'text-slate-200 hover:text-white'
                   }`}
               >
                 <List className="w-5 h-5" />

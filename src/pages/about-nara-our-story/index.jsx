@@ -582,7 +582,7 @@ const AboutNARAStoryPage = () => {
 
                             {/* Year badge */}
                             <div className="absolute top-4 left-4 z-10">
-                              <span className="inline-block px-3 py-1 text-xs font-bold tracking-wider text-cyan-900 uppercase bg-cyan-400 rounded-full shadow-lg">
+                              <span style={{ color: '#164e63' }} className="inline-block px-3 py-1 text-xs font-bold tracking-wider uppercase bg-cyan-400 rounded-full shadow-lg">
                                 {timeline[tlIndex]?.year}
                               </span>
                             </div>

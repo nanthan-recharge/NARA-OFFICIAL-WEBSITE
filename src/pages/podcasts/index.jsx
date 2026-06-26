@@ -511,6 +511,7 @@ const PodcastsPage = () => {
                     <div className="mb-3">
                       <input
                         type="range"
+                        aria-label="Seek audio playback position"
                         min="0"
                         max={duration || 0}
                         value={currentTime}
@@ -817,6 +818,7 @@ const PodcastsPage = () => {
               />
               <button
                 type="submit"
+                aria-label="Search podcasts"
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-gradient-to-r from-cyan-500 to-blue-500 p-4 rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all"
               >
                 <Icons.Search className="w-6 h-6 text-white" />

@@ -1415,7 +1415,7 @@ const LibraryCatalogue = () => {
                                     {t(`materialTypes.${type.code}`)}
                                   </p>
                                   {itemCount > 0 && (
-                                    <p className="text-[10px] text-gray-400 mt-0.5">
+                                    <p className="text-[10px] text-slate-600 mt-0.5">
                                       {itemCount}{" "}
                                       {itemCount === 1
                                         ? t("browse.item")
@@ -1560,7 +1560,7 @@ const LibraryCatalogue = () => {
                       <p className="text-xs text-gray-500 mt-1">
                         {t(pick.authorKey)}
                       </p>
-                      <span className="inline-block mt-1.5 text-[10px] text-gray-400 bg-gray-50 px-2 py-0.5 rounded border border-gray-100">
+                      <span className="inline-block mt-1.5 text-[10px] text-slate-600 bg-gray-50 px-2 py-0.5 rounded border border-gray-100">
                         {t(pick.categoryKey)}
                       </span>
                     </div>

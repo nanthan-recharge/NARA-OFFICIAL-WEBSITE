@@ -30,3 +30,6 @@ chrome-devtools-mcp/
 
 # Claude local settings
 .claude/settings.local.json
+
+.playwright-cli/
+firebase-debug.log
