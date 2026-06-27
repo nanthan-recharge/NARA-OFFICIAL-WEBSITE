@@ -437,7 +437,8 @@ const NewHomePage = () => {
         </div>
       </motion.div>
 
-      <main>
+      {/* Page content (the single <main> landmark is provided by the app layout) */}
+      <div>
         {/* HERO SECTION - Cinematic 16:9 Carousel Theme */}
         <section
           ref={heroRef}
@@ -983,7 +984,7 @@ const NewHomePage = () => {
             </>
           )}
         </section>
-      </main>
+      </div>
 
       <Suspense fallback={null}>
         <PartnersCollaborators />
