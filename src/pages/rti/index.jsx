@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useCallback, useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -6,6 +6,7 @@ import * as Icons from 'lucide-react';
 import DynamicFormRenderer from '../../components/RTIForm/DynamicFormRenderer';
 import rtiFormsData from '../../data/rtiFormsData.json';
 import SEOHead from '../../components/shared/SEOHead';
+import { rtiRequestService } from '../../services/governmentService';
 
 const RTIPage = () => {
   const { t } = useTranslation('rti');
@@ -19,7 +20,7 @@ const RTIPage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleOpenForm = (formId) => {
+  const handleOpenForm = useCallback((formId) => {
     console.log('Opening form:', formId);
     console.log('Available forms:', Object.keys(rtiFormsData?.forms || {}));
     const formData = rtiFormsData?.forms?.[formId];
@@ -31,12 +32,12 @@ const RTIPage = () => {
       console.error(`Form ${formId} not found in rtiFormsData`);
       alert(`Form ${formId} is not available yet. Please try downloading the PDF version.`);
     }
-  };
+  }, []);
 
-  const hero = t('rti.hero', { returnObjects: true }) || {};
-  const stats = t('rti.stats', { returnObjects: true }) || {};
-  const sections = t('rti.sections', { returnObjects: true }) || {};
-  const cta = t('rti.cta', { returnObjects: true }) || {};
+  const hero = useMemo(() => t('rti.hero', { returnObjects: true }) || {}, [t]);
+  const stats = useMemo(() => t('rti.stats', { returnObjects: true }) || {}, [t]);
+  const sections = useMemo(() => t('rti.sections', { returnObjects: true }) || {}, [t]);
+  const cta = useMemo(() => t('rti.cta', { returnObjects: true }) || {}, [t]);
 
   const statsArray = stats ? Object.entries(stats).map(([key, value]) => ({
     ...value,
@@ -173,21 +174,11 @@ const RTIPage = () => {
   };
 
   const handleFormSubmit = async (formData) => {
-    // Here you can implement actual form submission logic
-    // For now, we'll simulate an API call
-    console.log('Form submitted:', formData);
-    
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // In production, send to backend/Firebase/email service
-    // Example: 
-    // await fetch('/api/rti/submit', {
-    //   method: 'POST',
-    //   body: JSON.stringify(formData)
-    // });
-    
-    return true;
+    const result = await rtiRequestService.submit(formData);
+    if (result.error) {
+      throw new Error(result.error);
+    }
+    return result;
   };
 
   return (

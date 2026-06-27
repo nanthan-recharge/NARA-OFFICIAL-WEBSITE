@@ -606,6 +606,141 @@ export const collaborationService = {
 };
 
 // ============================================
+// RTI Request Service
+// ============================================
+const cleanString = (value, maxLength = 500) => {
+  if (typeof value !== 'string') return '';
+  return value.trim().slice(0, maxLength);
+};
+
+const generateRtiReference = () => {
+  const datePart = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+  const randomPart = Math.random().toString(36).slice(2, 8).toUpperCase();
+  return `RTI-${datePart}-${randomPart}`;
+};
+
+const extractRtiApplicant = (submission = {}) => {
+  const fields = submission.fields || {};
+  const header = submission.header || {};
+  const contactInfo = submission.contactInfo || {};
+  const requesterInfo = contactInfo.requestor || contactInfo.applicant || {};
+
+  return {
+    name: cleanString(
+      fields.name_of_requestor ||
+      fields.requestor_name ||
+      fields.applicant_name ||
+      fields.appellant_name ||
+      header.name ||
+      requesterInfo.name,
+      180
+    ),
+    email: cleanString(
+      fields.email_address ||
+      fields.email ||
+      fields.appellant_email ||
+      requesterInfo.email,
+      180
+    ),
+    phone: cleanString(
+      fields.contact_no ||
+      fields.phone ||
+      fields.appellant_contact ||
+      requesterInfo.phone,
+      80
+    )
+  };
+};
+
+export const rtiRequestService = {
+  submit: async (submissionData = {}) => {
+    try {
+      const referenceId = generateRtiReference();
+      const { submittedAt: clientSubmittedAt, ...submission } = submissionData;
+
+      const requestRecord = {
+        ...submission,
+        formId: cleanString(submission.formId || submission.form_id, 40),
+        formName: cleanString(submission.formName || submission.form_name, 240),
+        formTitle: cleanString(submission.formTitle || submission.form_title || submission.formName, 240),
+        referenceId,
+        applicant: extractRtiApplicant(submission),
+        status: 'new',
+        priority: 'normal',
+        page: 'rti',
+        source: 'rti-online-form',
+        userAgent: cleanString(
+          typeof navigator !== 'undefined' ? navigator.userAgent : 'server',
+          500
+        ),
+        clientSubmittedAt: cleanString(clientSubmittedAt, 80),
+        submittedAt: serverTimestamp(),
+        createdAt: serverTimestamp(),
+        updatedAt: serverTimestamp()
+      };
+
+      const docRef = await addDoc(collection(db, 'rti_requests'), requestRecord);
+      return {
+        data: {
+          id: docRef.id,
+          referenceId,
+          formId: requestRecord.formId,
+          status: requestRecord.status
+        },
+        error: null
+      };
+    } catch (error) {
+      console.error('Error submitting RTI request:', error);
+      return { data: null, error: error.message };
+    }
+  },
+
+  getAll: async (filters = {}) => {
+    try {
+      let q = collection(db, 'rti_requests');
+
+      if (filters.status) {
+        q = query(q, where('status', '==', filters.status));
+      }
+
+      if (filters.formId) {
+        q = query(q, where('formId', '==', filters.formId));
+      }
+
+      q = query(q, orderBy('createdAt', 'desc'));
+
+      if (filters.limit) {
+        q = query(q, limit(filters.limit));
+      }
+
+      const snapshot = await getDocs(q);
+      const requests = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      return { data: requests, error: null };
+    } catch (error) {
+      console.error('Error fetching RTI requests:', error);
+      return { data: [], error: error.message };
+    }
+  },
+
+  update: async (requestId, updates) => {
+    try {
+      const docRef = doc(db, 'rti_requests', requestId);
+      await updateDoc(docRef, {
+        ...updates,
+        updatedAt: serverTimestamp()
+      });
+      return { data: { id: requestId, ...updates }, error: null };
+    } catch (error) {
+      console.error('Error updating RTI request:', error);
+      return { data: null, error: error.message };
+    }
+  }
+};
+
+// ============================================
 // Dashboard Service
 // ============================================
 export const dashboardService = {

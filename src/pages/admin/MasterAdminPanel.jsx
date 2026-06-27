@@ -693,7 +693,8 @@ const MasterAdminPanel = () => {
         { id: 'fish-advisory', label: 'Fish Advisory', icon: Fish, path: '/admin/fish-advisory' },
         { id: 'vessel-booking', label: 'Vessel Booking', icon: Calendar, path: '/admin/research-vessel' },
         { id: 'lda', label: 'LDA System', icon: FileCheck, path: '/admin/lda' },
-        { id: 'government', label: 'Government Services', icon: Building2, path: '/admin/government-services' }
+        { id: 'government', label: 'Government Services', icon: Building2, path: '/admin/government-services' },
+        { id: 'rti-requests', label: 'RTI Requests', icon: FileText, path: '/admin/government-services#rti', highlight: true }
       ]
     },
     {

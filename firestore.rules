@@ -175,6 +175,79 @@ service cloud.firestore {
              request.resource.data.status is string &&
              request.resource.data.status in ['new', 'active'];
     }
+
+    function optionalString(field, maxSize) {
+      return !request.resource.data.keys().hasAny([field]) ||
+             (request.resource.data[field] is string &&
+              request.resource.data[field].size() < maxSize);
+    }
+
+    function optionalMap(field) {
+      return !request.resource.data.keys().hasAny([field]) ||
+             request.resource.data[field] is map;
+    }
+
+    function optionalList(field) {
+      return !request.resource.data.keys().hasAny([field]) ||
+             request.resource.data[field] is list;
+    }
+
+    function isPublicRtiRequest() {
+      return request.resource.data.keys().hasOnly([
+               'formId',
+               'formName',
+               'formTitle',
+               'referenceId',
+               'applicant',
+               'status',
+               'priority',
+               'page',
+               'source',
+               'userAgent',
+               'clientSubmittedAt',
+               'fields',
+               'tableRows',
+               'sections',
+               'signature',
+               'footer',
+               'header',
+               'content',
+               'designatedOfficer',
+               'contactInfo',
+               'closing',
+               'submittedAt',
+               'createdAt',
+               'updatedAt'
+             ]) &&
+             request.resource.data.formId is string &&
+             request.resource.data.formId.size() > 0 &&
+             request.resource.data.formId.size() < 40 &&
+             optionalString('formName', 240) &&
+             optionalString('formTitle', 240) &&
+             request.resource.data.referenceId is string &&
+             request.resource.data.referenceId.size() > 0 &&
+             request.resource.data.referenceId.size() < 80 &&
+             request.resource.data.applicant is map &&
+             request.resource.data.status == 'new' &&
+             request.resource.data.priority == 'normal' &&
+             request.resource.data.page == 'rti' &&
+             request.resource.data.source == 'rti-online-form' &&
+             optionalString('userAgent', 500) &&
+             optionalString('clientSubmittedAt', 80) &&
+             optionalMap('fields') &&
+             optionalList('tableRows') &&
+             optionalMap('sections') &&
+             optionalMap('signature') &&
+             optionalMap('footer') &&
+             optionalMap('header') &&
+             optionalMap('content') &&
+             optionalMap('designatedOfficer') &&
+             optionalMap('contactInfo') &&
+             optionalMap('closing') &&
+             request.resource.data.submittedAt == request.time &&
+             request.resource.data.createdAt == request.time &&
+             request.resource.data.updatedAt == request.time;
+    }
     
     function isLibrarian() {
       return hasActiveAdminProfile(request.auth.uid) &&
@@ -360,6 +433,13 @@ service cloud.firestore {
                     && request.resource.data.status == 'new'
                     && request.resource.data.createdAt == request.time;
       allow read, update, delete: if isAdmin() || isSystemAdmin();
+    }
+
+    // Public RTI online forms submitted from /rti. Citizens can only create a
+    // new request; staff with Government Services access review and update it.
+    match /rti_requests/{requestId} {
+      allow create: if isPublicRtiRequest();
+      allow read, update, delete: if canManageGovernmentServices() || isSystemAdmin();
     }
 
     match /scientist_sessions/{sessionId} {
