@@ -1,10 +1,13 @@
 // Service Worker for PWA
-// Version 2.1.0 - NARA public-service PWA
+// Version 2.2.0 - NARA public-service PWA
+// NOTE: bump ALL cache names on every release that changes assets, so returning
+// users' service workers purge stale caches (old index.html / old JS chunks)
+// on activate instead of serving a broken mix that hangs on the boot spinner.
 
-const CACHE_VERSION = 'nara-pwa-v2.1.0';
-const RUNTIME_CACHE = 'nara-runtime-v3';
-const IMAGE_CACHE = 'nara-images-v3';
-const JS_CACHE = 'nara-assets-v3';
+const CACHE_VERSION = 'nara-pwa-v2.2.0';
+const RUNTIME_CACHE = 'nara-runtime-v4';
+const IMAGE_CACHE = 'nara-images-v4';
+const JS_CACHE = 'nara-assets-v4';
 
 // Critical assets to cache on install
 const STATIC_ASSETS = [
