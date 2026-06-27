@@ -24,13 +24,13 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import AppImage from "../../components/AppImage";
+// Hero carousel is the LCP element — import it eagerly (not lazy) so the
+// above-the-fold image paints without waiting for an extra chunk on slow mobile.
+import HeroImageCarousel from "../../components/hero/HeroImageCarousel";
 
 // Detect mobile for reduced animations (particles disabled on mobile via CSS)
 
 // Lazy load heavy / below-fold components
-const HeroImageCarousel = lazy(
-  () => import("../../components/hero/HeroImageCarousel"),
-);
 const LiveOceanDataShowcase = lazy(
   () => import("../../components/LiveOceanDataShowcase"),
 );

@@ -75,6 +75,10 @@ const HeroImageCarousel = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
   const [imageError, setImageError] = useState({});
+  // Skip the fade-in for the very first slide so the (preloaded) LCP hero image
+  // paints instantly instead of waiting for a JS-driven opacity animation.
+  const firstRenderRef = useRef(true);
+  useEffect(() => { firstRenderRef.current = false; }, []);
 
   // Use provided images, default images, or fallback images
   const carouselImages = images && images.length > 0
@@ -141,7 +145,7 @@ const HeroImageCarousel = ({
       <AnimatePresence mode="wait">
         <motion.div
           key={currentImage?.id || currentIndex}
-          initial={{ opacity: 0 }}
+          initial={firstRenderRef.current ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.7, ease: 'easeInOut' }}
@@ -149,6 +153,12 @@ const HeroImageCarousel = ({
         >
           <img
             src={currentImage?.src}
+            srcSet={
+              currentImage?.src
+                ? `${encodeURI(currentImage.src.replace('/hero_images/', '/hero_images/mobile/'))} 828w, ${encodeURI(currentImage.src.replace('/hero_images/', '/hero_images/mid/'))} 1280w, ${encodeURI(currentImage.src)} 1920w`
+                : undefined
+            }
+            sizes="100vw"
             alt={currentImage?.alt || `Hero image ${currentIndex + 1}`}
             className="w-full h-full object-cover"
             width={1920}
@@ -156,7 +166,6 @@ const HeroImageCarousel = ({
             onError={() => handleImageError(currentImage?.id)}
             loading={currentIndex === 0 ? 'eager' : 'lazy'}
             fetchPriority={currentIndex === 0 ? 'high' : 'auto'}
-            sizes="100vw"
             decoding={currentIndex === 0 ? 'sync' : 'async'}
           />
 
