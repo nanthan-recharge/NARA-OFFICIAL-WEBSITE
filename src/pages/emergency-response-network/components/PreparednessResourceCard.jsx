@@ -5,6 +5,8 @@ import { cn } from '../../../utils/cn';
 
 const PreparednessResourceCard = ({ resource }) => {
   const handleDownload = (url, filename) => {
+    if (!url || url === '#') return;
+
     const link = document.createElement('a');
     link.href = url;
     link.download = filename;
@@ -47,6 +49,8 @@ const PreparednessResourceCard = ({ resource }) => {
   };
 
   const config = getTypeConfig(resource?.type);
+  const formats = resource?.formats?.map((format) => format?.type?.toUpperCase()).filter(Boolean).join(', ') || 'PDF';
+  const languages = Array.isArray(resource?.languages) ? resource.languages.length : 1;
 
   return (
     <div className={cn(
@@ -79,12 +83,12 @@ const PreparednessResourceCard = ({ resource }) => {
       {/* Key Stats */}
       <div className="grid grid-cols-3 gap-2 mb-5">
         <div className="rounded-xl bg-black/20 p-2 text-center border border-white/5">
-          <div className="font-mono text-sm font-bold text-white">{resource?.downloads || '0'}</div>
-          <div className="text-[10px] text-gray-500 uppercase">Downloads</div>
+          <div className="font-mono text-sm font-bold text-white">{formats}</div>
+          <div className="text-[10px] text-gray-500 uppercase">Format</div>
         </div>
         <div className="rounded-xl bg-black/20 p-2 text-center border border-white/5">
-          <div className="font-mono text-sm font-bold text-white">{resource?.rating || '4.8'}</div>
-          <div className="text-[10px] text-gray-500 uppercase">Rating</div>
+          <div className="font-mono text-sm font-bold text-white">{languages}</div>
+          <div className="text-[10px] text-gray-500 uppercase">Languages</div>
         </div>
         <div className="rounded-xl bg-black/20 p-2 text-center border border-white/5">
           <div className="font-mono text-sm font-bold text-white uppercase">{resource?.fileSize || 'N/A'}</div>

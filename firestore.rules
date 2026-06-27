@@ -168,6 +168,13 @@ service cloud.firestore {
              hasAdminRole(['deputy_director', 'division_head', 'admin_staff']) ||
              hasAdminCustomPermission('view_logs');
     }
+
+    function isPublicEmergencyIntake() {
+      return request.resource.data.createdAt == request.time &&
+             request.resource.data.updatedAt == request.time &&
+             request.resource.data.status is string &&
+             request.resource.data.status in ['new', 'active'];
+    }
     
     function isLibrarian() {
       return hasActiveAdminProfile(request.auth.uid) &&
@@ -565,6 +572,24 @@ service cloud.firestore {
       allow read: if canManageIncidents();
       allow create: if true;
       allow update, delete: if canManageIncidents();
+    }
+
+    match /emergency_incidents/{incidentId} {
+      allow read: if canManageIncidents() || canManageGovernmentServices();
+      allow create: if isPublicEmergencyIntake();
+      allow update, delete: if canManageIncidents() || canManageGovernmentServices();
+    }
+
+    match /non_emergency_support/{requestId} {
+      allow read: if canManageGovernmentServices() || canManageIncidents();
+      allow create: if isPublicEmergencyIntake();
+      allow update, delete: if canManageGovernmentServices() || canManageIncidents();
+    }
+
+    match /environmental_incidents/{incidentId} {
+      allow read: if canManageIncidents() || canManageGovernmentServices();
+      allow create: if isPublicEmergencyIntake();
+      allow update, delete: if canManageIncidents() || canManageGovernmentServices();
     }
 
     // User Analytics

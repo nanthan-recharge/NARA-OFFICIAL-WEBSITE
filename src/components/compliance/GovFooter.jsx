@@ -391,14 +391,13 @@ const GovFooter = () => {
 
         }
       `}</style>
-      <section className="border-b border-slate-200 bg-gradient-to-b from-sky-50 to-white py-5 dark:border-white/10 dark:from-[#08233f] dark:to-[#061a33]">
+      <section className="border-b border-slate-200 bg-gradient-to-b from-sky-50 to-white py-4 dark:border-white/10 dark:from-[#08233f] dark:to-[#061a33]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mb-4 flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300">Public Access</p>
-              <h2 className="text-xl font-bold text-nara-navy dark:text-white">Important Links</h2>
-            </div>
-            <p className="max-w-2xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          <div className="mb-3 flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+            <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-sky-700 dark:text-sky-300">Public Access</span>
+            <h2 className="text-lg font-bold text-nara-navy dark:text-white">Important Links</h2>
+            <span className="hidden text-slate-300 dark:text-slate-600 sm:inline" aria-hidden="true">—</span>
+            <p className="text-xs leading-snug text-slate-700 dark:text-slate-200">
               Fast access to NARA services, reports, official government portals, payment links, and public information resources.
             </p>
           </div>

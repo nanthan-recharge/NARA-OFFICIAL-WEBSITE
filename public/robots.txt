@@ -1,37 +1,78 @@
+# NARA — National Aquatic Resources Research & Development Agency
 # https://www.robotstxt.org/robotstxt.html
+#
+# Search engines AND AI assistants are welcome to crawl and index every public
+# page. Only admin, authentication, payment and personal pages are excluded.
+# (JavaScript is intentionally NOT blocked — crawlers need it to render the app.)
+
+# ─── All crawlers (search engines + AI) ──────────────────────────────────────
 User-agent: *
 Allow: /
-
-# Block admin and authentication pages
 Disallow: /admin
-Disallow: /admin/*
-Disallow: /firebase-admin*
+Disallow: /firebase-admin-authentication-portal
+Disallow: /firebase-admin-dashboard-control-center
 Disallow: /lda-login
 Disallow: /lda-register
 Disallow: /library-login
 Disallow: /library-register
-Disallow: /library-admin
-Disallow: /library-admin/*
+Disallow: /library-dashboard
 Disallow: /library-librarian-desk
+Disallow: /library-member-dashboard
+Disallow: /library-membership-register
+Disallow: /library-research-submit
+Disallow: /register
 Disallow: /checkout
+Disallow: /payment-gateway-hub
 Disallow: /payment-return
-Disallow: /user-profile
+Disallow: /profile
 Disallow: /scientist-session
-
-# Block API and internal routes
 Disallow: /api/
-Disallow: /_next/
-Disallow: /assets/js/
 
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Sitemap location
-Sitemap: https://nara-web-73384.web.app/sitemap.xml
-
-# Google specific
+# ─── Google (search + AI features) ───────────────────────────────────────────
 User-agent: Googlebot
 Allow: /
 Disallow: /admin
-Disallow: /admin/*
-Crawl-delay: 0
+Disallow: /firebase-admin-authentication-portal
+Disallow: /firebase-admin-dashboard-control-center
+Disallow: /checkout
+Disallow: /payment-gateway-hub
+Disallow: /profile
+
+# ─── AI assistants & answer engines — explicitly welcome ─────────────────────
+# Permitted to read public content for training, search indexes and live
+# citations. Admin / auth / payment / personal pages stay excluded.
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+User-agent: claude-web
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: Meta-ExternalAgent
+User-agent: Bingbot
+User-agent: CCBot
+Allow: /
+Disallow: /admin
+Disallow: /firebase-admin-authentication-portal
+Disallow: /firebase-admin-dashboard-control-center
+Disallow: /lda-login
+Disallow: /lda-register
+Disallow: /library-login
+Disallow: /library-register
+Disallow: /library-dashboard
+Disallow: /library-librarian-desk
+Disallow: /library-member-dashboard
+Disallow: /checkout
+Disallow: /payment-gateway-hub
+Disallow: /profile
+Disallow: /scientist-session
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://nara-web-73384.web.app/sitemap.xml

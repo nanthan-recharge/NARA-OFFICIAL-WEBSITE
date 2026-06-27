@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
 
-const AlertCard = ({ alert, onViewDetails, onDismiss }) => {
+const AlertCard = ({ alert, onViewDetails, onDismiss, onViewMap }) => {
   const getSeverityConfig = (severity) => {
     switch (severity) {
       case 'critical':
@@ -110,6 +110,7 @@ const AlertCard = ({ alert, onViewDetails, onDismiss }) => {
           {alert?.hasMap && (
             <Button
               size="sm"
+              onClick={() => onViewMap?.(alert)}
               className={`${config?.badgeColor} hover:brightness-110 border-none`}
             >
               <Icon name="Map" size={14} className="mr-2" />

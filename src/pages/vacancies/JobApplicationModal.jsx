@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { X, Upload, CheckCircle, Loader2, GraduationCap, Briefcase, FileText } from 'lucide-react';
 import {
-  JOB_CATEGORIES, STUDY_FIELDS, QUALIFICATION_LEVELS, DOCUMENT_TYPES, documentTypeLabel,
+  JOB_CATEGORIES, STUDY_FIELDS, QUALIFICATION_LEVELS, DOCUMENT_TYPES,
 } from '../../constants/vacancyTaxonomy';
 import { submitJobApplication, ACCEPTED_FILE_TYPES, MAX_FILE_BYTES } from '../../services/jobApplicationService';
 
@@ -119,7 +119,7 @@ const JobApplicationModal = ({ vacancy, onClose }) => {
             {/* Personal details */}
             <div>
               <h3 className="text-sm font-bold uppercase tracking-wide text-slate-400 mb-3 flex items-center gap-2"><Briefcase size={15} /> Your details</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid !grid-cols-1 sm:!grid-cols-2 gap-4">
                 <div>
                   <label className={label}>Full name *</label>
                   <input className={field} value={form.fullName} onChange={(e) => set('fullName', e.target.value)} required />
@@ -142,7 +142,7 @@ const JobApplicationModal = ({ vacancy, onClose }) => {
             {/* Qualification — easy auto-display dropdowns */}
             <div>
               <h3 className="text-sm font-bold uppercase tracking-wide text-slate-400 mb-3 flex items-center gap-2"><GraduationCap size={15} /> Your qualification</h3>
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid !grid-cols-1 sm:!grid-cols-2 gap-4">
                 <div>
                   <label className={label}>Profession area *</label>
                   <select className={field} value={form.category} onChange={(e) => set('category', e.target.value)} required>

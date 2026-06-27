@@ -24,10 +24,26 @@ const DEFAULT_HERO_IMAGE = '/assets/emergency/hero-1.webp';
 const FALLBACK_IMAGES = [
   '/assets/emergency/hero-1.webp',
   '/assets/emergency/hero-2.webp',
-  '/assets/emergency/hero-3.webp'
+  '/assets/emergency/hero-3.webp',
+  '/assets/emergency/hero-4.webp',
+  '/assets/emergency/hero-5.webp'
 ];
 
-const HeroCarousel = ({ images = [], title }) => {
+const PRIORITY_CONTACTS = [
+  { label: 'DMC 24/7 Disaster Call Centre', value: '117', href: 'tel:117', tone: 'red' },
+  { label: 'Police Emergency', value: '119', href: 'tel:119', tone: 'amber' },
+  { label: 'Ambulance / Medical Emergency', value: '1990', href: 'tel:1990', tone: 'emerald' },
+  { label: 'NARA Marine Reporting Desk', value: '+94 11 252 1000', href: 'tel:+94112521000', tone: 'cyan' }
+];
+
+const toneClass = {
+  red: 'border-red-400/40 bg-red-500/20 text-red-50 hover:bg-red-500/30',
+  amber: 'border-amber-400/40 bg-amber-500/20 text-amber-50 hover:bg-amber-500/30',
+  emerald: 'border-emerald-400/40 bg-emerald-500/20 text-emerald-50 hover:bg-emerald-500/30',
+  cyan: 'border-cyan-400/40 bg-cyan-500/20 text-cyan-50 hover:bg-cyan-500/30'
+};
+
+const HeroCarousel = ({ images = [], hero }) => {
   const filteredImages = (images || []).filter(Boolean);
   const validImages = filteredImages.length > 0 ? filteredImages : FALLBACK_IMAGES;
 
@@ -51,19 +67,78 @@ const HeroCarousel = ({ images = [], title }) => {
   };
 
   return (
-    <div className="relative h-[320px] lg:h-[420px] overflow-hidden rounded-3xl border border-white/10 shadow-2xl group z-0">
+    <div className="relative min-h-[620px] overflow-hidden rounded-3xl border border-white/10 shadow-2xl group z-0">
       {validImages.map((src, idx) => (
         <img
           key={`${src}-${idx}`}
           src={src}
-          alt={`${title ?? 'Emergency response'} ${idx + 1}`}
+          alt={`${hero?.title ?? 'Emergency response'} ${idx + 1}`}
           className={cn(
             'absolute inset-0 h-full w-full object-cover transition-opacity duration-700',
             idx === index ? 'opacity-100' : 'opacity-0'
           )}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0a192f]/80 via-transparent to-transparent pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/72 to-slate-950/10 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-slate-950/95 to-transparent pointer-events-none" />
+
+      <div className="relative z-10 flex min-h-[620px] max-w-4xl flex-col justify-center px-5 py-16 sm:px-8 lg:px-12">
+        <div className="mb-5 inline-flex w-fit items-center gap-2 rounded-full border border-red-400/40 bg-red-500/20 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-red-50">
+          <Icon name="Siren" size={16} className="animate-pulse" />
+          {hero?.badge ?? 'Emergency Response'}
+        </div>
+        <h1 className="max-w-3xl text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+          {hero?.title}
+          {hero?.highlight ? <span className="block text-cyan-200">{hero.highlight}</span> : null}
+        </h1>
+        <p className="mt-5 max-w-2xl text-base leading-8 text-slate-100 sm:text-lg">
+          {hero?.description}
+        </p>
+
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <a
+            href={hero?.primaryCta?.href ?? '#emergency-reporting'}
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-6 py-4 text-base font-bold text-white shadow-lg shadow-red-950/30 transition hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-200"
+          >
+            <Icon name={hero?.primaryCta?.icon ?? 'AlertOctagon'} size={20} />
+            {hero?.primaryCta?.label ?? 'Report emergency'}
+          </a>
+          <a
+            href="#contacts"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-6 py-4 text-base font-semibold text-white backdrop-blur-sm transition hover:bg-white/20 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+          >
+            <Icon name="PhoneCall" size={20} />
+            Emergency directory
+          </a>
+          <a
+            href="#non-emergency-reporting"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-cyan-400/30 bg-cyan-500/15 px-6 py-4 text-base font-semibold text-cyan-50 backdrop-blur-sm transition hover:bg-cyan-500/25 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+          >
+            <Icon name="MessageSquareWarning" size={20} />
+            Complaint / support
+          </a>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {PRIORITY_CONTACTS.map((contact) => (
+            <a
+              key={contact.label}
+              href={contact.href}
+              className={cn(
+                'rounded-2xl border px-4 py-3 backdrop-blur-md transition focus:outline-none focus:ring-2 focus:ring-white/70',
+                toneClass[contact.tone]
+              )}
+            >
+              <span className="block text-xs font-semibold uppercase tracking-[0.14em] opacity-80">{contact.label}</span>
+              <span className="mt-1 block font-mono text-2xl font-bold">{contact.value}</span>
+            </a>
+          ))}
+        </div>
+
+        <p className="mt-5 max-w-2xl text-sm text-slate-300">
+          If life or property is at immediate risk, call the relevant official emergency number first. Use the online forms to send location, evidence, and follow-up details to NARA.
+        </p>
+      </div>
 
       {validImages.length > 1 && (
         <>
@@ -143,7 +218,7 @@ const createInitialFormState = (fields) => {
 
 const ReportForm = ({ formId, config, tone = 'default', language = 'en', onSubmit }) => {
   const [values, setValues] = useState(() => createInitialFormState(config?.fields));
-  const [submitted, setSubmitted] = useState(false);
+  const [confirmation, setConfirmation] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
 
@@ -164,6 +239,7 @@ const ReportForm = ({ formId, config, tone = 'default', language = 'en', onSubmi
     if (submitting) return;
     setSubmitting(true);
     setError(null);
+    setConfirmation(null);
 
     const payload = {};
     const attachments = [];
@@ -190,8 +266,8 @@ const ReportForm = ({ formId, config, tone = 'default', language = 'en', onSubmi
       : Promise.resolve();
 
     submitPromise
-      .then(() => {
-        setSubmitted(true);
+      .then((result) => {
+        setConfirmation(result ?? {});
         setValues(createInitialFormState(config?.fields));
       })
       .catch((submitError) => {
@@ -325,10 +401,17 @@ const ReportForm = ({ formId, config, tone = 'default', language = 'en', onSubmi
         </div>
       )}
 
-      {submitted && (
+      {confirmation && (
         <div className={cn('mt-4 flex items-start gap-3 rounded-xl px-4 py-3 text-sm animate-in fade-in slide-in-from-top-2', styles.success)}>
           <Icon name="CheckCircle" size={18} className="mt-0.5 shrink-0" />
-          {config?.acknowledgement}
+          <div>
+            <p>{config?.acknowledgement}</p>
+            {confirmation?.referenceId && (
+              <p className="mt-2 font-mono text-xs uppercase tracking-wider">
+                Reference: <span className="font-bold text-white">{confirmation.referenceId}</span>
+              </p>
+            )}
+          </div>
         </div>
       )}
     </section>
@@ -336,12 +419,25 @@ const ReportForm = ({ formId, config, tone = 'default', language = 'en', onSubmi
 };
 
 const IntelligentReportingHub = ({ localizedContent, language, handlers }) => {
-  const [activeTab, setActiveTab] = useState('emergency');
+  const getTabFromHash = () => {
+    const hash = window?.location?.hash;
+    if (hash === '#environmental-reporting') return 'environmental';
+    if (hash === '#non-emergency-reporting') return 'non-emergency';
+    return 'emergency';
+  };
+
+  const [activeTab, setActiveTab] = useState(getTabFromHash);
+
+  useEffect(() => {
+    const syncFromHash = () => setActiveTab(getTabFromHash());
+    window.addEventListener('hashchange', syncFromHash);
+    return () => window.removeEventListener('hashchange', syncFromHash);
+  }, []);
 
   const tabs = [
     { id: 'emergency', label: 'Emergency', icon: 'AlertTriangle', color: 'text-red-400', bg: 'bg-red-500/10 border-red-500/20' },
     { id: 'environmental', label: 'Environmental', icon: 'Leaf', color: 'text-teal-400', bg: 'bg-teal-500/10 border-teal-500/20' },
-    { id: 'non-emergency', label: 'General Support', icon: 'HelpCircle', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' }
+    { id: 'non-emergency', label: 'Complaint / Support', icon: 'MessageSquareWarning', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/20' }
   ];
 
   const activeConfig = useMemo(() => {
@@ -362,7 +458,7 @@ const IntelligentReportingHub = ({ localizedContent, language, handlers }) => {
         };
       case 'environmental':
         return {
-          formId: 'environmental-reporting-form',
+          formId: 'environmental-reporting',
           config: {
             ...localizedContent?.reporting?.environmental?.form,
             acknowledgement: localizedContent?.reporting?.environmental?.form?.acknowledgement,
@@ -397,8 +493,10 @@ const IntelligentReportingHub = ({ localizedContent, language, handlers }) => {
       <div className="flex flex-wrap items-center justify-center gap-4 bg-white/5 p-2 rounded-2xl border border-white/10 backdrop-blur-md">
         {tabs.map((tab) => (
           <button
+            type="button"
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
+            aria-selected={activeTab === tab.id}
             className={cn(
               'flex items-center gap-2 px-6 py-3 rounded-xl transition-all duration-300 font-bold border',
               activeTab === tab.id
@@ -478,8 +576,7 @@ const EmergencyResponseNetwork = () => {
   const hero = useMemo(() => {
     const heroOverride = cmsContent?.hero?.translations?.[language] ?? cmsContent?.hero?.translations?.en ?? cmsContent?.hero ?? {};
     const base = localizedContent?.hero ?? {};
-    // User requested explicitly to ONLY use the 3 AI generated images
-    const gallery = FALLBACK_IMAGES;
+    const gallery = cmsContent?.hero?.images?.length ? cmsContent.hero.images : (base?.images?.length ? base.images : FALLBACK_IMAGES);
 
     return {
       badge: heroOverride?.badge ?? base?.badge,
@@ -510,11 +607,10 @@ const EmergencyResponseNetwork = () => {
     };
   }, [cmsContent, localizedContent, language]);
 
-  const [alerts, setAlerts] = useState(localizedContent?.alerts?.items ?? []);
-
-  useEffect(() => {
-    setAlerts(localizedContent?.alerts?.items ?? []);
-  }, [localizedContent?.alerts?.items]);
+  const [dismissedAlertIds, setDismissedAlertIds] = useState([]);
+  const alerts = useMemo(() => {
+    return (localizedContent?.alerts?.items ?? []).filter((alert) => !dismissedAlertIds.includes(alert?.id));
+  }, [localizedContent?.alerts?.items, dismissedAlertIds]);
 
   const handleEmergencySubmit = async (payload, files = []) => {
     await submitEmergencyIncident(payload, files);
@@ -529,7 +625,7 @@ const EmergencyResponseNetwork = () => {
   };
 
   return (
-    <StitchWrapper>
+    <StitchWrapper className="overflow-visible bg-[#061528]">
         <SEOHead
           title="Emergency Response Network"
           description="Coordinated emergency response for marine and coastal disasters in Sri Lanka."
@@ -537,18 +633,14 @@ const EmergencyResponseNetwork = () => {
           keywords="emergency response, coastal disasters, marine safety, NARA"
         />
 
-      <main className="relative z-10 space-y-24 pb-24">
+      <main className="relative z-10 space-y-24 bg-[#061528] pb-24 text-white">
         {/* HERO SECTION */}
         <section className="relative pt-32 lg:pt-40">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <div className="grid grid-cols-1 gap-12 lg:gap-20 items-center">
-              <div className="space-y-8 animate-in slide-in-from-left-10 duration-700 fade-in hidden lg:block invisible w-0 h-0 overflow-hidden">
-                {/* Text overlay hidden as per user request to show full images */}
-              </div>
-
+            <div>
               <div className="relative animate-in slide-in-from-right-10 duration-1000 fade-in">
                 <div className="absolute -inset-4 bg-cyan-500/20 rounded-[2rem] blur-2xl opacity-50" />
-                <HeroCarousel images={hero?.images} title={hero?.title} />
+                <HeroCarousel images={hero?.images} hero={hero} />
               </div>
             </div>
           </div>
@@ -561,7 +653,7 @@ const EmergencyResponseNetwork = () => {
               Rapid Response Command
             </h2>
             <p className="text-gray-400 max-w-2xl text-lg">
-              Dispatch immediate assistance or log incidents directly to the National Operations Centre.
+              Call the correct emergency line, report marine/coastal incidents, or submit a complaint/support request without searching through the page.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -580,14 +672,14 @@ const EmergencyResponseNetwork = () => {
             <div className="relative p-8 lg:p-12">
               <div className="text-center max-w-3xl mx-auto mb-12">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-bold uppercase tracking-wider border border-cyan-500/20 mb-4">
-                  <Icon name="RadioReceiver" size={14} className="animate-pulse" />
-                  Live Incident Channel
+                  <Icon name="RadioReceiver" size={14} />
+                  Incident Intake Channel
                 </div>
                 <h2 className="text-3xl lg:text-5xl font-headline font-bold text-white mb-6">
                   Intelligent Reporting Hub
                 </h2>
                 <p className="text-gray-300 text-lg leading-relaxed">
-                  Select the type of incident below to access the appropriate secure channel. All reports are encrypted and routed to the nearest command center immediately.
+                  Select the type of incident below to access the right channel. Urgent reports are sent to the NARA incident queue with a reference number; for life-threatening situations, call DMC 117, Police 119, or ambulance 1990 first.
                 </p>
               </div>
 
@@ -606,16 +698,16 @@ const EmergencyResponseNetwork = () => {
               {/* Quick Contacts Footer */}
               <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-sm text-gray-400 uppercase tracking-wider mb-1">Coast Guard</div>
-                  <div className="text-2xl font-mono font-bold text-white">117</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider mb-1">DMC 24/7 Disaster</div>
+                  <a href="tel:117" className="text-2xl font-mono font-bold text-white hover:text-red-200">117</a>
                 </div>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
                   <div className="text-sm text-gray-400 uppercase tracking-wider mb-1">Police Emergency</div>
-                  <div className="text-2xl font-mono font-bold text-white">119</div>
+                  <a href="tel:119" className="text-2xl font-mono font-bold text-white hover:text-amber-200">119</a>
                 </div>
                 <div className="p-4 rounded-xl bg-white/5 border border-white/10">
-                  <div className="text-sm text-gray-400 uppercase tracking-wider mb-1">Disaster Mgmt</div>
-                  <div className="text-2xl font-mono font-bold text-white">117</div>
+                  <div className="text-sm text-gray-400 uppercase tracking-wider mb-1">Ambulance / Medical</div>
+                  <a href="tel:1990" className="text-2xl font-mono font-bold text-white hover:text-emerald-200">1990</a>
                 </div>
               </div>
             </div>
@@ -629,10 +721,10 @@ const EmergencyResponseNetwork = () => {
               <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-headline font-bold text-white flex items-center gap-3">
                   <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                  Live Alert Feed
+                  {localizedContent?.alerts?.title}
                 </h2>
                 <Button asChild variant="ghost" size="sm" iconName="History" className="text-gray-400 hover:text-white">
-                  <a href="#alerts-archive">{localizedContent?.alerts?.viewArchiveLabel}</a>
+                  <a href="#live-updates">{localizedContent?.alerts?.viewArchiveLabel}</a>
                 </Button>
               </div>
               <div className="space-y-4">
@@ -641,7 +733,8 @@ const EmergencyResponseNetwork = () => {
                     key={alert?.id}
                     alert={alert}
                     onViewDetails={(selected) => window?.alert(`${selected?.title}\n\n${selected?.description}`)}
-                    onDismiss={(id) => setAlerts((prev) => prev?.filter((item) => item?.id !== id))}
+                    onViewMap={() => document.getElementById('evacuation-zones')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+                    onDismiss={(id) => setDismissedAlertIds((prev) => [...prev, id])}
                   />
                 ))}
                 {alerts?.length === 0 && (
@@ -654,7 +747,7 @@ const EmergencyResponseNetwork = () => {
             </div>
 
             <div className="space-y-6">
-              <h2 className="text-2xl font-headline font-bold text-white">System Status</h2>
+              <h2 className="text-2xl font-headline font-bold text-white">Readiness Checklist</h2>
               <SystemStatusIndicator systems={localizedContent?.systemStatus?.systems ?? []} />
             </div>
           </div>
@@ -689,7 +782,7 @@ const EmergencyResponseNetwork = () => {
         </section>
 
         {/* EVACUATION */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6" id="evacuation-zones">
           <div className="rounded-3xl border border-white/10 bg-black/20 overflow-hidden shadow-2xl">
             <div className="p-6 border-b border-white/10 flex justify-between items-center">
               <h2 className="text-xl font-bold text-white flex items-center gap-2">
@@ -697,7 +790,7 @@ const EmergencyResponseNetwork = () => {
                 Evacuation Zones
               </h2>
               <span className="text-xs text-cyan-400 bg-cyan-900/30 px-2 py-1 rounded border border-cyan-500/30">
-                LIVE DATA
+                REFERENCE MAP
               </span>
             </div>
             <EvacuationMap />
@@ -705,16 +798,16 @@ const EmergencyResponseNetwork = () => {
         </section>
 
         {/* SITUATION ROOM CTA */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6">
+        <section className="max-w-7xl mx-auto px-4 sm:px-6" id="situation-room">
           <div className="relative rounded-3xl overflow-hidden p-8 lg:p-16 text-center border border-white/10">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-cyan-900/40" />
             <div className="relative z-10 max-w-3xl mx-auto space-y-6">
-              <Icon name="Cpu" size={48} className="mx-auto text-cyan-400" />
+              <Icon name="LifeBuoy" size={48} className="mx-auto text-cyan-400" />
               <h2 className="text-3xl lg:text-5xl font-bold text-white font-headline">
-                National Command Centre
+                {localizedContent?.situationRoom?.title}
               </h2>
               <p className="text-xl text-gray-300">
-                Authorized personnel access for strategic monitoring and resource deployment.
+                {localizedContent?.situationRoom?.description}
               </p>
               <div className="flex flex-wrap justify-center gap-4 pt-4">
                 {localizedContent?.situationRoom?.actions?.map((action) => (

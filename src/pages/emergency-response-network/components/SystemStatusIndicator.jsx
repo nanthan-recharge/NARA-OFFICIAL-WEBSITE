@@ -4,28 +4,28 @@ import { cn } from '../../../utils/cn';
 
 const STATUS_THEMES = {
   operational: {
-    label: 'Operational',
+    label: 'Ready',
     chip: 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20',
     icon: 'CheckCircle',
     accent: 'text-emerald-400',
     card: 'bg-emerald-950/10 border-emerald-500/20 hover:bg-emerald-900/20'
   },
   degraded: {
-    label: 'Degraded',
+    label: 'Review',
     chip: 'bg-amber-500/10 text-amber-400 border border-amber-500/20',
     icon: 'AlertCircle',
     accent: 'text-amber-400',
     card: 'bg-amber-950/10 border-amber-500/20 hover:bg-amber-900/20'
   },
   outage: {
-    label: 'Outage',
+    label: 'Unavailable',
     chip: 'bg-red-500/10 text-red-400 border border-red-500/20',
     icon: 'XCircle',
     accent: 'text-red-400',
     card: 'bg-red-950/10 border-red-500/20 hover:bg-red-900/20'
   },
   maintenance: {
-    label: 'Maintenance',
+    label: 'Staff',
     chip: 'bg-sky-500/10 text-sky-400 border border-sky-500/20',
     icon: 'Settings',
     accent: 'text-sky-400',
@@ -59,7 +59,7 @@ const SystemStatusIndicator = ({ systems }) => {
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-headline font-bold text-white flex items-center gap-3">
             <Icon name="Activity" size={24} className="text-cyan-400" />
-            System Status
+            Readiness Checklist
           </h2>
           <div className={cn('flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-wider', overallTheme.chip)}>
             <Icon name={overallTheme.icon} size={14} />
@@ -67,7 +67,7 @@ const SystemStatusIndicator = ({ systems }) => {
           </div>
         </div>
         <p className="mt-2 text-sm text-gray-400">
-          Real-time diagnostics of critical infrastructure.
+          Public-facing readiness checks and next actions for this service page.
         </p>
       </div>
 
@@ -75,6 +75,10 @@ const SystemStatusIndicator = ({ systems }) => {
         <div className="grid grid-cols-1 gap-4">
           {systems?.map((system, index) => {
             const theme = getStatusTheme(system?.status);
+            const primaryLabel = system?.primaryMetricLabel ?? 'Readiness';
+            const primaryValue = system?.primaryMetric ?? system?.uptime ?? 'Ready';
+            const secondaryLabel = system?.secondaryMetricLabel ?? 'Action';
+            const secondaryValue = system?.secondaryMetric ?? system?.responseTime ?? 'Open';
 
             return (
               <div key={index} className={cn('rounded-xl p-4 border transition-all duration-300', theme.card)}>
@@ -95,12 +99,12 @@ const SystemStatusIndicator = ({ systems }) => {
 
                 <div className="grid grid-cols-2 gap-2">
                   <div className="bg-black/20 rounded-lg p-2 text-center">
-                    <div className="text-xs text-gray-500 uppercase tracking-wider">Uptime</div>
-                    <div className="text-sm font-mono font-bold text-white">{system?.uptime}</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wider">{primaryLabel}</div>
+                    <div className="text-sm font-mono font-bold text-white">{primaryValue}</div>
                   </div>
                   <div className="bg-black/20 rounded-lg p-2 text-center">
-                    <div className="text-xs text-gray-500 uppercase tracking-wider">Response</div>
-                    <div className="text-sm font-mono font-bold text-white">{system?.responseTime}</div>
+                    <div className="text-xs text-gray-500 uppercase tracking-wider">{secondaryLabel}</div>
+                    <div className="text-sm font-mono font-bold text-white">{secondaryValue}</div>
                   </div>
                 </div>
 
@@ -117,8 +121,8 @@ const SystemStatusIndicator = ({ systems }) => {
 
         <div className="pt-4 border-t border-white/5">
           <div className="flex justify-between items-center text-xs text-gray-500">
-            <span>Last updated: just now</span>
-            <span>Next scheduled maintenance: Dec 12</span>
+            <span>Updated: Jun 27, 2026</span>
+            <span>Reference material only</span>
           </div>
         </div>
       </div>

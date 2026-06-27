@@ -30,8 +30,8 @@ si.quickActions = [
     id: 'emergency-call',
     title: 'අතිතාක්ෂණික අනතුරු අඟවීම',
     summary: 'ජීවිත තර්ජන, නාවික අනතුරු හෝ සුනමි දර්ශක.',
-    primary: { label: '117 වෙතින් අමතන්න', icon: 'PhoneCall', href: 'tel:117' },
-    secondary: { label: 'SOS සටහන් කරන්න', icon: 'Radio', href: '#emergency-reporting' }
+    primary: { label: 'DMC 117 අමතන්න', icon: 'PhoneCall', href: 'tel:117' },
+    secondary: { label: 'හදිසි වාර්තාව යවන්න', icon: 'Radio', href: '#emergency-reporting' }
   },
   {
     id: 'environmental',
@@ -41,11 +41,11 @@ si.quickActions = [
     secondary: { label: 'ක්ෂේත්‍ර පිරික්ෂණ ලැයිස්තුව', icon: 'ClipboardList', href: '#preparedness' }
   },
   {
-    id: 'admin-console',
-    title: 'පාලන හා විශ්ලේෂණ',
-    summary: 'අවසර ඇති නිලධාරින්ට අනතුරු, දත්ත ප්‍රවාහයන් හා දෙභාෂා පණිවිඩ කළමනාකරණය.',
-    primary: { label: 'පාලන පුවරුවට පිවිසෙන්න', icon: 'ShieldCheck', href: '/admin' },
-    secondary: { label: 'මෙහෙයුම් වාර්තා බලන්න', icon: 'FileSpreadsheet', href: '#situation-room' }
+    id: 'complaint-support',
+    title: 'පැමිණිලි / සේවා සහාය',
+    summary: 'හදිසි නොවන මහජන පැමිණිලි, සේවා ගැටලු හා පසු විමසුම් ඉල්ලීම්.',
+    primary: { label: 'පැමිණිල්ලක් යවන්න', icon: 'MessageSquareWarning', href: '#non-emergency-reporting' },
+    secondary: { label: 'හදිසි සම්බන්ධතා', icon: 'PhoneCall', href: '#contacts' }
   }
 ];
 
@@ -53,7 +53,7 @@ si.reporting.emergency = {
   title: 'හදිසි සිද්ධි ලියාපදිංචිය',
   description:
     'බිම් කණ්ඩායම් දෙභාෂා සම්බන්ධතා, භූස්ථාන හා කාණ්ඩ සමාලෝචන සමඟ උණුසුම් සිද්ධි කිලිඳර වාර්තා කරයි. පොලිසිය, නාවික හමුදාව, වරාය සහ ප්‍රතිචාර කණ්ඩායම් එකවර දැනුවත් කරයි.',
-  targetResponse: 'මධ්‍යස්ථ කාලය: මිනිත්තු 5ට අඩු',
+  targetResponse: 'යොමු අංකයක් සමඟ මහජන වාර්තාකරණය',
   form: {
     title: 'හදිසි වාර්තාව ඉදිරිපත් කරන්න',
     fields: [
@@ -81,7 +81,7 @@ si.reporting.emergency = {
     ],
     submitLabel: 'හදිසි වාර්තාව යවන්න',
     acknowledgement:
-      'සිද්ධිය ලැබුණි. දෙභාෂා ඩිස්පැචර් කණ්ඩායම මිනිත්තු 3යි ඇතුළත ඔබව අමතනු ඇත. live console හෝ 1990 හරහා ප්‍රතිචාරය තවත් පරික්ෂා කරන්න.'
+      'හදිසි වාර්තාව ලැබුණි. වහාම අවදානමක් තිබේ නම් DMC 117, පොලිස් 119 හෝ ගිලන් රථ 1990 අමතමින් සිටින්න.'
   }
 };
 
@@ -89,7 +89,7 @@ si.reporting.nonEmergency = {
   title: 'හදිසි නොවන සහාය',
   description:
     'නාවික මාර්ග අවදානම්, වරාය සවිස්, ප්‍රජා අවධානම් හෝ පූර්ව රැකවරණ අවශ්‍යතා වාර්තා කර හදිසි මට්ටමක් නොමැතිව කාලීන ක්‍රියාමාර්ග ගැනීම.',
-  supportText: 'ව්‍යාපාරික රැඳවුම් කාර්ය මණ්ඩලය රාජකාරි පැය 24කින් පිළිතුරු සපයයි.',
+  supportText: 'මහජන පැමිණිලි සහ සහාය ඉල්ලීම් සමාලෝචනය සහ පසු විමසීම සඳහා ලියාපදිංචි කෙරේ.',
   form: {
     title: 'හදිසි නොවන ප්‍රශ්නයක් ලියාපදිංචි කරන්න',
     fields: [
@@ -115,7 +115,7 @@ si.reporting.nonEmergency = {
       { id: 'preferredDate', type: 'date', label: 'පසු විමසුම් දිනය' }
     ],
     submitLabel: 'සහාය ඉල්ලීම යවන්න',
-    acknowledgement: 'අයදුම්පත ලියාපදිංචි විය. රාජකාරි දින 24ඉන් දින හතරක් ඇතුළත පිළිතුර ලැබේ.'
+    acknowledgement: 'පැමිණිලි/සහාය ඉල්ලීම ලැබුණි. පසු විමසීම් සඳහා යොමු අංකය තබා ගන්න.'
   }
 };
 
@@ -123,7 +123,7 @@ si.reporting.environmental = {
   title: 'පාරිසරික හානි වාර්තාකරණය',
   description:
     'තෙල්/ රසායනික වාමනය, පැලුම් පරිහරණය, මසුන් මරු, නීතිවිරෝධී කැනීම් විස්තරාත්මකව ලබාදී බලධාරීන්ට ක්‍රියාත්මක වීමට ඉඩ සැලසෙයි.',
-  hotline: 'පාරිසරික වගකීම් නිලධාරි: +94 11 452 7777',
+  hotline: 'වහාම මහජන ආරක්ෂාවට අවදානමක් තිබේ නම් පළමුව DMC 117 හෝ පොලිස් 119 අමතන්න.',
   form: {
     title: 'පාරිසරික සිද්ධිය ලියාපදිංචි කරන්න',
     fields: [
@@ -150,70 +150,74 @@ si.reporting.environmental = {
       { id: 'samples', type: 'textarea', label: 'අරගෙන ඇති මාදිලි / පුහුණු සහය', placeholder: 'ජල නියැදි, පටක, ඡායාරූප, ඩ්‍රෝන් දත්ත' },
       { id: 'attachments', type: 'file', label: 'ඡායාරූප / වීඩියෝ / විද්‍යුත් ලිපි එක් කරන්න' }
     ],
-    supportText: 'CEA, වෙරළ සංරක්ෂණ දෙපාර්තමේන්තුව සහ මුහුදු පොලිසියට ස්වයංක්‍රීය දැනුම් දීම සිදුවේ.',
+    supportText: 'NARA සාක්ෂි සමාලෝචනය කර අවශ්‍ය විට අදාළ බලධාරීන් වෙත යොමු කරයි.',
     submitLabel: 'පාරිසරික හානි වාර්තා කරන්න',
     acknowledgement:
-      'පාරිසරික ක්‍රියාකාරී ඒකකයට දැනුම් දුන් අතර ක්ෂේත්‍ර කණ්ඩායම් හා අනුබල ආයතන (CEA, Coast Conservation, Marine Police) සමඟ සම්බන්ධතාවය ක්‍රියාත්මක වේ.'
+      'පාරිසරික සිද්ධිය ලැබුණි. තහවුරු කිරීම හෝ පසු විමසීම් සඳහා යොමු අංකය තබා ගන්න.'
   }
 };
 
 si.alerts.title = 'ජීවමාන අනතුරු ඇඟවීම්';
-si.alerts.viewArchiveLabel = 'අතීත අනතුරු බලන්න';
+si.alerts.viewArchiveLabel = 'සක්‍රිය අනතුරු බලන්න';
 si.alerts.items = [
   {
     ...si.alerts.items[0],
-    title: 'සුනමි අවවාදය – දකුණු වෙරළ',
+    title: 'වහාම අවදානමක් නම් පළමුව අමතන්න',
     description:
-      'දොන්ඩ්‍ර බෝයි එකීවෙන් සෙන්ටිමීටර් 10ක් උල්ලාසය. මසුන් නාවිකයින්ව වරායට රඳවා තබා ඇත; සයිරන් පරීක්ෂණය සිදුවෙයි.',
-    location: 'මාතර, හැම්බන්තොට, ගාල්ල',
-    timestamp: 'මිනිත්තු 2කට පෙර යාවත්කාලීන',
-    affectedAreas: ['දොන්ඩ්‍ර', 'හැම්බන්තොට', 'ටංගල්ල']
+      'ජීවිතයට හෝ මහජන ආරක්ෂාවට වහාම අවදානමක් තිබේ නම් online වාර්තාවට පෙර DMC 117, පොලිස් 119 හෝ ගිලන් රථ 1990 අමතන්න.',
+    location: 'ශ්‍රී ලංකාව',
+    timestamp: 'මහජන මාර්ගෝපදේශය',
+    affectedAreas: ['ජාතික හදිසි අංක']
   },
   {
     ...si.alerts.items[1],
-    title: 'තෙල් මතුපිට නිරීක්ෂණය – ත්‍රිකුණාමලය',
+    title: 'ඉක්මන් සමාලෝචනයට සාක්ෂි එකතු කරන්න',
     description:
-      'උපග්‍රහ හා ඩ්‍රෝන් රූපවලින් මීටර් 1.5ක් දුරට පරාසයක් තහවුරු. පාරිසරික කණ්ඩායම් නාවික හමුදාව සමඟ බූම් පවත්වායි.',
-    location: 'ත්‍රිකුණාමලය වරාය',
-    timestamp: 'මිනිත්තු 14කට පෙර යාවත්කාලීන',
-    affectedAreas: ['ත්‍රිකුණාමලය වෙරළ', 'කුච්චවිලි']
+      'වෙරළ දූෂණය, මසුන් මරණය, නීතිවිරෝධී බැහැර කිරීම හෝ ගල්පර හානිය සඳහා ඡායාරූප, GPS/ස්ථානය, වේලාව සහ සම්බන්ධතා දත්ත එක් කරන්න.',
+    location: 'මුහුදු හා වෙරළ ප්‍රදේශ',
+    timestamp: 'සාක්ෂි ලැයිස්තුව',
+    affectedAreas: ['ඡායාරූප', 'ස්ථානය', 'නිරීක්ෂණ වේලාව']
   },
   {
     ...si.alerts.items[2],
-    title: 'ප්‍රජා ඉවත්වීමේ පුහුණු කටයුතු',
+    title: 'පැමිණිලි සහ සේවා ඉල්ලීම්',
     description:
-      'මොරටුව වෙරළ GN කලාප සඳහා සූදානම් සුනමි පුහුණු වැඩසටහන 15:00 වේලාවේ. සිංහල හා දෙමළ ප්‍රකාශන පද්ධති ක්‍රියාත්මකයි.',
-    location: 'මොරටුව වෙරළ',
-    timestamp: 'මිනිත්තු 45කට පෙර යාවත්කාලීන',
-    affectedAreas: ['අංගූලන', 'කොරල වැල්ල']
+      'හදිසි නොවන ගැටලු සඳහා පැමිණිලි/සහාය tab එක භාවිතා කරන්න. යැවීමෙන් පසු පෙන්වන යොමු අංකය තබා ගන්න.',
+    location: 'NARA මහජන සේවා',
+    timestamp: 'සේවා මාර්ගෝපදේශය',
+    affectedAreas: ['පැමිණිලි', 'සහාය', 'පසු විමසීම']
   }
 ];
 
-si.systemStatus.systems[0].name = 'ජාතික සුනමි බූයි ජාලය';
-si.systemStatus.systems[0].description = 'ගැඹුරු සාගර සංවේදක දත්ත විපත් කළමනාකරණ මධ්‍යස්ථානයට.';
+si.systemStatus.systems[0].name = 'වහාම හදිසි සම්බන්ධතා';
+si.systemStatus.systems[0].description = 'ජාතික හදිසි අංක hero, reporting hub සහ directory තුළ පෙනේ.';
+si.systemStatus.systems[0].statusMessage = 'වහාම අවදානමක් ඇති විට පළමුව දුරකථන අංක භාවිතා කරන්න.';
 si.systemStatus.systems[1] = {
   ...si.systemStatus.systems[1],
-  name: 'වරාය විධාන රේඩියෝ ජාලය',
-  description: 'සරල VHF / LTE මිශ්‍ර ජාලය වරාය මණ්ඩල සඳහා.',
-  statusMessage: 'ගාල්ල රිපීටරය අමතර විදුලි බලයෙන් ක්‍රියාත්මකයි.'
+  name: 'Online වාර්තා ලබාගැනීම',
+  description: 'හදිසි, පාරිසරික සහ පැමිණිලි/සහාය වාර්තා සඳහා form තුනක් ඇත.',
+  statusMessage: 'ඉදිරිපත් කිරීම් පසු විමසීම සඳහා මහජන යොමු අංකයක් ලබා දෙයි.'
 };
-si.systemStatus.systems[2].name = 'හදිසි සිද්ධි පුවරුව හා විශ්ලේෂණ';
+si.systemStatus.systems[2].name = 'සූදානම් PDF බාගැනීම්';
+si.systemStatus.systems[2].description = 'ඉවත්වීම, පාරිසරික, ප්‍රජා පුහුණු සහ map reference PDF බාගත කළ හැක.';
 si.systemStatus.systems[3] = {
   ...si.systemStatus.systems[3],
-  name: 'ප්‍රජා සයිරන් ජාලය',
-  description: 'සූර්ය බලයෙන් පවත්නා වෙරළ සයිරන් 215ක්.',
-  statusMessage: 'කළුතර දකුණු සයිරන් බැටරි ප්‍රතිස්ථාපනය අද රාත්‍රියට.'
+  name: 'කාර්ය මණ්ඩල සමාලෝචන ප්‍රවේශය',
+  description: 'මහජන වාර්තා create-only වන අතර, staff roles සමාලෝචනය සහ පසු විමසීම කළමනාකරණය කරයි.',
+  statusMessage: 'Live submissions සඳහා hosting update සමඟ Firestore rules deploy කරන්න.'
 };
 
 si.contacts.title = 'මුහුදු මෙහෙයුම් සම්බන්ධතා';
 si.contacts.description =
-  'දෙභාෂා ප්‍රතිචාරකයන්ට හැකියාව ඇති කරන සෘජු අංක. සියලු දුරකථන පද්ධති උපග්‍රහ ආපසු යාමක් සහිතයි.';
-si.contacts.items[0].name = 'ජාතික හදිසි මෙහෙයුම් මධ්‍යස්ථානය';
-si.contacts.items[0].description = 'හදිසි ප්‍රතිචාර සඳහා ප්‍රධාන ආධාර මධ්‍යස්ථානය.';
-si.contacts.items[1].name = 'නාවික සමුද්‍ර යළි ගෙනයාම සම්බන්ධතා';
-si.contacts.items[1].description = 'නාවික අනතුරු, SAR වෙළඳ කටයුතු, වරාය ඉවත් කිරීම.';
-si.contacts.items[2].name = 'පාරිසරික ඉක්මන් ප්‍රතිචාර ඒකකය';
-si.contacts.items[2].description = 'තෙල්/ රසායනික ව්‍යසන, පැලුම් හානි, කඳවුරු ඉවත දැමීම්.';
+  'වහාම අවදානමක් තිබේ නම් ජාතික හදිසි අංක භාවිතා කර, පසුව සාක්ෂි සහ පසු විමසීම් NARA වෙත යවන්න.';
+si.contacts.items[0].name = 'විපත් කළමනාකරණ මධ්‍යස්ථානය';
+si.contacts.items[0].description = 'හදිසි විපත් සම්බන්ධීකරණය සඳහා ජාතික දුරකථන මධ්‍යස්ථානය.';
+si.contacts.items[1].name = 'ශ්‍රී ලංකා පොලිස් හදිසි සේවාව';
+si.contacts.items[1].description = 'වහාම මහජන ආරක්ෂාවට අවදානම් සඳහා පොලිස් හදිසි ප්‍රතිචාර.';
+si.contacts.items[2].name = 'ගිලන් රථ / වෛද්‍ය හදිසි සේවාව';
+si.contacts.items[2].description = 'වහාම වෛද්‍ය හදිසි සහ ගිලන් රථ සහාය.';
+si.contacts.items[3].name = 'NARA මුහුදු වාර්තා කිරීමේ කවුළුව';
+si.contacts.items[3].description = 'මුහුදු හා වෙරළ සාක්ෂි, පැමිණිලි සහ සේවා පසු විමසීම්.';
 
 si.preparedness.title = 'සූදානම් හා පුහුණු කාර්ය සංග්‍රහය';
 si.preparedness.description =
@@ -221,15 +225,15 @@ si.preparedness.description =
 si.preparedness.items[0].title = 'වෙරළ ඉවත්වීමේ ක්ෂේත්‍ර මාර්ගෝපදේශය';
 si.preparedness.items[0].description = 'GN නිලධාරින් හා වරාය ප්‍රධාන සඳහා පියවරෙන් පියවර ක්‍රියාමාර්ග අත්පොත.';
 si.preparedness.items[1].title = 'පාරිසරික බලපෑම් ඉක්මන් ඇගයීම් ලැයිස්තුව';
-si.preparedness.items[2].title = 'ප්‍රජා සයිරන් පුහුණු වීඩියෝ පාඩම';
-si.preparedness.items[2].description = 'දෙභාෂා සයිරන් පුහුණු වැඩසටහන් සැලසුම් කිරීමට මිනිත්තු 10ක උපදෙස්.';
+si.preparedness.items[2].title = 'ප්‍රජා අනතුරු ඇඟවීම් පුහුණු ඉක්මන් සටහන';
+si.preparedness.items[2].description = 'සමබර පණිවිඩ සමඟ වෙරළ අනතුරු ඇඟවීම් පුහුණු සැලසුම් කිරීමට එක් පිටු සටහන.';
 
-si.situationRoom.title = 'සිත්‍යුෂා මධ්‍යස්ථානය';
+si.situationRoom.title = 'නිවැරදි හදිසි මාර්ගය තෝරන්න';
 si.situationRoom.description =
-  'අවසර ලත් නිලධාරින්ට සම්පූර්ණ පාලන පුවරුව, දෙභාෂා පණිවිඩ හා අනතුරු අනාවරණය කළමනාකරණය කළ හැක.';
-si.situationRoom.actions[0].label = 'පාලන පුවරුව ක්‍රියාත්මක කරන්න';
-si.situationRoom.actions[1].label = 'අනතුරු පණිවිඩ පරිවර්තනය කළමනාකරණය';
-si.situationRoom.actions[2].label = 'පසු ඉන්ම ප්‍රකාශ බාගත කරන්න';
+  'වහාම අවදානමක් තිබේ නම් පළමුව අමතන්න. සාක්ෂි, පාරිසරික වාර්තා හෝ සේවා පැමිණිලි සඳහා අදාල form භාවිතා කර යොමු අංකය තබා ගන්න.';
+si.situationRoom.actions[0].label = 'DMC 117 අමතන්න';
+si.situationRoom.actions[1].label = 'පැමිණිලි / සහාය යවන්න';
+si.situationRoom.actions[2].label = 'ඉවත්වීමේ යොමු සටහන බාගන්න';
 
 si.environmentWatch.title = 'පාරිසරික බුද්ධි තලය';
 si.environmentWatch.description =

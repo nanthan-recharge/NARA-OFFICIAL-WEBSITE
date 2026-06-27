@@ -84,10 +84,6 @@ const NewsHeader = ({
   }, [tickerArticles, i18n.language]);
 
   useEffect(() => {
-    setActiveTicker(0);
-  }, [tickerItems.length]);
-
-  useEffect(() => {
     if (tickerItems.length <= 1) return undefined;
     const interval = setInterval(() => {
       setActiveTicker((prev) => (prev + 1) % tickerItems.length);
@@ -95,13 +91,23 @@ const NewsHeader = ({
     return () => clearInterval(interval);
   }, [tickerItems]);
 
-  const activeArticle = tickerItems[activeTicker];
+  const safeActiveTicker = tickerItems[activeTicker] ? activeTicker : 0;
+  const activeArticle = tickerItems[safeActiveTicker];
+  const backgroundParticles = useMemo(
+    () =>
+      Array.from({ length: 18 }, (_, index) => ({
+        id: index,
+        left: `${(index * 37 + 11) % 100}%`,
+        top: `${(index * 23 + 17) % 100}%`
+      })),
+    []
+  );
 
   return (
     <header className="relative overflow-hidden bg-gradient-to-br from-navy-950 via-navy-900 to-navy-950 text-white">
       <div className="absolute inset-0">
         <motion.div
-          className="absolute inset-0 opacity-70 mix-blend-screen"
+          className="absolute inset-0 opacity-45 mix-blend-screen"
           animate={{ backgroundPosition: ['0% 0%', '100% 100%'] }}
           transition={{ duration: 20, repeat: Infinity, repeatType: 'reverse' }}
           style={{
@@ -114,9 +120,9 @@ const NewsHeader = ({
         />
 
         <div className="absolute inset-0 opacity-30">
-          {[...Array(18)].map((_, index) => (
+          {backgroundParticles.map((particle, index) => (
             <motion.span
-              key={index}
+              key={particle.id}
               className="absolute w-2 h-2 rounded-full bg-cyan-300/40"
               initial={{ opacity: 0.2 }}
               animate={{
@@ -130,12 +136,14 @@ const NewsHeader = ({
                 delay: index * 0.3
               }}
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`
+                left: particle.left,
+                top: particle.top
               }}
             />
           ))}
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-slate-950/80 to-slate-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-transparent to-slate-950/75" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 pt-24 pb-24">
@@ -147,15 +155,15 @@ const NewsHeader = ({
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
-              <div className="flex flex-wrap gap-3 text-sm font-semibold text-cyan-100/80">
-                <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
-                  <Sparkles className="w-4 h-4 text-cyan-200" />
+              <div className="flex flex-wrap gap-3 text-sm font-semibold text-white">
+                <span className="inline-flex items-center gap-2 rounded-full border border-cyan-200/30 bg-slate-950/70 px-4 py-2 shadow-lg backdrop-blur-md">
+                  <Sparkles className="w-4 h-4 text-cyan-100" />
                   {t('hero.badge')}
                 </span>
                 {heroBadges?.map((badge) => (
                   <span
                     key={badge?.id || badge}
-                    className="inline-flex items-center gap-2 bg-slate-900/60 border border-white/10 px-4 py-2 rounded-full"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-slate-950/70 px-4 py-2 text-white shadow-lg"
                   >
                     <Flame className="w-4 h-4 text-amber-300" />
                     {badge?.label || badge}
@@ -168,7 +176,7 @@ const NewsHeader = ({
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.8 }}
-                  className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight tracking-tight"
+                  className="text-4xl md:text-5xl xl:text-6xl font-bold leading-tight tracking-tight text-white drop-shadow-[0_3px_16px_rgba(0,0,0,0.55)]"
                 >
                   {heroTitle}
                 </motion.h1>
@@ -176,7 +184,7 @@ const NewsHeader = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.8 }}
-                  className="text-xl md:text-2xl text-cyan-100/80"
+                  className="max-w-4xl text-xl font-semibold text-cyan-50 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] md:text-2xl"
                 >
                   {heroSubtitle}
                 </motion.p>
@@ -184,7 +192,7 @@ const NewsHeader = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3, duration: 0.8 }}
-                  className="text-base md:text-lg text-slate-200/80 leading-relaxed max-w-3xl"
+                  className="max-w-3xl text-base font-medium leading-relaxed text-slate-50 drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] md:text-lg"
                 >
                   {heroDescription}
                 </motion.p>
@@ -200,22 +208,22 @@ const NewsHeader = ({
               {STATS_CONFIG.map(({ key, icon: Icon, gradient }) => (
                 <div
                   key={key}
-                  className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl p-5"
+                  className="relative overflow-hidden rounded-2xl border border-white/20 bg-slate-950/70 p-5 shadow-xl backdrop-blur-xl"
                 >
                   <div
-                    className={`absolute inset-0 bg-gradient-to-br ${gradient} pointer-events-none`}
+                    className={`absolute inset-0 bg-gradient-to-br ${gradient} pointer-events-none opacity-70`}
                   />
                   <div className="relative flex items-center justify-between gap-4">
                     <div className="space-y-2">
-                      <p className="text-sm font-medium text-cyan-100/70">
+                      <p className="text-sm font-bold uppercase tracking-wide text-cyan-50">
                         {t(`hero.stats.${key}`)}
                       </p>
-                      <p className="text-2xl font-semibold text-white">
+                      <p className="text-3xl font-bold text-white drop-shadow">
                         {stats[key] ?? '—'}
                       </p>
                     </div>
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10">
-                      <Icon className="w-6 h-6 text-cyan-200" />
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/15">
+                      <Icon className="w-6 h-6 text-cyan-50" />
                     </div>
                   </div>
                 </div>
@@ -326,7 +334,7 @@ const NewsHeader = ({
 
               <div className="mt-6 space-y-3">
                 {tickerItems.slice(0, 4).map((item, index) => {
-                  const isActive = index === activeTicker;
+                  const isActive = index === safeActiveTicker;
                   return (
                     <button
                       key={item?.id || index}

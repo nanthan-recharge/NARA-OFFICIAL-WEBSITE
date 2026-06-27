@@ -75,7 +75,7 @@ const EvacuationMap = () => {
               Interactive Evacuation Maps
             </h2>
             <p className="text-sm font-body text-white/60">
-              Switch between routes, safe zones, and facility overlays backed by live command updates.
+              Switch between coastal districts, route guidance, safe-zone markers, and facility references for quick public planning.
             </p>
           </div>
           <div className="flex items-center gap-2">
@@ -93,6 +93,7 @@ const EvacuationMap = () => {
               size="sm"
               iconName="Download"
               className="border-white/20 text-white"
+              onClick={() => window.open('/assets/preparedness/evacuation-map-quick-reference.pdf', '_blank')}
             >
               Download PDF
             </Button>
@@ -143,7 +144,7 @@ const EvacuationMap = () => {
             <div className="absolute top-4 right-4 rounded-xl border border-rose-500/40 bg-rose-500/20 px-3 py-2 text-xs font-cta text-rose-100 animate-pulse">
               <div className="flex items-center gap-2">
                 <Icon name="AlertTriangle" size={14} />
-                <span>Live Emergency Mode</span>
+                <span>Planning Reference</span>
               </div>
             </div>
           </div>

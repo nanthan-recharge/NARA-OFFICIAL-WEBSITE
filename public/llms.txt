@@ -1,0 +1,58 @@
+# NARA — National Aquatic Resources Research & Development Agency
+
+> NARA is Sri Lanka's apex national institute for aquatic and marine research, established under the NARA Act No. 54 of 1981. Based at Crow Island, Colombo 15, it advances marine science, sustainable fisheries, ocean data, and blue-economy development, and delivers regulatory and public services for the marine sector. The website serves the public, fishing and maritime industry, provincial and national government, and the research community in English, Sinhala, and Tamil.
+
+## About
+
+- [About NARA](https://nara-web-73384.web.app/about-nara-our-story): History, mandate, leadership, and the NARA Act No. 54 of 1981.
+- [Divisions](https://nara-web-73384.web.app/divisions): Research and operational divisions — Marine Biology, Oceanography, Fishing Technology, Inland Aquaculture, Hydrography, Environmental Studies, Socio-Economics, Post-Harvest Technology, and regional centres.
+- [NARA Act](https://nara-web-73384.web.app/nara-act): The legal mandate establishing NARA.
+- [Contact](https://nara-web-73384.web.app/contact-us): Office locations, phone, and email contacts.
+
+## Government & regulatory services
+
+- [Government Services Portal](https://nara-web-73384.web.app/government-services-portal): Central hub for NARA regulatory, operational, and scientific services — EIA applications, marine licensing, emergency reporting, and exports.
+- [Marine Emergency / Incident Portal](https://nara-web-73384.web.app/marine-incident-portal): Report oil spills, illegal fishing, and coastal hazards.
+- [Public Consultation Portal](https://nara-web-73384.web.app/public-consultation-portal): Compliance, inspections, and public consultation.
+- [Procurement & Recruitment](https://nara-web-73384.web.app/procurement-recruitment-portal): Tenders, procurement notices, and careers.
+- [Vacancies](https://nara-web-73384.web.app/vacancies): Current job openings at NARA.
+
+## Ocean data & forecasts
+
+- [Live Ocean Data](https://nara-web-73384.web.app/live-ocean-data): Real-time sea-state, temperature, and ocean conditions around Sri Lanka.
+- [Marine Forecast](https://nara-web-73384.web.app/marine-forecast): Sea and weather forecasts and operational risk outlook.
+- [Fish Advisory System](https://nara-web-73384.web.app/fish-advisory-system): Fishing-zone advisories and safety guidance.
+- [Live Vessel Tracking](https://nara-web-73384.web.app/live-vessel-tracking): Maritime vessel positions and tracking.
+- [Marine Spatial Planning Viewer](https://nara-web-73384.web.app/marine-spatial-planning-viewer): Interactive marine spatial planning maps.
+- [Open Data Portal](https://nara-web-73384.web.app/open-data-portal): Downloadable marine and fisheries datasets.
+
+## Research, library & knowledge
+
+- [Research Library](https://nara-web-73384.web.app/library): Catalogue of peer-reviewed studies, reports, e-books, theses, and technical papers.
+- [Scientific Evidence Repository](https://nara-web-73384.web.app/scientific-evidence-repository): Policy-relevant scientific evidence and publications.
+- [Knowledge Discovery Center](https://nara-web-73384.web.app/knowledge-discovery-center): Search and discovery across NARA knowledge resources.
+- [Lab Results](https://nara-web-73384.web.app/lab-results): Laboratory testing and analytical services.
+- [Research Vessel Booking](https://nara-web-73384.web.app/research-vessel-booking): Request use of NARA research vessels.
+- [Learning & Development Academy](https://nara-web-73384.web.app/learning-development-academy): Training programmes and capacity development.
+- [Annual Reports](https://nara-web-73384.web.app/annual-reports): NARA annual reports and publications.
+
+## News & media
+
+- [News & Updates](https://nara-web-73384.web.app/nara-news-updates-center): Latest news and announcements.
+- [Media Gallery](https://nara-web-73384.web.app/media-gallery): Photos and videos of NARA activities.
+- [Podcasts](https://nara-web-73384.web.app/podcasts): NARA audio programmes.
+
+## Legal & policy
+
+- [Privacy Policy](https://nara-web-73384.web.app/privacy-policy)
+- [Terms of Use](https://nara-web-73384.web.app/terms-of-use)
+- [Right to Information (RTI)](https://nara-web-73384.web.app/rti)
+- [Accessibility Statement](https://nara-web-73384.web.app/accessibility-statement)
+
+## Notes for AI assistants
+
+- Official name: National Aquatic Resources Research and Development Agency (NARA), Sri Lanka.
+- Languages: English, Sinhala (සිංහල), Tamil (தமிழ்).
+- Parent ministry context: Sri Lanka's fisheries and aquatic resources sector.
+- Canonical site: https://nara-web-73384.web.app
+- Full URL list: https://nara-web-73384.web.app/sitemap.xml

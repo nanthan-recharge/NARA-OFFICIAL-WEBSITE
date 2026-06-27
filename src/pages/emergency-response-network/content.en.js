@@ -2,7 +2,7 @@ const en = {
   meta: {
     title: 'Emergency Response Network - NARA Digital Ocean',
     description:
-      'Coordinate Sri Lanka\'s emergency readiness with real-time alerts, multi-agency communication, and rapid reporting tools managed by NARA\'s Emergency Response Network.',
+      'Coordinate Sri Lanka\'s emergency readiness with emergency contact shortcuts, evidence intake, and rapid reporting tools managed by NARA\'s Emergency Response Network.',
     keywords:
       'NARA emergency response, tsunami warning Sri Lanka, disaster reporting, environmental incident, coastal emergencies, rapid response'
   },
@@ -12,16 +12,18 @@ const en = {
     title: 'Protecting Sri Lanka\'s Coastline',
     highlight: 'through rapid response',
     description:
-      'Our Emergency Response Network unites harbours, coastal communities, naval units, and environmental teams with real-time intelligence, bilingual alerting, and streamlined reporting for every incident category.',
+      'Our Emergency Response Network helps coastal communities, harbour users, and environmental observers reach the right emergency line first, then share location, evidence, and follow-up details with NARA.',
     primaryCta: { label: 'Report an Emergency', icon: 'AlertOctagon' },
     secondaryCta: { label: 'Open Command Console', icon: 'LayoutDashboard' },
     leftStat: { value: '24/7', label: 'Coordinated Monitoring' },
     rightStat: { value: '18', label: 'Regional Cells' },
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600&h=900&fit=crop&auto=format&q=80',
+    image: '/assets/emergency/hero-1.webp',
     images: [
-      'https://images.unsplash.com/photo-1526481280695-3c46917d3e05?w=1600&h=900&fit=crop&auto=format&q=80',
-      'https://images.unsplash.com/photo-1570032257804-55cdb2fad6cf?w=1600&h=900&fit=crop&auto=format&q=80',
-      'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=1600&h=900&fit=crop&auto=format&q=80'
+      '/assets/emergency/hero-1.webp',
+      '/assets/emergency/hero-2.webp',
+      '/assets/emergency/hero-3.webp',
+      '/assets/emergency/hero-4.webp',
+      '/assets/emergency/hero-5.webp'
     ]
   },
   quickActions: [
@@ -29,8 +31,8 @@ const en = {
       id: 'emergency-call',
       title: 'Immediate Threat',
       summary: 'Life-threatening events, maritime distress, or tsunami indicators.',
-      primary: { label: 'Call 117 Coast Guard', icon: 'PhoneCall', href: 'tel:117' },
-      secondary: { label: 'Push SOS to Maritime Network', icon: 'Radio', href: '#emergency-reporting' }
+      primary: { label: 'Call DMC 117', icon: 'PhoneCall', href: 'tel:117' },
+      secondary: { label: 'Report Emergency Now', icon: 'Radio', href: '#emergency-reporting' }
     },
     {
       id: 'environmental',
@@ -40,11 +42,11 @@ const en = {
       secondary: { label: 'Download Field Checklists', icon: 'ClipboardList', href: '#preparedness' }
     },
     {
-      id: 'admin-console',
-      title: 'Command & Analytics',
-      summary: 'Authorised officers manage alerts, data streams, and multilingual messaging.',
-      primary: { label: 'Open Admin Panel', icon: 'ShieldCheck', href: '/admin' },
-      secondary: { label: 'View Operational Reports', icon: 'FileSpreadsheet', href: '#situation-room' }
+      id: 'complaint-support',
+      title: 'Complaint / Service Support',
+      summary: 'Non-urgent public complaints, service concerns, and follow-up requests.',
+      primary: { label: 'Submit Complaint', icon: 'MessageSquareWarning', href: '#non-emergency-reporting' },
+      secondary: { label: 'Emergency Directory', icon: 'PhoneCall', href: '#contacts' }
     }
   ],
   reporting: {
@@ -52,7 +54,7 @@ const en = {
       title: 'Emergency Incident Intake',
       description:
         'Dispatch teams log critical incidents with integrated geolocation, category routing, and bilingual acknowledgements sent to field teams, police, navy, and harbour masters.',
-      targetResponse: 'Average dispatch time: < 5 minutes',
+      targetResponse: 'Public intake with reference number',
       form: {
         title: 'Submit Emergency Report',
         fields: [
@@ -80,14 +82,14 @@ const en = {
         ],
         submitLabel: 'Send Emergency Report',
         acknowledgement:
-          'Incident received. A bilingual dispatcher will contact you within 3 minutes. Track the response in the live console or hotline 1990.'
+          'Emergency report received. Keep calling DMC 117, Police 119, or ambulance 1990 for immediate danger while NARA reviews the submitted details.'
       }
     },
     nonEmergency: {
       title: 'Non-Emergency Support',
       description:
         'Report near-miss events, infrastructure issues, navigation hazards, or community concerns so we can schedule preventative action without triggering emergency mobilisation.',
-      supportText: 'Dedicated coordination desk responds within 24 business hours.',
+      supportText: 'Public complaints and support requests are logged for review and follow-up.',
       form: {
         title: 'Log Non-Emergency Issue',
         fields: [
@@ -113,14 +115,14 @@ const en = {
           { id: 'preferredDate', type: 'date', label: 'Preferred Follow-up Date' }
         ],
         submitLabel: 'Submit Support Request',
-        acknowledgement: 'Support ticket created. You will receive a follow-up plan within 24 business hours.'
+        acknowledgement: 'Complaint/support request received. Keep the reference number for follow-up with NARA.'
       }
     },
     environmental: {
       title: 'Environmental Impact & Damage Reporting',
       description:
         'Provide scientific-grade evidence for pollution events, coral bleaching, fish mortality, or illegal extraction so enforcement and restoration teams can react quickly.',
-      hotline: 'Direct environmental duty officer: +94 11 452 7777',
+      hotline: 'For urgent public safety risks call DMC 117 or Police 119 first. Submit evidence here for NARA review.',
       form: {
         title: 'Environmental Incident Intake',
         fields: [
@@ -147,47 +149,47 @@ const en = {
           { id: 'samples', type: 'textarea', label: 'Samples Collected / Laboratory Support Needed', placeholder: 'Water samples, tissue, photographic evidence, drone footage' },
           { id: 'attachments', type: 'file', label: 'Attach Photos, Drone Imagery, Lab Results' }
         ],
-        supportText: 'Automatically alerts CEA, Coast Conservation Department, and Marine Police partners.',
+        supportText: 'NARA will review the evidence and route it to relevant authorities where applicable.',
         submitLabel: 'Report Environmental Impact',
         acknowledgement:
-          'Environmental enforcement unit alerted. Field team dispatch and partner notifications (CEA, Coast Conservation, Marine Police) are being coordinated.'
+          'Environmental incident received. Keep the reference number and stay reachable for verification or follow-up questions.'
       }
     }
   },
   alerts: {
-    title: 'Live Alert Feed',
-    viewArchiveLabel: 'View alert archive',
+    title: 'Emergency Notices',
+    viewArchiveLabel: 'Review active alerts',
     items: [
       {
         id: 'alert-001',
-        title: 'Tsunami Advisory – Southern Coast',
+        title: 'Immediate danger: call first',
         severity: 'critical',
-        description: '10 cm sea-level displacement detected at Dondra Point buoy. Fisher fleets instructed to remain in harbour; siren test in progress.',
-        location: 'Matara, Hambantota, Galle',
-        timestamp: 'Updated 2 mins ago',
-        affectedAreas: ['Dondra', 'Hambantota', 'Tangalle'],
+        description: 'For life-threatening danger, call DMC 117, Police 119, or ambulance 1990 before submitting an online report.',
+        location: 'Sri Lanka',
+        timestamp: 'Public guidance',
+        affectedAreas: ['National emergency lines'],
         canDismiss: false,
         hasMap: true
       },
       {
         id: 'alert-002',
-        title: 'Oil Slick Monitoring – Trincomalee',
+        title: 'Attach evidence for faster triage',
         severity: 'high',
-        description: 'Satellite and drone imagery confirm a 1.5 km surface sheen drifting south. Environmental teams deploying booms with navy support.',
-        location: 'Trincomalee Harbour',
-        timestamp: 'Updated 14 mins ago',
-        affectedAreas: ['Trincomalee Bay', 'Kuchchaveli'],
+        description: 'For coastal pollution, fish kills, illegal dumping, or reef damage, include photos, GPS/location details, time observed, and contact information.',
+        location: 'Marine and coastal areas',
+        timestamp: 'Evidence checklist',
+        affectedAreas: ['Photos', 'Location', 'Time observed'],
         canDismiss: false,
-        hasMap: true
+        hasMap: false
       },
       {
         id: 'alert-003',
-        title: 'Community Evacuation Drill',
+        title: 'Complaints and service requests',
         severity: 'medium',
-        description: 'Scheduled tsunami evacuation drill for Moratuwa coastal GN divisions at 15:00. Loudspeaker announcements in Sinhala and Tamil underway.',
-        location: 'Moratuwa Coast',
-        timestamp: 'Updated 45 mins ago',
-        affectedAreas: ['Angulana', 'Koralawella'],
+        description: 'Use the complaint/support tab for non-urgent concerns. Save the reference number shown after submission for follow-up.',
+        location: 'NARA public services',
+        timestamp: 'Service guidance',
+        affectedAreas: ['Complaints', 'Support', 'Follow-up'],
         canDismiss: true,
         hasMap: false
       }
@@ -196,57 +198,58 @@ const en = {
   systemStatus: {
     systems: [
       {
-        name: 'National Tsunami Buoy Network',
+        name: 'Immediate Emergency Contacts',
         status: 'operational',
-        icon: 'Waves',
-        uptime: '99.92%',
-        responseTime: '4.2s',
-        lastCheck: '10:12 today',
-        nextMaintenance: 'Feb 14, 2025',
-        description: 'Deep-ocean sensors streaming to Disaster Management Center.',
-        statusMessage: 'All 12 buoys transmitting within thresholds.'
+        icon: 'PhoneCall',
+        primaryMetricLabel: 'Call first',
+        primaryMetric: '117 / 119',
+        secondaryMetricLabel: 'Medical',
+        secondaryMetric: '1990',
+        description: 'National emergency numbers are visible in the hero, reporting hub, and directory.',
+        statusMessage: 'Use phone lines first when life, property, or public safety is at immediate risk.'
       },
       {
-        name: 'Harbour Command Radio Mesh',
-        status: 'degraded',
-        icon: 'RadioReceiver',
-        uptime: '97.4%',
-        responseTime: '6.8s',
-        lastCheck: '09:55 today',
-        nextMaintenance: 'Jan 05, 2025',
-        description: 'Secure VHF / LTE hybrid for harbour masters.',
-        statusMessage: 'Galle repeater running on backup power, engineers en route.'
-      },
-      {
-        name: 'Incident Dashboard & Analytics',
+        name: 'Online Report Intake',
         status: 'operational',
-        icon: 'LayoutDashboard',
-        uptime: '100%',
-        responseTime: '1.8s',
-        lastCheck: 'Continuous',
-        description: 'Command center data visualisation and tasking suite.'
+        icon: 'ClipboardList',
+        primaryMetricLabel: 'Forms',
+        primaryMetric: '3',
+        secondaryMetricLabel: 'Receipt',
+        secondaryMetric: 'Reference ID',
+        description: 'Emergency, environmental, and complaint/support reports use focused forms.',
+        statusMessage: 'Submissions return a public reference number for follow-up.'
       },
       {
-        name: 'Community Siren Network',
+        name: 'Preparedness Downloads',
+        status: 'operational',
+        icon: 'FileDown',
+        primaryMetricLabel: 'PDFs',
+        primaryMetric: '4',
+        secondaryMetricLabel: 'Format',
+        secondaryMetric: 'Mobile ready',
+        description: 'Evacuation, environmental, community drill, and map reference PDFs are downloadable.'
+      },
+      {
+        name: 'Staff Review Access',
         status: 'maintenance',
-        icon: 'Megaphone',
-        uptime: '95.2%',
-        responseTime: '12.4s',
-        lastCheck: 'Yesterday 18:30',
-        nextMaintenance: 'Dec 28, 2024',
-        description: '215 coastal sirens with solar backup.',
-        statusMessage: 'Kalutara south siren battery replacement scheduled tonight.'
+        icon: 'ShieldCheck',
+        primaryMetricLabel: 'Read',
+        primaryMetric: 'Admin only',
+        secondaryMetricLabel: 'Rules',
+        secondaryMetric: 'Configured',
+        description: 'Public submissions are create-only; staff roles manage review and follow-up.',
+        statusMessage: 'Deploy Firestore rules with the hosting update before relying on live submissions.'
       }
     ]
   },
   contacts: {
     title: 'Joint Operations Contacts',
     description:
-      'Reach the correct operations cell instantly. All numbers route to bilingual responders with satellite-failover telephony.',
+      'Use national emergency lines first for immediate danger, then share evidence and follow-up details through NARA channels.',
     items: [
       {
-        name: 'National Emergency Operations Centre',
-        description: 'Primary 24/7 command desk coordinating disaster response.',
+        name: 'Disaster Management Centre',
+        description: 'National disaster call centre for urgent disaster coordination.',
         availability: '24/7',
         languages: ['සිංහල', 'தமிழ்', 'English'],
         priority: true,
@@ -254,37 +257,45 @@ const en = {
         iconColor: 'text-red-600',
         bgColor: 'bg-red-100',
         phones: [
-          { label: 'Hotline', number: '+94 11 307 7777' },
-          { label: 'Satellite', number: '+881 633 550 120' }
-        ],
-        email: 'neoc@nara.gov.lk'
+          { label: 'Disaster Hotline', number: '117' }
+        ]
       },
       {
-        name: 'Navy Maritime Rescue Coordination',
-        description: 'Distress alerts, SAR tasking, and harbour evacuations.',
+        name: 'Sri Lanka Police Emergency',
+        description: 'Emergency police response for immediate public safety threats.',
         availability: '24/7',
-        languages: ['English', 'සිංහල'],
-        icon: 'Anchor',
+        languages: ['සිංහල', 'தமிழ்', 'English'],
+        icon: 'BadgeAlert',
         iconColor: 'text-blue-600',
         bgColor: 'bg-blue-100',
         phones: [
-          { label: 'SAR Desk', number: '+94 11 385 1234' },
-          { label: 'VHF', number: 'Channel 16' }
-        ],
-        email: 'mrcc@sln.gov.lk'
+          { label: 'Police Emergency', number: '119' }
+        ]
       },
       {
-        name: 'Environmental Rapid Response Unit',
-        description: 'Oil spills, chemical discharge, coral and mangrove incidents.',
-        availability: '05:30 – 22:00',
+        name: 'Ambulance / Medical Emergency',
+        description: 'Immediate medical emergency and ambulance support.',
+        availability: '24/7',
         languages: ['සිංහල', 'தமிழ்', 'English'],
-        icon: 'Droplet',
+        icon: 'Ambulance',
         iconColor: 'text-green-600',
         bgColor: 'bg-green-100',
         phones: [
-          { label: 'Duty Officer', number: '+94 11 452 7777' }
+          { label: 'Ambulance', number: '1990' }
+        ]
+      },
+      {
+        name: 'NARA Marine Reporting Desk',
+        description: 'Marine and coastal evidence, complaints, and service follow-up.',
+        availability: 'Office hours / online reports 24/7',
+        languages: ['සිංහල', 'தமிழ்', 'English'],
+        icon: 'Waves',
+        iconColor: 'text-cyan-600',
+        bgColor: 'bg-cyan-100',
+        phones: [
+          { label: 'NARA main line', number: '+94 11 252 1000' }
         ],
-        email: 'env-response@nara.gov.lk'
+        email: 'info@nara.ac.lk'
       }
     ]
   },
@@ -299,69 +310,64 @@ const en = {
         description: 'Step-by-step playbook for GN officers and harbour masters covering multi-lingual announcements, evacuation route management, and post-event roll call.',
         targetAudience: 'GN officers, Harbour masters',
         languages: ['සිංහල', 'தமிழ்', 'English'],
-        duration: '64 pages',
-        downloads: '4,812',
-        rating: '4.9',
-        fileSize: '12 MB',
+        duration: '1 page',
+        fileSize: 'PDF',
         keyTopics: ['Evac route setup', 'Special needs assistance', 'Communications log'],
         formats: [
           { type: 'pdf', url: '/assets/preparedness/evacuation-guide.pdf' }
         ],
-        previewUrl: '#',
-        lastUpdated: 'Nov 12, 2024',
-        version: '2.3'
+        previewUrl: '/assets/preparedness/evacuation-guide.pdf',
+        lastUpdated: 'Jun 27, 2026',
+        version: '1.0'
       },
       {
         title: 'Environmental Impact Rapid Assessment Checklist',
         type: 'checklist',
         description: 'Field-ready checklist for logging pollution events, sample collection, drone imagery capture, and regulatory notifications.',
-        targetAudience: 'Environmental officers, Coast Guard',
+        targetAudience: 'Environmental officers, field teams',
         languages: ['English'],
-        duration: '6 pages',
-        downloads: '2,103',
-        rating: '4.8',
-        fileSize: '2 MB',
+        duration: '1 page',
+        fileSize: 'PDF',
         keyTopics: ['Sampling', 'Stakeholder alerting', 'GIS tagging'],
         formats: [
           { type: 'pdf', url: '/assets/preparedness/environmental-checklist.pdf' }
         ],
-        lastUpdated: 'Oct 05, 2024',
-        version: '1.8'
+        previewUrl: '/assets/preparedness/environmental-checklist.pdf',
+        lastUpdated: 'Jun 27, 2026',
+        version: '1.0'
       },
       {
-        title: 'Community Siren Drill Tutorial',
-        type: 'video',
-        description: '10-minute walkthrough on planning and evaluating quarterly tsunami siren drills with inclusive messaging.',
+        title: 'Community Alert Drill Quick Reference',
+        type: 'checklist',
+        description: 'One-page quick reference for planning and evaluating coastal alert drills with inclusive messaging.',
         targetAudience: 'Local authorities, School leads',
-        languages: ['සිංහල', 'தமிழ்'],
-        duration: '10 min',
-        downloads: '1,587',
-        rating: '4.7',
-        fileSize: 'Streaming',
+        languages: ['සිංහල', 'தமிழ்', 'English'],
+        duration: '1 page',
+        fileSize: 'PDF',
         keyTopics: ['Drill design', 'Feedback capture', 'Media coordination'],
         formats: [
-          { type: 'mp4', url: 'https://www.youtube.com/watch?v=example' }
+          { type: 'pdf', url: '/assets/preparedness/community-siren-drill.pdf' }
         ],
-        previewUrl: 'https://www.youtube.com/watch?v=example',
-        lastUpdated: 'Sep 27, 2024',
-        version: '1.1'
+        previewUrl: '/assets/preparedness/community-siren-drill.pdf',
+        lastUpdated: 'Jun 27, 2026',
+        version: '1.0'
       }
     ]
   },
   situationRoom: {
-    title: 'Situation Room & Analytics',
+    title: 'Choose the Right Emergency Channel',
     description:
-      'Authorised officers can launch the full emergency dashboard, manage multilingual push notifications, and download post-event analytics.',
+      'For immediate danger, call first. For evidence, environmental reports, or service complaints, use the focused form and keep the reference number.',
     actions: [
-      { label: 'Launch Command Dashboard', icon: 'Activity', href: '/admin/dashboard' },
-      { label: 'Manage Alert Translations', icon: 'Languages', href: '/admin/content' },
-      { label: 'Download After-Action Reports', icon: 'Archive', href: '#preparedness' }
+      { label: 'Call DMC 117', icon: 'PhoneCall', href: 'tel:117' },
+      { label: 'Submit Complaint / Support', icon: 'MessageSquareWarning', href: '#non-emergency-reporting' },
+      { label: 'Download Evacuation Reference', icon: 'Archive', href: '/assets/preparedness/evacuation-map-quick-reference.pdf' }
     ]
   },
   environmentWatch: {
     title: 'Environmental Intelligence Layer',
     description:
-      'Near-real-time datasets overlay coral health, mangrove stress, air and water quality, and fish mortality trends to anticipate incidents before they escalate.',
+      'Reference datasets and public observations can support coral health, mangrove stress, water quality, and fish mortality review workflows.',
     stats: [
       { label: 'Coral watch sites', value: '128', trend: '+8 this month' },
       { label: 'Mangrove sensors', value: '74', trend: '+4 deployments' },

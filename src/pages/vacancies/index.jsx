@@ -312,7 +312,7 @@ const VacanciesPage = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4">
+              <div className="grid !grid-cols-2 md:!grid-cols-4 gap-6 md:gap-4">
                 {JOURNEY_STEPS.map((step, idx) => {
                   const Icon = step.icon;
                   return (
@@ -456,7 +456,7 @@ const VacanciesPage = () => {
 
         {/* Cards Grid */}
         {!loading && !error && filteredVacancies.length > 0 && (
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid !grid-cols-1 lg:!grid-cols-2 gap-6">
             <AnimatePresence mode="popLayout">
               {filteredVacancies.map((vacancy, index) => {
                 const empStyle = EMPLOYMENT_TYPE_STYLES[vacancy.employmentType] || EMPLOYMENT_TYPE_STYLES['full-time'];
@@ -639,7 +639,7 @@ const VacanciesPage = () => {
               <p className="text-slate-400 max-w-2xl mx-auto">{t('whyJoin.subtitle')}</p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid !grid-cols-1 md:!grid-cols-2 lg:!grid-cols-3 gap-6">
               {WHY_JOIN_CARDS.map((card, idx) => {
                 const Icon = card.icon;
                 return (
@@ -763,7 +763,7 @@ const VacanciesPage = () => {
             ))}
 
             <div className="relative border border-white/10 rounded-3xl p-8 sm:p-12">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="grid !grid-cols-1 md:!grid-cols-2 gap-8 items-center">
                 {/* Left: CTA */}
                 <div className="text-center md:text-left">
                   <h2 className="font-headline text-2xl sm:text-3xl font-bold text-white mb-4">{t('cta.title')}</h2>

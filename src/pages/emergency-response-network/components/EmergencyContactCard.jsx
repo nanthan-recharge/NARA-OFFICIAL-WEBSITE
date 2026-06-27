@@ -4,12 +4,16 @@ import Button from '../../../components/ui/Button';
 import { cn } from '../../../utils/cn';
 
 const EmergencyContactCard = ({ contact }) => {
+  const getPhoneUri = (number) => String(number ?? '').replace(/[^\d+]/g, '');
+
   const handleCall = (number) => {
-    window.open(`tel:${number}`, '_self');
+    const uri = getPhoneUri(number);
+    if (uri) window.open(`tel:${uri}`, '_self');
   };
 
   const handleSMS = (number) => {
-    window.open(`sms:${number}`, '_self');
+    const uri = getPhoneUri(number);
+    if (uri) window.open(`sms:${uri}`, '_self');
   };
 
   return (
@@ -66,6 +70,7 @@ const EmergencyContactCard = ({ contact }) => {
                 variant="outline"
                 size="sm"
                 onClick={() => handleCall(phone?.number)}
+                aria-label={`Call ${phone?.number}`}
                 className="border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/10 hover:text-emerald-300 h-9"
               >
                 <Icon name="Phone" size={16} className="mr-1" />
@@ -75,6 +80,7 @@ const EmergencyContactCard = ({ contact }) => {
                 variant="ghost"
                 size="sm"
                 onClick={() => handleSMS(phone?.number)}
+                aria-label={`Send SMS to ${phone?.number}`}
                 className="text-gray-400 hover:text-white h-9 w-9 p-0"
               >
                 <Icon name="MessageSquare" size={18} />
