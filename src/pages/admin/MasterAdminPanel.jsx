@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore';
 import { useFirebaseAuth } from '../../contexts/FirebaseAuthContext';
 import { PERMISSIONS } from '../../constants/roles';
+import EnhancedAnalyticsDashboard from './EnhancedAnalyticsDashboard';
 import {
   ResponsiveContainer,
   AreaChart,
@@ -28,7 +29,7 @@ import {
 } from 'recharts';
 import {
   LayoutDashboard, Image, Video, FileText, Users, Ship, Fish,
-  TrendingUp, AlertCircle, Map, Database, BookOpen, Settings, LogOut,
+  TrendingUp, AlertCircle, Map as MapIcon, Database, BookOpen, Settings, LogOut,
   Search, Bell, ChevronDown, ChevronLeft, ChevronRight, Plus,
   Upload, RefreshCw, Calendar, Tag, Globe,
   Mail, Shield, BarChart3, Waves, Anchor, Microscope, FlaskConical,
@@ -679,7 +680,7 @@ const MasterAdminPanel = () => {
       subsections: [
         { id: 'vessels', label: 'Vessels', icon: Ship, path: '/admin/maritime', collection: 'maritime_vessels' },
         { id: 'ports', label: 'Ports', icon: Anchor, path: '/admin/maritime', collection: 'maritime_ports' },
-        { id: 'bathymetry', label: 'Bathymetry', icon: Map, path: '/admin/bathymetry' },
+        { id: 'bathymetry', label: 'Bathymetry', icon: MapIcon, path: '/admin/bathymetry' },
         { id: 'incidents', label: 'Incidents', icon: AlertCircle, path: '/admin/marine-incident' }
       ]
     },
@@ -1139,6 +1140,14 @@ const MasterAdminPanel = () => {
         <main className="p-6">
           {activeSection === 'dashboard' && (
             <div className="space-y-6">
+              <EnhancedAnalyticsDashboard
+                stats={stats}
+                loading={loading}
+                onRefresh={loadDashboardData}
+                profile={profile}
+                onNavigate={navigate}
+              />
+
               <DashboardOverviewHeader
                 profile={profile}
                 loading={loading}
