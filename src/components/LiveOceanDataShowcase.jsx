@@ -42,11 +42,15 @@ const LiveOceanDataShowcase = () => {
   // Format metrics for the ticker (SST/AIR/WAVE/WIND are live from Open-Meteo;
   // FISH is a model estimate derived from sea-surface temperature).
   const sources = data.metadata?.sources?.length ? data.metadata.sources.join(' · ') : 'Open-Meteo';
+  const seaLevel = data.metadata?.seaLevel;
   const metrics = [
     { label: 'SST',  value: `${data.conditions?.sst?.toFixed(1) ?? '--'}°C`,  title: 'Sea-surface temperature (Open-Meteo)' },
     { label: 'AIR',  value: `${data.metadata?.airTemperature?.toFixed(1) ?? '--'}°C`, title: 'Air temperature (Open-Meteo)' },
     { label: 'WAVE', value: `${data.conditions?.waveHeight?.toFixed(2) ?? '--'}m`, title: 'Significant wave height (Open-Meteo)' },
     { label: 'WIND', value: `${data.conditions?.windSpeed?.toFixed(1) ?? '--'}m/s`, title: 'Wind speed (Open-Meteo)' },
+    ...(Number.isFinite(seaLevel)
+      ? [{ label: 'SEA', value: `${seaLevel.toFixed(2)}m`, title: 'Sea level — IOC UNESCO Colombo tide station' }]
+      : []),
     { label: 'FISH', value: `~${((data.abundance?.skipjack || 0) / 150 * 100).toFixed(0)}%`, title: 'Estimated fishing suitability — model based on sea-surface temperature' },
   ];
 

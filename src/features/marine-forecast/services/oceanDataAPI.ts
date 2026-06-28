@@ -49,19 +49,24 @@ export async function getIOCSeaLevelData(station: 'colombo' | 'trincomalee') {
       params: {
         query: 'data',
         code: stationCode,
-        format: 'json'
+        format: 'json',
+        period: 0.5
       },
       timeout: 10000
     });
 
-    const data = response.data;
+    // The service returns an array of { slevel, stime, sensor }; use the latest.
+    const rows = Array.isArray(response.data) ? response.data : [];
+    const latest = rows.length ? rows[rows.length - 1] : null;
+    const level = latest ? parseFloat(latest.slevel) : NaN;
+    if (!latest || Number.isNaN(level)) return null;
+
     const processed = {
       station: station,
       stationCode: stationCode,
-      timestamp: new Date(),
-      seaLevel: data.value || 0,
-      trend: data.trend || 'stable',
-      quality: data.quality || 'unknown',
+      timestamp: latest.stime ? new Date(`${String(latest.stime).replace(' ', 'T')}Z`) : new Date(),
+      seaLevel: level,
+      sensor: latest.sensor || null,
       source: 'IOC UNESCO'
     };
 
