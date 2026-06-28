@@ -228,8 +228,60 @@ export async function getOpenWeatherData(lat: number, lon: number) {
 }
 
 /**
+ * Open-Meteo (free, no API key required, CORS-enabled)
+ * Marine API → sea-surface temperature + waves; Forecast API → air temp + wind.
+ * This is the always-available real-data source that backs the live hero ticker.
+ */
+export async function getOpenMeteoData(lat: number, lon: number) {
+  const cacheKey = `openmeteo-${lat}-${lon}`;
+  const cached = getCachedData(cacheKey);
+  if (cached) return cached;
+
+  try {
+    const [marine, weather] = await Promise.allSettled([
+      axios.get('https://marine-api.open-meteo.com/v1/marine', {
+        params: { latitude: lat, longitude: lon, current: 'sea_surface_temperature,wave_height,wave_direction,wave_period' },
+        timeout: 10000
+      }),
+      axios.get('https://api.open-meteo.com/v1/forecast', {
+        params: {
+          latitude: lat, longitude: lon,
+          current: 'temperature_2m,relative_humidity_2m,surface_pressure,wind_speed_10m,wind_direction_10m',
+          wind_speed_unit: 'ms'
+        },
+        timeout: 10000
+      })
+    ]);
+
+    const m = marine.status === 'fulfilled' ? marine.value?.data?.current : null;
+    const w = weather.status === 'fulfilled' ? weather.value?.data?.current : null;
+    if (!m && !w) return null;
+
+    const num = (v: any) => (typeof v === 'number' && !Number.isNaN(v) ? v : undefined);
+    const processed = {
+      sst: num(m?.sea_surface_temperature),
+      waveHeight: num(m?.wave_height),
+      waveDirection: num(m?.wave_direction),
+      wavePeriod: num(m?.wave_period),
+      airTemperature: num(w?.temperature_2m),
+      humidity: num(w?.relative_humidity_2m),
+      pressure: num(w?.surface_pressure),
+      windSpeed: num(w?.wind_speed_10m),
+      windDirection: num(w?.wind_direction_10m),
+      source: 'Open-Meteo'
+    };
+
+    setCachedData(cacheKey, processed);
+    return processed;
+  } catch (error) {
+    console.error('Open-Meteo API error:', error);
+    return null;
+  }
+}
+
+/**
  * Combined ocean data from multiple sources
- * Merges data from IOC, Stormglass, NOAA, and OpenWeather for comprehensive forecast
+ * Merges data from Open-Meteo (keyless base), IOC, Stormglass, NOAA, and OpenWeather.
  */
 export async function getCombinedOceanData(
   lat: number,
@@ -238,7 +290,8 @@ export async function getCombinedOceanData(
 ) {
   try {
     // Fetch from multiple sources in parallel
-    const [stormglassData, iocData, noaaData, openweatherData] = await Promise.allSettled([
+    const [openMeteoData, stormglassData, iocData, noaaData, openweatherData] = await Promise.allSettled([
+      getOpenMeteoData(lat, lon),
       getStormglassWeather(lat, lon),
       station ? getIOCSeaLevelData(station) : Promise.resolve(null),
       getNOAATidesData(),
@@ -268,7 +321,22 @@ export async function getCombinedOceanData(
       }
     };
 
-    // Merge Stormglass data
+    // Merge Open-Meteo (keyless real-data base — overrides the defaults above)
+    if (openMeteoData.status === 'fulfilled' && openMeteoData.value) {
+      const om: any = openMeteoData.value;
+      combined.metadata.sources.push('Open-Meteo');
+      if (om.sst != null) combined.sst = om.sst;
+      if (om.waveHeight != null) combined.waveHeight = om.waveHeight;
+      if (om.waveDirection != null) combined.waveDirection = om.waveDirection;
+      if (om.wavePeriod != null) combined.wavePeriod = om.wavePeriod;
+      if (om.windSpeed != null) combined.windSpeed = om.windSpeed;
+      if (om.windDirection != null) combined.windDirection = om.windDirection;
+      if (om.pressure != null) combined.pressure = om.pressure;
+      if (om.airTemperature != null) combined.metadata.airTemperature = om.airTemperature;
+      if (om.humidity != null) combined.metadata.humidity = om.humidity;
+    }
+
+    // Merge Stormglass data (higher-res marine; only when an API key is configured)
     if (stormglassData.status === 'fulfilled' && stormglassData.value) {
       Object.assign(combined, stormglassData.value);
       combined.metadata.sources.push('Stormglass');

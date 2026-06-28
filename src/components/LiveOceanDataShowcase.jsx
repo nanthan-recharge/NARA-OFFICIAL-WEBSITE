@@ -39,13 +39,15 @@ const LiveOceanDataShowcase = () => {
 
   if (loading || !data) return null;
 
-  // Format metrics for the ticker
+  // Format metrics for the ticker (SST/AIR/WAVE/WIND are live from Open-Meteo;
+  // FISH is a model estimate derived from sea-surface temperature).
+  const sources = data.metadata?.sources?.length ? data.metadata.sources.join(' · ') : 'Open-Meteo';
   const metrics = [
-    { label: 'SST', value: `${data.conditions?.sst?.toFixed(1) || '--'}°C` },
-    { label: 'AIR', value: `${data.metadata?.airTemperature?.toFixed(1) || '--'}°C` },
-    { label: 'WAVE', value: `${data.conditions?.waveHeight?.toFixed(2) || '--'}m` },
-    { label: 'WIND', value: `${data.conditions?.windSpeed?.toFixed(1) || '--'}m/s` },
-    { label: 'FISH', value: `${((data.abundance?.skipjack || 0) / 150 * 100).toFixed(0)}%` },
+    { label: 'SST',  value: `${data.conditions?.sst?.toFixed(1) ?? '--'}°C`,  title: 'Sea-surface temperature (Open-Meteo)' },
+    { label: 'AIR',  value: `${data.metadata?.airTemperature?.toFixed(1) ?? '--'}°C`, title: 'Air temperature (Open-Meteo)' },
+    { label: 'WAVE', value: `${data.conditions?.waveHeight?.toFixed(2) ?? '--'}m`, title: 'Significant wave height (Open-Meteo)' },
+    { label: 'WIND', value: `${data.conditions?.windSpeed?.toFixed(1) ?? '--'}m/s`, title: 'Wind speed (Open-Meteo)' },
+    { label: 'FISH', value: `~${((data.abundance?.skipjack || 0) / 150 * 100).toFixed(0)}%`, title: 'Estimated fishing suitability — model based on sea-surface temperature' },
   ];
 
   return (
@@ -68,7 +70,7 @@ const LiveOceanDataShowcase = () => {
         <div className="flex-1 overflow-x-auto no-scrollbar mask-gradient-right max-w-full">
           <div className="flex items-center gap-4 sm:gap-6 md:gap-10 min-w-max">
             {metrics.map((item, idx) => (
-              <div key={idx} className="flex items-baseline gap-2 group cursor-default">
+              <div key={idx} className="flex items-baseline gap-2 group cursor-default" title={item.title}>
                 <span className="text-[10px] font-semibold text-slate-400 tracking-wider">
                   {item.label}
                 </span>
@@ -80,8 +82,8 @@ const LiveOceanDataShowcase = () => {
 
             {/* Timestamp */}
             <div className="pl-4 border-l border-white/10 md:hidden lg:block">
-              <span className="text-[10px] text-slate-500 font-mono">
-                UPDATED: {lastUpdate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+              <span className="text-[10px] text-slate-500 font-mono" title={`Source: ${sources}`}>
+                {sources} · {lastUpdate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
               </span>
             </div>
           </div>
