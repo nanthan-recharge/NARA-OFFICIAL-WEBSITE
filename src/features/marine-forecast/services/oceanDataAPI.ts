@@ -55,18 +55,30 @@ export async function getIOCSeaLevelData(station: 'colombo' | 'trincomalee') {
       timeout: 10000
     });
 
-    // The service returns an array of { slevel, stime, sensor }; use the latest.
-    const rows = Array.isArray(response.data) ? response.data : [];
-    const latest = rows.length ? rows[rows.length - 1] : null;
-    const level = latest ? parseFloat(latest.slevel) : NaN;
-    if (!latest || Number.isNaN(level)) return null;
+    // The service returns an array of { slevel, stime, sensor } interleaving
+    // several channels (battery, residuals, and the actual tide gauges). Pick the
+    // most recent reading from a primary sea-level sensor — NOT just the last row,
+    // which may be a housekeeping channel that reads ~0.
+    const rows: any[] = Array.isArray(response.data) ? response.data : [];
+    const num = (v: any) => { const n = parseFloat(v); return Number.isFinite(n) ? n : null; };
+    const PREFERRED = ['prs', 'rad', 'ra2', 'ra3', 'flt', 'enc', 'bub', 'pwl', 'wls', 'bwl', 'pri', 'aqu'];
+
+    let pick: any = null;
+    for (const code of PREFERRED) {
+      for (let i = rows.length - 1; i >= 0; i--) {
+        const r = rows[i];
+        if (r && String(r.sensor).toLowerCase() === code && num(r.slevel) !== null) { pick = r; break; }
+      }
+      if (pick) break;
+    }
+    if (!pick) return null;
 
     const processed = {
       station: station,
       stationCode: stationCode,
-      timestamp: latest.stime ? new Date(`${String(latest.stime).replace(' ', 'T')}Z`) : new Date(),
-      seaLevel: level,
-      sensor: latest.sensor || null,
+      timestamp: pick.stime ? new Date(`${String(pick.stime).replace(' ', 'T')}Z`) : new Date(),
+      seaLevel: num(pick.slevel) as number,
+      sensor: pick.sensor || null,
       source: 'IOC UNESCO'
     };
 
