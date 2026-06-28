@@ -6,10 +6,26 @@
     "searchPlaceholder": "අංශ නාමය, විශේෂඥතාවය හෝ සේවා අනුව සොයන්න...",
     "searchAria": "අංශ සෙවීම",
     "stats": [
-      { "icon": "Building2", "value": "21", "label": "අංශ" },
-      { "icon": "Users", "value": "200+", "label": "පර්යේෂකයින්" },
-      { "icon": "MapPin", "value": "5", "label": "ප්‍රාදේශීය මධ්‍යස්ථාන" },
-      { "icon": "Award", "value": "50+", "label": "සේවා" }
+      {
+        "icon": "Building2",
+        "value": "21",
+        "label": "අංශ"
+      },
+      {
+        "icon": "Users",
+        "value": "200+",
+        "label": "පර්යේෂකයින්"
+      },
+      {
+        "icon": "MapPin",
+        "value": "5",
+        "label": "ප්‍රාදේශීය මධ්‍යස්ථාන"
+      },
+      {
+        "icon": "Award",
+        "value": "50+",
+        "label": "සේවාවන්"
+      }
     ]
   },
   "categories": {
@@ -46,7 +62,7 @@
     "pdfAvailable": "PDF තිබේ",
     "metrics": {
       "focusAreas": "අවධානයේ ක්ෂේත්‍ර",
-      "services": "සේවා",
+      "services": "සේවාවන්",
       "team": "කණ්ඩායම"
     },
     "pdfInfo": {
@@ -63,7 +79,7 @@
   "cta": {
     "heading": "සහයෝගයට සූදානම්ද?",
     "description": "සාගර විද්‍යාව සහ තිරසාර මුහුදු කළමනාකරණය ඉදිරියට ගෙන යාමට අපගේ ලෝකෝත්තර පර්යේෂණ අංශ සමඟ හවුල් වන්න.",
-    "primary": "අපව සම්බන්ධ වන්න",
+    "primary": "අප හා සම්බන්ධ වන්න",
     "secondary": "පර්යේෂණ බලන්න",
     "downloadAll": "සියලු PDF බාගත කරන්න"
   },

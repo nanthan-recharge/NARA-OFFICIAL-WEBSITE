@@ -26,7 +26,7 @@
     }
   },
   "filters": {
-    "searchLabel": "සෙවීම",
+    "searchLabel": "සොයන්න",
     "searchPlaceholder": "උපදෙස් සෙවීම...",
     "statusLabel": "තත්ත්වය",
     "categoryLabel": "ප්‍රවර්ගය",
@@ -39,7 +39,7 @@
       "all": "සියලු ප්‍රවර්ග",
       "marine_policy": "සාගර ප්‍රතිපත්ති",
       "environmental": "පරිසරය",
-      "fisheries": "මත්ස්‍ය",
+      "fisheries": "ධීවර කර්මාන්තය",
       "conservation": "සංරක්ෂණ"
     },
     "results": "ගැලපෙන උපදෙස් {{count}}"
@@ -101,7 +101,7 @@
   "category": {
     "marine_policy": "සාගර ප්‍රතිපත්ති",
     "environmental": "පරිසරය",
-    "fisheries": "මත්ස්‍ය",
+    "fisheries": "ධීවර කර්මාන්තය",
     "conservation": "සංරක්ෂණ"
   },
   "discussion": {

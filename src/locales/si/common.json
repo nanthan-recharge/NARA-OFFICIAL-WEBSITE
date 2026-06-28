@@ -20,7 +20,7 @@
     },
     "gov": {
       "home": "මුල් පිටුව",
-      "about": "ආයතනය පිළිබඳව",
+      "about": "පිළිබඳව",
       "division": "අංශ",
       "research": "පර්යේෂණ",
       "services": "සේවාවන්",
@@ -28,7 +28,7 @@
       "vacancies": "රැකියා අවස්ථා",
       "procurement": "ප්‍රසම්පාදන",
       "scientistSession": "විද්‍යාඥ සැසිවාර",
-      "contact": "සම්බන්ධ වන්න",
+      "contact": "අප හා සම්බන්ධ වන්න",
       "naraMail": "NARA විද්‍යුත් තැපෑල"
     },
     "mainNavigation": "ප්‍රධාන මෙනුව",
@@ -98,7 +98,7 @@
         }
       },
       "about": {
-        "title": "ආයතනය පිළිබඳව",
+        "title": "පිළිබඳව",
         "links": {
           "ourStory": "අපගේ ඉතිහාසය",
           "regionalCenters": "ප්‍රාදේශීය මධ්‍යස්ථාන",

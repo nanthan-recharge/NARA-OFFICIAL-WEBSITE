@@ -72,43 +72,50 @@
   },
   "areas": [
     {
+      "id": "all",
+      "name": "සියලු ක්ෂේත්‍ර",
+      "count": 0,
+      "icon": "BookOpen",
+      "color": "slate"
+    },
+    {
       "id": "marine-biology",
-      "name": "මුහුදු ජීව විද්‍යාව",
+      "name": "සමුද්‍ර ජීව විද්‍යාව",
       "count": 342,
       "icon": "Fish",
       "color": "cyan"
     },
     {
       "id": "climate",
-      "name": "කාලගුණ වෙනස්කම",
+      "name": "දේශගුණ විපර්යාසය",
       "count": 218,
       "icon": "Waves",
       "color": "blue"
     },
     {
-      "id": "fisheries",
-      "name": "මාළුපිටි කළමනාකරණය",
+      "id": "ධීවර කර්මාන්තය",
+      "name": "ධීවර කර්මාන්තය",
       "count": 189,
       "icon": "Fish",
       "color": "green"
     },
     {
       "id": "oceanography",
-      "name": "මුහුදු විද්‍යාව",
+      "name": "සාගර විද්‍යාව",
       "count": 167,
       "icon": "Waves",
       "color": "purple"
     },
     {
       "id": "conservation",
-      "name": "ආරක්ෂාව",
+      "name": "සංරක්ෂණය",
       "count": 143,
       "icon": "Heart",
       "color": "pink"
     },
     {
       "id": "policy",
-      "name": "මුහුදු ප්‍රතිපත්ති",
+      "name": "ප්‍රතිපත්ති",
       "count": 98,
       "icon": "FileText",
       "color": "amber"
@@ -224,7 +231,7 @@
         "doi": "10.1126/sciadv.abcd1234",
         "tags": [
           "AI",
-          "මාළුපිටි",
+          "ධීවර කර්මාන්තය",
           "තිරසාරත්වය",
           "දූර සංවේදනය"
         ],
@@ -251,7 +258,7 @@
         "doi": "10.1021/acs.est.3c12345",
         "tags": [
           "මයික්‍රෝ ප්ලාස්ටික්",
-          "ද්රව්‍ය දූෂණය",
+          "ද්‍රව්‍ය දූෂණය",
           "ඉන්දියන් මහ සාගරය",
           "මුහුදු සෞඛ්‍යය"
         ],
@@ -296,7 +303,7 @@
       "viewPaper": "ප්‍රකාශනය බලන්න",
       "openAccess": "විවෘත ප්‍රවේශය",
       "citations": "උපුටා දැක්වීම් {{count}}",
-      "downloads": "බාගත කිරීම් {{count}}",
+      "downloads": "බාගත කිරීම්",
       "impactFactor": "බලපෑම් සාපේක්ෂය: {{value}}",
       "openReader": "කියවන්න",
       "openDOI": "DOI විවෘත කරන්න",
@@ -359,7 +366,7 @@
         "all": "සියලු ව්‍යාපෘති",
         "marineBiology": "මුහුදු ජීව විද්‍යාව",
         "climate": "කාලගුණ ගවේෂණය",
-        "fisheries": "මාළුපිටි",
+        "fisheries": "ධීවර කර්මාන්තය",
         "conservation": "ආරක්ෂාව",
         "policy": "ප්‍රතිපත්ති හා පාලනය"
       },
@@ -1077,7 +1084,7 @@
       "partnerInstitutions": "හවුල් ආයතන",
       "countries": "රටවල්",
       "jointPublications": "සමවු ප්‍රකාශන",
-      "internationalCoauthors": "ජාත්‍යන්තර සම්මිශ්ර ලේඛකයින්"
+      "internationalCoauthors": "ජාත්‍යන්තර සම්මිශ්‍ර ලේඛකයින්"
     },
     "publicationTypes": {
       "heading": "ප්‍රකාශන වර්ග අනුව",
@@ -1094,7 +1101,7 @@
       "labels": {
         "marineBiology": "මුහුදු ජීව විද්‍යාව",
         "climateChange": "කාලගුණ වෙනස්කම",
-        "fisheries": "මාළුපිටි",
+        "fisheries": "ධීවර කර්මාන්තය",
         "oceanography": "මුහුදු විද්‍යාව",
         "conservation": "ආරක්ෂාව",
         "policy": "ප්‍රතිපත්ති"
@@ -1138,7 +1145,13 @@
         "oct": "ඔක්",
         "nov": "නොවැ",
         "dec": "දෙසැ"
-      }
+      },
+      "heading": "මාසික බාගත කිරීම්",
+      "subheading": "පරිශීලක ප්‍රවේශ ප්‍රවණතාව"
+    },
+    "tabs": {
+      "citations": "උපුටා දැක්වීම්",
+      "downloads": "බාගත කිරීම්"
     }
   },
   "governmentSections": {

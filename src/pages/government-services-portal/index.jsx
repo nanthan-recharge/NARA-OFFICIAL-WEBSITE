@@ -841,7 +841,7 @@ const GovernmentServicesPortal = () => {
                       : 'bg-white/5 border-white/15 text-slate-200 hover:bg-white/10'
                       }`}
                   >
-                    {option.label}
+                    {t(`audiences.${option.id}`, { defaultValue: option.label })}
                   </button>
                 ))}
               </div>

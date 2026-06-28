@@ -34,7 +34,7 @@
       "all": "සියලුම සම්පත්",
       "publications": "ප්‍රකාශන",
       "datasets": "දත්ත කට්ටල",
-      "training": "පුහුණු",
+      "training": "පුහුණුව",
       "tools": "පර්යේෂණ මෙවලම්",
       "experts": "විශේෂඥ උපදේශනය"
     },
@@ -208,7 +208,7 @@
     "subtitle": "සාගර පර්යේෂණයේ ව්‍යාප්තිය සහ බලපෑම නිරීක්ෂණය කරන්න",
     "metrics": {
       "totalViews": "මුළු දර්ශන",
-      "downloads": "බාගැනීම්",
+      "downloads": "බාගත කිරීම්",
       "citations": "උපුටා ගැනීම්",
       "collaborations": "සහයෝගීතා",
       "altmetric": "Altmetric ලකුණු",
@@ -251,7 +251,7 @@
     "interests": {
       "label": "ඔබගේ උනන්දුව",
       "marine": "සාගර ජීව විද්‍යාව",
-      "fisheries": "මත්ස්‍ය විද්‍යාව",
+      "fisheries": "ධීවර කර්මාන්තය",
       "climate": "කාලගුණික විද්‍යාව",
       "conservation": "සංරක්ෂණය",
       "policy": "සාගර ප්‍රතිපත්ති"

@@ -59,7 +59,10 @@
         "country": "அமெரிக்கா",
         "partnership": "Global Ocean Observing Alliance",
         "ranking": "#1 கடல் அறிவியல் (QS)",
-        "focus": ["ஆழ்கடல் ஆய்வு", "சுய இயக்க கடல் அமைப்புகள்"],
+        "focus": [
+          "ஆழ்கடல் ஆய்வு",
+          "சுய இயக்க கடல் அமைப்புகள்"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -68,7 +71,10 @@
         "country": "நோர்வே",
         "partnership": "Arctic Blue Economy Consortium",
         "ranking": "EU Horizon சிறப்புத் தளம்",
-        "focus": ["துருவச் சூழல்கள்", "தன்னிறைவான மீன்வளம்"],
+        "focus": [
+          "துருவச் சூழல்கள்",
+          "தன்னிறைவான கடற்தொழில்"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -77,7 +83,10 @@
         "country": "இந்தியா",
         "partnership": "இந்திப் பெருங்கடல் காலநிலை ஆற்றல் உடன்படிக்கை",
         "ranking": "இந்திப் பெருங்கடல் ஆராய்ச்சியில் முன்னிலை 5",
-        "focus": ["மூசுக்களைக் கணிப்பது", "கடல் உயிரின பல்வகைமை"],
+        "focus": [
+          "மூசுக்களைக் கணிப்பது",
+          "கடல் உயிரின பல்வகைமை"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -86,7 +95,10 @@
         "country": "அமெரிக்கா",
         "partnership": "Pacific Climate Innovation Network",
         "ranking": "#2 கடல் & பெருங்கடல் (ARWU)",
-        "focus": ["காலநிலை மாதிரிபடுத்தல்", "நீலம் தொழில்நுட்ப இன்க்யூபேஷன்"],
+        "focus": [
+          "காலநிலை மாதிரிபடுத்தல்",
+          "நீலம் தொழில்நுட்ப இன்க்யூபேஷன்"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -95,7 +107,10 @@
         "country": "ஆஸ்திரேலியா",
         "partnership": "Great Barrier Reef Guardianship Program",
         "ranking": "UNESCO கடல் அறிவியல் கூட்டாளர்",
-        "focus": ["பவளப் பாறை சகிப்புத்தன்மை", "டிஜிட்டல் ட்வின் கடல்கள்"],
+        "focus": [
+          "பவளப் பாறை சகிப்புத்தன்மை",
+          "டிஜிட்டல் ட்வின் கடல்கள்"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -104,7 +119,10 @@
         "country": "பிரான்ஸ்",
         "partnership": "Atlantic Smart Ports Initiative",
         "ranking": "EU Restore Our Ocean முயற்சி முன்னணி",
-        "focus": ["கடல் ரோபோட்டிக்ஸ்", "கடற்கரை நுண்ணறிவு"],
+        "focus": [
+          "கடல் ரோபோட்டிக்ஸ்",
+          "கடற்கரை நுண்ணறிவு"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&w=900&q=80"
       }
     ]
@@ -129,9 +147,9 @@
         "title": "ஆர்க்டிக் நீல பொருளாதார பாலம்",
         "host": "NARA × Norwegian Institute of Marine Research",
         "region": "ஆர்க்டிக் வட்டாரம்",
-        "summary": "தன்னிறைவான மீன்வளம், நீர்மூழ்கிய கப்பல் வழிசெலுத்தல் பகுப்பாய்வு மற்றும் அடிப்படை சமூக ஞான ஒருங்கிணைப்பு ஆகியவற்றை முன்னேற்றும் கூட்டுப்பலகை.",
+        "summary": "தன்னிறைவான கடற்தொழில், நீர்மூழ்கிய கப்பல் வழிசெலுத்தல் பகுப்பாய்வு மற்றும் அடிப்படை சமூக ஞான ஒருங்கிணைப்பு ஆகியவற்றை முன்னேற்றும் கூட்டுப்பலகை.",
         "deadline": "2025 ஜூன் 30 வரை விண்ணப்பங்கள்",
-        "focus": "தன்னிறைவான மீன்வளம்"
+        "focus": "தன்னிறைவான கடற்தொழில்"
       },
       {
         "id": "coral-vanguard",
@@ -223,7 +241,7 @@
       "more": "+{{count}} மேலும்"
     },
     "profile": {
-      "about": "அறிமுகம்",
+      "about": "எங்களைப் பற்றி",
       "expertise": "திறமைப் பகுதிகள்",
       "impact": "ஆராய்ச்சி தாக்கம்",
       "publications": "வெளியீடுகள்",
@@ -255,8 +273,8 @@
           "label": "கரையோர பொறியியல்"
         },
         {
-          "value": "fisheries",
-          "label": "மீன்வளம் அறிவியல்"
+          "value": "கடற்தொழில்",
+          "label": "கடற்தொழில் அறிவியல்"
         },
         {
           "value": "marine-technology",
@@ -662,7 +680,7 @@
       "duration": "{{months}} மாதங்கள்",
       "deadline": "காலக்கெடு: இன்னும் {{days}} நாட்கள்",
       "viewDetails": "விவரங்களைப் பார்க்கவும்",
-      "applyShort": "விண்ணப்பிக்க",
+      "applyShort": "விண்ணப்பிக்கவும்",
       "appliedOn": "{{date}} அன்று விண்ணப்பிக்கப்பட்டது",
       "requestedAmount": "${{amount}}K கோரப்பட்டது",
       "awardPeriod": "விருது காலம்: {{start}} - {{end}}",
@@ -687,7 +705,7 @@
     },
     "opportunity": {
       "view": "விவரங்களைப் பார்க்கவும்",
-      "apply": "விண்ணப்பிக்க",
+      "apply": "விண்ணப்பிக்கவும்",
       "due": "{{date}}க்கு முடியும்",
       "duration": "{{months}} மாதங்கள்",
       "deadline": "காலக்கெடு: இன்னும் {{days}} நாட்கள்"

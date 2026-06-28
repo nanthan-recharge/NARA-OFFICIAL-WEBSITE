@@ -59,7 +59,10 @@
         "country": "එමරිකා එක්සත් ජනපදය",
         "partnership": "ගෝලීය මුහුදු නිරීක්ෂණ එකමුතුව",
         "ranking": "#1 මුහුදු විද්‍යාව (QS)",
-        "focus": ["ගැඹුරු මුහුදු සොයා ගැනීම්", "ස්වයංක්‍රීය මුහුදු පද්ධති"],
+        "focus": [
+          "ගැඹුරු මුහුදු සොයා ගැනීම්",
+          "ස්වයංක්‍රීය මුහුදු පද්ධති"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -68,7 +71,10 @@
         "country": "නෝර්වේ",
         "partnership": "ආර්ක්ටික් නිල් ආර්ථික කවුන්සිලය",
         "ranking": "EU Horizon ශ්‍රේෂ්ඨත්ව මධ්‍යස්ථානය",
-        "focus": ["ධෘව පරිසර පද්ධති", "තිරසාර ධීවර කර්මය"],
+        "focus": [
+          "ධෘව පරිසර පද්ධති",
+          "තිරසාර ධීවර කර්මය"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -77,7 +83,10 @@
         "country": "ඉන්දියාව",
         "partnership": "ඉන්දීය සාගර කාලගුණ පිරිහැර ගිවිසුම",
         "ranking": "ඉන්දීය සාගර ගවේෂණයේ ඉහළ මධ්‍යස්ථාන 5 අතර",
-        "focus": ["මෝසම අනාවැකි", "මුහුදු ජීව විවිධත්වය"],
+        "focus": [
+          "මෝසම අනාවැකි",
+          "මුහුදු ජීව විවිධත්වය"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -86,7 +95,10 @@
         "country": "එමරිකා එක්සත් ජනපදය",
         "partnership": "ප්‍රශාන්ත කාලගුණ නව්‍යතා ජාලය",
         "ranking": "#2 මුහුදු විද්‍යාව (ARWU)",
-        "focus": ["කාලගුණ ආදර්ශන", "නිල් තාක්ෂණ සංවර්ධන"],
+        "focus": [
+          "කාලගුණ ආදර්ශන",
+          "නිල් තාක්ෂණ සංවර්ධන"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -95,7 +107,10 @@
         "country": "ඔස්ට්‍රේලියාව",
         "partnership": "මහා පරල් වැව ආරක්ෂක වැඩසටහන",
         "ranking": "UNESCO මුහුදු විද්‍යා හවුල්කරු",
-        "focus": ["කෝරල් ප්‍රතිරෝධය", "ඩිජිටල් ට්වින් මුහුදු"],
+        "focus": [
+          "කෝරල් ප්‍රතිරෝධය",
+          "ඩිජිටල් ට්වින් මුහුදු"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=80"
       },
       {
@@ -104,7 +119,10 @@
         "country": "ප්‍රංශය",
         "partnership": "අත්ලාන්තික් මහා වරාය නව්‍යතා සංක්‍රමණය",
         "ranking": "EU Restore Our Ocean මෙහෙයුම් නායක",
-        "focus": ["මුහුදු රොබෝටිකාව", "වෙරළ බුද්ධිමතාත්මක කිරීම"],
+        "focus": [
+          "මුහුදු රොබෝටිකාව",
+          "වෙරළ බුද්ධිමතාත්මක කිරීම"
+        ],
         "coverImage": "https://images.unsplash.com/photo-1473091534298-04dcbce3278c?auto=format&fit=crop&w=900&q=80"
       }
     ]
@@ -223,7 +241,7 @@
       "more": "+{{count}} තව"
     },
     "profile": {
-      "about": "ආරම්භක තොරතුරු",
+      "about": "පිළිබඳව",
       "expertise": "විශේෂත්ව කලාප",
       "impact": "ගවේෂණ බලපෑම",
       "publications": "ප්‍රකාශන",
@@ -255,7 +273,7 @@
           "label": "වෙරළ ඉංජිනේරු විද්‍යාව"
         },
         {
-          "value": "fisheries",
+          "value": "ධීවර කර්මාන්තය",
           "label": "ධීවර විද්‍යාව"
         },
         {

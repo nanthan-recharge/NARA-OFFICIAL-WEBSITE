@@ -12,7 +12,7 @@
     "licenseValue": "Creative Commons Attribution 4.0 (CC BY 4.0)"
   },
   "filters": {
-    "searchLabel": "தேடல்",
+    "searchLabel": "தேடு",
     "searchPlaceholder": "தரவுத் தொகுப்புகளைத் தேடுங்கள்...",
     "categoryLabel": "வகைகள்",
     "results": "{{count}} தரவுத் தொகுப்பு கண்டறியப்பட்டது",
@@ -20,10 +20,10 @@
   },
   "categories": {
     "all": "அனைத்து வகைகள்",
-    "fisheries": "மீன்வளம்",
+    "fisheries": "கடற்தொழில்",
     "environment": "சுற்றுச்சூழல்",
     "research": "ஆராய்ச்சி",
-    "aquaculture": "நீர்வளர்ப்பு",
+    "aquaculture": "நீர்வாழ் வளர்ப்பு",
     "oceanography": "கடல் அறிவியல்",
     "publications": "வெளியீடுகள்"
   },

@@ -21,7 +21,7 @@
     "all": "அனைத்து கொள்கை பகுதிகள்",
     "fisheries_management": "மீன்வள மேலாண்மை",
     "marine_conservation": "கடல் பாதுகாப்பு",
-    "aquaculture": "மீன் வளர்ப்பு",
+    "aquaculture": "நீர்வாழ் வளர்ப்பு",
     "coastal_management": "கடலோர மேலாண்மை",
     "climate_change": "காலநிலை மாற்றம்",
     "sustainable_development": "நிலையான வளர்ச்சி"
@@ -60,6 +60,6 @@
     "viewAll": "அனைத்தையும் பார்",
     "loadMore": "மேலும் ஏற்று",
     "explore": "ஆராயுங்கள்",
-    "readMore": "மேலும் படிக்க"
+    "readMore": "மேலும் அறிக"
   }
 }
